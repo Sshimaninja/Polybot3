@@ -1,0 +1,1602 @@
+[
+    {
+        "id": "0x0004cd8474e882278e32e584699090be496f410e",
+        "token0": {
+            "id": "0x0ec78ed49c2d27b315d462d43b5bab94d2c79bf8",
+            "symbol": "ZERO",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x000c0d31f6b7cecde4645eef0c4ec6a492659d62",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xc97d6c52f3add91fa1c5287a453d7444aecbca83",
+            "symbol": "DZOO",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x000ea4a83acefdd62b1b43e9ccc281f442651520",
+        "token0": {
+            "id": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+            "symbol": "BUSD",
+            "decimals": "18",
+            "totalValueLockedUSD": "1015800.57187111387088203076631258"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x0025ade782cc2b2415d1e841a8d52ff5dce33dfe",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xea5b19c073f8074f9a8dcd693d01b6acb1c26ae4",
+            "symbol": "SIM",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x0059b4c53c85bb8159014bfd20700c14b29c4483",
+        "token0": {
+            "id": "0x8d717ab5eac1016b64c2a7fd04720fd2d27d1b86",
+            "symbol": "BCVT",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "symbol": "USDT",
+            "decimals": "6",
+            "totalValueLockedUSD": "198339262.601343"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x0068bb604413dfee5c453907bb150d0312a0f257",
+        "token0": {
+            "id": "0x6a126b1a4d6a66370930eca642eff93d8e1be321",
+            "symbol": "SXHC",
+            "decimals": "12",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "500"
+    },
+    {
+        "id": "0x006cf8fe7f17c010bbf61456ababf14088186ec6",
+        "token0": {
+            "id": "0x736ef045577a70f11be004c18b668bcef077bb98",
+            "symbol": "LLT",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x00a151b39b43f6a79366f9129222b9370e30a702",
+        "token0": {
+            "id": "0x036c3a8bc8327e56564104f658576c995118e9a3",
+            "symbol": "BURNLY",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x00a9205611cc32ec9c0d16fc58f31b9355ec7ade",
+        "token0": {
+            "id": "0x65ccd72c0813ce6f2703593b633202a0f3ca6a0c",
+            "symbol": "EGG",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "symbol": "USDT",
+            "decimals": "6",
+            "totalValueLockedUSD": "198339262.601343"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x00a9897a285247d285adbe77d5584612f04735be",
+        "token0": {
+            "id": "0x44f9b7859291dd247a07e4088b04325b206f9f6b",
+            "symbol": "KNX",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x00ae909d0405a4ae2b190af7c731711d0fc56bb7",
+        "token0": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "token1": {
+            "id": "0xdb8a9e26bf319d1bbd04a8e13b02652c0b14b400",
+            "symbol": "wBOND",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x00bdbb8a65a0a1fc7a5488f47aadc611732705e8",
+        "token0": {
+            "id": "0x569424c5ee13884a193773fdc5d1c5f79c443a51",
+            "symbol": "PINE",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x00c6a247a868dee7e84d16eba22d1ab903108a44",
+        "token0": {
+            "id": "0x85f138bfee4ef8e540890cfb48f620571d67eda3",
+            "symbol": "WAVAX",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x00c6f73f423fe4e9d693d0b4cfddf92d406a83a4",
+        "token0": {
+            "id": "0x4bb79bb9e8fbb85c3153bd04a1a24c26021753c2",
+            "symbol": "WAGNER",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x00cef0386ed94d738c8f8a74e8bfd0376926d24c",
+        "token0": {
+            "id": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+            "symbol": "BUSD",
+            "decimals": "18",
+            "totalValueLockedUSD": "1015800.57187111387088203076631258"
+        },
+        "token1": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "feeTier": "500"
+    },
+    {
+        "id": "0x00e3620b44e0c9b7624f7982de866175cb01d5db",
+        "token0": {
+            "id": "0xb8ec480c8ebba49faed83095cfa661c5806abb94",
+            "symbol": "FJARED",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x00ef3b7e122853ba088a1833f7bd3b5ad3dd0d32",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xf4cd3d3fda8d7fd6c5a500203e38640a70bf9577",
+            "symbol": "Yf-DAI",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x00f59b15dc1fe2e16cde0678d2164fd5ff10e424",
+        "token0": {
+            "id": "0x15b543e986b8c34074dfc9901136d9355a537e7e",
+            "symbol": "STC",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x013c34b1c9a364dd9f953ec024c71019dea01011",
+        "token0": {
+            "id": "0x638f24096ff33e047e05e59fabc76325207090dc",
+            "symbol": "SLIME",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x014847133f6597dac4fec58199a31fc853169e52",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xdcc78693b1e1d78f5f431d2222b3c426ee13f8cf",
+            "symbol": "WHEE",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "100"
+    },
+    {
+        "id": "0x015769601d8d4879c0e193eeab31f10cf03c9ea9",
+        "token0": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "token1": {
+            "id": "0xe22020f47b7378dfedcedd2c81d4137c22fe1152",
+            "symbol": "MLP",
+            "decimals": "18",
+            "totalValueLockedUSD": "3731.598964799217081420904528748062"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x0157a85c76e529e95a8e7bf448d39e26e01e201a",
+        "token0": {
+            "id": "0x0507acf7feab8384ac90f672cb8e865bbd0d5678",
+            "symbol": "Hotez",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x01580d61d3d816443c4da5d8e5a048e5889a1ad8",
+        "token0": {
+            "id": "0x9fb41be7688a1ae9759185d7cacb10e9a9d22ece",
+            "symbol": "Hold",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x0158b695ade83161e49ce2f73a1786e8e372ea6e",
+        "token0": {
+            "id": "0x6855dfdd132803b60d6543fc7b87e9030bd81c2f",
+            "symbol": "ONLYONE",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x015aef52ebfc64d6336a918b9de86af3ef31c865",
+        "token0": {
+            "id": "0x0a6e18fb2842855c3af925310b0f50a4bfa17909",
+            "symbol": "CHP",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "symbol": "USDT",
+            "decimals": "6",
+            "totalValueLockedUSD": "198339262.601343"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x015b79c21b7d58e25bac7977711db280f0efa7e4",
+        "token0": {
+            "id": "0x065cc8636a00c007276ed9cb874cd59b89e6609b",
+            "symbol": "BLL",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x016d7096a73bf466f444f286e704d81d09babec2",
+        "token0": {
+            "id": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+            "symbol": "WBTC",
+            "decimals": "8",
+            "totalValueLockedUSD": "228019281.3685252772152606099653488"
+        },
+        "token1": {
+            "id": "0xcdf7028ceab81fa0c6971208e83fa7872994bee5",
+            "symbol": "T",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "500"
+    },
+    {
+        "id": "0x0170915a0a6de6eb8dfc4e0f7415ad5a5a2be180",
+        "token0": {
+            "id": "0x799ebfabe77a6e34311eeee9825190b9ece32824",
+            "symbol": "BTRST",
+            "decimals": "18",
+            "totalValueLockedUSD": "670556.7436597784001046054534046262"
+        },
+        "token1": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x0179eac7402915c64431019d76875a7e5d86f7fd",
+        "token0": {
+            "id": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "symbol": "USDT",
+            "decimals": "6",
+            "totalValueLockedUSD": "198339262.601343"
+        },
+        "token1": {
+            "id": "0xfb83869f7ee52aebaddea254f647953afb1f99f8",
+            "symbol": "LEAN",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x017c5e3912cd04982eb27a6c8f32cd5d31bd89e9",
+        "token0": {
+            "id": "0x0f5d2fb29fb7d3cfee444a200298f468908cc942",
+            "symbol": "MANA",
+            "decimals": "18",
+            "totalValueLockedUSD": "545591.7878570961817840297186443383"
+        },
+        "token1": {
+            "id": "0x111111111117dc0aa78b770fa6a738034120c302",
+            "symbol": "1INCH",
+            "decimals": "18",
+            "totalValueLockedUSD": "3092943.674807557115827206886069432"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x017dc64104efd89c2f5a65bbe66fab5b197ea1f1",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xc7b0eb006449a669724fd653fbe3bcb43fd101c7",
+            "symbol": "GRDN",
+            "decimals": "9",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x0188c28ea32d7860334be1a8068cfbadce18f1d9",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xe410fbd0977c8a2f276283425de488129f7faff9",
+            "symbol": "SES",
+            "decimals": "9",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x01949723055a451229c7ba3a817937c966748f76",
+        "token0": {
+            "id": "0x491604c0fdf08347dd1fa4ee062a822a5dd06b5d",
+            "symbol": "CTSI",
+            "decimals": "18",
+            "totalValueLockedUSD": "408141.1815845822184813285657179666"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x01ba80f7da4ede27af72f1c8842275209ac503f5",
+        "token0": {
+            "id": "0x9e976f211daea0d652912ab99b0dc21a7fd728e4",
+            "symbol": "MAP",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "feeTier": "500"
+    },
+    {
+        "id": "0x01bbf165ae1c7ca106f8a10d0d3c25b50475e53f",
+        "token0": {
+            "id": "0xb78e4d8c6a8aa769827d7e179248bfc23c88dafe",
+            "symbol": "RSE",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x01bd7aa442ceaaa41f336758a84f3abd1138c4e7",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xd35c06a2781f648c75290976ecf71e71582188b7",
+            "symbol": "QUA",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x01d511f058bc31f958396c0bf52ed3be420eba53",
+        "token0": {
+            "id": "0x7118057ff0f4fd0994fb9d2d94de8231d5cca79e",
+            "symbol": "SOURCE",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x01e6208c8d0410acd6c3bc50c787f3509235bd06",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xe37254859c446bb35cb8ca478ac6439807274c6f",
+            "symbol": "DSMB",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x01f30d94091a3dd206968b53743bd2abe9cec799",
+        "token0": {
+            "id": "0x3a707d56d538e85b783e8ce12b346e7fb6511f90",
+            "symbol": "iETHV",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x01f40d27b1a4379bfcb50aa1d20720219cdd21ea",
+        "token0": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "token1": {
+            "id": "0xe15a66b7b8e385caa6f69fd0d55984b96d7263cf",
+            "symbol": "ADDY",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "100"
+    },
+    {
+        "id": "0x01fced9420b37f9b5dee28af7e692c283d987bc5",
+        "token0": {
+            "id": "0xb5a8f1be0b9bb3e05786672fd300d88f47a32ea8",
+            "symbol": "CLIT",
+            "decimals": "10",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x0205984f283fd616cfcdf659dd66ba1d5f8c4804",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xe8524434131bfde8ead553859ad42c8798c68a91",
+            "symbol": "CGLD",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x020ba87daca38562021260216831f2e98b6d8e61",
+        "token0": {
+            "id": "0x9d62526f5ce701950c30f2caca70edf70f9fbf0f",
+            "symbol": "BKT",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "symbol": "USDT",
+            "decimals": "6",
+            "totalValueLockedUSD": "198339262.601343"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x020c349a0541d76c16f501abc6b2e9c98adae892",
+        "token0": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "token1": {
+            "id": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+            "symbol": "SNX",
+            "decimals": "18",
+            "totalValueLockedUSD": "1851224.210923318790374215817939246"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x0210afe83229ec7c6ab34d57acc92be8411c3807",
+        "token0": {
+            "id": "0x1d7af7d6e8851b5a2ca962495d4eaa07e4c29adf",
+            "symbol": "Hi",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x02178ec58822a93b29921448f209383bbecc90ea",
+        "token0": {
+            "id": "0x6c93c838d362656430d81e150cdbe9b69ba8efc4",
+            "symbol": "REHAB",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x021ab4a498448d2612dfb4b93b9e4ed19729df54",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xc5102fe9359fd9a28f877a67e36b0f050d81a3cc",
+            "symbol": "HOP",
+            "decimals": "18",
+            "totalValueLockedUSD": "194730.0931302651752885946935627337"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x0221d724c1a37b8c54dd99fefddae2b903d193d6",
+        "token0": {
+            "id": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "symbol": "DAI",
+            "decimals": "18",
+            "totalValueLockedUSD": "164065520.836681764753645184"
+        },
+        "token1": {
+            "id": "0xff20817765cb7f73d4bde2e66e067e58d11095c2",
+            "symbol": "AMP",
+            "decimals": "18",
+            "totalValueLockedUSD": "488838.6329176644282598802591633118"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x02279ce7e726d538ea768d7380fd474f7583f8bb",
+        "token0": {
+            "id": "0x902c1fe7a16e338e7906e5b6d1b4db9e6717e7b4",
+            "symbol": "RFS",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x0230ddd838e499865405042560e72aa38324acd1",
+        "token0": {
+            "id": "0xb0b195aefa3650a6908f15cdac7d92f8a5791b0b",
+            "symbol": "BOB",
+            "decimals": "18",
+            "totalValueLockedUSD": "9023685.651977549769140730553246652"
+        },
+        "token1": {
+            "id": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "symbol": "USDT",
+            "decimals": "6",
+            "totalValueLockedUSD": "198339262.601343"
+        },
+        "feeTier": "100"
+    },
+    {
+        "id": "0x0234b959f3e26d8be28237079ed3d21a31a7e040",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xca48e61f149920e3a23cbffc9b5541e410c02381",
+            "symbol": "DOBBY",
+            "decimals": "18",
+            "totalValueLockedUSD": "160417.5906322873626223372371942276"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x0236d30f9d33ca8898d7f258357f572e863192dc",
+        "token0": {
+            "id": "0x5c523d6abe17e98eaa58c2df62a6ec9162f3b9a1",
+            "symbol": "BCT",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "500"
+    },
+    {
+        "id": "0x02469e30dd450de2e9de00d49d679f1d1d774ada",
+        "token0": {
+            "id": "0x8a854288a5976036a725879164ca3e91d30c6a1b",
+            "symbol": "GET",
+            "decimals": "18",
+            "totalValueLockedUSD": "607213.4081707557476679408339238963"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x0254a309f5140d457c0699e2cd0457a692a69cc4",
+        "token0": {
+            "id": "0x66d28cb58487a7609877550e1a34691810a6b9fc",
+            "symbol": "KOIN",
+            "decimals": "8",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x02551cab0f196669e1599f2799a6c3d049f3717a",
+        "token0": {
+            "id": "0x99c88211d0b0b17d1d17ed2e6362b028296cef2a",
+            "symbol": "MOONING",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "feeTier": "500"
+    },
+    {
+        "id": "0x02575a054ccf1cbcef93f82f3a8d22f3d87e13b4",
+        "token0": {
+            "id": "0x04979cccc2f854e167daad0ae095da49eae4842e",
+            "symbol": "scFOX-0324",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "feeTier": "100"
+    },
+    {
+        "id": "0x025b887e7f62d8b5f1564ba204187452cf27f634",
+        "token0": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "token1": {
+            "id": "0xefa6903aa49cd539c079ac4b0a090db432615822",
+            "symbol": "SWYF",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "100"
+    },
+    {
+        "id": "0x026998fcba74c8689c5706e513e21815e4364ea8",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xcd8f3c4e0db694c63ccb7cbaa45ecdd75e2c798b",
+            "symbol": "ADOPTION",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x026babd2ae9379525030fc2574e39bc156c10583",
+        "token0": {
+            "id": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+            "symbol": "WBTC",
+            "decimals": "8",
+            "totalValueLockedUSD": "228019281.3685252772152606099653488"
+        },
+        "token1": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "feeTier": "100"
+    },
+    {
+        "id": "0x0273d4aac5b0f0c86bbd6ad58cf89710b2ece234",
+        "token0": {
+            "id": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+            "symbol": "WBTC",
+            "decimals": "8",
+            "totalValueLockedUSD": "228019281.3685252772152606099653488"
+        },
+        "token1": {
+            "id": "0x8daebade922df735c38c80c7ebd708af50815faa",
+            "symbol": "TBTC",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x0275bc3237a295ad331588d98a6a2fcad686342d",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xccba0b2bc4babe4cbfb6bd2f1edc2a9e86b7845f",
+            "symbol": "WINTER",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x028471fab51e039164d68d6edc3f695ce0790b84",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xccce376ffebde910a23993d5b44d50e8b2096204",
+            "symbol": "OCRAP",
+            "decimals": "0",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x028b58e97422dc2ae0311b46fd0aac2a276e33bb",
+        "token0": {
+            "id": "0x79e709ff9cd385e7f072c9c86decab89883596ec",
+            "symbol": "EDTH",
+            "decimals": "5",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x02976320ef83e1413a9307b34c463a19ab484b5e",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xfa14fa6958401314851a17d6c5360ca29f74b57b",
+            "symbol": "SAITO",
+            "decimals": "18",
+            "totalValueLockedUSD": "2691525.573705920957106101157450577"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x02c7fdef1e97cf483f21196da48a51285fdb03ec",
+        "token0": {
+            "id": "0x6fcac886f4c435a173f876fce62517d2e0966861",
+            "symbol": "TRANCHE-AMPL-A",
+            "decimals": "9",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "symbol": "USDT",
+            "decimals": "6",
+            "totalValueLockedUSD": "198339262.601343"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x02d436dc483f445f63aac45b37db0ee661949842",
+        "token0": {
+            "id": "0x9e78b8274e1d6a76a0dbbf90418894df27cbceb5",
+            "symbol": "UniFi",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x02d87123005416a2869f8a192e2e47aae639db7e",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xf34b1db61aca1a371fe97bad2606c9f534fb9d7d",
+            "symbol": "RBIS",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x02daa5fdd4b474c13a8d6d141471b87fbd2452cd",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xe4b5936dce1820f84509c89cce0f28c87988bad8",
+            "symbol": "UNT",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x02e9b41cfed25f5c14c3823e912ee0c8bf68be3e",
+        "token0": {
+            "id": "0x51cb253744189f11241becb29bedd3f1b5384fdb",
+            "symbol": "DMTR",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x02fb1165e700180c00f7a618df877e8d2afa173f",
+        "token0": {
+            "id": "0x569a101af81bdcf08da02d6c28fb4e9de1915313",
+            "symbol": "BIRD",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x03041c580199f865d5ab69427990a4570a80533b",
+        "token0": {
+            "id": "0x765974827a0a85023aa54464dd1de39d960b0a72",
+            "symbol": "TRUST",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x0309a35f9372ad644bce196e3d53012a71f43f85",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xcc6c340b722fb9f4551ad45939fd1457f0e218c6",
+            "symbol": "SWEETS",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x0311027c761896c7d55dcbd2cc0f93c55b5959c0",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xff3ac80c1caa08cbd43a7e90d20c398d54c7342f",
+            "symbol": "nICE",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x0311125b58d9602352cba5c925927ecb86a5905a",
+        "token0": {
+            "id": "0x000000007a58f5f58e697e51ab0357bc9e260a04",
+            "symbol": "CNV",
+            "decimals": "18",
+            "totalValueLockedUSD": "7511.532138543944949036204606520107"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x0318170609141bfdb38d20d1f1c5b5197670ecee",
+        "token0": {
+            "id": "0x2c5bc2ba3614fd27fcc7022ea71d9172e2632c16",
+            "symbol": "SOV",
+            "decimals": "18",
+            "totalValueLockedUSD": "259679.1586929893397790990693324763"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x031a1d307c91fbde01005ec2ebc5fcb03b6f80ab",
+        "token0": {
+            "id": "0x8cc0f052fff7ead7f2edcccac895502e884a8a71",
+            "symbol": "ARTH",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "feeTier": "500"
+    },
+    {
+        "id": "0x032839989ff8b2820181b77d17630524013dd683",
+        "token0": {
+            "id": "0xac49c84412391237787e45192fbb3c1655616f5d",
+            "symbol": "OIAI",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x0345c246acbee95b6c1f547a490d498a60482361",
+        "token0": {
+            "id": "0x7bdf3ff2513a4f467bc25b7fd4b8404ad8126cb3",
+            "symbol": "MUSK",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x0348287cc7e7b31caa986cf68fc2c665b09ddaa1",
+        "token0": {
+            "id": "0xb92c8d91172156dfea4ee54845b12ef2bee00c90",
+            "symbol": "GROW",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "symbol": "USDT",
+            "decimals": "6",
+            "totalValueLockedUSD": "198339262.601343"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x035f1d7d2520d24c6e8b06758316290df06b8c82",
+        "token0": {
+            "id": "0xaf5191b0de278c7286d6c7cc6ab6bb8a73ba2cd6",
+            "symbol": "STG",
+            "decimals": "18",
+            "totalValueLockedUSD": "651412.0958006320297529680292759606"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x0375b0ebe9b922cb5d74ea0c052cfe47a09916b0",
+        "token0": {
+            "id": "0x8167d3b1024cb51a2dd1b4d889ddf7023420796a",
+            "symbol": "NOKU",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x0378304e50fced815abf96f30837c3c61a750c82",
+        "token0": {
+            "id": "0x84b67e43474a403cde9aa181b02ba07399a54573",
+            "symbol": "Metti",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x0383b3c109b5b217d685dcd9850f51ffcad3251b",
+        "token0": {
+            "id": "0x445bd590a01fe6709d4f13a8f579c1e4846921db",
+            "symbol": "DUMMY",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x038897402c31e09444d946d265e6bbd20cb5971c",
+        "token0": {
+            "id": "0x84e026ef9382b586e819c5de38e4dde560909f34",
+            "symbol": "APEI",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x0395cdb3fe026cabbdefbb9c06f5e3d429c96764",
+        "token0": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "token1": {
+            "id": "0xfa5047c9c78b8877af97bdcb85db743fd7313d4a",
+            "symbol": "ROOK",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x039a58b6f5d6922b1aa2785edf99c1da01aeb346",
+        "token0": {
+            "id": "0x9ec0862ce715ea4fd830074be6bee4558db8a071",
+            "symbol": "FEE",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x03a780822f9fb4ae06794ae712f03efe2fafa538",
+        "token0": {
+            "id": "0xbc8e35221904f61b4200ca44a08e4dac387ac83a",
+            "symbol": "BERC",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x03a86d1488dd6ae052214cac0d845d6ac0153d7a",
+        "token0": {
+            "id": "0x7ef7adae450e33b4187fe224cab1c45d37f7c411",
+            "symbol": "ATMX",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x03a86da24f980cfeace0898883db181c74be9c13",
+        "token0": {
+            "id": "0x86ed939b500e121c0c5f493f399084db596dad20",
+            "symbol": "SPC",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x03aba5d772d2bc81e416295b6d5f914bbc12dcb7",
+        "token0": {
+            "id": "0x1ffe8a8177d3c261600a8bd8080d424d64b7fbc2",
+            "symbol": "MET",
+            "decimals": "18",
+            "totalValueLockedUSD": "20550.97692538393390582966409232159"
+        },
+        "token1": {
+            "id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "USDC",
+            "decimals": "6",
+            "totalValueLockedUSD": "766359924.317745"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x03bc32cbaf0516945db77a32f2479379585aa17b",
+        "token0": {
+            "id": "0x3541a5c1b04adaba0b83f161747815cd7b1516bc",
+            "symbol": "KNIGHT",
+            "decimals": "18",
+            "totalValueLockedUSD": "1391763.835171183967232468280188813"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x03ce396082551836ebd29d7da081fcb65bd91f4f",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xd0036a11ad8730df2b2579e6bb16a2d77435995a",
+            "symbol": "PEPES",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "10000"
+    },
+    {
+        "id": "0x03d9190f2896aca1671ae1944dd8523dbef1847e",
+        "token0": {
+            "id": "0x31c8eacbffdd875c74b94b077895bd78cf1e64a3",
+            "symbol": "RAD",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "500"
+    },
+    {
+        "id": "0x03da747c440717420d9a8b21c61805dd9d99071e",
+        "token0": {
+            "id": "0x87c22615435998d69aca34889d03155b694a94fc",
+            "symbol": "DLB",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x03dc256087553af7871090df00d0bed694567e8e",
+        "token0": {
+            "id": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+            "symbol": "WBTC",
+            "decimals": "8",
+            "totalValueLockedUSD": "228019281.3685252772152606099653488"
+        },
+        "token1": {
+            "id": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+            "symbol": "BUSD",
+            "decimals": "18",
+            "totalValueLockedUSD": "1015800.57187111387088203076631258"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x03dd2c88ae2e13cb4e47c1c85a57693542da28fd",
+        "token0": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "token1": {
+            "id": "0xcae72a7a0fd9046cf6b165ca54c9e3a3872109e0",
+            "symbol": "$ANRX",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x03de8b89caa2bbe8bf09979d370aaf08a35cbfa1",
+        "token0": {
+            "id": "0x171b1daefac13a0a3524fcb6beddc7b31e58e079",
+            "symbol": "FCC",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "symbol": "USDT",
+            "decimals": "6",
+            "totalValueLockedUSD": "198339262.601343"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x03e38c36a1e3122025f70ce08d9ed00ac0e37754",
+        "token0": {
+            "id": "0x5faa989af96af85384b8a938c2ede4a7378d9875",
+            "symbol": "GAL",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x03e67a3a7775f80e49cc8fe004592c5bc8e2d273",
+        "token0": {
+            "id": "0x0f17eeccc84739b9450c88de0429020e2dec05eb",
+            "symbol": "OTACON",
+            "decimals": "18",
+            "totalValueLockedUSD": "0"
+        },
+        "token1": {
+            "id": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "symbol": "WETH",
+            "decimals": "18",
+            "totalValueLockedUSD": "1199911574.551459254017925228068477"
+        },
+        "feeTier": "3000"
+    },
+    {
+        "id": "0x040b8e7c69d629b1606a7c66cf80b94afe1e9231",
+        "token0": {
+            "id": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "symbol": "DAI",
+            "decimals": "18",
+            "totalValueLockedUSD": "164065520.836681764753645184"
+        },
+        "token1": {
+            "id": "0xd33526068d116ce69f19a9ee46f0bd304f21a51f",
+            "symbol": "RPL",
+            "decimals": "18",
+            "totalValueLockedUSD": "17043885.62735952861755438234323165"
+        },
+        "feeTier": "3000"
+    }
+]

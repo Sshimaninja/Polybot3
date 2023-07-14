@@ -1,0 +1,3926 @@
+[
+    {
+        "id": "0x34965ba0ac2451a34a0471f04cca3f990b8dea27",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "2016.893466014024285803284530771407",
+        "token1Price": "0.0004958120083438490303931032551262555",
+        "reserveUSD": "1009984.770913951525709065580162014"
+    },
+    {
+        "id": "0xc4e595acdd7d12fec385e5da5d43160e8a0bac0e",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "2356.038613751526914125377411503597",
+        "token1Price": "0.0004244412609213128244058713267005335",
+        "reserveUSD": "3668610.370098313771321068409977927"
+    },
+    {
+        "id": "0xcd353f79d9fade311fc3119b841e1f456b54e858",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token0Price": "1.169576712954214925552333056595489",
+        "token1Price": "0.8550101835339352425244590194166746",
+        "reserveUSD": "409077.3941086044243139213798296017"
+    },
+    {
+        "id": "0x1e67124681b402064cd0abe8ed1b5c79d2e02f64",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "BCT",
+            "id": "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
+            "liquidity": "1235366.875593566548160373",
+            "decimals": "18"
+        },
+        "token0Price": "0.6684288644400901680019719967493922",
+        "token1Price": "1.496045507905542931621896696269499",
+        "reserveUSD": "90573.70564708679794295862784089179"
+    },
+    {
+        "id": "0x9803c7ae526049210a1725f7487af26fe2c24614",
+        "token0": {
+            "symbol": "BCT",
+            "id": "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
+            "liquidity": "1235366.875593566548160373",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "KLIMA",
+            "id": "0x4e78011ce80ee02d2c3e649fb657e45898257815",
+            "liquidity": "1482800.605975123",
+            "decimals": "9"
+        },
+        "token0Price": "2.402056169600156473340055543071022",
+        "token1Price": "0.4163099983488141569660236155986412",
+        "reserveUSD": "1558947.591591484700883916899450284"
+    },
+    {
+        "id": "0xc2755915a85c6f6c1c0f3a86ac8c058f11caa9c9",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "0.0004959436858488195694936192813686323",
+        "token1Price": "2016.357962675693515840586970252889",
+        "reserveUSD": "172196.2459522200165570779008152298"
+    },
+    {
+        "id": "0xa79983daf2a92c2c902cd74217efe3d8af9fba2a",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "TITAN",
+            "id": "0xaaa5b9e6c589642f98a1cda99b9d024b8407285a",
+            "liquidity": "152952910235.393047989096445968",
+            "decimals": "18"
+        },
+        "token0Price": "0.00000003328776818474464816726024521138433",
+        "token1Price": "30041064.76739666231083519584743685",
+        "reserveUSD": "8288.276906294050465198122280170385"
+    },
+    {
+        "id": "0x6ff62bfb8c12109e8000935a6de54dad83a4f39f",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "DAI",
+            "id": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+            "liquidity": "376683.637775881544114434",
+            "decimals": "18"
+        },
+        "token0Price": "0.0004954985526422075915260090672096207",
+        "token1Price": "2018.169366323226534801233433044039",
+        "reserveUSD": "401154.5637880717655503673458616775"
+    },
+    {
+        "id": "0xe62ec2e799305e0d367b0cc3ee2cda135bf89816",
+        "token0": {
+            "symbol": "WBTC",
+            "id": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+            "liquidity": "31.85208977",
+            "decimals": "8"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "0.06409025453322287628257106055953709",
+        "token1Price": "15.60299623215919023291681292049964",
+        "reserveUSD": "546353.5192141118462681117245674913"
+    },
+    {
+        "id": "0x2813d43463c374a680f235c428fb1d7f08de0b69",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "AAVE",
+            "id": "0xd6df932a45c0f255f85145f286ea0b292b21c90b",
+            "liquidity": "2034.232403140350072925",
+            "decimals": "18"
+        },
+        "token0Price": "0.0402182181454694542819354144379089",
+        "token1Price": "24.86435367133859686068977517824771",
+        "reserveUSD": "326405.9243209719997461286748487526"
+    },
+    {
+        "id": "0x3324af8417844e70b81555a6d1568d78f4d4bf1f",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "DINO",
+            "id": "0xaa9654becca45b5bdfa5ac646c939c62b527d394",
+            "liquidity": "10337535.050388043579254043",
+            "decimals": "18"
+        },
+        "token0Price": "0.0008524303369051659804745135313399343",
+        "token1Price": "1173.116390520075240687086227714096",
+        "reserveUSD": "17602.86512639548166140563328056961"
+    },
+    {
+        "id": "0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "0.9999056444714858750990300267499903",
+        "token1Price": "1.000094364432320009390825431154493",
+        "reserveUSD": "511534.2928092544344224636306803821"
+    },
+    {
+        "id": "0x74d23f21f780ca26b47db16b0504f2e3832b9321",
+        "token0": {
+            "symbol": "LINK",
+            "id": "0x53e0bca35ec356bd5dddfebbd1fc0fd03fabad39",
+            "liquidity": "14032.592044759212215318",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "277.2812732229102912425717623781056",
+        "token1Price": "0.003606446221112400989666411174863865",
+        "reserveUSD": "201595.7886800487672560023757749381"
+    },
+    {
+        "id": "0x5786b267d35f9d011c4750e0b0ba584e1fdbead1",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "KLIMA",
+            "id": "0x4e78011ce80ee02d2c3e649fb657e45898257815",
+            "liquidity": "1482800.605975123",
+            "decimals": "9"
+        },
+        "token0Price": "1.600295389123561143932138815939101",
+        "token1Price": "0.6248846349221022092711960637691994",
+        "reserveUSD": "3024615.900686127573421901095738386"
+    },
+    {
+        "id": "0xcd578f016888b57f1b1e3f887f392f0159e26747",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "DAI",
+            "id": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+            "liquidity": "376683.637775881544114434",
+            "decimals": "18"
+        },
+        "token0Price": "1.000626473939073446428188033280934",
+        "token1Price": "0.9993739182848048537347121976286011",
+        "reserveUSD": "289499.2654339475583557008210770409"
+    },
+    {
+        "id": "0x396e655c309676caf0acf4607a868e0cded876db",
+        "token0": {
+            "symbol": "CRV",
+            "id": "0x172370d5cd63279efa6d502dab29171933a610af",
+            "liquidity": "72199.463386198946164166",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "2368.352575642766262765701127163807",
+        "token1Price": "0.0004222344300778789042285378598253545",
+        "reserveUSD": "120858.0907742144849931546105300007"
+    },
+    {
+        "id": "0xde990994309bc08e57aca82b1a19170ad84323e8",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "GDDY",
+            "id": "0x67eb41a14c0fe5cd701fc9d5a3d6597a72f641a6",
+            "liquidity": "29007716.158103199134684498",
+            "decimals": "18"
+        },
+        "token0Price": "0.0102011871147126108129067675273941",
+        "token1Price": "98.02780683806446694314201515595122",
+        "reserveUSD": "591133.8024698681013323559405930155"
+    },
+    {
+        "id": "0x426a56f6923c2b8a488407fc1b38007317ecafb1",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "RAIDER",
+            "id": "0xcd7361ac3307d1c5a46b63086a90742ff44c63b3",
+            "liquidity": "9796890.950401013452622967",
+            "decimals": "18"
+        },
+        "token0Price": "0.000008929101140636886317050112670330787",
+        "token1Price": "111993.3556860431042405050765193017",
+        "reserveUSD": "150799.9053225753268638945282552331"
+    },
+    {
+        "id": "0xcbf6f78981e63ef813cb71852d72a060b583eecf",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "FISH",
+            "id": "0x3a3df212b7aa91aa0402b9035b098891d276572b",
+            "liquidity": "58320.489574623826965105",
+            "decimals": "18"
+        },
+        "token0Price": "0.2531238959903542560667601511987559",
+        "token1Price": "3.950634514720438756611160197535002",
+        "reserveUSD": "25697.19792203193406589869237492554"
+    },
+    {
+        "id": "0x2e7d6490526c7d7e2fdea5c6ec4b0d1b9f8b25b7",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "RAIDER",
+            "id": "0xcd7361ac3307d1c5a46b63086a90742ff44c63b3",
+            "liquidity": "9796890.950401013452622967",
+            "decimals": "18"
+        },
+        "token0Price": "0.02099874412456763750055084013499502",
+        "token1Price": "47.62189557946194183654509683386096",
+        "reserveUSD": "200837.3179923311042876424373531515"
+    },
+    {
+        "id": "0xb5846453b67d0b4b4ce655930cf6e4129f4416d7",
+        "token0": {
+            "symbol": "SUSHI",
+            "id": "0x0b3f868e0be5597d5db7feb59e1cadbb0fdda50a",
+            "liquidity": "43063.95657397503369808",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "2827.748887480708317273121210608331",
+        "token1Price": "0.0003536381905859108134024120926997511",
+        "reserveUSD": "16113.85580274541698477916983351676"
+    },
+    {
+        "id": "0x999fc000f3f5176306c0753bad01d6a37644feef",
+        "token0": {
+            "symbol": "NXD",
+            "id": "0x228b5c21ac00155cf62c57bcc704c0da8187950b",
+            "liquidity": "51849589.288890448194924435",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "7154.049474591131495794316446887534",
+        "token1Price": "0.00013978097349643392528395971648658",
+        "reserveUSD": "14520.10045694220966381454401612977"
+    },
+    {
+        "id": "0xf850c261adc576e6713d14af590a40d55936a982",
+        "token0": {
+            "symbol": "FXS",
+            "id": "0x1a3acf6d19267e2d3e7f898f42803e90c9219062",
+            "liquidity": "1466.068787462248274596",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token0Price": "0.1470261220807760642965175367388593",
+        "token1Price": "6.801512451308486480514946140972941",
+        "reserveUSD": "2639.515718348808940175549538209722"
+    },
+    {
+        "id": "0x1ceda73c034218255f50ef8a2c282e6b4c301d60",
+        "token0": {
+            "symbol": "GRT",
+            "id": "0x5fe2b58c013d7601147dcdd68c143a77499f5531",
+            "liquidity": "419568.607613900716363378",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "16321.20532305038756962895869653661",
+        "token1Price": "0.00006126998467372401147882351771988981",
+        "reserveUSD": "103719.8839239068830821353559844988"
+    },
+    {
+        "id": "0x1274de0de2e9d9b1d0e06313c0e5edd01cc335ef",
+        "token0": {
+            "symbol": "AVAX",
+            "id": "0x2c89bbc92bd86f8075d1decc58c7f4e0107f286b",
+            "liquidity": "2287.231855205822769586",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "121.4179383223876390070897760430738",
+        "token1Price": "0.008236015318797544284985599696709971",
+        "reserveUSD": "74871.00110317571221776459735315029"
+    },
+    {
+        "id": "0xf69e93771f11aecd8e554aa165c3fe7fd811530c",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "GHST",
+            "id": "0x385eeac5cb85a38a9a07a70c73e0a3271cfb54a7",
+            "liquidity": "91096.152070364128548248",
+            "decimals": "18"
+        },
+        "token0Price": "1.150770649249714847641607812579502",
+        "token1Price": "0.8689828860789810350816677913050612",
+        "reserveUSD": "180016.2499210643505529641866916699"
+    },
+    {
+        "id": "0x9e20a8d3501bf96eda8e69b96dd84840058a1cb0",
+        "token0": {
+            "symbol": "FRAX",
+            "id": "0x104592a158490a9228070e0a8e5343b499e125d0",
+            "liquidity": "26298.452183169556339541",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token0Price": "1.000343262082676494455903488369345",
+        "token1Price": "0.9996568557057486088324727094405839",
+        "reserveUSD": "27141.08478222035766984307862444538"
+    },
+    {
+        "id": "0x91670a2a69554c61d814cd7f406d7793387e68ef",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "AURUM",
+            "id": "0x34d4ab47bee066f361fa52d792e69ac7bd05ee23",
+            "liquidity": "271169657.534314623433261848",
+            "decimals": "18"
+        },
+        "token0Price": "0.001073690599874863828226862024612528",
+        "token1Price": "931.3670065813631056464485959104701",
+        "reserveUSD": "259206.0819642419571909824216226598"
+    },
+    {
+        "id": "0xc30d6bc42911aa21a63e51c7121b33b3e65cc3c4",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "PUSD",
+            "id": "0x9af3b7dc29d3c4b1a5731408b6a9656fa7ac3b72",
+            "liquidity": "24475.900076185721267101",
+            "decimals": "18"
+        },
+        "token0Price": "0.9789370336225069524924898758280789",
+        "token1Price": "1.021516160543595542960910038805456",
+        "reserveUSD": "45489.18028889008319999974358462032"
+    },
+    {
+        "id": "0xabee7668a96c49d27886d1a8914a54a5f9805041",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "AURUM",
+            "id": "0x34d4ab47bee066f361fa52d792e69ac7bd05ee23",
+            "liquidity": "271169657.534314623433261848",
+            "decimals": "18"
+        },
+        "token0Price": "0.0009199770529323505477878170217605219",
+        "token1Price": "1086.983633790193946706532394546136",
+        "reserveUSD": "229817.4817228323587505552569926637"
+    },
+    {
+        "id": "0xc48ae82ca34c63887b975f20aba91a38f2a900b8",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "MANA",
+            "id": "0xa1c57f48f0deb89f569dfbe6e2b7f46d33606fd4",
+            "liquidity": "99265.185102174382817934",
+            "decimals": "18"
+        },
+        "token0Price": "0.000219446254106657426960563704684858",
+        "token1Price": "4556.924446356556005270969128011214",
+        "reserveUSD": "85300.39409490240576192502003879207"
+    },
+    {
+        "id": "0x941eb28e750c441aef465a89e43ddfec2561830b",
+        "token0": {
+            "symbol": "ICE",
+            "id": "0x4e1581f01046efdd7a1a2cdb0f82cdd7f71f2e59",
+            "liquidity": "49529.048442099282175273",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "1442.122461976019880233450109585147",
+        "token1Price": "0.0006934223870487278714130696398226618",
+        "reserveUSD": "138216.8441675049107183659981518868"
+    },
+    {
+        "id": "0xd74d23d2f23cd06a7d94f740a74c6e906f0c9005",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "CGG",
+            "id": "0x2ab4f9ac80f33071211729e45cfc346c1f8446d5",
+            "liquidity": "86639.628895957223737743",
+            "decimals": "18"
+        },
+        "token0Price": "0.0857420944790836566874578063456598",
+        "token1Price": "11.66288281240837732180989880833868",
+        "reserveUSD": "12340.15495722959003921559253301489"
+    },
+    {
+        "id": "0xc2c88da3bc73d927293e4c516c446f87884b84c6",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "LUXY",
+            "id": "0xd4945a3d0de9923035521687d4bf18cc9b0c7c2a",
+            "liquidity": "8613253.386636252145380038",
+            "decimals": "18"
+        },
+        "token0Price": "0.01246330797148375680908486624477583",
+        "token1Price": "80.23552031996766909666445681280675",
+        "reserveUSD": "214789.477018456059042347157972205"
+    },
+    {
+        "id": "0xa34ec05da1e4287fa351c74469189345990a3f0c",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "STG",
+            "id": "0x2f6f07cdcf3588944bf4c42ac74ff24bf56e7590",
+            "liquidity": "1218253.313984408537226843",
+            "decimals": "18"
+        },
+        "token0Price": "0.6850435221781598754897127742633156",
+        "token1Price": "1.459761267167969970813984466944667",
+        "reserveUSD": "1669277.364879217392011388112015569"
+    },
+    {
+        "id": "0x014ac2a53aa6fba4dcd93fde6d3c787b79a1a6e6",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "IXT",
+            "id": "0xe06bd4f5aac8d0aa337d13ec88db6defc6eaeefe",
+            "liquidity": "642895.372449216822566052",
+            "decimals": "18"
+        },
+        "token0Price": "0.3974454547452147190363955708345369",
+        "token1Price": "2.516068527292775877006751330905403",
+        "reserveUSD": "432899.1071200036025983670471027751"
+    },
+    {
+        "id": "0x597a9bc3b24c2a578ccb3aa2c2c62c39427c6a49",
+        "token0": {
+            "symbol": "SUSHI",
+            "id": "0x0b3f868e0be5597d5db7feb59e1cadbb0fdda50a",
+            "liquidity": "43063.95657397503369808",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token0Price": "1.208368144241265022549519044907454",
+        "token1Price": "0.8275623656298060661182007416772932",
+        "reserveUSD": "17053.17495072119643712367421631481"
+    },
+    {
+        "id": "0x1549e0e8127d380080aab448b82d280433ce4030",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "gOHM",
+            "id": "0xd8ca34fd379d9ca3c6ee3b3905678320f5b45195",
+            "liquidity": "22.183390192256789522",
+            "decimals": "18"
+        },
+        "token0Price": "1.443920012543415482829055611869769",
+        "token1Price": "0.6925591385346438714955089122478915",
+        "reserveUSD": "128332.8806734481728570193190861331"
+    },
+    {
+        "id": "0x590f5e967d73ea06dae9aed2788108dcf52da269",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "ARPA",
+            "id": "0xee800b277a96b0f490a1a732e1d6395fad960a26",
+            "liquidity": "24943.793821090650968946",
+            "decimals": "18"
+        },
+        "token0Price": "0.00002560632706761749323217841385948792",
+        "token1Price": "39052.84804647477600048612372186166",
+        "reserveUSD": "1192.527048916605489928801273809716"
+    },
+    {
+        "id": "0x116ff0d1caa91a6b94276b3471f33dbeb52073e7",
+        "token0": {
+            "symbol": "SNX",
+            "id": "0x50b728d8d964fd00c2d0aad81718b71311fef68a",
+            "liquidity": "6000.425485963903738208",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "919.6485889214986567596839794193807",
+        "token1Price": "0.001087371863607959226581220257740714",
+        "reserveUSD": "24450.55370971908334686472905681832"
+    },
+    {
+        "id": "0xb8f54cc0106bdf662591d7e8b01a9b6a01ca74c8",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "TOMI",
+            "id": "0xcd966b72cff52dc349089b6b6f5865b5743b4e08",
+            "liquidity": "3239841.000192585074920763",
+            "decimals": "18"
+        },
+        "token0Price": "0.0000002005730610014500918613739610696528",
+        "token1Price": "4985714.407543345295580279820774826",
+        "reserveUSD": "1219.647807716067998450655085815437"
+    },
+    {
+        "id": "0x1bf9805b40a5f69c7d0f9e5d1ab718642203c652",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "SX",
+            "id": "0x840195888db4d6a99ed9f73fcd3b225bb3cb1a79",
+            "liquidity": "74100.44928501916759859",
+            "decimals": "18"
+        },
+        "token0Price": "0.00005465465743117066432378704973441533",
+        "token1Price": "18296.70236721087985960789807098656",
+        "reserveUSD": "4204.658117436827923764401966074903"
+    },
+    {
+        "id": "0xd53a56ae0f48c9a03660cd36c2e4ae20493a1eca",
+        "token0": {
+            "symbol": "FRAX",
+            "id": "0x104592a158490a9228070e0a8e5343b499e125d0",
+            "liquidity": "26298.452183169556339541",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "FXS",
+            "id": "0x3e121107f6f22da4911079845a470757af4e1a1b",
+            "liquidity": "1902.656020007534430251",
+            "decimals": "18"
+        },
+        "token0Price": "6.798127355320571849843031512659738",
+        "token1Price": "0.1470993330563816856725302594035413",
+        "reserveUSD": "25376.26448302559705513043078245192"
+    },
+    {
+        "id": "0xadd053a09f95e565b25d8b9b84d0fcfaa962465e",
+        "token0": {
+            "symbol": "ETH2x-FLI-P",
+            "id": "0x3ad707da309f3845cd602059901e39c4dcd66473",
+            "liquidity": "9911.192951645194335775",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "472.1880314970658681380660750617725",
+        "token1Price": "0.002117800395807393321485647927032988",
+        "reserveUSD": "83311.6816599759173260290650253404"
+    },
+    {
+        "id": "0x9ad5cdc89001a2eb0cc7713c788f843de881d803",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "DFX",
+            "id": "0xe7804d91dfcde7f776c90043e03eaa6df87e6395",
+            "liquidity": "392558.187238465356780409",
+            "decimals": "18"
+        },
+        "token0Price": "0.00002860323795890668345620641601608476",
+        "token1Price": "34961.07683461105337362717553885008",
+        "reserveUSD": "45265.93268237451606837461141497529"
+    },
+    {
+        "id": "0x180237bd326d5245d0898336f54b3c8012c5c62f",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "BIFI",
+            "id": "0xfbdd194376de19a88118e84e279b977f165d01b8",
+            "liquidity": "19.135183386536689185",
+            "decimals": "18"
+        },
+        "token0Price": "331.7989981134820554115360503018989",
+        "token1Price": "0.003013872873895717766818695315910288",
+        "reserveUSD": "12581.56098221676896764890800572022"
+    },
+    {
+        "id": "0xd8e7d368ab9bdf0010a9934b0e801b3f38cecef6",
+        "token0": {
+            "symbol": "GFC",
+            "id": "0x071ac29d569a47ebffb9e57517f855cb577dcc4c",
+            "liquidity": "8538496.695646360187863846",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "290645.5678900727360482715650883758",
+        "token1Price": "0.00000344061671836061708725576454649113",
+        "reserveUSD": "117317.5962612540154081173950099344"
+    },
+    {
+        "id": "0x73a041fef8271c619791e0af6a6224945b7a446f",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "OCAVU",
+            "id": "0xf796969fa47fb0748c80b8b153cbb895e88cbd54",
+            "liquidity": "88742361.995000140202599929",
+            "decimals": "18"
+        },
+        "token0Price": "0.0005535210548460218770055360542876557",
+        "token1Price": "1806.616010800491306179501797796289",
+        "reserveUSD": "98226.68299654855838926933410429997"
+    },
+    {
+        "id": "0xd3924ad8f881514eff89503be9027b877e9e2bd0",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "PYQ",
+            "id": "0x5a3064cbdccf428ae907796cf6ad5a664cd7f3d8",
+            "liquidity": "69663084.306659286421663923",
+            "decimals": "18"
+        },
+        "token0Price": "0.000123974976552753214678529146779001",
+        "token1Price": "8066.143892953147521565658722582039",
+        "reserveUSD": "17279.4184575762791351909457355236"
+    },
+    {
+        "id": "0xd10bb4ed281a84492343573885168027cc625bf7",
+        "token0": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "MSU",
+            "id": "0xe8377a076adabb3f9838afb77bee96eac101ffb1",
+            "liquidity": "8102522.759349817704597408",
+            "decimals": "18"
+        },
+        "token0Price": "0.002666179628201602892734404471089512",
+        "token1Price": "375.0685022953693894789945892656089",
+        "reserveUSD": "33189.61189826371976936134905897164"
+    },
+    {
+        "id": "0x55ff76bffc3cdd9d5fdbbc2ece4528ecce45047e",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "1.169210772383535250514606441374259",
+        "token1Price": "0.8552777853401190015207965140280414",
+        "reserveUSD": "30112.67358764038274779088752666383"
+    },
+    {
+        "id": "0xdb995f975f1bfc3b2157495c47e4efb31196b2ca",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "NCT",
+            "id": "0xd838290e877e0188a4a44700463419ed96c16107",
+            "liquidity": "331891.695715261771242119",
+            "decimals": "18"
+        },
+        "token0Price": "1.652226555893612312769986595195185",
+        "token1Price": "0.6052438731437448799085266853019927",
+        "reserveUSD": "924766.6246295617504513158635780377"
+    },
+    {
+        "id": "0xc16e382aa7353aad0f598856afd9a93513542970",
+        "token0": {
+            "symbol": "DAI",
+            "id": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+            "liquidity": "376683.637775881544114434",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USV",
+            "id": "0xac63686230f64bdeaf086fe6764085453ab3023f",
+            "liquidity": "201.376966012",
+            "decimals": "9"
+        },
+        "token0Price": "7.602194767536115970969013111739961",
+        "token1Price": "0.1315409602856178428602840343248499",
+        "reserveUSD": "1531.029467847981212832605298710291"
+    },
+    {
+        "id": "0x8f8e95ff4b4c5e354ccb005c6b0278492d7b5907",
+        "token0": {
+            "symbol": "WBTC",
+            "id": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+            "liquidity": "31.85208977",
+            "decimals": "8"
+        },
+        "token1": {
+            "symbol": "ibBTC",
+            "id": "0x4eac4c4e9050464067d673102f8e24b2fcceb350",
+            "liquidity": "1.133599122499483008",
+            "decimals": "18"
+        },
+        "token0Price": "0.998893462647072005512342836055707",
+        "token1Price": "1.001107763134214199086196985776504",
+        "reserveUSD": "70921.31225705928004031084305857172"
+    },
+    {
+        "id": "0xd8d51ea2edca2c2ea15a053a5730f559d79a1570",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "PAUTO",
+            "id": "0x7f426f6dc648e50464a0392e60e1bb465a67e9cf",
+            "liquidity": "87.540760682669225938",
+            "decimals": "18"
+        },
+        "token0Price": "16.50749967631338038412355405241117",
+        "token1Price": "0.06057852610076985218054424383677278",
+        "reserveUSD": "1436.360940524119994763468922420645"
+    },
+    {
+        "id": "0xbe69026ac368e0852408705a92e5701a47e7698f",
+        "token0": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "RBLS",
+            "id": "0xe26cda27c13f4f87cffc2f437c5900b27ebb5bbb",
+            "liquidity": "775396.49958818",
+            "decimals": "8"
+        },
+        "token0Price": "0.05918463760730809539743150761442962",
+        "token1Price": "16.89627647355097431009549445050045",
+        "reserveUSD": "91876.03007798227388335997246775532"
+    },
+    {
+        "id": "0x0a7f27e370168b1e1be2ef77a8ba28d66983c515",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "pZUG",
+            "id": "0xeb45921fedadf41df0bfcf5c33453acedda32441",
+            "liquidity": "1346198.725543501461329806",
+            "decimals": "18"
+        },
+        "token0Price": "0.0000007966930287138945273441627193315821",
+        "token1Price": "1255188.590785468420408245802874674",
+        "reserveUSD": "2004.892043032038867548806476677266"
+    },
+    {
+        "id": "0xc5666d43f06c073e869bce02407569f578b2072d",
+        "token0": {
+            "symbol": "polyBUNNY",
+            "id": "0x4c16f69302ccb511c5fac682c7626b9ef0dc126a",
+            "liquidity": "769090.813979372935573534",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "292380.7072179739751560696655442329",
+        "token1Price": "0.000003420198307593824167993793977282521",
+        "reserveUSD": "10598.40148185155822301478069022081"
+    },
+    {
+        "id": "0x74276857987726c3e4b523e1339e5a2093e9ad28",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "TRY",
+            "id": "0xefee2de82343be622dcb4e545f75a3b9f50c272d",
+            "liquidity": "1839346.286322475943092061",
+            "decimals": "18"
+        },
+        "token0Price": "0.000892016835455139980478972660484299",
+        "token1Price": "1121.055074582491501114630396196858",
+        "reserveUSD": "1408.584850345177530268960343361896"
+    },
+    {
+        "id": "0xcccec4a90b3435065f5e1fec6346be9da1b7b5ed",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "SPADE",
+            "id": "0xf5ea626334037a2cf0155d49ea6462fddc6eff19",
+            "liquidity": "260496.36409842926729221",
+            "decimals": "18"
+        },
+        "token0Price": "0.01637531066573241155779854021433005",
+        "token1Price": "61.06754371949946912188678974960912",
+        "reserveUSD": "2493.869733909449207782806320104044"
+    },
+    {
+        "id": "0x6fd8aae9f85a7db14c45453daab81aa3085e4ba3",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "SPADE",
+            "id": "0xf5ea626334037a2cf0155d49ea6462fddc6eff19",
+            "liquidity": "260496.36409842926729221",
+            "decimals": "18"
+        },
+        "token0Price": "0.01417770396488887080164766516966714",
+        "token1Price": "70.53328257357490304669089534885675",
+        "reserveUSD": "1203.565741424858822387618249145714"
+    },
+    {
+        "id": "0x4642dafc5281ba5a8d35b2896e0d925b23c6883c",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "MVI",
+            "id": "0xfe712251173a2cd5f5be2b46bb528328ea3565e1",
+            "liquidity": "541.262573075327438695",
+            "decimals": "18"
+        },
+        "token0Price": "0.007913062965784625262559896228587622",
+        "token1Price": "126.3733151529199672452720914355712",
+        "reserveUSD": "16851.53108222678496579757281702549"
+    },
+    {
+        "id": "0xd08244e604ca67e2f3fa9b8d3b580e751c42fbc3",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "MHUNT",
+            "id": "0x61f95bd637e3034133335c1baa0148e518d438ad",
+            "liquidity": "2400696.207632449466421546",
+            "decimals": "18"
+        },
+        "token0Price": "0.01232408678618251199721986977404927",
+        "token1Price": "81.14191480063069941054960530346385",
+        "reserveUSD": "50809.48097089716295365343731996952"
+    },
+    {
+        "id": "0xe9bb87c33d1607b06fb3988b31e9601bd21ff3bd",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "OMEN",
+            "id": "0x76e63a3e7ba1e2e61d3da86a87479f983de89a7e",
+            "liquidity": "3025668.086515906876564942",
+            "decimals": "18"
+        },
+        "token0Price": "0.002591543641601278338761670528753612",
+        "token1Price": "385.8704070991889897493376327402578",
+        "reserveUSD": "5520.253707684897180370320068596379"
+    },
+    {
+        "id": "0xdcb0c125df19598501427c28e7991564504c947b",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "LIME",
+            "id": "0x7f67639ffc8c93dd558d452b8920b28815638c44",
+            "liquidity": "4122331.766176790533411354",
+            "decimals": "18"
+        },
+        "token0Price": "0.006664042218308132308628582736019677",
+        "token1Price": "150.059073343307854671226323779408",
+        "reserveUSD": "47859.21996701341095062173097169846"
+    },
+    {
+        "id": "0xd7217619279f31da063d738cf1bf7435764a07d9",
+        "token0": {
+            "symbol": "OMEN",
+            "id": "0x76e63a3e7ba1e2e61d3da86a87479f983de89a7e",
+            "liquidity": "3025668.086515906876564942",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "904434.3111461722327841477943200876",
+        "token1Price": "0.000001105663493385958793489263783687663",
+        "reserveUSD": "7960.074480204499900851776367081011"
+    },
+    {
+        "id": "0x81fd1d6d336c3a8a0596badc664ee01269551130",
+        "token0": {
+            "symbol": "ABI",
+            "id": "0x6d5f5317308c6fe7d6ce16930353a8dfd92ba4d7",
+            "liquidity": "10108.942292209",
+            "decimals": "9"
+        },
+        "token1": {
+            "symbol": "DAI",
+            "id": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+            "liquidity": "376683.637775881544114434",
+            "decimals": "18"
+        },
+        "token0Price": "0.5434368206461679319831660344660352",
+        "token1Price": "1.84014031071902772591637290948055",
+        "reserveUSD": "36447.65819229259230859196958205688"
+    },
+    {
+        "id": "0xa375d23a751124359568f3a22576528bd1c8c3e3",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "DHT",
+            "id": "0x8c92e38eca8210f4fcbf17f0951b198dd7668292",
+            "liquidity": "121472.09624998982088498",
+            "decimals": "18"
+        },
+        "token0Price": "0.00005701737351926031246070812660824849",
+        "token1Price": "17538.51393491849885924657892125292",
+        "reserveUSD": "27387.16915571719424492556291008897"
+    },
+    {
+        "id": "0x7c07cecd8cdd65c0dad449808cc5f9ad74c22bd1",
+        "token0": {
+            "symbol": "SFI",
+            "id": "0x35b937583f04a24963eb685f728a542240f28dd8",
+            "liquidity": "270.471441207191127818",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "59.67641897892597915955406461577972",
+        "token1Price": "0.01675703765591461110937105357821261",
+        "reserveUSD": "17115.69894188594346736562837761893"
+    },
+    {
+        "id": "0x8ceed6619aeffd5476315b90eb081485da2aebca",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "miMATIC",
+            "id": "0xa3fa99a148fa48d14ed51d610c367c61876997f1",
+            "liquidity": "4576.613612432263634405",
+            "decimals": "18"
+        },
+        "token0Price": "0.972400560308885680185350550964096",
+        "token1Price": "1.028382788757698044521560917020713",
+        "reserveUSD": "2563.982075128062909054723511404065"
+    },
+    {
+        "id": "0x7ba331a8b360f4c31e6014abdd6852f92fb21557",
+        "token0": {
+            "symbol": "AXS",
+            "id": "0x61bdd9c7d4df4bf47a4508c0c8245505f2af5b7b",
+            "liquidity": "353.080106256497239235",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "298.4558746126232550758515971985451",
+        "token1Price": "0.003350579047230805575287549475145387",
+        "reserveUSD": "2367.390690626740795168616895854406"
+    },
+    {
+        "id": "0x6f21996181915d688c787a1ec7c987e2a31b6829",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "INSUR",
+            "id": "0x8a0e8b4b0903929f47c3ea30973940d4a9702067",
+            "liquidity": "733176.456975999396307193",
+            "decimals": "18"
+        },
+        "token0Price": "0.062300662542841975096958827968634",
+        "token1Price": "16.05119366607594519049474125073981",
+        "reserveUSD": "91327.46630573130208603850478339025"
+    },
+    {
+        "id": "0x55bc7d9e44b730c4a42b52c818c805476156d9c9",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "GET",
+            "id": "0xdb725f82818de83e99f1dac22a9b5b51d3d04dd4",
+            "liquidity": "19164.387317395204681719",
+            "decimals": "18"
+        },
+        "token0Price": "0.0007750674175534005783440487055972848",
+        "token1Price": "1290.210344742174665606161173486437",
+        "reserveUSD": "59684.13694846427164468561279520153"
+    },
+    {
+        "id": "0xe8654f2b0a038a01bc273a2a7b7c48a76c0e58c5",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "POP",
+            "id": "0xc5b57e9a1e7914fda753a88f24e5703e617ee50c",
+            "liquidity": "5749.168757030694882141",
+            "decimals": "18"
+        },
+        "token0Price": "0.2444899699213550535524369817352894",
+        "token1Price": "4.090147339466193310404353725108547",
+        "reserveUSD": "1403.321122849999828794414658129763"
+    },
+    {
+        "id": "0x211f8e61113edaf00cf37a804b0ba721875ef560",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WOOFY",
+            "id": "0xd0660cd418a64a1d44e9214ad8e459324d8157f1",
+            "liquidity": "472797.083076479841",
+            "decimals": "12"
+        },
+        "token0Price": "0.008931474478763440641055286369793113",
+        "token1Price": "111.9635959748551655116873628252855",
+        "reserveUSD": "3579.219386623619784129629542340141"
+    },
+    {
+        "id": "0x47bb2d406a9b936106558be20e8aca5a3c5d006b",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "FINT",
+            "id": "0xd0513db39d87e8825389feb10bd911dc53b3a153",
+            "liquidity": "3373521.479766852657771377",
+            "decimals": "18"
+        },
+        "token0Price": "0.004534524335400767122748452728560104",
+        "token1Price": "220.5302973441025115271640261259999",
+        "reserveUSD": "30593.66375805210022823143874214629"
+    },
+    {
+        "id": "0x1534d7c91bd77eb447acb7fb92ea042b918f58bb",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "nDEFI",
+            "id": "0xd3f07ea86ddf7baebefd49731d7bbd207fedc53b",
+            "liquidity": "6392.055365257090970385",
+            "decimals": "18"
+        },
+        "token0Price": "0.001395348577142914618608337196246306",
+        "token1Price": "716.6668002396779149576536605019043",
+        "reserveUSD": "26434.59910394796933976028725431897"
+    },
+    {
+        "id": "0xa769c6786c3717945438d4c4feb8494a1a6ca443",
+        "token0": {
+            "symbol": "JRT",
+            "id": "0x596ebe76e2db4470966ea395b0d063ac6197a8c5",
+            "liquidity": "1693234.914032851329399795",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "187765.4156347112446533664786679964",
+        "token1Price": "0.00000532579440478779547644172512155223",
+        "reserveUSD": "35890.20582548465168980845309468735"
+    },
+    {
+        "id": "0x374552804f7ca26c307c8d31f4cc0d9215c87f46",
+        "token0": {
+            "symbol": "ZED",
+            "id": "0x5ec03c1f7fa7ff05ec476d19e34a22eddb48acdc",
+            "liquidity": "4160233.992308739199941746",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "105696.8501184361956074181689727116",
+        "token1Price": "0.00000946101987788162844112705247310439",
+        "reserveUSD": "158787.1992880833815499287290996915"
+    },
+    {
+        "id": "0xacd50fedc46fefee64790eab404eb52dec9e3ad9",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "GAIA",
+            "id": "0x723b17718289a91af252d616de2c77944962d122",
+            "liquidity": "1521864.57772628372944106",
+            "decimals": "18"
+        },
+        "token0Price": "0.003759460196201663277602738011505575",
+        "token1Price": "265.9956344292036889364600363555925",
+        "reserveUSD": "11435.78204768423723791084940844152"
+    },
+    {
+        "id": "0x5d9ac8993b714df01d079d1b5b0b592e579ca099",
+        "token0": {
+            "symbol": "TUT",
+            "id": "0x12a34a6759c871c4c1e8a0a42cfc97e4d7aaf68d",
+            "liquidity": "7386969.411359017468009847",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WBTC",
+            "id": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+            "liquidity": "31.85208977",
+            "decimals": "8"
+        },
+        "token0Price": "599454.0800735548725800045563244164",
+        "token1Price": "0.000001668184491925214525617210255520038",
+        "reserveUSD": "769737.8963509275314226866032363573"
+    },
+    {
+        "id": "0xc698b8a1391f88f497a4ef169ca85b492860b502",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "PGOV",
+            "id": "0xd5d84e75f48e75f01fb2eb6dfd8ea148ee3d0feb",
+            "liquidity": "2518896.339010044540025653",
+            "decimals": "18"
+        },
+        "token0Price": "0.0005965477314392164193204525351571447",
+        "token1Price": "1676.311797527793018502338972451125",
+        "reserveUSD": "1284.431535641416020423822292836519"
+    },
+    {
+        "id": "0x4bf231b70f73218837106394b3893692237f9225",
+        "token0": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "MNTC",
+            "id": "0xd41cbd667ad10ab83198f40ec6ac97190309178b",
+            "liquidity": "931.451218210477904412",
+            "decimals": "18"
+        },
+        "token0Price": "12.1169857351022780397347391409061",
+        "token1Price": "0.08252877587394131883756861159848247",
+        "reserveUSD": "22658.61818054607862934933408735576"
+    },
+    {
+        "id": "0x3d4219987fbb25c3dcf73fbd9aa85fbe3c7411d9",
+        "token0": {
+            "symbol": "GENE",
+            "id": "0x34667ed7c36cbbbf2d5d5c5c8d6eb76a094edb9f",
+            "liquidity": "14279229.479714135764779426",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "388591.7818074841769109931365091432",
+        "token1Price": "0.000002573394618251137341513409332681849",
+        "reserveUSD": "148285.7588418819865648869172870733"
+    },
+    {
+        "id": "0x34f28a44f296990de3ab6229da2bf67e9ebdb687",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "IDOL",
+            "id": "0xaec815ae1e9ab58f49692aec2840ffc82c56f7e5",
+            "liquidity": "4525376.077546694556931565",
+            "decimals": "18"
+        },
+        "token0Price": "0.002300503720436801184139635598099737",
+        "token1Price": "434.6874082907929509142425496702502",
+        "reserveUSD": "20840.24309289358743195098956032516"
+    },
+    {
+        "id": "0x8929d3fea77398f64448c85015633c2d6472fb29",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "DAI",
+            "id": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+            "liquidity": "376683.637775881544114434",
+            "decimals": "18"
+        },
+        "token0Price": "1.166216612123666610242817321813583",
+        "token1Price": "0.8574736370621679516360223808005069",
+        "reserveUSD": "5228.236143104586368707167316460544"
+    },
+    {
+        "id": "0xc5c7f2308a5c3862a49f23fe51ba2284d3aa2697",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "tPOKT",
+            "id": "0x5430a0b6c11f870571ffa891d59dec8c4608ea9a",
+            "liquidity": "188866.874586",
+            "decimals": "6"
+        },
+        "token0Price": "0.02598502533686692611374412599253935",
+        "token1Price": "38.48370309576816772947490159177677",
+        "reserveUSD": "9823.746665562820273963930893803865"
+    },
+    {
+        "id": "0xe15e9d2a5af5c1d3524bbc594ddc4a7d80ad27cd",
+        "token0": {
+            "symbol": "SUSHI",
+            "id": "0x0b3f868e0be5597d5db7feb59e1cadbb0fdda50a",
+            "liquidity": "43063.95657397503369808",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token0Price": "1.397033262783003015682558880732318",
+        "token1Price": "0.715802570089075251371450781211933",
+        "reserveUSD": "3280.226455060869217109423474700516"
+    },
+    {
+        "id": "0xb556fed3b348634a9a010374c406824ae93f0cf8",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "wBAN",
+            "id": "0xe20b9e246db5a0d21bf9209e4858bc9a3ff7a034",
+            "liquidity": "9856740.174655785022269652",
+            "decimals": "18"
+        },
+        "token0Price": "0.000002268771521640846628408279879931904",
+        "token1Price": "440767.1686908202538352579660508519",
+        "reserveUSD": "89862.87753570373049867838018069257"
+    },
+    {
+        "id": "0x77bcd2b9d087f4d4a33ae299fcb8e47c701299d9",
+        "token0": {
+            "symbol": "PYD",
+            "id": "0x0527c8c43250279d6eb74da1078193f5316fc9a0",
+            "liquidity": "6307.558199907661962998",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token0Price": "1.039123991511736197960587068947817",
+        "token1Price": "0.9623490634117513596880648364861779",
+        "reserveUSD": "12142.41874832646394955668294495301"
+    },
+    {
+        "id": "0xdedef8a9ebd5fb001a596348eb825f0b9edaf126",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "PRXY",
+            "id": "0xab3d689c22a2bb821f50a4ff0f21a7980dcb8591",
+            "liquidity": "70811.340556334784069578",
+            "decimals": "18"
+        },
+        "token0Price": "0.00005795896108900242128807002639088527",
+        "token1Price": "17253.58738684754798598379459333562",
+        "reserveUSD": "16565.36295762516207745895495350164"
+    },
+    {
+        "id": "0x30933831b71710d0551b518b74032242b2a71d2c",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "DYDX",
+            "id": "0x4c3bf0a3de9524af68327d1d2558a3b70d17d42a",
+            "liquidity": "11718.791267117143834736",
+            "decimals": "18"
+        },
+        "token0Price": "2.053011395774900491030839541702081",
+        "token1Price": "0.4870893566679663842499506011488149",
+        "reserveUSD": "48130.37797498779802487781081541308"
+    },
+    {
+        "id": "0x5aefd5c04ed6dbd856a5aeb691efcc80c0ab7472",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "POLYCUB",
+            "id": "0x7cc15fef543f205bf21018f038f591c6bada941c",
+            "liquidity": "1956988.996639741577084939",
+            "decimals": "18"
+        },
+        "token0Price": "0.01566026661200914790247304103069802",
+        "token1Price": "63.85587326036616602521245132719071",
+        "reserveUSD": "9111.537380332389651990477913159648"
+    },
+    {
+        "id": "0xc9ba162d07d762ad4c2a759cf806f8650b6c9a93",
+        "token0": {
+            "symbol": "POLYCUB",
+            "id": "0x7cc15fef543f205bf21018f038f591c6bada941c",
+            "liquidity": "1956988.996639741577084939",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "127779.7711137550961511769218700268",
+        "token1Price": "0.000007825964871307811418668507291441242",
+        "reserveUSD": "10418.88630990824003162998791242993"
+    },
+    {
+        "id": "0x7e24a40439fabcf42ef75099bcae123c6d8dc0e9",
+        "token0": {
+            "symbol": "STND",
+            "id": "0x08be454de533509e8832b257116c5506e55b0b64",
+            "liquidity": "592015.104185937689526879",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token0Price": "89.12930415179389632858511602597113",
+        "token1Price": "0.01121965451785559691203339698238852",
+        "reserveUSD": "11397.94925598742628689040668396442"
+    },
+    {
+        "id": "0x26b7c77e9a0ddb1fe467f6922462a735e1cccdcb",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "BRIDGE",
+            "id": "0x92868a5255c628da08f550a858a802f5351c5223",
+            "liquidity": "1413525.864147378079850729",
+            "decimals": "18"
+        },
+        "token0Price": "0.0000003901626224851888153303610465099589",
+        "token1Price": "2563033.828382578003987827090764184",
+        "reserveUSD": "1031.081998738692667512885486850052"
+    },
+    {
+        "id": "0xfbae8e2d04a67c10047d83ee9b8aeffe7f6ea3f4",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "JPYC",
+            "id": "0x6ae7dfc73e0dde2aa99ac063dcf7e8a63265108c",
+            "liquidity": "475798.939096407707787493",
+            "decimals": "18"
+        },
+        "token0Price": "0.007255260773507762526461569567234362",
+        "token1Price": "137.8310209953379125156676959880225",
+        "reserveUSD": "6552.089760092109230993128921323591"
+    },
+    {
+        "id": "0x93ef615f1ddd27d0e141ad7192623a5c45e8f200",
+        "token0": {
+            "symbol": "FOX",
+            "id": "0x65a05db8322701724c197af82c9cae41195b0aa8",
+            "liquidity": "1617940.739324525142719782",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "95976.42448720912588882443425133546",
+        "token1Price": "0.00001041922540189305552272971695652777",
+        "reserveUSD": "67577.12250479395837224943853962516"
+    },
+    {
+        "id": "0x57602582eb5e82a197bae4e8b6b80e39abfc94eb",
+        "token0": {
+            "symbol": "PICKLE",
+            "id": "0x2b88ad57897a8b496595925f43048301c37615da",
+            "liquidity": "3194.070905758423977211",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "DAI",
+            "id": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+            "liquidity": "376683.637775881544114434",
+            "decimals": "18"
+        },
+        "token0Price": "0.974681386421732043073190304828741",
+        "token1Price": "1.025976297414705034642601976953056",
+        "reserveUSD": "3277.430273034603908315816385663495"
+    },
+    {
+        "id": "0xd0fa2eaa5d854f184394e93f7b75624084600685",
+        "token0": {
+            "symbol": "RAI",
+            "id": "0x00e5646f60ac6fb446f621d146b6e1886f002905",
+            "liquidity": "1266.124267473624156366",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "nDEFI",
+            "id": "0xd3f07ea86ddf7baebefd49731d7bbd207fedc53b",
+            "liquidity": "6392.055365257090970385",
+            "decimals": "18"
+        },
+        "token0Price": "0.9788040833849340541484606404885879",
+        "token1Price": "1.021654912331143425211562821234036",
+        "reserveUSD": "1675.758121156790977292042384638894"
+    },
+    {
+        "id": "0x5fcb390b4422f4ff7940c23618a62bf5f69658a8",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "ADDY",
+            "id": "0xc3fdbadc7c795ef1d6ba111e06ff8f16a20ea539",
+            "liquidity": "10303.382408160741364772",
+            "decimals": "18"
+        },
+        "token0Price": "0.2465680719061612626035710422165088",
+        "token1Price": "4.055675141834987599691650946403893",
+        "reserveUSD": "2170.920694749323225765462038224807"
+    },
+    {
+        "id": "0x5518a3af961eee8771657050c5cb23d2b3e2f6ee",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "IDLE",
+            "id": "0xc25351811983818c9fe6d8c580531819c8ade90f",
+            "liquidity": "5431.179914938063785678",
+            "decimals": "18"
+        },
+        "token0Price": "0.0001217749924503290728213071716864762",
+        "token1Price": "8211.866655691980688531039619686716",
+        "reserveUSD": "1310.224941757876676696927180962985"
+    },
+    {
+        "id": "0xaa3105d7bf095994f081a8522b951f7010d887a5",
+        "token0": {
+            "symbol": "PJVS",
+            "id": "0xa742013bc1975d8b98d99b85b2c8b5b19c42be61",
+            "liquidity": "9958028.262110042054338762",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "420.3724410565279232023519674569454",
+        "token1Price": "0.002378842907700338402543033550248695",
+        "reserveUSD": "47526.62657404236687538018702656039"
+    },
+    {
+        "id": "0xcffbfa978ac3fb10e829ca6b763c307daafe8a77",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "FBX",
+            "id": "0xd125443f38a69d776177c2b9c041f462936f8218",
+            "liquidity": "292099.576600004158190177",
+            "decimals": "18"
+        },
+        "token0Price": "0.0002801774621787188345503500776083387",
+        "token1Price": "3569.166456944073290587352746165696",
+        "reserveUSD": "88210.09823613105118703389266812227"
+    },
+    {
+        "id": "0xf27c14aedad4c1cfa7207f826c64ade3d5c741c3",
+        "token0": {
+            "symbol": "Polly",
+            "id": "0x4c392822d4be8494b798cea17b43d48b2308109c",
+            "liquidity": "517787289.397698718090321853",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "195897661.9962494291660902072608842",
+        "token1Price": "0.000000005104706150189508448562192194006617",
+        "reserveUSD": "1884.31587803052042398597358588697"
+    },
+    {
+        "id": "0x5976e166fcceec2c071a048b556822ae19b01f6b",
+        "token0": {
+            "symbol": "CPD",
+            "id": "0x1ce4a2c355f0dcc24e32a9af19f1836d6f4f98ae",
+            "liquidity": "3055152.938919845931992515",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "103.2811540258321809392549674623009",
+        "token1Price": "0.009682308543433634114858245576614346",
+        "reserveUSD": "59233.61524996367605242455694995175"
+    },
+    {
+        "id": "0xa6ea6904651c11b937e8c9f5d632ef7b77f30e39",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "GAJ",
+            "id": "0xf4b0903774532aee5ee567c02aab681a81539e92",
+            "liquidity": "278901.636297876139192331",
+            "decimals": "18"
+        },
+        "token0Price": "0.004564699693566349747841679137842108",
+        "token1Price": "219.0724619648989396085390281030633",
+        "reserveUSD": "1013.960329153334986570971709942254"
+    },
+    {
+        "id": "0x11602a5efa8c7645454764aa2654286c5811f1e7",
+        "token0": {
+            "symbol": "UDHV",
+            "id": "0x9b5a4ad8056713b2d9b811e4397080585d8394a2",
+            "liquidity": "9964353.300946205737643962",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "425.1910584698609106503354263487449",
+        "token1Price": "0.002351883888618705839175392112679723",
+        "reserveUSD": "46933.27506734832541711030599168858"
+    },
+    {
+        "id": "0xe427b62b495c1dfe1fe9f78bebfceb877ad05dce",
+        "token0": {
+            "symbol": "NHT",
+            "id": "0x84342e932797fc62814189f01f0fb05f52519708",
+            "liquidity": "49100274.415385083865441854",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "3762.459098144056139284219885640932",
+        "token1Price": "0.0002657836202108561069033688438022103",
+        "reserveUSD": "26085.71942678894307482359179692085"
+    },
+    {
+        "id": "0x4ab66a7138f50db9b7adaf8ce8afb3f638b22f7f",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "TUSD",
+            "id": "0x2e1ad108ff1d8c782fcbbb89aad783ac49586756",
+            "liquidity": "3738.108607690983894428",
+            "decimals": "18"
+        },
+        "token0Price": "0.9950957202896463134646137339006182",
+        "token1Price": "1.004928450208715779725530157423597",
+        "reserveUSD": "7439.421270746730612402565461823127"
+    },
+    {
+        "id": "0xfc067766349d0960bdc993806ea2e13fcfc03c4d",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "DDAO",
+            "id": "0x90f3edc7d5298918f7bb51694134b07356f7d0c7",
+            "liquidity": "1280484.488267039600161954",
+            "decimals": "18"
+        },
+        "token0Price": "0.00001380444446600032328364569371995116",
+        "token1Price": "72440.43774908519242915463707053888",
+        "reserveUSD": "66738.25914115272349646414289016275"
+    },
+    {
+        "id": "0x89176dc7b5aebd0d5efffc2592e2068266f4b783",
+        "token0": {
+            "symbol": "GRIMWEED",
+            "id": "0x06f34105b7dfedc95125348a8349bda209928730",
+            "liquidity": "5507142",
+            "decimals": "0"
+        },
+        "token1": {
+            "symbol": "AURUM",
+            "id": "0x34d4ab47bee066f361fa52d792e69ac7bd05ee23",
+            "liquidity": "271169657.534314623433261848",
+            "decimals": "18"
+        },
+        "token0Price": "1.493136488940952881680183604713561",
+        "token1Price": "0.6697311380483888862693305371757973",
+        "reserveUSD": "6357.937601401047144243143356099452"
+    },
+    {
+        "id": "0x4414b5a6356e9f1a5daade9eb5f3fe9e37af1635",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "pHBD",
+            "id": "0x6d969cea201e427d2875724fd4e8044833fbc7f4",
+            "liquidity": "11694.57",
+            "decimals": "3"
+        },
+        "token0Price": "0.9715597092500984673434036204899107",
+        "token1Price": "1.029272818210888205623635185986984",
+        "reserveUSD": "13128.59767776377059619196388870334"
+    },
+    {
+        "id": "0xf8095ffd24f02bd8aedc96e5a3617310815cc4c7",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "pLEO",
+            "id": "0xf826a91e8de52bc1baf40d88203e572dc2551aa3",
+            "liquidity": "195727.125",
+            "decimals": "3"
+        },
+        "token0Price": "0.09424968028179873098218635846781879",
+        "token1Price": "10.61011556760811174609499151594598",
+        "reserveUSD": "31520.59637367323014492927247125869"
+    },
+    {
+        "id": "0xcea28c2b744c0d159a070e11a0f04dc7182f155d",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "SAND",
+            "id": "0xc6d54d2f624bc83815b49d9c2203b1330b841ca0",
+            "liquidity": "3875.790498884870722362",
+            "decimals": "18"
+        },
+        "token0Price": "0.0005738889853358747667871241708512695",
+        "token1Price": "1742.497287022749060245576224912087",
+        "reserveUSD": "8358.768100714537880500293516538628"
+    },
+    {
+        "id": "0xc536098172c0b04ada7c8e02674aa3ed03c3ec50",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "OOKI",
+            "id": "0xcd150b1f528f326f5194c012f32eb30135c7c2c9",
+            "liquidity": "3922058.4697016647541492",
+            "decimals": "18"
+        },
+        "token0Price": "0.000001434515821601102574798340137376799",
+        "token1Price": "697099.317373769003162818493111599",
+        "reserveUSD": "22708.23674199689922782396640777768"
+    },
+    {
+        "id": "0x9a7b9d28a72e0a755c473606d4d0ec39c3f401ab",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "STAK",
+            "id": "0x46a5d492788f8afdfc743ab7d7bd13f996249ed5",
+            "liquidity": "187095986.098211769877766677",
+            "decimals": "18"
+        },
+        "token0Price": "0.0002709241582333928292270705223902938",
+        "token1Price": "3691.069879189329280931754512878112",
+        "reserveUSD": "86071.61857055524499711988320399344"
+    },
+    {
+        "id": "0x5b14b9205d79cb9e8b6a3bca759f51a65e0155e2",
+        "token0": {
+            "symbol": "HNY",
+            "id": "0x1fa2f83ba2df61c3d370071d61b17be01e224f3a",
+            "liquidity": "80980.747713953150080273",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token0Price": "1.169091614155426496452564694941305",
+        "token1Price": "0.8553649584788259556494796737307692",
+        "reserveUSD": "138558.11211963732426535996349246"
+    },
+    {
+        "id": "0x34908ec7f451beaa88c46c60a394cf324f86f67e",
+        "token0": {
+            "symbol": "POOL",
+            "id": "0x25788a1a171ec66da6502f9975a15b609ff54cf6",
+            "liquidity": "3146.955020318327541428",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "2854.142605791926830297193428960724",
+        "token1Price": "0.0003503679171358483140490374770895065",
+        "reserveUSD": "2023.720690917601975354750414758475"
+    },
+    {
+        "id": "0x25e8bbc103842f0dad2465f4e04cb8d44fb787bc",
+        "token0": {
+            "symbol": "dTOP",
+            "id": "0x0361bdeab89df6bbcc52c43589fabba5143d19dd",
+            "liquidity": "28143.651902503762749732",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "3262.557189312929883447630199933376",
+        "token1Price": "0.0003065080370930118508573128608745672",
+        "reserveUSD": "32173.85491762730030917602377024454"
+    },
+    {
+        "id": "0x7f2f223a851e8380473cebdbb14ca67d323e061d",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "VERSE",
+            "id": "0xa1388e73c51b37383b1ab9dce8317ef5a0349cc5",
+            "liquidity": "3292162.869058538258971512",
+            "decimals": "18"
+        },
+        "token0Price": "0.0000002727727046730080353250990431642083",
+        "token1Price": "3666055.961129874931357190371591481",
+        "reserveUSD": "1684.975116953634836833356364237921"
+    },
+    {
+        "id": "0x5a2ba689663fd35ec111676294055bd9fa47fde8",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "SALE",
+            "id": "0x8f6196901a4a153d8ee8f3fa779a042f6092d908",
+            "liquidity": "262864.688758583158868171",
+            "decimals": "18"
+        },
+        "token0Price": "0.1078039959681296111243236644107617",
+        "token1Price": "9.276093998367488371908766926134992",
+        "reserveUSD": "47630.93921518152191424060168643916"
+    },
+    {
+        "id": "0x2481cbe674fb72cf8cd3031ff4747078d168c9b3",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "BAO",
+            "id": "0xc81278a52ad0e1485b7c3cdf79079220ddd68b7d",
+            "liquidity": "52330388.396154985423807086",
+            "decimals": "18"
+        },
+        "token0Price": "0.00000001678189885850414785655921864937853",
+        "token1Price": "59588012.56231232323817682061809306",
+        "reserveUSD": "1533.667225717847050714504884681016"
+    },
+    {
+        "id": "0xab0454b98daf4a02ea29292e6a8882fb2c787dd4",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "WORK",
+            "id": "0x6002410dda2fb88b4d0dc3c1d562f7761191ea80",
+            "liquidity": "126838.830332027721848781",
+            "decimals": "18"
+        },
+        "token0Price": "0.009762092889078228031338222048532416",
+        "token1Price": "102.4370502680623029279018976633856",
+        "reserveUSD": "1237.9705428512472300734120079523"
+    },
+    {
+        "id": "0xc1214b61965594b3e08ea4950747d5a077cd1886",
+        "token0": {
+            "symbol": "GNOME",
+            "id": "0x6e8a8726639d12935b3219892155520bdc57366b",
+            "liquidity": "447978.964279259590921055",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "11115.7011032587338398472701753922",
+        "token1Price": "0.00008996283641585460233749990840164455",
+        "reserveUSD": "159863.9329404734513172359700463735"
+    },
+    {
+        "id": "0xbb2100b8330de3bb17d9badb21abec6c83d88e07",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "PMON",
+            "id": "0x1796ae0b0fa4862485106a0de9b654efe301d0b2",
+            "liquidity": "11406.837297546747431575",
+            "decimals": "18"
+        },
+        "token0Price": "0.6620166369080970114011433344095102",
+        "token1Price": "1.510536056420622519750038216014471",
+        "reserveUSD": "12704.81633914399458126780765303087"
+    },
+    {
+        "id": "0x780f8dcde782a373237d4f4edb2cf036c010c9fd",
+        "token0": {
+            "symbol": "RXQTP",
+            "id": "0x665299dc1718e3511a8d1cf854063184cbcd62d2",
+            "liquidity": "9999999.999994",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "847.6302713024652979251487869487918",
+        "token1Price": "0.001179759659200707855795520424713477",
+        "reserveUSD": "23619.67499082853697977813472159452"
+    },
+    {
+        "id": "0xcb05bfa2293ce9b246aa034d4791ca094717ac8a",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "SX",
+            "id": "0x840195888db4d6a99ed9f73fcd3b225bb3cb1a79",
+            "liquidity": "74100.44928501916759859",
+            "decimals": "18"
+        },
+        "token0Price": "0.1095276677603874288863807930042046",
+        "token1Price": "9.130113152666501463983439668853219",
+        "reserveUSD": "11965.83562247620063661039845409533"
+    },
+    {
+        "id": "0x03b67a0ce884e806673cc92e9a1c4a77d5bc770b",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "GNFT",
+            "id": "0xe58e8391ba17731c5671f9c6e00e420608dca10e",
+            "liquidity": "1200.708240084721169843",
+            "decimals": "18"
+        },
+        "token0Price": "0.00121657618598813625413022525691062",
+        "token1Price": "821.9789368865319456594471162803302",
+        "reserveUSD": "2944.181633378429277088121371176604"
+    },
+    {
+        "id": "0x095fc71521668d5bcc0fc3e3a9848e8911af21d9",
+        "token0": {
+            "symbol": "Polly",
+            "id": "0x4c392822d4be8494b798cea17b43d48b2308109c",
+            "liquidity": "517787289.397698718090321853",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "nDEFI",
+            "id": "0xd3f07ea86ddf7baebefd49731d7bbd207fedc53b",
+            "liquidity": "6392.055365257090970385",
+            "decimals": "18"
+        },
+        "token0Price": "275115.5884913868717170390166867127",
+        "token1Price": "0.000003634835835670239773927355858307363",
+        "reserveUSD": "1773.710443325691335313840431531493"
+    },
+    {
+        "id": "0x89e110150fb7df2f20cf79201b81877baffc3797",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "WASABI",
+            "id": "0xc2db4c131adaf01c15a1db654c040c8578929d55",
+            "liquidity": "105571.272155585537117799",
+            "decimals": "18"
+        },
+        "token0Price": "0.02952543084264694645066269645051196",
+        "token1Price": "33.86910779827083753831023699701995",
+        "reserveUSD": "6231.14317832235845182475708988702"
+    },
+    {
+        "id": "0x42acf553bca8f9af8dc0b3e507931ed96f8a91f5",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "DHC",
+            "id": "0xf9c1f70f9bf57fad5f63c6e1e25c2e895f04c0a6",
+            "liquidity": "49000.917528009201888577",
+            "decimals": "18"
+        },
+        "token0Price": "0.06632304151184563822115550554696357",
+        "token1Price": "15.0777162386528191448469253250056",
+        "reserveUSD": "2586.311176652620961571084951745492"
+    },
+    {
+        "id": "0xd9ef432ce0e6ee314c4297af7524688c7c89911d",
+        "token0": {
+            "symbol": "MSC",
+            "id": "0x5d2375c6af4b7de4e395ada20aab937895b4fa70",
+            "liquidity": "39899153.751411965604935831",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "MSU",
+            "id": "0xe8377a076adabb3f9838afb77bee96eac101ffb1",
+            "liquidity": "8102522.759349817704597408",
+            "decimals": "18"
+        },
+        "token0Price": "21.39294042223671550752221807763058",
+        "token1Price": "0.04674439232114900139592795340577138",
+        "reserveUSD": "10098.37426102643293138925990677612"
+    },
+    {
+        "id": "0x2110c882c446357ac38e36cae03df1578eb390b2",
+        "token0": {
+            "symbol": "ARIA20",
+            "id": "0x46f48fbdedaa6f5500993bede9539ef85f4bee8e",
+            "liquidity": "28701.530959701495958127",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "6514.726036714096440503524112916483",
+        "token1Price": "0.0001534983964581848981786118214347242",
+        "reserveUSD": "17764.74856339861837094914142832587"
+    },
+    {
+        "id": "0xbffad6894968cc81e5f583ae02a746aa1fab44be",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "VEE",
+            "id": "0xf1c1a3c2481a3a8a3f173a9ab5ade275292a6fa3",
+            "liquidity": "4945089.787256162074776882",
+            "decimals": "18"
+        },
+        "token0Price": "0.000001125781390571867115472843319554033",
+        "token1Price": "888271.9223951876642625498509107564",
+        "reserveUSD": "22291.37786858855246348899016298889"
+    },
+    {
+        "id": "0xfbba6eaa27080321aa75efe72216989a675fcc5f",
+        "token0": {
+            "symbol": "ET",
+            "id": "0x1488c7cdee1b8b534a1789e9da8b447c7999e04b",
+            "liquidity": "1375681.642703857718481034",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "1009137.932755748933771180865120649",
+        "token1Price": "0.0000009909448129347441021555860691222506",
+        "reserveUSD": "2089.763591228020763686332230698129"
+    },
+    {
+        "id": "0x5ab6064e07a3bbd95fd143247c100f454b662b55",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "PET",
+            "id": "0xb1163002c7cb1892d8b188580e9b7e92dc140a49",
+            "liquidity": "1046865.465770924825575848",
+            "decimals": "18"
+        },
+        "token0Price": "0.002098508628165244479138438934581375",
+        "token1Price": "476.5288960828881713667978546125267",
+        "reserveUSD": "2196.020889134367965578008671346129"
+    },
+    {
+        "id": "0xe8137f0c422249e7acda2e05d401b3e4b608d062",
+        "token0": {
+            "symbol": "FID",
+            "id": "0x9a4eb698e5de3d3df0a68f681789072de1e50222",
+            "liquidity": "1044570.977603475820152825",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "247.1143435551927126332240431079409",
+        "token1Price": "0.004046709655187017166776358355068904",
+        "reserveUSD": "8407.626974264527738846006130209863"
+    },
+    {
+        "id": "0xc879bc72136cb6519b5e0e456bc9d727e106c582",
+        "token0": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "IXT",
+            "id": "0xe06bd4f5aac8d0aa337d13ec88db6defc6eaeefe",
+            "liquidity": "642895.372449216822566052",
+            "decimals": "18"
+        },
+        "token0Price": "0.3416292358922609791943030036138602",
+        "token1Price": "2.927149947773697767261890021947941",
+        "reserveUSD": "4631.361893729614370838019626996277"
+    },
+    {
+        "id": "0x399cbaa1ad52e46afb2935ccba7cf5c8b1df93bf",
+        "token0": {
+            "symbol": "BET",
+            "id": "0x0a1dcc07160935f78b0849e6af83eb9c98fa2e37",
+            "liquidity": "355207719.707851161683507356",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token0Price": "5216.698469234502966440233269358757",
+        "token1Price": "0.0001916921221146867917086205094125477",
+        "reserveUSD": "95438.05077563613524323861920826142"
+    },
+    {
+        "id": "0x87dbeb21f704f9bfb05de0dc35f579db9f70f4d5",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "MABBC",
+            "id": "0xe83ce6bfb580583bd6a62b4be7b34fc25f02910d",
+            "liquidity": "207606.04487572",
+            "decimals": "8"
+        },
+        "token0Price": "0.06348919712761946512212853496331542",
+        "token1Price": "15.75071106963130559046862359478793",
+        "reserveUSD": "26362.20971030223767417575366602728"
+    },
+    {
+        "id": "0x505fbc1330e0b440637024529eae55f6e23651ef",
+        "token0": {
+            "symbol": "AKSG",
+            "id": "0xaed2aca44bc81cd7478dd027158d4f1eec9b073f",
+            "liquidity": "90316.618443421775171148",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "0.5340558455102054313186789187540662",
+        "token1Price": "1.872463354547985569869429319529353",
+        "reserveUSD": "339296.0995537795437668196726995373"
+    },
+    {
+        "id": "0x3c2646a14b43c872a09ec9dc6135fc5920a50f56",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "TXL",
+            "id": "0x8eef5a82e6aa222a60f009ac18c24ee12dbf4b41",
+            "liquidity": "644201.375471390474406977",
+            "decimals": "18"
+        },
+        "token0Price": "0.009565161113711998483476127073079672",
+        "token1Price": "104.5460696492048055015732197821591",
+        "reserveUSD": "3963.910666180666665057979260338869"
+    },
+    {
+        "id": "0x4cd90c7816909f72ddf8961d89f09871400a3fde",
+        "token0": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "KAAXO",
+            "id": "0xd5e4200b91f816ef4fdcbb5c0f3d28694af9d224",
+            "liquidity": "9925182.825961",
+            "decimals": "6"
+        },
+        "token0Price": "0.0005787758725183781575841993208383629",
+        "token1Price": "1727.78453194461125986273705430802",
+        "reserveUSD": "11525.15580397482859951074588806898"
+    },
+    {
+        "id": "0xfc300a58e46089aa6b3ed78fa8fda4fb36614d3f",
+        "token0": {
+            "symbol": "MOPGR",
+            "id": "0x8e368f387c17de30566d98701290c8cb3b67371e",
+            "liquidity": "9863473.558200219",
+            "decimals": "9"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "1706.746992213561595495209931256092",
+        "token1Price": "0.0005859099237099297854664276242269922",
+        "reserveUSD": "11575.51304666669494322618594496671"
+    },
+    {
+        "id": "0x7b23afe559433aace4d61ed65e225a74094defcb",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "ROY",
+            "id": "0x68ee0d0aad9e1984af85ca224117e4d20eaf68be",
+            "liquidity": "4263515.581512827324068478",
+            "decimals": "18"
+        },
+        "token0Price": "0.002984708953151746692851821309641656",
+        "token1Price": "335.0410427603118560389486080420232",
+        "reserveUSD": "21751.10354487268642073739606021924"
+    },
+    {
+        "id": "0x6e7218057e7fa937c2831ff9aa06fd6e180ca54f",
+        "token0": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "WOH",
+            "id": "0xe092d6b225d25007be7cc9d18347be7e318c07c2",
+            "liquidity": "9945046.119362653",
+            "decimals": "9"
+        },
+        "token0Price": "0.0005750091103012884098543723258425125",
+        "token1Price": "1739.102880432674290293037198363222",
+        "reserveUSD": "11457.71320113958309297175121027098"
+    },
+    {
+        "id": "0x9471a8e318c6446f6033c544cc22155f324c5d2f",
+        "token0": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "LSS",
+            "id": "0xe321d8a9f5898cdbb95c45c568944c58cb52c299",
+            "liquidity": "9876602.823661559",
+            "decimals": "9"
+        },
+        "token0Price": "0.0005805573600938075358519153423680549",
+        "token1Price": "1722.482684292243136559240289412293",
+        "reserveUSD": "11485.03267273152572765043664092864"
+    },
+    {
+        "id": "0x2fb17fb8b22d13cddacc1aeb4ff6d75135ed56d0",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WHIRL",
+            "id": "0x4f6cbaca3151f7746273004fd7295933a9b70e69",
+            "liquidity": "486669.927999025345680701",
+            "decimals": "18"
+        },
+        "token0Price": "0.009175040218788879657300264962195439",
+        "token1Price": "108.9913478474104867255025305386351",
+        "reserveUSD": "6479.453088345055670518579489247519"
+    },
+    {
+        "id": "0xb2270ced56756be33d16ffdf1f016bcbe1656dec",
+        "token0": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "LRRNR",
+            "id": "0xdf385444e456a20c2728153790934c31d17ada2c",
+            "liquidity": "9810788.143593",
+            "decimals": "6"
+        },
+        "token0Price": "0.0005882376934995624079653270617033811",
+        "token1Price": "1699.99306581454883156786292330308",
+        "reserveUSD": "11562.56026464430350850653663755124"
+    },
+    {
+        "id": "0xc575c0378c32ea4c32444d9d64e756c3e0d133b2",
+        "token0": {
+            "symbol": "FPRWL",
+            "id": "0x936bd4a9b7413d69ee5c4a996b8b78aa346dcb7d",
+            "liquidity": "9879641.824446",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "1724.767597627468786240625333964341",
+        "token1Price": "0.0005797882574878874917763822546718809",
+        "reserveUSD": "11488.05110595572474155121496515577"
+    },
+    {
+        "id": "0x509645caa3d644ad1d5b8a6093f968013d16b823",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "UNITY",
+            "id": "0x7e94de269df2eb9f4d0443d46500191f19c9a8da",
+            "liquidity": "88808928.579754293098685341",
+            "decimals": "18"
+        },
+        "token0Price": "0.00007936985679775231628926114835435987",
+        "token1Price": "12599.24158044240178178101502450628",
+        "reserveUSD": "11983.01077715031585652373887822766"
+    },
+    {
+        "id": "0x6a3bb9af91ea7cf519cdf88af7e04ae8ae1425f4",
+        "token0": {
+            "symbol": "SUSHI",
+            "id": "0x0b3f868e0be5597d5db7feb59e1cadbb0fdda50a",
+            "liquidity": "43063.95657397503369808",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "xSUSHI",
+            "id": "0x6811079e3c63ed96eb005384d7e7ec8810e3d521",
+            "liquidity": "11958.393851506933275778",
+            "decimals": "18"
+        },
+        "token0Price": "1.30681529634686846404893713718402",
+        "token1Price": "0.7652190809178970864610002976047877",
+        "reserveUSD": "19595.82944737604142507178994497147"
+    },
+    {
+        "id": "0x7cafe85181fb1b01b08dffec16c9b02cb5495501",
+        "token0": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "ANPZG",
+            "id": "0xc614bbd9b98b37227839acb43bb9be61e8e02e02",
+            "liquidity": "9817093.117773286820058577",
+            "decimals": "18"
+        },
+        "token0Price": "0.0005831345055325779867052963283334901",
+        "token1Price": "1714.870223786016347558068864832034",
+        "reserveUSD": "11467.13735470978894824515209747353"
+    },
+    {
+        "id": "0xbc58e7a5947ecbbbda60d76e4d027b05ebbd6e9b",
+        "token0": {
+            "symbol": "WBTC",
+            "id": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+            "liquidity": "31.85208977",
+            "decimals": "8"
+        },
+        "token1": {
+            "symbol": "ZEEM",
+            "id": "0x4ca7bf91e4384d7c7a48ed4c04b555f350eb6719",
+            "liquidity": "1816387.807797612420271382",
+            "decimals": "18"
+        },
+        "token0Price": "0.000001074831366748269056281060854554431",
+        "token1Price": "930378.5048861576990530907277412248",
+        "reserveUSD": "123222.5243429877459955108990272538"
+    },
+    {
+        "id": "0x9facdd2b79fdca9978945bed0cc35fcfe32b45b4",
+        "token0": {
+            "symbol": "APYS",
+            "id": "0x14743e1c6f812154f7ecc980d890f0f5234103e7",
+            "liquidity": "204947.75365324258375802",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token0Price": "132.0190663550280312743539036533966",
+        "token1Price": "0.007574663475583005099415039257319979",
+        "reserveUSD": "1552.582627164757706792072477647904"
+    },
+    {
+        "id": "0x6abbef4779508a376df7f67b1618ba04cc1e9d60",
+        "token0": {
+            "symbol": "BYN",
+            "id": "0x11602a402281974a70c2b4824d58ebede967e2be",
+            "liquidity": "232012.018857692408944005",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "386387.7694790212658707178441136617",
+        "token1Price": "0.000002588073637393676635890220989153767",
+        "reserveUSD": "1149.925683566780868912568216970193"
+    },
+    {
+        "id": "0x3a96a8e95019832d0a8eed53f6f3d0f0de0a875d",
+        "token0": {
+            "symbol": "TURIN",
+            "id": "0x0f289de02c03c7a84a6a10898dd882a2f3caa3a0",
+            "liquidity": "729187.860994891102644293",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WBTC",
+            "id": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+            "liquidity": "31.85208977",
+            "decimals": "8"
+        },
+        "token0Price": "826376.5342361769311181627281251419",
+        "token1Price": "0.000001210102124843493914863385730515978",
+        "reserveUSD": "55772.74932162873668749025174109868"
+    },
+    {
+        "id": "0x3b31bb4b6ba4f67f4ef54e78bcb0aaa4f53dc7ff",
+        "token0": {
+            "symbol": "DAI",
+            "id": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+            "liquidity": "376683.637775881544114434",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "0.9983065956261238797256586295104548",
+        "token1Price": "1.001696276856524263297935594983071",
+        "reserveUSD": "4556.899094886773490409934489602605"
+    },
+    {
+        "id": "0xc6e50c7906327237e15f5c5234ffe9f8123ce84b",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "SMOKE",
+            "id": "0xc54a5024b6c5e565772729b783021f60a8f9139c",
+            "liquidity": "845867.324895825334864262",
+            "decimals": "18"
+        },
+        "token0Price": "0.0000007424413691329240734800585887468771",
+        "token1Price": "1346907.704197398436396137823754666",
+        "reserveUSD": "1173.965260727668563490657082754499"
+    },
+    {
+        "id": "0x84b840df3017831a6ee22bcb12cd13cb9e9a78f9",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "BITT",
+            "id": "0xfd0cbddec28a93bb86b9db4a62258f5ef25fefde",
+            "liquidity": "412116.225744572622870278",
+            "decimals": "18"
+        },
+        "token0Price": "0.02339960558326876460706582143913462",
+        "token1Price": "42.73576306410147833953850285026659",
+        "reserveUSD": "16384.08104706803450203132900203721"
+    },
+    {
+        "id": "0xcf63fc72c931bd88850602114f2bcbc98dc97b5b",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "ZRO",
+            "id": "0x6acda5e7eb1117733dc7cb6158fc67f226b32022",
+            "liquidity": "50326884.557114668848111601",
+            "decimals": "18"
+        },
+        "token0Price": "0.001398868646872712950004148059538481",
+        "token1Price": "714.8634021039667018884957672711408",
+        "reserveUSD": "122806.9033498706846293917934875631"
+    },
+    {
+        "id": "0x9817b7759096d1826a9256d8c62232c878cde7d2",
+        "token0": {
+            "symbol": "DRAX",
+            "id": "0x1ba3510a9ceeb72e5cdba8bcdde9647e1f20fb4b",
+            "liquidity": "96809.438028696951636437",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "DMAGIC",
+            "id": "0x61daecab65ee2a1d5b6032df030f3faa3d116aa7",
+            "liquidity": "1257645.391778662067297202",
+            "decimals": "18"
+        },
+        "token0Price": "0.5947680686696447295076335290481856",
+        "token1Price": "1.68132765135956794454475883710738",
+        "reserveUSD": "35261.90996773270021086263337511435"
+    },
+    {
+        "id": "0x4961760a63807180ebd8dc08430d45ae7f1b7b6a",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "wXLM",
+            "id": "0xf854225caaef5a722884a68a23215dfa5386751e",
+            "liquidity": "6928.466427305017100106",
+            "decimals": "18"
+        },
+        "token0Price": "0.1613708548138807810908404759170355",
+        "token1Price": "6.196905885845143989148917097326462",
+        "reserveUSD": "1117.785024332655004518419074322603"
+    },
+    {
+        "id": "0x235aeb304cc1a06602321eaf0f1dbafd6a34fb5f",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "TXL",
+            "id": "0x8eef5a82e6aa222a60f009ac18c24ee12dbf4b41",
+            "liquidity": "644201.375471390474406977",
+            "decimals": "18"
+        },
+        "token0Price": "0.000004097084305222896438566589673260446",
+        "token1Price": "244076.0124767792216761308272898834",
+        "reserveUSD": "1391.130370487505533052015042708509"
+    },
+    {
+        "id": "0xe17b6fae6e6d16c5dd3436345e4fc4bbdfee7663",
+        "token0": {
+            "symbol": "BFLY",
+            "id": "0x5b0a0cd03e9df1829e00128ebe277cc3247da346",
+            "liquidity": "99715.078076495893126819",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "94161.70243956733321774112554375794",
+        "token1Price": "0.00001062002888745343858851147141230936",
+        "reserveUSD": "1984.707226625813397193304838616907"
+    },
+    {
+        "id": "0xfea0b7e4227520362b4c57fa356cea08bbc8dd47",
+        "token0": {
+            "symbol": "ATA",
+            "id": "0x0df0f72ee0e5c9b7ca761ecec42754992b2da5bf",
+            "liquidity": "13458.989124276983044662",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "21154.68369446492663838330368249734",
+        "token1Price": "0.0000472708556858095521460030905793841",
+        "reserveUSD": "1268.905330291365451169439110678772"
+    },
+    {
+        "id": "0xffc654a0d0f740748d9d4d0061c96c284c3cdf88",
+        "token0": {
+            "symbol": "XGEM",
+            "id": "0x02649c1ff4296038de4b9ba8f491b42b940a8252",
+            "liquidity": "816941.841349781541726678",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token0Price": "666.2180207959636060988339711347097",
+        "token1Price": "0.001501010132997078886801582925717629",
+        "reserveUSD": "1053.842887020228417862018755727962"
+    },
+    {
+        "id": "0x0c98d36908dfbe11c9a4d1f3cd8a9b94baba7521",
+        "token0": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "nSTBL",
+            "id": "0x9bf320bd1796a7495bb6187f9eb4db2679b74ed3",
+            "liquidity": "1119.846043989450095584",
+            "decimals": "18"
+        },
+        "token0Price": "0.0005147890375199811994337325527437796",
+        "token1Price": "1942.543308259911526863071741601407",
+        "reserveUSD": "1051.444709621096606827465016164814"
+    },
+    {
+        "id": "0xd1ce80f3b78444e368516737e24b729676625f1e",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "TRIPS",
+            "id": "0xf7e24ea0511bde59a2343ebeaa0390e7c44c078c",
+            "liquidity": "25623.479247564825043407",
+            "decimals": "18"
+        },
+        "token0Price": "0.039488421506855327428997859829041",
+        "token1Price": "25.32387879384838209083424484859177",
+        "reserveUSD": "1011.270847890074855198851575002778"
+    },
+    {
+        "id": "0xe13cf22b46667dfb8dc9eeb401a157d78265d832",
+        "token0": {
+            "symbol": "GQG",
+            "id": "0x1cc4ef9f90620f8944cf00f3e1101205089a7453",
+            "liquidity": "9626128.372344948",
+            "decimals": "9"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "4202.053758097169831827997333810184",
+        "token1Price": "0.0002379788688026764728838642539590326",
+        "reserveUSD": "2295.076941100351913984411189354823"
+    },
+    {
+        "id": "0x72bdf2dbcd73dddda84d78994095fbcfd1253127",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "SHARD",
+            "id": "0x41e5ae7581c06c4c53ac2d29a8857260c161ee71",
+            "liquidity": "4206600.171331",
+            "decimals": "6"
+        },
+        "token0Price": "0.001173348692998857766322612094846324",
+        "token1Price": "852.2615706369338256619381744274219",
+        "reserveUSD": "9866.73308112187004939877415582353"
+    },
+    {
+        "id": "0x0f44517ac321dc0d2bf13bc3728c18577d9af6d4",
+        "token0": {
+            "symbol": "HCS",
+            "id": "0x8daabe7ea12583d1251b80609ba8ec2f683e8f04",
+            "liquidity": "9811011.574032066832538456",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "4366.871616603824582541667126695048",
+        "token1Price": "0.0002289968855960353589546956911222008",
+        "reserveUSD": "2249.401227063412241982602019158794"
+    },
+    {
+        "id": "0x0695d298dc6c68f05ea7b32ce75fac89327de308",
+        "token0": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "TSOI",
+            "id": "0xd15c8c67d161d05ad06f28ffffa02be49f6ae61c",
+            "liquidity": "9850016.318319825960085212",
+            "decimals": "18"
+        },
+        "token0Price": "0.0002272120199270650281966290349380679",
+        "token1Price": "4401.175608231464245985075533681738",
+        "reserveUSD": "2241.237922171596969092381125390384"
+    },
+    {
+        "id": "0x53b97cb3999183edff4e26f033c46c27355154b3",
+        "token0": {
+            "symbol": "ADM",
+            "id": "0xb6ad1f171149b3400d8653e42640eacd721e1dbd",
+            "liquidity": "9766960.869595886512792478",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "4347.747978891881891574558471770514",
+        "token1Price": "0.0002300041319908500638695567528042635",
+        "reserveUSD": "2250.208807087152594830164885064607"
+    },
+    {
+        "id": "0xe872c7d71c72ad5a748b7a6a21797743c60e9af5",
+        "token0": {
+            "symbol": "OTIJA",
+            "id": "0x7400ebd363f7bf447d10a606f341923429af9e74",
+            "liquidity": "9845645.642652614",
+            "decimals": "9"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "4420.38015417815189188455041515937",
+        "token1Price": "0.0002262248868018281326364144332310938",
+        "reserveUSD": "2230.665045610221001433906718732396"
+    },
+    {
+        "id": "0x4e3994c7c09dac46ddeea55a2749f97e2ff0d49e",
+        "token0": {
+            "symbol": "KKCB",
+            "id": "0x1c2ef4751c4f7ca7fd148c64594c1054de2e428f",
+            "liquidity": "9848462.958351948710377369",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "4426.418538799918290382865420541031",
+        "token1Price": "0.0002259162777388687678908919972471781",
+        "reserveUSD": "2231.946886015209882821313855204845"
+    },
+    {
+        "id": "0x1d79b55113738319dedac94c2f0952eee10fad40",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "POLYPIG",
+            "id": "0xff39754755237b13441308db986e97d599034aac",
+            "liquidity": "286870095918514.738423081",
+            "decimals": "9"
+        },
+        "token0Price": "0.00000000001483813489542342682395584231964433",
+        "token1Price": "67393914871.90436468072284141222823",
+        "reserveUSD": "2871.897383024513734630068289097199"
+    },
+    {
+        "id": "0x1f005096105f4f4f8e9ad1002377d4df9b97dbe4",
+        "token0": {
+            "symbol": "BHO",
+            "id": "0x7982b6944fd9e4b02424d322e8021faf2283166a",
+            "liquidity": "9781349.128893879736713121",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "4392.639956323008256255303911637394",
+        "token1Price": "0.0002276535318039314464728806315041464",
+        "reserveUSD": "2230.892422153412818864195226779518"
+    },
+    {
+        "id": "0x6ff08982dc3abf98fba0b65bb5f9f2a701ab885b",
+        "token0": {
+            "symbol": "POZZ",
+            "id": "0x01b3b7b4656f60e849ab6016ec70fcb0d1f336c8",
+            "liquidity": "14691.64457",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token0Price": "2.519733652214473343270575239903669",
+        "token1Price": "0.3968673431499983531115332447768303",
+        "reserveUSD": "11660.85169657641488755233995001997"
+    },
+    {
+        "id": "0x9b967c6db1a8cc1e73eca79ca3e5b32ba9ac6465",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "THEOS",
+            "id": "0xdb982a636807b3acd9fd28a99410b68c2159fb32",
+            "liquidity": "21301384.650980362557676636",
+            "decimals": "18"
+        },
+        "token0Price": "0.000176200886057805038441430134187895",
+        "token1Price": "5675.340359366505866256649901730224",
+        "reserveUSD": "2692.879857805842021838495878544683"
+    },
+    {
+        "id": "0x61f1d8c911bff2d9e698f3ba8f7cbd5c1373dd7b",
+        "token0": {
+            "symbol": "RUUF",
+            "id": "0x182f1d39df9460d7aef29afbc80bbd68ed0a41d5",
+            "liquidity": "1100712.930039767661192352",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "104734.7256885546939197206197587327",
+        "token1Price": "0.000009547931628461590556505589309857785",
+        "reserveUSD": "42081.57980867966626564047776010956"
+    },
+    {
+        "id": "0x7cf69af2a017452754f7fbbc36d4a12cc5bc631b",
+        "token0": {
+            "symbol": "CPTC",
+            "id": "0x0a97853c72cb28c98b3112ae45215391675cac43",
+            "liquidity": "273683.146337459194849988",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token0Price": "61.43873861108748548010913494511057",
+        "token1Price": "0.01627637582747403475083849350449608",
+        "reserveUSD": "5946.973636121186377756821563453203"
+    },
+    {
+        "id": "0xdfe1c52f29defb9b956c9ddad3716d5bb2c09164",
+        "token0": {
+            "symbol": "FIT",
+            "id": "0x11b37c9388420d79d48e8d531227f43c9bf1bbf1",
+            "liquidity": "393091.87628815302187429",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WBTC",
+            "id": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+            "liquidity": "31.85208977",
+            "decimals": "8"
+        },
+        "token0Price": "59005.84936850097921176763367559084",
+        "token1Price": "0.000016947472338798817181467723150923",
+        "reserveUSD": "416506.4721293523467146969031135884"
+    },
+    {
+        "id": "0x600435e924d7bde66a91765753db68bf5d46a7d2",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "SHIBA",
+            "id": "0x8373cd56a39276f2f5ec7ce55b923caac79992c1",
+            "liquidity": "18578.599867403081203444",
+            "decimals": "18"
+        },
+        "token0Price": "1.223972123857283773607938128980917",
+        "token1Price": "0.8170120711969751361085694753289279",
+        "reserveUSD": "45501.9477043792300652549781723346"
+    },
+    {
+        "id": "0x84ecaf1e5e241a61e9b596f6c957b2bea9ad92d9",
+        "token0": {
+            "symbol": "$GGWTT",
+            "id": "0xc08e94e12ca1357df36f3c16c3a1df5f84c7b801",
+            "liquidity": "252926164.526169160468239851",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "56080.35287392757685079894445393551",
+        "token1Price": "0.00001783155684216302239777641730556357",
+        "reserveUSD": "8909.773186634081390002271428424026"
+    },
+    {
+        "id": "0xe221a2903f7f3aa52ce09e0b218e4382a6ac60ff",
+        "token0": {
+            "symbol": "PLAY",
+            "id": "0x672255e73e9fcb8d8971b6e2622057baa84b5afe",
+            "liquidity": "377037.906620241515619829",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "504949.6341375442836549705150958937",
+        "token1Price": "0.000001980395533324830402818616388169005",
+        "reserveUSD": "1396.162588915390996232693515806703"
+    },
+    {
+        "id": "0x1234773ecc6e00761435b05dd29545e5b2f41efa",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "ELONTC",
+            "id": "0xecf7efc68218d2f9c4bd1fbc68cb81f794ab3a2a",
+            "liquidity": "42903.962112124009861965",
+            "decimals": "18"
+        },
+        "token0Price": "0.2245797620233585081978022879131495",
+        "token1Price": "4.452760974499519445898686412983329",
+        "reserveUSD": "19271.17996092223983411251324405768"
+    },
+    {
+        "id": "0xdbe3ebacf6274ac15cbdaf1a1ef57d61220b760f",
+        "token0": {
+            "symbol": "WBTC",
+            "id": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+            "liquidity": "31.85208977",
+            "decimals": "8"
+        },
+        "token1": {
+            "symbol": "XBBX",
+            "id": "0xec79b78bcedf3c4b6d12c27ba6d092ad178b5b30",
+            "liquidity": "77806998.245253410019621114",
+            "decimals": "18"
+        },
+        "token0Price": "0.000000001382976835377673439259884070759199",
+        "token1Price": "723077910.2145356460698972329338305",
+        "reserveUSD": "3166.964984090427794818740690131558"
+    },
+    {
+        "id": "0x23ea49740dad04653b9d73694a40ef14bfff8833",
+        "token0": {
+            "symbol": "wRNBW",
+            "id": "0x18e7bdb379928a651f093ef1bc328889b33a560c",
+            "liquidity": "808054.814655564666578213",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "915607.3630659111096185174770805098",
+        "token1Price": "0.000001092171208247496130905415843923922",
+        "reserveUSD": "1022.932371082509494857664222700676"
+    },
+    {
+        "id": "0xe66f274542fb624f5489ebb9f6e953e91a9908d1",
+        "token0": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "FLEATO",
+            "id": "0x6804b07d883d0169c05233332ccf17aa956424c5",
+            "liquidity": "92143.070581494273005032",
+            "decimals": "18"
+        },
+        "token0Price": "0.07466660633703478998528955736280426",
+        "token1Price": "13.39286796410884885293783951612738",
+        "reserveUSD": "2100.006433117686234236661856297264"
+    },
+    {
+        "id": "0x34209a5f702a81b62197dbfc36a48c3fe04af8d7",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "rChili",
+            "id": "0x48e1eec032171f871890c86308147032bb246508",
+            "liquidity": "16831.62460716496735664",
+            "decimals": "18"
+        },
+        "token0Price": "0.3875242841001750393162262226065279",
+        "token1Price": "2.580483445887742016583725940836857",
+        "reserveUSD": "9288.399811942244934050599385005218"
+    },
+    {
+        "id": "0xf46c8d02c1a494faa89c4f38cf7c377e6a27cdd5",
+        "token0": {
+            "symbol": "GDYF",
+            "id": "0x1b8f99fe22eecae6bb80e99eca3fbfb7b46beb16",
+            "liquidity": "9999999.999999999999999994",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "9047.346397649660086762635139014368",
+        "token1Price": "0.000110529646600000000000000066317788",
+        "reserveUSD": "1106.433552785248313818565178325184"
+    },
+    {
+        "id": "0xbddb0b6ef2dc368fea46755bbca3457e5c2f8f20",
+        "token0": {
+            "symbol": "QKME",
+            "id": "0x9b96560997a6472bbe36d1e31089485d9f53a673",
+            "liquidity": "9810644.903991758375610929",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "8734.486547483952037493937120122109",
+        "token1Price": "0.0001144886988563808661984335289578179",
+        "reserveUSD": "1124.889054733187092325456353382285"
+    },
+    {
+        "id": "0xb379fa79a6d1cde7d994c12f526095bb22a96879",
+        "token0": {
+            "symbol": "UUF",
+            "id": "0x66bdb16a74bc7e6edba18708745c80ee68c3c540",
+            "liquidity": "9999999.999994",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "9105.0651661386945914013596510046",
+        "token1Price": "0.000109828977800065897386680039538432",
+        "reserveUSD": "1099.429337145673183549778647687895"
+    },
+    {
+        "id": "0xb333e26922a8ef58c20937616102ce06c4c65931",
+        "token0": {
+            "symbol": "RGT",
+            "id": "0x3e880669e2f00689c49f4f96ddf3ad4c9863ee98",
+            "liquidity": "9431608.600819",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "8076.405646760339539675542901484976",
+        "token1Price": "0.0001238174559002155267148939454103833",
+        "reserveUSD": "1169.780415042806366999632445058013"
+    },
+    {
+        "id": "0x7af6b40c7684e31b943c5372fa646213e7f23f57",
+        "token0": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token1": {
+            "symbol": "LVDY",
+            "id": "0xd0f0a2af93b1c1cd8580cee095bea37f8fb8fa86",
+            "liquidity": "9616837.670199",
+            "decimals": "6"
+        },
+        "token0Price": "0.0001194688662116333399255438368395395",
+        "token1Price": "8370.38160409548195321400283285059",
+        "reserveUSD": "1150.553285934022750570453684616934"
+    },
+    {
+        "id": "0x98fa3570babfaa861f4d51a20f409880ed5c6e72",
+        "token0": {
+            "symbol": "ZCF",
+            "id": "0x887fb6068593fdcf170aa8808153a81a1ac59793",
+            "liquidity": "9742511.559055858",
+            "decimals": "9"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "8646.823699481168206409047943220762",
+        "token1Price": "0.0001156494031513563283665354836465431",
+        "reserveUSD": "1130.270001829790575152673406311829"
+    },
+    {
+        "id": "0xb6dc100154c1d28288ce1fb58abe18a26466dc33",
+        "token0": {
+            "symbol": "HHYB",
+            "id": "0x795587b6acf3b41ebd207680e8de39e3a6b1d3db",
+            "liquidity": "9682024.967394549",
+            "decimals": "9"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "8511.461371753957701971908167367166",
+        "token1Price": "0.0001174886375350993221157187393522826",
+        "reserveUSD": "1139.063501788362290330703620310874"
+    },
+    {
+        "id": "0x67508e590e1cda1b239b9b4847ac5544b0f32fe4",
+        "token0": {
+            "symbol": "USDZ",
+            "id": "0x32b2e15fd9b5a843943f5c796f0f30fc57e96134",
+            "liquidity": "2303.130611602800480427",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "1.315002971651277392231376193925937",
+        "token1Price": "0.760454555280798023631424141349761",
+        "reserveUSD": "1748.274104133927962325565662637977"
+    },
+    {
+        "id": "0x320a12caa9e4879d2082aad714c78c5f4507ac59",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "FLEATO",
+            "id": "0x6804b07d883d0169c05233332ccf17aa956424c5",
+            "liquidity": "92143.070581494273005032",
+            "decimals": "18"
+        },
+        "token0Price": "0.08688925831365970432368185296490472",
+        "token1Price": "11.50890247434407890567031586121654",
+        "reserveUSD": "1382.121305965218420977947243024601"
+    },
+    {
+        "id": "0x8754c8b24145fb41ee14764a2988594e6ccd5c79",
+        "token0": {
+            "symbol": "EHU",
+            "id": "0x197a754499a9a6855d7cd0ea50346e8886b20b92",
+            "liquidity": "9618144.952823748127718947",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "8407.957253715141171272132480743417",
+        "token1Price": "0.0001189349529052541102963360486686464",
+        "reserveUSD": "1144.376847138633681979987097254841"
+    },
+    {
+        "id": "0xc255866457219caac635c527c300302b709f3103",
+        "token0": {
+            "symbol": "FLEATO",
+            "id": "0x6804b07d883d0169c05233332ccf17aa956424c5",
+            "liquidity": "92143.070581494273005032",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "26765.50809989078012444021875745769",
+        "token1Price": "0.00003736151752725667928923238189188567",
+        "reserveUSD": "1657.966586389051647784465589306709"
+    },
+    {
+        "id": "0x97c45f96e3ac73a0ffd7f0473b4730958ecf9d22",
+        "token0": {
+            "symbol": "WBTC",
+            "id": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+            "liquidity": "31.85208977",
+            "decimals": "8"
+        },
+        "token1": {
+            "symbol": "FLEATO",
+            "id": "0x6804b07d883d0169c05233332ccf17aa956424c5",
+            "liquidity": "92143.070581494273005032",
+            "decimals": "18"
+        },
+        "token0Price": "0.000002364370362693087577194457903865341",
+        "token1Price": "422945.5823752461971634381352610325",
+        "reserveUSD": "1731.894375541019065571703399764147"
+    },
+    {
+        "id": "0xea502bd4f454690e7baf347e2c2b1476e5fcd6c7",
+        "token0": {
+            "symbol": "nINFR",
+            "id": "0x6b1e22bc4d28dac283197cf44347639c8360ece6",
+            "liquidity": "1306.673953676224522811",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WETH",
+            "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "liquidity": "2156.516615639553319257",
+            "decimals": "18"
+        },
+        "token0Price": "2418.926346548443686545587778361436",
+        "token1Price": "0.000413406551806298688635331448420965",
+        "reserveUSD": "1011.509609200178610481547000310263"
+    },
+    {
+        "id": "0x755e5ea5e2ec6278d0ccc7a6ad7094ee453f20b7",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "MISO",
+            "id": "0x7eec9ef58166ae951a979b2c2a203d4c1e5e0ccb",
+            "liquidity": "2848849.837584444194753101",
+            "decimals": "18"
+        },
+        "token0Price": "0.0006901892849009829038100654156804827",
+        "token1Price": "1448.877897522653777719065563990714",
+        "reserveUSD": "1200.026704699798161831260251202016"
+    },
+    {
+        "id": "0x62710dd5aaca0eb00a68db5896f6e7a085daa57b",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "LLAMA",
+            "id": "0x262bee6504cc30db0a19f6bea177ead8c0d139a4",
+            "liquidity": "678692426.101117478242292245",
+            "decimals": "18"
+        },
+        "token0Price": "0.0000009891559466522341572560273775375019",
+        "token1Price": "1010962.936010714170456973334283132",
+        "reserveUSD": "1124.535540996011971198341629661286"
+    },
+    {
+        "id": "0xc2ccc6a9eefe3aec414ee3f549decd361aa17e7e",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "WKF",
+            "id": "0x53677d896b16a1d109e38cb1421ea099264dcd34",
+            "liquidity": "899708.47196237239228559",
+            "decimals": "18"
+        },
+        "token0Price": "0.002223664800605960649027369411455282",
+        "token1Price": "449.7080673883467542466442876770584",
+        "reserveUSD": "3176.053285330767855752781394962522"
+    },
+    {
+        "id": "0xf89261d86c6e8bd4c719f1fd769220dfc746d67a",
+        "token0": {
+            "symbol": "pSPS",
+            "id": "0x28cead9e4ff96806c79f4189ef28fc61418e2216",
+            "liquidity": "79881.27522098",
+            "decimals": "8"
+        },
+        "token1": {
+            "symbol": "POLYCUB",
+            "id": "0x7cc15fef543f205bf21018f038f591c6bada941c",
+            "liquidity": "1956988.996639741577084939",
+            "decimals": "18"
+        },
+        "token0Price": "0.6286490116577956129722567790004053",
+        "token1Price": "1.590712752992203672746583381355142",
+        "reserveUSD": "2302.114008154007042236337940358261"
+    },
+    {
+        "id": "0xeb80fa09ac0b4bf01e088e40acc5d5acb0261621",
+        "token0": {
+            "symbol": "DAI",
+            "id": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+            "liquidity": "376683.637775881544114434",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "anyUSDC",
+            "id": "0xd69b31c3225728cc57ddaf9be532a4ee1620be51",
+            "liquidity": "1058.169758",
+            "decimals": "6"
+        },
+        "token0Price": "0.995560466159037290655588741556154",
+        "token1Price": "1.004459331192700764991393474712246",
+        "reserveUSD": "1053.46147976047669959038910853504"
+    },
+    {
+        "id": "0xb3b7f5df1c8272aa9fb0649922384ea6904bc25d",
+        "token0": {
+            "symbol": "PLUT",
+            "id": "0x888888d87d85bc11549b17907e8f589214eb90c2",
+            "liquidity": "9999.826196010835168282",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "USDT",
+            "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+            "liquidity": "795294.736776",
+            "decimals": "6"
+        },
+        "token0Price": "9.999591645589196228095273797257812",
+        "token1Price": "0.1000040837108681722655917977237996",
+        "reserveUSD": "1002.225380044965796079503379991562"
+    },
+    {
+        "id": "0xb2d0d5c86d933b0acefe9b95bec160d514d152e1",
+        "token0": {
+            "symbol": "KLIMA",
+            "id": "0x4e78011ce80ee02d2c3e649fb657e45898257815",
+            "liquidity": "1482800.605975123",
+            "decimals": "9"
+        },
+        "token1": {
+            "symbol": "NCT",
+            "id": "0xd838290e877e0188a4a44700463419ed96c16107",
+            "liquidity": "331891.695715261771242119",
+            "decimals": "18"
+        },
+        "token0Price": "1.027183403336886933252215838526139",
+        "token1Price": "0.9735359788246388261425922667419506",
+        "reserveUSD": "171112.3239939989610830457728780111"
+    },
+    {
+        "id": "0xa982a2a9ebe0623de7350c228fc5335a413ad5c4",
+        "token0": {
+            "symbol": "waPUSD",
+            "id": "0x3d244d67d680cadcccf34f8f996cea777b6d9ffe",
+            "liquidity": "1223.122427627065145366",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "PUSD",
+            "id": "0x9af3b7dc29d3c4b1a5731408b6a9656fa7ac3b72",
+            "liquidity": "24475.900076185721267101",
+            "decimals": "18"
+        },
+        "token0Price": "1.009314047080083140058030155859001",
+        "token1Price": "0.9907719038419920800518300548071616",
+        "reserveUSD": "1192.399868588293938706275496087852"
+    },
+    {
+        "id": "0x8a3f448f7cfad19581b9876d695554897ac334b9",
+        "token0": {
+            "symbol": "pHBD",
+            "id": "0x6d969cea201e427d2875724fd4e8044833fbc7f4",
+            "liquidity": "11694.57",
+            "decimals": "3"
+        },
+        "token1": {
+            "symbol": "POLYCUB",
+            "id": "0x7cc15fef543f205bf21018f038f591c6bada941c",
+            "liquidity": "1956988.996639741577084939",
+            "decimals": "18"
+        },
+        "token0Price": "0.01606746096935809149343235457060206",
+        "token1Price": "62.23758700314122104418345323085465",
+        "reserveUSD": "9590.782894264634896723919973482181"
+    },
+    {
+        "id": "0x85f5e5e0e93d1fcebb72aa5a5e449aa8cb9a1083",
+        "token0": {
+            "symbol": "WMATIC",
+            "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "liquidity": "3491328.8883602108219833",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "CPR",
+            "id": "0xaa404804ba583c025fa64c9a276a6127ceb355c6",
+            "liquidity": "3849477.4",
+            "decimals": "2"
+        },
+        "token0Price": "0.0004998028608973939300910436854831561",
+        "token1Price": "2000.788867443664117813015338387728",
+        "reserveUSD": "1266.868007829398617075935974478675"
+    },
+    {
+        "id": "0x48da66bc52df56b8efbf947645e224049fde7047",
+        "token0": {
+            "symbol": "OAG",
+            "id": "0x1ea936097a79ae4f520c3b4ae8ec057675aee801",
+            "liquidity": "120",
+            "decimals": "0"
+        },
+        "token1": {
+            "symbol": "USDC",
+            "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "liquidity": "4907430.16332",
+            "decimals": "6"
+        },
+        "token0Price": "0.01",
+        "token1Price": "100",
+        "reserveUSD": "11995.29340598712323783371287674624"
+    },
+    {
+        "id": "0x41d9de53ebf26f766229e42aa02904eb2495e397",
+        "token0": {
+            "symbol": "EP",
+            "id": "0x60ed6acef3a96f8cdaf0c0d207bbafa66e751af2",
+            "liquidity": "712.997984297776670542",
+            "decimals": "18"
+        },
+        "token1": {
+            "symbol": "FBX",
+            "id": "0xd125443f38a69d776177c2b9c041f462936f8218",
+            "liquidity": "292099.576600004158190177",
+            "decimals": "18"
+        },
+        "token0Price": "0.003337459067207838747233672047629105",
+        "token1Price": "299.6291429685197257554032630139837",
+        "reserveUSD": "120599.4686609613705708481994494448"
+    },
+    {
+        "id": "0x29f13baded9ade12acc4069a8ffeef95146b8bc9",
+        "token0": {
+            "symbol": "pHIVE",
+            "id": "0x456320e9b87a7c84a53b8ab300067f3a29aab301",
+            "liquidity": "42570.841",
+            "decimals": "3"
+        },
+        "token1": {
+            "symbol": "POLYCUB",
+            "id": "0x7cc15fef543f205bf21018f038f591c6bada941c",
+            "liquidity": "1956988.996639741577084939",
+            "decimals": "18"
+        },
+        "token0Price": "0.04735067557250418168546456359380848",
+        "token1Price": "21.11902286312224900176354279996092",
+        "reserveUSD": "13697.25466115985789547518788969014"
+    }
+]

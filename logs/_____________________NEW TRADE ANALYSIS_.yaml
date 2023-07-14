@@ -1,0 +1,4884 @@
+_____________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WETH/USDT',
+    aPrice0: 0.0006114592685185479,
+    aPrice1: 1635.431910980455,
+    Reserves0: 58.42557366617381,
+    Reserves1: 95551.047591,
+    Reserves0BN: BigNumber { _hex: '0x032ad155b28ab4fe79', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x163f4947a7', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x247220c4', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WETH/USDT',
+    bPrice0: 0.0006124111227254272,
+    bPrice1: 1632.890002960229,
+    Reserves0: 211.92579634859123,
+    Reserves1: 346051.514227,
+    Reserves0BN: BigNumber { _hex: '0x0b7d0facf2b38e532b', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x5092470f73', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x2480a6f2', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 3461 USDT
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WETH/DAI',
+    aPrice0: 0.0006115157238556042,
+    aPrice1: 1635.2809273570335,
+    Reserves0: 209.85426856807098,
+    Reserves1: 343170.68291382707,
+    Reserves0BN: BigNumber { _hex: '0x0b60502168374aef3e', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x48ab51eb59ec5a4e7d13', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x0663', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WETH/DAI',
+    bPrice0: 0.000611799526735764,
+    bPrice1: 1634.522349723719,
+    Reserves0: 28.665071661804934,
+    Reserves1: 46853.70028765219,
+    Reserves0BN: BigNumber { _hex: '0x018dcecacd66ffcf49', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x09ebf1b5ea138e15ce7a', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x0662', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 469 DAI
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WETH/USDT',
+    aPrice0: 0.0006114592685185479,
+    aPrice1: 1635.431910980455,
+    Reserves0: 58.42557366617381,
+    Reserves1: 95551.047591,
+    Reserves0BN: BigNumber { _hex: '0x032ad155b28ab4fe79', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x163f4947a7', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x247220c4', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WETH/USDT',
+    bPrice0: 0.0006124111227254272,
+    bPrice1: 1632.890002960229,
+    Reserves0: 211.92579634859123,
+    Reserves1: 346051.514227,
+    Reserves0BN: BigNumber { _hex: '0x0b7d0facf2b38e532b', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x5092470f73', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x2480a6f2', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 3461 USDT
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WETH/USDT',
+    aPrice0: 0.0006114592685185479,
+    aPrice1: 1635.431910980455,
+    Reserves0: 58.42557366617381,
+    Reserves1: 95551.047591,
+    Reserves0BN: BigNumber { _hex: '0x032ad155b28ab4fe79', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x163f4947a7', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x247220c4', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WETH/USDT',
+    bPrice0: 0.0006124111227254272,
+    bPrice1: 1632.890002960229,
+    Reserves0: 211.92579634859123,
+    Reserves1: 346051.514227,
+    Reserves0BN: BigNumber { _hex: '0x0b7d0facf2b38e532b', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x5092470f73', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x2480a6f2', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 3461 USDT
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WMATIC/USDC',
+    aPrice0: 0.9890154388864556,
+    aPrice1: 1.0111065618206245,
+    Reserves0: 203632.0266721072,
+    Reserves1: 205893.678365,
+    Reserves0BN: BigNumber { _hex: '0x2b1eea0e9990ab3d591d', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x2ff038351d', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0xe645e9f626', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WMATIC/USDC',
+    bPrice0: 0.9885449317407908,
+    bPrice1: 1.0115878073837647,
+    Reserves0: 1828100.8275225675,
+    Reserves1: 1849284.50779,
+    Reserves0BN: BigNumber { _hex: '0x01831d8b602a7b115dbd3f', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x01ae91f2388e', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0xe629de979c', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 2059 USDC
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'USDC/WETH',
+    aPrice0: 1635.886154864789,
+    aPrice1: 0.0006112894818665746,
+    Reserves0: 1069980.903626,
+    Reserves1: 654.0680721846669,
+    Reserves0BN: BigNumber { _hex: '0xf91fd4e8ca', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x237504964033a078e1', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x246f8989', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'USDC/WETH',
+    bPrice0: 1635.1089104209855,
+    bPrice1: 0.0006115800566107451,
+    Reserves0: 1229400.201873,
+    Reserves1: 751.8766450587508,
+    Reserves0BN: BigNumber { _hex: '0x011e3df65a91', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x28c2627111574c78ae', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x2473f898', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 7 WETH
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WMATIC/WETH',
+    aPrice0: 1620.1028996318491,
+    aPrice1: 0.0006172447442858347,
+    Reserves0: 2354619.0799425067,
+    Reserves1: 1453.37625188966,
+    Reserves0BN: BigNumber { _hex: '0x01f29c27f5ad281d97d796', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x4ec9a5b0c6b7d4e364', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WMATIC/WETH',
+    bPrice0: 1620.0895336891754,
+    bPrice1: 0.0006172498366327058,
+    Reserves0: 1911720.7043104698,
+    Reserves1: 1180.0092924229987,
+    Reserves0BN: BigNumber { _hex: '0x0194d296483ffbabaa95cc', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x3ff7eb278064df69d9', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 15 WETH
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WBTC/WETH',
+    aPrice0: 0.07148814001618316,
+    aPrice1: 13.988334285569948,
+    Reserves0: 15.6487216,
+    Reserves1: 218.89954888261903,
+    Reserves0BN: BigNumber { _hex: '0x5d460de0', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x0bddd76bede1c37b66', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x2091b26c07', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WBTC/WETH',
+    bPrice0: 0.07138907674908986,
+    bPrice1: 14.00774523971903,
+    Reserves0: 50.32254097,
+    Reserves1: 704.9053337230833,
+    Reserves0BN: BigNumber { _hex: '0x012bf21a91', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x263686d245ca9097a2', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x209d444c6d', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 3 WETH
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WMATIC/WETH',
+    aPrice0: 1620.1028996318491,
+    aPrice1: 0.0006172447442858347,
+    Reserves0: 2354619.0799425067,
+    Reserves1: 1453.37625188966,
+    Reserves0BN: BigNumber { _hex: '0x01f29c27f5ad281d97d796', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x4ec9a5b0c6b7d4e364', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WMATIC/WETH',
+    bPrice0: 1620.0895336891754,
+    bPrice1: 0.0006172498366327058,
+    Reserves0: 1911720.7043104698,
+    Reserves1: 1180.0092924229987,
+    Reserves0BN: BigNumber { _hex: '0x0194d296483ffbabaa95cc', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x3ff7eb278064df69d9', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 15 WETH
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WETH/DAI',
+    aPrice0: 0.0006115157238556042,
+    aPrice1: 1635.2809273570335,
+    Reserves0: 209.85426856807098,
+    Reserves1: 343170.68291382707,
+    Reserves0BN: BigNumber { _hex: '0x0b60502168374aef3e', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x48ab51eb59ec5a4e7d13', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x0663', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WETH/DAI',
+    bPrice0: 0.000611799526735764,
+    bPrice1: 1634.522349723719,
+    Reserves0: 28.665071661804934,
+    Reserves1: 46853.70028765219,
+    Reserves0BN: BigNumber { _hex: '0x018dcecacd66ffcf49', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x09ebf1b5ea138e15ce7a', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x0662', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 469 DAI
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WMATIC/WETH',
+    aPrice0: 1620.1028996318491,
+    aPrice1: 0.0006172447442858347,
+    Reserves0: 2354619.0799425067,
+    Reserves1: 1453.37625188966,
+    Reserves0BN: BigNumber { _hex: '0x01f29c27f5ad281d97d796', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x4ec9a5b0c6b7d4e364', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WMATIC/WETH',
+    bPrice0: 1620.0895336891754,
+    bPrice1: 0.0006172498366327058,
+    Reserves0: 1911720.7043104698,
+    Reserves1: 1180.0092924229987,
+    Reserves0BN: BigNumber { _hex: '0x0194d296483ffbabaa95cc', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x3ff7eb278064df69d9', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 15 WETH
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'QUICK',
+    asset: 'USDC/USDT',
+    aPrice0: 1.0010992478445895,
+    aPrice1: 0.9989019591744214,
+    Reserves0: 4532059.179473,
+    Reserves1: 4527082.79347,
+    Reserves0BN: BigNumber { _hex: '0x041f33c709d1', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x041e0b2969fe', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x01', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'SUSHI',
+    asset: 'USDC/USDT',
+    bPrice0: 0.9973470449200644,
+    bPrice1: 1.00266001197221,
+    Reserves0: 386021.910701,
+    Reserves1: 387048.733605,
+    Reserves0BN: BigNumber { _hex: '0x59e0b2e8ad', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x5a1de6fba5', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x01', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 45271 USDT
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WETH/USDT',
+    aPrice0: 0.0006114592685185479,
+    aPrice1: 1635.431910980455,
+    Reserves0: 58.42557366617381,
+    Reserves1: 95551.047591,
+    Reserves0BN: BigNumber { _hex: '0x032ad155b28ab4fe79', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x163f4947a7', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x247220c4', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WETH/USDT',
+    bPrice0: 0.0006124111227254272,
+    bPrice1: 1632.890002960229,
+    Reserves0: 211.92579634859123,
+    Reserves1: 346051.514227,
+    Reserves0BN: BigNumber { _hex: '0x0b7d0facf2b38e532b', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x5092470f73', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x2480a6f2', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 3461 USDT
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'QUICK',
+    asset: 'USDC/USDT',
+    aPrice0: 1.0010992478445895,
+    aPrice1: 0.9989019591744214,
+    Reserves0: 4532059.179473,
+    Reserves1: 4527082.79347,
+    Reserves0BN: BigNumber { _hex: '0x041f33c709d1', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x041e0b2969fe', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x01', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'SUSHI',
+    asset: 'USDC/USDT',
+    bPrice0: 0.9973470449200644,
+    bPrice1: 1.00266001197221,
+    Reserves0: 386021.910701,
+    Reserves1: 387048.733605,
+    Reserves0BN: BigNumber { _hex: '0x59e0b2e8ad', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x5a1de6fba5', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x01', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 45271 USDT
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WBTC/WETH',
+    aPrice0: 0.07148814001618316,
+    aPrice1: 13.988334285569948,
+    Reserves0: 15.6487216,
+    Reserves1: 218.89954888261903,
+    Reserves0BN: BigNumber { _hex: '0x5d460de0', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x0bddd76bede1c37b66', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x2091b26c07', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WBTC/WETH',
+    bPrice0: 0.07138907674908986,
+    bPrice1: 14.00774523971903,
+    Reserves0: 50.32254097,
+    Reserves1: 704.9053337230833,
+    Reserves0BN: BigNumber { _hex: '0x012bf21a91', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x263686d245ca9097a2', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x209d444c6d', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 3 WETH
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'USDC/DAI',
+    aPrice0: 1.0008335312496393,
+    aPrice1: 0.9991671629460711,
+    Reserves0: 160378.889376,
+    Reserves1: 160245.3198942597,
+    Reserves0BN: BigNumber { _hex: '0x255753a4a0', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x21eeea8bf3bcb97b7291', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0xe8a300fa42', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'USDC/DAI',
+    bPrice0: 1.00086064331475,
+    bPrice1: 0.999140096755229,
+    Reserves0: 1344232.447251,
+    Reserves1: 1343076.5374078823,
+    Reserves0BN: BigNumber { _hex: '0x0138fa7f5d13', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x011c6853321fffc1ae3437', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0xe8a163faf3', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 13431 DAI
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'QUICK',
+    asset: 'USDC/USDT',
+    aPrice0: 1.0010992478445895,
+    aPrice1: 0.9989019591744214,
+    Reserves0: 4532059.179473,
+    Reserves1: 4527082.79347,
+    Reserves0BN: BigNumber { _hex: '0x041f33c709d1', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x041e0b2969fe', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x01', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'SUSHI',
+    asset: 'USDC/USDT',
+    bPrice0: 0.9973470449200644,
+    bPrice1: 1.00266001197221,
+    Reserves0: 386021.910701,
+    Reserves1: 387048.733605,
+    Reserves0BN: BigNumber { _hex: '0x59e0b2e8ad', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x5a1de6fba5', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x01', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 45271 USDT
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WBTC/WETH',
+    aPrice0: 0.07148814001618316,
+    aPrice1: 13.988334285569948,
+    Reserves0: 15.6487216,
+    Reserves1: 218.89954888261903,
+    Reserves0BN: BigNumber { _hex: '0x5d460de0', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x0bddd76bede1c37b66', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x2091b26c07', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WBTC/WETH',
+    bPrice0: 0.07138907674908986,
+    bPrice1: 14.00774523971903,
+    Reserves0: 50.32254097,
+    Reserves1: 704.9053337230833,
+    Reserves0BN: BigNumber { _hex: '0x012bf21a91', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x263686d245ca9097a2', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x209d444c6d', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 3 WETH
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WBTC/WETH',
+    aPrice0: 0.07148814001618316,
+    aPrice1: 13.988334285569948,
+    Reserves0: 15.6487216,
+    Reserves1: 218.89954888261903,
+    Reserves0BN: BigNumber { _hex: '0x5d460de0', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x0bddd76bede1c37b66', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x2091b26c07', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WBTC/WETH',
+    bPrice0: 0.07138907674908986,
+    bPrice1: 14.00774523971903,
+    Reserves0: 50.32254097,
+    Reserves1: 704.9053337230833,
+    Reserves0BN: BigNumber { _hex: '0x012bf21a91', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x263686d245ca9097a2', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x209d444c6d', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 3 WETH
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WETH/DAI',
+    aPrice0: 0.0006115157238556042,
+    aPrice1: 1635.2809273570335,
+    Reserves0: 209.85426856807098,
+    Reserves1: 343170.68291382707,
+    Reserves0BN: BigNumber { _hex: '0x0b60502168374aef3e', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x48ab51eb59ec5a4e7d13', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x0663', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WETH/DAI',
+    bPrice0: 0.000611799526735764,
+    bPrice1: 1634.522349723719,
+    Reserves0: 28.665071661804934,
+    Reserves1: 46853.70028765219,
+    Reserves0BN: BigNumber { _hex: '0x018dcecacd66ffcf49', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x09ebf1b5ea138e15ce7a', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x0662', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 469 DAI
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'USDC/DAI',
+    aPrice0: 1.0008335312496393,
+    aPrice1: 0.9991671629460711,
+    Reserves0: 160378.889376,
+    Reserves1: 160245.3198942597,
+    Reserves0BN: BigNumber { _hex: '0x255753a4a0', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x21eeea8bf3bcb97b7291', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0xe8a300fa42', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'USDC/DAI',
+    bPrice0: 1.00086064331475,
+    bPrice1: 0.999140096755229,
+    Reserves0: 1344232.447251,
+    Reserves1: 1343076.5374078823,
+    Reserves0BN: BigNumber { _hex: '0x0138fa7f5d13', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x011c6853321fffc1ae3437', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0xe8a163faf3', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 13431 DAI
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'QUICK',
+    asset: 'USDC/USDT',
+    aPrice0: 1.0010992478445895,
+    aPrice1: 0.9989019591744214,
+    Reserves0: 4532059.179473,
+    Reserves1: 4527082.79347,
+    Reserves0BN: BigNumber { _hex: '0x041f33c709d1', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x041e0b2969fe', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x01', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'SUSHI',
+    asset: 'USDC/USDT',
+    bPrice0: 0.9973470449200644,
+    bPrice1: 1.00266001197221,
+    Reserves0: 386021.910701,
+    Reserves1: 387048.733605,
+    Reserves0BN: BigNumber { _hex: '0x59e0b2e8ad', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x5a1de6fba5', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x01', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 45271 USDT
+______________________NEW TRADE ANALYSIS______________________
+Subgraph Data Verified. Flashing A to BUSDC/DAI
+Subgraph Data Verified. Flashing A to BWETH/USDT
+Subgraph Data Verified. Flashing A to BWETH/USDT
+Subgraph Data Verified. Flashing A to BWBTC/WETH
+Subgraph Data Verified. Flashing A to BUSDC/WETH
+Subgraph Data Verified. Flashing A to BWBTC/WETH
+Subgraph Data Verified. Flashing A to BUSDC/WETH
+Subgraph Data Verified. Flashing A to BUSDC/WETH
+Subgraph Data Verified. Flashing A to BWMATIC/USDT
+Subgraph Data Verified. Flashing A to BWMATIC/USDC
+Subgraph Data Verified. Flashing A to BWETH/USDT
+Subgraph Data Verified. Flashing A to BWMATIC/USDT
+Subgraph Data Verified. Flashing A to BWMATIC/USDC
+Subgraph Data Verified. Flashing A to BWMATIC/USDT
+Subgraph Data Verified. Flashing A to BUSDC/DAI
+Subgraph Data Verified. Flashing A to BUSDC/DAI
+Subgraph Data Verified. Flashing A to BWMATIC/USDC
+Subgraph Data Verified. Flashing A to BWBTC/WETH
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WMATIC/USDC',
+    aPrice0: 0.9890154388864556,
+    aPrice1: 1.0111065618206245,
+    Reserves0: 203632.0266721072,
+    Reserves1: 205893.678365,
+    Reserves0BN: BigNumber { _hex: '0x2b1eea0e9990ab3d591d', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x2ff038351d', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0xe645e9f626', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WMATIC/USDC',
+    bPrice0: 0.9885449317407908,
+    bPrice1: 1.0115878073837647,
+    Reserves0: 1828100.8275225675,
+    Reserves1: 1849284.50779,
+    Reserves0BN: BigNumber { _hex: '0x01831d8b602a7b115dbd3f', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x01ae91f2388e', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0xe629de979c', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 2059 USDC
+______________________NEW TRADE ANALYSIS______________________
+Subgraph Data Verified. Flashing A to BWBTC/WETH
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WETH/DAI',
+    aPrice0: 0.0006115157238556042,
+    aPrice1: 1635.2809273570335,
+    Reserves0: 209.85426856807098,
+    Reserves1: 343170.68291382707,
+    Reserves0BN: BigNumber { _hex: '0x0b60502168374aef3e', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x48ab51eb59ec5a4e7d13', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x0663', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WETH/DAI',
+    bPrice0: 0.000611799526735764,
+    bPrice1: 1634.522349723719,
+    Reserves0: 28.665071661804934,
+    Reserves1: 46853.70028765219,
+    Reserves0BN: BigNumber { _hex: '0x018dcecacd66ffcf49', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x09ebf1b5ea138e15ce7a', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x0662', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 469 DAI
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WMATIC/USDC',
+    aPrice0: 0.9890154388864556,
+    aPrice1: 1.0111065618206245,
+    Reserves0: 203632.0266721072,
+    Reserves1: 205893.678365,
+    Reserves0BN: BigNumber { _hex: '0x2b1eea0e9990ab3d591d', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x2ff038351d', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0xe645e9f626', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WMATIC/USDC',
+    bPrice0: 0.9885449317407908,
+    bPrice1: 1.0115878073837647,
+    Reserves0: 1828100.8275225675,
+    Reserves1: 1849284.50779,
+    Reserves0BN: BigNumber { _hex: '0x01831d8b602a7b115dbd3f', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x01ae91f2388e', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0xe629de979c', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 2059 USDC
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WMATIC/USDT',
+    aPrice0: 0.9899515158339706,
+    aPrice1: 1.010150481114789,
+    Reserves0: 19229.734461506076,
+    Reserves1: 19424.925518,
+    Reserves0BN: BigNumber { _hex: '0x0412722ca93d7541fdee', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x0485d0d74e', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0xe67db55cb9', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WMATIC/USDT',
+    bPrice0: 0.9883515445549299,
+    bPrice1: 1.0117857411254572,
+    Reserves0: 773999.0730230071,
+    Reserves1: 783121.225729,
+    Reserves0BN: BigNumber { _hex: '0xa3e692e61b9533505c6b', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0xb655a99801', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0xe61e57bcea', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 195 USDT
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WETH/DAI',
+    aPrice0: 0.0006115157238556042,
+    aPrice1: 1635.2809273570335,
+    Reserves0: 209.85426856807098,
+    Reserves1: 343170.68291382707,
+    Reserves0BN: BigNumber { _hex: '0x0b60502168374aef3e', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x48ab51eb59ec5a4e7d13', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x0663', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WETH/DAI',
+    bPrice0: 0.000611799526735764,
+    bPrice1: 1634.522349723719,
+    Reserves0: 28.665071661804934,
+    Reserves1: 46853.70028765219,
+    Reserves0BN: BigNumber { _hex: '0x018dcecacd66ffcf49', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x09ebf1b5ea138e15ce7a', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x0662', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 469 DAI
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WETH/DAI',
+    aPrice0: 0.0006115157238556042,
+    aPrice1: 1635.2809273570335,
+    Reserves0: 209.85426856807098,
+    Reserves1: 343170.68291382707,
+    Reserves0BN: BigNumber { _hex: '0x0b60502168374aef3e', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x48ab51eb59ec5a4e7d13', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x0663', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WETH/DAI',
+    bPrice0: 0.000611799526735764,
+    bPrice1: 1634.522349723719,
+    Reserves0: 28.665071661804934,
+    Reserves1: 46853.70028765219,
+    Reserves0BN: BigNumber { _hex: '0x018dcecacd66ffcf49', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x09ebf1b5ea138e15ce7a', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x0662', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 469 DAI
+______________________NEW TRADE ANALYSIS______________________
+Subgraph Data Verified. Flashing A to BWMATIC/USDC
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'USDC/DAI',
+    aPrice0: 1.0008335312496393,
+    aPrice1: 0.9991671629460711,
+    Reserves0: 160378.889376,
+    Reserves1: 160245.3198942597,
+    Reserves0BN: BigNumber { _hex: '0x255753a4a0', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x21eeea8bf3bcb97b7291', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0xe8a300fa42', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'USDC/DAI',
+    bPrice0: 1.00086064331475,
+    bPrice1: 0.999140096755229,
+    Reserves0: 1344232.447251,
+    Reserves1: 1343076.5374078823,
+    Reserves0BN: BigNumber { _hex: '0x0138fa7f5d13', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x011c6853321fffc1ae3437', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0xe8a163faf3', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 13431 DAI
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'USDC/DAI',
+    aPrice0: 1.0008335312496393,
+    aPrice1: 0.9991671629460711,
+    Reserves0: 160378.889376,
+    Reserves1: 160245.3198942597,
+    Reserves0BN: BigNumber { _hex: '0x255753a4a0', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x21eeea8bf3bcb97b7291', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0xe8a300fa42', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'USDC/DAI',
+    bPrice0: 1.00086064331475,
+    bPrice1: 0.999140096755229,
+    Reserves0: 1344232.447251,
+    Reserves1: 1343076.5374078823,
+    Reserves0BN: BigNumber { _hex: '0x0138fa7f5d13', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x011c6853321fffc1ae3437', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0xe8a163faf3', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 13431 DAI
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'USDC/WETH',
+    aPrice0: 1635.886154864789,
+    aPrice1: 0.0006112894818665746,
+    Reserves0: 1069980.903626,
+    Reserves1: 654.0680721846669,
+    Reserves0BN: BigNumber { _hex: '0xf91fd4e8ca', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x237504964033a078e1', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x246f8989', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'USDC/WETH',
+    bPrice0: 1635.1089104209855,
+    bPrice1: 0.0006115800566107451,
+    Reserves0: 1229400.201873,
+    Reserves1: 751.8766450587508,
+    Reserves0BN: BigNumber { _hex: '0x011e3df65a91', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x28c2627111574c78ae', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x2473f898', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 7 WETH
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WMATIC/USDT',
+    aPrice0: 0.9899515158339706,
+    aPrice1: 1.010150481114789,
+    Reserves0: 19229.734461506076,
+    Reserves1: 19424.925518,
+    Reserves0BN: BigNumber { _hex: '0x0412722ca93d7541fdee', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x0485d0d74e', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0xe67db55cb9', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WMATIC/USDT',
+    bPrice0: 0.9883515445549299,
+    bPrice1: 1.0117857411254572,
+    Reserves0: 773999.0730230071,
+    Reserves1: 783121.225729,
+    Reserves0BN: BigNumber { _hex: '0xa3e692e61b9533505c6b', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0xb655a99801', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0xe61e57bcea', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 195 USDT
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WMATIC/USDT',
+    aPrice0: 0.9899515158339706,
+    aPrice1: 1.010150481114789,
+    Reserves0: 19229.734461506076,
+    Reserves1: 19424.925518,
+    Reserves0BN: BigNumber { _hex: '0x0412722ca93d7541fdee', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x0485d0d74e', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0xe67db55cb9', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WMATIC/USDT',
+    bPrice0: 0.9883515445549299,
+    bPrice1: 1.0117857411254572,
+    Reserves0: 773999.0730230071,
+    Reserves1: 783121.225729,
+    Reserves0BN: BigNumber { _hex: '0xa3e692e61b9533505c6b', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0xb655a99801', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0xe61e57bcea', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 195 USDT
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'USDC/WETH',
+    aPrice0: 1635.886154864789,
+    aPrice1: 0.0006112894818665746,
+    Reserves0: 1069980.903626,
+    Reserves1: 654.0680721846669,
+    Reserves0BN: BigNumber { _hex: '0xf91fd4e8ca', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x237504964033a078e1', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x246f8989', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'USDC/WETH',
+    bPrice0: 1635.1089104209855,
+    bPrice1: 0.0006115800566107451,
+    Reserves0: 1229400.201873,
+    Reserves1: 751.8766450587508,
+    Reserves0BN: BigNumber { _hex: '0x011e3df65a91', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x28c2627111574c78ae', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x2473f898', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 7 WETH
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WMATIC/USDC',
+    aPrice0: 0.9890154388864556,
+    aPrice1: 1.0111065618206245,
+    Reserves0: 203632.0266721072,
+    Reserves1: 205893.678365,
+    Reserves0BN: BigNumber { _hex: '0x2b1eea0e9990ab3d591d', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x2ff038351d', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0xe645e9f626', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WMATIC/USDC',
+    bPrice0: 0.9885449317407908,
+    bPrice1: 1.0115878073837647,
+    Reserves0: 1828100.8275225675,
+    Reserves1: 1849284.50779,
+    Reserves0BN: BigNumber { _hex: '0x01831d8b602a7b115dbd3f', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x01ae91f2388e', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0xe629de979c', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 2059 USDC
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'QUICK',
+    asset: 'USDC/USDT',
+    aPrice0: 1.0010992478445895,
+    aPrice1: 0.9989019591744214,
+    Reserves0: 4532059.179473,
+    Reserves1: 4527082.79347,
+    Reserves0BN: BigNumber { _hex: '0x041f33c709d1', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x041e0b2969fe', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x01', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'SUSHI',
+    asset: 'USDC/USDT',
+    bPrice0: 0.9973470449200644,
+    bPrice1: 1.00266001197221,
+    Reserves0: 386021.910701,
+    Reserves1: 387048.733605,
+    Reserves0BN: BigNumber { _hex: '0x59e0b2e8ad', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x5a1de6fba5', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x01', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 45271 USDT
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WMATIC/USDC',
+    aPrice0: 0.9890154388864556,
+    aPrice1: 1.0111065618206245,
+    Reserves0: 203632.0266721072,
+    Reserves1: 205893.678365,
+    Reserves0BN: BigNumber { _hex: '0x2b1eea0e9990ab3d591d', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x2ff038351d', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0xe645e9f626', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WMATIC/USDC',
+    bPrice0: 0.9885449317407908,
+    bPrice1: 1.0115878073837647,
+    Reserves0: 1828100.8275225675,
+    Reserves1: 1849284.50779,
+    Reserves0BN: BigNumber { _hex: '0x01831d8b602a7b115dbd3f', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x01ae91f2388e', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0xe629de979c', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 2059 USDC
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'QUICK',
+    asset: 'USDC/USDT',
+    aPrice0: 1.0010992478445895,
+    aPrice1: 0.9989019591744214,
+    Reserves0: 4532059.179473,
+    Reserves1: 4527082.79347,
+    Reserves0BN: BigNumber { _hex: '0x041f33c709d1', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x041e0b2969fe', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x01', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'SUSHI',
+    asset: 'USDC/USDT',
+    bPrice0: 0.9973470449200644,
+    bPrice1: 1.00266001197221,
+    Reserves0: 386021.910701,
+    Reserves1: 387048.733605,
+    Reserves0BN: BigNumber { _hex: '0x59e0b2e8ad', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x5a1de6fba5', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x01', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 45271 USDT
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'USDC/WETH',
+    aPrice0: 1635.886154864789,
+    aPrice1: 0.0006112894818665746,
+    Reserves0: 1069980.903626,
+    Reserves1: 654.0680721846669,
+    Reserves0BN: BigNumber { _hex: '0xf91fd4e8ca', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x237504964033a078e1', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x246f8989', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'USDC/WETH',
+    bPrice0: 1635.1089104209855,
+    bPrice1: 0.0006115800566107451,
+    Reserves0: 1229400.201873,
+    Reserves1: 751.8766450587508,
+    Reserves0BN: BigNumber { _hex: '0x011e3df65a91', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x28c2627111574c78ae', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x2473f898', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 7 WETH
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WMATIC/WETH',
+    aPrice0: 1620.1028996318491,
+    aPrice1: 0.0006172447442858347,
+    Reserves0: 2354619.0799425067,
+    Reserves1: 1453.37625188966,
+    Reserves0BN: BigNumber { _hex: '0x01f29c27f5ad281d97d796', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x4ec9a5b0c6b7d4e364', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WMATIC/WETH',
+    bPrice0: 1620.0878646618148,
+    bPrice1: 0.0006172504725283804,
+    Reserves0: 1911719.7210556383,
+    Reserves1: 1180.0099011634163,
+    Reserves0BN: BigNumber { _hex: '0x0194d288a306ec5b185cd6', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x3ff7ed5125d13c94c7', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 15 WETH
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'USDC/DAI',
+    aPrice0: 1.0008335312496393,
+    aPrice1: 0.9991671629460711,
+    Reserves0: 160378.889376,
+    Reserves1: 160245.3198942597,
+    Reserves0BN: BigNumber { _hex: '0x255753a4a0', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x21eeea8bf3bcb97b7291', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0xe8a300fa42', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'USDC/DAI',
+    bPrice0: 1.00086064331475,
+    bPrice1: 0.999140096755229,
+    Reserves0: 1344232.447251,
+    Reserves1: 1343076.5374078823,
+    Reserves0BN: BigNumber { _hex: '0x0138fa7f5d13', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x011c6853321fffc1ae3437', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0xe8a163faf3', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 13431 DAI
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WMATIC/WETH',
+    aPrice0: 1620.1028996318491,
+    aPrice1: 0.0006172447442858347,
+    Reserves0: 2354619.0799425067,
+    Reserves1: 1453.37625188966,
+    Reserves0BN: BigNumber { _hex: '0x01f29c27f5ad281d97d796', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x4ec9a5b0c6b7d4e364', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WMATIC/WETH',
+    bPrice0: 1620.0878646618148,
+    bPrice1: 0.0006172504725283804,
+    Reserves0: 1911719.7210556383,
+    Reserves1: 1180.0099011634163,
+    Reserves0BN: BigNumber { _hex: '0x0194d288a306ec5b185cd6', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x3ff7ed5125d13c94c7', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 15 WETH
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WETH/USDT',
+    aPrice0: 0.0006114592685185479,
+    aPrice1: 1635.431910980455,
+    Reserves0: 58.42557366617381,
+    Reserves1: 95551.047591,
+    Reserves0BN: BigNumber { _hex: '0x032ad155b28ab4fe79', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x163f4947a7', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x247220c4', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WETH/USDT',
+    bPrice0: 0.0006124075992303865,
+    bPrice1: 1632.8993978139747,
+    Reserves0: 211.92518760817342,
+    Reserves1: 346052.511227,
+    Reserves0BN: BigNumber { _hex: '0x0b7d0d834d4731283d', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x50925645fb', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x2480992f', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 3461 USDT
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WMATIC/USDT',
+    aPrice0: 0.9899515158339706,
+    aPrice1: 1.010150481114789,
+    Reserves0: 19229.734461506076,
+    Reserves1: 19424.925518,
+    Reserves0BN: BigNumber { _hex: '0x0412722ca93d7541fdee', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x0485d0d74e', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0xe67db55cb9', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WMATIC/USDT',
+    bPrice0: 0.9883515445549299,
+    bPrice1: 1.0117857411254572,
+    Reserves0: 773999.0730230071,
+    Reserves1: 783121.225729,
+    Reserves0BN: BigNumber { _hex: '0xa3e692e61b9533505c6b', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0xb655a99801', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0xe61e57bcea', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 195 USDT
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WMATIC/WETH',
+    aPrice0: 1620.1028996318491,
+    aPrice1: 0.0006172447442858347,
+    Reserves0: 2354619.0799425067,
+    Reserves1: 1453.37625188966,
+    Reserves0BN: BigNumber { _hex: '0x01f29c27f5ad281d97d796', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x4ec9a5b0c6b7d4e364', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WMATIC/WETH',
+    bPrice0: 1620.0878646618148,
+    bPrice1: 0.0006172504725283804,
+    Reserves0: 1911719.7210556383,
+    Reserves1: 1180.0099011634163,
+    Reserves0BN: BigNumber { _hex: '0x0194d288a306ec5b185cd6', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x3ff7ed5125d13c94c7', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 15 WETH
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'USDC/DAI',
+    aPrice0: 1.0008335312496393,
+    aPrice1: 0.9991671629460711,
+    Reserves0: 160378.889376,
+    Reserves1: 160245.3198942597,
+    Reserves0BN: BigNumber { _hex: '0x255753a4a0', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x21eeea8bf3bcb97b7291', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0xe8a300fa42', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'USDC/DAI',
+    bPrice0: 1.00086064331475,
+    bPrice1: 0.999140096755229,
+    Reserves0: 1344232.447251,
+    Reserves1: 1343076.5374078823,
+    Reserves0BN: BigNumber { _hex: '0x0138fa7f5d13', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x011c6853321fffc1ae3437', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0xe8a163faf3', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 13431 DAI
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WETH/DAI',
+    aPrice0: 0.0006115157238556042,
+    aPrice1: 1635.2809273570335,
+    Reserves0: 209.85426856807098,
+    Reserves1: 343170.68291382707,
+    Reserves0BN: BigNumber { _hex: '0x0b60502168374aef3e', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x48ab51eb59ec5a4e7d13', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x0663', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WETH/DAI',
+    bPrice0: 0.000611799526735764,
+    bPrice1: 1634.522349723719,
+    Reserves0: 28.665071661804934,
+    Reserves1: 46853.70028765219,
+    Reserves0BN: BigNumber { _hex: '0x018dcecacd66ffcf49', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x09ebf1b5ea138e15ce7a', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x0662', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 469 DAI
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WBTC/WETH',
+    aPrice0: 0.07148814001618316,
+    aPrice1: 13.988334285569948,
+    Reserves0: 15.6487216,
+    Reserves1: 218.89954888261903,
+    Reserves0BN: BigNumber { _hex: '0x5d460de0', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x0bddd76bede1c37b66', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x2091b26c07', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WBTC/WETH',
+    bPrice0: 0.07138907674908986,
+    bPrice1: 14.00774523971903,
+    Reserves0: 50.32254097,
+    Reserves1: 704.9053337230833,
+    Reserves0BN: BigNumber { _hex: '0x012bf21a91', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x263686d245ca9097a2', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x209d444c6d', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 3 WETH
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WMATIC/WETH',
+    aPrice0: 1620.1028996318491,
+    aPrice1: 0.0006172447442858347,
+    Reserves0: 2354619.0799425067,
+    Reserves1: 1453.37625188966,
+    Reserves0BN: BigNumber { _hex: '0x01f29c27f5ad281d97d796', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x4ec9a5b0c6b7d4e364', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WMATIC/WETH',
+    bPrice0: 1620.0878646618148,
+    bPrice1: 0.0006172504725283804,
+    Reserves0: 1911719.7210556383,
+    Reserves1: 1180.0099011634163,
+    Reserves0BN: BigNumber { _hex: '0x0194d288a306ec5b185cd6', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x3ff7ed5125d13c94c7', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 15 WETH
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WETH/USDT',
+    aPrice0: 0.0006114592685185479,
+    aPrice1: 1635.431910980455,
+    Reserves0: 58.42557366617381,
+    Reserves1: 95551.047591,
+    Reserves0BN: BigNumber { _hex: '0x032ad155b28ab4fe79', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x163f4947a7', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x247220c4', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WETH/USDT',
+    bPrice0: 0.0006124111227254272,
+    bPrice1: 1632.890002960229,
+    Reserves0: 211.92579634859123,
+    Reserves1: 346051.514227,
+    Reserves0BN: BigNumber { _hex: '0x0b7d0facf2b38e532b', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x5092470f73', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x2480a6f2', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 3461 USDT
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'USDC/WETH',
+    aPrice0: 1635.886154864789,
+    aPrice1: 0.0006112894818665746,
+    Reserves0: 1069980.903626,
+    Reserves1: 654.0680721846669,
+    Reserves0BN: BigNumber { _hex: '0xf91fd4e8ca', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x237504964033a078e1', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x246f8989', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'USDC/WETH',
+    bPrice0: 1635.1089104209855,
+    bPrice1: 0.0006115800566107451,
+    Reserves0: 1229400.201873,
+    Reserves1: 751.8766450587508,
+    Reserves0BN: BigNumber { _hex: '0x011e3df65a91', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x28c2627111574c78ae', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x2473f898', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 7 WETH
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WBTC/WETH',
+    aPrice0: 0.07148814001618316,
+    aPrice1: 13.988334285569948,
+    Reserves0: 15.6487216,
+    Reserves1: 218.89954888261903,
+    Reserves0BN: BigNumber { _hex: '0x5d460de0', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x0bddd76bede1c37b66', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x2091b26c07', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WBTC/WETH',
+    bPrice0: 0.07138907674908986,
+    bPrice1: 14.00774523971903,
+    Reserves0: 50.32254097,
+    Reserves1: 704.9053337230833,
+    Reserves0BN: BigNumber { _hex: '0x012bf21a91', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x263686d245ca9097a2', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x209d444c6d', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 3 WETH
+______________________NEW TRADE ANALYSIS______________________
+CompuMax:
+amountIn: 13431 DAI
+direction: v2a -> v2b
+
+SUSHI/QUICK: USDC/DAI
+Amounts Object:
+{
+  amountIn: 13431,
+  amountOutA: '12368.324448',
+  repayAmountInA: '12368.324448',
+  amountOutB: '13269.928127',
+  repayAmountInB: '13269.928127'
+}
+Price Check:
+SUSHI: 1.0008335312496393 USDC/DAI
+QUICK: 1.00086064331475 USDC/DAI
+Difference = 0.000027066190842139903 USDC/DAI
+==============STRATEGY: USDC/DAI==============
+Borrow: 13431 DAI from SUSHI
+Sell for: 13269.928127 USDC on QUICK
+Repay: 12368.324448USDC to SUSHI
+Keep: 901.6036789999998 USDC
+Profit: 901.6036789999998 USDC
+==============TRANSLATION==============
+[
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined
+]
+{
+  recipient: 'QUICK',
+  amountIn: '13431 DAI',
+  repayAmountIn: '13269.928127 USDC',
+  amountOut: '13269.928127 USDC'
+}
+{
+  loanPool: 'SUSHI',
+  amountIn: 0,
+  repayAmountIn: '12368.324448 USDC',
+  amountOut: '12368.324448'
+}
+Error: Amounts do not match up. Snorting More Cocaine...
+==============ATTEMPT: 1==============
+==============ATTEMPT: 2==============
+==============ATTEMPT: 3==============
+==============ATTEMPT: 4==============
+==============ATTEMPT: 5==============
+==============ATTEMPT: 6==============
+==============ATTEMPT: 7==============
+==============ATTEMPT: 8==============
+==============ATTEMPT: 9==============
+==============ATTEMPT: 10==============
+==============ATTEMPT: 11==============
+==============ATTEMPT: 12==============
+==============ATTEMPT: 13==============
+==============ATTEMPT: 14==============
+==============ATTEMPT: 15==============
+==============ATTEMPT: 16==============
+==============ATTEMPT: 17==============
+==============ATTEMPT: 18==============
+==============ATTEMPT: 19==============
+==============ATTEMPT: 20==============
+==============ATTEMPT: 21==============
+==============ATTEMPT: 22==============
+==============ATTEMPT: 23==============
+==============ATTEMPT: 24==============
+==============ATTEMPT: 25==============
+==============ATTEMPT: 26==============
+==============ATTEMPT: 27==============
+==============ATTEMPT: 28==============
+==============ATTEMPT: 29==============
+==============ATTEMPT: 30==============
+==============ATTEMPT: 31==============
+==============ATTEMPT: 32==============
+==============ATTEMPT: 33==============
+==============ATTEMPT: 34==============
+==============ATTEMPT: 35==============
+==============ATTEMPT: 36==============
+==============ATTEMPT: 37==============
+==============ATTEMPT: 38==============
+==============ATTEMPT: 39==============
+==============ATTEMPT: 40==============
+==============ATTEMPT: 41==============
+==============ATTEMPT: 42==============
+==============ATTEMPT: 43==============
+==============ATTEMPT: 44==============
+==============ATTEMPT: 45==============
+==============ATTEMPT: 46==============
+==============ATTEMPT: 47==============
+==============ATTEMPT: 48==============
+==============ATTEMPT: 49==============
+==============ATTEMPT: 50==============
+==============ATTEMPT: 51==============
+==============ATTEMPT: 52==============
+==============ATTEMPT: 53==============
+==============ATTEMPT: 54==============
+==============ATTEMPT: 55==============
+==============ATTEMPT: 56==============
+==============ATTEMPT: 57==============
+==============ATTEMPT: 58==============
+==============ATTEMPT: 59==============
+==============ATTEMPT: 60==============
+==============ATTEMPT: 61==============
+==============ATTEMPT: 62==============
+==============ATTEMPT: 63==============
+==============ATTEMPT: 64==============
+==============ATTEMPT: 65==============
+==============ATTEMPT: 66==============
+==============ATTEMPT: 67==============
+==============ATTEMPT: 68==============
+==============ATTEMPT: 69==============
+==============ATTEMPT: 70==============
+==============ATTEMPT: 71==============
+==============ATTEMPT: 72==============
+==============ATTEMPT: 73==============
+==============ATTEMPT: 74==============
+==============ATTEMPT: 75==============
+==============ATTEMPT: 76==============
+==============ATTEMPT: 77==============
+==============ATTEMPT: 78==============
+==============ATTEMPT: 79==============
+==============ATTEMPT: 80==============
+==============ATTEMPT: 81==============
+==============ATTEMPT: 82==============
+==============ATTEMPT: 83==============
+==============ATTEMPT: 84==============
+==============ATTEMPT: 85==============
+==============ATTEMPT: 86==============
+==============ATTEMPT: 87==============
+==============ATTEMPT: 88==============
+==============ATTEMPT: 89==============
+==============ATTEMPT: 90==============
+==============ATTEMPT: 91==============
+==============ATTEMPT: 92==============
+==============ATTEMPT: 93==============
+==============ATTEMPT: 94==============
+==============ATTEMPT: 95==============
+==============ATTEMPT: 96==============
+==============ATTEMPT: 97==============
+==============ATTEMPT: 98==============
+==============ATTEMPT: 99==============
+Attempts: 100
+Subgraph Data Verified. Flashing A to BUSDC/WETH
+Subgraph Data Verified. Flashing A to BWMATIC/USDT
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WETH/USDT',
+    aPrice0: 0.0006114592685185479,
+    aPrice1: 1635.431910980455,
+    Reserves0: 58.42557366617381,
+    Reserves1: 95551.047591,
+    Reserves0BN: BigNumber { _hex: '0x032ad155b28ab4fe79', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x163f4947a7', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x247220c4', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WETH/USDT',
+    bPrice0: 0.0006124111227254272,
+    bPrice1: 1632.890002960229,
+    Reserves0: 211.92579634859123,
+    Reserves1: 346051.514227,
+    Reserves0BN: BigNumber { _hex: '0x0b7d0facf2b38e532b', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x5092470f73', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x2480a6f2', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 3461 USDT
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'QUICK',
+    asset: 'USDC/USDT',
+    aPrice0: 1.0010992478445895,
+    aPrice1: 0.9989019591744214,
+    Reserves0: 4532059.179473,
+    Reserves1: 4527082.79347,
+    Reserves0BN: BigNumber { _hex: '0x041f33c709d1', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x041e0b2969fe', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x01', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'SUSHI',
+    asset: 'USDC/USDT',
+    bPrice0: 0.9973470449200644,
+    bPrice1: 1.00266001197221,
+    Reserves0: 386021.910701,
+    Reserves1: 387048.733605,
+    Reserves0BN: BigNumber { _hex: '0x59e0b2e8ad', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x5a1de6fba5', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x01', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 45271 USDT
+______________________NEW TRADE ANALYSIS______________________
+CompuMax:
+amountIn: 3461 USDT
+direction: v2a -> v2b
+
+SUSHI/QUICK: WETH/USDT
+Amounts Object:
+{
+  amountIn: 3461,
+  amountOutA: '2.036372606057969607',
+  repayAmountInA: '2.036372606057969607',
+  amountOutB: '2.092332750738012799',
+  repayAmountInB: '2.092332750738012799'
+}
+Price Check:
+SUSHI: 0.0006114592685185479 WETH/USDT
+QUICK: 0.0006124111227254272 WETH/USDT
+Difference = 2.541908020226174 WETH/USDT
+==============STRATEGY: WETH/USDT==============
+Borrow: 3461 USDT from SUSHI
+Sell for: 2.092332750738013 WETH on QUICK
+Repay: 2.0363726060579697WETH to SUSHI
+Keep: 0.05596014468004329 WETH
+Profit: 0.05596014468004329 WETH
+==============TRANSLATION==============
+[
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined
+]
+{
+  recipient: 'QUICK',
+  amountIn: '3461 USDT',
+  repayAmountIn: '2.092332750738012799 WETH',
+  amountOut: '2.092332750738012799 WETH'
+}
+{
+  loanPool: 'SUSHI',
+  amountIn: 0,
+  repayAmountIn: '2.036372606057969607 WETH',
+  amountOut: '2.036372606057969607'
+}
+Error: Amounts do not match up. Snorting More Cocaine...
+==============ATTEMPT: 1==============
+==============ATTEMPT: 2==============
+==============ATTEMPT: 3==============
+==============ATTEMPT: 4==============
+==============ATTEMPT: 5==============
+==============ATTEMPT: 6==============
+==============ATTEMPT: 7==============
+==============ATTEMPT: 8==============
+==============ATTEMPT: 9==============
+==============ATTEMPT: 10==============
+==============ATTEMPT: 11==============
+==============ATTEMPT: 12==============
+==============ATTEMPT: 13==============
+==============ATTEMPT: 14==============
+==============ATTEMPT: 15==============
+==============ATTEMPT: 16==============
+==============ATTEMPT: 17==============
+==============ATTEMPT: 18==============
+==============ATTEMPT: 19==============
+==============ATTEMPT: 20==============
+==============ATTEMPT: 21==============
+==============ATTEMPT: 22==============
+==============ATTEMPT: 23==============
+==============ATTEMPT: 24==============
+==============ATTEMPT: 25==============
+==============ATTEMPT: 26==============
+==============ATTEMPT: 27==============
+==============ATTEMPT: 28==============
+==============ATTEMPT: 29==============
+==============ATTEMPT: 30==============
+==============ATTEMPT: 31==============
+==============ATTEMPT: 32==============
+==============ATTEMPT: 33==============
+==============ATTEMPT: 34==============
+==============ATTEMPT: 35==============
+==============ATTEMPT: 36==============
+==============ATTEMPT: 37==============
+==============ATTEMPT: 38==============
+==============ATTEMPT: 39==============
+==============ATTEMPT: 40==============
+==============ATTEMPT: 41==============
+==============ATTEMPT: 42==============
+==============ATTEMPT: 43==============
+==============ATTEMPT: 44==============
+==============ATTEMPT: 45==============
+==============ATTEMPT: 46==============
+==============ATTEMPT: 47==============
+==============ATTEMPT: 48==============
+==============ATTEMPT: 49==============
+==============ATTEMPT: 50==============
+==============ATTEMPT: 51==============
+==============ATTEMPT: 52==============
+==============ATTEMPT: 53==============
+==============ATTEMPT: 54==============
+==============ATTEMPT: 55==============
+==============ATTEMPT: 56==============
+==============ATTEMPT: 57==============
+==============ATTEMPT: 58==============
+==============ATTEMPT: 59==============
+==============ATTEMPT: 60==============
+==============ATTEMPT: 61==============
+==============ATTEMPT: 62==============
+==============ATTEMPT: 63==============
+==============ATTEMPT: 64==============
+==============ATTEMPT: 65==============
+==============ATTEMPT: 66==============
+==============ATTEMPT: 67==============
+==============ATTEMPT: 68==============
+==============ATTEMPT: 69==============
+==============ATTEMPT: 70==============
+==============ATTEMPT: 71==============
+==============ATTEMPT: 72==============
+==============ATTEMPT: 73==============
+==============ATTEMPT: 74==============
+==============ATTEMPT: 75==============
+==============ATTEMPT: 76==============
+==============ATTEMPT: 77==============
+==============ATTEMPT: 78==============
+==============ATTEMPT: 79==============
+==============ATTEMPT: 80==============
+==============ATTEMPT: 81==============
+==============ATTEMPT: 82==============
+==============ATTEMPT: 83==============
+==============ATTEMPT: 84==============
+==============ATTEMPT: 85==============
+==============ATTEMPT: 86==============
+==============ATTEMPT: 87==============
+==============ATTEMPT: 88==============
+==============ATTEMPT: 89==============
+==============ATTEMPT: 90==============
+==============ATTEMPT: 91==============
+==============ATTEMPT: 92==============
+==============ATTEMPT: 93==============
+==============ATTEMPT: 94==============
+==============ATTEMPT: 95==============
+==============ATTEMPT: 96==============
+==============ATTEMPT: 97==============
+==============ATTEMPT: 98==============
+==============ATTEMPT: 99==============
+Attempts: 100
+CompuMax:
+amountIn: 3461 USDT
+direction: v2a -> v2b
+
+SUSHI/QUICK: WETH/USDT
+Amounts Object:
+{
+  amountIn: 3461,
+  amountOutA: '2.036372606057969607',
+  repayAmountInA: '2.036372606057969607',
+  amountOutB: '2.092332750738012799',
+  repayAmountInB: '2.092332750738012799'
+}
+Price Check:
+SUSHI: 0.0006114592685185479 WETH/USDT
+QUICK: 0.0006124111227254272 WETH/USDT
+Difference = 2.541908020226174 WETH/USDT
+==============STRATEGY: WETH/USDT==============
+Borrow: 3461 USDT from SUSHI
+Sell for: 2.092332750738013 WETH on QUICK
+Repay: 2.0363726060579697WETH to SUSHI
+Keep: 0.05596014468004329 WETH
+Profit: 0.05596014468004329 WETH
+==============TRANSLATION==============
+[
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined
+]
+{
+  recipient: 'QUICK',
+  amountIn: '3461 USDT',
+  repayAmountIn: '2.092332750738012799 WETH',
+  amountOut: '2.092332750738012799 WETH'
+}
+{
+  loanPool: 'SUSHI',
+  amountIn: 0,
+  repayAmountIn: '2.036372606057969607 WETH',
+  amountOut: '2.036372606057969607'
+}
+Error: Amounts do not match up. Snorting More Cocaine...
+==============ATTEMPT: 1==============
+==============ATTEMPT: 2==============
+==============ATTEMPT: 3==============
+==============ATTEMPT: 4==============
+==============ATTEMPT: 5==============
+==============ATTEMPT: 6==============
+==============ATTEMPT: 7==============
+==============ATTEMPT: 8==============
+==============ATTEMPT: 9==============
+==============ATTEMPT: 10==============
+==============ATTEMPT: 11==============
+==============ATTEMPT: 12==============
+==============ATTEMPT: 13==============
+==============ATTEMPT: 14==============
+==============ATTEMPT: 15==============
+==============ATTEMPT: 16==============
+==============ATTEMPT: 17==============
+==============ATTEMPT: 18==============
+==============ATTEMPT: 19==============
+==============ATTEMPT: 20==============
+==============ATTEMPT: 21==============
+==============ATTEMPT: 22==============
+==============ATTEMPT: 23==============
+==============ATTEMPT: 24==============
+==============ATTEMPT: 25==============
+==============ATTEMPT: 26==============
+==============ATTEMPT: 27==============
+==============ATTEMPT: 28==============
+==============ATTEMPT: 29==============
+==============ATTEMPT: 30==============
+==============ATTEMPT: 31==============
+==============ATTEMPT: 32==============
+==============ATTEMPT: 33==============
+==============ATTEMPT: 34==============
+==============ATTEMPT: 35==============
+==============ATTEMPT: 36==============
+==============ATTEMPT: 37==============
+==============ATTEMPT: 38==============
+==============ATTEMPT: 39==============
+==============ATTEMPT: 40==============
+==============ATTEMPT: 41==============
+==============ATTEMPT: 42==============
+==============ATTEMPT: 43==============
+==============ATTEMPT: 44==============
+==============ATTEMPT: 45==============
+==============ATTEMPT: 46==============
+==============ATTEMPT: 47==============
+==============ATTEMPT: 48==============
+==============ATTEMPT: 49==============
+==============ATTEMPT: 50==============
+==============ATTEMPT: 51==============
+==============ATTEMPT: 52==============
+==============ATTEMPT: 53==============
+==============ATTEMPT: 54==============
+==============ATTEMPT: 55==============
+==============ATTEMPT: 56==============
+==============ATTEMPT: 57==============
+==============ATTEMPT: 58==============
+==============ATTEMPT: 59==============
+==============ATTEMPT: 60==============
+==============ATTEMPT: 61==============
+==============ATTEMPT: 62==============
+==============ATTEMPT: 63==============
+==============ATTEMPT: 64==============
+==============ATTEMPT: 65==============
+==============ATTEMPT: 66==============
+==============ATTEMPT: 67==============
+==============ATTEMPT: 68==============
+==============ATTEMPT: 69==============
+==============ATTEMPT: 70==============
+==============ATTEMPT: 71==============
+==============ATTEMPT: 72==============
+==============ATTEMPT: 73==============
+==============ATTEMPT: 74==============
+==============ATTEMPT: 75==============
+==============ATTEMPT: 76==============
+==============ATTEMPT: 77==============
+==============ATTEMPT: 78==============
+==============ATTEMPT: 79==============
+==============ATTEMPT: 80==============
+==============ATTEMPT: 81==============
+==============ATTEMPT: 82==============
+==============ATTEMPT: 83==============
+==============ATTEMPT: 84==============
+==============ATTEMPT: 85==============
+==============ATTEMPT: 86==============
+==============ATTEMPT: 87==============
+==============ATTEMPT: 88==============
+==============ATTEMPT: 89==============
+==============ATTEMPT: 90==============
+==============ATTEMPT: 91==============
+==============ATTEMPT: 92==============
+==============ATTEMPT: 93==============
+==============ATTEMPT: 94==============
+==============ATTEMPT: 95==============
+==============ATTEMPT: 96==============
+==============ATTEMPT: 97==============
+==============ATTEMPT: 98==============
+==============ATTEMPT: 99==============
+Attempts: 100
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WETH/DAI',
+    aPrice0: 0.0006115157238556042,
+    aPrice1: 1635.2809273570335,
+    Reserves0: 209.85426856807098,
+    Reserves1: 343170.68291382707,
+    Reserves0BN: BigNumber { _hex: '0x0b60502168374aef3e', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x48ab51eb59ec5a4e7d13', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x0663', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WETH/DAI',
+    bPrice0: 0.000611799526735764,
+    bPrice1: 1634.522349723719,
+    Reserves0: 28.665071661804934,
+    Reserves1: 46853.70028765219,
+    Reserves0BN: BigNumber { _hex: '0x018dcecacd66ffcf49', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x09ebf1b5ea138e15ce7a', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x0662', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 469 DAI
+______________________NEW TRADE ANALYSIS______________________
+CompuMax:
+amountIn: 3 WETH
+direction: v2a -> v2b
+
+SUSHI/QUICK: WBTC/WETH
+Amounts Object:
+{
+  amountIn: 3,
+  amountOutA: '0.2109388',
+  repayAmountInA: '0.2109388',
+  amountOutB: '0.21262254',
+  repayAmountInB: '0.21262254'
+}
+Price Check:
+SUSHI: 0.07148814001618316 WBTC/WETH
+QUICK: 0.07138907674908986 WBTC/WETH
+Difference = 0.019410954149082116 WBTC/WETH
+==============STRATEGY: WBTC/WETH==============
+Borrow: 3 WETH from SUSHI
+Sell for: 0.21262254 WBTC on QUICK
+Repay: 0.2109388WBTC to SUSHI
+Keep: 0.0016837399999999891 WBTC
+Profit: 0.0016837399999999891 WBTC
+==============TRANSLATION==============
+[
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined
+]
+{
+  recipient: 'QUICK',
+  amountIn: '3 WETH',
+  repayAmountIn: '0.21262254 WBTC',
+  amountOut: '0.21262254 WBTC'
+}
+{
+  loanPool: 'SUSHI',
+  amountIn: 0,
+  repayAmountIn: '0.2109388 WBTC',
+  amountOut: '0.2109388'
+}
+Error: Amounts do not match up. Snorting More Cocaine...
+==============ATTEMPT: 1==============
+==============ATTEMPT: 2==============
+==============ATTEMPT: 3==============
+==============ATTEMPT: 4==============
+==============ATTEMPT: 5==============
+==============ATTEMPT: 6==============
+==============ATTEMPT: 7==============
+==============ATTEMPT: 8==============
+==============ATTEMPT: 9==============
+==============ATTEMPT: 10==============
+==============ATTEMPT: 11==============
+==============ATTEMPT: 12==============
+==============ATTEMPT: 13==============
+==============ATTEMPT: 14==============
+==============ATTEMPT: 15==============
+==============ATTEMPT: 16==============
+==============ATTEMPT: 17==============
+==============ATTEMPT: 18==============
+==============ATTEMPT: 19==============
+==============ATTEMPT: 20==============
+==============ATTEMPT: 21==============
+==============ATTEMPT: 22==============
+==============ATTEMPT: 23==============
+==============ATTEMPT: 24==============
+==============ATTEMPT: 25==============
+==============ATTEMPT: 26==============
+==============ATTEMPT: 27==============
+==============ATTEMPT: 28==============
+==============ATTEMPT: 29==============
+==============ATTEMPT: 30==============
+==============ATTEMPT: 31==============
+==============ATTEMPT: 32==============
+==============ATTEMPT: 33==============
+==============ATTEMPT: 34==============
+==============ATTEMPT: 35==============
+==============ATTEMPT: 36==============
+==============ATTEMPT: 37==============
+==============ATTEMPT: 38==============
+==============ATTEMPT: 39==============
+==============ATTEMPT: 40==============
+==============ATTEMPT: 41==============
+==============ATTEMPT: 42==============
+==============ATTEMPT: 43==============
+==============ATTEMPT: 44==============
+==============ATTEMPT: 45==============
+==============ATTEMPT: 46==============
+==============ATTEMPT: 47==============
+==============ATTEMPT: 48==============
+==============ATTEMPT: 49==============
+==============ATTEMPT: 50==============
+==============ATTEMPT: 51==============
+==============ATTEMPT: 52==============
+==============ATTEMPT: 53==============
+==============ATTEMPT: 54==============
+==============ATTEMPT: 55==============
+==============ATTEMPT: 56==============
+==============ATTEMPT: 57==============
+==============ATTEMPT: 58==============
+==============ATTEMPT: 59==============
+==============ATTEMPT: 60==============
+==============ATTEMPT: 61==============
+==============ATTEMPT: 62==============
+==============ATTEMPT: 63==============
+==============ATTEMPT: 64==============
+==============ATTEMPT: 65==============
+==============ATTEMPT: 66==============
+==============ATTEMPT: 67==============
+==============ATTEMPT: 68==============
+==============ATTEMPT: 69==============
+==============ATTEMPT: 70==============
+==============ATTEMPT: 71==============
+==============ATTEMPT: 72==============
+==============ATTEMPT: 73==============
+==============ATTEMPT: 74==============
+==============ATTEMPT: 75==============
+==============ATTEMPT: 76==============
+==============ATTEMPT: 77==============
+==============ATTEMPT: 78==============
+==============ATTEMPT: 79==============
+==============ATTEMPT: 80==============
+==============ATTEMPT: 81==============
+==============ATTEMPT: 82==============
+==============ATTEMPT: 83==============
+==============ATTEMPT: 84==============
+==============ATTEMPT: 85==============
+==============ATTEMPT: 86==============
+==============ATTEMPT: 87==============
+==============ATTEMPT: 88==============
+==============ATTEMPT: 89==============
+==============ATTEMPT: 90==============
+==============ATTEMPT: 91==============
+==============ATTEMPT: 92==============
+==============ATTEMPT: 93==============
+==============ATTEMPT: 94==============
+==============ATTEMPT: 95==============
+==============ATTEMPT: 96==============
+==============ATTEMPT: 97==============
+==============ATTEMPT: 98==============
+==============ATTEMPT: 99==============
+Attempts: 100
+CompuMax:
+amountIn: 7 WETH
+direction: v2a -> v2b
+
+SUSHI/QUICK: USDC/WETH
+Amounts Object:
+{
+  amountIn: 7,
+  amountOutA: '11296.316163',
+  repayAmountInA: '11296.316163',
+  amountOutB: '11306.477147',
+  repayAmountInB: '11306.477147'
+}
+Price Check:
+SUSHI: 1635.886154864789 USDC/WETH
+QUICK: 1635.1089104209855 USDC/WETH
+Difference = 2.9057474417045447e-7 USDC/WETH
+==============STRATEGY: USDC/WETH==============
+Borrow: 7 WETH from SUSHI
+Sell for: 11306.477147 USDC on QUICK
+Repay: 11296.316163USDC to SUSHI
+Keep: 10.160984000000099 USDC
+Profit: 10.160984000000099 USDC
+==============TRANSLATION==============
+[
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined
+]
+{
+  recipient: 'QUICK',
+  amountIn: '7 WETH',
+  repayAmountIn: '11306.477147 USDC',
+  amountOut: '11306.477147 USDC'
+}
+{
+  loanPool: 'SUSHI',
+  amountIn: 0,
+  repayAmountIn: '11296.316163 USDC',
+  amountOut: '11296.316163'
+}
+Error: Amounts do not match up. Snorting More Cocaine...
+==============ATTEMPT: 1==============
+==============ATTEMPT: 2==============
+==============ATTEMPT: 3==============
+==============ATTEMPT: 4==============
+==============ATTEMPT: 5==============
+==============ATTEMPT: 6==============
+==============ATTEMPT: 7==============
+==============ATTEMPT: 8==============
+==============ATTEMPT: 9==============
+==============ATTEMPT: 10==============
+==============ATTEMPT: 11==============
+==============ATTEMPT: 12==============
+==============ATTEMPT: 13==============
+==============ATTEMPT: 14==============
+==============ATTEMPT: 15==============
+==============ATTEMPT: 16==============
+==============ATTEMPT: 17==============
+==============ATTEMPT: 18==============
+==============ATTEMPT: 19==============
+==============ATTEMPT: 20==============
+==============ATTEMPT: 21==============
+==============ATTEMPT: 22==============
+==============ATTEMPT: 23==============
+==============ATTEMPT: 24==============
+==============ATTEMPT: 25==============
+==============ATTEMPT: 26==============
+==============ATTEMPT: 27==============
+==============ATTEMPT: 28==============
+==============ATTEMPT: 29==============
+==============ATTEMPT: 30==============
+==============ATTEMPT: 31==============
+==============ATTEMPT: 32==============
+==============ATTEMPT: 33==============
+==============ATTEMPT: 34==============
+==============ATTEMPT: 35==============
+==============ATTEMPT: 36==============
+==============ATTEMPT: 37==============
+==============ATTEMPT: 38==============
+==============ATTEMPT: 39==============
+==============ATTEMPT: 40==============
+==============ATTEMPT: 41==============
+==============ATTEMPT: 42==============
+==============ATTEMPT: 43==============
+==============ATTEMPT: 44==============
+==============ATTEMPT: 45==============
+==============ATTEMPT: 46==============
+==============ATTEMPT: 47==============
+==============ATTEMPT: 48==============
+==============ATTEMPT: 49==============
+==============ATTEMPT: 50==============
+==============ATTEMPT: 51==============
+==============ATTEMPT: 52==============
+==============ATTEMPT: 53==============
+==============ATTEMPT: 54==============
+==============ATTEMPT: 55==============
+==============ATTEMPT: 56==============
+==============ATTEMPT: 57==============
+==============ATTEMPT: 58==============
+==============ATTEMPT: 59==============
+==============ATTEMPT: 60==============
+==============ATTEMPT: 61==============
+==============ATTEMPT: 62==============
+==============ATTEMPT: 63==============
+==============ATTEMPT: 64==============
+==============ATTEMPT: 65==============
+==============ATTEMPT: 66==============
+==============ATTEMPT: 67==============
+==============ATTEMPT: 68==============
+==============ATTEMPT: 69==============
+==============ATTEMPT: 70==============
+==============ATTEMPT: 71==============
+==============ATTEMPT: 72==============
+==============ATTEMPT: 73==============
+==============ATTEMPT: 74==============
+==============ATTEMPT: 75==============
+==============ATTEMPT: 76==============
+==============ATTEMPT: 77==============
+==============ATTEMPT: 78==============
+==============ATTEMPT: 79==============
+==============ATTEMPT: 80==============
+==============ATTEMPT: 81==============
+==============ATTEMPT: 82==============
+==============ATTEMPT: 83==============
+==============ATTEMPT: 84==============
+==============ATTEMPT: 85==============
+==============ATTEMPT: 86==============
+==============ATTEMPT: 87==============
+==============ATTEMPT: 88==============
+==============ATTEMPT: 89==============
+==============ATTEMPT: 90==============
+==============ATTEMPT: 91==============
+==============ATTEMPT: 92==============
+==============ATTEMPT: 93==============
+==============ATTEMPT: 94==============
+==============ATTEMPT: 95==============
+==============ATTEMPT: 96==============
+==============ATTEMPT: 97==============
+==============ATTEMPT: 98==============
+==============ATTEMPT: 99==============
+Attempts: 100
+{
+  exchangeA: {
+    exchange: 'QUICK',
+    asset: 'USDC/USDT',
+    aPrice0: 1.0010992478445895,
+    aPrice1: 0.9989019591744214,
+    Reserves0: 4532059.179473,
+    Reserves1: 4527082.79347,
+    Reserves0BN: BigNumber { _hex: '0x041f33c709d1', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x041e0b2969fe', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x01', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'SUSHI',
+    asset: 'USDC/USDT',
+    bPrice0: 0.9973470449200644,
+    bPrice1: 1.00266001197221,
+    Reserves0: 386021.910701,
+    Reserves1: 387048.733605,
+    Reserves0BN: BigNumber { _hex: '0x59e0b2e8ad', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x5a1de6fba5', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x01', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 45271 USDT
+______________________NEW TRADE ANALYSIS______________________
+CompuMax:
+amountIn: 3 WETH
+direction: v2a -> v2b
+
+SUSHI/QUICK: WBTC/WETH
+Amounts Object:
+{
+  amountIn: 3,
+  amountOutA: '0.2109388',
+  repayAmountInA: '0.2109388',
+  amountOutB: '0.21262254',
+  repayAmountInB: '0.21262254'
+}
+Price Check:
+SUSHI: 0.07148814001618316 WBTC/WETH
+QUICK: 0.07138907674908986 WBTC/WETH
+Difference = 0.019410954149082116 WBTC/WETH
+==============STRATEGY: WBTC/WETH==============
+Borrow: 3 WETH from SUSHI
+Sell for: 0.21262254 WBTC on QUICK
+Repay: 0.2109388WBTC to SUSHI
+Keep: 0.0016837399999999891 WBTC
+Profit: 0.0016837399999999891 WBTC
+==============TRANSLATION==============
+[
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined
+]
+{
+  recipient: 'QUICK',
+  amountIn: '3 WETH',
+  repayAmountIn: '0.21262254 WBTC',
+  amountOut: '0.21262254 WBTC'
+}
+{
+  loanPool: 'SUSHI',
+  amountIn: 0,
+  repayAmountIn: '0.2109388 WBTC',
+  amountOut: '0.2109388'
+}
+Error: Amounts do not match up. Snorting More Cocaine...
+==============ATTEMPT: 1==============
+==============ATTEMPT: 2==============
+==============ATTEMPT: 3==============
+==============ATTEMPT: 4==============
+==============ATTEMPT: 5==============
+==============ATTEMPT: 6==============
+==============ATTEMPT: 7==============
+==============ATTEMPT: 8==============
+==============ATTEMPT: 9==============
+==============ATTEMPT: 10==============
+==============ATTEMPT: 11==============
+==============ATTEMPT: 12==============
+==============ATTEMPT: 13==============
+==============ATTEMPT: 14==============
+==============ATTEMPT: 15==============
+==============ATTEMPT: 16==============
+==============ATTEMPT: 17==============
+==============ATTEMPT: 18==============
+==============ATTEMPT: 19==============
+==============ATTEMPT: 20==============
+==============ATTEMPT: 21==============
+==============ATTEMPT: 22==============
+==============ATTEMPT: 23==============
+==============ATTEMPT: 24==============
+==============ATTEMPT: 25==============
+==============ATTEMPT: 26==============
+==============ATTEMPT: 27==============
+==============ATTEMPT: 28==============
+==============ATTEMPT: 29==============
+==============ATTEMPT: 30==============
+==============ATTEMPT: 31==============
+==============ATTEMPT: 32==============
+==============ATTEMPT: 33==============
+==============ATTEMPT: 34==============
+==============ATTEMPT: 35==============
+==============ATTEMPT: 36==============
+==============ATTEMPT: 37==============
+==============ATTEMPT: 38==============
+==============ATTEMPT: 39==============
+==============ATTEMPT: 40==============
+==============ATTEMPT: 41==============
+==============ATTEMPT: 42==============
+==============ATTEMPT: 43==============
+==============ATTEMPT: 44==============
+==============ATTEMPT: 45==============
+==============ATTEMPT: 46==============
+==============ATTEMPT: 47==============
+==============ATTEMPT: 48==============
+==============ATTEMPT: 49==============
+==============ATTEMPT: 50==============
+==============ATTEMPT: 51==============
+==============ATTEMPT: 52==============
+==============ATTEMPT: 53==============
+==============ATTEMPT: 54==============
+==============ATTEMPT: 55==============
+==============ATTEMPT: 56==============
+==============ATTEMPT: 57==============
+==============ATTEMPT: 58==============
+==============ATTEMPT: 59==============
+==============ATTEMPT: 60==============
+==============ATTEMPT: 61==============
+==============ATTEMPT: 62==============
+==============ATTEMPT: 63==============
+==============ATTEMPT: 64==============
+==============ATTEMPT: 65==============
+==============ATTEMPT: 66==============
+==============ATTEMPT: 67==============
+==============ATTEMPT: 68==============
+==============ATTEMPT: 69==============
+==============ATTEMPT: 70==============
+==============ATTEMPT: 71==============
+==============ATTEMPT: 72==============
+==============ATTEMPT: 73==============
+==============ATTEMPT: 74==============
+==============ATTEMPT: 75==============
+==============ATTEMPT: 76==============
+==============ATTEMPT: 77==============
+==============ATTEMPT: 78==============
+==============ATTEMPT: 79==============
+==============ATTEMPT: 80==============
+==============ATTEMPT: 81==============
+==============ATTEMPT: 82==============
+==============ATTEMPT: 83==============
+==============ATTEMPT: 84==============
+==============ATTEMPT: 85==============
+==============ATTEMPT: 86==============
+==============ATTEMPT: 87==============
+==============ATTEMPT: 88==============
+==============ATTEMPT: 89==============
+==============ATTEMPT: 90==============
+==============ATTEMPT: 91==============
+==============ATTEMPT: 92==============
+==============ATTEMPT: 93==============
+==============ATTEMPT: 94==============
+==============ATTEMPT: 95==============
+==============ATTEMPT: 96==============
+==============ATTEMPT: 97==============
+==============ATTEMPT: 98==============
+==============ATTEMPT: 99==============
+Attempts: 100
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WBTC/WETH',
+    aPrice0: 0.07148814001618316,
+    aPrice1: 13.988334285569948,
+    Reserves0: 15.6487216,
+    Reserves1: 218.89954888261903,
+    Reserves0BN: BigNumber { _hex: '0x5d460de0', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x0bddd76bede1c37b66', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x2091b26c07', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WBTC/WETH',
+    bPrice0: 0.07138907674908986,
+    bPrice1: 14.00774523971903,
+    Reserves0: 50.32254097,
+    Reserves1: 704.9053337230833,
+    Reserves0BN: BigNumber { _hex: '0x012bf21a91', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x263686d245ca9097a2', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x209d444c6d', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 3 WETH
+______________________NEW TRADE ANALYSIS______________________
+CompuMax:
+amountIn: 2059 USDC
+direction: v2a -> v2b
+
+SUSHI/QUICK: WMATIC/USDC
+Amounts Object:
+{
+  amountIn: 2059,
+  amountOutA: '2010.2310216577330641',
+  repayAmountInA: '2010.2310216577330641',
+  amountOutB: '2027.05761000129771465',
+  repayAmountInB: '2027.05761000129771465'
+}
+Price Check:
+SUSHI: 0.9890154388864556 WMATIC/USDC
+QUICK: 0.9885449317407908 WMATIC/USDC
+Difference = 0.00048124556314022016 WMATIC/USDC
+==============STRATEGY: WMATIC/USDC==============
+Borrow: 2059 USDC from SUSHI
+Sell for: 2027.0576100012977 WMATIC on QUICK
+Repay: 2010.231021657733WMATIC to SUSHI
+Keep: 16.82658834356471 WMATIC
+Profit: 16.82658834356471 WMATIC
+==============TRANSLATION==============
+[
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined
+]
+{
+  recipient: 'QUICK',
+  amountIn: '2059 USDC',
+  repayAmountIn: '2027.05761000129771465 WMATIC',
+  amountOut: '2027.05761000129771465 WMATIC'
+}
+{
+  loanPool: 'SUSHI',
+  amountIn: 0,
+  repayAmountIn: '2010.2310216577330641 WMATIC',
+  amountOut: '2010.2310216577330641'
+}
+Error: Amounts do not match up. Snorting More Cocaine...
+==============ATTEMPT: 1==============
+==============ATTEMPT: 2==============
+==============ATTEMPT: 3==============
+==============ATTEMPT: 4==============
+==============ATTEMPT: 5==============
+==============ATTEMPT: 6==============
+==============ATTEMPT: 7==============
+==============ATTEMPT: 8==============
+==============ATTEMPT: 9==============
+==============ATTEMPT: 10==============
+==============ATTEMPT: 11==============
+==============ATTEMPT: 12==============
+==============ATTEMPT: 13==============
+==============ATTEMPT: 14==============
+==============ATTEMPT: 15==============
+==============ATTEMPT: 16==============
+==============ATTEMPT: 17==============
+==============ATTEMPT: 18==============
+==============ATTEMPT: 19==============
+==============ATTEMPT: 20==============
+==============ATTEMPT: 21==============
+==============ATTEMPT: 22==============
+==============ATTEMPT: 23==============
+==============ATTEMPT: 24==============
+==============ATTEMPT: 25==============
+==============ATTEMPT: 26==============
+==============ATTEMPT: 27==============
+==============ATTEMPT: 28==============
+==============ATTEMPT: 29==============
+==============ATTEMPT: 30==============
+==============ATTEMPT: 31==============
+==============ATTEMPT: 32==============
+==============ATTEMPT: 33==============
+==============ATTEMPT: 34==============
+==============ATTEMPT: 35==============
+==============ATTEMPT: 36==============
+==============ATTEMPT: 37==============
+==============ATTEMPT: 38==============
+==============ATTEMPT: 39==============
+==============ATTEMPT: 40==============
+==============ATTEMPT: 41==============
+==============ATTEMPT: 42==============
+==============ATTEMPT: 43==============
+==============ATTEMPT: 44==============
+==============ATTEMPT: 45==============
+==============ATTEMPT: 46==============
+==============ATTEMPT: 47==============
+==============ATTEMPT: 48==============
+==============ATTEMPT: 49==============
+==============ATTEMPT: 50==============
+==============ATTEMPT: 51==============
+==============ATTEMPT: 52==============
+==============ATTEMPT: 53==============
+==============ATTEMPT: 54==============
+==============ATTEMPT: 55==============
+==============ATTEMPT: 56==============
+==============ATTEMPT: 57==============
+==============ATTEMPT: 58==============
+==============ATTEMPT: 59==============
+==============ATTEMPT: 60==============
+==============ATTEMPT: 61==============
+==============ATTEMPT: 62==============
+==============ATTEMPT: 63==============
+==============ATTEMPT: 64==============
+==============ATTEMPT: 65==============
+==============ATTEMPT: 66==============
+==============ATTEMPT: 67==============
+==============ATTEMPT: 68==============
+==============ATTEMPT: 69==============
+==============ATTEMPT: 70==============
+==============ATTEMPT: 71==============
+==============ATTEMPT: 72==============
+==============ATTEMPT: 73==============
+==============ATTEMPT: 74==============
+==============ATTEMPT: 75==============
+==============ATTEMPT: 76==============
+==============ATTEMPT: 77==============
+==============ATTEMPT: 78==============
+==============ATTEMPT: 79==============
+==============ATTEMPT: 80==============
+==============ATTEMPT: 81==============
+==============ATTEMPT: 82==============
+==============ATTEMPT: 83==============
+==============ATTEMPT: 84==============
+==============ATTEMPT: 85==============
+==============ATTEMPT: 86==============
+==============ATTEMPT: 87==============
+==============ATTEMPT: 88==============
+==============ATTEMPT: 89==============
+==============ATTEMPT: 90==============
+==============ATTEMPT: 91==============
+==============ATTEMPT: 92==============
+==============ATTEMPT: 93==============
+==============ATTEMPT: 94==============
+==============ATTEMPT: 95==============
+==============ATTEMPT: 96==============
+==============ATTEMPT: 97==============
+==============ATTEMPT: 98==============
+==============ATTEMPT: 99==============
+Attempts: 100
+CompuMax:
+amountIn: 7 WETH
+direction: v2a -> v2b
+
+SUSHI/QUICK: USDC/WETH
+Amounts Object:
+{
+  amountIn: 7,
+  amountOutA: '11296.316163',
+  repayAmountInA: '11296.316163',
+  amountOutB: '11306.477147',
+  repayAmountInB: '11306.477147'
+}
+Price Check:
+SUSHI: 1635.886154864789 USDC/WETH
+QUICK: 1635.1089104209855 USDC/WETH
+Difference = 2.9057474417045447e-7 USDC/WETH
+==============STRATEGY: USDC/WETH==============
+Borrow: 7 WETH from SUSHI
+Sell for: 11306.477147 USDC on QUICK
+Repay: 11296.316163USDC to SUSHI
+Keep: 10.160984000000099 USDC
+Profit: 10.160984000000099 USDC
+==============TRANSLATION==============
+[
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined
+]
+{
+  recipient: 'QUICK',
+  amountIn: '7 WETH',
+  repayAmountIn: '11306.477147 USDC',
+  amountOut: '11306.477147 USDC'
+}
+{
+  loanPool: 'SUSHI',
+  amountIn: 0,
+  repayAmountIn: '11296.316163 USDC',
+  amountOut: '11296.316163'
+}
+Error: Amounts do not match up. Snorting More Cocaine...
+==============ATTEMPT: 1==============
+==============ATTEMPT: 2==============
+==============ATTEMPT: 3==============
+==============ATTEMPT: 4==============
+==============ATTEMPT: 5==============
+==============ATTEMPT: 6==============
+==============ATTEMPT: 7==============
+==============ATTEMPT: 8==============
+==============ATTEMPT: 9==============
+==============ATTEMPT: 10==============
+==============ATTEMPT: 11==============
+==============ATTEMPT: 12==============
+==============ATTEMPT: 13==============
+==============ATTEMPT: 14==============
+==============ATTEMPT: 15==============
+==============ATTEMPT: 16==============
+==============ATTEMPT: 17==============
+==============ATTEMPT: 18==============
+==============ATTEMPT: 19==============
+==============ATTEMPT: 20==============
+==============ATTEMPT: 21==============
+==============ATTEMPT: 22==============
+==============ATTEMPT: 23==============
+==============ATTEMPT: 24==============
+==============ATTEMPT: 25==============
+==============ATTEMPT: 26==============
+==============ATTEMPT: 27==============
+==============ATTEMPT: 28==============
+==============ATTEMPT: 29==============
+==============ATTEMPT: 30==============
+==============ATTEMPT: 31==============
+==============ATTEMPT: 32==============
+==============ATTEMPT: 33==============
+==============ATTEMPT: 34==============
+==============ATTEMPT: 35==============
+==============ATTEMPT: 36==============
+==============ATTEMPT: 37==============
+==============ATTEMPT: 38==============
+==============ATTEMPT: 39==============
+==============ATTEMPT: 40==============
+==============ATTEMPT: 41==============
+==============ATTEMPT: 42==============
+==============ATTEMPT: 43==============
+==============ATTEMPT: 44==============
+==============ATTEMPT: 45==============
+==============ATTEMPT: 46==============
+==============ATTEMPT: 47==============
+==============ATTEMPT: 48==============
+==============ATTEMPT: 49==============
+==============ATTEMPT: 50==============
+==============ATTEMPT: 51==============
+==============ATTEMPT: 52==============
+==============ATTEMPT: 53==============
+==============ATTEMPT: 54==============
+==============ATTEMPT: 55==============
+==============ATTEMPT: 56==============
+==============ATTEMPT: 57==============
+==============ATTEMPT: 58==============
+==============ATTEMPT: 59==============
+==============ATTEMPT: 60==============
+==============ATTEMPT: 61==============
+==============ATTEMPT: 62==============
+==============ATTEMPT: 63==============
+==============ATTEMPT: 64==============
+==============ATTEMPT: 65==============
+==============ATTEMPT: 66==============
+==============ATTEMPT: 67==============
+==============ATTEMPT: 68==============
+==============ATTEMPT: 69==============
+==============ATTEMPT: 70==============
+==============ATTEMPT: 71==============
+==============ATTEMPT: 72==============
+==============ATTEMPT: 73==============
+==============ATTEMPT: 74==============
+==============ATTEMPT: 75==============
+==============ATTEMPT: 76==============
+==============ATTEMPT: 77==============
+==============ATTEMPT: 78==============
+==============ATTEMPT: 79==============
+==============ATTEMPT: 80==============
+==============ATTEMPT: 81==============
+==============ATTEMPT: 82==============
+==============ATTEMPT: 83==============
+==============ATTEMPT: 84==============
+==============ATTEMPT: 85==============
+==============ATTEMPT: 86==============
+==============ATTEMPT: 87==============
+==============ATTEMPT: 88==============
+==============ATTEMPT: 89==============
+==============ATTEMPT: 90==============
+==============ATTEMPT: 91==============
+==============ATTEMPT: 92==============
+==============ATTEMPT: 93==============
+==============ATTEMPT: 94==============
+==============ATTEMPT: 95==============
+==============ATTEMPT: 96==============
+==============ATTEMPT: 97==============
+==============ATTEMPT: 98==============
+==============ATTEMPT: 99==============
+Attempts: 100
+{
+  exchangeA: {
+    exchange: 'QUICK',
+    asset: 'USDC/USDT',
+    aPrice0: 1.0010992478445895,
+    aPrice1: 0.9989019591744214,
+    Reserves0: 4532059.179473,
+    Reserves1: 4527082.79347,
+    Reserves0BN: BigNumber { _hex: '0x041f33c709d1', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x041e0b2969fe', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x01', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'SUSHI',
+    asset: 'USDC/USDT',
+    bPrice0: 0.9973470449200644,
+    bPrice1: 1.00266001197221,
+    Reserves0: 386021.910701,
+    Reserves1: 387048.733605,
+    Reserves0BN: BigNumber { _hex: '0x59e0b2e8ad', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x5a1de6fba5', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x01', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 45271 USDT
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WETH/DAI',
+    aPrice0: 0.0006115157238556042,
+    aPrice1: 1635.2809273570335,
+    Reserves0: 209.85426856807098,
+    Reserves1: 343170.68291382707,
+    Reserves0BN: BigNumber { _hex: '0x0b60502168374aef3e', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x48ab51eb59ec5a4e7d13', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x0663', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WETH/DAI',
+    bPrice0: 0.000611799526735764,
+    bPrice1: 1634.522349723719,
+    Reserves0: 28.665071661804934,
+    Reserves1: 46853.70028765219,
+    Reserves0BN: BigNumber { _hex: '0x018dcecacd66ffcf49', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x09ebf1b5ea138e15ce7a', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x0662', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 469 DAI
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WMATIC/WETH',
+    aPrice0: 1620.1028996318491,
+    aPrice1: 0.0006172447442858347,
+    Reserves0: 2354619.0799425067,
+    Reserves1: 1453.37625188966,
+    Reserves0BN: BigNumber { _hex: '0x01f29c27f5ad281d97d796', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x4ec9a5b0c6b7d4e364', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WMATIC/WETH',
+    bPrice0: 1620.0878646618148,
+    bPrice1: 0.0006172504725283804,
+    Reserves0: 1911719.7210556383,
+    Reserves1: 1180.0099011634163,
+    Reserves0BN: BigNumber { _hex: '0x0194d288a306ec5b185cd6', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x3ff7ed5125d13c94c7', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 15 WETH
+______________________NEW TRADE ANALYSIS______________________
+CompuMax:
+amountIn: 13431 DAI
+direction: v2a -> v2b
+
+SUSHI/QUICK: USDC/DAI
+Amounts Object:
+{
+  amountIn: 13431,
+  amountOutA: '12368.324448',
+  repayAmountInA: '12368.324448',
+  amountOutB: '13269.928127',
+  repayAmountInB: '13269.928127'
+}
+Price Check:
+SUSHI: 1.0008335312496393 USDC/DAI
+QUICK: 1.00086064331475 USDC/DAI
+Difference = 0.000027066190842139903 USDC/DAI
+==============STRATEGY: USDC/DAI==============
+Borrow: 13431 DAI from SUSHI
+Sell for: 13269.928127 USDC on QUICK
+Repay: 12368.324448USDC to SUSHI
+Keep: 901.6036789999998 USDC
+Profit: 901.6036789999998 USDC
+==============TRANSLATION==============
+[
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined
+]
+{
+  recipient: 'QUICK',
+  amountIn: '13431 DAI',
+  repayAmountIn: '13269.928127 USDC',
+  amountOut: '13269.928127 USDC'
+}
+{
+  loanPool: 'SUSHI',
+  amountIn: 0,
+  repayAmountIn: '12368.324448 USDC',
+  amountOut: '12368.324448'
+}
+Error: Amounts do not match up. Snorting More Cocaine...
+==============ATTEMPT: 1==============
+==============ATTEMPT: 2==============
+==============ATTEMPT: 3==============
+==============ATTEMPT: 4==============
+==============ATTEMPT: 5==============
+==============ATTEMPT: 6==============
+==============ATTEMPT: 7==============
+==============ATTEMPT: 8==============
+==============ATTEMPT: 9==============
+==============ATTEMPT: 10==============
+==============ATTEMPT: 11==============
+==============ATTEMPT: 12==============
+==============ATTEMPT: 13==============
+==============ATTEMPT: 14==============
+==============ATTEMPT: 15==============
+==============ATTEMPT: 16==============
+==============ATTEMPT: 17==============
+==============ATTEMPT: 18==============
+==============ATTEMPT: 19==============
+==============ATTEMPT: 20==============
+==============ATTEMPT: 21==============
+==============ATTEMPT: 22==============
+==============ATTEMPT: 23==============
+==============ATTEMPT: 24==============
+==============ATTEMPT: 25==============
+==============ATTEMPT: 26==============
+==============ATTEMPT: 27==============
+==============ATTEMPT: 28==============
+==============ATTEMPT: 29==============
+==============ATTEMPT: 30==============
+==============ATTEMPT: 31==============
+==============ATTEMPT: 32==============
+==============ATTEMPT: 33==============
+==============ATTEMPT: 34==============
+==============ATTEMPT: 35==============
+==============ATTEMPT: 36==============
+==============ATTEMPT: 37==============
+==============ATTEMPT: 38==============
+==============ATTEMPT: 39==============
+==============ATTEMPT: 40==============
+==============ATTEMPT: 41==============
+==============ATTEMPT: 42==============
+==============ATTEMPT: 43==============
+==============ATTEMPT: 44==============
+==============ATTEMPT: 45==============
+==============ATTEMPT: 46==============
+==============ATTEMPT: 47==============
+==============ATTEMPT: 48==============
+==============ATTEMPT: 49==============
+==============ATTEMPT: 50==============
+==============ATTEMPT: 51==============
+==============ATTEMPT: 52==============
+==============ATTEMPT: 53==============
+==============ATTEMPT: 54==============
+==============ATTEMPT: 55==============
+==============ATTEMPT: 56==============
+==============ATTEMPT: 57==============
+==============ATTEMPT: 58==============
+==============ATTEMPT: 59==============
+==============ATTEMPT: 60==============
+==============ATTEMPT: 61==============
+==============ATTEMPT: 62==============
+==============ATTEMPT: 63==============
+==============ATTEMPT: 64==============
+==============ATTEMPT: 65==============
+==============ATTEMPT: 66==============
+==============ATTEMPT: 67==============
+==============ATTEMPT: 68==============
+==============ATTEMPT: 69==============
+==============ATTEMPT: 70==============
+==============ATTEMPT: 71==============
+==============ATTEMPT: 72==============
+==============ATTEMPT: 73==============
+==============ATTEMPT: 74==============
+==============ATTEMPT: 75==============
+==============ATTEMPT: 76==============
+==============ATTEMPT: 77==============
+==============ATTEMPT: 78==============
+==============ATTEMPT: 79==============
+==============ATTEMPT: 80==============
+==============ATTEMPT: 81==============
+==============ATTEMPT: 82==============
+==============ATTEMPT: 83==============
+==============ATTEMPT: 84==============
+==============ATTEMPT: 85==============
+==============ATTEMPT: 86==============
+==============ATTEMPT: 87==============
+==============ATTEMPT: 88==============
+==============ATTEMPT: 89==============
+==============ATTEMPT: 90==============
+==============ATTEMPT: 91==============
+==============ATTEMPT: 92==============
+==============ATTEMPT: 93==============
+==============ATTEMPT: 94==============
+==============ATTEMPT: 95==============
+==============ATTEMPT: 96==============
+==============ATTEMPT: 97==============
+==============ATTEMPT: 98==============
+==============ATTEMPT: 99==============
+Attempts: 100
+CompuMax:
+amountIn: 2059 USDC
+direction: v2a -> v2b
+
+SUSHI/QUICK: WMATIC/USDC
+Amounts Object:
+{
+  amountIn: 2059,
+  amountOutA: '2010.2310216577330641',
+  repayAmountInA: '2010.2310216577330641',
+  amountOutB: '2027.05761000129771465',
+  repayAmountInB: '2027.05761000129771465'
+}
+Price Check:
+SUSHI: 0.9890154388864556 WMATIC/USDC
+QUICK: 0.9885449317407908 WMATIC/USDC
+Difference = 0.00048124556314022016 WMATIC/USDC
+==============STRATEGY: WMATIC/USDC==============
+Borrow: 2059 USDC from SUSHI
+Sell for: 2027.0576100012977 WMATIC on QUICK
+Repay: 2010.231021657733WMATIC to SUSHI
+Keep: 16.82658834356471 WMATIC
+Profit: 16.82658834356471 WMATIC
+==============TRANSLATION==============
+[
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined
+]
+{
+  recipient: 'QUICK',
+  amountIn: '2059 USDC',
+  repayAmountIn: '2027.05761000129771465 WMATIC',
+  amountOut: '2027.05761000129771465 WMATIC'
+}
+{
+  loanPool: 'SUSHI',
+  amountIn: 0,
+  repayAmountIn: '2010.2310216577330641 WMATIC',
+  amountOut: '2010.2310216577330641'
+}
+Error: Amounts do not match up. Snorting More Cocaine...
+==============ATTEMPT: 1==============
+==============ATTEMPT: 2==============
+==============ATTEMPT: 3==============
+==============ATTEMPT: 4==============
+==============ATTEMPT: 5==============
+==============ATTEMPT: 6==============
+==============ATTEMPT: 7==============
+==============ATTEMPT: 8==============
+==============ATTEMPT: 9==============
+==============ATTEMPT: 10==============
+==============ATTEMPT: 11==============
+==============ATTEMPT: 12==============
+==============ATTEMPT: 13==============
+==============ATTEMPT: 14==============
+==============ATTEMPT: 15==============
+==============ATTEMPT: 16==============
+==============ATTEMPT: 17==============
+==============ATTEMPT: 18==============
+==============ATTEMPT: 19==============
+==============ATTEMPT: 20==============
+==============ATTEMPT: 21==============
+==============ATTEMPT: 22==============
+==============ATTEMPT: 23==============
+==============ATTEMPT: 24==============
+==============ATTEMPT: 25==============
+==============ATTEMPT: 26==============
+==============ATTEMPT: 27==============
+==============ATTEMPT: 28==============
+==============ATTEMPT: 29==============
+==============ATTEMPT: 30==============
+==============ATTEMPT: 31==============
+==============ATTEMPT: 32==============
+==============ATTEMPT: 33==============
+==============ATTEMPT: 34==============
+==============ATTEMPT: 35==============
+==============ATTEMPT: 36==============
+==============ATTEMPT: 37==============
+==============ATTEMPT: 38==============
+==============ATTEMPT: 39==============
+==============ATTEMPT: 40==============
+==============ATTEMPT: 41==============
+==============ATTEMPT: 42==============
+==============ATTEMPT: 43==============
+==============ATTEMPT: 44==============
+==============ATTEMPT: 45==============
+==============ATTEMPT: 46==============
+==============ATTEMPT: 47==============
+==============ATTEMPT: 48==============
+==============ATTEMPT: 49==============
+==============ATTEMPT: 50==============
+==============ATTEMPT: 51==============
+==============ATTEMPT: 52==============
+==============ATTEMPT: 53==============
+==============ATTEMPT: 54==============
+==============ATTEMPT: 55==============
+==============ATTEMPT: 56==============
+==============ATTEMPT: 57==============
+==============ATTEMPT: 58==============
+==============ATTEMPT: 59==============
+==============ATTEMPT: 60==============
+==============ATTEMPT: 61==============
+==============ATTEMPT: 62==============
+==============ATTEMPT: 63==============
+==============ATTEMPT: 64==============
+==============ATTEMPT: 65==============
+==============ATTEMPT: 66==============
+==============ATTEMPT: 67==============
+==============ATTEMPT: 68==============
+==============ATTEMPT: 69==============
+==============ATTEMPT: 70==============
+==============ATTEMPT: 71==============
+==============ATTEMPT: 72==============
+==============ATTEMPT: 73==============
+==============ATTEMPT: 74==============
+==============ATTEMPT: 75==============
+==============ATTEMPT: 76==============
+==============ATTEMPT: 77==============
+==============ATTEMPT: 78==============
+==============ATTEMPT: 79==============
+==============ATTEMPT: 80==============
+==============ATTEMPT: 81==============
+==============ATTEMPT: 82==============
+==============ATTEMPT: 83==============
+==============ATTEMPT: 84==============
+==============ATTEMPT: 85==============
+==============ATTEMPT: 86==============
+==============ATTEMPT: 87==============
+==============ATTEMPT: 88==============
+==============ATTEMPT: 89==============
+==============ATTEMPT: 90==============
+==============ATTEMPT: 91==============
+==============ATTEMPT: 92==============
+==============ATTEMPT: 93==============
+==============ATTEMPT: 94==============
+==============ATTEMPT: 95==============
+==============ATTEMPT: 96==============
+==============ATTEMPT: 97==============
+==============ATTEMPT: 98==============
+==============ATTEMPT: 99==============
+Attempts: 100
+CompuMax:
+amountIn: 195 USDT
+direction: v2a -> v2b
+
+SUSHI/QUICK: WMATIC/USDT
+Amounts Object:
+{
+  amountIn: 195,
+  amountOutA: '190.554255475800901638',
+  repayAmountInA: '190.554255475800901638',
+  amountOutB: '192.10267478091601688',
+  repayAmountInB: '192.10267478091601688'
+}
+Price Check:
+SUSHI: 0.9899515158339706 WMATIC/USDT
+QUICK: 0.9883515445549299 WMATIC/USDT
+Difference = 0.0016352600106681603 WMATIC/USDT
+==============STRATEGY: WMATIC/USDT==============
+Borrow: 195 USDT from SUSHI
+Sell for: 192.102674780916 WMATIC on QUICK
+Repay: 190.55425547580091WMATIC to SUSHI
+Keep: 1.5484193051150896 WMATIC
+Profit: 1.5484193051150896 WMATIC
+==============TRANSLATION==============
+[
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined
+]
+{
+  recipient: 'QUICK',
+  amountIn: '195 USDT',
+  repayAmountIn: '192.10267478091601688 WMATIC',
+  amountOut: '192.10267478091601688 WMATIC'
+}
+{
+  loanPool: 'SUSHI',
+  amountIn: 0,
+  repayAmountIn: '190.554255475800901638 WMATIC',
+  amountOut: '190.554255475800901638'
+}
+Error: Amounts do not match up. Snorting More Cocaine...
+==============ATTEMPT: 1==============
+==============ATTEMPT: 2==============
+==============ATTEMPT: 3==============
+==============ATTEMPT: 4==============
+==============ATTEMPT: 5==============
+==============ATTEMPT: 6==============
+==============ATTEMPT: 7==============
+==============ATTEMPT: 8==============
+==============ATTEMPT: 9==============
+==============ATTEMPT: 10==============
+==============ATTEMPT: 11==============
+==============ATTEMPT: 12==============
+==============ATTEMPT: 13==============
+==============ATTEMPT: 14==============
+==============ATTEMPT: 15==============
+==============ATTEMPT: 16==============
+==============ATTEMPT: 17==============
+==============ATTEMPT: 18==============
+==============ATTEMPT: 19==============
+==============ATTEMPT: 20==============
+==============ATTEMPT: 21==============
+==============ATTEMPT: 22==============
+==============ATTEMPT: 23==============
+==============ATTEMPT: 24==============
+==============ATTEMPT: 25==============
+==============ATTEMPT: 26==============
+==============ATTEMPT: 27==============
+==============ATTEMPT: 28==============
+==============ATTEMPT: 29==============
+==============ATTEMPT: 30==============
+==============ATTEMPT: 31==============
+==============ATTEMPT: 32==============
+==============ATTEMPT: 33==============
+==============ATTEMPT: 34==============
+==============ATTEMPT: 35==============
+==============ATTEMPT: 36==============
+==============ATTEMPT: 37==============
+==============ATTEMPT: 38==============
+==============ATTEMPT: 39==============
+==============ATTEMPT: 40==============
+==============ATTEMPT: 41==============
+==============ATTEMPT: 42==============
+==============ATTEMPT: 43==============
+==============ATTEMPT: 44==============
+==============ATTEMPT: 45==============
+==============ATTEMPT: 46==============
+==============ATTEMPT: 47==============
+==============ATTEMPT: 48==============
+==============ATTEMPT: 49==============
+==============ATTEMPT: 50==============
+==============ATTEMPT: 51==============
+==============ATTEMPT: 52==============
+==============ATTEMPT: 53==============
+==============ATTEMPT: 54==============
+==============ATTEMPT: 55==============
+==============ATTEMPT: 56==============
+==============ATTEMPT: 57==============
+==============ATTEMPT: 58==============
+==============ATTEMPT: 59==============
+==============ATTEMPT: 60==============
+==============ATTEMPT: 61==============
+==============ATTEMPT: 62==============
+==============ATTEMPT: 63==============
+==============ATTEMPT: 64==============
+==============ATTEMPT: 65==============
+==============ATTEMPT: 66==============
+==============ATTEMPT: 67==============
+==============ATTEMPT: 68==============
+==============ATTEMPT: 69==============
+==============ATTEMPT: 70==============
+==============ATTEMPT: 71==============
+==============ATTEMPT: 72==============
+==============ATTEMPT: 73==============
+==============ATTEMPT: 74==============
+==============ATTEMPT: 75==============
+==============ATTEMPT: 76==============
+==============ATTEMPT: 77==============
+==============ATTEMPT: 78==============
+==============ATTEMPT: 79==============
+==============ATTEMPT: 80==============
+==============ATTEMPT: 81==============
+==============ATTEMPT: 82==============
+==============ATTEMPT: 83==============
+==============ATTEMPT: 84==============
+==============ATTEMPT: 85==============
+==============ATTEMPT: 86==============
+==============ATTEMPT: 87==============
+==============ATTEMPT: 88==============
+==============ATTEMPT: 89==============
+==============ATTEMPT: 90==============
+==============ATTEMPT: 91==============
+==============ATTEMPT: 92==============
+==============ATTEMPT: 93==============
+==============ATTEMPT: 94==============
+==============ATTEMPT: 95==============
+==============ATTEMPT: 96==============
+==============ATTEMPT: 97==============
+==============ATTEMPT: 98==============
+==============ATTEMPT: 99==============
+Attempts: 100
+CompuMax:
+amountIn: 3461 USDT
+direction: v2a -> v2b
+
+SUSHI/QUICK: WETH/USDT
+Amounts Object:
+{
+  amountIn: 3461,
+  amountOutA: '2.036372606057969607',
+  repayAmountInA: '2.036372606057969607',
+  amountOutB: '2.092332750738012799',
+  repayAmountInB: '2.092332750738012799'
+}
+Price Check:
+SUSHI: 0.0006114592685185479 WETH/USDT
+QUICK: 0.0006124111227254272 WETH/USDT
+Difference = 2.541908020226174 WETH/USDT
+==============STRATEGY: WETH/USDT==============
+Borrow: 3461 USDT from SUSHI
+Sell for: 2.092332750738013 WETH on QUICK
+Repay: 2.0363726060579697WETH to SUSHI
+Keep: 0.05596014468004329 WETH
+Profit: 0.05596014468004329 WETH
+==============TRANSLATION==============
+[
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined
+]
+{
+  recipient: 'QUICK',
+  amountIn: '3461 USDT',
+  repayAmountIn: '2.092332750738012799 WETH',
+  amountOut: '2.092332750738012799 WETH'
+}
+{
+  loanPool: 'SUSHI',
+  amountIn: 0,
+  repayAmountIn: '2.036372606057969607 WETH',
+  amountOut: '2.036372606057969607'
+}
+Error: Amounts do not match up. Snorting More Cocaine...
+==============ATTEMPT: 1==============
+==============ATTEMPT: 2==============
+==============ATTEMPT: 3==============
+==============ATTEMPT: 4==============
+==============ATTEMPT: 5==============
+==============ATTEMPT: 6==============
+==============ATTEMPT: 7==============
+==============ATTEMPT: 8==============
+==============ATTEMPT: 9==============
+==============ATTEMPT: 10==============
+==============ATTEMPT: 11==============
+==============ATTEMPT: 12==============
+==============ATTEMPT: 13==============
+==============ATTEMPT: 14==============
+==============ATTEMPT: 15==============
+==============ATTEMPT: 16==============
+==============ATTEMPT: 17==============
+==============ATTEMPT: 18==============
+==============ATTEMPT: 19==============
+==============ATTEMPT: 20==============
+==============ATTEMPT: 21==============
+==============ATTEMPT: 22==============
+==============ATTEMPT: 23==============
+==============ATTEMPT: 24==============
+==============ATTEMPT: 25==============
+==============ATTEMPT: 26==============
+==============ATTEMPT: 27==============
+==============ATTEMPT: 28==============
+==============ATTEMPT: 29==============
+==============ATTEMPT: 30==============
+==============ATTEMPT: 31==============
+==============ATTEMPT: 32==============
+==============ATTEMPT: 33==============
+==============ATTEMPT: 34==============
+==============ATTEMPT: 35==============
+==============ATTEMPT: 36==============
+==============ATTEMPT: 37==============
+==============ATTEMPT: 38==============
+==============ATTEMPT: 39==============
+==============ATTEMPT: 40==============
+==============ATTEMPT: 41==============
+==============ATTEMPT: 42==============
+==============ATTEMPT: 43==============
+==============ATTEMPT: 44==============
+==============ATTEMPT: 45==============
+==============ATTEMPT: 46==============
+==============ATTEMPT: 47==============
+==============ATTEMPT: 48==============
+==============ATTEMPT: 49==============
+==============ATTEMPT: 50==============
+==============ATTEMPT: 51==============
+==============ATTEMPT: 52==============
+==============ATTEMPT: 53==============
+==============ATTEMPT: 54==============
+==============ATTEMPT: 55==============
+==============ATTEMPT: 56==============
+==============ATTEMPT: 57==============
+==============ATTEMPT: 58==============
+==============ATTEMPT: 59==============
+==============ATTEMPT: 60==============
+==============ATTEMPT: 61==============
+==============ATTEMPT: 62==============
+==============ATTEMPT: 63==============
+==============ATTEMPT: 64==============
+==============ATTEMPT: 65==============
+==============ATTEMPT: 66==============
+==============ATTEMPT: 67==============
+==============ATTEMPT: 68==============
+==============ATTEMPT: 69==============
+==============ATTEMPT: 70==============
+==============ATTEMPT: 71==============
+==============ATTEMPT: 72==============
+==============ATTEMPT: 73==============
+==============ATTEMPT: 74==============
+==============ATTEMPT: 75==============
+==============ATTEMPT: 76==============
+==============ATTEMPT: 77==============
+==============ATTEMPT: 78==============
+==============ATTEMPT: 79==============
+==============ATTEMPT: 80==============
+==============ATTEMPT: 81==============
+==============ATTEMPT: 82==============
+==============ATTEMPT: 83==============
+==============ATTEMPT: 84==============
+==============ATTEMPT: 85==============
+==============ATTEMPT: 86==============
+==============ATTEMPT: 87==============
+==============ATTEMPT: 88==============
+==============ATTEMPT: 89==============
+==============ATTEMPT: 90==============
+==============ATTEMPT: 91==============
+==============ATTEMPT: 92==============
+==============ATTEMPT: 93==============
+==============ATTEMPT: 94==============
+==============ATTEMPT: 95==============
+==============ATTEMPT: 96==============
+==============ATTEMPT: 97==============
+==============ATTEMPT: 98==============
+==============ATTEMPT: 99==============
+Attempts: 100
+CompuMax:
+amountIn: 195 USDT
+direction: v2a -> v2b
+
+SUSHI/QUICK: WMATIC/USDT
+Amounts Object:
+{
+  amountIn: 195,
+  amountOutA: '190.554255475800901638',
+  repayAmountInA: '190.554255475800901638',
+  amountOutB: '192.10267478091601688',
+  repayAmountInB: '192.10267478091601688'
+}
+Price Check:
+SUSHI: 0.9899515158339706 WMATIC/USDT
+QUICK: 0.9883515445549299 WMATIC/USDT
+Difference = 0.0016352600106681603 WMATIC/USDT
+==============STRATEGY: WMATIC/USDT==============
+Borrow: 195 USDT from SUSHI
+Sell for: 192.102674780916 WMATIC on QUICK
+Repay: 190.55425547580091WMATIC to SUSHI
+Keep: 1.5484193051150896 WMATIC
+Profit: 1.5484193051150896 WMATIC
+==============TRANSLATION==============
+[
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined
+]
+{
+  recipient: 'QUICK',
+  amountIn: '195 USDT',
+  repayAmountIn: '192.10267478091601688 WMATIC',
+  amountOut: '192.10267478091601688 WMATIC'
+}
+{
+  loanPool: 'SUSHI',
+  amountIn: 0,
+  repayAmountIn: '190.554255475800901638 WMATIC',
+  amountOut: '190.554255475800901638'
+}
+Error: Amounts do not match up. Snorting More Cocaine...
+==============ATTEMPT: 1==============
+==============ATTEMPT: 2==============
+==============ATTEMPT: 3==============
+==============ATTEMPT: 4==============
+==============ATTEMPT: 5==============
+==============ATTEMPT: 6==============
+==============ATTEMPT: 7==============
+==============ATTEMPT: 8==============
+==============ATTEMPT: 9==============
+==============ATTEMPT: 10==============
+==============ATTEMPT: 11==============
+==============ATTEMPT: 12==============
+==============ATTEMPT: 13==============
+==============ATTEMPT: 14==============
+==============ATTEMPT: 15==============
+==============ATTEMPT: 16==============
+==============ATTEMPT: 17==============
+==============ATTEMPT: 18==============
+==============ATTEMPT: 19==============
+==============ATTEMPT: 20==============
+==============ATTEMPT: 21==============
+==============ATTEMPT: 22==============
+==============ATTEMPT: 23==============
+==============ATTEMPT: 24==============
+==============ATTEMPT: 25==============
+==============ATTEMPT: 26==============
+==============ATTEMPT: 27==============
+==============ATTEMPT: 28==============
+==============ATTEMPT: 29==============
+==============ATTEMPT: 30==============
+==============ATTEMPT: 31==============
+==============ATTEMPT: 32==============
+==============ATTEMPT: 33==============
+==============ATTEMPT: 34==============
+==============ATTEMPT: 35==============
+==============ATTEMPT: 36==============
+==============ATTEMPT: 37==============
+==============ATTEMPT: 38==============
+==============ATTEMPT: 39==============
+==============ATTEMPT: 40==============
+==============ATTEMPT: 41==============
+==============ATTEMPT: 42==============
+==============ATTEMPT: 43==============
+==============ATTEMPT: 44==============
+==============ATTEMPT: 45==============
+==============ATTEMPT: 46==============
+==============ATTEMPT: 47==============
+==============ATTEMPT: 48==============
+==============ATTEMPT: 49==============
+==============ATTEMPT: 50==============
+==============ATTEMPT: 51==============
+==============ATTEMPT: 52==============
+==============ATTEMPT: 53==============
+==============ATTEMPT: 54==============
+==============ATTEMPT: 55==============
+==============ATTEMPT: 56==============
+==============ATTEMPT: 57==============
+==============ATTEMPT: 58==============
+==============ATTEMPT: 59==============
+==============ATTEMPT: 60==============
+==============ATTEMPT: 61==============
+==============ATTEMPT: 62==============
+==============ATTEMPT: 63==============
+==============ATTEMPT: 64==============
+==============ATTEMPT: 65==============
+==============ATTEMPT: 66==============
+==============ATTEMPT: 67==============
+==============ATTEMPT: 68==============
+==============ATTEMPT: 69==============
+==============ATTEMPT: 70==============
+==============ATTEMPT: 71==============
+==============ATTEMPT: 72==============
+==============ATTEMPT: 73==============
+==============ATTEMPT: 74==============
+==============ATTEMPT: 75==============
+==============ATTEMPT: 76==============
+==============ATTEMPT: 77==============
+==============ATTEMPT: 78==============
+==============ATTEMPT: 79==============
+==============ATTEMPT: 80==============
+==============ATTEMPT: 81==============
+==============ATTEMPT: 82==============
+==============ATTEMPT: 83==============
+==============ATTEMPT: 84==============
+==============ATTEMPT: 85==============
+==============ATTEMPT: 86==============
+==============ATTEMPT: 87==============
+==============ATTEMPT: 88==============
+==============ATTEMPT: 89==============
+==============ATTEMPT: 90==============
+==============ATTEMPT: 91==============
+==============ATTEMPT: 92==============
+==============ATTEMPT: 93==============
+==============ATTEMPT: 94==============
+==============ATTEMPT: 95==============
+==============ATTEMPT: 96==============
+==============ATTEMPT: 97==============
+==============ATTEMPT: 98==============
+==============ATTEMPT: 99==============
+Attempts: 100
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WETH/DAI',
+    aPrice0: 0.0006115157238556042,
+    aPrice1: 1635.2809273570335,
+    Reserves0: 209.85426856807098,
+    Reserves1: 343170.68291382707,
+    Reserves0BN: BigNumber { _hex: '0x0b60502168374aef3e', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x48ab51eb59ec5a4e7d13', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x0663', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WETH/DAI',
+    bPrice0: 0.000611799526735764,
+    bPrice1: 1634.522349723719,
+    Reserves0: 28.665071661804934,
+    Reserves1: 46853.70028765219,
+    Reserves0BN: BigNumber { _hex: '0x018dcecacd66ffcf49', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x09ebf1b5ea138e15ce7a', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x0662', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 469 DAI
+______________________NEW TRADE ANALYSIS______________________
+Subgraph Data Verified. Flashing A to BWETH/USDT
+CompuMax:
+amountIn: 3 WETH
+direction: v2a -> v2b
+
+SUSHI/QUICK: WBTC/WETH
+Amounts Object:
+{
+  amountIn: 3,
+  amountOutA: '0.2109388',
+  repayAmountInA: '0.2109388',
+  amountOutB: '0.21262254',
+  repayAmountInB: '0.21262254'
+}
+Price Check:
+SUSHI: 0.07148814001618316 WBTC/WETH
+QUICK: 0.07138907674908986 WBTC/WETH
+Difference = 0.019410954149082116 WBTC/WETH
+==============STRATEGY: WBTC/WETH==============
+Borrow: 3 WETH from SUSHI
+Sell for: 0.21262254 WBTC on QUICK
+Repay: 0.2109388WBTC to SUSHI
+Keep: 0.0016837399999999891 WBTC
+Profit: 0.0016837399999999891 WBTC
+==============TRANSLATION==============
+[
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined
+]
+{
+  recipient: 'QUICK',
+  amountIn: '3 WETH',
+  repayAmountIn: '0.21262254 WBTC',
+  amountOut: '0.21262254 WBTC'
+}
+{
+  loanPool: 'SUSHI',
+  amountIn: 0,
+  repayAmountIn: '0.2109388 WBTC',
+  amountOut: '0.2109388'
+}
+Error: Amounts do not match up. Snorting More Cocaine...
+==============ATTEMPT: 1==============
+==============ATTEMPT: 2==============
+==============ATTEMPT: 3==============
+==============ATTEMPT: 4==============
+==============ATTEMPT: 5==============
+==============ATTEMPT: 6==============
+==============ATTEMPT: 7==============
+==============ATTEMPT: 8==============
+==============ATTEMPT: 9==============
+==============ATTEMPT: 10==============
+==============ATTEMPT: 11==============
+==============ATTEMPT: 12==============
+==============ATTEMPT: 13==============
+==============ATTEMPT: 14==============
+==============ATTEMPT: 15==============
+==============ATTEMPT: 16==============
+==============ATTEMPT: 17==============
+==============ATTEMPT: 18==============
+==============ATTEMPT: 19==============
+==============ATTEMPT: 20==============
+==============ATTEMPT: 21==============
+==============ATTEMPT: 22==============
+==============ATTEMPT: 23==============
+==============ATTEMPT: 24==============
+==============ATTEMPT: 25==============
+==============ATTEMPT: 26==============
+==============ATTEMPT: 27==============
+==============ATTEMPT: 28==============
+==============ATTEMPT: 29==============
+==============ATTEMPT: 30==============
+==============ATTEMPT: 31==============
+==============ATTEMPT: 32==============
+==============ATTEMPT: 33==============
+==============ATTEMPT: 34==============
+==============ATTEMPT: 35==============
+==============ATTEMPT: 36==============
+==============ATTEMPT: 37==============
+==============ATTEMPT: 38==============
+==============ATTEMPT: 39==============
+==============ATTEMPT: 40==============
+==============ATTEMPT: 41==============
+==============ATTEMPT: 42==============
+==============ATTEMPT: 43==============
+==============ATTEMPT: 44==============
+==============ATTEMPT: 45==============
+==============ATTEMPT: 46==============
+==============ATTEMPT: 47==============
+==============ATTEMPT: 48==============
+==============ATTEMPT: 49==============
+==============ATTEMPT: 50==============
+==============ATTEMPT: 51==============
+==============ATTEMPT: 52==============
+==============ATTEMPT: 53==============
+==============ATTEMPT: 54==============
+==============ATTEMPT: 55==============
+==============ATTEMPT: 56==============
+==============ATTEMPT: 57==============
+==============ATTEMPT: 58==============
+==============ATTEMPT: 59==============
+==============ATTEMPT: 60==============
+==============ATTEMPT: 61==============
+==============ATTEMPT: 62==============
+==============ATTEMPT: 63==============
+==============ATTEMPT: 64==============
+==============ATTEMPT: 65==============
+==============ATTEMPT: 66==============
+==============ATTEMPT: 67==============
+==============ATTEMPT: 68==============
+==============ATTEMPT: 69==============
+==============ATTEMPT: 70==============
+==============ATTEMPT: 71==============
+==============ATTEMPT: 72==============
+==============ATTEMPT: 73==============
+==============ATTEMPT: 74==============
+==============ATTEMPT: 75==============
+==============ATTEMPT: 76==============
+==============ATTEMPT: 77==============
+==============ATTEMPT: 78==============
+==============ATTEMPT: 79==============
+==============ATTEMPT: 80==============
+==============ATTEMPT: 81==============
+==============ATTEMPT: 82==============
+==============ATTEMPT: 83==============
+==============ATTEMPT: 84==============
+==============ATTEMPT: 85==============
+==============ATTEMPT: 86==============
+==============ATTEMPT: 87==============
+==============ATTEMPT: 88==============
+==============ATTEMPT: 89==============
+==============ATTEMPT: 90==============
+==============ATTEMPT: 91==============
+==============ATTEMPT: 92==============
+==============ATTEMPT: 93==============
+==============ATTEMPT: 94==============
+==============ATTEMPT: 95==============
+==============ATTEMPT: 96==============
+==============ATTEMPT: 97==============
+==============ATTEMPT: 98==============
+==============ATTEMPT: 99==============
+Attempts: 100
+{
+  exchangeA: {
+    exchange: 'QUICK',
+    asset: 'USDC/USDT',
+    aPrice0: 1.0010992478445895,
+    aPrice1: 0.9989019591744214,
+    Reserves0: 4532059.179473,
+    Reserves1: 4527082.79347,
+    Reserves0BN: BigNumber { _hex: '0x041f33c709d1', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x041e0b2969fe', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x01', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'SUSHI',
+    asset: 'USDC/USDT',
+    bPrice0: 0.9973470449200644,
+    bPrice1: 1.00266001197221,
+    Reserves0: 386021.910701,
+    Reserves1: 387048.733605,
+    Reserves0BN: BigNumber { _hex: '0x59e0b2e8ad', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x5a1de6fba5', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x01', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 45271 USDT
+______________________NEW TRADE ANALYSIS______________________
+CompuMax:
+amountIn: 7 WETH
+direction: v2a -> v2b
+
+SUSHI/QUICK: USDC/WETH
+Amounts Object:
+{
+  amountIn: 7,
+  amountOutA: '11296.316163',
+  repayAmountInA: '11296.316163',
+  amountOutB: '11306.477147',
+  repayAmountInB: '11306.477147'
+}
+Price Check:
+SUSHI: 1635.886154864789 USDC/WETH
+QUICK: 1635.1089104209855 USDC/WETH
+Difference = 2.9057474417045447e-7 USDC/WETH
+==============STRATEGY: USDC/WETH==============
+Borrow: 7 WETH from SUSHI
+Sell for: 11306.477147 USDC on QUICK
+Repay: 11296.316163USDC to SUSHI
+Keep: 10.160984000000099 USDC
+Profit: 10.160984000000099 USDC
+==============TRANSLATION==============
+[
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined
+]
+{
+  recipient: 'QUICK',
+  amountIn: '7 WETH',
+  repayAmountIn: '11306.477147 USDC',
+  amountOut: '11306.477147 USDC'
+}
+{
+  loanPool: 'SUSHI',
+  amountIn: 0,
+  repayAmountIn: '11296.316163 USDC',
+  amountOut: '11296.316163'
+}
+Error: Amounts do not match up. Snorting More Cocaine...
+==============ATTEMPT: 1==============
+==============ATTEMPT: 2==============
+==============ATTEMPT: 3==============
+==============ATTEMPT: 4==============
+==============ATTEMPT: 5==============
+==============ATTEMPT: 6==============
+==============ATTEMPT: 7==============
+==============ATTEMPT: 8==============
+==============ATTEMPT: 9==============
+==============ATTEMPT: 10==============
+==============ATTEMPT: 11==============
+==============ATTEMPT: 12==============
+==============ATTEMPT: 13==============
+==============ATTEMPT: 14==============
+==============ATTEMPT: 15==============
+==============ATTEMPT: 16==============
+==============ATTEMPT: 17==============
+==============ATTEMPT: 18==============
+==============ATTEMPT: 19==============
+==============ATTEMPT: 20==============
+==============ATTEMPT: 21==============
+==============ATTEMPT: 22==============
+==============ATTEMPT: 23==============
+==============ATTEMPT: 24==============
+==============ATTEMPT: 25==============
+==============ATTEMPT: 26==============
+==============ATTEMPT: 27==============
+==============ATTEMPT: 28==============
+==============ATTEMPT: 29==============
+==============ATTEMPT: 30==============
+==============ATTEMPT: 31==============
+==============ATTEMPT: 32==============
+==============ATTEMPT: 33==============
+==============ATTEMPT: 34==============
+==============ATTEMPT: 35==============
+==============ATTEMPT: 36==============
+==============ATTEMPT: 37==============
+==============ATTEMPT: 38==============
+==============ATTEMPT: 39==============
+==============ATTEMPT: 40==============
+==============ATTEMPT: 41==============
+==============ATTEMPT: 42==============
+==============ATTEMPT: 43==============
+==============ATTEMPT: 44==============
+==============ATTEMPT: 45==============
+==============ATTEMPT: 46==============
+==============ATTEMPT: 47==============
+==============ATTEMPT: 48==============
+==============ATTEMPT: 49==============
+==============ATTEMPT: 50==============
+==============ATTEMPT: 51==============
+==============ATTEMPT: 52==============
+==============ATTEMPT: 53==============
+==============ATTEMPT: 54==============
+==============ATTEMPT: 55==============
+==============ATTEMPT: 56==============
+==============ATTEMPT: 57==============
+==============ATTEMPT: 58==============
+==============ATTEMPT: 59==============
+==============ATTEMPT: 60==============
+==============ATTEMPT: 61==============
+==============ATTEMPT: 62==============
+==============ATTEMPT: 63==============
+==============ATTEMPT: 64==============
+==============ATTEMPT: 65==============
+==============ATTEMPT: 66==============
+==============ATTEMPT: 67==============
+==============ATTEMPT: 68==============
+==============ATTEMPT: 69==============
+==============ATTEMPT: 70==============
+==============ATTEMPT: 71==============
+==============ATTEMPT: 72==============
+==============ATTEMPT: 73==============
+==============ATTEMPT: 74==============
+==============ATTEMPT: 75==============
+==============ATTEMPT: 76==============
+==============ATTEMPT: 77==============
+==============ATTEMPT: 78==============
+==============ATTEMPT: 79==============
+==============ATTEMPT: 80==============
+==============ATTEMPT: 81==============
+==============ATTEMPT: 82==============
+==============ATTEMPT: 83==============
+==============ATTEMPT: 84==============
+==============ATTEMPT: 85==============
+==============ATTEMPT: 86==============
+==============ATTEMPT: 87==============
+==============ATTEMPT: 88==============
+==============ATTEMPT: 89==============
+==============ATTEMPT: 90==============
+==============ATTEMPT: 91==============
+==============ATTEMPT: 92==============
+==============ATTEMPT: 93==============
+==============ATTEMPT: 94==============
+==============ATTEMPT: 95==============
+==============ATTEMPT: 96==============
+==============ATTEMPT: 97==============
+==============ATTEMPT: 98==============
+==============ATTEMPT: 99==============
+Attempts: 100
+{
+  exchangeA: {
+    exchange: 'QUICK',
+    asset: 'USDC/USDT',
+    aPrice0: 1.0010992478445895,
+    aPrice1: 0.9989019591744214,
+    Reserves0: 4532059.179473,
+    Reserves1: 4527082.79347,
+    Reserves0BN: BigNumber { _hex: '0x041f33c709d1', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x041e0b2969fe', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x01', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'SUSHI',
+    asset: 'USDC/USDT',
+    bPrice0: 0.9973470449200644,
+    bPrice1: 1.00266001197221,
+    Reserves0: 386021.910701,
+    Reserves1: 387048.733605,
+    Reserves0BN: BigNumber { _hex: '0x59e0b2e8ad', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x5a1de6fba5', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x01', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 45271 USDT
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WBTC/WETH',
+    aPrice0: 0.07148814001618316,
+    aPrice1: 13.988334285569948,
+    Reserves0: 15.6487216,
+    Reserves1: 218.89954888261903,
+    Reserves0BN: BigNumber { _hex: '0x5d460de0', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x0bddd76bede1c37b66', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x2091b26c07', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WBTC/WETH',
+    bPrice0: 0.07138907674908986,
+    bPrice1: 14.00774523971903,
+    Reserves0: 50.32254097,
+    Reserves1: 704.9053337230833,
+    Reserves0BN: BigNumber { _hex: '0x012bf21a91', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x263686d245ca9097a2', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x209d444c6d', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 3 WETH
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WMATIC/WETH',
+    aPrice0: 1620.1028996318491,
+    aPrice1: 0.0006172447442858347,
+    Reserves0: 2354619.0799425067,
+    Reserves1: 1453.37625188966,
+    Reserves0BN: BigNumber { _hex: '0x01f29c27f5ad281d97d796', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x4ec9a5b0c6b7d4e364', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WMATIC/WETH',
+    bPrice0: 1620.0878646618148,
+    bPrice1: 0.0006172504725283804,
+    Reserves0: 1911719.7210556383,
+    Reserves1: 1180.0099011634163,
+    Reserves0BN: BigNumber { _hex: '0x0194d288a306ec5b185cd6', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x3ff7ed5125d13c94c7', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 15 WETH
+______________________NEW TRADE ANALYSIS______________________
+CompuMax:
+amountIn: 2059 USDC
+direction: v2a -> v2b
+
+SUSHI/QUICK: WMATIC/USDC
+Amounts Object:
+{
+  amountIn: 2059,
+  amountOutA: '2010.2310216577330641',
+  repayAmountInA: '2010.2310216577330641',
+  amountOutB: '2027.05761000129771465',
+  repayAmountInB: '2027.05761000129771465'
+}
+Price Check:
+SUSHI: 0.9890154388864556 WMATIC/USDC
+QUICK: 0.9885449317407908 WMATIC/USDC
+Difference = 0.00048124556314022016 WMATIC/USDC
+==============STRATEGY: WMATIC/USDC==============
+Borrow: 2059 USDC from SUSHI
+Sell for: 2027.0576100012977 WMATIC on QUICK
+Repay: 2010.231021657733WMATIC to SUSHI
+Keep: 16.82658834356471 WMATIC
+Profit: 16.82658834356471 WMATIC
+==============TRANSLATION==============
+[
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined
+]
+{
+  recipient: 'QUICK',
+  amountIn: '2059 USDC',
+  repayAmountIn: '2027.05761000129771465 WMATIC',
+  amountOut: '2027.05761000129771465 WMATIC'
+}
+{
+  loanPool: 'SUSHI',
+  amountIn: 0,
+  repayAmountIn: '2010.2310216577330641 WMATIC',
+  amountOut: '2010.2310216577330641'
+}
+Error: Amounts do not match up. Snorting More Cocaine...
+==============ATTEMPT: 1==============
+==============ATTEMPT: 2==============
+==============ATTEMPT: 3==============
+==============ATTEMPT: 4==============
+==============ATTEMPT: 5==============
+==============ATTEMPT: 6==============
+==============ATTEMPT: 7==============
+==============ATTEMPT: 8==============
+==============ATTEMPT: 9==============
+==============ATTEMPT: 10==============
+==============ATTEMPT: 11==============
+==============ATTEMPT: 12==============
+==============ATTEMPT: 13==============
+==============ATTEMPT: 14==============
+==============ATTEMPT: 15==============
+==============ATTEMPT: 16==============
+==============ATTEMPT: 17==============
+==============ATTEMPT: 18==============
+==============ATTEMPT: 19==============
+==============ATTEMPT: 20==============
+==============ATTEMPT: 21==============
+==============ATTEMPT: 22==============
+==============ATTEMPT: 23==============
+==============ATTEMPT: 24==============
+==============ATTEMPT: 25==============
+==============ATTEMPT: 26==============
+==============ATTEMPT: 27==============
+==============ATTEMPT: 28==============
+==============ATTEMPT: 29==============
+==============ATTEMPT: 30==============
+==============ATTEMPT: 31==============
+==============ATTEMPT: 32==============
+==============ATTEMPT: 33==============
+==============ATTEMPT: 34==============
+==============ATTEMPT: 35==============
+==============ATTEMPT: 36==============
+==============ATTEMPT: 37==============
+==============ATTEMPT: 38==============
+==============ATTEMPT: 39==============
+==============ATTEMPT: 40==============
+==============ATTEMPT: 41==============
+==============ATTEMPT: 42==============
+==============ATTEMPT: 43==============
+==============ATTEMPT: 44==============
+==============ATTEMPT: 45==============
+==============ATTEMPT: 46==============
+==============ATTEMPT: 47==============
+==============ATTEMPT: 48==============
+==============ATTEMPT: 49==============
+==============ATTEMPT: 50==============
+==============ATTEMPT: 51==============
+==============ATTEMPT: 52==============
+==============ATTEMPT: 53==============
+==============ATTEMPT: 54==============
+==============ATTEMPT: 55==============
+==============ATTEMPT: 56==============
+==============ATTEMPT: 57==============
+==============ATTEMPT: 58==============
+==============ATTEMPT: 59==============
+==============ATTEMPT: 60==============
+==============ATTEMPT: 61==============
+==============ATTEMPT: 62==============
+==============ATTEMPT: 63==============
+==============ATTEMPT: 64==============
+==============ATTEMPT: 65==============
+==============ATTEMPT: 66==============
+==============ATTEMPT: 67==============
+==============ATTEMPT: 68==============
+==============ATTEMPT: 69==============
+==============ATTEMPT: 70==============
+==============ATTEMPT: 71==============
+==============ATTEMPT: 72==============
+==============ATTEMPT: 73==============
+==============ATTEMPT: 74==============
+==============ATTEMPT: 75==============
+==============ATTEMPT: 76==============
+==============ATTEMPT: 77==============
+==============ATTEMPT: 78==============
+==============ATTEMPT: 79==============
+==============ATTEMPT: 80==============
+==============ATTEMPT: 81==============
+==============ATTEMPT: 82==============
+==============ATTEMPT: 83==============
+==============ATTEMPT: 84==============
+==============ATTEMPT: 85==============
+==============ATTEMPT: 86==============
+==============ATTEMPT: 87==============
+==============ATTEMPT: 88==============
+==============ATTEMPT: 89==============
+==============ATTEMPT: 90==============
+==============ATTEMPT: 91==============
+==============ATTEMPT: 92==============
+==============ATTEMPT: 93==============
+==============ATTEMPT: 94==============
+==============ATTEMPT: 95==============
+==============ATTEMPT: 96==============
+==============ATTEMPT: 97==============
+==============ATTEMPT: 98==============
+==============ATTEMPT: 99==============
+Attempts: 100
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WMATIC/WETH',
+    aPrice0: 1620.1028996318491,
+    aPrice1: 0.0006172447442858347,
+    Reserves0: 2354619.0799425067,
+    Reserves1: 1453.37625188966,
+    Reserves0BN: BigNumber { _hex: '0x01f29c27f5ad281d97d796', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x4ec9a5b0c6b7d4e364', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WMATIC/WETH',
+    bPrice0: 1620.0878646618148,
+    bPrice1: 0.0006172504725283804,
+    Reserves0: 1911719.7210556383,
+    Reserves1: 1180.0099011634163,
+    Reserves0BN: BigNumber { _hex: '0x0194d288a306ec5b185cd6', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x3ff7ed5125d13c94c7', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x0654', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 15 WETH
+______________________NEW TRADE ANALYSIS______________________
+CompuMax:
+amountIn: 195 USDT
+direction: v2a -> v2b
+
+SUSHI/QUICK: WMATIC/USDT
+Amounts Object:
+{
+  amountIn: 195,
+  amountOutA: '190.554255475800901638',
+  repayAmountInA: '190.554255475800901638',
+  amountOutB: '192.10267478091601688',
+  repayAmountInB: '192.10267478091601688'
+}
+Price Check:
+SUSHI: 0.9899515158339706 WMATIC/USDT
+QUICK: 0.9883515445549299 WMATIC/USDT
+Difference = 0.0016352600106681603 WMATIC/USDT
+==============STRATEGY: WMATIC/USDT==============
+Borrow: 195 USDT from SUSHI
+Sell for: 192.102674780916 WMATIC on QUICK
+Repay: 190.55425547580091WMATIC to SUSHI
+Keep: 1.5484193051150896 WMATIC
+Profit: 1.5484193051150896 WMATIC
+==============TRANSLATION==============
+[
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined
+]
+{
+  recipient: 'QUICK',
+  amountIn: '195 USDT',
+  repayAmountIn: '192.10267478091601688 WMATIC',
+  amountOut: '192.10267478091601688 WMATIC'
+}
+{
+  loanPool: 'SUSHI',
+  amountIn: 0,
+  repayAmountIn: '190.554255475800901638 WMATIC',
+  amountOut: '190.554255475800901638'
+}
+Error: Amounts do not match up. Snorting More Cocaine...
+==============ATTEMPT: 1==============
+==============ATTEMPT: 2==============
+==============ATTEMPT: 3==============
+==============ATTEMPT: 4==============
+==============ATTEMPT: 5==============
+==============ATTEMPT: 6==============
+==============ATTEMPT: 7==============
+==============ATTEMPT: 8==============
+==============ATTEMPT: 9==============
+==============ATTEMPT: 10==============
+==============ATTEMPT: 11==============
+==============ATTEMPT: 12==============
+==============ATTEMPT: 13==============
+==============ATTEMPT: 14==============
+==============ATTEMPT: 15==============
+==============ATTEMPT: 16==============
+==============ATTEMPT: 17==============
+==============ATTEMPT: 18==============
+==============ATTEMPT: 19==============
+==============ATTEMPT: 20==============
+==============ATTEMPT: 21==============
+==============ATTEMPT: 22==============
+==============ATTEMPT: 23==============
+==============ATTEMPT: 24==============
+==============ATTEMPT: 25==============
+==============ATTEMPT: 26==============
+==============ATTEMPT: 27==============
+==============ATTEMPT: 28==============
+==============ATTEMPT: 29==============
+==============ATTEMPT: 30==============
+==============ATTEMPT: 31==============
+==============ATTEMPT: 32==============
+==============ATTEMPT: 33==============
+==============ATTEMPT: 34==============
+==============ATTEMPT: 35==============
+==============ATTEMPT: 36==============
+==============ATTEMPT: 37==============
+==============ATTEMPT: 38==============
+==============ATTEMPT: 39==============
+==============ATTEMPT: 40==============
+==============ATTEMPT: 41==============
+==============ATTEMPT: 42==============
+==============ATTEMPT: 43==============
+==============ATTEMPT: 44==============
+==============ATTEMPT: 45==============
+==============ATTEMPT: 46==============
+==============ATTEMPT: 47==============
+==============ATTEMPT: 48==============
+==============ATTEMPT: 49==============
+==============ATTEMPT: 50==============
+==============ATTEMPT: 51==============
+==============ATTEMPT: 52==============
+==============ATTEMPT: 53==============
+==============ATTEMPT: 54==============
+==============ATTEMPT: 55==============
+==============ATTEMPT: 56==============
+==============ATTEMPT: 57==============
+==============ATTEMPT: 58==============
+==============ATTEMPT: 59==============
+==============ATTEMPT: 60==============
+==============ATTEMPT: 61==============
+==============ATTEMPT: 62==============
+==============ATTEMPT: 63==============
+==============ATTEMPT: 64==============
+==============ATTEMPT: 65==============
+==============ATTEMPT: 66==============
+==============ATTEMPT: 67==============
+==============ATTEMPT: 68==============
+==============ATTEMPT: 69==============
+==============ATTEMPT: 70==============
+==============ATTEMPT: 71==============
+==============ATTEMPT: 72==============
+==============ATTEMPT: 73==============
+==============ATTEMPT: 74==============
+==============ATTEMPT: 75==============
+==============ATTEMPT: 76==============
+==============ATTEMPT: 77==============
+==============ATTEMPT: 78==============
+==============ATTEMPT: 79==============
+==============ATTEMPT: 80==============
+==============ATTEMPT: 81==============
+==============ATTEMPT: 82==============
+==============ATTEMPT: 83==============
+==============ATTEMPT: 84==============
+==============ATTEMPT: 85==============
+==============ATTEMPT: 86==============
+==============ATTEMPT: 87==============
+==============ATTEMPT: 88==============
+==============ATTEMPT: 89==============
+==============ATTEMPT: 90==============
+==============ATTEMPT: 91==============
+==============ATTEMPT: 92==============
+==============ATTEMPT: 93==============
+==============ATTEMPT: 94==============
+==============ATTEMPT: 95==============
+==============ATTEMPT: 96==============
+==============ATTEMPT: 97==============
+==============ATTEMPT: 98==============
+==============ATTEMPT: 99==============
+Attempts: 100
+{
+  exchangeA: {
+    exchange: 'QUICK',
+    asset: 'USDC/USDT',
+    aPrice0: 1.0010992478445895,
+    aPrice1: 0.9989019591744214,
+    Reserves0: 4532059.179473,
+    Reserves1: 4527082.79347,
+    Reserves0BN: BigNumber { _hex: '0x041f33c709d1', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x041e0b2969fe', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x01', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'SUSHI',
+    asset: 'USDC/USDT',
+    bPrice0: 0.9973470449200644,
+    bPrice1: 1.00266001197221,
+    Reserves0: 386021.910701,
+    Reserves1: 387048.733605,
+    Reserves0BN: BigNumber { _hex: '0x59e0b2e8ad', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x5a1de6fba5', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x01', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 45271 USDT
+______________________NEW TRADE ANALYSIS______________________
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WETH/USDT',
+    aPrice0: 0.0006114592685185479,
+    aPrice1: 1635.431910980455,
+    Reserves0: 58.42557366617381,
+    Reserves1: 95551.047591,
+    Reserves0BN: BigNumber { _hex: '0x032ad155b28ab4fe79', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x163f4947a7', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x247220c4', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WETH/USDT',
+    bPrice0: 0.0006124111227254272,
+    bPrice1: 1632.890002960229,
+    Reserves0: 211.92579634859123,
+    Reserves1: 346051.514227,
+    Reserves0BN: BigNumber { _hex: '0x0b7d0facf2b38e532b', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x5092470f73', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x2480a6f2', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x00', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 3461 USDT
+______________________NEW TRADE ANALYSIS______________________
+CompuMax:
+amountIn: 7 WETH
+direction: v2a -> v2b
+
+SUSHI/QUICK: USDC/WETH
+Amounts Object:
+{
+  amountIn: 7,
+  amountOutA: '11296.316163',
+  repayAmountInA: '11296.316163',
+  amountOutB: '11306.477147',
+  repayAmountInB: '11306.477147'
+}
+Price Check:
+SUSHI: 1635.886154864789 USDC/WETH
+QUICK: 1635.1089104209855 USDC/WETH
+Difference = 2.9057474417045447e-7 USDC/WETH
+==============STRATEGY: USDC/WETH==============
+Borrow: 7 WETH from SUSHI
+Sell for: 11306.477147 USDC on QUICK
+Repay: 11296.316163USDC to SUSHI
+Keep: 10.160984000000099 USDC
+Profit: 10.160984000000099 USDC
+==============TRANSLATION==============
+[
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined, undefined,
+  undefined
+]
+{
+  recipient: 'QUICK',
+  amountIn: '7 WETH',
+  repayAmountIn: '11306.477147 USDC',
+  amountOut: '11306.477147 USDC'
+}
+{
+  loanPool: 'SUSHI',
+  amountIn: 0,
+  repayAmountIn: '11296.316163 USDC',
+  amountOut: '11296.316163'
+}
+Error: Amounts do not match up. Snorting More Cocaine...
+==============ATTEMPT: 1==============
+==============ATTEMPT: 2==============
+==============ATTEMPT: 3==============
+==============ATTEMPT: 4==============
+==============ATTEMPT: 5==============
+==============ATTEMPT: 6==============
+==============ATTEMPT: 7==============
+==============ATTEMPT: 8==============
+==============ATTEMPT: 9==============
+==============ATTEMPT: 10==============
+==============ATTEMPT: 11==============
+==============ATTEMPT: 12==============
+==============ATTEMPT: 13==============
+==============ATTEMPT: 14==============
+==============ATTEMPT: 15==============
+==============ATTEMPT: 16==============
+==============ATTEMPT: 17==============
+==============ATTEMPT: 18==============
+==============ATTEMPT: 19==============
+==============ATTEMPT: 20==============
+==============ATTEMPT: 21==============
+==============ATTEMPT: 22==============
+==============ATTEMPT: 23==============
+==============ATTEMPT: 24==============
+==============ATTEMPT: 25==============
+==============ATTEMPT: 26==============
+==============ATTEMPT: 27==============
+==============ATTEMPT: 28==============
+==============ATTEMPT: 29==============
+==============ATTEMPT: 30==============
+==============ATTEMPT: 31==============
+==============ATTEMPT: 32==============
+==============ATTEMPT: 33==============
+==============ATTEMPT: 34==============
+==============ATTEMPT: 35==============
+==============ATTEMPT: 36==============
+==============ATTEMPT: 37==============
+==============ATTEMPT: 38==============
+==============ATTEMPT: 39==============
+==============ATTEMPT: 40==============
+==============ATTEMPT: 41==============
+==============ATTEMPT: 42==============
+==============ATTEMPT: 43==============
+==============ATTEMPT: 44==============
+==============ATTEMPT: 45==============
+==============ATTEMPT: 46==============
+==============ATTEMPT: 47==============
+==============ATTEMPT: 48==============
+==============ATTEMPT: 49==============
+==============ATTEMPT: 50==============
+==============ATTEMPT: 51==============
+==============ATTEMPT: 52==============
+==============ATTEMPT: 53==============
+==============ATTEMPT: 54==============
+==============ATTEMPT: 55==============
+==============ATTEMPT: 56==============
+==============ATTEMPT: 57==============
+==============ATTEMPT: 58==============
+==============ATTEMPT: 59==============
+==============ATTEMPT: 60==============
+==============ATTEMPT: 61==============
+==============ATTEMPT: 62==============
+==============ATTEMPT: 63==============
+==============ATTEMPT: 64==============
+==============ATTEMPT: 65==============
+==============ATTEMPT: 66==============
+==============ATTEMPT: 67==============
+==============ATTEMPT: 68==============
+==============ATTEMPT: 69==============
+==============ATTEMPT: 70==============
+==============ATTEMPT: 71==============
+==============ATTEMPT: 72==============
+==============ATTEMPT: 73==============
+==============ATTEMPT: 74==============
+==============ATTEMPT: 75==============
+==============ATTEMPT: 76==============
+==============ATTEMPT: 77==============
+==============ATTEMPT: 78==============
+==============ATTEMPT: 79==============
+==============ATTEMPT: 80==============
+==============ATTEMPT: 81==============
+==============ATTEMPT: 82==============
+==============ATTEMPT: 83==============
+==============ATTEMPT: 84==============
+==============ATTEMPT: 85==============
+==============ATTEMPT: 86==============
+==============ATTEMPT: 87==============
+==============ATTEMPT: 88==============
+==============ATTEMPT: 89==============
+==============ATTEMPT: 90==============
+==============ATTEMPT: 91==============
+==============ATTEMPT: 92==============
+==============ATTEMPT: 93==============
+==============ATTEMPT: 94==============
+==============ATTEMPT: 95==============
+==============ATTEMPT: 96==============
+==============ATTEMPT: 97==============
+==============ATTEMPT: 98==============
+==============ATTEMPT: 99==============
+Attempts: 100
+{
+  exchangeA: {
+    exchange: 'SUSHI',
+    asset: 'WETH/DAI',
+    aPrice0: 0.0006115157238556042,
+    aPrice1: 1635.2809273570335,
+    Reserves0: 209.85426856807098,
+    Reserves1: 343170.68291382707,
+    Reserves0BN: BigNumber { _hex: '0x0b60502168374aef3e', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x48ab51eb59ec5a4e7d13', _isBigNumber: true },
+    aPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    aPrice1BN: BigNumber { _hex: '0x0663', _isBigNumber: true }
+  },
+  exchangeB: {
+    exchange: 'QUICK',
+    asset: 'WETH/DAI',
+    bPrice0: 0.000611799526735764,
+    bPrice1: 1634.522349723719,
+    Reserves0: 28.665071661804934,
+    Reserves1: 46853.70028765219,
+    Reserves0BN: BigNumber { _hex: '0x018dcecacd66ffcf49', _isBigNumber: true },
+    Reserves1BN: BigNumber { _hex: '0x09ebf1b5ea138e15ce7a', _isBigNumber: true },
+    bPrice0BN: BigNumber { _hex: '0x00', _isBigNumber: true },
+    bPrice1BN: BigNumber { _hex: '0x0662', _isBigNumber: true }
+  }
+}
+SampleAmountIn: 469 DAI
+______________________NEW TRADE ANALYSIS______________________
+Error: missing response (requestBody="{\"method\":\"eth_getTransactionCount\",\"params\":[\"0xaae6f269e52e00cf1ae10786b11681020c0d14c6\",\"pending\"],\"id\":429,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"code":"ECONNRESET","path":null,"host":"rpc.ankr.com","port":443}, url="https://rpc.ankr.com/polygon", code=SERVER_ERROR, version=web/5.7.1)
+    at Logger.makeError (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at /mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+    at step (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/web/lib/index.js:33:23)
+    at Object.throw (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/web/lib/index.js:14:53)
+    at rejected (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/web/lib/index.js:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing response',
+  code: 'SERVER_ERROR',
+  requestBody: '{"method":"eth_getTransactionCount","params":["0xaae6f269e52e00cf1ae10786b11681020c0d14c6","pending"],"id":429,"jsonrpc":"2.0"}',
+  requestMethod: 'POST',
+  serverError: Error: Client network socket disconnected before secure TLS connection was established
+      at connResetException (node:internal/errors:693:14)
+      at TLSSocket.onConnectEnd (node:_tls_wrap:1586:19)
+      at TLSSocket.emit (node:events:539:35)
+      at TLSSocket.emit (node:domain:475:12)
+      at endReadableNT (node:internal/streams/readable:1344:12)
+      at processTicksAndRejections (node:internal/process/task_queues:82:21) {
+    code: 'ECONNRESET',
+    path: null,
+    host: 'rpc.ankr.com',
+    port: 443,
+    localAddress: undefined
+  },
+  url: 'https://rpc.ankr.com/polygon'
+}
+Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"to":"0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff","data":"0xd06ca61f0000000000000000000000000000000000000000000000000000000a8a5ca3c000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000002000000000000000000000000c2132d05d31c914a87c6611c10748aeb04b58e8f0000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"to\":\"0xa5e0829caced8ffdd4de3c43696c57f7d7a678ff\",\"data\":\"0xd06ca61f0000000000000000000000000000000000000000000000000000000a8a5ca3c000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000002000000000000000000000000c2132d05d31c914a87c6611c10748aeb04b58e8f0000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174\"},\"latest\"],\"id\":417,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"code":"ECONNRESET","path":null,"host":"rpc.ankr.com","port":443},"url":"https://rpc.ankr.com/polygon"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    to: '0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff',
+    data: '0xd06ca61f0000000000000000000000000000000000000000000000000000000a8a5ca3c000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000002000000000000000000000000c2132d05d31c914a87c6611c10748aeb04b58e8f0000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"to\":\"0xa5e0829caced8ffdd4de3c43696c57f7d7a678ff\",\"data\":\"0xd06ca61f0000000000000000000000000000000000000000000000000000000a8a5ca3c000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000002000000000000000000000000c2132d05d31c914a87c6611c10748aeb04b58e8f0000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174\"},\"latest\"],\"id\":417,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"code":"ECONNRESET","path":null,"host":"rpc.ankr.com","port":443}, url="https://rpc.ankr.com/polygon", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"to":"0xa5e0829caced8ffdd4de3c43696c57f7d7a678ff","data":"0xd06ca61f0000000000000000000000000000000000000000000000000000000a8a5ca3c000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000002000000000000000000000000c2132d05d31c914a87c6611c10748aeb04b58e8f0000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174"},"latest"],"id":417,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: Client network socket disconnected before secure TLS connection was established
+        at connResetException (node:internal/errors:693:14)
+        at TLSSocket.onConnectEnd (node:_tls_wrap:1586:19)
+        at TLSSocket.emit (node:events:539:35)
+        at TLSSocket.emit (node:domain:475:12)
+        at endReadableNT (node:internal/streams/readable:1344:12)
+        at processTicksAndRejections (node:internal/process/task_queues:82:21) {
+      code: 'ECONNRESET',
+      path: null,
+      host: 'rpc.ankr.com',
+      port: 443,
+      localAddress: undefined
+    },
+    url: 'https://rpc.ankr.com/polygon'
+  }
+}
+Error: missing response (requestBody="{\"method\":\"eth_getTransactionCount\",\"params\":[\"0xaae6f269e52e00cf1ae10786b11681020c0d14c6\",\"pending\"],\"id\":425,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"code":"ECONNRESET"}, url="https://rpc.ankr.com/polygon", code=SERVER_ERROR, version=web/5.7.1)
+    at Logger.makeError (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at /mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+    at step (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/web/lib/index.js:33:23)
+    at Object.throw (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/web/lib/index.js:14:53)
+    at rejected (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/web/lib/index.js:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing response',
+  code: 'SERVER_ERROR',
+  requestBody: '{"method":"eth_getTransactionCount","params":["0xaae6f269e52e00cf1ae10786b11681020c0d14c6","pending"],"id":425,"jsonrpc":"2.0"}',
+  requestMethod: 'POST',
+  serverError: Error: socket hang up
+      at connResetException (node:internal/errors:693:14)
+      at TLSSocket.socketOnEnd (node:_http_client:486:23)
+      at TLSSocket.emit (node:events:539:35)
+      at TLSSocket.emit (node:domain:475:12)
+      at endReadableNT (node:internal/streams/readable:1344:12)
+      at processTicksAndRejections (node:internal/process/task_queues:82:21) {
+    code: 'ECONNRESET'
+  },
+  url: 'https://rpc.ankr.com/polygon'
+}
+Error: missing response (requestBody="{\"method\":\"eth_getTransactionCount\",\"params\":[\"0xaae6f269e52e00cf1ae10786b11681020c0d14c6\",\"pending\"],\"id\":426,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"code":"ECONNRESET"}, url="https://rpc.ankr.com/polygon", code=SERVER_ERROR, version=web/5.7.1)
+    at Logger.makeError (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at /mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+    at step (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/web/lib/index.js:33:23)
+    at Object.throw (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/web/lib/index.js:14:53)
+    at rejected (/mnt/d/code/arbitrage/polybotv2/node_modules/@ethersproject/web/lib/index.js:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing response',
+  code: 'SERVER_ERROR',
+  requestBody: '{"method":"eth_getTransactionCount","params":["0xaae6f269e52e00cf1ae10786b11681020c0d14c6","pending"],"id":426,"jsonrpc":"2.0"}',
+  requestMethod: 'POST',
+  serverError: Error: socket hang up
+      at connResetException (node:internal/errors:693:14)
+      at TLSSocket.socketOnEnd (node:_http_client:486:23)
+      at TLSSocket.emit (node:events:539:35)
+      at TLSSocket.emit (node:domain:475:12)
+      at endReadableNT (node:internal/streams/readable:1344:12)
+      at processTicksAndRejections (node:internal/process/task_queues:82:21) {
+    code: 'ECONNRESET'
+  },
+  url: 'https://rpc.ankr.com/polygon'
+}
+Error: Client network socket disconnected before secure TLS connection was established
+    at connResetException (node:internal/errors:693:14)
+    at TLSSocket.onConnectEnd (node:_tls_wrap:1586:19)
+    at TLSSocket.emit (node:events:539:35)
+    at TLSSocket.emit (node:domain:475:12)
+    at endReadableNT (node:internal/streams/readable:1344:12)
+    at processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'ECONNRESET',
+  path: null,
+  host: 'gasstation-mainnet.matic.network',
+  port: 443,
+  localAddress: undefined,
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [Function: httpAdapter],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 0,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    validateStatus: [Function: validateStatus],
+    headers: {
+      Accept: 'application/json, text/plain, */*',
+      'User-Agent': 'axios/0.26.1'
+    },
+    method: 'get',
+    url: 'https://gasstation.polygon.technology/v2',
+    data: undefined
+  },
+  request: <ref *1> Writable {
+    _writableState: WritableState {
+      objectMode: false,
+      highWaterMark: 16384,
+      finalCalled: false,
+      needDrain: false,
+      ending: false,
+      ended: false,
+      finished: false,
+      destroyed: false,
+      decodeStrings: true,
+      defaultEncoding: 'utf8',
+      length: 0,
+      writing: false,
+      corked: 0,
+      sync: true,
+      bufferProcessing: false,
+      onwrite: [Function: bound onwrite],
+      writecb: null,
+      writelen: 0,
+      afterWriteTickInfo: null,
+      buffered: [],
+      bufferedIndex: 0,
+      allBuffers: true,
+      allNoop: true,
+      pendingcb: 0,
+      constructed: true,
+      prefinished: false,
+      errorEmitted: false,
+      emitClose: true,
+      autoDestroy: true,
+      errored: null,
+      closed: false,
+      closeEmitted: false,
+      [Symbol(kOnFinished)]: []
+    },
+    _events: [Object: null prototype] {
+      response: [Function: handleResponse],
+      error: [Function: handleRequestError],
+      socket: [Function: handleRequestSocket]
+    },
+    _eventsCount: 3,
+    _maxListeners: undefined,
+    _options: {
+      maxRedirects: 21,
+      maxBodyLength: 10485760,
+      protocol: 'https:',
+      path: '/v2',
+      method: 'GET',
+      headers: [Object],
+      agent: undefined,
+      agents: [Object],
+      auth: undefined,
+      hostname: 'gasstation-mainnet.matic.network',
+      port: null,
+      nativeProtocols: [Object],
+      pathname: '/v2'
+    },
+    _ended: true,
+    _ending: true,
+    _redirectCount: 0,
+    _redirects: [],
+    _requestBodyLength: 0,
+    _requestBodyBuffers: [],
+    _onNativeResponse: [Function (anonymous)],
+    _currentRequest: ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: false,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: false,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: false,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: false,
+      socket: [TLSSocket],
+      _header: 'GET /v2 HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'User-Agent: axios/0.26.1\r\n' +
+        'Host: gasstation-mainnet.matic.network\r\n' +
+        'Connection: close\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'GET',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      path: '/v2',
+      _ended: false,
+      res: null,
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'gasstation-mainnet.matic.network',
+      protocol: 'https:',
+      _redirectable: [Circular *1],
+      [Symbol(kCapture)]: false,
+      [Symbol(kNeedDrain)]: false,
+      [Symbol(corked)]: 0,
+      [Symbol(kOutHeaders)]: [Object: null prototype],
+      [Symbol(kUniqueHeaders)]: null
+    },
+    _currentUrl: 'https://gasstation.polygon.technology/v2',
+    [Symbol(kCapture)]: false
+  },
+  response: undefined,
+  isAxiosError: true,
+  toJSON: [Function: toJSON]
+}
+heliovortex@DESKTOP-ODVLU60:/mnt/d/code/arbitrage/polybotv2$
