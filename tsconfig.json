@@ -46,7 +46,7 @@
         "bin/executebkp.ts",
         "bin/flashit015.ts",
         "bin/execute02.ts",
-        "utils/dexdata/V2V2/comparev2.ts",
+        "utils/dexdata/comparev2.ts",
         "constants/interfaces.ts",
         "logs/equalizeRatioTEST.ts",
         "logs/flashitBN.ts",

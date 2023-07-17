@@ -1,5 +1,5 @@
 //IMPORTS
-import { V2V2SORT } from '../utils/dexdata/V2V2/comparev2';
+import { V2V2SORT } from '../utils/dexdata/comparev2';
 require('dotenv').config()//for importing parameters
 require('colors')//for console output
 import { uniswapRouter, uniswapFactory, gasToken, deployedMap } from '../constants/addresses';
@@ -10,7 +10,7 @@ import { BigNumber as BN } from "bignumber.js";
 import fs from 'fs';
 
 import { sendit } from '../scripts/execute';
-import { V2Quote, V2Input } from '../utils/price/uniswap/v2/getPrice';
+import { V2Quote, V2Input } from '../utils/price/uniswap/getPrice';
 import { wallet } from '../constants/contract';
 //ABIs
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';

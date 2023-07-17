@@ -9,7 +9,7 @@ import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IERC20 } from '@uniswap/v2-periphery/build/IERC20.json';
 import { fetchGasPrice } from './fetchGasPrice';
-import { V2Quote } from '../../utils/price/uniswap/v2/getPrice';
+import { V2Quote } from '../../utils/price/uniswap/getPrice';
 import { getAmountsIn, getAmountsOut } from './getAmountsIO';
 require('dotenv').config()
 

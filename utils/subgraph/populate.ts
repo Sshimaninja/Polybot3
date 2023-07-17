@@ -64,10 +64,8 @@ async function checkquickv2() {
     return quickv2pairs;
 };
 async function checkquickv3() {
-    // const quickv3v2Data = quickv3data.data.pairs;
     const quickv3Data = await qquickv3();
-    quickv3Data.forEach(async (
-        pair: any) => {
+    quickv3Data.forEach(async (pair: any) => {
         var quickv3Result = {
             "ticker": pair.token0.symbol + "/" + pair.token1.symbol,
             "token0symbol": pair.token0.symbol,
@@ -78,23 +76,18 @@ async function checkquickv3() {
             "token1": pair.token1.id,
             "dec1": pair.token1.decimals,
             "quickv3poolID": pair.id,
-            "quickv3price0": pair.token0Price,
-            "quickv3price1": pair.token1Price,
-            "feeTier:": pair.feeTier,
-            // "reserves0quickv3": pair.token0.liquidity,
-            // "reserves1quickv3": pair.token1.liquidity,
+            "quickfeeTier": pair.fee,
         };
         quickv3pairs.push(quickv3Result);
+        // console.log(quickv3Result['quickfeeTier'])
         return quickv3pairs;
     });
-    // console.log(quickv3v2pairs);
     return quickv3pairs;
 };
+
 async function checkuniv3() {
-    // const univ3v2Data = univ3data.data.pairs;
     const univ3Data = await quniv3();
-    univ3Data.forEach(async (
-        pair: any) => {
+    univ3Data.forEach(async (pair: any) => {
         var univ3Result = {
             "ticker": pair.token0.symbol + "/" + pair.token1.symbol,
             "token0symbol": pair.token0.symbol,
@@ -105,18 +98,15 @@ async function checkuniv3() {
             "token1": pair.token1.id,
             "dec1": pair.token1.decimals,
             "univ3poolID": pair.id,
-            "univ3price0": pair.token0Price,
-            "univ3price1": pair.token1Price,
-            "feeTier:": pair.feeTier,
-            // "reserves0Quick": pair.token0.liquidity,
-            // "reserves1Quick": pair.token1.liquidity,
+            "unifeeTier": pair.feeTier,
         };
         univ3pairs.push(univ3Result);
+        // console.log(univ3Result['unifeeTier'])
         return univ3pairs;
     });
-    // console.log(univ3v2pairs);
     return univ3pairs;
 };
+
 export async function match() {
     var sushiv2Data = await checksushiv2();
     var quickv2Data = await checkquickv2();
@@ -124,17 +114,23 @@ export async function match() {
     var univ3Data = await checkuniv3();
 
     const sushiquickv2filter = (pairSv2: { pairID: any; }) => quickv2Data.find((pairQv2: { pairID: any; }) => pairQv2.pairID === pairSv2.pairID);
-    const uniquickv3filter = (pairUv3: { pairID: any; }) => univ3Data.find((pairQv3: { pairID: any; }) => pairQv3.pairID === pairUv3.pairID);
+
+    const quickuniv3filter = (pairQv3: { pairID: any; }) => {
+        let pairUv3 = univ3Data.find((pairUv3: { pairID: any; }) => pairUv3.pairID === pairQv3.pairID);
+        return pairUv3 ? Object.assign(pairQv3, Object.fromEntries(Object.entries(pairUv3).filter(([key, value]) => !(key in pairQv3)))) : false;
+    };
+
     const unisushiv3v2filter = (pairUv3: { pairID: any; }) => univ3Data.find((pairSv2: { pairID: any; }) => pairSv2.pairID === pairUv3.pairID);
+
     const uniquickv3v2filter = (pairUv3: { pairID: any; }) => univ3Data.find((pairQv2: { pairID: any; }) => pairQv2.pairID === pairUv3.pairID);
 
     const sushiquickv2 = sushiv2Data.filter((pairSv2: any) => {
         let pairQv2 = sushiquickv2filter(pairSv2);
         return pairQv2 ? Object.assign(pairSv2, pairQv2) : false;
     })
-    const uniquickv3 = univ3Data.filter((pairUv3: any) => {
-        let pairQv3 = uniquickv3filter(pairUv3);
-        return pairQv3 ? Object.assign(pairUv3, pairQv3) : false;
+    const quickuniv3 = quickv3Data.filter((pairQv3: any) => {
+        let pairUv3 = quickuniv3filter(pairQv3);
+        return pairUv3 ? Object.assign(pairUv3, pairQv3) : false;
     })
     const univ3sushiv2 = univ3Data.filter((pairUv3: any) => {
         let pairSv2 = unisushiv3v2filter(pairUv3);
@@ -145,16 +141,15 @@ export async function match() {
         return pairQv2 ? Object.assign(pairUv3, pairQv2) : false;
     })
 
-
-    // let feeData = await getFee();
     const allMatches = {
         matches: {
-            "SUSHIV2QUICKV2": sushiquickv2,
-            "UNIV3QUICKV3": uniquickv3,
-            "UNIV3SUSHIV2": univ3sushiv2,
-            "UNIV3QUICKV2": univ3quick2,
+            V2: { "SUSHIV2QUICKV2": sushiquickv2, },
+            V3: { "UNIV3QUICKV3": quickuniv3, },
+            V3V2: {
+                "UNIV3SUSHIV2": univ3sushiv2,
+                "UNIV3QUICKV2": univ3quick2,
+            },
         }
-        // "V2GAS": feeData
     };
     fs.writeFile('./utils/subgraph/pairs.json', JSON.stringify(allMatches, null, 4), err => {
         if (err) {
@@ -163,9 +158,5 @@ export async function match() {
         console.log('All pairlists updated.')
     })
     setInterval(match, interval);
-    // console.log(allMatches);
-    // return allMatches
 };
 match();
-
-

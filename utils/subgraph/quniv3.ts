@@ -6,7 +6,7 @@ export async function quniv3() {
     var result;
     try {
       result = await axios.post(
-        'https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3',
+        'https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-polygon',
         {
           query:
             `

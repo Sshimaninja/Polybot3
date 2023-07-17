@@ -3,7 +3,7 @@
 
 
 //IMPORTS
-import { V2V2SORT } from '../utils/dexdata/V2V2/comparev2';
+import { filter } from '../utils/dexdata/comparev2';
 require('dotenv').config()//for importing parameters
 require('colors')//for console output
 import { uniswapRouter, uniswapFactory, gasToken, deployedMap } from '../constants/addresses';
@@ -14,7 +14,7 @@ import { BigNumber as BN } from "bignumber.js";
 import fs from 'fs';
 
 import { sendit } from './execute';
-import { V2Quote, V2Input } from '../utils/price/uniswap/v2/getPrice';
+import { V2Quote, V2Input } from '../utils/price/uniswap/getPrice';
 import { wallet } from '../constants/contract';
 //ABIs
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
@@ -70,9 +70,9 @@ let tradePending = false;
 const deadline = Math.round(Date.now() / 1000) + 1000 * 60
 //0.0025 * 100 = 0.25%
 export async function flashit() {
-    let arrayV2V2 = await V2V2SORT();
+    let arrayV2V2 = await filter();
     arrayV2V2?.forEach(async (pool: any) => {
-        // console.log("Pair: " + pool.pair.ticker + " Starting New Loop:")
+        console.log("Pair: " + pool.pair.ticker + " Starting New Loop:")
         try {
             var virtualReserveFactor = 1.1
             var slippageTolerance = BN(0.01);//smaller slippage == smaller sized trades == more opportunities, though maybe not profitable.
@@ -139,15 +139,15 @@ export async function flashit() {
             let hilo = await getHiLo(aPriceOutBN, bPriceOutBN)
             // let liq = await getGreaterLesser(aReserveInBN, bReserveInBN)
             let difference = await getDifference(hilo.higher, hilo.lower)
-            // console.log("+++++++++++++++++TRADE DIRECTION (1st PASS): " + ticker + "+++++++++++++++++++\n" + JSON.stringify(trade, null, 4) + "\n++++++++++++++++++++++++++++++++++++++++++++++++++++++\n")
             let amountlowSlippageA = (await lowSlippage(aReserveInBN, aReserveOutBN, aPriceOutBN, slippageTolerance, /*virtualReserveFactor*/))
             let amountLowSlippageB = (await lowSlippage(bReserveInBN, bReserveOutBN, bPriceOutBN, slippageTolerance))
 
             const amountInA = amountlowSlippageA.toFixed(tokenIndec)
             const amountInB = amountLowSlippageB.toFixed(tokenIndec)
-            // console.log(">>>> CHECK AMOUNTINTRADE: " + amountInTrade) //DEBUG
 
             var amountInTrade = BN.min(amountInA, amountInB).toFixed(tokenIndec)
+            console.log(">>>> CHECK AMOUNTINTRADE: " + amountInTrade) //DEBUG
+
             let amountIn = utils.parseUnits(amountInTrade, tokenIndec)
 
             //Filter low liquidity pairs
@@ -159,8 +159,9 @@ export async function flashit() {
                 let amountRepayAjs = getAmountsInjs(amountIn, aReserveOut, aReserveIn)
                 let amountRepayBjs = getAmountsInjs(amountIn, bReserveOut, bReserveIn)
 
-                let amountDirectRepayAjs = getAmountsInjs(amountOutAjs, aReserveIn, aReserveOut)
-                let amountDirectRepayBjs = getAmountsInjs(amountOutAjs, bReserveIn, bReserveOut)
+                //DAIReservePre - DAIWithdrawn + (DAIReturned * .997) >= DAIReservePre//
+                let amountDirectRepayAjs = amountIn.mul(1000).div(997) // = 
+                // let amountDirectRepayBjs = getAmountsInjs(amountOutAjs, bReserveIn, bReserveOut)
 
                 let amountOutA = BN(utils.formatUnits(amountOutAjs, tokenOutdec))
                 let amountOutB = BN(utils.formatUnits(amountOutBjs, tokenOutdec))
@@ -169,7 +170,7 @@ export async function flashit() {
                 let amountRepayB = BN(utils.formatUnits(amountRepayBjs, tokenOutdec))
 
                 let amountDirectRepayA = BN(utils.formatUnits(amountDirectRepayAjs, tokenIndec))
-                let amountDirectRepayB = BN(utils.formatUnits(amountDirectRepayBjs, tokenIndec))
+                // let amountDirectRepayB = BN(utils.formatUnits(amountDirectRepayBjs, tokenIndec))
 
                 hilo = await getHiLo(amountOutA, amountOutB)
                 // return
@@ -224,7 +225,7 @@ export async function flashit() {
 
                 let loanCost = await calculateLoanCost(
                     BN(amountInTrade),
-                    amountDirectRepayB,
+                    amountDirectRepayA,
                 )
                 // const loanCost = loanCostPercent.multipliedBy(100);
 
@@ -249,7 +250,7 @@ export async function flashit() {
                     amountRepayLoanPool: amountRepayLoanPool.toFixed(tokenOutdec) + " " + tokenOutsymbol,
                     amountRepayRecipient: amountRepayRecipient.toFixed(tokenOutdec) + " " + tokenOutsymbol,
                     directRepayLoanPool: amountDirectRepayA.toFixed(tokenIndec) + " " + tokenInsymbol,
-                    directRepayRecipient: amountDirectRepayB.toFixed(tokenIndec) + " " + tokenInsymbol,
+                    // directRepayRecipient: amountDirectRepayB.toFixed(tokenIndec) + " " + tokenInsymbol,
                     loanPoolPriceOut: trade.loanPool.exchange + ": " + trade.loanPool.tokenOutPrice + " " + tokenOutsymbol + "/" + tokenInsymbol,
                     recipientPriceOut: trade.recipient.exchange + ": " + trade.recipient.tokenOutPrice + " " + tokenOutsymbol + "/" + tokenInsymbol,
                     differenceAmountsOut: differencePrice.toFixed(tokenOutdec) + " " + tokenOutsymbol + " (" + differencePercent.toFixed(tokenOutdec) + "%)",
@@ -428,7 +429,7 @@ export async function flashit() {
         };
     });
 }
-// provider.on('block', async (blockNumber: any) => {
-//     console.log('New block received:::::::::::::::::: Block # ' + blockNumber + ":::::::::::::::")
-//     flashit();
-// });
+provider.on('block', async (blockNumber: any) => {
+    console.log('New block received:::::::::::::::::: Block # ' + blockNumber + ":::::::::::::::")
+    flashit();
+});

@@ -1,5 +1,5 @@
 import { match } from './utils/subgraph/populate';
-import { flashit } from './scripts/flashitDirect';
+import { flashit } from './scripts/flashitv2';
 import { provider } from './constants/contract'
 async function main() {
     // try {

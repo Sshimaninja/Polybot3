@@ -1,5 +1,5 @@
-import { V2V2SORT } from "../utils/dexdata/V2V2/comparev2";
-import { V2Quote, V2Input } from '../utils/price/uniswap/v2/getPrice';
+import { V2V2SORT } from "../utils/dexdata/comparev2";
+import { V2Quote, V2Input } from '../utils/price/uniswap/getPrice';
 import { BigNumber } from 'ethers';
 
 export async function testDirection() {

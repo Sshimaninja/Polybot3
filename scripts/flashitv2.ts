@@ -1,5 +1,5 @@
 //IMPORTS
-import { V2V2SORT } from '../utils/dexdata/V2V2/comparev2';
+import { filter } from '../utils/dexdata/comparev2';
 require('dotenv').config()//for importing parameters
 require('colors')//for console output
 import { uniswapRouter, uniswapFactory, gasToken, deployedMap } from '../constants/addresses';
@@ -10,7 +10,7 @@ import { BigNumber as BN } from "bignumber.js";
 import fs from 'fs';
 
 import { sendit } from './execute';
-import { V2Quote, V2Input } from '../utils/price/uniswap/v2/getPrice';
+import { V2Quote, V2Input } from '../utils/price/uniswap/getPrice';
 import { wallet } from '../constants/contract';
 //ABIs
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
@@ -66,7 +66,7 @@ let tradePending = false;
 const deadline = Math.round(Date.now() / 1000) + 1000 * 60
 //0.0025 * 100 = 0.25%
 export async function flashit() {
-    let arrayV2V2 = await V2V2SORT();
+    let arrayV2V2 = await filter();
     arrayV2V2?.forEach(async (pool: any) => {
         // console.log("Pair: " + pool.pair.ticker + " Starting New Loop:")
         try {
@@ -146,6 +146,12 @@ export async function flashit() {
             var amountInTrade = BN.min(amountInA, amountInB).toFixed(tokenIndec)
             let amountIn = utils.parseUnits(amountInTrade, tokenIndec)
 
+            // Revert to this: It's simpler and 'corresponding' repay amounts don't seem to work.
+            // about 0.3%
+            // uint fee = ((amount * 3) / 997) + 1;
+            // uint amountToRepay = amount + fee;
+
+
             //Filter low liquidity pairs
             if (BN(difference.difference).gt(BN(0)) && aReserveInBN.gt(BN(4)) && aReserveOutBN.gt(BN(4)) && bReserveInBN.gt(BN(4)) && bReserveOutBN.gt(BN(4))) {
 
@@ -164,32 +170,19 @@ export async function flashit() {
                 // return
 
                 var trade = await getTradefromAmounts(
-                    amountOutA,
-                    amountOutAjs,
-                    amountOutB,
-                    amountOutBjs,
-                    amountRepayA,
-                    amountRepayAjs,
-                    amountRepayB,
-                    amountRepayBjs,
-                    aPriceOutBN,
-                    bPriceOutBN,
-                    aReserveInBN,
-                    aReserveOutBN,
-                    aReserveIn,
-                    aReserveOut,
-                    bReserveInBN,
-                    bReserveOutBN,
-                    bReserveIn,
-                    bReserveOut,
-                    exchangeA,
-                    exchangeB,
-                    poolA_id,
-                    poolB_id,
-                    factoryA_id,
-                    factoryB_id,
-                    routerA_id,
-                    routerB_id,)
+                    amountOutA, amountOutAjs,
+                    amountOutB, amountOutBjs,
+                    amountRepayA, amountRepayAjs,
+                    amountRepayB, amountRepayBjs,
+                    aPriceOutBN, bPriceOutBN,
+                    aReserveInBN, aReserveOutBN,
+                    aReserveIn, aReserveOut,
+                    bReserveInBN, bReserveOutBN,
+                    bReserveIn, bReserveOut,
+                    exchangeA, exchangeB,
+                    poolA_id, poolB_id,
+                    factoryA_id, factoryB_id,
+                    routerA_id, routerB_id,)
 
                 let amountOutLoanPool = trade.loanPool.amountOut
                 let amountOutRecipient = trade.recipient.amountOut
@@ -251,7 +244,7 @@ export async function flashit() {
                     prevloanPoolK: trade.loanPool.reserveIn.multipliedBy(trade.loanPool.reserveOut).toFixed(20),
                     postloanPoolK: (trade.loanPool.reserveIn.minus(amountInTrade)).multipliedBy(trade.loanPool.reserveOut.plus(amountRepayLoanPool)).toFixed(20),
                 }
-                console.log(amounts)
+                // console.log(amounts)
                 const blockNumber = await provider.getBlockNumber();
                 // logger.info(amounts)//DEBUG
                 // return
@@ -301,8 +294,12 @@ export async function flashit() {
                 }
                 const profitable = await profitablejs()
 
+
+                // const gasVProfit = await gasVprofit(tradejs)
+                // console.log("Profit - Gas: " + utils.formatUnits(gasVProfit, tokenOutdec) + " " + tokenOutsymbol)
                 if (profitable.gt((0.0)) && !tradePending) {
                     tradePending = true
+                    logger.info("Profit - Gas: " + profitable.toFixed(tokenOutdec) + " " + tokenOutsymbol)
                     logger.info("***Sending transaction to flashSwap contract " + ticker + " on block " + blockNumber + "***")
                     logger.info("==============STRATEGY: " + tokenInsymbol + "/" + tokenOutsymbol + "==============")
                     logger.info("amountIn: " + amountInTrade + " " + tokenInsymbol + " (" + trade.direction + ")")

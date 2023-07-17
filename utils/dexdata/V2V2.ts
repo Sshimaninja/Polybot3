@@ -1,8 +1,8 @@
-import pairdata from '../../subgraph/pairs.json';
-import { deployedMap, uniswapFactory, uniswapRouter } from '../../../constants/addresses';
+import pairdata from '../subgraph/pairs.json';
+import { deployedMap, uniswapFactory, uniswapRouter } from '../../constants/addresses';
 
 export async function COMPARE() {
-  const arbv2v2 = Object.values(pairdata.matches.SUSHIV2QUICKV2).map(async (data: any) => {
+  const arbv2v2 = Object.values(pairdata.matches.V2.SUSHIV2QUICKV2).map(async (data: any) => {
     // console.log(data)
     const ticker = data.ticker;
     const token0 = data.token0;

@@ -1,5 +1,6 @@
 //IMPORTS
-import { V2V2SORT } from '../utils/dexdata/comparev2';
+// import { filter } from '../utils/dexdata/comparev2';
+import { filter } from '../utils/dexdata/comparev3';
 require('dotenv').config()//for importing parameters
 require('colors')//for console output
 import { uniswapRouter, uniswapFactory, gasToken, deployedMap } from '../constants/addresses';
@@ -10,11 +11,14 @@ import { BigNumber as BN } from "bignumber.js";
 import fs from 'fs';
 
 import { sendit } from './execute';
-import { V2Quote, V2Input } from '../utils/price/uniswap/getPrice';
+import { V2Quote, V2Input, V3Quote } from '../utils/price/uniswap/getPrice';
 import { wallet } from '../constants/contract';
 //ABIs
-import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
-import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
+import { abi as QuoterABI } from "@uniswap/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json";
+import { abi as IPool } from '@uniswap/v3-periphery/artifacts/@uniswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol/IUniswapV3Pool.json'
+import { abi as IFactory } from '@uniswap/v3-core/artifacts/contracts/UniswapV3Factory.sol/UniswapV3Factory.json';
+// import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
+// import { abi as IPool } from '@uniswap/v2-core/build/IUniswapV2Pool.json';
 //trade interface
 import { boolFlash, Trade } from '../constants/interfaces';
 
@@ -65,44 +69,51 @@ let warning = 0
 let tradePending = false;
 const deadline = Math.round(Date.now() / 1000) + 1000 * 60
 //0.0025 * 100 = 0.25%
-export async function flashit() {
-    let arrayV2V2 = await V2V2SORT();
-    arrayV2V2?.forEach(async (pool: any) => {
-        // console.log("Pair: " + pool.pair.ticker + " Starting New Loop:")
+export async function flashit() {//USE AN INTERFACE TO MAKE THIS LESS MESSY.
+    let arrayv3v3 = await filter();
+    arrayv3v3?.forEach(async (pool: any) => {
+        // console.log("Pool: " + pool.pool.ticker + " Starting New Loop:")
         try {
             var virtualReserveFactor = 1.1
             var slippageTolerance = BN(0.01);//smaller slippage == smaller sized trades == more opportunities, though maybe not profitable.
-            var tokenInsymbol = pool.pair.token0symbol
-            var tokenOutsymbol = pool.pair.token1symbol
-            var tokenInID = pool.pair.token0
-            var tokenOutID = pool.pair.token1
-            var tokenIndec = pool.pair.token0decimals
-            var tokenOutdec = pool.pair.token1decimals
+            var tokenInsymbol = pool.pool.token0symbol
+            var tokenOutsymbol = pool.pool.token1symbol
+            var tokenInID = pool.pool.token0
+            var tokenOutID = pool.pool.token1
+            var tokenIndec = pool.pool.token0decimals
+            var tokenOutdec = pool.pool.token1decimals
+            var feeTierA = pool.pool.univ3feeTier
+            var feeTierB = pool.pool.quickv3feeTier
             var ticker = tokenInsymbol + "/" + tokenOutsymbol
 
-            var poolA_id = await factoryA.getPair(tokenInID, tokenOutID);
-            var poolB_id = await factoryB.getPair(tokenInID, tokenOutID);
+            console.log(
+                "Pool: " + ticker + " " + tokenInsymbol + "/" + tokenOutsymbol + " " + tokenInID + "/" + tokenOutID + " " + tokenIndec + "/" + tokenOutdec + " " + feeTierA + "/" + feeTierB
+            )
+            var poolA_id = await factoryA.getPool(tokenInID, tokenOutID, feeTierA);
+            var poolB_id = await factoryB.getPool(tokenInID, tokenOutID, feeTierB);
+            console.log("PoolA: " + poolA_id + " PoolB: " + poolB_id)
+            var Pool0 = new ethers.Contract(poolA_id, IPool, wallet);
+            var Pool1 = new ethers.Contract(poolB_id, IPool, wallet);
 
-            var exchangeA = 'QUICK'
-            var exchangeB = 'SUSHI'
 
-            var Pair0 = new ethers.Contract(poolA_id, IPair, wallet);
-            var Pair1 = new ethers.Contract(poolB_id, IPair, wallet);
+            var exchangeA = 'UNI'
+            var exchangeB = 'QUICK'
 
-            var aReserves, aReserveIn: any, aReserveOut: any, bReserves: any, bReserveIn: any, bReserveOut: any
 
-            if (Pair0.ID != '0x0000000000000000000000000000000000000000') {
-                aReserves = await Pair0.getReserves().catch((error: any) => {
-                    logger.error("Error (getReserves(" + exchangeA + ")): " + error)
-                    logger.error(error)
-                });
-            } else {
-                console.log("Pair0 " + ticker + " no longer exists on " + exchangeA + "!")
-                return
-            }
+            var aSlot0, aReserves, aReserveIn: any, aReserveOut: any, bReserves: any, bReserveIn: any, bReserveOut: any
 
-            //TODO: Add v3 support by checking if Pair1 is a v3 pair. If so, use v3 pricing functions.
+            // if (Pool0.ID != '0x0000000000000000000000000000000000000000') {
+            //     aSlot0 = await Pool0.slot0().catch((error: any) => {
+            //         logger.error("Error (slot0(" + exchangeA + ")): " + error)
+            //         logger.error(error)
+            //     });
+            // } else {
+            //     console.log("Pool0 " + ticker + " no longer exists on " + exchangeA + "!")
+            //     return
+            // }
+            // console.log(aSlot0)
 
+            return//DEBUG
             // Using bignumber.js to format reserves and price instead of ethers.js BigNumber implementation:
             var aReserveIn = aReserves[0]
             var aReserveOut = aReserves[1]
@@ -113,13 +124,13 @@ export async function flashit() {
             let aPriceInBN = new BN(aReserveInFormatted).div(aReserveOutFormatted)
             let aPriceOutBN = new BN(aReserveOutFormatted).div(aReserveInFormatted)
 
-            if (Pair1.ID != '0x0000000000000000000000000000000000000000') {
-                bReserves = await Pair1.getReserves().catch((error: any) => {
+            if (Pool1.ID != '0x0000000000000000000000000000000000000000') {
+                bReserves = await Pool1.getReserves().catch((error: any) => {
                     logger.error("Error (getReserves(" + exchangeB + ")): ")
                     logger.error(error)
                 });
             } else {
-                console.log("Pair1 " + ticker + " no longer exists on " + exchangeB + "!")
+                console.log("Pool1 " + ticker + " no longer exists on " + exchangeB + "!")
                 return
             }
 
@@ -148,7 +159,7 @@ export async function flashit() {
             var amountInTrade = BN.min(amountInA, amountInB).toFixed(tokenIndec)
             let amountIn = utils.parseUnits(amountInTrade, tokenIndec)
 
-            //Filter low liquidity pairs
+            //Filter low liquidity pools
             if (BN(difference.difference).gt(BN(0)) && aReserveInBN.gt(BN(4)) && aReserveOutBN.gt(BN(4)) && bReserveInBN.gt(BN(4)) && bReserveOutBN.gt(BN(4))) {
 
                 let amountOutAjs = getAmountsOutjs(amountIn, aReserveIn, aReserveOut)
@@ -166,32 +177,19 @@ export async function flashit() {
                 // return
 
                 var trade = await getTradefromAmounts(
-                    amountOutA,
-                    amountOutAjs,
-                    amountOutB,
-                    amountOutBjs,
-                    amountRepayA,
-                    amountRepayAjs,
-                    amountRepayB,
-                    amountRepayBjs,
-                    aPriceOutBN,
-                    bPriceOutBN,
-                    aReserveInBN,
-                    aReserveOutBN,
-                    aReserveIn,
-                    aReserveOut,
-                    bReserveInBN,
-                    bReserveOutBN,
-                    bReserveIn,
-                    bReserveOut,
-                    exchangeA,
-                    exchangeB,
-                    poolA_id,
-                    poolB_id,
-                    factoryA_id,
-                    factoryB_id,
-                    routerA_id,
-                    routerB_id,)
+                    amountOutA, amountOutAjs,
+                    amountOutB, amountOutBjs,
+                    amountRepayA, amountRepayAjs,
+                    amountRepayB, amountRepayBjs,
+                    aPriceOutBN, bPriceOutBN,
+                    aReserveInBN, aReserveOutBN,
+                    aReserveIn, aReserveOut,
+                    bReserveInBN, bReserveOutBN,
+                    bReserveIn, bReserveOut,
+                    exchangeA, exchangeB,
+                    poolA_id, poolB_id,
+                    factoryA_id, factoryB_id,
+                    routerA_id, routerB_id,)
 
                 let amountOutLoanPool = trade.loanPool.amountOut
                 let amountOutRecipient = trade.recipient.amountOut
@@ -417,7 +415,7 @@ export async function flashit() {
         };
     });
 }
-// provider.on('block', async (blockNumber: any) => {
-//     console.log('New block received:::::::::::::::::: Block # ' + blockNumber + ":::::::::::::::")
-//     flashit();
-// });
+provider.on('block', async (blockNumber: any) => {
+    console.log('New block received:::::::::::::::::: Block # ' + blockNumber + ":::::::::::::::")
+    flashit();
+});
