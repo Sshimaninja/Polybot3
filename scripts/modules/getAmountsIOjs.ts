@@ -16,7 +16,7 @@ export function getAmountsIn(amountOut: BigNumber, reserveIn: BigNumber, reserve
     const fee = amountOut.mul(BigNumber.from("3")).div(BigNumber.from("1000")); // Calculate the fee (0.3% of the borrowed amount)
     const numerator = reserveIn.mul(amountOut).mul(1000);
     const denominator = reserveOut.sub(amountOut).mul(997);
-    const amountIn = numerator.div(denominator).add(fee);
+    const amountIn = numerator.div(denominator).add(1);
     return amountIn;
 }
 
