@@ -11,14 +11,22 @@ export function getAmountsOut(amountIn: BigNumber, reserveIn: BigNumber, reserve
     return amountOut;
 }
 
-
+//amountIn = amountOut * reserveIn / (reserveOut - amountOut)
 export function getAmountsIn(amountOut: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): BigNumber {
+    const fee = amountOut.mul(BigNumber.from("3")).div(BigNumber.from("1000")); // Calculate the fee (0.3% of the borrowed amount)
     const numerator = reserveIn.mul(amountOut).mul(1000);
     const denominator = reserveOut.sub(amountOut).mul(997);
-    const amountIn = numerator.div(denominator).add(1);
+    const amountIn = numerator.div(denominator).add(fee);
     return amountIn;
 }
 
+// ///
+// const borrowedAmount = utils.parseUnits("100", token0Decimals); // The amount of token0 borrowed from the pool
+// const fee = borrowedAmount.mul(BigNumber.from("3")).div(BigNumber.from("1000")); // Calculate the fee (0.3% of the borrowed amount)
+// const amountToRepay = borrowedAmount.add(fee); // Calculate the total amount of token0 needed to repay the loan
+// const amountIn = await getAmountsInjs(amountToRepay, tokenReserve0, tokenReserve1); // Calculate the amount of token1 needed to repay the loan
+// const amountInToken1 = utils.formatUnits(amountIn, token1Decimals); // Convert the amount of token1 to a human-readable format
+// ///
 export async function getAmountsIO() {
     return
     //     amountIn: BigNumber,

@@ -6,7 +6,7 @@
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x202655af326de310491cb54f120e02ee0da92b55",
@@ -17,82 +17,82 @@
     },
     {
         "id": "0x00a6177c6455a29b8daa7144b2befc9f2147bb7e",
-        "fee": "2551",
+        "fee": "2037",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x172370d5cd63279efa6d502dab29171933a610af",
             "symbol": "CRV",
             "decimals": "18",
-            "totalValueLockedUSD": "23535.58668462861089027382752863351"
+            "totalValueLockedUSD": "16333.41106491867323410616960218594"
         }
     },
     {
         "id": "0x022df0b3341b3a0157eea97dd024a93f7496d631",
-        "fee": "5648",
+        "fee": "5250",
         "token0": {
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0xb5c064f955d8e7f38fe0460c556a72987494ee17",
             "symbol": "QUICK",
             "decimals": "18",
-            "totalValueLockedUSD": "912064.1059141926974312466991613153"
+            "totalValueLockedUSD": "857492.1280578718079903261898259912"
         }
     },
     {
         "id": "0x0416e7f87ae8954a5f9302adcd440444d90452d6",
-        "fee": "2220",
+        "fee": "1765",
         "token0": {
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0x6e4e624106cb12e168e6533f8ec7c82263358940",
             "symbol": "AXL",
             "decimals": "6",
-            "totalValueLockedUSD": "75672.16194322852822907962560429844"
+            "totalValueLockedUSD": "74594.80414068785213675855443769671"
         }
     },
     {
         "id": "0x04520ba3144345eba167addfb2a8879467253076",
-        "fee": "2136",
+        "fee": "2067",
         "token0": {
             "id": "0x47c52f93a359db9f4509005cf982dfc440790561",
             "symbol": "oMPWR",
             "decimals": "18",
-            "totalValueLockedUSD": "7440.351012002343111075464005572268"
+            "totalValueLockedUSD": "6990.849975377742221210863647790877"
         },
         "token1": {
             "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
             "symbol": "USDT",
             "decimals": "6",
-            "totalValueLockedUSD": "3147240.453955818875200000000000001"
+            "totalValueLockedUSD": "2943680.689027989609499999999999999"
         }
     },
     {
         "id": "0x0569637abe376d63ea7410d3aa68325802fe5305",
-        "fee": "2512",
+        "fee": "3016",
         "token0": {
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0xf4c83080e80ae530d6f8180572cbbf1ac9d5d435",
             "symbol": "BLANK",
             "decimals": "18",
-            "totalValueLockedUSD": "0"
+            "totalValueLockedUSD": "634.9617321858540382948322446982015"
         }
     },
     {
@@ -102,13 +102,13 @@
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0xfa68fb4628dff1028cfec22b4162fccd0d45efb6",
             "symbol": "MaticX",
             "decimals": "18",
-            "totalValueLockedUSD": "249693.6211693365921818785868714287"
+            "totalValueLockedUSD": "252458.5177471641885513418788849685"
         }
     },
     {
@@ -124,7 +124,7 @@
             "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
             "symbol": "WETH",
             "decimals": "18",
-            "totalValueLockedUSD": "11190114.5865360399238963029849649"
+            "totalValueLockedUSD": "11520429.11225932196406498944542046"
         }
     },
     {
@@ -134,7 +134,7 @@
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0xcf630283e8ff2e30c29093bc8aa58cadd8613039",
@@ -145,18 +145,18 @@
     },
     {
         "id": "0x0bef3882798219eeaf40a8b63563a3d3ab6092ab",
-        "fee": "104",
+        "fee": "111",
         "token0": {
             "id": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
             "symbol": "DAI",
             "decimals": "18",
-            "totalValueLockedUSD": "903741.0287330760338258662182205001"
+            "totalValueLockedUSD": "846415.8032892526332108402125927999"
         },
         "token1": {
             "id": "0xa3fa99a148fa48d14ed51d610c367c61876997f1",
             "symbol": "miMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "3794601.39197733977689365307638846"
+            "totalValueLockedUSD": "3878194.342684084316914938240934059"
         }
     },
     {
@@ -166,45 +166,45 @@
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0xb0b195aefa3650a6908f15cdac7d92f8a5791b0b",
             "symbol": "BOB",
             "decimals": "18",
-            "totalValueLockedUSD": "1741012.863351109181907957240716833"
+            "totalValueLockedUSD": "1530653.679537803772116608513708741"
         }
     },
     {
         "id": "0x0db644468cd5c664a354e31aa1f6dba1d1dead47",
-        "fee": "2885",
+        "fee": "9856",
         "token0": {
             "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
             "symbol": "WETH",
             "decimals": "18",
-            "totalValueLockedUSD": "11190114.5865360399238963029849649"
+            "totalValueLockedUSD": "11520429.11225932196406498944542046"
         },
         "token1": {
             "id": "0xc5102fe9359fd9a28f877a67e36b0f050d81a3cc",
             "symbol": "HOP",
             "decimals": "18",
-            "totalValueLockedUSD": "7392.095099789555344171619763270888"
+            "totalValueLockedUSD": "6327.595327310870903538908774671059"
         }
     },
     {
         "id": "0x0eec104c1af798396d04f2678ce9d90d4652fddf",
-        "fee": "3000",
+        "fee": "2552",
         "token0": {
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0x958d208cdf087843e9ad98d23823d32e17d723a1",
             "symbol": "dQUICK",
             "decimals": "18",
-            "totalValueLockedUSD": "128974.565063631556890348323451149"
+            "totalValueLockedUSD": "132173.8483969110529104721399613598"
         }
     },
     {
@@ -214,7 +214,7 @@
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x692ac1e363ae34b6b489148152b12e2785a3d8d6",
@@ -225,34 +225,34 @@
     },
     {
         "id": "0x104f9e229844c4b6ddc0456147d0f6fdc9d65a8d",
-        "fee": "8467",
+        "fee": "14100",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x7bbf85d26b305a030916be29aa9d754ee0f8bf60",
             "symbol": "P2P",
             "decimals": "18",
-            "totalValueLockedUSD": "107386.8155337586345359213246957498"
+            "totalValueLockedUSD": "117137.2209479617714796257357928143"
         }
     },
     {
         "id": "0x107374febdc91e75d2129901931736785c3dcfe4",
-        "fee": "2434",
+        "fee": "3814",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x537b9f8b41d331c89326454256cc2853acb8a435",
             "symbol": "BERRY",
             "decimals": "18",
-            "totalValueLockedUSD": "2379.333248854419984315929281472353"
+            "totalValueLockedUSD": "2396.090515741073384266389609034721"
         }
     },
     {
@@ -262,71 +262,71 @@
             "id": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
             "symbol": "DAI",
             "decimals": "18",
-            "totalValueLockedUSD": "903741.0287330760338258662182205001"
+            "totalValueLockedUSD": "846415.8032892526332108402125927999"
         },
         "token1": {
             "id": "0xb0b195aefa3650a6908f15cdac7d92f8a5791b0b",
             "symbol": "BOB",
             "decimals": "18",
-            "totalValueLockedUSD": "1741012.863351109181907957240716833"
+            "totalValueLockedUSD": "1530653.679537803772116608513708741"
         }
     },
     {
         "id": "0x15dd97782843aedccc5ba7b45761cc96c7b29102",
-        "fee": "2722",
+        "fee": "2985",
         "token0": {
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0xffa188493c15dfaf2c206c97d8633377847b6a52",
             "symbol": "WEFI",
             "decimals": "18",
-            "totalValueLockedUSD": "80432.95139846739448214959657197655"
+            "totalValueLockedUSD": "28321.20353777286794018695861351291"
         }
     },
     {
         "id": "0x17b509b2b65b0d07b9e46bfc2ffe6c9c09a8e821",
-        "fee": "2220",
+        "fee": "608",
         "token0": {
             "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
             "symbol": "WETH",
             "decimals": "18",
-            "totalValueLockedUSD": "11190114.5865360399238963029849649"
+            "totalValueLockedUSD": "11520429.11225932196406498944542046"
         },
         "token1": {
             "id": "0xd125443f38a69d776177c2b9c041f462936f8218",
             "symbol": "FBX",
             "decimals": "18",
-            "totalValueLockedUSD": "58059.8522039912358984620567314916"
+            "totalValueLockedUSD": "55988.82682847076228579075256404935"
         }
     },
     {
         "id": "0x17f4e4b273a71bee4c469a1425f23056f83f7bff",
-        "fee": "1972",
+        "fee": "1836",
         "token0": {
             "id": "0x67eb41a14c0fe5cd701fc9d5a3d6597a72f641a6",
             "symbol": "GIDDY",
             "decimals": "18",
-            "totalValueLockedUSD": "923774.8957621222080383637167727113"
+            "totalValueLockedUSD": "910667.7169067411069210026588903171"
         },
         "token1": {
             "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
             "symbol": "WETH",
             "decimals": "18",
-            "totalValueLockedUSD": "11190114.5865360399238963029849649"
+            "totalValueLockedUSD": "11520429.11225932196406498944542046"
         }
     },
     {
         "id": "0x1923114924fb259858519256c3b5860e91932dd9",
-        "fee": "2941",
+        "fee": "2590",
         "token0": {
             "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
             "symbol": "WETH",
             "decimals": "18",
-            "totalValueLockedUSD": "11190114.5865360399238963029849649"
+            "totalValueLockedUSD": "11520429.11225932196406498944542046"
         },
         "token1": {
             "id": "0xba777ae3a3c91fcd83ef85bfe65410592bdd0f7c",
@@ -342,18 +342,18 @@
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0xbbfe0b60de96a189bf09079de86a2db7bf0c7883",
             "symbol": "eLunr",
             "decimals": "4",
-            "totalValueLockedUSD": "2088.021765384437788427072243567439"
+            "totalValueLockedUSD": "2068.725835298003328467701644132947"
         }
     },
     {
         "id": "0x1d7f2e4295981af5cc005d936ac437588b353596",
-        "fee": "1525",
+        "fee": "1663",
         "token0": {
             "id": "0x831753dd7087cac61ab5644b308642cc1c33dc13",
             "symbol": "QUICK",
@@ -364,7 +364,7 @@
             "id": "0xb5c064f955d8e7f38fe0460c556a72987494ee17",
             "symbol": "QUICK",
             "decimals": "18",
-            "totalValueLockedUSD": "912064.1059141926974312466991613153"
+            "totalValueLockedUSD": "857492.1280578718079903261898259912"
         }
     },
     {
@@ -380,33 +380,33 @@
             "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
             "symbol": "USDT",
             "decimals": "6",
-            "totalValueLockedUSD": "3147240.453955818875200000000000001"
+            "totalValueLockedUSD": "2943680.689027989609499999999999999"
         }
     },
     {
         "id": "0x1f97c0260c6a18b26a9c2681f0faa93ac2182dbc",
-        "fee": "1971",
+        "fee": "1691",
         "token0": {
             "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
             "symbol": "WETH",
             "decimals": "18",
-            "totalValueLockedUSD": "11190114.5865360399238963029849649"
+            "totalValueLockedUSD": "11520429.11225932196406498944542046"
         },
         "token1": {
             "id": "0xb0b195aefa3650a6908f15cdac7d92f8a5791b0b",
             "symbol": "BOB",
             "decimals": "18",
-            "totalValueLockedUSD": "1741012.863351109181907957240716833"
+            "totalValueLockedUSD": "1530653.679537803772116608513708741"
         }
     },
     {
         "id": "0x27b623586653d32079ffe83b63f5e61ceb16cfd1",
-        "fee": "2455",
+        "fee": "2161",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x6f8a06447ff6fcf75d803135a7de15ce88c1d4ec",
@@ -417,34 +417,34 @@
     },
     {
         "id": "0x2877703a3ba3e712d684d22bd6d60cc0031d84e8",
-        "fee": "3181",
+        "fee": "1765",
         "token0": {
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0x7a7b94f18ef6ad056cda648588181cda84800f94",
             "symbol": "FIS",
             "decimals": "18",
-            "totalValueLockedUSD": "4080.555307700073541505399037229695"
+            "totalValueLockedUSD": "4067.858716968350655522148915799731"
         }
     },
     {
         "id": "0x29293a0429296efe87d7ba39c662029407e38f46",
-        "fee": "2848",
+        "fee": "2817",
         "token0": {
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0xe261d618a959afffd53168cd07d12e37b26761db",
             "symbol": "DIMO",
             "decimals": "18",
-            "totalValueLockedUSD": "12268.22262395559286148188635044673"
+            "totalValueLockedUSD": "11308.70933890075139366594643581094"
         }
     },
     {
@@ -460,7 +460,7 @@
             "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
             "symbol": "USDT",
             "decimals": "6",
-            "totalValueLockedUSD": "3147240.453955818875200000000000001"
+            "totalValueLockedUSD": "2943680.689027989609499999999999999"
         }
     },
     {
@@ -470,7 +470,7 @@
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x101a023270368c0d50bffb62780f4afd4ea79c35",
@@ -481,7 +481,7 @@
     },
     {
         "id": "0x317082a5b8bd58a58d39f635a88d963f1f095dc3",
-        "fee": "946",
+        "fee": "1836",
         "token0": {
             "id": "0xab5f7a0e20b0d056aed4aa4528c78da45be7308b",
             "symbol": "GBYTE",
@@ -492,23 +492,23 @@
             "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
             "symbol": "USDT",
             "decimals": "6",
-            "totalValueLockedUSD": "3147240.453955818875200000000000001"
+            "totalValueLockedUSD": "2943680.689027989609499999999999999"
         }
     },
     {
         "id": "0x33bc9a6a200752ddd44f41dd978977e0699cc00d",
-        "fee": "2622",
+        "fee": "2037",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x53e0bca35ec356bd5dddfebbd1fc0fd03fabad39",
             "symbol": "LINK",
             "decimals": "18",
-            "totalValueLockedUSD": "8391.175907033906617209217592394293"
+            "totalValueLockedUSD": "9434.786476670048861132723632748116"
         }
     },
     {
@@ -518,7 +518,7 @@
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0xdda40cdfe4a0090f42ff49f264a831402adb801a",
@@ -534,29 +534,29 @@
             "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
             "symbol": "USDT",
             "decimals": "6",
-            "totalValueLockedUSD": "3147240.453955818875200000000000001"
+            "totalValueLockedUSD": "2943680.689027989609499999999999999"
         },
         "token1": {
             "id": "0xe261d618a959afffd53168cd07d12e37b26761db",
             "symbol": "DIMO",
             "decimals": "18",
-            "totalValueLockedUSD": "12268.22262395559286148188635044673"
+            "totalValueLockedUSD": "11308.70933890075139366594643581094"
         }
     },
     {
         "id": "0x3654e293a599953044ac5f6e1e1a45ee749d0d0f",
-        "fee": "2838",
+        "fee": "2220",
         "token0": {
             "id": "0x03b54a6e9a984069379fae1a4fc4dbae93b3bccd",
             "symbol": "wstETH",
             "decimals": "18",
-            "totalValueLockedUSD": "32644.14179241491951748366677300465"
+            "totalValueLockedUSD": "33518.03026591631115655067994961717"
         },
         "token1": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         }
     },
     {
@@ -566,61 +566,61 @@
             "id": "0x03b54a6e9a984069379fae1a4fc4dbae93b3bccd",
             "symbol": "wstETH",
             "decimals": "18",
-            "totalValueLockedUSD": "32644.14179241491951748366677300465"
+            "totalValueLockedUSD": "33518.03026591631115655067994961717"
         },
         "token1": {
             "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
             "symbol": "WETH",
             "decimals": "18",
-            "totalValueLockedUSD": "11190114.5865360399238963029849649"
+            "totalValueLockedUSD": "11520429.11225932196406498944542046"
         }
     },
     {
         "id": "0x3716b8ff0acc565971f7c7cedc0d756b610ecd20",
-        "fee": "104",
+        "fee": "100",
         "token0": {
             "id": "0x4b4327db1600b8b1440163f667e199cef35385f5",
             "symbol": "fxcbETH",
             "decimals": "18",
-            "totalValueLockedUSD": "16744.01411610424428571645073157913"
+            "totalValueLockedUSD": "16032.76303471349242672020808449989"
         },
         "token1": {
             "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
             "symbol": "WETH",
             "decimals": "18",
-            "totalValueLockedUSD": "11190114.5865360399238963029849649"
+            "totalValueLockedUSD": "11520429.11225932196406498944542046"
         }
     },
     {
         "id": "0x384d2094d0df788192043a1cbd200308dd60b068",
-        "fee": "2735",
+        "fee": "2161",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0xe5417af564e4bfda1c483642db72007871397896",
             "symbol": "GNS",
             "decimals": "18",
-            "totalValueLockedUSD": "195811.5412826248368371627180070615"
+            "totalValueLockedUSD": "213975.242702110795253927647608519"
         }
     },
     {
         "id": "0x391bab33c9d38858ca136b95ff18eec009791036",
-        "fee": "1550",
+        "fee": "1622",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x9ca6a77c8b38159fd2da9bd25bc3e259c33f5e39",
             "symbol": "SPORK",
             "decimals": "18",
-            "totalValueLockedUSD": "1036.171216962361138500486038622891"
+            "totalValueLockedUSD": "1037.765136511577261940493228759298"
         }
     },
     {
@@ -636,23 +636,23 @@
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         }
     },
     {
         "id": "0x3ad6e680dea0a02d60e2c3932020065ec267a123",
-        "fee": "1765",
+        "fee": "1836",
         "token0": {
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0x6f06e6bed64cf4c4187c06ee2a4732f6a171bc4e",
             "symbol": "FOOD",
             "decimals": "18",
-            "totalValueLockedUSD": "17976.29209244115252337936524969296"
+            "totalValueLockedUSD": "17542.37109648183598376096033320574"
         }
     },
     {
@@ -662,7 +662,7 @@
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0xdfce1e99a31c4597a3f8a8945cbfa9037655e335",
@@ -684,7 +684,7 @@
             "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
             "symbol": "USDT",
             "decimals": "6",
-            "totalValueLockedUSD": "3147240.453955818875200000000000001"
+            "totalValueLockedUSD": "2943680.689027989609499999999999999"
         }
     },
     {
@@ -694,23 +694,23 @@
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0xe06bd4f5aac8d0aa337d13ec88db6defc6eaeefe",
             "symbol": "IXT",
             "decimals": "18",
-            "totalValueLockedUSD": "432729.0536050588271242924938655006"
+            "totalValueLockedUSD": "415463.6646396101084190362865434121"
         }
     },
     {
         "id": "0x3e31cff73585a82c61a36625cbfdb850e2f9ad45",
-        "fee": "3000",
+        "fee": "2874",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0xd1f9c58e33933a993a3891f8acfe05a68e1afc05",
@@ -726,61 +726,61 @@
             "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
             "symbol": "WETH",
             "decimals": "18",
-            "totalValueLockedUSD": "11190114.5865360399238963029849649"
+            "totalValueLockedUSD": "11520429.11225932196406498944542046"
         },
         "token1": {
             "id": "0xe5417af564e4bfda1c483642db72007871397896",
             "symbol": "GNS",
             "decimals": "18",
-            "totalValueLockedUSD": "195811.5412826248368371627180070615"
+            "totalValueLockedUSD": "213975.242702110795253927647608519"
         }
     },
     {
         "id": "0x4183db4a5a1a3612b17459ba4e072aa59f302e89",
-        "fee": "1644",
+        "fee": "2295",
         "token0": {
             "id": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
             "symbol": "WBTC",
             "decimals": "8",
-            "totalValueLockedUSD": "2415402.451696223309813439033987929"
+            "totalValueLockedUSD": "2362905.200795342134220937886082999"
         },
         "token1": {
             "id": "0xa3fa99a148fa48d14ed51d610c367c61876997f1",
             "symbol": "miMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "3794601.39197733977689365307638846"
+            "totalValueLockedUSD": "3878194.342684084316914938240934059"
         }
     },
     {
         "id": "0x479e1b71a702a595e19b6d5932cd5c863ab57ee0",
-        "fee": "2014",
+        "fee": "1858",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
             "symbol": "WETH",
             "decimals": "18",
-            "totalValueLockedUSD": "11190114.5865360399238963029849649"
+            "totalValueLockedUSD": "11520429.11225932196406498944542046"
         }
     },
     {
         "id": "0x488d1b74d4b36da3c8909ca88df64e4196b0497a",
-        "fee": "108",
+        "fee": "100",
         "token0": {
             "id": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
             "symbol": "WBTC",
             "decimals": "8",
-            "totalValueLockedUSD": "2415402.451696223309813439033987929"
+            "totalValueLockedUSD": "2362905.200795342134220937886082999"
         },
         "token1": {
             "id": "0x236aa50979d5f3de3bd1eeb40e81137f22ab794b",
             "symbol": "tBTC",
             "decimals": "18",
-            "totalValueLockedUSD": "133719.9879613275045337992217748489"
+            "totalValueLockedUSD": "137232.4956591344540896374787287018"
         }
     },
     {
@@ -790,55 +790,55 @@
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0xbfc70507384047aa74c29cdc8c5cb88d0f7213ac",
             "symbol": "ALI",
             "decimals": "18",
-            "totalValueLockedUSD": "190538.7149752048049721521863074929"
+            "totalValueLockedUSD": "185334.5319752719185227881535533326"
         }
     },
     {
         "id": "0x4b6998b0cc8825898708564040cbd302257b531b",
-        "fee": "562",
+        "fee": "499",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0xb0b195aefa3650a6908f15cdac7d92f8a5791b0b",
             "symbol": "BOB",
             "decimals": "18",
-            "totalValueLockedUSD": "1741012.863351109181907957240716833"
+            "totalValueLockedUSD": "1530653.679537803772116608513708741"
         }
     },
     {
         "id": "0x4b9bce8888bee8b252a7d599aa534c2fab9a07a5",
-        "fee": "2550",
+        "fee": "1905",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0xbfc70507384047aa74c29cdc8c5cb88d0f7213ac",
             "symbol": "ALI",
             "decimals": "18",
-            "totalValueLockedUSD": "190538.7149752048049721521863074929"
+            "totalValueLockedUSD": "185334.5319752719185227881535533326"
         }
     },
     {
         "id": "0x4bde7b7373411542591ecee6b29d8982ec6119d3",
-        "fee": "14932",
+        "fee": "15000",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x3b7e1ce09afe2bb3a23919afb65a38e627cfbe97",
@@ -849,12 +849,12 @@
     },
     {
         "id": "0x4e5f8442ec0ed95c6cc64302f7dedaff3931e105",
-        "fee": "3043",
+        "fee": "3176",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x831753dd7087cac61ab5644b308642cc1c33dc13",
@@ -870,7 +870,7 @@
             "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
             "symbol": "WETH",
             "decimals": "18",
-            "totalValueLockedUSD": "11190114.5865360399238963029849649"
+            "totalValueLockedUSD": "11520429.11225932196406498944542046"
         },
         "token1": {
             "id": "0x831753dd7087cac61ab5644b308642cc1c33dc13",
@@ -881,12 +881,12 @@
     },
     {
         "id": "0x5029d2522e4224bb832ff95f554dde5c88e7928e",
-        "fee": "1836",
+        "fee": "1905",
         "token0": {
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0x8f006d1e1d9dc6c98996f50a4c810f17a47fbf19",
@@ -897,50 +897,50 @@
     },
     {
         "id": "0x524a818d070db565ba96dbc0810c9e79cfa70003",
-        "fee": "2100",
+        "fee": "1836",
         "token0": {
             "id": "0x57c453e7a4d73ac1db8ae07da5dda3b398d17577",
             "symbol": "NWS",
             "decimals": "18",
-            "totalValueLockedUSD": "9413.821827778291868037275162831253"
+            "totalValueLockedUSD": "9619.27433401704343793880919007768"
         },
         "token1": {
             "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
             "symbol": "USDT",
             "decimals": "6",
-            "totalValueLockedUSD": "3147240.453955818875200000000000001"
+            "totalValueLockedUSD": "2943680.689027989609499999999999999"
         }
     },
     {
         "id": "0x55caabb0d2b704fd0ef8192a7e35d8837e678207",
-        "fee": "497",
+        "fee": "490",
         "token0": {
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
             "symbol": "WETH",
             "decimals": "18",
-            "totalValueLockedUSD": "11190114.5865360399238963029849649"
+            "totalValueLockedUSD": "11520429.11225932196406498944542046"
         }
     },
     {
         "id": "0x56919fbb3b90ca31ee0d8df98325a8631b8258e9",
-        "fee": "2991",
+        "fee": "1821",
         "token0": {
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0x612d833c0c7a54cdfbe9a4328b6d658020563ec0",
             "symbol": "fxPINE",
             "decimals": "18",
-            "totalValueLockedUSD": "13884.45802846615029243364292182701"
+            "totalValueLockedUSD": "14161.384811207960917555154648748"
         }
     },
     {
@@ -956,17 +956,17 @@
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         }
     },
     {
         "id": "0x5a3811e1387702a5585eb67db2ca0ddef07fdfcb",
-        "fee": "6334",
+        "fee": "2565",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0xd5d86fc8d5c0ea1ac1ac5dfab6e529c9967a45e9",
@@ -977,18 +977,18 @@
     },
     {
         "id": "0x5ae3427b92a5233d733bb533ba74a8c59733636d",
-        "fee": "1905",
+        "fee": "1972",
         "token0": {
             "id": "0xb25e20de2f2ebb4cffd4d16a55c7b395e8a94762",
             "symbol": "REQ",
             "decimals": "18",
-            "totalValueLockedUSD": "8130.668989481943398759649773674561"
+            "totalValueLockedUSD": "8115.733456591632540817430070054317"
         },
         "token1": {
             "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
             "symbol": "USDT",
             "decimals": "6",
-            "totalValueLockedUSD": "3147240.453955818875200000000000001"
+            "totalValueLockedUSD": "2943680.689027989609499999999999999"
         }
     },
     {
@@ -998,29 +998,29 @@
             "id": "0xa3fa99a148fa48d14ed51d610c367c61876997f1",
             "symbol": "miMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "3794601.39197733977689365307638846"
+            "totalValueLockedUSD": "3878194.342684084316914938240934059"
         },
         "token1": {
             "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
             "symbol": "USDT",
             "decimals": "6",
-            "totalValueLockedUSD": "3147240.453955818875200000000000001"
+            "totalValueLockedUSD": "2943680.689027989609499999999999999"
         }
     },
     {
         "id": "0x5b41eedcfc8e0ae47493d4945aa1ae4fe05430ff",
-        "fee": "1274",
+        "fee": "611",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
             "symbol": "USDT",
             "decimals": "6",
-            "totalValueLockedUSD": "3147240.453955818875200000000000001"
+            "totalValueLockedUSD": "2943680.689027989609499999999999999"
         }
     },
     {
@@ -1030,45 +1030,45 @@
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x0e9b89007eee9c958c0eda24ef70723c2c93dd58",
             "symbol": "aMATICc",
             "decimals": "18",
-            "totalValueLockedUSD": "111256.9328600293647236914671355591"
+            "totalValueLockedUSD": "73477.16875431350764169108559694172"
         }
     },
     {
         "id": "0x5bf44bb003efe05f711a14a189c0902d6626e919",
-        "fee": "2552",
+        "fee": "1972",
         "token0": {
             "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
             "symbol": "WETH",
             "decimals": "18",
-            "totalValueLockedUSD": "11190114.5865360399238963029849649"
+            "totalValueLockedUSD": "11520429.11225932196406498944542046"
         },
         "token1": {
             "id": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
             "symbol": "DAI",
             "decimals": "18",
-            "totalValueLockedUSD": "903741.0287330760338258662182205001"
+            "totalValueLockedUSD": "846415.8032892526332108402125927999"
         }
     },
     {
         "id": "0x5d0acfa39a0fca603147f1c14e53f46be76984bc",
-        "fee": "546",
+        "fee": "1231",
         "token0": {
             "id": "0x1d734a02ef1e1f5886e66b0673b71af5b53ffa94",
             "symbol": "SD",
             "decimals": "18",
-            "totalValueLockedUSD": "68839.6407189944200713214520255069"
+            "totalValueLockedUSD": "73962.47409270600153950097814571731"
         },
         "token1": {
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         }
     },
     {
@@ -1078,23 +1078,23 @@
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0xe5417af564e4bfda1c483642db72007871397896",
             "symbol": "GNS",
             "decimals": "18",
-            "totalValueLockedUSD": "195811.5412826248368371627180070615"
+            "totalValueLockedUSD": "213975.242702110795253927647608519"
         }
     },
     {
         "id": "0x5f33ab9e29771e972d8ba167e0326d36fb82d742",
-        "fee": "1550",
+        "fee": "1905",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x8f006d1e1d9dc6c98996f50a4c810f17a47fbf19",
@@ -1110,7 +1110,7 @@
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0xb6c3c00d730acca326db40e418353f04f7444e2b",
@@ -1121,18 +1121,18 @@
     },
     {
         "id": "0x5fe84b85ba7dea0fbc8c4571491aca80d97f5e01",
-        "fee": "3000",
+        "fee": "2378",
         "token0": {
             "id": "0xac0f66379a6d7801d7726d5a943356a172549adb",
             "symbol": "GEOD",
             "decimals": "18",
-            "totalValueLockedUSD": "7013.634872608961832338423960355051"
+            "totalValueLockedUSD": "6746.648673448893186252234474246711"
         },
         "token1": {
             "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
             "symbol": "USDT",
             "decimals": "6",
-            "totalValueLockedUSD": "3147240.453955818875200000000000001"
+            "totalValueLockedUSD": "2943680.689027989609499999999999999"
         }
     },
     {
@@ -1142,7 +1142,7 @@
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x63610f5e576164ec822e5aed9bcf1af864bf92ee",
@@ -1153,18 +1153,18 @@
     },
     {
         "id": "0x60f1ef8dca61aa4ceedd8dfe34b4a82fd9e7f9e8",
-        "fee": "1550",
+        "fee": "1836",
         "token0": {
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0xbbfe0b60de96a189bf09079de86a2db7bf0c7883",
             "symbol": "eLunr",
             "decimals": "4",
-            "totalValueLockedUSD": "2088.021765384437788427072243567439"
+            "totalValueLockedUSD": "2068.725835298003328467701644132947"
         }
     },
     {
@@ -1174,13 +1174,13 @@
             "id": "0x2760e46d9bb43dafcbecaad1f64b93207f9f0ed7",
             "symbol": "MVX",
             "decimals": "18",
-            "totalValueLockedUSD": "150849.9112676821370486208541257023"
+            "totalValueLockedUSD": "144138.0981312241597417355249280527"
         },
         "token1": {
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         }
     },
     {
@@ -1190,7 +1190,7 @@
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x48b7ef4b5d2cee4f9f2b740f612462e6bc050418",
@@ -1206,13 +1206,13 @@
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x3a58a54c066fdc0f2d55fc9c89f0415c92ebf3c4",
             "symbol": "stMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "93652.81796542806704481479031841314"
+            "totalValueLockedUSD": "94254.64023964505944901858736695452"
         }
     },
     {
@@ -1222,7 +1222,7 @@
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0x9c9e5fd8bbc25984b178fdce6117defa39d2db39",
@@ -1233,34 +1233,34 @@
     },
     {
         "id": "0x65c30f39b880bdd9616280450c4b41cc74b438b7",
-        "fee": "1905",
+        "fee": "499",
         "token0": {
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0x67eb41a14c0fe5cd701fc9d5a3d6597a72f641a6",
             "symbol": "GIDDY",
             "decimals": "18",
-            "totalValueLockedUSD": "923774.8957621222080383637167727113"
+            "totalValueLockedUSD": "910667.7169067411069210026588903171"
         }
     },
     {
         "id": "0x65fdd98e6570874dae2504f3e7f0b04ba21bf84f",
-        "fee": "124",
+        "fee": "621",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x6f3cc27e17a0f2e52d8e7693ff0d892cea1854bf",
             "symbol": "GOO",
             "decimals": "9",
-            "totalValueLockedUSD": "18375.55023288179646425056988663386"
+            "totalValueLockedUSD": "17373.24705631272367303495339846594"
         }
     },
     {
@@ -1270,7 +1270,7 @@
             "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
             "symbol": "USDT",
             "decimals": "6",
-            "totalValueLockedUSD": "3147240.453955818875200000000000001"
+            "totalValueLockedUSD": "2943680.689027989609499999999999999"
         },
         "token1": {
             "id": "0xed88227296943857409a8e0f15ad7134e70d0f73",
@@ -1286,7 +1286,7 @@
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x7e0c3190ebee1873d875972af99225e5bef6d1c4",
@@ -1297,18 +1297,18 @@
     },
     {
         "id": "0x6ad5a9ffa62149f2c75d4517a65cb76e1b983d75",
-        "fee": "2037",
+        "fee": "14943",
         "token0": {
             "id": "0x058af2e730fb5ee7e1d7ecbc5079be1aabd30513",
             "symbol": "ANKO",
             "decimals": "18",
-            "totalValueLockedUSD": "4904.91531332084935954047385785062"
+            "totalValueLockedUSD": "4679.312380927668938046438309752124"
         },
         "token1": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         }
     },
     {
@@ -1318,29 +1318,29 @@
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0x750e4c4984a9e0f12978ea6742bc1c5d248f40ed",
             "symbol": "axlUSDC",
             "decimals": "6",
-            "totalValueLockedUSD": "329618.6339788108440201361642653407"
+            "totalValueLockedUSD": "325074.1269706772855106111301307102"
         }
     },
     {
         "id": "0x6baead5db7fee6d5c9f0ca07bb5038c4cd279f5c",
-        "fee": "3642",
+        "fee": "2622",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
             "symbol": "DAI",
             "decimals": "18",
-            "totalValueLockedUSD": "903741.0287330760338258662182205001"
+            "totalValueLockedUSD": "846415.8032892526332108402125927999"
         }
     },
     {
@@ -1350,7 +1350,7 @@
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0xd0b3a0e0ea080a0882d6e048cae8558f010ce81f",
@@ -1366,7 +1366,7 @@
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0x491a4eb4f1fc3bff8e1d2fc856a6a46663ad556f",
@@ -1377,18 +1377,18 @@
     },
     {
         "id": "0x6c2a791d1166047e11bf1399ac327c4fb272ab3e",
-        "fee": "1836",
+        "fee": "1576",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x12a4cebf81f8671faf1ab0acea4e3429e42869e7",
             "symbol": "HOM",
             "decimals": "18",
-            "totalValueLockedUSD": "91556.51992066353515015596633197563"
+            "totalValueLockedUSD": "85680.41474826058205628513679109713"
         }
     },
     {
@@ -1398,7 +1398,7 @@
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0x346404079b3792a6c548b072b9c4dddfb92948d5",
@@ -1409,34 +1409,34 @@
     },
     {
         "id": "0x6c6d5501138258dde5bc4fe51bc9bf422c021f9a",
-        "fee": "2792",
+        "fee": "2220",
         "token0": {
             "id": "0x3a58a54c066fdc0f2d55fc9c89f0415c92ebf3c4",
             "symbol": "stMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "93652.81796542806704481479031841314"
+            "totalValueLockedUSD": "94254.64023964505944901858736695452"
         },
         "token1": {
             "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
             "symbol": "WETH",
             "decimals": "18",
-            "totalValueLockedUSD": "11190114.5865360399238963029849649"
+            "totalValueLockedUSD": "11520429.11225932196406498944542046"
         }
     },
     {
         "id": "0x6dbfa9f47ba0287411bcb4e34631252299bc3099",
-        "fee": "2332",
+        "fee": "1995",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0xabeb34c52292c5f3ee96396e02d8a77c8a903a4f",
             "symbol": "UNIQ",
             "decimals": "18",
-            "totalValueLockedUSD": "982.1278860466212848561979778193199"
+            "totalValueLockedUSD": "715.1647020488471338202621390029487"
         }
     },
     {
@@ -1452,39 +1452,39 @@
             "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
             "symbol": "USDT",
             "decimals": "6",
-            "totalValueLockedUSD": "3147240.453955818875200000000000001"
+            "totalValueLockedUSD": "2943680.689027989609499999999999999"
         }
     },
     {
         "id": "0x7212d38aa05d4d76c9af19721fda00c21b7f8b28",
-        "fee": "2452",
+        "fee": "1953",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0xa3fa99a148fa48d14ed51d610c367c61876997f1",
             "symbol": "miMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "3794601.39197733977689365307638846"
+            "totalValueLockedUSD": "3878194.342684084316914938240934059"
         }
     },
     {
         "id": "0x74e7d48406c1d608d06668d40fa8c29fed1f2b5a",
-        "fee": "135",
+        "fee": "110",
         "token0": {
             "id": "0x7bdf330f423ea880ff95fc41a280fd5ecfd3d09f",
             "symbol": "EURT",
             "decimals": "6",
-            "totalValueLockedUSD": "738.7043407269535251924311310202922"
+            "totalValueLockedUSD": "684.4299179335573462764440472402461"
         },
         "token1": {
             "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
             "symbol": "USDT",
             "decimals": "6",
-            "totalValueLockedUSD": "3147240.453955818875200000000000001"
+            "totalValueLockedUSD": "2943680.689027989609499999999999999"
         }
     },
     {
@@ -1494,7 +1494,7 @@
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0xce5f928be5e42f7f83e7c92a9dde70430a119c44",
@@ -1505,18 +1505,18 @@
     },
     {
         "id": "0x7963a55a5e37e1c8443b62e92e5455e672a1f37e",
-        "fee": "2878",
+        "fee": "2378",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0xd0258a3fd00f38aa8090dfee343f10a9d4d30d3f",
             "symbol": "VOXEL",
             "decimals": "18",
-            "totalValueLockedUSD": "22139.01150829189174440410448685654"
+            "totalValueLockedUSD": "21771.1594787933864331960940373702"
         }
     },
     {
@@ -1526,77 +1526,77 @@
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
             "symbol": "USDT",
             "decimals": "6",
-            "totalValueLockedUSD": "3147240.453955818875200000000000001"
+            "totalValueLockedUSD": "2943680.689027989609499999999999999"
         }
     },
     {
         "id": "0x7db5c1cc87eaca6fbe7004befea9b7c2daf989d4",
-        "fee": "3612",
+        "fee": "2470",
         "token0": {
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0x3a58a54c066fdc0f2d55fc9c89f0415c92ebf3c4",
             "symbol": "stMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "93652.81796542806704481479031841314"
+            "totalValueLockedUSD": "94254.64023964505944901858736695452"
         }
     },
     {
         "id": "0x7feadb5714ebe66d155205a8e545f33406fb8923",
-        "fee": "3159",
+        "fee": "4365",
         "token0": {
             "id": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
             "symbol": "WETH",
             "decimals": "18",
-            "totalValueLockedUSD": "11190114.5865360399238963029849649"
+            "totalValueLockedUSD": "11520429.11225932196406498944542046"
         },
         "token1": {
             "id": "0xa3fa99a148fa48d14ed51d610c367c61876997f1",
             "symbol": "miMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "3794601.39197733977689365307638846"
+            "totalValueLockedUSD": "3878194.342684084316914938240934059"
         }
     },
     {
         "id": "0x80deece4befd9f27d2df88064cf75f080d3ce1b2",
-        "fee": "3134",
+        "fee": "2833",
         "token0": {
             "id": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
             "symbol": "WMATIC",
             "decimals": "18",
-            "totalValueLockedUSD": "6654164.704227079473838830027862772"
+            "totalValueLockedUSD": "7425410.25286456244628220380152454"
         },
         "token1": {
             "id": "0x385eeac5cb85a38a9a07a70c73e0a3271cfb54a7",
             "symbol": "GHST",
             "decimals": "18",
-            "totalValueLockedUSD": "265172.065396315165226482351688369"
+            "totalValueLockedUSD": "255775.3799008507484453760896278764"
         }
     },
     {
         "id": "0x8285e5beb07ad954750835ea6c88685b2ccb1d7f",
-        "fee": "3727",
+        "fee": "2512",
         "token0": {
             "id": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
             "symbol": "USDC",
             "decimals": "6",
-            "totalValueLockedUSD": "10592525.8815832650054"
+            "totalValueLockedUSD": "9420359.705653164310699999999999993"
         },
         "token1": {
             "id": "0xfa68fb4628dff1028cfec22b4162fccd0d45efb6",
             "symbol": "MaticX",
             "decimals": "18",
-            "totalValueLockedUSD": "249693.6211693365921818785868714287"
+            "totalValueLockedUSD": "252458.5177471641885513418788849685"
         }
     }
 ]

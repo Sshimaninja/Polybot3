@@ -1,8 +1,8 @@
-import { COMPARE } from './V2V2';
+import { COMPARE } from './V3V3';
 import fs from 'fs';
 
 //Filter out undefined values 
-export async function V2V2SORT() {
+export async function filter() {
     try {
         const dexdata = await COMPARE();
         const dexdatafilter = dexdata.filter((item: any) => ((item !== undefined /*&& Number(item.SUSHI.TVLUSD) > 100*/) && (item !== undefined)));
@@ -13,7 +13,7 @@ export async function V2V2SORT() {
         // console.log(dexdatasorted)//DEBUG
 
         /////////////////////////////////////////////DEBUG
-        fs.writeFile('./DATASAMPLEV2V2.yaml', JSON.stringify(dexdatafilter, null, 4), err => {
+        fs.writeFile('./DATASAMPLEV3V3.yaml', JSON.stringify(dexdatafilter, null, 4), err => {
             if (err) {
                 console.error(err);
             }
@@ -27,4 +27,4 @@ export async function V2V2SORT() {
         return;
     };
 }
-V2V2SORT()
+filter()

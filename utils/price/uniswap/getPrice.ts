@@ -1,9 +1,9 @@
 import { config as dotEnvConfig } from "dotenv";
 import { BigNumber, BigNumberish, ethers } from "ethers";
 dotEnvConfig();
-import * as UniswapV2Router from "../../../../interfaces/IUniswapV2Router02.json";
-import { getBigNumber } from "../../../../utils/tools";
-import { provider } from "../../../../constants/contract";
+import * as UniswapV2Router from "../../../interfaces/IUniswapV2Router02.json";
+import { getBigNumber } from "../../tools";
+import { provider } from "../../../constants/contract";
 import { abi as QuoterABI } from "@uniswap/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json";
 // import { getUniswapV3PoolFee } from "./fee";
 dotEnvConfig();
@@ -88,7 +88,7 @@ const quoterContract = new ethers.Contract(
  * @param amountIn amount of token to convert from
  * @returns
  */
-export const getPriceOnUniV3 = async (
+export const V3Quote = async (
   tokenIn: string,
   tokenOut: string,
   amountIn: BigNumber,

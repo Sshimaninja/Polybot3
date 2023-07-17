@@ -156,10 +156,13 @@ export interface V2POOLS {
     dec0: string
     token1: string
     dec1: string
-    sushiv2poolID: string
-    sushiv2price0: string
-    sushiv2price1: string
-    quickv2poolID: string
-    quickv2price0: string
-    quickv2price1: string
+    v2apoolID: string
+    v2aprice0: string
+    v2aprice1: string
+    v2bpoolID: string
+    v2bprice0: string
+    v2bprice1: string
+}
+
+export interface V3POOLS {
 }
