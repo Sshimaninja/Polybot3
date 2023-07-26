@@ -20,7 +20,7 @@ export async function filter() {
             // console.log('DATA SAMPLE UPDATED.')
         })
         /////////////////////////////////////////////DEBUG
-
+        // console.log(dexdatafilter)
         return (dexdatafilter);
     } catch (error) {
         console.log(error);

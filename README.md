@@ -20,3 +20,5 @@ The test contract has console.log for hardhat testing. The bot will run on the t
 -CONVERT CURRENT WORKING BOT TO USE GASVPROFIT (BRANCH: BOTREPAIRS) This way you can run it without converting flashone.sol and deploying new contracts, though it's not as efficient as the new strategy. This could be wasted effor though.
 
 # Bot stops after some time, I need to find out why.
+Could be node issues (running my own polygon node as of this writing, though it's future is in doubt if this thing doesn't turn $100 in profit/month soon.)
+
