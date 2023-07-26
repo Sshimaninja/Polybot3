@@ -86,7 +86,7 @@ export async function gasVprofit(
                     let gasPool = new ethers.Contract(gasPoolID, IPair, provider);
                     //ERROR IS OCCURING BELOW   
                     //Case: profittoken is paired with WMATIC
-                    if (gasPool.token1 == matic) {
+                    if (gasPool.token0 == matic) {
                         logger.info("Case 1")
                         const reserves = await gasPool.getReserves();
                         const profitInMaticBN = await getAmountsOut(BN(trade.expectedProfit.toString()), BN(reserves[0].toString()), BN(reserves[1].toString()))

@@ -17,6 +17,7 @@ import { wallet } from '../constants/contract';
 import { abi as QuoterABI } from "@uniswap/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json";
 import { abi as IPool } from '@uniswap/v3-periphery/artifacts/@uniswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol/IUniswapV3Pool.json'
 import { abi as IFactory } from '@uniswap/v3-core/artifacts/contracts/UniswapV3Factory.sol/UniswapV3Factory.json';
+import { abi as IUniswapV3Factory } from '@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Factory.sol/IUniswapV3Factory.json';
 // import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 // import { abi as IPool } from '@uniswap/v2-core/build/IUniswapV2Pool.json';
 //trade interface
@@ -30,10 +31,10 @@ import { fetchGasPrice } from "./modules/fetchGasPrice";
 import { gasVprofit } from './modules/gasVprofit';
 import { calculateLoanCost } from './modules/loanCost'
 // import { getReserves } from './modules/getReseverves';
-const factoryB_id = uniswapFactory.SUSHI
-const routerB_id = uniswapRouter.SUSHI
-const factoryA_id = uniswapFactory.QUICK
-const routerA_id = uniswapRouter.QUICK
+const factoryA_id = uniswapFactory.UNI
+const routerA_id = uniswapRouter.UNI
+const factoryB_id = uniswapFactory.QUICKV3
+const routerB_id = uniswapRouter.QUICKV3
 
 import * as log4js from "log4js";
 import { exec } from 'child_process';
@@ -63,14 +64,20 @@ if (process.env.PRIVATE_KEY === undefined) {
 //TODO: CREATE convertToGas function to compare token1 profit to gas cost, to determine profitability of trade.
 
 ////////////////////////////////////INITIALIZE CONTRACTS////////////////////////////////////
-const factoryA = new ethers.Contract(factoryA_id, IFactory, wallet)
-const factoryB = new ethers.Contract(factoryB_id, IFactory, wallet)
+const factoryA = new ethers.Contract(factoryA_id, IFactory, provider)
+const factoryB = new ethers.Contract(factoryB_id, IFactory, provider)
+
+const IfactoryA = new ethers.Contract(factoryA_id, IUniswapV3Factory, provider)
+const IfactoryB = new ethers.Contract(factoryB_id, IUniswapV3Factory, provider)
+
 let warning = 0
 let tradePending = false;
 const deadline = Math.round(Date.now() / 1000) + 1000 * 60
 //0.0025 * 100 = 0.25%
 export async function flashit() {//USE AN INTERFACE TO MAKE THIS LESS MESSY.
     let arrayv3v3 = await filter();
+    // const v3Pairs = allMatches.matches.V3;
+    const v3Pools = arrayv3v3;
     arrayv3v3?.forEach(async (pool: any) => {
         // console.log("Pool: " + pool.pool.ticker + " Starting New Loop:")
         try {
@@ -82,16 +89,25 @@ export async function flashit() {//USE AN INTERFACE TO MAKE THIS LESS MESSY.
             var tokenOutID = pool.pool.token1
             var tokenIndec = pool.pool.token0decimals
             var tokenOutdec = pool.pool.token1decimals
-            var feeTierA = pool.pool.univ3feeTier
-            var feeTierB = pool.pool.quickv3feeTier
+            var feeTierA = pool.UNIv3.feeTier
+            var feeTierB = pool.QUICKv3.feeTier
             var ticker = tokenInsymbol + "/" + tokenOutsymbol
+            // console.log(
+            //     "Pool: " + ticker + " " + tokenInsymbol + "/" + tokenOutsymbol + " " + tokenInID + "/" + tokenOutID + " " + tokenIndec + "/" + tokenOutdec + " " + feeTierA + "/" + feeTierB
+            // )
 
-            console.log(
-                "Pool: " + ticker + " " + tokenInsymbol + "/" + tokenOutsymbol + " " + tokenInID + "/" + tokenOutID + " " + tokenIndec + "/" + tokenOutdec + " " + feeTierA + "/" + feeTierB
-            )
+            // console.log("FactoryA: ")
+            // console.log(factoryA.functions)
+            // console.log("IFactoryA: ")
+            // console.log(IfactoryA.functions)
+            // console.log(pool)
             var poolA_id = await factoryA.getPool(tokenInID, tokenOutID, feeTierA);
-            var poolB_id = await factoryB.getPool(tokenInID, tokenOutID, feeTierB);
-            console.log("PoolA: " + poolA_id + " PoolB: " + poolB_id)
+            console.log("PoolA: " + poolA_id)
+            // return
+            // console.log(factoryB.functions.getPool)
+            var poolB_id = await factoryB.getPool(tokenInID, tokenOutID, 300);
+            console.log("PoolB: " + poolB_id)
+            // console.log("PoolA: " + poolA_id + " PoolB: " + poolB_id)
             var Pool0 = new ethers.Contract(poolA_id, IPool, wallet);
             var Pool1 = new ethers.Contract(poolB_id, IPool, wallet);
 
@@ -102,16 +118,17 @@ export async function flashit() {//USE AN INTERFACE TO MAKE THIS LESS MESSY.
 
             var aSlot0, aReserves, aReserveIn: any, aReserveOut: any, bReserves: any, bReserveIn: any, bReserveOut: any
 
-            // if (Pool0.ID != '0x0000000000000000000000000000000000000000') {
-            //     aSlot0 = await Pool0.slot0().catch((error: any) => {
-            //         logger.error("Error (slot0(" + exchangeA + ")): " + error)
-            //         logger.error(error)
-            //     });
-            // } else {
-            //     console.log("Pool0 " + ticker + " no longer exists on " + exchangeA + "!")
-            //     return
-            // }
-            // console.log(aSlot0)
+
+            if (Pool0.ID != '0x0000000000000000000000000000000000000000') {
+                aSlot0 = await Pool0.slot0().catch((error: any) => {
+                    logger.error("Error (slot0(" + exchangeA + ")): " + error)
+                    logger.error(error)
+                });
+            } else {
+                console.log("Pool0 " + ticker + " no longer exists on " + exchangeA + "!")
+                return
+            }
+            console.log(aSlot0)
 
             return//DEBUG
             // Using bignumber.js to format reserves and price instead of ethers.js BigNumber implementation:

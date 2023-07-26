@@ -166,3 +166,13 @@ export interface V2POOLS {
 
 export interface V3POOLS {
 }
+
+export interface HiLo {
+    higher: BN;
+    lower: BN;
+}
+
+export interface Difference {
+    difference: BN;
+    differencePercent: BN;
+}

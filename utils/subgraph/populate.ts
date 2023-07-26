@@ -101,6 +101,7 @@ async function checkuniv3() {
             "unifeeTier": pair.feeTier,
         };
         univ3pairs.push(univ3Result);
+        console.log(univ3Result)
         // console.log(univ3Result['unifeeTier'])
         return univ3pairs;
     });

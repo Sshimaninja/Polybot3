@@ -12,14 +12,14 @@ export async function COMPARE() {
         const token1dec = Number(data.dec1);
         // const v3poolA = data.sushiv3poolID;
         // const v3poolB = data.quickv3poolID;
-        const v3poolA = data.quickv3vpoolID;
-        const v3poolB = data.univ3poolID;
-        const routerA = uniswapRouter.SUSHI;
-        const routerB = uniswapRouter.QUICK;
-        const factoryA = uniswapFactory.SUSHI;
-        const factoryB = uniswapFactory.QUICK;
-        const feeTierA = data.univ3feeTier;
-        const feeTierB = data.quickv3feeTier;
+        const v3poolA = data.univ3poolID;
+        const v3poolB = data.quickv3poolID;
+        const routerA = uniswapRouter.UNI;
+        const routerB = uniswapRouter.QUICKV3;
+        const factoryA = uniswapFactory.UNI;
+        const factoryB = uniswapFactory.QUICKV3;
+        const feeTierA = data.unifeeTier;
+        const feeTierB = data.quickfeeTier;
         // const TVLSUSHI = data.reserveUSD;
         // const TVLQUICK = data.TVLUSD;
         const token0symbol = data.token0symbol;
@@ -39,11 +39,17 @@ export async function COMPARE() {
 
         const v3a = {
             poolID: v3poolA,
+            feeTier: feeTierA,
+            factory: factoryA,
+            // router: routerA,
             // Price1: data.sushiprice1,
         };
 
         const v3b = {
             poolID: v3poolB,
+            feeTier: feeTierB,
+            factory: factoryB,
+            // router: routerB,
             // Price1: data.quickprice1,
         };
 
@@ -89,7 +95,7 @@ export async function COMPARE() {
         // }
         const matches = {
             pool: constants,
-            SUSHIv3: v3a,
+            UNIv3: v3a,
             QUICKv3: v3b,
             // QUICKV3: v3a,
             // UNIV3: v3b,
