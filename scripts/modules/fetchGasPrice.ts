@@ -1,11 +1,11 @@
 import { BigNumber, ethers, utils, Contract, Wallet } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import axios from "axios";
-import { boolFlash } from "../../constants/interfaces";
+import { BoolFlash } from "../../constants/interfaces";
 import { provider, flash, logger } from "../../constants/contract";
 
 export async function fetchGasPrice(
-    trade: boolFlash
+    trade: BoolFlash
 ): Promise<{ gasEstimate: BigNumber, gasPrice: BigNumber, maxFee: number, maxPriorityFee: number }> {
     try {
         const gasData: any = (await axios.get("https://gasstation.polygon.technology/v2")).data;

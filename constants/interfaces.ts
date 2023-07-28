@@ -1,7 +1,7 @@
 import { BigNumber } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 
-export interface boolTrade {
+export interface BoolTrade {
     direction: string
     loanPool: {
         exchange: string
@@ -72,7 +72,7 @@ export interface Trade {
     }
 }
 
-export interface boolFlash {
+export interface BoolFlash {
     ticker: string
     tokenInsymbol: string
     // tokenInPrice: BigNumber

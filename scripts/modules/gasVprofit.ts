@@ -1,7 +1,7 @@
 import { BigNumber, Contract, utils, ethers } from 'ethers'
 import { BigNumber as BN } from "bignumber.js";
 import { provider, flashwallet, logger } from '../../constants/contract'
-import { boolFlash } from '../../constants/interfaces'
+import { BoolFlash } from '../../constants/interfaces'
 import { deployedMap, /*gasToken,*/ /*uniswapFactory*/ } from '../../constants/addresses'
 // import { wallet } from '../deployTest'
 // import { Network, Alchemy } from "alchemy-sdk";
@@ -43,7 +43,7 @@ const factoryb = new ethers.Contract(uniswapFactory.QUICK, IFactory, provider)
 
 
 export async function gasVprofit(
-    trade: boolFlash,
+    trade: BoolFlash,
 ): Promise<BigNumber> {
     const pair = new ethers.Contract(trade.recipient.factoryID, IPair, provider)
     const matic = gasToken.WMATIC;

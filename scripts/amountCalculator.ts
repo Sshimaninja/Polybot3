@@ -5,11 +5,11 @@ import { Reserves } from "./modules/reserves";
 import { logger } from '../constants/contract'
 import { lowSlippage } from './modules/lowslipBN';
 import { ReserveData } from "./modules/reserveData";
-import { getAmountsOut, getAmountsIn } from '../scripts/modules/getAmountsIOjs';
+import { getAmountsOut, getAmountsIn } from './modules/getAmountsIOjs';
 import { HiLo, Difference } from "../constants/interfaces";
 import { getDifference, getGreaterLesser, getHiLo } from './modules/getHiLo';
 
-class AmountCalculator {
+export class AmountCalculator {
     ra: ReserveData;
     rb: ReserveData;
     sp: SmartPool;

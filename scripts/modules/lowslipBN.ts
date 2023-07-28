@@ -1,5 +1,5 @@
 import { BigNumber as BN } from "bignumber.js";
-import { boolTrade } from "../../constants/interfaces";
+import { BoolTrade } from "../../constants/interfaces";
 
 
 export async function lowSlippage(reserveIn: BN, reserveOut: BN, tokenOutPrice: BN, slippageTolerance: BN,) {

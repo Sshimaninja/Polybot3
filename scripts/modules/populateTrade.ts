@@ -1,6 +1,6 @@
 import { BigNumber as BN } from "bignumber.js";
 import { BigNumber } from "ethers";
-import { boolTrade } from "../../constants/interfaces"
+import { BoolTrade } from "../../constants/interfaces"
 
 
 export async function getTradefromAmounts(
@@ -47,7 +47,7 @@ export async function getTradefromAmounts(
     var direction = B1 ? "B1" : A1 ? "A1" : "DIRECTIONAL AMBIGUITY ERROR"
     // var direction: any = B0 ? "B0" : B1 ? "B1" : A1 ? "A1" : A0 ? "A0" : "DIRECTIONAL AMBIGUITY ERROR"
 
-    var trade: boolTrade = {
+    var trade: BoolTrade = {
         direction: direction,
         loanPool: {
             exchange: A1 ? exchangeB : exchangeA,

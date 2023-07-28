@@ -1,12 +1,12 @@
 import { BigNumber as BN } from "bignumber.js";
-import { boolTrade } from "../../constants/interfaces";
+import { BoolTrade } from "../../constants/interfaces";
 
 
 //Question: Why is this script returning negative numbers?
 //Answer: Because the price of the loanPool is higher than the price of the recipient pool, so the amount of token0 required to equalize the ratio is negative.
 
 // export async function lowSlippageImpact(
-//   trade: boolTrade,
+//   trade: BoolTrade,
 //   slippageTolerance: BN,
 //   virtualReserveFactor: number
 // ): Promise<BN> {

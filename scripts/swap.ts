@@ -19,11 +19,13 @@ import { wallet } from '../constants/contract';
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
 //trade interface
-import { boolFlash, Trade, HiLo, Difference } from '../constants/interfaces';
+import { BoolFlash, Trade, HiLo, Difference } from '../constants/interfaces';
 
 import { lowSlippage } from './modules/lowslipBN';
 import { getAmountsIn, getAmountsOut, getAmountsIO } from './modules/getAmountsIO';
 import { getAmountsIn as getAmountsInjs, getAmountsOut as getAmountsOutjs, getAmountsIO as getAmountsIOjs } from './modules/getAmountsIOjs';
+import { AmountCalculator } from './amountCalculator'
+import { TradeMsg } from './modules/tradeMsg';
 import { getTradefromAmounts } from './modules/populateTrade';
 import { fetchGasPrice } from "./modules/fetchGasPrice";
 import { gasVprofit } from './modules/gasVprofit';
@@ -35,10 +37,12 @@ const routerB_id = uniswapRouter.SUSHI
 const factoryA_id = uniswapFactory.QUICK
 const routerA_id = uniswapRouter.QUICK
 
+
 import * as log4js from "log4js";
 import { exec } from 'child_process';
 import { boolean } from 'hardhat/internal/core/params/argumentTypes';
 import { getDifference, getGreaterLesser, getHiLo } from './modules/getHiLo';
+import { filter } from '../utils/dexdata/comparev2';
 
 log4js.configure({
     appenders: {
@@ -73,7 +77,7 @@ let tradePending = false;
 const deadline = Math.round(Date.now() / 1000) + 1000 * 60
 //0.0025 * 100 = 0.25%
 export async function flashit() {
-    let arrayV2V2 = await V2V2SORT();
+    let arrayV2V2 = await filter();
     arrayV2V2?.forEach(async (pool: any) => {
         // console.log("Pair: " + pool.pair.ticker + " Starting New Loop:")
         try {
@@ -159,36 +163,12 @@ export async function flashit() {
                 var profitPercent = profit.dividedBy(amountOutRecipient).multipliedBy(100)
                 var profitjs = utils.parseUnits(profit.toFixed(sp.tokenOutdec), sp.tokenOutdec)
 
-
-                const amounts = {
-                    direction: trade.direction,
-                    loanPool: trade.loanPool.exchange,
-                    recipient: trade.recipient.exchange,
-                    amountIn: await calculator.getTradeAmount() + " " + sp.tokenInsymbol,
-                    amountOutLoanPool: amountOutLoanPool.toFixed(sp.tokenOutdec) + " " + sp.tokenOutsymbol,
-                    amountOutRecipient: amountOutRecipient.toFixed(sp.tokenOutdec) + " " + sp.tokenOutsymbol,
-                    amountRepayLoanPool: amountRepayLoanPool.toFixed(sp.tokenOutdec) + " " + sp.tokenOutsymbol,
-                    amountRepayRecipient: amountRepayRecipient.toFixed(sp.tokenOutdec) + " " + sp.tokenOutsymbol,
-                    loanPoolPriceOut: trade.loanPool.exchange + ": " + trade.loanPool.tokenOutPrice + " " + sp.tokenOutsymbol + "/" + sp.tokenInsymbol,
-                    recipientPriceOut: trade.recipient.exchange + ": " + trade.recipient.tokenOutPrice + " " + sp.tokenOutsymbol + "/" + sp.tokenInsymbol,
-                    differenceAmountsOut: differencePrice.toFixed(sp.tokenOutdec) + " " + sp.tokenOutsymbol + " (" + differencePercent.toFixed(sp.tokenOutdec) + "%)",
-                    differenceOutvsRepay: (differenceOut.toFixed(8) + " " + sp.tokenOutsymbol + " (" + ((differenceOut.dividedBy(amountOutRecipient)).multipliedBy(100)).toFixed(4) + "%)"),
-                    projectedProfit: profit.toFixed(sp.tokenOutdec),
-                    loanPoolReserves: trade.loanPool.reserveIn.toFixed(sp.tokenIndec) + " " + sp.tokenInsymbol + " " + trade.loanPool.reserveOut.toFixed(sp.tokenOutdec) + " " + sp.tokenOutsymbol,
-                    recipientReserves: trade.recipient.reserveIn.toFixed(sp.tokenIndec) + " " + sp.tokenInsymbol + " " + trade.recipient.reserveOut.toFixed(sp.tokenOutdec) + " " + sp.tokenOutsymbol,
-                    loanPremium: loanprem.toFixed(6) + "%",
-                    loanCost: loanCost.loanCost.toFixed(sp.tokenOutdec) + " " + sp.tokenOutsymbol + " (" + loanCost.loanCostPercentage.toFixed(6) + "%)",
-                    //The following must be equal after the flash loan is repaid.
-
-                    prevloanPoolK: trade.loanPool.reserveIn.multipliedBy(trade.loanPool.reserveOut).toFixed(20),
-                    postloanPoolK: (trade.loanPool.reserveIn.minus(calculator.amountInTrade)).multipliedBy(trade.loanPool.reserveOut.plus(amountRepayLoanPool)).toFixed(20),
-                }
-                console.log(amounts)
+                // var amounts = new amountsObject()
                 const blockNumber = await provider.getBlockNumber();
                 // logger.info(amounts)//DEBUG
                 // return
 
-                let tradejs: boolFlash = {
+                let tradejs: BoolFlash = {
                     ticker: sp.ticker,
                     tokenInsymbol: sp.tokenInsymbol,
                     // tokenInPrice: utils.parseUnits(trade.tokenInPrice.toFixed(tokenIndec), tokenIndec),
@@ -232,25 +212,11 @@ export async function flashit() {
                     return profitable
                 }
                 const profitable = await profitablejs()
+                var tradeMessage = new TradeMsg(sp, trade)
 
                 if (profitable.gt((0.0)) && !tradePending) {
                     tradePending = true
-                    logger.info("***Sending transaction to flashSwap contract " + sp.ticker + " on block " + blockNumber + "***")
-                    logger.info("==============STRATEGY: " + sp.tokenInsymbol + "/" + sp.tokenOutsymbol + "==============")
-                    logger.info("amountIn: " + calculator.amountInTrade + " " + sp.tokenInsymbol + " (" + trade.direction + ")")
-                    logger.info(sp.ticker)
-                    logger.info("Price Check:" + sp.ticker)
-                    logger.info(amounts)
-                    logger.info(trade.loanPool.exchange + ": " + trade.loanPool.tokenOutPrice + " " + sp.tokenInsymbol + "/" + sp.tokenOutsymbol)
-                    logger.info(trade.recipient.exchange + ": " + trade.recipient.tokenOutPrice + " " + sp.tokenInsymbol + "/" + sp.tokenOutsymbol)
-                    logger.info("Borrow: " + amounts.amountIn + " " + sp.tokenInsymbol + " from " + trade.loanPool.exchange)
-                    logger.info("Sell for: " + amountOutRecipient + " " + sp.tokenOutsymbol + " on " + trade.recipient.exchange)
-                    logger.info("Repay: " + amounts.amountRepayLoanPool + sp.tokenOutsymbol + " to " + trade.loanPool.exchange)
-                    logger.info("Loan Fee: " + premium.toFixed(sp.tokenOutdec)/*utils.formatUnits(premium, tokenOutdec)*/ + " " + sp.tokenOutsymbol)
-                    logger.info("Slippage Tolerance: " + (Number(sp.slippageTolerance) * 100) + "%")
-                    logger.info("Profit:" + profit)
-                    logger.info("ProfitPercent: " + profitPercent.toString() + " " + sp.tokenOutsymbol)
-                    // logger.info("Profit: " + profit.toFixed(tokenOutdec) + " " +tokenOutsymbol)
+                    logger.info(tradeMessage)
                     logger.info("===============================================================")
                     logger.info("Executing Trade on Block: " + blockNumber)
                     logger.info("===============================================================")
@@ -300,7 +266,7 @@ export async function flashit() {
                                 // gasMult,
                                 tradePending,
                                 nonce)
-                            tradePending = true
+                            tradePending = true;
                         } if (tradePending && error.code === 'NONCE_EXPIRED') {
                             // nonce++
                             gasMult++
@@ -321,20 +287,7 @@ export async function flashit() {
                     }
                 } else if (profitPercent.lt(BN(0.0))) {
                     console.log("==============STRATEGY (UNPROFITABLE): " + sp.tokenInsymbol + "/" + sp.tokenOutsymbol + "==============")
-                    // console.log("amountIn: " + amountInTrade + " " + tokenInsymbol + " (" + trade.direction + ")")
-                    // console.log(ticker)
-                    // console.log("Price Check:" + ticker)
-                    // console.log(amounts)
-                    // console.log(trade.loanPool.exchange + ": " + trade.loanPool.tokenOutPrice + " " + tokenInsymbol + "/" + tokenOutsymbol)
-                    // console.log(trade.recipient.exchange + ": " + trade.recipient.tokenOutPrice + " " + tokenInsymbol + "/" + tokenOutsymbol)
-                    // console.log("Borrow: " + amounts.amountIn + " " + tokenInsymbol + " from " + trade.loanPool.exchange)
-                    // console.log("Sell for: " + amountOutRecipient + " " + tokenOutsymbol + " on " + trade.recipient.exchange)
-                    // console.log("Repay: " + amounts.amountRepayLoanPool + tokenOutsymbol + " to " + trade.loanPool.exchange)
-                    // console.log("Loan Fee: " + premium.toFixed(tokenOutdec)/*utils.formatUnits(premium, tokenOutdec)*/ + " " + tokenOutsymbol)
-                    // console.log("Slippage Tolerance: " + (Number(slippageTolerance) * 100) + "%")
-                    // console.log("Profit: " + profitable.toString(tokenOutdec) + " " + tokenOutsymbol)
-                    // console.log("Block: " + blockNumber + " No trade executed. Skipping to next asset...")
-                    // console.log("===============================================================")
+                    console.log(tradeMessage)
                     return
                 }
             } else {
