@@ -1,0 +1,178 @@
+import { BigNumber } from "ethers";
+import { BigNumber as BN } from "bignumber.js";
+
+export interface BoolTrade {
+    direction: string
+    loanPool: {
+        exchange: string
+        poolID: string
+        amountOut: BN
+        amountOutjs: BigNumber,
+        amountRepay: BN
+        amountRepayjs: BigNumber,
+        tokenOutPrice: BN
+        reserveIn: BN
+        reserveInjs: BigNumber
+        reserveOut: BN
+        reserveOutjs: BigNumber
+        factoryID: string
+        routerID: string
+    }
+    recipient: {
+        exchange: string
+        poolID: string
+        amountOut: BN
+        amountOutjs: BigNumber,
+        amountRepay: BN
+        amountRepayjs: BigNumber,
+        tokenOutPrice: BN
+        reserveIn: BN
+        reserveInjs: BigNumber
+        reserveOut: BN
+        reserveOutjs: BigNumber
+        factoryID: string
+        routerID: string
+    }
+}
+
+export interface Trade {
+    direction: string
+    amountIn: BN
+    tokenInsymbol: string
+    tokenInPrice: BN
+    tokenInID: string
+    tokenIndec: number
+    tokenOutsymbol: string
+    tokenOutPrice: BN
+    tokenOutID: string
+    tokenOutdec: number
+    loanPool: {
+        exchange: string
+        poolID: string
+        tokenInPrice: BN
+        tokenOutPrice: BN
+        reserveIn: BN
+        reserveInjs: BigNumber
+        reserveOut: BN
+        reserveOutjs: BigNumber
+        factoryID: string
+        routerID: string
+    }
+    recipient: {
+        exchange: string
+        poolID: string
+        tokenInPrice: BN
+        tokenOutPrice: BN
+        reserveIn: BN
+        reserveInjs: BigNumber
+        reserveOut: BN
+        reserveOutjs: BigNumber
+        factoryID: string
+        routerID: string
+    }
+}
+
+export interface BoolFlash {
+    ticker: string
+    tokenInsymbol: string
+    // tokenInPrice: BigNumber
+    tokenInID: string
+    tokenIndec: number
+    tokenOutsymbol: string
+    tokenOutPrice: BigNumber
+    tokenOutID: string
+    tokenOutdec: number
+    amountIn: BigNumber
+    expectedProfit: BigNumber
+    loanPool: {
+        exchange: string
+        poolID: string
+        // tokenInPrice: BigNumber
+        tokenOutPrice: BigNumber
+        reserveIn: BigNumber
+        reserveOut: BigNumber
+        factoryID: string
+        routerID: string
+        amountOut: BigNumber
+        amountRepay: BigNumber
+    }
+    recipient: {
+        exchange: string
+        poolID: string
+        // tokenInPrice: BigNumber
+        tokenOutPrice: BigNumber
+        reserveIn: BigNumber
+        reserveOut: BigNumber
+        factoryID: string
+        routerID: string
+        amountOut: BigNumber
+    }
+}
+
+export interface Flash {
+    ticker: string
+    tokenInsymbol: string
+    tokenInPrice: BigNumber
+    tokenInID: string
+    tokenIndec: number
+    tokenOutsymbol: string
+    tokenOutPrice: BigNumber
+    tokenOutID: string
+    tokenOutdec: number
+    amountIn: BigNumber
+    expectedProfit: BigNumber
+    loanPool: {
+        exchange: string
+        poolID: string
+        tokenInPrice: BigNumber
+        tokenOutPrice: BigNumber
+        reserveIn: BigNumber
+        reserveOut: BigNumber
+        factoryID: string
+        routerID: string
+        amountOut: BigNumber
+        amountRepay: BigNumber
+    }
+    recipient: {
+        exchange: string
+        poolID: string
+        tokenInPrice: BigNumber
+        tokenOutPrice: BigNumber
+        reserveIn: BigNumber
+        reserveOut: BigNumber
+        factoryID: string
+        routerID: string
+        amountOut: BigNumber
+    }
+}
+
+
+export interface V2POOLS {
+    ticker: string
+    token0symbol: string
+    token1symbol: string
+    pairID: string
+    token0: string
+    dec0: string
+    token1: string
+    dec1: string
+    v2apoolID: string
+    v2aprice0: string
+    v2aprice1: string
+    v2bpoolID: string
+    v2bprice0: string
+    v2bprice1: string
+}
+
+export interface V3POOLS {
+}
+
+export interface HiLo {
+    higher: BN;
+    lower: BN;
+}
+
+export interface Difference {
+    difference: BN;
+    differencePercent: BN;
+}
