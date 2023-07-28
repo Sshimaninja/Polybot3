@@ -21,7 +21,7 @@ import { abi as IUniswapV3Factory } from '@uniswap/v3-core/artifacts/contracts/i
 // import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 // import { abi as IPool } from '@uniswap/v2-core/build/IUniswapV2Pool.json';
 //trade interface
-import { boolFlash, Trade } from '../constants/interfaces';
+import { BoolFlash, Trade } from '../constants/interfaces';
 
 import { lowSlippage } from './modules/lowslipBN';
 import { getAmountsIn, getAmountsOut, getAmountsIO } from './modules/getAmountsIO';
@@ -273,7 +273,7 @@ export async function flashit() {//USE AN INTERFACE TO MAKE THIS LESS MESSY.
                 // logger.info(amounts)//DEBUG
                 // return
 
-                let tradejs: boolFlash = {
+                let tradejs: BoolFlash = {
                     ticker: ticker,
                     tokenInsymbol: tokenInsymbol,
                     // tokenInPrice: utils.parseUnits(trade.tokenInPrice.toFixed(tokenIndec), tokenIndec),

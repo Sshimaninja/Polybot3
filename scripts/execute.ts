@@ -2,7 +2,7 @@ import { BigNumber, ethers, utils, Contract, Wallet } from "ethers";
 import axios from "axios";
 import { provider, signer, wallet, flash, logger } from "../constants/contract";
 // import { abi as IFlash } from '../artifacts/contracts/flashOne.sol/flashOne.json';
-import { boolFlash } from "../constants/interfaces";
+import { BoolFlash } from "../constants/interfaces";
 // import { deployedMap } from "../constants/addresses";
 import { BigNumber as BN } from "bignumber.js";
 import { fetchGasPrice } from "./modules/fetchGasPrice";
@@ -11,7 +11,7 @@ import { gasVprofit } from "./modules/gasVprofit";
 
 export async function sendit(
     // profit: BigNumber,
-    trade: boolFlash,
+    trade: BoolFlash,
     // gasMult: number,
     tradePending: boolean,
     nonce: number
