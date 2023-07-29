@@ -4,15 +4,16 @@ import { SmartPool } from "./smartPool";
 import { ReserveData } from "./reserveData";
 import { logger } from '../../constants/contract'
 
-export class Reserves {
+
+class Reserves {
     sp: SmartPool;
-    reserveData!: Array<ReserveData | null>;
+    reserveData: Array<ReserveData | null>
 
     constructor(sp: SmartPool) {
         this.sp = sp;
     }
 
-    async getReserves(poolNumber: any): Promise<ReserveData | null> {
+    async getReserves(poolNumber): Promise<ReserveData | null> {
         if (this.reserveData[poolNumber] === undefined) {
             let exchange = poolNumber ? this.sp.exchangeB : this.sp.exchangeA;
             let Pair = poolNumber ? await this.sp.getPair1() : await this.sp.getPair0();
