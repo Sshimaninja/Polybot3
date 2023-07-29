@@ -70,12 +70,11 @@ if (process.env.PRIVATE_KEY === undefined) {
 
 
 ////////////////////////////////////INITIALIZE CONTRACTS////////////////////////////////////
-const factoryA = new ethers.Contract(factoryA_id, IFactory, wallet)
-const factoryB = new ethers.Contract(factoryB_id, IFactory, wallet)
+// const factoryA = new ethers.Contract(factoryA_id, IFactory, wallet)
+// const factoryB = new ethers.Contract(factoryB_id, IFactory, wallet)
+
 let warning = 0
 let tradePending = false;
-const deadline = Math.round(Date.now() / 1000) + 1000 * 60
-//0.0025 * 100 = 0.25%
 export async function flashit() {
     let arrayV2V2 = await filter();
     arrayV2V2?.forEach(async (pool: any) => {
@@ -95,6 +94,7 @@ export async function flashit() {
 
 
             var calculator = new AmountCalculator(ra, rb);
+
 
             //Filter low liquidity pairs
             if (await calculator.checkLiquidity()) {
@@ -295,7 +295,8 @@ export async function flashit() {
                 return
             }
         } catch (error: any) {
-            logger.error("Error (flashit): " + error)
+            logger.error("Error (flashit): " + error.stack)
+            logger.error(error)
             return
         };
     });

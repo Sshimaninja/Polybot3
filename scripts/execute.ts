@@ -52,7 +52,7 @@ export async function sendit(
         const txResponse = await provider.sendTransaction(signedTx);
         logger.info("Transaction hash: " + txResponse.hash)
         txResponse.wait()
-            .then((receipt) => {
+            .then((receipt: any) => {
                 logger.info("Transaction receipt: ")
                 logger.info(receipt)
                 logger.info("Transaction complete")
@@ -101,3 +101,4 @@ export async function sendit(
         return { tradePending };
     }
 }
+

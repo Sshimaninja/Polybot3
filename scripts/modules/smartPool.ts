@@ -1,6 +1,7 @@
 import { ethers } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
+import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { wallet } from '../../constants/contract'
 
 export class SmartPool {
@@ -37,10 +38,10 @@ export class SmartPool {
         this.tokenIndec = pool.pair.token0decimals;
         this.tokenOutdec = pool.pair.token1decimals;
         this.ticker = this.tokenInsymbol + "/" + this.tokenOutsymbol;
-        this.factoryA_id = pool.factoryA_id;
-        this.factoryB_id = pool.factoryB_id;
-        const factoryA = new ethers.Contract(this.factoryA_id, IPair, wallet)
-        const factoryB = new ethers.Contract(this.factoryB_id, IPair, wallet)
+        this.factoryA_id = pool.SUSHIV2.factoryID;
+        this.factoryB_id = pool.QUICKV2.factoryID;
+        const factoryA = new ethers.Contract(this.factoryA_id, IFactory, wallet)
+        const factoryB = new ethers.Contract(this.factoryB_id, IFactory, wallet)
         this.poolA_id = factoryA.getPair(this.tokenInID, this.tokenOutID);
         this.poolB_id = factoryB.getPair(this.tokenInID, this.tokenOutID);
 
@@ -49,6 +50,7 @@ export class SmartPool {
         this.exchangeA = 'QUICK';
         this.exchangeB = 'SUSHI';
     }
+
 
     async getPoolAId() {
         return await this.poolA_id;

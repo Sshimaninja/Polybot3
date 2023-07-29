@@ -12,7 +12,7 @@ import { getDifference, getGreaterLesser, getHiLo } from './modules/getHiLo';
 export class AmountCalculator {
     ra: ReserveData;
     rb: ReserveData;
-    sp: SmartPool;
+    sp!: SmartPool;
     hilo: HiLo | null = null;
     difference: Difference | null = null;
 
@@ -37,8 +37,13 @@ export class AmountCalculator {
     constructor(ra: ReserveData, rb: ReserveData) {
         this.ra = ra;
         this.rb = rb;
-        this.sp = this.ra.reserves.sp;
+        console.log(this.ra, this.rb)
+        // this.sp = this.ra.reserves.sp;
+        return
     }
+
+
+
 
     async getHilo() {
         if (this.hilo === null) {

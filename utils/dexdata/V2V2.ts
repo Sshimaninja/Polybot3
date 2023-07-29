@@ -15,7 +15,7 @@ export async function COMPARE() {
     const v3poolB = data.univ3poolID;
     const routerA = uniswapRouter.SUSHI;
     const routerB = uniswapRouter.QUICK;
-    const factoryA = uniswapFactory.SUSHI;
+    const factoryA = uniswapFactory.SUSHI;//TODO: LOOP through all factories and routers in pairs (f && f++)
     const factoryB = uniswapFactory.QUICK;
     // const TVLSUSHI = data.reserveUSD;
     // const TVLQUICK = data.TVLUSD;
@@ -36,11 +36,15 @@ export async function COMPARE() {
 
     const v2a = {
       poolID: v2poolA,
+      factoryID: factoryA,
+      routerID: routerA,
       // Price1: data.sushiprice1,
     };
 
     const v2b = {
       poolID: v2poolB,
+      factoryID: factoryB,
+      routerID: routerB,
       // Price1: data.quickprice1,
     };
 

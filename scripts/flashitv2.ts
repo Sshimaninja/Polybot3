@@ -4,11 +4,8 @@ require('dotenv').config()//for importing parameters
 require('colors')//for console output
 import { uniswapRouter, uniswapFactory, gasToken, deployedMap } from '../constants/addresses';
 import { provider, flash } from '../constants/contract';
-import Web3 from 'web3';
 import { BigNumber, ethers, utils } from 'ethers';
 import { BigNumber as BN } from "bignumber.js";
-import fs from 'fs';
-
 import { sendit } from './execute';
 import { V2Quote, V2Input } from '../utils/price/uniswap/getPrice';
 import { wallet } from '../constants/contract';
@@ -32,8 +29,6 @@ const factoryA_id = uniswapFactory.QUICK
 const routerA_id = uniswapRouter.QUICK
 
 import * as log4js from "log4js";
-import { exec } from 'child_process';
-import { boolean } from 'hardhat/internal/core/params/argumentTypes';
 import { getDifference, getGreaterLesser, getHiLo } from './modules/getHiLo';
 log4js.configure({
     appenders: {
