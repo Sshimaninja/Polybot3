@@ -17,7 +17,7 @@ export class AllV2PairsModule {
         this.factoryMap = factoryMap;
     }
 
-    async getPairs() {
+    async getPairs(): Promise<any> {
         Object.keys(this.factoryMap).forEach(async (protocol) => {
             console.log('Starting');
             const factoryID = this.factoryMap[protocol];
@@ -29,11 +29,10 @@ export class AllV2PairsModule {
                 console.log('FactoryContract not initialised');
             }
 
-            async function getAllPairs(factory: Contract): Promise<string[]> {
+            async function validatePairs(factory: Contract): Promise<string[]> {
                 const allPairsLen = await factory.allPairsLength();
                 console.log('AllPairsLength: ' + allPairsLen);
                 const pairs: string[] = [];
-
                 await Promise.all(
                     Array.from({ length: allPairsLen.toNumber() }, (_, i) => i).map(async (index) => {
                         const allPairs = await factory.allPairs(index);
@@ -46,7 +45,7 @@ export class AllV2PairsModule {
                 return pairs;
             }
 
-            const pairs = await getAllPairs(factory);
+            const pairs = await validatePairs(factory);
             if (pairs.length > 0) {
                 console.log('Pairs: ' + pairs.length);
                 const batchSize = 100;
@@ -86,7 +85,7 @@ export class AllV2PairsModule {
                                     };
                                 } catch (err: any) {
                                     if (err.code.includes("CALL_EXCEPTION")) {
-                                        console.log("Caught CALL_EXCEPTION, skipping pair: " + pair)
+                                        // console.log("Caught CALL_EXCEPTION, skipping pair: " + pair)
                                         return
                                     } else {
                                         console.log(err)
@@ -103,35 +102,12 @@ export class AllV2PairsModule {
                     });
                     return acc;
                 }, Promise.resolve({}));
-                // console.log('Valid pairs done');
+                console.log('Valid pairs done');
                 // console.log(validPairs);
-
-                // write validPairs to a file
-                async function writeValidPairsToFile(protocol: string, factoryMap: { [key: string]: string }): Promise<void> {
-                    const validPairs = await getAllPairs();
-                    const formattedPairs = validPairs.reduce((acc, pair) => {
-                        const pairName = `${pair.token0.symbol}${pair.token1.symbol}`;
-                        acc[pairName] = {
-                            poolID: pair.poolId,
-                            token0Symbol: pair.token0.symbol,
-                            token0Address: pair.token0.id,
-                            token0Decimals: pair.token0.decimals,
-                            token1Symbol: pair.token1.symbol,
-                            token1Address: pair.token1.id,
-                            token1Decimals: pair.token1.decimals,
-                        };
-                        return acc;
-                    }, {});
-                    const formattedObject = {
-                        exchange: protocol.toUpperCase(),
-                        factoryAddress: factoryMap[protocol],
-                        pairs: formattedPairs,
-                    };
-                    const jsonString = JSON.stringify(formattedObject, null, 2);
-                    await fs.promises.writeFile("validPairs.json", jsonString);
-                }
-                writeValidPairsToFile(protocol, this.factoryMap);
+                return validPairs;
             }
         });
-    }
+    };
 }
+
+
