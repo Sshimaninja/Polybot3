@@ -27,14 +27,18 @@ export const uniswapRouter: RouterMap = {
 
 };
 
-type FactoryMap = { [protocol: string]: string };
+export type FactoryMap = { [protocol: string]: string };
 
-export const uniswapFactory: FactoryMap = {
-  UNI: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+export const uniswapV2Factory: FactoryMap = {
   SUSHI: "0xc35DADB65012eC5796536bD9864eD8773aBc74C4",
   QUICK: "0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32",
-  QUICKV3: "0x411b0fAcC3489691f28ad58c47006AF5E3Ab3A28",
 };
+
+export const uniswapV3Factory: FactoryMap = {
+  UNI: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+  QUICK: "0x411b0fAcC3489691f28ad58c47006AF5E3Ab3A28",
+};
+
 
 type ChainIDs = { [chainID: string]: number };
 

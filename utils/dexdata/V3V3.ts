@@ -1,5 +1,5 @@
 import pairdata from '../subgraph/pairs.json';
-import { deployedMap, uniswapFactory, uniswapRouter } from '../../constants/addresses';
+import { deployedMap, uniswapV3Factory, uniswapRouter } from '../../constants/addresses';
 
 export async function COMPARE() {
 
@@ -16,8 +16,8 @@ export async function COMPARE() {
         const v3poolB = data.quickv3poolID;
         const routerA = uniswapRouter.UNI;
         const routerB = uniswapRouter.QUICKV3;
-        const factoryA = uniswapFactory.UNI;
-        const factoryB = uniswapFactory.QUICKV3;
+        const factoryA = uniswapV3Factory.UNI;
+        const factoryB = uniswapV3Factory.QUICKV3;
         const feeTierA = data.unifeeTier;
         const feeTierB = data.quickfeeTier;
         // const TVLSUSHI = data.reserveUSD;

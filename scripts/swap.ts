@@ -9,7 +9,7 @@ import { BigNumber, ethers, utils } from 'ethers';
 import { BigNumber as BN } from "bignumber.js";
 import fs from 'fs';
 
-import { SmartPool } from './modules/smartPool';
+import { SmartPool } from './modules/smartPair';
 
 
 import { sendit } from './execute';
@@ -81,6 +81,8 @@ export async function flashit() {
         // console.log("Pair: " + pool.pair.ticker + " Starting New Loop:")
         try {
             var virtualReserveFactor = 1.1
+
+            //I could make each SmartPool a single pool and (if tokenIDs are the same) pair them up in the single trade object.
             var sp = new SmartPool(pool, BN(0.01));
             var r = new Reserves(sp);
 
