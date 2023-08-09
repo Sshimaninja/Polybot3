@@ -1,6 +1,6 @@
 import { BigNumber, utils } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
-import { SmartPool } from "./modules/smartPool";
+import { SmartPair } from "./modules/smartPair";
 import { Reserves } from "./modules/reserves";
 import { logger } from '../constants/contract'
 import { lowSlippage } from './modules/lowslipBN';
@@ -12,7 +12,7 @@ import { getDifference, getGreaterLesser, getHiLo } from './modules/getHiLo';
 export class AmountCalculator {
     ra: ReserveData;
     rb: ReserveData;
-    sp!: SmartPool;
+    sp!: SmartPair;
     hilo: HiLo | null = null;
     difference: Difference | null = null;
 
@@ -37,9 +37,9 @@ export class AmountCalculator {
     constructor(ra: ReserveData, rb: ReserveData) {
         this.ra = ra;
         this.rb = rb;
-        console.log(this.ra, this.rb)
+        // console.log(this.ra, this.rb)
         // this.sp = this.ra.reserves.sp;
-        return
+        // return
     }
 
 

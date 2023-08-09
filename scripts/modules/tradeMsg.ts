@@ -1,4 +1,4 @@
-import { SmartPool } from '../modules/smartPool';
+import { SmartPool } from './smartPair';
 import { Trade, BoolTrade } from '../../constants/interfaces';
 import { logger } from '../../constants/contract';
 import { AmountCalculator } from '../amountCalculator';

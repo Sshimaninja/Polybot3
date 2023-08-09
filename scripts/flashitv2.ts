@@ -66,7 +66,7 @@ export async function flashit() {
         // console.log("Pair: " + pool.pair.ticker + " Starting New Loop:")
         try {
             var virtualReserveFactor = 1.1
-            var slippageTolerance = BN(0.01);//smaller slippage == smaller sized trades == more opportunities, though maybe not profitable.
+            var slippageTolerance = BN(0.001);//smaller slippage == smaller sized trades == more opportunities, though maybe not profitable.
             var tokenInsymbol = pool.pair.token0symbol
             var tokenOutsymbol = pool.pair.token1symbol
             var tokenInID = pool.pair.token0
@@ -283,18 +283,20 @@ export async function flashit() {
                 // console.log('attaining gas price & profit comparison...')
 
                 async function profitablejs() {
-                    const profitablejs = profitPercent.gt(0) ? await gasVprofit(tradejs) : BigNumber.from(0.0)
-                    const profitable = BN(utils.formatUnits(profitablejs, tokenOutdec))
-                    return profitable
+                    if (tradePending == false) {
+                        const tradePending = true
+                        const profitablejs = profitPercent.gt(0) ? await gasVprofit(tradejs) : BigNumber.from(0.0)
+                        const profitable = BN(utils.formatUnits(profitablejs, tokenOutdec))
+                        return { profitable, tradePending }
+                    }
                 }
                 const profitable = await profitablejs()
 
 
                 // const gasVProfit = await gasVprofit(tradejs)
                 // console.log("Profit - Gas: " + utils.formatUnits(gasVProfit, tokenOutdec) + " " + tokenOutsymbol)
-                if (profitable.gt((0.0)) && !tradePending) {
-                    tradePending = true
-                    logger.info("Profit - Gas: " + profitable.toFixed(tokenOutdec) + " " + tokenOutsymbol)
+                if (profitable?.profitable.gt((0.0)) && !tradePending) {
+                    logger.info("Profit - Gas: " + profitable.profitable.toFixed(tokenOutdec) + " " + tokenOutsymbol)
                     logger.info("***Sending transaction to flashSwap contract " + ticker + " on block " + blockNumber + "***")
                     logger.info("==============STRATEGY: " + tokenInsymbol + "/" + tokenOutsymbol + "==============")
                     logger.info("amountIn: " + amountInTrade + " " + tokenInsymbol + " (" + trade.direction + ")")

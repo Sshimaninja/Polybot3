@@ -2,14 +2,14 @@
 // import { V2V2SORT } from '../utils/dexdata/V2V2/comparev2';
 require('dotenv').config()//for importing parameters
 require('colors')//for console output
-import { uniswapRouter, uniswapFactory, gasToken, deployedMap } from '../constants/addresses';
+import { uniswapRouter, uniswapV2Factory, uniswapV3Factory, gasToken, deployedMap } from '../constants/addresses';
 import { provider, flash } from '../constants/contract';
 import Web3 from 'web3';
 import { BigNumber, ethers, utils } from 'ethers';
 import { BigNumber as BN } from "bignumber.js";
 import fs from 'fs';
 
-import { SmartPool } from './modules/smartPair';
+import { SmartPair } from './modules/smartPair';
 
 
 import { sendit } from './execute';
@@ -32,9 +32,12 @@ import { gasVprofit } from './modules/gasVprofit';
 import { calculateLoanCost } from './modules/loanCost'
 import { Reserves } from './modules/reserves';
 // import { getReserves } from './modules/getReseverves';
-const factoryB_id = uniswapFactory.SUSHI
+
+
+
+const factoryB_id = uniswapV2Factory.SUSHI
 const routerB_id = uniswapRouter.SUSHI
-const factoryA_id = uniswapFactory.QUICK
+const factoryA_id = uniswapV2Factory.QUICK
 const routerA_id = uniswapRouter.QUICK
 
 
@@ -67,12 +70,6 @@ if (process.env.PRIVATE_KEY === undefined) {
 }
 //TODO: CREATE convertToGas function to compare token1 profit to gas cost, to determine profitability of trade.
 
-
-
-////////////////////////////////////INITIALIZE CONTRACTS////////////////////////////////////
-// const factoryA = new ethers.Contract(factoryA_id, IFactory, wallet)
-// const factoryB = new ethers.Contract(factoryB_id, IFactory, wallet)
-
 let warning = 0
 let tradePending = false;
 export async function flashit() {
@@ -81,9 +78,10 @@ export async function flashit() {
         // console.log("Pair: " + pool.pair.ticker + " Starting New Loop:")
         try {
             var virtualReserveFactor = 1.1
-
             //I could make each SmartPool a single pool and (if tokenIDs are the same) pair them up in the single trade object.
-            var sp = new SmartPool(pool, BN(0.01));
+            var spa = new SmartPair(pool, 1, BN(0.01));
+            var spb = new SmartPair(pool, 1, BN(0.01));
+
             var r = new Reserves(sp);
 
             let rap = r.getReserves(0);
@@ -96,7 +94,6 @@ export async function flashit() {
 
 
             var calculator = new AmountCalculator(ra, rb);
-
 
             //Filter low liquidity pairs
             if (await calculator.checkLiquidity()) {
@@ -165,7 +162,31 @@ export async function flashit() {
                 var profitPercent = profit.dividedBy(amountOutRecipient).multipliedBy(100)
                 var profitjs = utils.parseUnits(profit.toFixed(sp.tokenOutdec), sp.tokenOutdec)
 
-                // var amounts = new amountsObject()
+
+                const amounts = {
+                    direction: trade.direction,
+                    loanPool: trade.loanPool.exchange,
+                    recipient: trade.recipient.exchange,
+                    amountIn: await calculator.getTradeAmount() + " " + sp.tokenInsymbol,
+                    amountOutLoanPool: amountOutLoanPool.toFixed(sp.tokenOutdec) + " " + sp.tokenOutsymbol,
+                    amountOutRecipient: amountOutRecipient.toFixed(sp.tokenOutdec) + " " + sp.tokenOutsymbol,
+                    amountRepayLoanPool: amountRepayLoanPool.toFixed(sp.tokenOutdec) + " " + sp.tokenOutsymbol,
+                    amountRepayRecipient: amountRepayRecipient.toFixed(sp.tokenOutdec) + " " + sp.tokenOutsymbol,
+                    loanPoolPriceOut: trade.loanPool.exchange + ": " + trade.loanPool.tokenOutPrice + " " + sp.tokenOutsymbol + "/" + sp.tokenInsymbol,
+                    recipientPriceOut: trade.recipient.exchange + ": " + trade.recipient.tokenOutPrice + " " + sp.tokenOutsymbol + "/" + sp.tokenInsymbol,
+                    differenceAmountsOut: differencePrice.toFixed(sp.tokenOutdec) + " " + sp.tokenOutsymbol + " (" + differencePercent.toFixed(sp.tokenOutdec) + "%)",
+                    differenceOutvsRepay: (differenceOut.toFixed(8) + " " + sp.tokenOutsymbol + " (" + ((differenceOut.dividedBy(amountOutRecipient)).multipliedBy(100)).toFixed(4) + "%)"),
+                    projectedProfit: profit.toFixed(sp.tokenOutdec),
+                    loanPoolReserves: trade.loanPool.reserveIn.toFixed(sp.tokenIndec) + " " + sp.tokenInsymbol + " " + trade.loanPool.reserveOut.toFixed(sp.tokenOutdec) + " " + sp.tokenOutsymbol,
+                    recipientReserves: trade.recipient.reserveIn.toFixed(sp.tokenIndec) + " " + sp.tokenInsymbol + " " + trade.recipient.reserveOut.toFixed(sp.tokenOutdec) + " " + sp.tokenOutsymbol,
+                    loanPremium: loanprem.toFixed(6) + "%",
+                    loanCost: loanCost.loanCost.toFixed(sp.tokenOutdec) + " " + sp.tokenOutsymbol + " (" + loanCost.loanCostPercentage.toFixed(6) + "%)",
+                    //The following must be equal after the flash loan is repaid.
+
+                    prevloanPoolK: trade.loanPool.reserveIn.multipliedBy(trade.loanPool.reserveOut).toFixed(20),
+                    postloanPoolK: (trade.loanPool.reserveIn.minus(calculator.amountInTrade)).multipliedBy(trade.loanPool.reserveOut.plus(amountRepayLoanPool)).toFixed(20),
+                }
+                console.log(amounts)
                 const blockNumber = await provider.getBlockNumber();
                 // logger.info(amounts)//DEBUG
                 // return
@@ -214,11 +235,25 @@ export async function flashit() {
                     return profitable
                 }
                 const profitable = await profitablejs()
-                var tradeMessage = new TradeMsg(sp, trade)
 
                 if (profitable.gt((0.0)) && !tradePending) {
                     tradePending = true
-                    logger.info(tradeMessage)
+                    logger.info("***Sending transaction to flashSwap contract " + sp.ticker + " on block " + blockNumber + "***")
+                    logger.info("==============STRATEGY: " + sp.tokenInsymbol + "/" + sp.tokenOutsymbol + "==============")
+                    logger.info("amountIn: " + calculator.amountInTrade + " " + sp.tokenInsymbol + " (" + trade.direction + ")")
+                    logger.info(sp.ticker)
+                    logger.info("Price Check:" + sp.ticker)
+                    logger.info(amounts)
+                    logger.info(trade.loanPool.exchange + ": " + trade.loanPool.tokenOutPrice + " " + sp.tokenInsymbol + "/" + sp.tokenOutsymbol)
+                    logger.info(trade.recipient.exchange + ": " + trade.recipient.tokenOutPrice + " " + sp.tokenInsymbol + "/" + sp.tokenOutsymbol)
+                    logger.info("Borrow: " + amounts.amountIn + " " + sp.tokenInsymbol + " from " + trade.loanPool.exchange)
+                    logger.info("Sell for: " + amountOutRecipient + " " + sp.tokenOutsymbol + " on " + trade.recipient.exchange)
+                    logger.info("Repay: " + amounts.amountRepayLoanPool + sp.tokenOutsymbol + " to " + trade.loanPool.exchange)
+                    logger.info("Loan Fee: " + premium.toFixed(sp.tokenOutdec)/*utils.formatUnits(premium, tokenOutdec)*/ + " " + sp.tokenOutsymbol)
+                    logger.info("Slippage Tolerance: " + (Number(sp.slippageTolerance) * 100) + "%")
+                    logger.info("Profit:" + profit)
+                    logger.info("ProfitPercent: " + profitPercent.toString() + " " + sp.tokenOutsymbol)
+                    // logger.info("Profit: " + profit.toFixed(tokenOutdec) + " " +tokenOutsymbol)
                     logger.info("===============================================================")
                     logger.info("Executing Trade on Block: " + blockNumber)
                     logger.info("===============================================================")
@@ -268,7 +303,7 @@ export async function flashit() {
                                 // gasMult,
                                 tradePending,
                                 nonce)
-                            tradePending = true;
+                            tradePending = true
                         } if (tradePending && error.code === 'NONCE_EXPIRED') {
                             // nonce++
                             gasMult++
@@ -289,7 +324,20 @@ export async function flashit() {
                     }
                 } else if (profitPercent.lt(BN(0.0))) {
                     console.log("==============STRATEGY (UNPROFITABLE): " + sp.tokenInsymbol + "/" + sp.tokenOutsymbol + "==============")
-                    console.log(tradeMessage)
+                    // console.log("amountIn: " + amountInTrade + " " + tokenInsymbol + " (" + trade.direction + ")")
+                    // console.log(ticker)
+                    // console.log("Price Check:" + ticker)
+                    // console.log(amounts)
+                    // console.log(trade.loanPool.exchange + ": " + trade.loanPool.tokenOutPrice + " " + tokenInsymbol + "/" + tokenOutsymbol)
+                    // console.log(trade.recipient.exchange + ": " + trade.recipient.tokenOutPrice + " " + tokenInsymbol + "/" + tokenOutsymbol)
+                    // console.log("Borrow: " + amounts.amountIn + " " + tokenInsymbol + " from " + trade.loanPool.exchange)
+                    // console.log("Sell for: " + amountOutRecipient + " " + tokenOutsymbol + " on " + trade.recipient.exchange)
+                    // console.log("Repay: " + amounts.amountRepayLoanPool + tokenOutsymbol + " to " + trade.loanPool.exchange)
+                    // console.log("Loan Fee: " + premium.toFixed(tokenOutdec)/*utils.formatUnits(premium, tokenOutdec)*/ + " " + tokenOutsymbol)
+                    // console.log("Slippage Tolerance: " + (Number(slippageTolerance) * 100) + "%")
+                    // console.log("Profit: " + profitable.toString(tokenOutdec) + " " + tokenOutsymbol)
+                    // console.log("Block: " + blockNumber + " No trade executed. Skipping to next asset...")
+                    // console.log("===============================================================")
                     return
                 }
             } else {
@@ -297,8 +345,7 @@ export async function flashit() {
                 return
             }
         } catch (error: any) {
-            logger.error("Error (flashit): " + error.stack)
-            logger.error(error)
+            logger.error("Error (flashit): " + error)
             return
         };
     });
