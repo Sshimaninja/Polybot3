@@ -1,6 +1,7 @@
 import { BigNumber, utils } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { SmartPair } from "./smartPair";
+import { SmartPool } from "./smartPool";
 import { Reserves } from "./reserves";
 export class ReserveData {
     poolID: string;
@@ -15,7 +16,7 @@ export class ReserveData {
     null!: boolean;
     reserves!: Reserves;
 
-    constructor(reserves: [BigNumber, BigNumber], sp: SmartPair, poolID: string) {
+    constructor(reserves: [BigNumber, BigNumber], sp: SmartPool, poolID: string) {
         this.poolID = poolID;
         this.reserveIn = reserves[0]
         this.reserveOut = reserves[1]

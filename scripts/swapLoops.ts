@@ -95,21 +95,6 @@ export async function flashit() {
                 let rData = await r.getReserves(reserves[exchangeName].sp[exchangeName].poolID);
             }
 
-            // var pairName = pool[i]
-            //I could make each SmartPool a single pool and (if tokenIDs are the same) pair them up in the single trade object.
-            // var sp = new SmartPair(pool, BN(0.01));
-
-            // var r = new Reserves(sp);
-
-            // let rap = r.getReserves(0);
-            // let rbp = r.getReserves(1);
-            // let ra = await rap;
-            // let rb = await rbp;
-            // if (ra === null || rb === null) {
-            //     return;
-            // }
-
-
             var calculator = new AmountCalculator(ra, rb);
 
             //Filter low liquidity pairs
