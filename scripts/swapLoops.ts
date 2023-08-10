@@ -10,6 +10,7 @@ import { BigNumber as BN } from "bignumber.js";
 import fs from 'fs';
 
 import { SmartPair } from './modules/smartPair';
+import { SmartPool } from './modules/smartPool';
 
 
 import { sendit } from './execute';
@@ -78,19 +79,35 @@ export async function flashit() {
         // console.log("Pair: " + pool.pair.ticker + " Starting New Loop:")
         try {
             var virtualReserveFactor = 1.1
-            //I could make each SmartPool a single pool and (if tokenIDs are the same) pair them up in the single trade object.
-            var spa = new SmartPair(pool, 1, BN(0.01));
-            var spb = new SmartPair(pool, 1, BN(0.01));
-
-            var r = new Reserves(sp);
-
-            let rap = r.getReserves(0);
-            let rbp = r.getReserves(1);
-            let ra = await rap;
-            let rb = await rbp;
-            if (ra === null || rb === null) {
-                return;
+            var smartPairs: any = {}
+            for (let i = 1; i < pool.length; i++) {
+                const exchangeName = `exchange${i + 1}`
+                const exchangePairs = pool[i]
+                smartPairs[exchangeName] = new SmartPool(exchangePairs, BN(0.01))
+            };
+            var reserves: any = {}
+            for (const exchangeName in smartPairs) {
+                const sp = smartPairs[exchangeName];
+                reserves[exchangeName] = new Reserves(sp)
             }
+            for (const exchangeName in reserves) {
+                const r = reserves[exchangeName];
+                let rData = await r.getReserves(reserves[exchangeName].sp[exchangeName].poolID);
+            }
+
+            // var pairName = pool[i]
+            //I could make each SmartPool a single pool and (if tokenIDs are the same) pair them up in the single trade object.
+            // var sp = new SmartPair(pool, BN(0.01));
+
+            // var r = new Reserves(sp);
+
+            // let rap = r.getReserves(0);
+            // let rbp = r.getReserves(1);
+            // let ra = await rap;
+            // let rb = await rbp;
+            // if (ra === null || rb === null) {
+            //     return;
+            // }
 
 
             var calculator = new AmountCalculator(ra, rb);
