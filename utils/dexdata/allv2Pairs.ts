@@ -10,7 +10,7 @@ import fs from "fs";
 //A function which calls allPairs on each factory in the factoryMap and returns an array of all pairs by factory.
 //Then compares tokens in each pair and returns an object of matching pairs.
 
-export class AllV2PairsModule {
+export class AllV2Pairs {
     factoryMap: FactoryMap;
 
     constructor(factoryMap: FactoryMap) {
@@ -29,7 +29,7 @@ export class AllV2PairsModule {
                 console.log('FactoryContract not initialised');
             }
 
-            async function validatePairs(factory: Contract): Promise<string[]> {
+            async function getAllPairs(factory: Contract) {
                 const allPairsLen = await factory.allPairsLength();
                 console.log('AllPairsLength: ' + allPairsLen);
                 const pairs: string[] = [];
@@ -39,30 +39,44 @@ export class AllV2PairsModule {
                         pairs.push(allPairs);
                     })
                 );
-
+                const subsetPairs = pairs.flat().slice(0, 30);//TESTING
                 // console.log('Pairs: ' + pairs);
+                await new Promise<void>((resolve, reject) => {
+                    fs.writeFile('./data/allv2pairs.json', JSON.stringify(
+                        pairs,
+                        /*subsetPairs*/
+                        null,
+                        2
+                    ), function (err) {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            console.log("Pairs written to allv2pairs.json");
+                            resolve();
+                        }
+                    });
+                });
 
-                return pairs;
-            }
+                async function validatePairs() {
+                    const pairsFile = './data/allv2pairs.json';
+                    const pairs = JSON.parse(fs.readFileSync(pairsFile, 'utf8'));
+                    fs.unlinkSync(pairsFile);
 
-            const pairs = await validatePairs(factory);
-            if (pairs.length > 0) {
-                console.log('Pairs: ' + pairs.length);
-                const batchSize = 100;
-                const batches: string[][] = [];
-                for (let i = 0; i < pairs.length; i += batchSize) {
-                    batches.push(pairs.slice(i, i + batchSize));
-                }
-                const validPairs = await batches.reduce(async (accPromise: Promise<any>, batch: string[]) => {
-                    const acc = await accPromise;
-                    const batchValidPairs = await Promise.all(
-                        batch.map(async (pair: string) => { // add type annotation to pair parameter
+                    if (pairs.length > 0) {
+                        console.log('Pairs: ' + pairs.length);
+
+                        const validPairs: any[] = [];
+                        await pairs.reduce(async (accPromise: Promise<any>, pair: string) => {
+                            const acc = await accPromise;
                             const pairContract = new Contract(pair, IPair, wallet);
+                            console.log('PairContract: ' + pairContract.address);
                             const reserves = await pairContract.getReserves();
+                            console.log(reserves);
                             if (reserves[0] > 1 && reserves[1] > 1) {
                                 const token0id = await pairContract.token0();
+                                console.log('Token0: ' + token0id);
                                 const token1id = await pairContract.token1();
-
+                                console.log('Token1: ' + token1id);
                                 try {
                                     const token0 = new Contract(token0id, IERC20, wallet);
                                     const token1 = new Contract(token1id, IERC20, wallet);
@@ -70,44 +84,55 @@ export class AllV2PairsModule {
                                     const token0Decimals = await token0.decimals();
                                     const token1Symbol = await token1.symbol();
                                     const token1Decimals = await token1.decimals();
-                                    return {
+                                    const ticker = `${token0Symbol}/${token1Symbol}`;
+                                    const tokenData = {
+                                        ticker,
                                         pair,
                                         token0: {
-                                            id: token0.address,
                                             symbol: token0Symbol,
+                                            id: token0.address,
                                             decimals: token0Decimals,
                                         },
                                         token1: {
-                                            id: token1.address,
                                             symbol: token1Symbol,
+                                            id: token1.address,
                                             decimals: token1Decimals,
                                         },
                                     };
-                                } catch (err: any) {
-                                    if (err.code.includes("CALL_EXCEPTION")) {
-                                        // console.log("Caught CALL_EXCEPTION, skipping pair: " + pair)
-                                        return
-                                    } else {
-                                        console.log(err)
-                                    }
+                                    const dexData = {
+                                        exchange: Object.keys(uniswapV2Factory).find(key => uniswapV2Factory[key] === protocol),
+                                        factoryID: protocol,
+                                        pairs: {
+                                            tokenData
+                                        },
+                                    };
+                                    validPairs.push(dexData);
+                                    return dexData
+                                } catch (e) {
+                                    console.log(`Error getting token data for pair ${pair}: ${e}\n skipping...`);
+                                    return
                                 }
-
                             }
-                        })
-                    );
-                    batchValidPairs.forEach((pair: any) => {
-                        if (pair) {
-                            acc[pair.pair] = pair;
-                        }
-                    });
-                    return acc;
-                }, Promise.resolve({}));
-                console.log('Valid pairs done');
-                // console.log(validPairs);
-                return validPairs;
+                            return acc;
+                        }, Promise.resolve([]));
+                        console.log(`Valid pairs: ${validPairs.length}`);
+                        fs.writeFile(`./data/validPairs/valid${protocol}pairs.json`, JSON.stringify(validPairs, null, 2), function (err) {
+                            if (err) return console.log(err);
+                            console.log(`Valid pairs written to valid${protocol}pairs.json`);
+                        });
+                        // console.log(validPairs);
+                        return validPairs;
+                    }
+                }
+                await validatePairs();
             }
+            await getAllPairs(factory);
         });
-    };
+
+    }
+
+
 }
+
 
 
