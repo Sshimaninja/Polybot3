@@ -5,6 +5,7 @@ import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { wallet } from '../../constants/contract'
 
 export class SmartPool {
+    ticker: string;
 
     tokenInsymbol: string;
     tokenOutsymbol: string;
@@ -15,7 +16,6 @@ export class SmartPool {
     tokenIndec: number;
     tokenOutdec: number;
 
-    ticker: string;
     poolID: Promise<string>;
 
     exchange: number;

@@ -25,9 +25,11 @@ import { BoolFlash, Trade, HiLo, Difference } from '../constants/interfaces';
 import { lowSlippage } from './modules/lowslipBN';
 import { getAmountsIn, getAmountsOut, getAmountsIO } from './modules/getAmountsIO';
 import { getAmountsIn as getAmountsInjs, getAmountsOut as getAmountsOutjs, getAmountsIO as getAmountsIOjs } from './modules/getAmountsIOjs';
-import { AmountCalculator } from './amountCalculator'
+// import { AmountCalculator } from './amountCalculator'
+import { AmountCalculator } from './amountCalcSingle';
 import { TradeMsg } from './modules/tradeMsg';
-import { getTradefromAmounts } from './modules/populateTrade';
+// import { getTradefromAmounts } from './modules/populateTrade';
+import { getTradefromAmounts } from './modules/populateTradeFromSmartPool';
 import { fetchGasPrice } from "./modules/fetchGasPrice";
 import { gasVprofit } from './modules/gasVprofit';
 import { calculateLoanCost } from './modules/loanCost'
@@ -43,8 +45,6 @@ const routerA_id = uniswapRouter.QUICK
 
 
 import * as log4js from "log4js";
-import { exec } from 'child_process';
-import { boolean } from 'hardhat/internal/core/params/argumentTypes';
 import { getDifference, getGreaterLesser, getHiLo } from './modules/getHiLo';
 import { filter } from '../utils/dexdata/comparev2';
 
@@ -80,7 +80,7 @@ export async function flashit() {
         try {
             var virtualReserveFactor = 1.1
             var smartPairs: any = {}
-            for (let i = 1; i < pool.length; i++) {
+            for (let i = 1; i < pool.pair.length; i++) {
                 const exchangeName = `exchange${i + 1}`
                 const exchangePairs = pool[i]
                 smartPairs[exchangeName] = new SmartPool(exchangePairs, BN(0.01))
@@ -90,18 +90,26 @@ export async function flashit() {
                 const sp = smartPairs[exchangeName];
                 reserves[exchangeName] = new Reserves(sp)
             }
+            var r: any = {};
             for (const exchangeName in reserves) {
-                const r = reserves[exchangeName];
+                r[exchangeName] = reserves[exchangeName];
                 let rData = await r.getReserves(reserves[exchangeName].sp[exchangeName].poolID);
             }
 
-            var calculator = new AmountCalculator(ra, rb);
+            // Calculate AmountsOut for each SmartPool
+            var calculator = new AmountCalculator(r);
 
             //Filter low liquidity pairs
             if (await calculator.checkLiquidity()) {
 
+                //So, above I had all the loop figured out for one single pair. Now I need to figure out how to do it for multiple pairs.
+
+                //I could end the loop here
+
+
+
                 var trade = await getTradefromAmounts(
-                    calculator.amountOutA,
+                    calculator.amountOut,
                     calculator.amountOutAjs,
                     calculator.amountOutB,
                     calculator.amountOutBjs,

@@ -5,6 +5,10 @@ import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { wallet } from '../../constants/contract'
 
 export class SmartPair {
+    ticker: string;
+
+    exchangeA: string;
+    exchangeB: string;
 
     tokenInsymbol: string;
     tokenOutsymbol: string;
@@ -15,12 +19,8 @@ export class SmartPair {
     tokenIndec: number;
     tokenOutdec: number;
 
-    ticker: string;
     poolA_id: Promise<string>;
     poolB_id: Promise<string>;
-
-    exchangeA: string;
-    exchangeB: string;
 
     factoryA_id: string;
     factoryB_id: string;
