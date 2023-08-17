@@ -1,4 +1,4 @@
-import { COMPARE } from './V2V2';
+import { COMPARE } from '../V2V2';
 import fs from 'fs';
 
 //Filter out undefined values 

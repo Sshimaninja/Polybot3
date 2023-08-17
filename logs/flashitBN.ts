@@ -1,5 +1,5 @@
 //IMPORTS
-import { V2V2SORT } from '../utils/dexdata/comparev2';
+import { V2V2SORT } from '../utils/dexdata/V2/comparev2';
 require('dotenv').config()//for importing parameters
 require('colors')//for console output
 import { uniswapRouter, uniswapFactory, gasToken, deployedMap } from '../constants/addresses';

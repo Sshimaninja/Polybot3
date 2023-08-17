@@ -1,35 +1,38 @@
 import { ethers } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
-import { SmartPool } from "./smartPool";
+import { SmartPair } from "./smartPair";
 import { ReserveData } from "./reserveData";
 import { logger } from '../../constants/contract'
+import { SmartPool } from "./smartPool";
+
 
 export class Reserves {
     sp: SmartPool;
-    reserveData!: Array<ReserveData | null>;
+    reserveData!: Array<ReserveData>
 
     constructor(sp: SmartPool) {
         this.sp = sp;
     }
 
-    async getReserves(poolNumber: any): Promise<ReserveData | null> {
-        if (this.reserveData[poolNumber] === undefined) {
-            let exchange = poolNumber ? this.sp.exchangeB : this.sp.exchangeA;
-            let Pair = poolNumber ? await this.sp.getPair1() : await this.sp.getPair0();
-            if (Pair.ID != '0x0000000000000000000000000000000000000000') {
-                this.reserveData[poolNumber] = new ReserveData(
+    async getReserves(poolID: any): Promise<ReserveData | null> {
+        if (this.reserveData[poolID] !== undefined) {
+            let exchange = this.sp.exchange
+            let Pair = await this.sp.poolContract()
+            if (Pair.address != '0x0000000000000000000000000000000000000000') {
+                this.reserveData[poolID] = new ReserveData(
                     await Pair.getReserves().catch((error: any) => {
                         logger.error("Error (getReserves(" + exchange + ")): " + error)
                         logger.error(error)
                     }),
-                    this.sp
+                    this.sp,
+                    poolID,
                 );
             } else {
-                console.log("Pair" + poolNumber + " " + this.sp.ticker + " no longer exists on " + exchange + "!")
-                this.reserveData[poolNumber] = null;
+                console.log("Pair" + poolID + " " + this.sp.ticker + " no longer exists on " + exchange + "!")
+                // this.reserveData[poolID] = null;
             }
         }
-        return this.reserveData[poolNumber];
+        return this.reserveData[poolID];
     }
 
 }

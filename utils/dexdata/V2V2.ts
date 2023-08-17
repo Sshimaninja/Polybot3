@@ -1,5 +1,5 @@
 import pairdata from '../subgraph/pairs.json';
-import { deployedMap, uniswapFactory, uniswapRouter } from '../../constants/addresses';
+import { deployedMap, uniswapV2Factory, uniswapV3Factory, uniswapRouter } from '../../constants/addresses';
 
 export async function COMPARE() {
   const arbv2v2 = Object.values(pairdata.matches.V2.SUSHIV2QUICKV2).map(async (data: any) => {
@@ -15,8 +15,8 @@ export async function COMPARE() {
     const v3poolB = data.univ3poolID;
     const routerA = uniswapRouter.SUSHI;
     const routerB = uniswapRouter.QUICK;
-    const factoryA = uniswapFactory.SUSHI;
-    const factoryB = uniswapFactory.QUICK;
+    const factoryA = uniswapV2Factory.SUSHI;//TODO: LOOP through all factories and routers in pairs (f && f++)
+    const factoryB = uniswapV2Factory.QUICK;
     // const TVLSUSHI = data.reserveUSD;
     // const TVLQUICK = data.TVLUSD;
     const token0symbol = data.token0symbol;
@@ -36,11 +36,15 @@ export async function COMPARE() {
 
     const v2a = {
       poolID: v2poolA,
+      factoryID: factoryA,
+      routerID: routerA,
       // Price1: data.sushiprice1,
     };
 
     const v2b = {
       poolID: v2poolB,
+      factoryID: factoryB,
+      routerID: routerB,
       // Price1: data.quickprice1,
     };
 
