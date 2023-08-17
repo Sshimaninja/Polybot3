@@ -2,7 +2,7 @@
 // import { V2V2SORT } from '../utils/dexdata/V2V2/comparev2';
 require('dotenv').config()//for importing parameters
 require('colors')//for console output
-import { uniswapRouter, uniswapFactory, gasToken, deployedMap } from '../constants/addresses';
+import { uniswapRouter, uniswapV2Factory, gasToken, deployedMap } from '../constants/addresses';
 import { provider, flash } from '../constants/contract';
 import Web3 from 'web3';
 import { BigNumber, ethers, utils } from 'ethers';
@@ -32,9 +32,9 @@ import { gasVprofit } from './modules/gasVprofit';
 import { calculateLoanCost } from './modules/loanCost'
 import { Reserves } from './modules/reserves';
 // import { getReserves } from './modules/getReseverves';
-const factoryB_id = uniswapFactory.SUSHI
+const factoryB_id = uniswapV2Factory.SUSHI
 const routerB_id = uniswapRouter.SUSHI
-const factoryA_id = uniswapFactory.QUICK
+const factoryA_id = uniswapV2Factory.QUICK
 const routerA_id = uniswapRouter.QUICK
 
 
@@ -42,7 +42,7 @@ import * as log4js from "log4js";
 import { exec } from 'child_process';
 import { boolean } from 'hardhat/internal/core/params/argumentTypes';
 import { getDifference, getGreaterLesser, getHiLo } from './modules/getHiLo';
-import { filter } from '../utils/dexdata/comparev2';
+import { filter } from '../utils/dexdata/V2/comparev2';
 
 log4js.configure({
     appenders: {
@@ -70,18 +70,19 @@ if (process.env.PRIVATE_KEY === undefined) {
 
 
 ////////////////////////////////////INITIALIZE CONTRACTS////////////////////////////////////
-const factoryA = new ethers.Contract(factoryA_id, IFactory, wallet)
-const factoryB = new ethers.Contract(factoryB_id, IFactory, wallet)
+// const factoryA = new ethers.Contract(factoryA_id, IFactory, wallet)
+// const factoryB = new ethers.Contract(factoryB_id, IFactory, wallet)
+
 let warning = 0
 let tradePending = false;
-const deadline = Math.round(Date.now() / 1000) + 1000 * 60
-//0.0025 * 100 = 0.25%
 export async function flashit() {
     let arrayV2V2 = await filter();
     arrayV2V2?.forEach(async (pool: any) => {
         // console.log("Pair: " + pool.pair.ticker + " Starting New Loop:")
         try {
             var virtualReserveFactor = 1.1
+
+            //I could make each SmartPool a single pool and (if tokenIDs are the same) pair them up in the single trade object.
             var sp = new SmartPool(pool, BN(0.01));
             var r = new Reserves(sp);
 
@@ -95,6 +96,7 @@ export async function flashit() {
 
 
             var calculator = new AmountCalculator(ra, rb);
+
 
             //Filter low liquidity pairs
             if (await calculator.checkLiquidity()) {
@@ -295,7 +297,8 @@ export async function flashit() {
                 return
             }
         } catch (error: any) {
-            logger.error("Error (flashit): " + error)
+            logger.error("Error (flashit): " + error.stack)
+            logger.error(error)
             return
         };
     });
