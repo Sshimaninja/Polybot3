@@ -6,10 +6,15 @@ import { FactoryMap, uniswapV2Factory, uniswapV3Factory } from "../../constants/
 import { wallet } from "../../constants/contract";
 import fs from "fs";
 
+/*
 
-//A function which calls allPairs on each factory in the factoryMap and returns an array of all pairs by factory.
-//Then compares tokens in each pair and returns an object of matching pairs.
+A function which calls allPairs on each factory in the factoryMap and returns an array of all pairs by factory.
+Then compares tokens in each pair and returns an object of matching pairs.
 
+TODO: UPDATE this so that it outputs SmartPool objects to the file, instead of the current loose format.
+Either that or update the flashit/swap functions to accept this format instead (which is built to make a smaller database, so might be best.)
+
+*/
 export class AllV2Pairs {
     factoryMap: FactoryMap;
 
