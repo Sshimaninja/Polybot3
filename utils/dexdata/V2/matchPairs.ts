@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { SmartPair } from '../../scripts/modules/smartPair';
+import { SmartPair } from '../../../scripts/modules/smartPair';
 import { BigNumber as BN } from 'bignumber.js';
 interface Pair {
     tokenData: {
@@ -39,15 +39,20 @@ export class PairMatcher {
         const jsonFiles = files.filter((file) => path.extname(file) === '.json');
 
         for (let i = 0; i < jsonFiles.length; i++) {
-            const file = jsonFiles[i];
-            const exchangeA = path.basename(file, '.json');
-            const data = require(path.join(this.dataDir, file));
+            const fileA = jsonFiles[i];
+            const exchangeA = path.basename(fileA, '.json');
+            const dataA = require(path.join(this.dataDir, fileA));
+            console.log(dataA)
             for (let j = i + 1; j < jsonFiles.length; j++) {
-                const otherFile = jsonFiles[j];
-                const exchangeB = path.basename(otherFile, '.json');
-                const otherData = require(path.join(this.dataDir, otherFile));
-                const matchingPairs = data.filter((pair: Pair) => {
-                    const otherPair = otherData.find((otherPair: Pair) => {
+                const fileB = jsonFiles[j];
+                const exchangeB = path.basename(fileB, '.json');
+                const dataB = require(path.join(this.dataDir, fileB));
+                console.log(dataB)
+                const matchingPairs = dataA.filter((pair: Pair) => {
+                    const otherPair = dataB.find((otherPair: Pair) => {
+                        // console.log(pair.tokenData.token0.id)
+                        // console.log(otherPair.tokenData.token1.id)
+                        // return
                         return (
                             pair.tokenData.token0.id === otherPair.tokenData.token0.id &&
                             pair.tokenData.token1.id === otherPair.tokenData.token1.id

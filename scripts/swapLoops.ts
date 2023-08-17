@@ -46,7 +46,7 @@ const routerA_id = uniswapRouter.QUICK
 
 import * as log4js from "log4js";
 import { getDifference, getGreaterLesser, getHiLo } from './modules/getHiLo';
-import { filter } from '../utils/dexdata/comparev2';
+import { filter } from '../utils/dexdata/V2/comparev2';
 
 log4js.configure({
     appenders: {

@@ -2,14 +2,14 @@
 // import { V2V2SORT } from '../utils/dexdata/V2V2/comparev2';
 require('dotenv').config()//for importing parameters
 require('colors')//for console output
-import { uniswapRouter, uniswapFactory, gasToken, deployedMap } from '../constants/addresses';
+import { uniswapRouter, uniswapV2Factory, gasToken, deployedMap } from '../constants/addresses';
 import { provider, flash } from '../constants/contract';
 import Web3 from 'web3';
 import { BigNumber, ethers, utils } from 'ethers';
 import { BigNumber as BN } from "bignumber.js";
 import fs from 'fs';
 
-import { SmartPool } from './modules/smartPair';
+import { SmartPool } from './modules/smartPool';
 
 
 import { sendit } from './execute';
@@ -32,9 +32,9 @@ import { gasVprofit } from './modules/gasVprofit';
 import { calculateLoanCost } from './modules/loanCost'
 import { Reserves } from './modules/reserves';
 // import { getReserves } from './modules/getReseverves';
-const factoryB_id = uniswapFactory.SUSHI
+const factoryB_id = uniswapV2Factory.SUSHI
 const routerB_id = uniswapRouter.SUSHI
-const factoryA_id = uniswapFactory.QUICK
+const factoryA_id = uniswapV2Factory.QUICK
 const routerA_id = uniswapRouter.QUICK
 
 
@@ -42,7 +42,7 @@ import * as log4js from "log4js";
 import { exec } from 'child_process';
 import { boolean } from 'hardhat/internal/core/params/argumentTypes';
 import { getDifference, getGreaterLesser, getHiLo } from './modules/getHiLo';
-import { filter } from '../utils/dexdata/comparev2';
+import { filter } from '../utils/dexdata/V2/comparev2';
 
 log4js.configure({
     appenders: {
