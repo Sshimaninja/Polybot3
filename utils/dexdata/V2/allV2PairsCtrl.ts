@@ -1,5 +1,5 @@
 import { AllV2Pairs } from './allv2Pairs';
-import { uniswapV2Factory } from '../../constants/addresses';
+import { uniswapV2Factory } from '../../../constants/addresses';
 import fs from 'fs';
 
 export async function makePairModule() {

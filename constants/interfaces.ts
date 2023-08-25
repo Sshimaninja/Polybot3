@@ -1,6 +1,48 @@
 import { BigNumber } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 
+export interface FactoryPair {
+    exchangeA: string;
+    factoryA_id: string;
+    exchangeB: string;
+    factoryB_id: string;
+    matches: Pair[];
+}
+export interface Pair {
+    ticker: string;
+    poolA_id: string;
+    poolB_id: string;
+    token0: {
+        symbol: string;
+        id: string;
+        decimals: number;
+    };
+    token1: {
+        symbol: string;
+        id: string;
+        decimals: number;
+    };
+};
+
+export interface FactoryPool {
+    exchange: string;
+    factoryID: string;
+    pairs: Pool[];
+};
+export interface Pool {
+    ticker: string;
+    poolID: string;
+    token0: {
+        symbol: string;
+        id: string;
+        decimals: number;
+    };
+    token1: {
+        symbol: string;
+        id: string;
+        decimals: number;
+    };
+};
 export interface BoolTrade {
     direction: string
     loanPool: {
