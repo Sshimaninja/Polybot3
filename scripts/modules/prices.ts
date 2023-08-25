@@ -3,10 +3,14 @@ import { BigNumber as BN } from "bignumber.js";
 import { SmartPair } from "./smartPair";
 import { SmartPool } from "./smartPool";
 import { Reserves } from "./reserves";
-export class ReserveData {
-    poolID: string;
-    reserveIn: BigNumber;
-    reserveOut: BigNumber;
+import { Pair } from "../../constants/interfaces";
+
+
+export class Prices {
+    pair: Pair | undefined;
+    poolID: string | undefined;
+    reserveIn: BigNumber | undefined;
+    reserveOut: BigNumber | undefined;
     reserveInFormatted: string;
     reserveOutFormatted: string;
     reserveInBN: BN;
@@ -16,12 +20,12 @@ export class ReserveData {
     null!: boolean;
     reserves!: Reserves;
 
-    constructor(reserves: [BigNumber, BigNumber], sp: SmartPool, poolID: string) {
+    constructor(pair: Pair, poolID: string | undefined, reserves: Reserves | undefined) {
         this.poolID = poolID;
-        this.reserveIn = reserves[0]
-        this.reserveOut = reserves[1]
-        this.reserveInFormatted = (utils.formatUnits(this.reserveIn, sp.tokenIndec).toString())
-        this.reserveOutFormatted = (utils.formatUnits(this.reserveOut, sp.tokenOutdec).toString())
+        this.reserveIn = reserves?.reserves.reserveIn;
+        this.reserveOut = reserves?.reserves.reserveOut;
+        this.reserveInFormatted = (this.reserveIn !== undefined) ? utils.formatUnits(this.reserveIn, pair.token0.decimals).toString() : '';
+        this.reserveOutFormatted = (this.reserveOut !== undefined) ? utils.formatUnits(this.reserveOut, pair.token1.decimals).toString() : '';
         this.reserveInBN = new BN(this.reserveInFormatted)
         this.reserveOutBN = new BN(this.reserveOutFormatted)
         this.priceInBN = new BN(this.reserveInFormatted).div(this.reserveOutFormatted)

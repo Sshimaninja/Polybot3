@@ -1,7 +1,9 @@
 import { BigNumber as BN } from "bignumber.js";
 import { BigNumber } from "ethers";
 import { BoolTrade } from "../../constants/interfaces"
-
+/*
+TODO: Change args to be an object, i.e. smartpool/pair, reserves, etc.
+*/
 
 export async function getTradefromAmounts(
     amountOutA: BN,
