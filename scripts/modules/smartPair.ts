@@ -5,6 +5,9 @@ import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { wallet } from '../../constants/contract'
 import { SmartPool } from "./smartPool";
 import { FactoryPair, Pair } from "../../constants/interfaces";
+import { Reserves } from "./reserves";
+import { Prices } from "./prices";
+import { RouterMap } from "../../constants/addresses";
 
 /*
 
@@ -37,6 +40,9 @@ export class SmartPair {
     factoryA_id: string;
     factoryB_id: string;
 
+    routerA_id: string;
+    routerB_id: string;
+
     Pair0: ethers.Contract | undefined;
     Pair1: ethers.Contract | undefined;
 
@@ -46,7 +52,7 @@ export class SmartPair {
 
     slippageTolerance: BN; //| undefined = BN(0.01);
 
-    constructor(pair: FactoryPair, slippageTolerance: BN) {
+    constructor(pair: FactoryPair, match: Pair, reserves: Reserves, prices: Prices, routerMap: RouterMap, slippageTolerance: BN) {
 
         pair.matches.forEach((pair: Pair) => {
             this.pairA_id = pair.poolA_id;
@@ -65,6 +71,8 @@ export class SmartPair {
             //     this.matches0 = new ethers.Contract(pair.poolA_id, IPair, wallet)
             //     this.matches1 = new ethers.Contract(pair.poolB_id, IPair, wallet)
         })
+        this.routerA_id = routerMap[pair.exchangeA];
+        this.routerB_id = routerMap[pair.exchangeB];
         this.factoryA_id = pair.factoryA_id
         this.factoryB_id = pair.factoryB_id
         const factoryA = new ethers.Contract(this.factoryA_id, IFactory, wallet)

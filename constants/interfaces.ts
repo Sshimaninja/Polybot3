@@ -1,6 +1,11 @@
 import { BigNumber } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 
+export interface Factory {
+    exchange: string;
+    factoryID: string;
+    // pairs: Pair[];
+};
 export interface FactoryPair {
     exchangeA: string;
     factoryA_id: string;
@@ -23,6 +28,17 @@ export interface Pair {
         decimals: number;
     };
 };
+export interface Token {
+    symbol: string;
+    id: string;
+    decimals: number;
+}
+
+export interface ReservesData {
+    reserveIn: BigNumber;
+    reserveOut: BigNumber;
+    blockTimestampLast: number;
+}
 
 export interface FactoryPool {
     exchange: string;
@@ -52,11 +68,11 @@ export interface BoolTrade {
         amountOutjs: BigNumber,
         amountRepay: BN
         amountRepayjs: BigNumber,
-        tokenOutPrice: BN
-        reserveIn: BN
-        reserveInjs: BigNumber
-        reserveOut: BN
-        reserveOutjs: BigNumber
+        tokenOutPrice: BN | undefined
+        reserveIn: BN | undefined
+        reserveInjs: BigNumber | undefined
+        reserveOut: BN | undefined
+        reserveOutjs: BigNumber | undefined
         factoryID: string
         routerID: string
     }
@@ -67,11 +83,11 @@ export interface BoolTrade {
         amountOutjs: BigNumber,
         amountRepay: BN
         amountRepayjs: BigNumber,
-        tokenOutPrice: BN
-        reserveIn: BN
-        reserveInjs: BigNumber
-        reserveOut: BN
-        reserveOutjs: BigNumber
+        tokenOutPrice: BN | undefined
+        reserveIn: BN | undefined
+        reserveInjs: BigNumber | undefined
+        reserveOut: BN | undefined
+        reserveOutjs: BigNumber | undefined
         factoryID: string
         routerID: string
     }
