@@ -57,8 +57,10 @@ export class PoolMatcher {
                     factoryPairs.push({
                         exchangeA: factoryPoolA.exchange,
                         factoryA_id: factoryPoolA.factoryID,
+                        routerA_id: factoryPoolA.routerID,
                         exchangeB: factoryPoolB.exchange,
                         factoryB_id: factoryPoolB.factoryID,
+                        routerB_id: factoryPoolB.routerID,
                         matches: matchingPairs,
                     });
                     fs.writeFile(outputFile, JSON.stringify(factoryPairs, null, 2), function (err) {

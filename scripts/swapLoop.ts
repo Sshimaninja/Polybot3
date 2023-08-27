@@ -2,7 +2,7 @@
 // import { V2V2SORT } from '../utils/dexdata/V2V2/comparev2';
 require('dotenv').config()//for importing parameters
 require('colors')//for console output
-import { uniswapRouter, uniswapV2Factory, uniswapV3Factory, gasToken, deployedMap } from '../constants/addresses';
+import { RouterMap, uniswapV2Router, uniswapV2Factory, uniswapV3Factory, gasToken, deployedMap } from '../constants/addresses';
 import { provider, flash } from '../constants/contract';
 import Web3 from 'web3';
 import { BigNumber, ethers, utils } from 'ethers';
@@ -20,12 +20,13 @@ import { wallet } from '../constants/contract';
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
 //trade interface
-import { BoolFlash, Trade, HiLo, Difference, Pair } from '../constants/interfaces';
+import { BoolFlash, Trade, HiLo, Difference, Pair, FactoryPair } from '../constants/interfaces';
+import { getDifference, getGreaterLesser, getHiLo } from './modules/getHiLo';
 
 import { lowSlippage } from './modules/lowslipBN';
 import { getAmountsIn, getAmountsOut, getAmountsIO } from './modules/getAmountsIO';
-import { getAmountsIn as getAmountsInjs, getAmountsOut as getAmountsOutjs, getAmountsIO as getAmountsIOjs } from './modules/getAmountsIOjs';
-import { AmountCalculator } from './amountCalculator'
+import { getAmountsIn as getAmountsInjs, getAmountsOut as getAmountsOutjs} from './modules/getAmountsIOjs';
+import { AmountCalculator } from './amountCalcSingle'
 import { TradeMsg } from './modules/tradeMsg';
 import { getTradefromAmounts } from './modules/populateTrade';
 // import { getTradefromAmounts } from './modules/populateTradeFromSmartPair';
@@ -33,16 +34,30 @@ import { fetchGasPrice } from "./modules/fetchGasPrice";
 import { gasVprofit } from './modules/gasVprofit';
 import { calculateLoanCost } from './modules/loanCost'
 import { Reserves } from './modules/reserves';
+import { Token } from '../constants/interfaces';
 import path from 'path';
 // import { getReserves } from './modules/getReseverves';
 
 /*
+ 
+- Initialize each pair as a SmartPair
+
+- Get reserves for each pair
+
+- Calculate AmountsOut for each SmartPair (includes lowSlippage tradeAmounts)
+
+- Determine profitability for each SmartPair
+
+- If profitable, populate trade
+
+- Execute trade
+
+TODO:
+Replace 0/1 new class instances with a loop that handles n instances
 
 */
 
-
 import * as log4js from "log4js";
-import { getDifference, getGreaterLesser, getHiLo } from './modules/getHiLo';
 
 log4js.configure({
     appenders: {
@@ -53,65 +68,50 @@ log4js.configure({
 });
 
 const logger = log4js.getLogger();
-// logger.level = "info";
-// logger.debug("Logging Debug");
-logger.info("Logging Info");
-logger.error("Logging Error");
-logger.warn("Logging Warn");
-logger.info("from swapLoops.ts")
-// const interval = 4 * 2000
-// const inverval = provider.on('block', async (blockNumber: any) => {})
 
 if (process.env.PRIVATE_KEY === undefined) {
     throw new Error("Private key is not defined");
 }
-//TODO: CREATE convertToGas function to compare token1 profit to gas cost, to determine profitability of trade.
 
 let warning = 0
 let tradePending = false;
 let slippageTolerance = BN(0.01)
-var virtualReserveFactor = 1.1//potential adjustment for virtual reserves, which could be used to increase slippage tolerance.
+var virtualReserveFactor = 1.1
 
-export async function compare(data: Pair[] | undefined) {
+export async function control(data: FactoryPair[] | undefined) {
+    // console.log(data)
+  data?.forEach(async (pairList: any) => {
+   
+    for (let p = 0; p < pairList.length; p++) {
+        let pair: FactoryPair = pairList[p]
+        for (let t = 0; t < pair.matches.length; t++) {           
+            
+            let match = pair.matches[t]
+            
+            // 0. Get reserves:
+            
+            let r0 = new Reserves(match.poolA_id)
+            let reserves0= await r0.getReserves()
+            let r1 = new Reserves(match.poolB_id)
+            let reserves1 = await r1.getReserves()
 
-    data?.forEach(async (pair: any) => {
-        /*
-        
-        - Initialize each pair as a SmartPair
+            // 1. Get prices:
 
-        - Get reserves for each pair
+            let p0 = new Prices(match.token0, match.token1, match.poolA_id, reserves0)
+            let p1 = new Prices(match.token0, match.token1, match.poolB_id, reserves1)
 
-        - Calculate AmountsOut for each SmartPair (includes lowSlippage tradeAmounts)
+            // 2. Calculate AmountsOut
 
-        - Determine profitability for each SmartPair
+            let c0 = new AmountCalculator(p0, match, slippageTolerance)
+            let c1 = new AmountCalculator(p1, match, slippageTolerance)
 
-        - If profitable, populate trade
+            // 3. Determine profitability
+            let trade = await getTradefromAmounts(pair, match, c0, c1)   
 
-        - Execute trade
-
-        */
-
-        // 0. Get reserves:
-
-        let reserves0 = new Reserves(pair.poolA_id)
-        let reserves1 = new Reserves(pair.pairB_id)
-
-        // 1. Get prices:
-
-        let prices0 = new Prices(pair, pair.pairA_id, reserves0)
-        let prices1 = new Prices(pair, pair.pairB_id, reserves1)
-
-        // 2. Calculate AmountsOut
-
-        let calc0 = new AmountCalculator(prices0, slippageTolerance)
-        let calc1 = new AmountCalculator(prices1, slippageTolerance)
-
-        // 3. Determine profitability
-
-
-
-
-
+          }
+      }
+  })
+}
         // var smartPairs: any = {}
         // for (let i = 1; i < pair.pair.length; i++) {
         //     const factoryID = pair.pair[i].factoryID;
@@ -378,9 +378,9 @@ export async function compare(data: Pair[] | undefined) {
         //     // console.log("===============================================================")
         //     return
         // }
-    });
-}
-provider.on('block', async (blockNumber: any) => {
-    console.log('New block received:::::::::::::::::: Block # ' + blockNumber + ":::::::::::::::")
-    compare();
-});
+//     });
+// }
+// provider.on('block', async (blockNumber: any) => {
+//     console.log('New block received:::::::::::::::::: Block # ' + blockNumber + ":::::::::::::::")
+//     compare();
+// });

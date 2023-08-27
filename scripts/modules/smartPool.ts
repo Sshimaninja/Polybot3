@@ -44,13 +44,4 @@ export class SmartPool {
         // slippageTolerance = BN(slippageTolerance); //smaller slippage == smaller sized trades == more opportunities, though maybe not profitable.
     }
 
-
-    async getPoolId() {
-        return await this.poolID;
-    }
-
-    async poolContract() {
-        return new ethers.Contract(await this.poolID, IPair, wallet)
-    }
-
 }
