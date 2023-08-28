@@ -10,15 +10,20 @@ import { utils, BigNumber } from "ethers";
 //     amountOut = numerator / denominator;
 // }
 
-
-
-
-export async function getAmountsOut(amountIn: BN, reserveIn: BN, reserveOut: BN) {
-    let amountInWithFee = amountIn.multipliedBy(BN(997));
-    let numerator = amountInWithFee.multipliedBy(reserveOut);
-    let denominator = reserveIn.multipliedBy(BN(1000)).plus(amountInWithFee);
-    let amountOut = numerator.div(denominator);
-    return amountOut;
+export async function getAmountsOut(amountIn: BN | undefined, reserveIn: BN | undefined, reserveOut: BN | undefined): Promise<BN> {
+    if (amountIn === undefined) {
+        return BN(0);
+    }
+    if (amountIn.isZero()) {
+        return BN(0);
+    }
+    if (reserveIn === undefined || reserveOut === undefined || reserveIn.isZero() || reserveOut.isZero()) {
+        return BN(0);
+    }
+    const amountInWithFee = amountIn.multipliedBy(997);
+    const numerator = amountInWithFee.multipliedBy(reserveOut);
+    const denominator = reserveIn.multipliedBy(1000).plus(amountInWithFee);
+    return numerator.div(denominator);
 }
 
 export async function getAmountsIn(amountOut: BN, reserveIn: BN, reserveOut: BN) {
@@ -29,17 +34,17 @@ export async function getAmountsIn(amountOut: BN, reserveIn: BN, reserveOut: BN)
 }
 
 
-export async function getAmountsIO(
-    amountIn: BN,
-    reserve0: string,
-    reserve1: string,
-    // B1: boolean,
-    // A1: boolean
-): Promise<{ amountOut: BN, amountRepay: BN }> {
-    const amountOut = await getAmountsOut(amountIn, BN(reserve0), BN(reserve1))
-    const amountRepay = await getAmountsIn(amountIn, BN(reserve1), BN(reserve0))
-    return { amountOut, amountRepay }
-}
+// export async function getAmountsIO(
+//     amountIn: BN,
+//     reserve0: string,
+//     reserve1: string,
+//     // B1: boolean,
+//     // A1: boolean
+// ): Promise<{ amountOut: BN, amountRepay: BN }> {
+//     const amountOut = await getAmountsOut(amountIn, BN(reserve0), BN(reserve1))
+//     const amountRepay = await getAmountsIn(amountIn, BN(reserve1), BN(reserve0))
+//     return { amountOut, amountRepay }
+// }
 
 // export async function getAmountsOut(amountIn: BN, reserveIn: BN, reserveOut: BN) {
 //     let amountInWithFee = amountIn.multipliedBy(BN(997));

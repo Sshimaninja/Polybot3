@@ -61,8 +61,14 @@ export interface Pool {
 };
 export interface BoolTrade {
     direction: string
+    ticker: string
+    tokenIn: Token
+    tokenOut: Token
+    tradeSize: BigNumber
     loanPool: {
         exchange: string
+        factory: string
+        router: string
         poolID: string
         amountOut: BN
         amountOutjs: BigNumber,
@@ -78,6 +84,8 @@ export interface BoolTrade {
     }
     recipient: {
         exchange: string
+        factory: string
+        router: string
         poolID: string
         amountOut: BN
         amountOutjs: BigNumber,
@@ -91,9 +99,12 @@ export interface BoolTrade {
         factoryID: string
         routerID: string
     }
+    profitBN: BN,
+    profitJS: BigNumber,
 }
 
 export interface Trade {
+    trade: any;
     direction: string
     amountIn: BN
     tokenInsymbol: string
@@ -204,6 +215,11 @@ export interface Flash {
     }
 }
 
+export interface Profit {
+    profit: BN,
+    profitPercent: number,
+    profitjs: BigNumber,
+}
 
 export interface V2POOLS {
     ticker: string
