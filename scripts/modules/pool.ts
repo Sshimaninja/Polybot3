@@ -37,11 +37,18 @@ export class SmartPool {
         this.ticker = pool.ticker;
         this.factoryID = factoryID;
         const factory = new ethers.Contract(this.factoryID, IFactory, wallet)
-        this.poolID = factory.getPool(this.tokenInID, this.tokenOutID);
-
+        this.poolID = factory.getPair(this.tokenInID, this.tokenOutID);
         this.exchange = exchange;
-
         // slippageTolerance = BN(slippageTolerance); //smaller slippage == smaller sized trades == more opportunities, though maybe not profitable.
+    }
+
+
+    async getPoolId() {
+        return await this.poolID;
+    }
+
+    async poolContract() {
+        return new ethers.Contract(await this.poolID, IPair, wallet)
     }
 
 }

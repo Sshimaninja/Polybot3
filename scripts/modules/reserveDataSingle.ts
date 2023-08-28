@@ -2,7 +2,7 @@ import { BigNumber, utils } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { SmartPair } from "./smartPair";
 import { SmartPool } from "./smartPool";
-import { Reserves } from "./reserves";
+import { } from "./reserves";
 export class ReserveData {
     poolID: string;
     reserveIn: BigNumber;

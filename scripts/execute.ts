@@ -2,7 +2,8 @@ import { BigNumber, ethers, utils, Contract, Wallet } from "ethers";
 import axios from "axios";
 import { provider, signer, wallet, flash, logger } from "../constants/contract";
 // import { abi as IFlash } from '../artifacts/contracts/flashOne.sol/flashOne.json';
-import { BoolFlash } from "../constants/interfaces";
+import { BoolTrade } from "../constants/interfaces";
+import { Trade } from "./modules/populateTrade";
 // import { deployedMap } from "../constants/addresses";
 import { BigNumber as BN } from "bignumber.js";
 import { fetchGasPrice } from "./modules/fetchGasPrice";
@@ -10,41 +11,38 @@ import { checkBal, checkGasBal } from "./modules/checkBal";
 import { gasVprofit } from "./modules/gasVprofit";
 
 export async function sendit(
-    // profit: BigNumber,
-    trade: BoolFlash,
-    // gasMult: number,
+    trade: Trade,
     tradePending: boolean,
-    nonce: number
 ) {
-    console.log('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.ticker + ':::::::::::::::::::::::::: ')
+    console.log('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.trade?.ticker + ':::::::::::::::::::::::::: ')
     var gasbalance = await checkGasBal();
-    const profitable = await gasVprofit(trade).catch((err: any) => { logger.error('Error in gasVprofit: ' + err) })
+    // const profitable = await gasVprofit(trade).catch((err: any) => { logger.error('Error in gasVprofit: ' + err) })
     const gasData = await fetchGasPrice(trade)
-    if (profitable?.gt(0)) {
+    if (trade.trade) {
         console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, "gwei") + " " + "MATIC Gwei")
         const gotGas = Number(gasData.gasPrice) < Number(gasbalance)
         gotGas == true ? console.log("Sufficient Matic Balance. Proceeding...") : console.log(">>>>Insufficient Matic Balance<<<<")
         if (gotGas == false) {
-            console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION: " + trade.ticker + ':::::::::::::::::::::::::: ')
+            console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION: " + trade.trade.ticker + ':::::::::::::::::::::::::: ')
             return
         }
         console.log(":::::::::::Sending Transaction::::::::::: ")
         tradePending = true;
         let tx = await flash.flashSwap(
-            trade.loanPool.factoryID,
-            trade.recipient.routerID,
-            trade.tokenInID,
-            trade.tokenOutID,
-            trade.amountIn,
-            trade.recipient.amountOut,
-            trade.loanPool.amountRepay,
+            trade.trade.loanPool.factoryID,
+            trade.trade.recipient.routerID,
+            trade.trade.tokenIn.id,
+            trade.trade.tokenOut.id,
+            trade.trade.tradeSize,
+            trade.trade.recipient.amountOut,
+            trade.trade.loanPool.amountRepay,
             {
                 type: 2,
                 // gasPrice: gasLimit,
                 maxFeePerGas: gasData.maxFee,
                 maxPriorityFeePerGas: gasData.maxPriorityFee,
                 gasLimit: gasData.gasEstimate,
-                nonce: nonce,
+                // nonce: nonce,
             }
         );
         console.log("Sending Transaction...")
@@ -75,7 +73,7 @@ export async function sendit(
             logger.info(txResponse.hash)
             logger.info(transaction)
         })
-        const bal = await checkBal(trade.tokenInID, trade.tokenIndec, trade.tokenOutID, trade.tokenOutdec)
+        const bal = await checkBal(trade.trade.tokenIn.id, trade.trade.tokenIn.decimals, trade.trade.tokenOut.id, trade.trade.tokenOut.decimals)
         console.log("New wallet balance: ")
         console.log(bal)
         console.log("Transaction Sent. Await Confirmation...")
@@ -96,7 +94,7 @@ export async function sendit(
         console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
         return { tradePending };
     } else {
-        console.log(":::::::::::::::::::::::::::::::::GAS COST > PROFIT: " + trade.ticker + ":::::::::::::::::::::: ")
+        console.log("::::::::::::::::::::::::::::::::::::::::TRADE UNDEFINED:::::::::::::::::::::: ")
         console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
         return { tradePending };
     }

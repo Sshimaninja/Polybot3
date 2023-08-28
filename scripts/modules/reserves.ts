@@ -1,38 +1,39 @@
-import { ethers } from "ethers";
+import { BigNumber, ethers } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { SmartPair } from "./smartPair";
-import { ReserveData } from "./reserveData";
+import { Prices } from "./prices";
 import { logger } from '../../constants/contract'
 import { SmartPool } from "./smartPool";
-
-
+import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
+import { wallet } from '../../constants/contract'
+import { ReservesData } from "../../constants/interfaces";
 export class Reserves {
-    sp: SmartPool;
-    reserveData!: Array<ReserveData>
+    poolID: string;
+    reserves: ReservesData | undefined;
 
-    constructor(sp: SmartPool) {
-        this.sp = sp;
+    constructor(poolID: string) {
+        this.poolID = poolID;
     }
 
-    async getReserves(poolID: any): Promise<ReserveData | null> {
-        if (this.reserveData[poolID] !== undefined) {
-            let exchange = this.sp.exchange
-            let Pair = await this.sp.poolContract()
+    async getReserves(): Promise<ReservesData | undefined> {
+        if (this.poolID !== undefined) {
+            let Pair = new ethers.Contract(this.poolID, IPair, wallet)
             if (Pair.address != '0x0000000000000000000000000000000000000000') {
-                this.reserveData[poolID] = new ReserveData(
-                    await Pair.getReserves().catch((error: any) => {
-                        logger.error("Error (getReserves(" + exchange + ")): " + error)
-                        logger.error(error)
-                    }),
-                    this.sp,
-                    poolID,
-                );
+                let reserves = await Pair.getReserves().catch((error: any) => {
+                    logger.error("Error (getReserves(" + this.poolID + ")): " + error)
+                    logger.error(error)
+                    return undefined;
+                });
+                this.reserves = {
+                    reserveIn: reserves[0],
+                    reserveOut: reserves[1],
+                    blockTimestampLast: reserves[2]
+                };
+                return this.reserves;
             } else {
-                console.log("Pair" + poolID + " " + this.sp.ticker + " no longer exists on " + exchange + "!")
-                // this.reserveData[poolID] = null;
+                console.log("Pair" + this.poolID + " no longer exists!")
             }
         }
-        return this.reserveData[poolID];
+        return undefined;
     }
-
 }
