@@ -18,9 +18,9 @@ export const uniswapQuoter: QuoterMap = {
   QUICKV3: "0xa15F0D7377B2A0C0c10db057f641beD21028FC89",
 };
 
-type RouterMap = { [protocol: string]: string };
+export type RouterMap = { [protocol: string]: string };
 
-export const uniswapRouter: RouterMap = {
+export const uniswapV2Router: RouterMap = {
   UNI: "0x7a250d5630b4caeaf5c20e6585a6e1ef6c992400",
   SUSHI: "0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",
   QUICK: "0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff",

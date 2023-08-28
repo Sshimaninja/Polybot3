@@ -1,9 +1,10 @@
-import { utils, BigNumber } from 'ethers';
+import { BigNumber } from 'ethers';
 
 
 
 
 export function getAmountsOut(amountIn: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): BigNumber {
+    console.log(amountIn)
     const amountInWithFee = amountIn.mul(997);
     const numerator = amountInWithFee.mul(reserveOut);
     const denominator = reserveIn.mul(1000).add(amountInWithFee);
@@ -27,8 +28,8 @@ export function getAmountsIn(amountOut: BigNumber, reserveIn: BigNumber, reserve
 // const amountIn = await getAmountsInjs(amountToRepay, tokenReserve0, tokenReserve1); // Calculate the amount of token1 needed to repay the loan
 // const amountInToken1 = utils.formatUnits(amountIn, token1Decimals); // Convert the amount of token1 to a human-readable format
 // ///
-export async function getAmountsIO() {
-    return
+// export async function getAmountsIO() {
+    // return
     //     amountIn: BigNumber,
     //     reserveIn: BigNumber,
     //     reserveOut: BigNumber,
@@ -38,7 +39,7 @@ export async function getAmountsIO() {
     //     const amountOut = await getAmountsOut(amountIn, reserveIn, reserveOut)
     //     const amountRepay = await getAmountsIn(amountIn, reserveOut, reserveIn)
     // return { amountOut, amountRepay }
-}
+// }
 
 
 

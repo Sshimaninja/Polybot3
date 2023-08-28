@@ -1,40 +1,48 @@
 import { BigNumber, utils } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
-import { SmartPair } from "./modules/smartPair";
-import { Reserves } from "./modules/reserves";
+// import { Reserves } from "./modules/reserves";
 import { logger } from '../constants/contract'
 import { lowSlippage } from './modules/lowslipBN';
-import { ReserveData } from "./modules/reserveData";
+// import { ReserveData } from "./modules/reserveData";
+import { Pair } from "../constants/interfaces";
+import { Reserves } from "./modules/reserves";
+import { Prices } from "./modules/prices";
+import { Token } from "../constants/interfaces";
 import { getAmountsOut, getAmountsIn } from './modules/getAmountsIOjs';
 import { HiLo, Difference } from "../constants/interfaces";
 import { getDifference, getGreaterLesser, getHiLo } from './modules/getHiLo';
-import { SmartPool } from "./modules/smartPool";
 
 export class AmountCalculator {
-    r: ReserveData;
-    sp!: SmartPool;
-
+    exchange: string | undefined;
+    pair: Pair | undefined;
+    token0: Token | undefined;
+    token1: Token | undefined;
+    price: Prices | undefined;
+    reserves: BigNumber | undefined;
+    hilo: HiLo | null = null;
+    difference: Difference | null = null;
+    slip: BN | undefined;
     amountLowSlippage: BN | null = null;
 
-    amountIn: BN | null = null;
-    tradeSize!: BN;
-    tradeSizejs!: BigNumber;
+    tradeSizeBN!: BN
+    tradeSize!: BigNumber
 
-    amountOutjs!: BigNumber;
-    amountRepayjs!: BigNumber;
-    amountOut!: BN;
-    amountRepay!: BN;
+    amountOutJS!: BigNumber;
+    amountRepayJS!: BigNumber;
+    amountOutBN!: BN;
+    amountRepayBN!: BN;
 
-    constructor(r: ReserveData) {
-        this.r = r;
-        // console.log(this.ra, this.rb)
-        // this.sp = this.ra.reserves.sp;
-        // return
+    constructor(price: Prices, pair: Pair, slippageTolerance: BN) {
+        this.pair = pair;
+        this.token0 = pair.token0;
+        this.token1 = pair.token1;
+        this.price = price;
+        this.slip = slippageTolerance;
     }
 
     // async getHilo() {
     //     if (this.hilo === null) {
-    //         this.hilo = await getHiLo(this.ra.priceOutBN, this.rb.priceOutBN);
+    //         this.hilo = await getHiLo(this.price!.priceOutBN, this.price!.priceOutBN);
     //     }
     //     return this.hilo;
     // }
@@ -47,33 +55,46 @@ export class AmountCalculator {
     //     return this.difference;
     // }
 
-    async getTradeAmount(): Promise<BN> {
-        if (this.tradeSize === null) {
-            this.amountLowSlippage = (await lowSlippage(this.r.reserveInBN, this.r.reserveOutBN, this.r.priceOutBN, this.sp.slippageTolerance));
-            this.tradeSize = this.amountLowSlippage//.toFixed(this.sp.tokenIndec);
+    async getTradeAmountBN(): Promise<BN> {
+        if (this.tradeSizeBN !== null) {
+            this.amountLowSlippage = (
+                await lowSlippage(
+                    this.price!.reserveInBN, this.price!.reserveOutBN, this.price!.priceOutBN, this.slip!));
+            this.tradeSizeBN = this.amountLowSlippage//.toFixed(this.sp.tokenIndec);
+            // this.tradeSize = BN.min(this.amountIn, this.amountInB)//.toFixed(this.sp.tokenIndec)
+        }
+        // console.log("tradeSizeBN: ", this.tradeSizeBN)
+        return this.tradeSizeBN;
+    }
+
+    async getTradeAmount(): Promise<BigNumber> {
+        if (this.tradeSizeBN !== null) {
+            let tradeSizeBN = await this.getTradeAmountBN();
+            let tradeSizeNumber = tradeSizeBN.toFixed(this.token0?.decimals!);
+            this.tradeSize = utils.parseUnits(tradeSizeNumber, this.token0?.decimals!);
         }
         return this.tradeSize;
     }
 
-    async getTradeAmountjs(): Promise<BigNumber> {
-        if (this.tradeSizejs === null) {
-            let amountIn = await this.getTradeAmount();
-            let amountInString = amountIn.toFixed(this.sp.tokenIndec);
-            this.tradeSizejs = utils.parseUnits(amountInString, this.sp.tokenIndec);
+    async getAmounts() {
+
+        let tradeSize = await this.getTradeAmount();
+
+        this.amountOutJS = getAmountsOut(tradeSize, this.price?.reserveIn!, this.price?.reserveOut!)
+
+        this.amountRepayJS = getAmountsIn(tradeSize, this.price?.reserveOut!, this.price?.reserveIn!)
+
+        this.amountOutBN = BN(utils.formatUnits(this.amountOutJS, this.token1?.decimals!))
+
+        this.amountRepayBN = BN(utils.formatUnits(this.amountRepayJS, this.token0?.decimals!))
+
+        return {
+            amountOutJS: this.amountOutJS,
+            amountRepayJS: this.amountRepayJS,
+            amountOutBN: this.amountOutBN,
+            amountRepayBN: this.amountRepayBN
         }
-        return this.tradeSizejs;
+
     }
 
-    async checkLiquidity() {
-        // let difference = await this.getDifference();
-        this.amountOutjs = getAmountsOut(this.tradeSizejs, this.r.reserveIn, this.r.reserveOut)
-
-        this.amountRepayjs = getAmountsIn(this.tradeSizejs, this.r.reserveOut, this.r.reserveIn)
-
-        this.amountOut = BN(utils.formatUnits(this.amountOutjs, this.sp.tokenOutdec))
-
-        this.amountRepay = BN(utils.formatUnits(this.amountRepayjs, this.sp.tokenOutdec))
-
-        return this.r.reserveInBN.gt(BN(1)) && this.r.reserveOutBN.gt(BN(1));
-    }
 }

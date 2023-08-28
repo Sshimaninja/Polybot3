@@ -29,24 +29,27 @@ import { getAmountsIn as getAmountsInjs, getAmountsOut as getAmountsOutjs, getAm
 import { AmountCalculator } from './amountCalcSingle';
 import { TradeMsg } from './modules/tradeMsg';
 // import { getTradefromAmounts } from './modules/populateTrade';
-import { getTradefromAmounts } from './modules/populateTradeFromSmartPool';
+// import { getTradefromAmounts } from './modules/populateTradeFromSmartPool';
 import { fetchGasPrice } from "./modules/fetchGasPrice";
 import { gasVprofit } from './modules/gasVprofit';
 import { calculateLoanCost } from './modules/loanCost'
 import { Reserves } from './modules/reserves';
+import path from 'path';
 // import { getReserves } from './modules/getReseverves';
 
+/*
 
 
-const factoryB_id = uniswapV2Factory.SUSHI
-const routerB_id = uniswapRouter.SUSHI
-const factoryA_id = uniswapV2Factory.QUICK
-const routerA_id = uniswapRouter.QUICK
+
+THIS DOCUMENT NO LONGER USES 'POOLS' FROM SUBGRAPH/V2V2. IT NOW USES SMARTPOOL OBJECTS.
+
+
+
+*/
 
 
 import * as log4js from "log4js";
 import { getDifference, getGreaterLesser, getHiLo } from './modules/getHiLo';
-import { filter } from '../utils/dexdata/V2/comparev2';
 
 log4js.configure({
     appenders: {
@@ -74,20 +77,27 @@ if (process.env.PRIVATE_KEY === undefined) {
 let warning = 0
 let tradePending = false;
 export async function flashit() {
-    let arrayV2V2 = await filter();
-    arrayV2V2?.forEach(async (pool: any) => {
+    let matches = ; //from .json database matchPairs. Use path to loop through all match docs.
+
+    /*
+    TODO: This becomes 
+    */
+    smartPool?.forEach(async (pool: any) => {
         // console.log("Pair: " + pool.pair.ticker + " Starting New Loop:")
         try {
             var virtualReserveFactor = 1.1
-            var smartPairs: any = {}
+
+
+            var smartPools: any = {}
             for (let i = 1; i < pool.pair.length; i++) {
+                const factoryID = pool.pair[i].factoryID;
                 const exchangeName = `exchange${i + 1}`
                 const exchangePairs = pool[i]
-                smartPairs[exchangeName] = new SmartPool(exchangePairs, BN(0.01))
+                smartPools[exchangeName] = new SmartPool(exchangePairs, factoryID, exchangeName)
             };
             var reserves: any = {}
-            for (const exchangeName in smartPairs) {
-                const sp = smartPairs[exchangeName];
+            for (const exchangeName in smartPool) {
+                const sp = smartPool[exchangeName];
                 reserves[exchangeName] = new Reserves(sp)
             }
             var r: any = {};

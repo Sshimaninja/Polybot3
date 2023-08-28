@@ -1,41 +1,110 @@
 import { BigNumber } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 
+export interface Factory {
+    exchange: string;
+    factoryID: string;
+    // pairs: Pair[];
+};
+export interface FactoryPair {
+    exchangeA: string;
+    factoryA_id: string;
+    exchangeB: string;
+    factoryB_id: string;
+    matches: Pair[];
+}
+export interface Pair {
+    ticker: string;
+    poolA_id: string;
+    poolB_id: string;
+    token0: {
+        symbol: string;
+        id: string;
+        decimals: number;
+    };
+    token1: {
+        symbol: string;
+        id: string;
+        decimals: number;
+    };
+};
+export interface Token {
+    symbol: string;
+    id: string;
+    decimals: number;
+}
+
+export interface ReservesData {
+    reserveIn: BigNumber;
+    reserveOut: BigNumber;
+    blockTimestampLast: number;
+}
+
+export interface FactoryPool {
+    exchange: string;
+    factoryID: string;
+    pairs: Pool[];
+};
+export interface Pool {
+    ticker: string;
+    poolID: string;
+    token0: {
+        symbol: string;
+        id: string;
+        decimals: number;
+    };
+    token1: {
+        symbol: string;
+        id: string;
+        decimals: number;
+    };
+};
 export interface BoolTrade {
     direction: string
+    ticker: string
+    tokenIn: Token
+    tokenOut: Token
+    tradeSize: BigNumber
     loanPool: {
         exchange: string
+        factory: string
+        router: string
         poolID: string
         amountOut: BN
         amountOutjs: BigNumber,
         amountRepay: BN
         amountRepayjs: BigNumber,
-        tokenOutPrice: BN
-        reserveIn: BN
-        reserveInjs: BigNumber
-        reserveOut: BN
-        reserveOutjs: BigNumber
+        tokenOutPrice: BN | undefined
+        reserveIn: BN | undefined
+        reserveInjs: BigNumber | undefined
+        reserveOut: BN | undefined
+        reserveOutjs: BigNumber | undefined
         factoryID: string
         routerID: string
     }
     recipient: {
         exchange: string
+        factory: string
+        router: string
         poolID: string
         amountOut: BN
         amountOutjs: BigNumber,
         amountRepay: BN
         amountRepayjs: BigNumber,
-        tokenOutPrice: BN
-        reserveIn: BN
-        reserveInjs: BigNumber
-        reserveOut: BN
-        reserveOutjs: BigNumber
+        tokenOutPrice: BN | undefined
+        reserveIn: BN | undefined
+        reserveInjs: BigNumber | undefined
+        reserveOut: BN | undefined
+        reserveOutjs: BigNumber | undefined
         factoryID: string
         routerID: string
     }
+    profitBN: BN,
+    profitJS: BigNumber,
 }
 
 export interface Trade {
+    trade: any;
     direction: string
     amountIn: BN
     tokenInsymbol: string
@@ -146,6 +215,11 @@ export interface Flash {
     }
 }
 
+export interface Profit {
+    profit: BN,
+    profitPercent: number,
+    profitjs: BigNumber,
+}
 
 export interface V2POOLS {
     ticker: string
