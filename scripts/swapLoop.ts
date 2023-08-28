@@ -1,42 +1,12 @@
-//IMPORTS
-// import { V2V2SORT } from '../utils/dexdata/V2V2/comparev2';
-require('dotenv').config()//for importing parameters
-require('colors')//for console output
-import { RouterMap, uniswapV2Router, uniswapV2Factory, uniswapV3Factory, gasToken, deployedMap } from '../constants/addresses';
-import { provider, flash } from '../constants/contract';
-import Web3 from 'web3';
-import { BigNumber, ethers, utils } from 'ethers';
+require('dotenv').config()
+require('colors')
 import { BigNumber as BN } from "bignumber.js";
-import fs from 'fs';
-
-import { SmartPair } from './modules/smartPair';
-import { SmartPool } from './modules/smartPool';
 import { Prices } from './modules/prices';
-
-import { sendit } from './execute';
-// import { V2Quote, V2Input } from '../utils/price/uniswap/v2/getPrice';
-import { wallet } from '../constants/contract';
-//ABIs
-import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
-import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
-//trade interface
-import { BoolFlash, Trade, HiLo, Difference, Pair, FactoryPair } from '../constants/interfaces';
-import { getDifference, getGreaterLesser, getHiLo } from './modules/getHiLo';
-
-import { lowSlippage } from './modules/lowslipBN';
-import { getAmountsIn, getAmountsOut, getAmountsIO } from './modules/getAmountsIO';
-import { getAmountsIn as getAmountsInjs, getAmountsOut as getAmountsOutjs} from './modules/getAmountsIOjs';
+import { BoolFlash, HiLo, Difference, Pair, FactoryPair, BoolTrade } from '../constants/interfaces';
 import { AmountCalculator } from './amountCalcSingle'
-import { TradeMsg } from './modules/tradeMsg';
-import { getTradefromAmounts } from './modules/populateTrade';
-// import { getTradefromAmounts } from './modules/populateTradeFromSmartPair';
-import { fetchGasPrice } from "./modules/fetchGasPrice";
+import { Trade } from './modules/populateTrade';
 import { gasVprofit } from './modules/gasVprofit';
-import { calculateLoanCost } from './modules/loanCost'
 import { Reserves } from './modules/reserves';
-import { Token } from '../constants/interfaces';
-import path from 'path';
-// import { getReserves } from './modules/getReseverves';
 
 /*
  
@@ -58,6 +28,7 @@ Replace 0/1 new class instances with a loop that handles n instances
 */
 
 import * as log4js from "log4js";
+import { sendit } from "./execute";
 
 log4js.configure({
     appenders: {
@@ -69,14 +40,11 @@ log4js.configure({
 
 const logger = log4js.getLogger();
 
-if (process.env.PRIVATE_KEY === undefined) {
-    throw new Error("Private key is not defined");
-}
-
 let warning = 0
 let tradePending = false;
 let slippageTolerance = BN(0.01)
-var virtualReserveFactor = 1.1
+// var virtualReserveFactor = 1.1
+var pendingID: string | undefined
 
 export async function control(data: FactoryPair[] | undefined) {
     // console.log(data)
@@ -84,105 +52,64 @@ export async function control(data: FactoryPair[] | undefined) {
    
     for (let p = 0; p < pairList.length; p++) {
         let pair: FactoryPair = pairList[p]
-        for (let t = 0; t < pair.matches.length; t++) {           
+        for (let m = 0; m < pair.matches.length; m++) {           
             
-            let match = pair.matches[t]
-            
-            // 0. Get reserves:
-            
-            let r0 = new Reserves(match.poolA_id)
-            let reserves0= await r0.getReserves()
-            let r1 = new Reserves(match.poolB_id)
-            let reserves1 = await r1.getReserves()
+            let match = pair.matches[m]
+            if (!tradePending && pair.matches[m].poolA_id !== pendingID && pair.matches[m].poolB_id !== pendingID) {                
+                // 0. Get reserves:            
+                
+                let r0 = new Reserves(match.poolA_id)
+                let reserves0= await r0.getReserves()
+                let r1 = new Reserves(match.poolB_id)
+                let reserves1 = await r1.getReserves()
 
-            // 1. Get prices:
+                // 1. Get prices:
 
-            let p0 = new Prices(match.token0, match.token1, match.poolA_id, reserves0)
-            let p1 = new Prices(match.token0, match.token1, match.poolB_id, reserves1)
+                let p0 = new Prices(match.token0, match.token1, match.poolA_id, reserves0)
+                let p1 = new Prices(match.token0, match.token1, match.poolB_id, reserves1)
 
-            // 2. Calculate AmountsOut
+                // 2. Calculate AmountsOut
 
-            let c0 = new AmountCalculator(p0, match, slippageTolerance)
-            let c1 = new AmountCalculator(p1, match, slippageTolerance)
+                let c0 = new AmountCalculator(p0, match, slippageTolerance)
+                let c1 = new AmountCalculator(p1, match, slippageTolerance)
 
-            // 3. Determine profitability
-            let trade = await getTradefromAmounts(pair, match, c0, c1)   
+                // 3. Determine trade direction & profitability
+                let t = new Trade(pair, match, c0, c1)
+                let trade = await t.getTradefromAmounts()
 
-          }
+                let basicData = {
+                    ticker: trade.ticker,
+                    tradeSize: trade.tradeSize,
+                    direction: trade.direction,
+                    profit: trade.profitBN.toFixed(trade.tokenOut.decimals),
+                }
+
+                // 4. Calculate Gas vs Profitability
+                let profit = await gasVprofit(t)
+
+                // 5. If profitable, execute trade
+                if (profit.gt(0) ) {
+                    logger.info("Profitable trade found on " + trade.ticker + "!")
+                    logger.info(trade)
+                    tradePending = true
+                    pendingID = trade.recipient.poolID
+                    await sendit(t, tradePending)
+                    logger.info("Trade pending on "+ trade.ticker + "?: ", tradePending)
+                    warning = 1                
+                } else if (profit.eq(0)) {
+                    console.log("No trade: \n", basicData)
+                }
+            } else if (warning == 0) {
+                logger.info("Trade pending on "+ pendingID + "?: ", tradePending)
+                warning = 1
+                return warning
+            }            
+        }
       }
   })
 }
-        // var smartPairs: any = {}
-        // for (let i = 1; i < pair.pair.length; i++) {
-        //     const factoryID = pair.pair[i].factoryID;
-        //     const exchangeName = `exchange${i + 1}`
-        //     const exchangePairs = pair[i]
-        //     smartPairs[exchangeName] = new SmartPair(exchangePairs, slippageTolerance)
-        // };
-
-        // var reserves: any = {}
-        // for (const exchangeName in smartPairs) {
-        //     const sp = smartPairs[exchangeName];
-        //     reserves[exchangeName] = new Reserves(sp)
-        // }
-
-        // var r: any = {};
-        // for (const exchangeName in reserves) {
-        //     r[exchangeName] = reserves[exchangeName];
-        //     let rData = await r.getReserves(reserves[exchangeName].sp[exchangeName].poolID);
-        // }
-
-        // // Calculate AmountsOut for each SmartPair
-        // var calculator = new AmountCalculator(reserves,);
-
-        // var trade = await getTradefromAmounts(
-        //     calculator.amountOut,
-        //     calculator.amountOutAjs,
-        //     calculator.amountOutB,
-        //     calculator.amountOutBjs,
-        //     calculator.amountRepayA,
-        //     calculator.amountRepayAjs,
-        //     calculator.amountRepayB,
-        //     calculator.amountRepayBjs,
-        //     ra.priceOutBN,
-        //     rb.priceOutBN,
-        //     ra.reserveInBN,
-        //     ra.reserveOutBN,
-        //     ra.reserveIn,
-        //     ra.reserveOut,
-        //     rb.reserveInBN,
-        //     rb.reserveOutBN,
-        //     rb.reserveIn,
-        //     rb.reserveOut,
-        //     sp.exchangeA,
-        //     sp.exchangeB,
-        //     await sp.getPoolAId(),
-        //     await sp.getPoolBId(),
-        //     factoryA_id,
-        //     factoryB_id,
-        //     routerA_id,
-        //     routerB_id,
-        // )
-
-        // let amountOutLoanPool = trade.loanPool.amountOut
-        // let amountOutRecipient = trade.recipient.amountOut
-        // let amountRepayLoanPool = trade.loanPool.amountRepay
-        // let amountRepayRecipient = trade.recipient.amountRepay
-
-        // let amountOutLoanPooljs = trade.loanPool.amountOutjs
-        // let amountOutRecipientjs = trade.recipient.amountOutjs
-        // let amountRepayLoanPooljs = trade.loanPool.amountRepayjs
-        // let amountRepayRecipientjs = trade.recipient.amountRepayjs
-
-        // let hilo = await calculator.getHilo();
-        // let difference = await calculator.getDifference();
 
 
-        // let differencePrice = hilo.higher.minus(hilo.lower)//higher.sub(lower)
-        // let differencePercent = differencePrice.dividedBy(hilo.higher).multipliedBy(BN(100))//difference.div(higher).mul(BigNumber.from(100))
-        // // liq.greater = BN.max(ra.reserveIn, rb.reserveIn)
-
-        // var differenceOut = amountOutRecipient.minus(amountOutLoanPool)
 
         // let loanCost = await calculateLoanCost(
         //     amountOutLoanPool,
