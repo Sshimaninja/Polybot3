@@ -11,31 +11,31 @@ import { checkBal, checkGasBal } from "./modules/checkBal";
 import { gasVprofit } from "./modules/gasVprofit";
 
 export async function sendit(
-    trade: Trade,
+    trade: BoolTrade,
     tradePending: boolean,
 ) {
-    console.log('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.trade?.ticker + ':::::::::::::::::::::::::: ')
+    console.log('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.ticker + ':::::::::::::::::::::::::: ')
     var gasbalance = await checkGasBal();
     // const profitable = await gasVprofit(trade).catch((err: any) => { logger.error('Error in gasVprofit: ' + err) })
     const gasData = await fetchGasPrice(trade)
-    if (trade.trade) {
+    if (trade) {
         console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, "gwei") + " " + "MATIC Gwei")
         const gotGas = Number(gasData.gasPrice) < Number(gasbalance)
         gotGas == true ? console.log("Sufficient Matic Balance. Proceeding...") : console.log(">>>>Insufficient Matic Balance<<<<")
         if (gotGas == false) {
-            console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION: " + trade.trade.ticker + ':::::::::::::::::::::::::: ')
+            console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION: " + trade.ticker + ':::::::::::::::::::::::::: ')
             return
         }
         console.log(":::::::::::Sending Transaction::::::::::: ")
         tradePending = true;
         let tx = await flash.flashSwap(
-            trade.trade.loanPool.factoryID,
-            trade.trade.recipient.routerID,
-            trade.trade.tokenIn.id,
-            trade.trade.tokenOut.id,
-            trade.trade.tradeSize,
-            trade.trade.recipient.amountOut,
-            trade.trade.loanPool.amountRepay,
+            trade.loanPool.factoryID,
+            trade.recipient.routerID,
+            trade.tokenIn.id,
+            trade.tokenOut.id,
+            trade.tradeSize,
+            trade.recipient.amountOut,
+            trade.loanPool.amountRepay,
             {
                 type: 2,
                 // gasPrice: gasLimit,
@@ -73,7 +73,7 @@ export async function sendit(
             logger.info(txResponse.hash)
             logger.info(transaction)
         })
-        const bal = await checkBal(trade.trade.tokenIn.id, trade.trade.tokenIn.decimals, trade.trade.tokenOut.id, trade.trade.tokenOut.decimals)
+        const bal = await checkBal(trade.tokenIn.id, trade.tokenIn.decimals, trade.tokenOut.id, trade.tokenOut.decimals)
         console.log("New wallet balance: ")
         console.log(bal)
         console.log("Transaction Sent. Await Confirmation...")

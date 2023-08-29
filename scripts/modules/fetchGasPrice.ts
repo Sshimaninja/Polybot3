@@ -4,11 +4,13 @@ import axios from "axios";
 // import { BoolTrade } from "../../constants/interfaces";
 import { Trade } from "./populateTrade"
 import { provider, flash, logger } from "../../constants/contract";
+import { BoolTrade } from "../../constants/interfaces";
 
-export async function fetchGasPrice(trade: Trade): Promise<{ gasEstimate: BigNumber, gasPrice: BigNumber, maxFee: number, maxPriorityFee: number }> {
-    if (trade.trade) {
+export async function fetchGasPrice(trade: BoolTrade): Promise<{ gasEstimate: BigNumber, gasPrice: BigNumber, maxFee: number, maxPriorityFee: number }> {
+    if (trade) {
         try {
             const gasData: any = (await axios.get("https://gasstation.polygon.technology/v2")).data;
+
             // Get the maxFee and maxPriorityFee for fast
             const maxFeeInGWEI = gasData.fast.maxFee;
             const maxPriorityFeeInGWEI = gasData.fast.maxPriorityFee;
@@ -16,18 +18,18 @@ export async function fetchGasPrice(trade: Trade): Promise<{ gasEstimate: BigNum
             const maxPriorityFee = Math.trunc(maxPriorityFeeInGWEI * 10 ** 9);
             const estimatedBaseFee = Math.trunc(gasData.estimatedBaseFee * 10 ** 9);
             const lastestgasLimit = await provider.getBlock("latest");
-            console.log('EstimatingGas for trade: ' + trade.match.ticker + '...');
+            console.log('EstimatingGas for trade: ' + trade.ticker + '...');
 
             let gasEstimate;
             try {
                 gasEstimate = await flash.estimateGas.flashSwap(
-                    trade.trade.loanPool.factoryID,
-                    trade.trade.recipient.routerID,
-                    trade.match.token0.id,
-                    trade.match.token1.id,
-                    trade.trade.tradeSize,
-                    trade.trade.loanPool.amountOut,
-                    trade.trade.loanPool.amountRepay
+                    trade.loanPool.factoryID,
+                    trade.recipient.routerID,
+                    trade.tokenIn.id,
+                    trade.tokenOut.id,
+                    trade.tradeSize,
+                    trade.loanPool.amountOut,
+                    trade.loanPool.amountRepay
                 );
             } catch (error: any) {
                 if (error.code === 'UNPREDICTABLE_GAS_LIMIT') {
@@ -35,7 +37,7 @@ export async function fetchGasPrice(trade: Trade): Promise<{ gasEstimate: BigNum
                     // console.log('Estimating gas limit failed. Using manual gas limit...');
                     gasEstimate = lastestgasLimit.gasLimit;
                 } else {
-                    throw error; // Rethrow other errors
+                    // throw error; // Rethrow other errors
                     return { gasEstimate: BigNumber.from(300000), gasPrice: BigNumber.from(300000), maxFee: 150, maxPriorityFee: 60 };
                 }
             }
@@ -59,12 +61,12 @@ export async function fetchGasPrice(trade: Trade): Promise<{ gasEstimate: BigNum
             const gasPrice = BigNumber.from(maxFee).add(BigNumber.from(maxPriorityFee)).mul(gasEstimate ? gasEstimate : "error in gasPrice calculation");
             return { gasEstimate, gasPrice, maxFee, maxPriorityFee };
         } catch (error) {
-            console.log(`Error in fetchGasPrice for trade: ${trade.match.ticker}`);
+            console.log(`Error in fetchGasPrice for trade: ${trade.ticker}`);
             console.log(error);
             return { gasEstimate: BigNumber.from(300000), gasPrice: BigNumber.from(300000), maxFee: 150, maxPriorityFee: 60 };
         }
     } else {
-        logger.error(`Error in fetchGasPrice for trade: ${trade.match.ticker}`);
+        logger.error(`Error in fetchGasPrice for trade: Trade object is undefined`);
         return { gasEstimate: BigNumber.from(300000), gasPrice: BigNumber.from(300000), maxFee: 150, maxPriorityFee: 60 };
     }
 }

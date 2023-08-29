@@ -1,9 +1,9 @@
 import { AllV2Pairs } from './allv2Pairs';
-import { uniswapV2Factory } from '../../../constants/addresses';
+import { uniswapV2Factory, uniswapV2Router } from '../../../constants/addresses';
 import fs from 'fs';
 
 export async function makePairModule() {
-    const allPairs = new AllV2Pairs(uniswapV2Factory);
+    const allPairs = new AllV2Pairs(uniswapV2Factory, uniswapV2Router);
     const pairs = await allPairs.getPairs();
     // console.log(pairs)
     // console.log('Pairs: ' + pairs.length);

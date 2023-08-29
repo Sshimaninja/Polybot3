@@ -9,8 +9,10 @@ export interface Factory {
 export interface FactoryPair {
     exchangeA: string;
     factoryA_id: string;
+    routerA_id: string;
     exchangeB: string;
     factoryB_id: string;
+    routerB_id: string;
     matches: Pair[];
 }
 export interface Pair {
@@ -34,15 +36,30 @@ export interface Token {
     decimals: number;
 }
 
+export interface Profit {
+    profit: BigNumber;
+    gasCost: BigNumber;
+}
+export interface Amounts {
+    tradeSize: BigNumber;
+    amountOutBN: BN;
+    amountOutJS: BigNumber;
+    amountRepayBN: BN;
+    amountRepayJS: BigNumber;
+}
+
 export interface ReservesData {
     reserveIn: BigNumber;
     reserveOut: BigNumber;
+    reserveInBN: BN;
+    reserveOutBN: BN;
     blockTimestampLast: number;
 }
 
 export interface FactoryPool {
     exchange: string;
     factoryID: string;
+    routerID: string;
     pairs: Pool[];
 };
 export interface Pool {
@@ -213,12 +230,6 @@ export interface Flash {
         routerID: string
         amountOut: BigNumber
     }
-}
-
-export interface Profit {
-    profit: BN,
-    profitPercent: number,
-    profitjs: BigNumber,
 }
 
 export interface V2POOLS {
