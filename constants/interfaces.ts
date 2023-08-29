@@ -116,6 +116,7 @@ export interface BoolTrade {
         factoryID: string
         routerID: string
     }
+    gasData: any;
     profitBN: BN,
     profitJS: BigNumber,
 }
@@ -260,4 +261,22 @@ export interface HiLo {
 export interface Difference {
     difference: BN;
     differencePercent: BN;
+}
+
+
+export interface GasData {
+    safeLow: {
+        maxPriorityFee: number,
+        maxFee: number
+    }, standard: {
+        maxPriorityFee: number,
+        maxFee: number
+    },
+    fast: {
+        maxPriorityFee: number,
+        maxFee: number
+    },
+    estimatedBaseFee: number,
+    blockTime: number,
+    blockNumber: Promise<number>,
 }

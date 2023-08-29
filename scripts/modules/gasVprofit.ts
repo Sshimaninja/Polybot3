@@ -1,7 +1,6 @@
 import { BigNumber, Contract, utils, ethers } from 'ethers'
 import { BigNumber as BN } from "bignumber.js";
 import { provider, flashwallet, logger } from '../../constants/contract'
-// import { Trade } from './populateTrade'
 import { BoolTrade } from '../../constants/interfaces'
 import { Profit } from '../../constants/interfaces'
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
@@ -28,10 +27,12 @@ export async function gasVprofit(
         const gasPrice = BigNumber.from(prices.maxFee)
             .add(BigNumber.from(prices.maxPriorityFee))
             .mul(prices.gasEstimate.toNumber());
+
         async function getProfitInMatic(): Promise<BigNumber> {
             try {
                 let result = BigNumber.from(0);
                 let profitToken = trade.tokenOut;
+
                 if (trade.tokenOut.id == matic) {
                     if (trade) {
                         return trade.profitJS;
@@ -42,8 +43,13 @@ export async function gasVprofit(
                 if (trade.tokenIn.id == matic) {
                     if (trade) {
                         let inMaticBN = await getAmountsOut(trade.profitBN, trade.loanPool.reserveOut, trade.loanPool.reserveIn)
-                        let profitInMatic = utils.parseUnits(inMaticBN.toString(),)
-                        return profitInMatic
+                        if (inMaticBN.gt(0)) {
+                            let profitInMatic = utils.parseUnits(inMaticBN.toString(),)
+                            return profitInMatic
+                        } else if (inMaticBN.lt(0)) {
+                            console.log("Error in getProfitInMatic: inMaticBN is less than 0")
+                            return BigNumber.from(0)
+                        }
                     }
                 }
                 for (const token of Object.keys(gasToken)) {
