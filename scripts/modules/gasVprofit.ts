@@ -1,7 +1,9 @@
 import { BigNumber, Contract, utils, ethers } from 'ethers'
 import { BigNumber as BN } from "bignumber.js";
 import { provider, flashwallet, logger } from '../../constants/contract'
-import { Trade } from './populateTrade'
+// import { Trade } from './populateTrade'
+import { BoolTrade } from '../../constants/interfaces'
+import { Profit } from '../../constants/interfaces'
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { fetchGasPrice } from './fetchGasPrice';
@@ -15,30 +17,31 @@ const factoryb = new ethers.Contract(uniswapV2Factory.QUICK, IFactory, provider)
 
 
 export async function gasVprofit(
-    trade: Trade,
-): Promise<BigNumber> {
-    if (trade.trade !== undefined) {
-        const pair = new ethers.Contract(trade.trade.recipient.factoryID, IPair, provider)
+    trade: BoolTrade,
+): Promise<Profit> {
+    let profit: Profit;
+    if (trade !== undefined) {
+        console.log("Trade: ", trade)
+        const pair = new ethers.Contract(trade.recipient.factoryID, IPair, provider)
         const matic = gasToken.WMATIC;
         const prices = await fetchGasPrice(trade);
-        let profitInMatic = BigNumber.from(0);
         const gasPrice = BigNumber.from(prices.maxFee)
             .add(BigNumber.from(prices.maxPriorityFee))
             .mul(prices.gasEstimate.toNumber());
         async function getProfitInMatic(): Promise<BigNumber> {
             try {
                 let result = BigNumber.from(0);
-                let profitToken = trade.match.token1;
-                if (trade.match.token1.symbol == matic) {
-                    if (trade.trade) {
-                        return trade.trade.profitJS;
+                let profitToken = trade.tokenOut;
+                if (trade.tokenOut.id == matic) {
+                    if (trade) {
+                        return trade.profitJS;
                     } else {
                         throw new Error("Trade object is undefined");
                     }
                 }
-                if (trade.match.token0.id == matic) {
-                    if (trade.trade) {
-                        let inMaticBN = await getAmountsOut(trade.trade.profitBN, trade.trade.loanPool.reserveOut, trade.trade.loanPool.reserveIn)
+                if (trade.tokenIn.id == matic) {
+                    if (trade) {
+                        let inMaticBN = await getAmountsOut(trade.profitBN, trade.loanPool.reserveOut, trade.loanPool.reserveIn)
                         let profitInMatic = utils.parseUnits(inMaticBN.toString(),)
                         return profitInMatic
                     }
@@ -48,8 +51,8 @@ export async function gasVprofit(
                     // const token0 = await pair.token0();
                     const token1 = await pair.token1();
 
-                    logger.info("<<<<<<<<<<<<<<<<<<<<<<<<<BEGIN GAS CONVERSION LOOP: ", trade.match.ticker, ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-                    logger.info("Attempting to find gasPoolID to translate profit in ", trade.match.token1, " to WMATIC")
+                    logger.info("<<<<<<<<<<<<<<<<<<<<<<<<<BEGIN GAS CONVERSION LOOP: ", trade.ticker, ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+                    logger.info("Attempting to find gasPoolID to translate profit in ", trade.tokenOut, " to WMATIC")
                     logger.info("Finding profitToken & gasToken pair: ", token1, " ", token)
 
                     logger.info("Attempting Gas Token Address: ", gasToken[token], "Pairing to Profit Token: ", token1)
@@ -67,7 +70,7 @@ export async function gasVprofit(
                         if (gasPool.token0 == matic) {
                             logger.info("Case 1")
                             const reserves = await gasPool.getReserves();
-                            const profitInMaticBN = await getAmountsOut(trade.trade?.profitBN, BN(reserves[0].toString()), BN(reserves[1].toString()))
+                            const profitInMaticBN = await getAmountsOut(trade.profitBN, BN(reserves[0].toString()), BN(reserves[1].toString()))
                             const profitInMatic = utils.parseUnits(profitInMaticBN.toFixed(18), 18)
                             return profitInMatic;
                         }
@@ -75,7 +78,7 @@ export async function gasVprofit(
                         if (gasPool.token1 == matic) {
                             logger.info("Case 3")
                             const reserves = await gasPool.getReserves();
-                            const profitInMaticBN = await getAmountsOut(trade.trade?.profitBN, BN(reserves[1].toString()), BN(reserves[0].toString()));
+                            const profitInMaticBN = await getAmountsOut(trade.profitBN, BN(reserves[1].toString()), BN(reserves[0].toString()));
                             const profitInMatic = utils.parseUnits(profitInMaticBN.toFixed(18), 18)
                             return profitInMatic;
                         }
@@ -83,9 +86,9 @@ export async function gasVprofit(
                         if ((gasPool.token0 && gasPool.token1 != matic) && (gasPool.token0 == profitToken)) {
                             logger.info("Case 4")
                             const reserves = await gasPool.getReserves();
-                            const profitInGasToken = await getAmountsOut(trade.trade?.profitBN, BN(reserves[0].toString()), BN(reserves[1].toString()));//returns profit in gasToken (USDC, WETH, etc.)
+                            const profitInGasToken = await getAmountsOut(trade.profitBN, BN(reserves[0].toString()), BN(reserves[1].toString()));//returns profit in gasToken (USDC, WETH, etc.)
                             const gasMaticPool = await (factorya.getPair(gasPool.token1, matic) ?? factoryb.getPair(gasPool.token1, matic) ?? undefined);
-                            const profitInMaticBN = gasMaticPool.trade.match.token1 == matic ? await getAmountsOut(trade.trade?.profitBN, BN(reserves[0].toString()), BN(reserves[1].toString())) : await getAmountsOut(profitInGasToken, reserves[1], reserves[0]);
+                            const profitInMaticBN = gasMaticPool.trade.match.token1 == matic ? await getAmountsOut(trade.profitBN, BN(reserves[0].toString()), BN(reserves[1].toString())) : await getAmountsOut(profitInGasToken, reserves[1], reserves[0]);
                             const profitInMatic = utils.parseUnits(profitInMaticBN.toFixed(18), 18)
                             return profitInMatic;
                         }
@@ -93,10 +96,10 @@ export async function gasVprofit(
                         if ((gasPool.token0 && gasPool.token1 != matic) && (gasPool.token1 == profitToken)) {
                             logger.info("Case 5")
                             const reserves = await gasPool.getReserves();
-                            // const profitInGasToken = await getAmountsOut(trade.trade?.profitBN, BN(reserves[1].toString()), BN(reserves[0].toString()));//returns profit in gasToken (USDC, WETH, etc.)
+                            // const profitInGasToken = await getAmountsOut(trade.profitBN, BN(reserves[1].toString()), BN(reserves[0].toString()));//returns profit in gasToken (USDC, WETH, etc.)
                             const gasMaticPool = await (factorya.getPair(gasPool.token0, matic) ?? factoryb.getPair(gasPool.token1, matic) ?? undefined);
                             const gasSMaticPoolContract = new ethers.Contract(gasMaticPool, IPair, provider);
-                            const profitInMaticBN = gasSMaticPoolContract.token1 === matic ? await getAmountsOut(trade.trade?.profitBN, BN(reserves[0].toString()), BN(reserves[1].toString())) : await getAmountsOut(trade.trade?.profitBN, BN(reserves[1].toString()), BN(reserves[0].toString()));
+                            const profitInMaticBN = gasSMaticPoolContract.token1 === matic ? await getAmountsOut(trade.profitBN, BN(reserves[0].toString()), BN(reserves[1].toString())) : await getAmountsOut(trade.profitBN, BN(reserves[1].toString()), BN(reserves[0].toString()));
                             const profitInMatic = utils.parseUnits(profitInMaticBN.toFixed(18), 18)
                             return profitInMatic;
                         }
@@ -113,9 +116,19 @@ export async function gasVprofit(
             }
         }
         var actualProfit = await getProfitInMatic();
-        return (actualProfit !== undefined ? actualProfit : BigNumber.from(0));
+        profit = {
+            profit: actualProfit,
+            gasCost: gasPrice,
+        }
+        console.log("Profit: ", profit)
+        return profit;
     } else {
-        return BigNumber.from(0);
+        console.log("Trade is undefined: ")
+        console.log()
+        return profit = {
+            profit: BigNumber.from(0),
+            gasCost: BigNumber.from(0),
+        };
     }
 }
 

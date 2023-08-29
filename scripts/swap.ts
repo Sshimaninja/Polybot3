@@ -1,5 +1,6 @@
 require('dotenv').config()
 require('colors')
+import { utils } from 'ethers';
 import { BigNumber as BN } from "bignumber.js";
 import { Prices } from './modules/prices';
 import { BoolFlash, HiLo, Difference, Pair, FactoryPair, BoolTrade } from '../constants/interfaces';
@@ -52,35 +53,33 @@ export async function control(data: FactoryPair[] | undefined) {
                     let t = new Trade(pair, match, p0, p1, amounts0, amounts1)
                     let trade = await t.getTradefromAmounts()
 
+                    // 4. Calculate Gas vs Profitability
+
+                    //TODO: THERE'S SOMETHIGN WRONG WITH THE PROFIT & GAS CALCULATION. IT'S RETURNING 0. FIX THIS
+                    let profit = await gasVprofit(trade)
+
                     let basicData = {
                         ticker: trade.ticker,
                         tradeSize: trade.tradeSize,
                         direction: trade.direction,
-                        profit: trade.profitBN?.toFixed(trade.tokenOut.decimals),
+                        profit: profit.profit,
+                        gasCost: profit.gasCost,
                     }
-
-                    // 4. Calculate Gas vs Profitability
-                    let profit = await gasVprofit(t)
-
                     // 5. If profitable, execute trade
-                    if (profit.gt(0)) {
+                    if (profit?.profit.gt(0)) {
                         logger.info("Profitable trade found on " + trade.ticker + "!")
                         logger.info(trade)
                         tradePending = true
                         pendingID = trade.recipient.poolID
-                        await sendit(t, tradePending)
-                        logger.info("Trade pending on " + trade.ticker + "?: ", tradePending)
+                        await sendit(trade, tradePending)
                         warning = 1
-                    } else if (profit.eq(0)) {
-                        console.log("No trade: \n", basicData)
+                    } else if (profit?.profit.lte(0)) {
+                        // console.log("No trade: \n", basicData)
+                    } else if (warning == 0) {
+                        logger.info("Trade pending on " + pendingID + "?: ", tradePending)
+                        warning = 1
+                        return warning
                     }
-
-
-
-                } else if (warning == 0) {
-                    logger.info("Trade pending on " + pendingID + "?: ", tradePending)
-                    warning = 1
-                    return warning
                 }
             }
         }
