@@ -36,6 +36,10 @@ export interface Token {
     decimals: number;
 }
 
+export interface Profit {
+    profit: BigNumber;
+    gasCost: BigNumber;
+}
 export interface Amounts {
     tradeSize: BigNumber;
     amountOutBN: BN;
@@ -226,12 +230,6 @@ export interface Flash {
         routerID: string
         amountOut: BigNumber
     }
-}
-
-export interface Profit {
-    profit: BN,
-    profitPercent: number,
-    profitjs: BigNumber,
 }
 
 export interface V2POOLS {
