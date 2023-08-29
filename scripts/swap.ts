@@ -20,7 +20,7 @@ let slippageTolerance = BN(0.01)
 // var virtualReserveFactor = 1.1
 var pendingID: string | undefined
 
-export async function control(data: FactoryPair[] | undefined) {
+export async function control(data: FactoryPair[] | undefined, gasData: any) {
 
     data?.forEach(async (pairList: any) => {
 
@@ -50,7 +50,7 @@ export async function control(data: FactoryPair[] | undefined) {
                     let amounts1 = await c1.getAmounts()
 
                     // 3. Determine trade direction & profitability
-                    let t = new Trade(pair, match, p0, p1, amounts0, amounts1)
+                    let t = new Trade(pair, match, p0, p1, amounts0, amounts1, gasData)
                     let trade = await t.getTradefromAmounts()
 
                     // 4. Calculate Gas vs Profitability
@@ -74,7 +74,7 @@ export async function control(data: FactoryPair[] | undefined) {
                         await sendit(trade, tradePending)
                         warning = 1
                     } else if (profit?.profit.lte(0)) {
-                        // console.log("No trade: \n", basicData)
+                        console.log("No trade: \n", basicData)
                     } else if (warning == 0) {
                         logger.info("Trade pending on " + pendingID + "?: ", tradePending)
                         warning = 1

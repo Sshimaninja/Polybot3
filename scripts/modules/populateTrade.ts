@@ -1,7 +1,7 @@
 import { BigNumber as BN } from "bignumber.js";
 import { utils, BigNumber } from "ethers";
 import { RouterMap, uniswapV2Router } from "../../constants/addresses";
-import { Amounts, FactoryPair, Pair, Profit } from "../../constants/interfaces";
+import { Amounts, FactoryPair, GasData, Pair, Profit } from "../../constants/interfaces";
 import { Prices } from "./prices";
 import { gasVprofit } from "./gasVprofit";
 import { BoolTrade } from "../../constants/interfaces"
@@ -17,14 +17,16 @@ export class Trade {
     price1: Prices;
     amounts0: Amounts;
     amounts1: Amounts;
+    gasData: GasData;
 
-    constructor(pair: FactoryPair, match: Pair, price0: Prices, price1: Prices, amounts0: Amounts, amounts1: Amounts) {
+    constructor(pair: FactoryPair, match: Pair, price0: Prices, price1: Prices, amounts0: Amounts, amounts1: Amounts, gasData: GasData) {
         this.pair = pair;
         this.price0 = price0;
         this.price1 = price1;
         this.match = match;
         this.amounts0 = amounts0
         this.amounts1 = amounts1;
+        this.gasData = gasData;
     }
 
     async getTradefromAmounts(): Promise<BoolTrade> {
@@ -34,8 +36,8 @@ export class Trade {
         let higher = BN.max(this.amounts0.amountOutBN, this.amounts1.amountOutBN);
         let lower = BN.min(this.amounts0.amountOutBN, this.amounts1.amountOutBN);
 
-        let difference = higher.minus(lower);
-        let differencePercent = difference.div(higher).multipliedBy(100);
+        // let difference = higher.minus(lower);
+        // let differencePercent = difference.div(higher).multipliedBy(100);
 
         let A1 = higher.eq(this.amounts0.amountOutBN);
         let B1 = higher.eq(this.amounts1.amountOutBN);
@@ -82,6 +84,7 @@ export class Trade {
                 routerID: A1 ? routerA_id : routerB_id,
                 factoryID: A1 ? this.pair.factoryA_id : this.pair.factoryB_id,
             },
+            gasData: this.gasData,
             profitBN: A1 ? this.amounts0.amountOutBN.minus(this.amounts1.amountRepayBN) : B1 ? this.amounts1.amountOutBN.minus(this.amounts0.amountRepayBN) : BN(0),
             profitJS: A1 ? this.amounts0.amountOutJS.sub(this.amounts1.amountRepayJS) : B1 ? this.amounts1.amountOutJS.sub(this.amounts0.amountRepayJS) : BigNumber.from(0),
         };

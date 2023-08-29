@@ -1,17 +1,15 @@
 import { BigNumber, ethers, utils, Contract, Wallet } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
+import { getGasData } from "./getPolygonGasPrices";
 import axios from "axios";
-// import { BoolTrade } from "../../constants/interfaces";
 import { Trade } from "./populateTrade"
 import { provider, flash, logger } from "../../constants/contract";
-import { BoolTrade } from "../../constants/interfaces";
+import { BoolTrade, GasData } from "../../constants/interfaces";
 
 export async function fetchGasPrice(trade: BoolTrade): Promise<{ gasEstimate: BigNumber, gasPrice: BigNumber, maxFee: number, maxPriorityFee: number }> {
     if (trade) {
         try {
-            const gasData: any = (await axios.get("https://gasstation.polygon.technology/v2")).data;
-
-            // Get the maxFee and maxPriorityFee for fast
+            const gasData: GasData = trade.gasData;
             const maxFeeInGWEI = gasData.fast.maxFee;
             const maxPriorityFeeInGWEI = gasData.fast.maxPriorityFee;
             const maxFee = Math.trunc(maxFeeInGWEI * 10 ** 9);
@@ -28,8 +26,8 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<{ gasEstimate: Bi
                     trade.tokenIn.id,
                     trade.tokenOut.id,
                     trade.tradeSize,
-                    trade.loanPool.amountOut,
-                    trade.loanPool.amountRepay
+                    trade.loanPool.amountOutjs,
+                    trade.loanPool.amountRepayjs
                 );
             } catch (error: any) {
                 if (error.code === 'UNPREDICTABLE_GAS_LIMIT') {
