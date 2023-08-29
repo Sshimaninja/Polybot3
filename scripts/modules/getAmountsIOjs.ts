@@ -4,7 +4,6 @@ import { BigNumber } from 'ethers';
 
 
 export function getAmountsOut(amountIn: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): BigNumber {
-    console.log(amountIn)
     const amountInWithFee = amountIn.mul(997);
     const numerator = amountInWithFee.mul(reserveOut);
     const denominator = reserveIn.mul(1000).add(amountInWithFee);

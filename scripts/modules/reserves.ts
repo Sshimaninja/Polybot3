@@ -1,39 +1,58 @@
-import { BigNumber, ethers } from "ethers";
+import { BigNumber, ethers, utils, } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
-import { SmartPair } from "./smartPair";
 import { Prices } from "./prices";
 import { logger } from '../../constants/contract'
-import { SmartPool } from "./smartPool";
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
 import { wallet } from '../../constants/contract'
-import { ReservesData } from "../../constants/interfaces";
+import { ReservesData, Pair } from "../../constants/interfaces";
 export class Reserves {
-    poolID: string;
-    reserves: ReservesData | undefined;
+    static reserves: ReservesData[] = [];
 
-    constructor(poolID: string) {
-        this.poolID = poolID;
+    constructor(match: Pair) {
+        this.getReserves(match)
     }
 
-    async getReserves(): Promise<ReservesData | undefined> {
-        if (this.poolID !== undefined) {
-            let Pair = new ethers.Contract(this.poolID, IPair, wallet)
+    async getPoolIDs(pair: Pair): Promise<string[]> {
+        const poolIDs: string[] = [];
+        for (const key in pair) {
+            if (key.startsWith("pool")) {
+                const poolID = pair[key as keyof Pair];
+                if (typeof poolID === "string") {
+                    poolIDs.push(poolID);
+                }
+            }
+        }
+        return poolIDs;
+    }
+    async getReserves(match: Pair): Promise<ReservesData[]> {
+        const poolIDs = await this.getPoolIDs(match);
+        const reserves: ReservesData[] = [];
+        for (const poolID of poolIDs) {
+            let Pair = new ethers.Contract(poolID, IPair, wallet)
             if (Pair.address != '0x0000000000000000000000000000000000000000') {
-                let reserves = await Pair.getReserves().catch((error: any) => {
-                    logger.error("Error (getReserves(" + this.poolID + ")): " + error)
+                let reservesData = await Pair.getReserves().catch((error: any) => {
+                    logger.error("Error (getReserves(" + poolID + ")): " + error)
                     logger.error(error)
                     return undefined;
                 });
-                this.reserves = {
-                    reserveIn: reserves[0],
-                    reserveOut: reserves[1],
-                    blockTimestampLast: reserves[2]
-                };
-                return this.reserves;
+                if (reservesData !== undefined) {
+                    const [reserveIn, reserveOut, blockTimestampLast] = reservesData;
+                    const reserveInBN = BN(utils.formatUnits(reserveIn, match.token0.decimals));
+                    const reserveOutBN = BN((utils.formatUnits(reserveOut, match.token1.decimals)));
+                    const reserveData: ReservesData = {
+                        reserveIn,
+                        reserveOut,
+                        reserveInBN,
+                        reserveOutBN,
+                        blockTimestampLast
+                    };
+                    reserves.push(reserveData);
+                }
             } else {
-                console.log("Pair" + this.poolID + " no longer exists!")
+                console.log("Pair" + poolID + " no longer exists!")
             }
         }
-        return undefined;
+        return reserves;
     }
+
 }
