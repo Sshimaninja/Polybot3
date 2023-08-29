@@ -1,4 +1,4 @@
-import { control } from './scripts/swapLoop';
+import { control } from './scripts/swap';
 import { provider } from './constants/contract'
 import fs from 'fs'
 import path from 'path';

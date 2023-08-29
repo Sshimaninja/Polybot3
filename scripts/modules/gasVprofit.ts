@@ -2,14 +2,9 @@ import { BigNumber, Contract, utils, ethers } from 'ethers'
 import { BigNumber as BN } from "bignumber.js";
 import { provider, flashwallet, logger } from '../../constants/contract'
 import { Trade } from './populateTrade'
-import { deployedMap, /*gasToken,*/ /*uniswapFactory*/ } from '../../constants/addresses'
-// import { wallet } from '../deployTest'
-// import { Network, Alchemy } from "alchemy-sdk";
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
-import { abi as IERC20 } from '@uniswap/v2-periphery/build/IERC20.json';
 import { fetchGasPrice } from './fetchGasPrice';
-import { V2Quote } from '../../utils/price/uniswap/getPrice';
 import { getAmountsIn, getAmountsOut } from './getAmountsIO';
 import { gasToken, uniswapV2Factory } from '../../constants/addresses';
 require('dotenv').config()

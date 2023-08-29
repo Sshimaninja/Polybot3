@@ -1,9 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { SmartPair } from '../../../scripts/modules/smartPair';
-import { BigNumber as BN } from 'bignumber.js';
 import { Pair, Pool } from '../../../constants/interfaces';
-import { SmartPool } from '../../../scripts/modules/smartPool';
 import { FactoryPool } from '../../../constants/interfaces';
 import { FactoryPair } from '../../../constants/interfaces';
 
@@ -41,11 +38,11 @@ export class PoolMatcher {
                     });
                     if (poolB !== undefined) {
                         const pair: Pair = {
-                            ticker: `${poolA.token0.symbol}/${poolB.token1.symbol}`,
+                            ticker: `${poolA.token0.symbol}/${poolA.token1.symbol}`,
                             poolA_id: poolA.poolID,
                             poolB_id: poolB.poolID,
                             token0: poolA.token0,
-                            token1: poolB.token1,
+                            token1: poolA.token1,
                         };
                         matchingPairs.push(pair);
                     }
