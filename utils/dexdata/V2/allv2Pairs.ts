@@ -2,7 +2,7 @@ import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IERC20 } from '@uniswap/v2-core/build/IERC20.json';
 import { Contract, BigNumber } from "ethers";
-import { FactoryMap, uniswapV2Factory, uniswapV3Factory } from "../../../constants/addresses";
+import { FactoryMap, RouterMap, uniswapV2Factory, uniswapV3Factory } from "../../../constants/addresses";
 import { wallet } from "../../../constants/contract";
 import { provider } from "../../../constants/contract";
 import fs from "fs";
@@ -18,15 +18,18 @@ Either that or update the flashit/swap functions to accept this format instead (
 */
 export class AllV2Pairs {
     factoryMap: FactoryMap;
+    routerMap: RouterMap;
 
-    constructor(factoryMap: FactoryMap) {
+    constructor(factoryMap: FactoryMap, routerMap: RouterMap) {
         this.factoryMap = factoryMap;
+        this.routerMap = routerMap;
     }
 
     async getPairs(): Promise<any> {
         Object.keys(this.factoryMap).forEach(async (protocol) => {
             console.log('Starting');
             const factoryID = this.factoryMap[protocol];
+            const routerID = this.routerMap[protocol]
             console.log('FactoryID: ' + factoryID);
             const factory = new Contract(factoryID, IFactory, wallet);
             if (factory.address != undefined) {
@@ -64,7 +67,7 @@ export class AllV2Pairs {
                         const block = currentBlockTimestamp;
                         // console.log('Block: ' + block);
 
-                        if (reserves[0] > 10 && reserves[1] > 10 && blockTimeStampLast > (currentBlockTimestamp - 3000)) {
+                        if (reserves[0] > 1 && reserves[1] > 1 && blockTimeStampLast > (currentBlockTimestamp - 1000000)) {
                             console.log('Pair: ' + pair);
                             console.log('Last: ' + blockTimeStampLast)
                             console.log('Current: ' + currentBlockTimestamp)
@@ -100,11 +103,12 @@ export class AllV2Pairs {
                             }
                         }
                     }
-                    const factoryPair = {
+                    const factoryPair = [{
                         exchange: protocol,
                         factoryID: factoryID,
+                        routerID: routerID,
                         pairs: validPairs,
-                    }
+                    }]
                     fs.appendFileSync(pairsFile, JSON.stringify(factoryPair, null, 2) + '\n');
                     console.log(`Valid pairs: ${validPairs.length}`);
                     console.log(`Valid pairs written to ${pairsFile}`);
