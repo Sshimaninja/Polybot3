@@ -39,6 +39,7 @@ export interface Token {
 export interface Profit {
     profit: BigNumber;
     gasCost: BigNumber;
+    gasPool: string;
 }
 export interface Amounts {
     tradeSize: BigNumber;
