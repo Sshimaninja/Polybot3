@@ -42,16 +42,18 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<{ gasEstimate: Bi
 
             // Retrieve the emitted logs
             console.log("Gas Estimate: " + gasEstimate.toString() + " gas")
-            const filter = {
-                address: flash.address, // Replace with the contract address
-                fromBlock: 0,
-                toBlock: 'latest',
-            };
-            const logs = await provider.getLogs(filter);
-            logs.forEach(log => {
-                const parsedLog = flash.interface.parseLog(log);
-                console.log(parsedLog.args.message); // Print the log message
-            });
+
+
+            // const filter = {
+            //     address: flash.address, // Replace with the contract address
+            //     fromBlock: 0,
+            //     toBlock: 'latest',
+            // };
+            // const logs = await provider.getLogs(filter);
+            // logs.forEach(log => {
+            //     const parsedLog = flash.interface.parseLog(log);
+            //     console.log(parsedLog.args.message); // Print the log message
+            // });
 
             /* Convert the fetched GWEI gas price to WEI after converting ignore the decimal value
              * as the transaction payload only accepts whole number
