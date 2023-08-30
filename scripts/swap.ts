@@ -43,7 +43,6 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
                     let p1 = new Prices(match.token0, match.token1, match.poolB_id, reserves[1])
                     // 2. Calculate AmountsOut
 
-                    //RETURNING UNDEFINED. FIX THIS
                     let c0 = new AmountCalculator(p0, match, slippageTolerance)
                     let c1 = new AmountCalculator(p1, match, slippageTolerance)
                     let amounts0 = await c0.getAmounts()
@@ -54,26 +53,25 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
                     let trade = await t.getTradefromAmounts()
 
                     // 4. Calculate Gas vs Profitability
-
-                    //TODO: THERE'S SOMETHIGN WRONG WITH THE PROFIT & GAS CALCULATION. IT'S RETURNING 0. FIX THIS
                     let profit = await gasVprofit(trade)
 
                     let basicData = {
                         ticker: trade.ticker,
                         tradeSize: trade.tradeSize,
                         direction: trade.direction,
-                        profit: profit.profit,
-                        gasCost: profit.gasCost,
+                        profit: utils.formatUnits(profit.profit, 18),
+                        gasCost: utils.formatUnits(profit.gasCost, 18),
                     }
                     // 5. If profitable, execute trade
-                    if (profit?.profit.gt(0)) {
+                    if (profit.profit.gt(0)) {
                         logger.info("Profitable trade found on " + trade.ticker + "!")
                         logger.info(trade)
+                        logger.info("Profit: ", profit.profit.toString(), "Gas Cost: ", profit.gasCost.toString())
                         tradePending = true
                         pendingID = trade.recipient.poolID
                         await sendit(trade, tradePending)
                         warning = 1
-                    } else if (profit?.profit.lte(0)) {
+                    } else if (profit.profit.lte(0)) {
                         console.log("No trade: \n", basicData)
                     } else if (warning == 0) {
                         logger.info("Trade pending on " + pendingID + "?: ", tradePending)

@@ -39,54 +39,54 @@ export class Trade {
         // let difference = higher.minus(lower);
         // let differencePercent = difference.div(higher).multipliedBy(100);
 
-        let A1 = higher.eq(this.amounts0.amountOutBN);
-        let B1 = higher.eq(this.amounts1.amountOutBN);
+        let A = higher.eq(this.amounts0.amountOutBN);
+        let B = higher.eq(this.amounts1.amountOutBN);
 
-        var direction = B1 ? "B1" : A1 ? "A1" : "DIRECTIONAL AMBIGUITY ERROR";
+        var direction = B ? "B" : A ? "A" : "DIRECTIONAL AMBIGUITY ERROR";
 
         var trade: BoolTrade = {
             direction: direction,
             ticker: this.match.ticker,
             tokenIn: this.match.token0,
             tokenOut: this.match.token1,
-            tradeSize: A1 ? this.amounts0.tradeSize : this.amounts1.tradeSize,
+            tradeSize: A ? this.amounts1.tradeSize : this.amounts0.tradeSize,
             loanPool: {
-                exchange: A1 ? this.pair.exchangeB : this.pair.exchangeA,
-                factory: A1 ? this.pair.factoryB_id : this.pair.factoryA_id,
-                router: A1 ? routerB_id : routerA_id,
-                poolID: A1 ? this.match.poolB_id : this.match.poolA_id,
-                amountOut: A1 ? this.amounts1.amountOutBN : this.amounts0.amountOutBN,
-                amountOutjs: A1 ? this.amounts1.amountOutJS : this.amounts0.amountOutJS,
-                amountRepay: A1 ? this.amounts1.amountRepayBN : this.amounts0.amountRepayBN,
-                amountRepayjs: A1 ? this.amounts1.amountRepayJS : this.amounts0.amountRepayJS,
-                tokenOutPrice: A1 ? this.price1.priceOutBN : this.price0.priceOutBN,
-                reserveIn: A1 ? this.price1.reserves.reserveInBN : this.price0.reserves.reserveInBN,
-                reserveInjs: A1 ? this.price1.reserves.reserveIn : this.price0.reserves.reserveIn,
-                reserveOut: A1 ? this.price1.reserves.reserveOutBN : this.price0.reserves.reserveOutBN,
-                reserveOutjs: A1 ? this.price1.reserves.reserveOut : this.price0.reserves.reserveOut,
-                factoryID: A1 ? this.pair.factoryB_id : this.pair.factoryA_id,
-                routerID: A1 ? routerB_id : routerA_id,
+                exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
+                factory: A ? this.pair.factoryB_id : this.pair.factoryA_id,
+                router: A ? routerB_id : routerA_id,
+                poolID: A ? this.match.poolB_id : this.match.poolA_id,
+                amountOut: A ? this.amounts1.amountOutBN : this.amounts0.amountOutBN,
+                amountOutjs: A ? this.amounts1.amountOutJS : this.amounts0.amountOutJS,
+                amountRepay: A ? this.amounts1.amountRepayBN : this.amounts0.amountRepayBN,
+                amountRepayjs: A ? this.amounts1.amountRepayJS : this.amounts0.amountRepayJS,
+                tokenOutPrice: A ? this.price1.priceOutBN : this.price0.priceOutBN,
+                reserveIn: A ? this.price1.reserves.reserveInBN : this.price0.reserves.reserveInBN,
+                reserveInjs: A ? this.price1.reserves.reserveIn : this.price0.reserves.reserveIn,
+                reserveOut: A ? this.price1.reserves.reserveOutBN : this.price0.reserves.reserveOutBN,
+                reserveOutjs: A ? this.price1.reserves.reserveOut : this.price0.reserves.reserveOut,
+                factoryID: A ? this.pair.factoryB_id : this.pair.factoryA_id,
+                routerID: A ? routerB_id : routerA_id,
             },
             recipient: {
-                exchange: A1 ? this.pair.exchangeA : this.pair.exchangeB,
-                factory: A1 ? this.pair.factoryA_id : this.pair.factoryB_id,
-                router: A1 ? routerA_id : routerB_id,
-                poolID: A1 ? this.match.poolA_id : this.match.poolB_id,
-                amountOut: A1 ? this.amounts0.amountOutBN : this.amounts1.amountOutBN,
-                amountOutjs: A1 ? this.amounts0.amountOutJS : this.amounts1.amountOutJS,
-                amountRepay: A1 ? this.amounts0.amountRepayBN : this.amounts1.amountRepayBN,
-                amountRepayjs: A1 ? this.amounts0.amountRepayJS : this.amounts1.amountRepayJS,
-                tokenOutPrice: A1 ? this.price0.priceOutBN : this.price0.priceOutBN,
-                reserveIn: A1 ? this.price0.reserves.reserveInBN : this.price0.reserves.reserveInBN,
-                reserveInjs: A1 ? this.price0.reserves.reserveIn : this.price0.reserves.reserveIn,
-                reserveOut: A1 ? this.price0.reserves.reserveOutBN : this.price0.reserves.reserveOutBN,
-                reserveOutjs: A1 ? this.price0.reserves.reserveOut : this.price0.reserves.reserveOut,
-                routerID: A1 ? routerA_id : routerB_id,
-                factoryID: A1 ? this.pair.factoryA_id : this.pair.factoryB_id,
+                exchange: A ? this.pair.exchangeA : this.pair.exchangeB,
+                factory: A ? this.pair.factoryA_id : this.pair.factoryB_id,
+                router: A ? routerA_id : routerB_id,
+                poolID: A ? this.match.poolA_id : this.match.poolB_id,
+                amountOut: A ? this.amounts0.amountOutBN : this.amounts1.amountOutBN,
+                amountOutjs: A ? this.amounts0.amountOutJS : this.amounts1.amountOutJS,
+                amountRepay: A ? this.amounts0.amountRepayBN : this.amounts1.amountRepayBN,
+                amountRepayjs: A ? this.amounts0.amountRepayJS : this.amounts1.amountRepayJS,
+                tokenOutPrice: A ? this.price0.priceOutBN : this.price0.priceOutBN,
+                reserveIn: A ? this.price0.reserves.reserveInBN : this.price0.reserves.reserveInBN,
+                reserveInjs: A ? this.price0.reserves.reserveIn : this.price0.reserves.reserveIn,
+                reserveOut: A ? this.price0.reserves.reserveOutBN : this.price0.reserves.reserveOutBN,
+                reserveOutjs: A ? this.price0.reserves.reserveOut : this.price0.reserves.reserveOut,
+                routerID: A ? routerA_id : routerB_id,
+                factoryID: A ? this.pair.factoryA_id : this.pair.factoryB_id,
             },
             gasData: this.gasData,
-            profitBN: A1 ? this.amounts0.amountOutBN.minus(this.amounts1.amountRepayBN) : B1 ? this.amounts1.amountOutBN.minus(this.amounts0.amountRepayBN) : BN(0),
-            profitJS: A1 ? this.amounts0.amountOutJS.sub(this.amounts1.amountRepayJS) : B1 ? this.amounts1.amountOutJS.sub(this.amounts0.amountRepayJS) : BigNumber.from(0),
+            profitBN: A ? this.amounts0.amountOutBN.minus(this.amounts1.amountRepayBN) : B ? this.amounts1.amountOutBN.minus(this.amounts0.amountRepayBN) : BN(0),
+            profitJS: A ? this.amounts0.amountOutJS.sub(this.amounts1.amountRepayJS) : B ? this.amounts1.amountOutJS.sub(this.amounts0.amountRepayJS) : BigNumber.from(0),
         };
         return trade;
     }

@@ -91,11 +91,11 @@ export interface BoolTrade {
         amountOutjs: BigNumber,
         amountRepay: BN
         amountRepayjs: BigNumber,
-        tokenOutPrice: BN | undefined
-        reserveIn: BN | undefined
-        reserveInjs: BigNumber | undefined
-        reserveOut: BN | undefined
-        reserveOutjs: BigNumber | undefined
+        tokenOutPrice: BN
+        reserveIn: BN
+        reserveInjs: BigNumber
+        reserveOut: BN
+        reserveOutjs: BigNumber
         factoryID: string
         routerID: string
     }
@@ -108,11 +108,11 @@ export interface BoolTrade {
         amountOutjs: BigNumber,
         amountRepay: BN
         amountRepayjs: BigNumber,
-        tokenOutPrice: BN | undefined
-        reserveIn: BN | undefined
-        reserveInjs: BigNumber | undefined
-        reserveOut: BN | undefined
-        reserveOutjs: BigNumber | undefined
+        tokenOutPrice: BN
+        reserveIn: BN
+        reserveInjs: BigNumber
+        reserveOut: BN
+        reserveOutjs: BigNumber
         factoryID: string
         routerID: string
     }

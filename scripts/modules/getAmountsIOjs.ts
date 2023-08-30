@@ -3,7 +3,7 @@ import { BigNumber } from 'ethers';
 
 
 
-export function getAmountsOut(amountIn: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): BigNumber {
+export async function getAmountsOut(amountIn: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
     const amountInWithFee = amountIn.mul(997);
     const numerator = amountInWithFee.mul(reserveOut);
     const denominator = reserveIn.mul(1000).add(amountInWithFee);
@@ -12,7 +12,7 @@ export function getAmountsOut(amountIn: BigNumber, reserveIn: BigNumber, reserve
 }
 
 //amountIn = amountOut * reserveIn / (reserveOut - amountOut)
-export function getAmountsIn(amountOut: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): BigNumber {
+export async function getAmountsIn(amountOut: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
     const fee = amountOut.mul(BigNumber.from("3")).div(BigNumber.from("1000")); // Calculate the fee (0.3% of the borrowed amount)
     const numerator = reserveIn.mul(amountOut).mul(1000);
     const denominator = reserveOut.sub(amountOut).mul(997);
