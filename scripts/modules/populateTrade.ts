@@ -2,12 +2,15 @@ import { BigNumber as BN } from "bignumber.js";
 import { utils, BigNumber } from "ethers";
 import { RouterMap, uniswapV2Router } from "../../constants/addresses";
 import { Amounts, FactoryPair, GasData, Pair, Profit } from "../../constants/interfaces";
+import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
+import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
+import { wallet } from "../../constants/contract";
+import { Contract } from "@ethersproject/contracts";
 import { Prices } from "./prices";
 import { gasVprofit } from "./gasVprofit";
 import { BoolTrade } from "../../constants/interfaces"
 import { AmountCalculator } from "../amountCalcSingle";
 /*
-TODO: Change args to be an object, i.e. smartpool/pair, reserves, etc.
 */
 export class Trade {
     trade: BoolTrade | undefined;
@@ -52,8 +55,8 @@ export class Trade {
             tradeSize: A ? this.amounts1.tradeSize : this.amounts0.tradeSize,
             loanPool: {
                 exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
-                factory: A ? this.pair.factoryB_id : this.pair.factoryA_id,
-                router: A ? routerB_id : routerA_id,
+                factory: A ? new Contract(this.pair.factoryB_id, IFactory, wallet) : new Contract(this.pair.factoryA_id, IFactory, wallet),
+                router: A ? new Contract(routerB_id, IRouter, wallet) : new Contract(routerA_id, IRouter, wallet),
                 poolID: A ? this.match.poolB_id : this.match.poolA_id,
                 amountOut: A ? this.amounts1.amountOutBN : this.amounts0.amountOutBN,
                 amountOutjs: A ? this.amounts1.amountOutJS : this.amounts0.amountOutJS,
@@ -69,8 +72,8 @@ export class Trade {
             },
             recipient: {
                 exchange: A ? this.pair.exchangeA : this.pair.exchangeB,
-                factory: A ? this.pair.factoryA_id : this.pair.factoryB_id,
-                router: A ? routerA_id : routerB_id,
+                factory: A ? new Contract(this.pair.factoryA_id, IFactory, wallet) : new Contract(this.pair.factoryB_id, IFactory, wallet),
+                router: A ? new Contract(routerA_id, IRouter, wallet) : new Contract(routerB_id, IRouter, wallet),
                 poolID: A ? this.match.poolA_id : this.match.poolB_id,
                 amountOut: A ? this.amounts0.amountOutBN : this.amounts1.amountOutBN,
                 amountOutjs: A ? this.amounts0.amountOutJS : this.amounts1.amountOutJS,
