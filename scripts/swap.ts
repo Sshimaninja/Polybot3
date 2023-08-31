@@ -25,10 +25,13 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
     data?.forEach(async (pairList: any) => {
 
         for (let p = 0; p < pairList.length; p++) {
+
             let pair: FactoryPair = pairList[p]
+
             for (let m = 0; m < pair.matches.length; m++) {
 
                 let match = pair.matches[m]
+
                 if (!tradePending && pair.matches[m].poolA_id !== pendingID && pair.matches[m].poolB_id !== pendingID) {
 
                     // 0. Get reserves for all pools:
@@ -67,7 +70,7 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
 
                         if (profit.profit.gt(0)) {
                             logger.info("Profitable trade found on " + trade.ticker + "!")
-                            logger.info(trade)
+                            // logger.info(trade)
                             logger.info("Profit: ", profit.profit.toString(), "Gas Cost: ", profit.gasCost.toString())
                             tradePending = true
                             pendingID = trade.recipient.poolID

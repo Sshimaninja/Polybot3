@@ -1,8 +1,8 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import { provider } from '../../constants/contract';
 import { GasData } from '../../constants/interfaces';
 
-export async function getGasData(): Promise<AxiosResponse | GasData | undefined> {
+export async function getGasData(): Promise<GasData> {
     var gasData: GasData = {
         safeLow: {
             maxPriorityFee: 41,
@@ -20,13 +20,16 @@ export async function getGasData(): Promise<AxiosResponse | GasData | undefined>
         blockTime: 3,
         blockNumber: provider.getBlockNumber()
     }
-
     try {
         const response = await axios.get('https://gasstation.polygon.technology/v2');
-        // console.log(response.data);
-        return response.data ? response.data : gasData;
+        if (response.data) {
+            return response.data;
+        } else {
+            console.log("Error in getGasData:  Using default gasData")
+            return gasData;
+        }
     } catch (error) {
-        console.error(error);
+        console.log("Error in getGasData: Using default gasData")
         return gasData;
     }
 }

@@ -1,4 +1,4 @@
-import { BigNumber } from "ethers";
+import { BigNumber, Contract } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 
 export interface Factory {
@@ -39,7 +39,7 @@ export interface Token {
 export interface Profit {
     profit: BigNumber;
     gasCost: BigNumber;
-    gasPool: string;
+    gasPool: Contract;
 }
 export interface Amounts {
     tradeSize: BigNumber;
@@ -85,8 +85,8 @@ export interface BoolTrade {
     tradeSize: BigNumber
     loanPool: {
         exchange: string
-        factory: string
-        router: string
+        factory: Contract
+        router: Contract
         poolID: string
         amountOut: BN
         amountOutjs: BigNumber,
@@ -102,8 +102,8 @@ export interface BoolTrade {
     }
     recipient: {
         exchange: string
-        factory: string
-        router: string
+        factory: Contract
+        router: Contract
         poolID: string
         amountOut: BN
         amountOutjs: BigNumber,
