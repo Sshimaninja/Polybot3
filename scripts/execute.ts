@@ -16,7 +16,6 @@ export async function sendit(
 ) {
     console.log('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.ticker + ':::::::::::::::::::::::::: ')
     var gasbalance = await checkGasBal();
-    // const profitable = await gasVprofit(trade).catch((err: any) => { logger.error('Error in gasVprofit: ' + err) })
     const gasData = await fetchGasPrice(trade)
     if (trade) {
         console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, "gwei") + " " + "MATIC Gwei")
