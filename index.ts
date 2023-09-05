@@ -1,5 +1,6 @@
 import { control } from './scripts/swap';
 import { provider } from './constants/contract'
+import { getGasData } from './scripts/modules/getPolygonGasPrices';
 import fs from 'fs'
 import path from 'path';
 import { FactoryPair } from './constants/interfaces';
@@ -23,7 +24,8 @@ async function main() {
     try {
         provider.on('block', async (blockNumber: any) => {
             console.log('New block received:::::::::::::::::: Block # ' + blockNumber + ":::::::::::::::")
-            control(pairList);
+            const gasData = await getGasData();
+            await control(pairList, gasData);
         });
     } catch (error: any) {
         console.log("PROVIDER ERROR:::::::::::::::::::::: " + error.message);
