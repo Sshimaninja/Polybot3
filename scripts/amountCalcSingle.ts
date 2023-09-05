@@ -20,10 +20,10 @@ export class AmountCalculator {
     reserves: ReservesData;
     hilo: HiLo | null = null;
     difference: Difference | null = null;
-    slip: BN | undefined;
-    amountLowSlippage: BN | null = null;
+    slip: BN;
+    amountLowSlippage: BN | undefined;
 
-    tradeSizeBN!: BN
+    tradeSizeBN: BN
     tradeSize!: BigNumber
 
     amountOutJS!: BigNumber;
@@ -35,18 +35,16 @@ export class AmountCalculator {
         this.reserves = price.reserves;
         this.pair = pair;
         this.price = price;
+        this.slip = slippageTolerance
         this.token0 = pair.token0;
         this.token1 = pair.token1;
-        // this.price = price;
-        this.slip = slippageTolerance;
+        this.amountLowSlippage = BN(0);
         this.tradeSizeBN = BN(0);
     }
 
     async getTradeAmountBN(): Promise<BN> {
         if (this.tradeSizeBN !== null) {
-            this.amountLowSlippage = (
-                await lowSlippage(
-                    this.price.reserves.reserveInBN, this.price.reserves.reserveOutBN, this.price.reserves.reserveOutBN, this.slip!));
+            this.amountLowSlippage = await lowSlippage(this.price.reserves.reserveInBN, this.price.reserves.reserveOutBN, this.price.priceOutBN, this.slip);
             this.tradeSizeBN = this.amountLowSlippage//.toFixed(this.sp.tokenIndec);
             // this.tradeSize = BN.min(this.amountIn, this.amountInB)//.toFixed(this.sp.tokenIndec)
         }
@@ -67,13 +65,13 @@ export class AmountCalculator {
 
         let tradeSize = await this.getTradeAmount();
 
-        this.amountOutJS = getAmountsOut(tradeSize, this.price.reserves.reserveIn, this.price.reserves.reserveOut!)
+        this.amountOutJS = await getAmountsOut(tradeSize, this.price.reserves.reserveIn, this.price.reserves.reserveOut!)
 
-        this.amountRepayJS = getAmountsIn(tradeSize, this.price.reserves.reserveOut, this.price.reserves.reserveIn!)
+        this.amountRepayJS = await getAmountsIn(tradeSize, this.price.reserves.reserveOut, this.price.reserves.reserveIn!)
 
         this.amountOutBN = BN(utils.formatUnits(this.amountOutJS, this.token1?.decimals!))
 
-        this.amountRepayBN = BN(utils.formatUnits(this.amountRepayJS, this.token0?.decimals!))
+        this.amountRepayBN = BN(utils.formatUnits(this.amountRepayJS, this.token1?.decimals!))
 
         let amounts: Amounts = {
             tradeSize: tradeSize,

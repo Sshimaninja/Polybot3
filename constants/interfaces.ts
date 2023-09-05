@@ -1,4 +1,4 @@
-import { BigNumber } from "ethers";
+import { BigNumber, Contract } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 
 export interface Factory {
@@ -37,8 +37,9 @@ export interface Token {
 }
 
 export interface Profit {
-    profit: BigNumber;
-    gasCost: BigNumber;
+    profit: string;
+    gasCost: string;
+    gasPool: string;
 }
 export interface Amounts {
     tradeSize: BigNumber;
@@ -84,38 +85,39 @@ export interface BoolTrade {
     tradeSize: BigNumber
     loanPool: {
         exchange: string
-        factory: string
-        router: string
-        poolID: string
+        factory: Contract
+        router: Contract
+        pool: Contract
         amountOut: BN
-        amountOutjs: BigNumber,
+        amountOutjs: BigNumber
         amountRepay: BN
-        amountRepayjs: BigNumber,
-        tokenOutPrice: BN | undefined
-        reserveIn: BN | undefined
-        reserveInjs: BigNumber | undefined
-        reserveOut: BN | undefined
-        reserveOutjs: BigNumber | undefined
+        amountRepayjs: BigNumber
+        tokenOutPrice: BN
+        reserveIn: BN
+        reserveInjs: BigNumber
+        reserveOut: BN
+        reserveOutjs: BigNumber
         factoryID: string
         routerID: string
     }
     recipient: {
         exchange: string
-        factory: string
-        router: string
-        poolID: string
+        factory: Contract
+        router: Contract
+        pool: Contract
         amountOut: BN
-        amountOutjs: BigNumber,
+        amountOutjs: BigNumber
         amountRepay: BN
-        amountRepayjs: BigNumber,
-        tokenOutPrice: BN | undefined
-        reserveIn: BN | undefined
-        reserveInjs: BigNumber | undefined
-        reserveOut: BN | undefined
-        reserveOutjs: BigNumber | undefined
+        amountRepayjs: BigNumber
+        tokenOutPrice: BN
+        reserveIn: BN
+        reserveInjs: BigNumber
+        reserveOut: BN
+        reserveOutjs: BigNumber
         factoryID: string
         routerID: string
     }
+    gasData: any;
     profitBN: BN,
     profitJS: BigNumber,
 }
@@ -260,4 +262,22 @@ export interface HiLo {
 export interface Difference {
     difference: BN;
     differencePercent: BN;
+}
+
+
+export interface GasData {
+    safeLow: {
+        maxPriorityFee: number,
+        maxFee: number
+    }, standard: {
+        maxPriorityFee: number,
+        maxFee: number
+    },
+    fast: {
+        maxPriorityFee: number,
+        maxFee: number
+    },
+    estimatedBaseFee: number,
+    blockTime: number,
+    blockNumber: Promise<number>,
 }
