@@ -4,6 +4,7 @@ import { RouterMap, uniswapV2Router } from "../../constants/addresses";
 import { Amounts, FactoryPair, GasData, Pair, Profit } from "../../constants/interfaces";
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
+import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
 import { wallet } from "../../constants/contract";
 import { Contract } from "@ethersproject/contracts";
 import { Prices } from "./prices";
@@ -57,11 +58,11 @@ export class Trade {
                 exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
                 factory: A ? new Contract(this.pair.factoryB_id, IFactory, wallet) : new Contract(this.pair.factoryA_id, IFactory, wallet),
                 router: A ? new Contract(routerB_id, IRouter, wallet) : new Contract(routerA_id, IRouter, wallet),
-                poolID: A ? this.match.poolB_id : this.match.poolA_id,
+                pool: A ? new Contract(this.match.poolB_id, IPair, wallet) : new Contract(this.match.poolA_id, IPair, wallet),
                 amountOut: A ? this.amounts1.amountOutBN : this.amounts0.amountOutBN,
                 amountOutjs: A ? this.amounts1.amountOutJS : this.amounts0.amountOutJS,
-                amountRepay: A ? this.amounts1.amountRepayBN : this.amounts0.amountRepayBN,
-                amountRepayjs: A ? this.amounts1.amountRepayJS : this.amounts0.amountRepayJS,
+                amountRepay: A ? this.amounts0.amountRepayBN : this.amounts1.amountRepayBN,
+                amountRepayjs: A ? this.amounts0.amountRepayJS : this.amounts1.amountRepayJS,
                 tokenOutPrice: A ? this.price1.priceOutBN : this.price0.priceOutBN,
                 reserveIn: A ? this.price1.reserves.reserveInBN : this.price0.reserves.reserveInBN,
                 reserveInjs: A ? this.price1.reserves.reserveIn : this.price0.reserves.reserveIn,
@@ -74,11 +75,11 @@ export class Trade {
                 exchange: A ? this.pair.exchangeA : this.pair.exchangeB,
                 factory: A ? new Contract(this.pair.factoryA_id, IFactory, wallet) : new Contract(this.pair.factoryB_id, IFactory, wallet),
                 router: A ? new Contract(routerA_id, IRouter, wallet) : new Contract(routerB_id, IRouter, wallet),
-                poolID: A ? this.match.poolA_id : this.match.poolB_id,
+                pool: A ? new Contract(this.match.poolA_id, IPair, wallet) : new Contract(this.match.poolB_id, IPair, wallet),
                 amountOut: A ? this.amounts0.amountOutBN : this.amounts1.amountOutBN,
                 amountOutjs: A ? this.amounts0.amountOutJS : this.amounts1.amountOutJS,
-                amountRepay: A ? this.amounts0.amountRepayBN : this.amounts1.amountRepayBN,
-                amountRepayjs: A ? this.amounts0.amountRepayJS : this.amounts1.amountRepayJS,
+                amountRepay: A ? this.amounts1.amountRepayBN : this.amounts0.amountRepayBN,
+                amountRepayjs: A ? this.amounts1.amountRepayJS : this.amounts0.amountRepayJS,
                 tokenOutPrice: A ? this.price0.priceOutBN : this.price0.priceOutBN,
                 reserveIn: A ? this.price0.reserves.reserveInBN : this.price0.reserves.reserveInBN,
                 reserveInjs: A ? this.price0.reserves.reserveIn : this.price0.reserves.reserveIn,
@@ -88,8 +89,8 @@ export class Trade {
                 factoryID: A ? this.pair.factoryA_id : this.pair.factoryB_id,
             },
             gasData: this.gasData,
-            profitBN: A ? this.amounts0.amountOutBN.minus(this.amounts1.amountRepayBN) : B ? this.amounts1.amountOutBN.minus(this.amounts0.amountRepayBN) : BN(0),
-            profitJS: A ? this.amounts0.amountOutJS.sub(this.amounts1.amountRepayJS) : B ? this.amounts1.amountOutJS.sub(this.amounts0.amountRepayJS) : BigNumber.from(0),
+            profitBN: A ? this.amounts1.amountOutBN.minus(this.amounts1.amountRepayBN) : B ? this.amounts0.amountOutBN.minus(this.amounts0.amountRepayBN) : BN(0),
+            profitJS: A ? this.amounts1.amountOutJS.sub(this.amounts1.amountRepayJS) : B ? this.amounts0.amountOutJS.sub(this.amounts0.amountRepayJS) : BigNumber.from(0),
         };
         return trade;
     }

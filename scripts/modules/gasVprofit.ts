@@ -13,25 +13,40 @@ require('dotenv').config()
 
 export async function gasVprofit(trade: BoolTrade,): Promise<Profit | undefined> {
     let profit: Profit;
-    if (trade !== undefined) {
-
+    console.log("Trade: ", trade.direction, trade.tokenIn.symbol, "/", trade.tokenOut.symbol, " @ ", trade.ticker)
+    if (trade.direction != undefined) {
         const prices = await fetchGasPrice(trade);
         const gasPrice = BigNumber.from(prices.maxFee)
             .add(BigNumber.from(prices.maxPriorityFee))
             .mul(prices.gasEstimate.toNumber());
 
         var profitinMatic = await getProfitInMatic(trade);
-        if (profitinMatic) {
+
+        if (profitinMatic.profitInMatic.gt(BigNumber.from(0))) {
             profit = {
-                profit: profitinMatic.profitInMatic,
-                gasCost: gasPrice,
-                gasPool: profitinMatic.gasPool,
+                profit: utils.formatUnits(profitinMatic.profitInMatic, 18),
+                gasCost: utils.formatUnits(gasPrice, 18),
+                gasPool: profitinMatic.gasPool.address,
             }
             console.log("Profit: ", profit)
             return profit;
+        } else if (profitinMatic.gasPool == undefined) {
+            console.log("Trade is undefined.")
+            return profit = {
+                profit: utils.formatUnits(profitinMatic.profitInMatic, 18),
+                gasCost: utils.formatUnits(gasPrice, 18),
+                gasPool: "undefined",
+
+            };
         } else {
             console.log("Trade is undefined.")
-            return undefined;
+            return profit = {
+                profit: utils.formatUnits(profitinMatic.profitInMatic, 18),
+                gasCost: utils.formatUnits(gasPrice, 18),
+                gasPool: "undefined",
+
+            };
+
         }
     }
 }

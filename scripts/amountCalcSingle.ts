@@ -71,7 +71,7 @@ export class AmountCalculator {
 
         this.amountOutBN = BN(utils.formatUnits(this.amountOutJS, this.token1?.decimals!))
 
-        this.amountRepayBN = BN(utils.formatUnits(this.amountRepayJS, this.token0?.decimals!))
+        this.amountRepayBN = BN(utils.formatUnits(this.amountRepayJS, this.token1?.decimals!))
 
         let amounts: Amounts = {
             tradeSize: tradeSize,
