@@ -51,12 +51,12 @@ export class Trade {
         let routerB_id = uniswapV2Router[this.pair.exchangeB];
 
         const amountRepay0JS: BigNumber = await this.getRepay(
-            this.amounts0.tradeSize,
+            this.amounts1.tradeSize,
             this.price0.reserves.reserveOut,
             this.price0.reserves.reserveIn)
 
         const amountRepay1JS: BigNumber = await this.getRepay(
-            this.amounts1.tradeSize,
+            this.amounts0.tradeSize,
             this.price1.reserves.reserveOut,
             this.price1.reserves.reserveIn)
 
@@ -71,21 +71,21 @@ export class Trade {
             tokenIn: this.match.token0,
             tokenOut: this.match.token1,
             loanPool: {
-                tradeSize: A ? this.amounts0.tradeSize : this.amounts1.tradeSize,
+                tradeSize: A ? this.amounts1.tradeSize : this.amounts0.tradeSize,
                 exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
                 factory: A ? new Contract(this.pair.factoryB_id, IFactory, wallet) : new Contract(this.pair.factoryA_id, IFactory, wallet),
                 router: A ? new Contract(routerB_id, IRouter, wallet) : new Contract(routerA_id, IRouter, wallet),
                 pool: A ? new Contract(this.match.poolB_id, IPair, wallet) : new Contract(this.match.poolA_id, IPair, wallet),
                 priceIn: A ? this.price1.priceInBN : this.price0.priceInBN,
                 amountOutJS: A ? this.amounts1.amountOutJS : this.amounts0.amountOutJS,
-                amountRepayJS: A ? amountRepay0JS : amountRepay1JS,
+                amountRepayJS: A ? amountRepay1JS : amountRepay0JS,
                 reserveInJS: A ? this.price1.reserves.reserveIn : this.price0.reserves.reserveIn,
                 reserveOutJS: A ? this.price1.reserves.reserveOut : this.price0.reserves.reserveOut,
                 factoryID: A ? this.pair.factoryB_id : this.pair.factoryA_id,
                 routerID: A ? routerB_id : routerA_id,
             },
             recipient: {
-                tradeSize: A ? this.amounts1.tradeSize : this.amounts0.tradeSize,
+                tradeSize: A ? this.amounts0.tradeSize : this.amounts1.tradeSize,
                 exchange: A ? this.pair.exchangeA : this.pair.exchangeB,
                 factory: A ? new Contract(this.pair.factoryA_id, IFactory, wallet) : new Contract(this.pair.factoryB_id, IFactory, wallet),
                 router: A ? new Contract(routerA_id, IRouter, wallet) : new Contract(routerB_id, IRouter, wallet),
@@ -105,7 +105,7 @@ export class Trade {
         const d = {
             ticker: trade.ticker,
             tradeSize: {
-                tradeSizeJS: utils.formatUnits(trade.loanPool.tradeSize, trade.tokenIn.decimals),
+                tradeSizeJS: utils.formatUnits(trade.recipient.tradeSize, trade.tokenIn.decimals),
             },
             recipient: {
                 amountOutJS: utils.formatUnits(trade.recipient.amountOutJS, trade.tokenOut.decimals),
