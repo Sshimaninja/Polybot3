@@ -32,9 +32,9 @@ export async function sendit(
             trade.recipient.routerID,
             trade.tokenIn.id,
             trade.tokenOut.id,
-            trade.tradeSize,
-            trade.recipient.amountOut,
-            trade.loanPool.amountRepay,
+            trade.recipient.tradeSize,
+            trade.recipient.amountOutJS,
+            trade.loanPool.amountRepayJS,
             {
                 type: 2,
                 // gasPrice: gasLimit,

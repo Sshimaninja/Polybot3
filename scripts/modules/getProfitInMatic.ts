@@ -26,7 +26,7 @@ export async function getProfitInMatic(trade: BoolTrade): Promise<MaticProfit> {
         }
 
         if (trade.tokenIn.id == matic) {
-            let inMatic = await getAmountsOut(trade.profitJS, trade.recipient.reserveOutjs, trade.recipient.reserveInjs)
+            let inMatic = await getAmountsOut(trade.profitJS, trade.recipient.reserveOutJS, trade.recipient.reserveInJS)
             let profitInMatic = inMatic;
             let gasPool = new Contract(trade.recipient.pool.address, IPair, wallet);
             return { profitInMatic, gasPool };
