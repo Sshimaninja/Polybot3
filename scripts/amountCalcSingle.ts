@@ -24,12 +24,10 @@ export class AmountCalculator {
     amountLowSlippage: BN | undefined;
 
     tradeSizeBN: BN
-    tradeSize!: BigNumber
+    tradeSizeJS: BigNumber
 
-    amountOutJS!: BigNumber;
-    amountRepayJS!: BigNumber;
-    amountOutBN!: BN;
-    amountRepayBN!: BN;
+    amountOutJS: BigNumber;
+    amountRepayJS: BigNumber;
 
     constructor(price: Prices, pair: Pair, slippageTolerance: BN) {
         this.reserves = price.reserves;
@@ -39,49 +37,38 @@ export class AmountCalculator {
         this.token0 = pair.token0;
         this.token1 = pair.token1;
         this.amountLowSlippage = BN(0);
+        this.tradeSizeJS = utils.parseUnits("0", this.token0.decimals!);
         this.tradeSizeBN = BN(0);
+        this.amountOutJS = utils.parseUnits("0", this.token1.decimals!);
+        this.amountRepayJS = utils.parseUnits("0", this.token1.decimals!);
     }
 
     async getTradeAmountBN(): Promise<BN> {
-        if (this.tradeSizeBN !== null) {
-            this.amountLowSlippage = await lowSlippage(this.price.reserves.reserveInBN, this.price.reserves.reserveOutBN, this.price.priceOutBN, this.slip);
-            this.tradeSizeBN = this.amountLowSlippage//.toFixed(this.sp.tokenIndec);
-            // this.tradeSize = BN.min(this.amountIn, this.amountInB)//.toFixed(this.sp.tokenIndec)
-        }
-        // console.log("tradeSizeBN: ", this.tradeSizeBN)
+        // This is set to determine how much of own token0 can be traded for token1, causing only the specified slippage.
+        this.amountLowSlippage = await lowSlippage(this.price.reserves.reserveInBN, this.price.reserves.reserveOutBN, this.price.priceOutBN, this.slip);
+        this.tradeSizeBN = this.amountLowSlippage//.toFixed(this.sp.tokenIndec);
+        // this.tradeSize = BN.min(this.amountIn, this.amountInB)//.toFixed(this.sp.tokenIndec)
         return this.tradeSizeBN;
     }
 
-    async getTradeAmount(): Promise<BigNumber> {
-        if (this.tradeSizeBN !== null) {
-            let tradeSizeBN = await this.getTradeAmountBN();
-            let tradeSizeNumber = tradeSizeBN.toFixed(this.token0?.decimals!);
-            this.tradeSize = utils.parseUnits(tradeSizeNumber, this.token0?.decimals!);
-        }
-        return this.tradeSize;
+    async getTradeAmountJS(): Promise<BigNumber> {
+        let tradeSizeBN = await this.getTradeAmountBN();
+        let tradeSizeNumber = tradeSizeBN.toFixed(this.token0.decimals);
+        this.tradeSizeJS = utils.parseUnits(tradeSizeNumber, this.token0.decimals!);
+        return this.tradeSizeJS;
     }
 
     async getAmounts(): Promise<Amounts> {
 
-        let tradeSize = await this.getTradeAmount();
+        let tradeSize = await this.getTradeAmountJS();
 
-        this.amountOutJS = await getAmountsOut(tradeSize, this.price.reserves.reserveIn, this.price.reserves.reserveOut!)
+        const out = this.amountOutJS = await getAmountsOut(tradeSize, this.price.reserves.reserveIn, this.price.reserves.reserveOut!)
 
-        this.amountRepayJS = await getAmountsIn(tradeSize, this.price.reserves.reserveOut, this.price.reserves.reserveIn!)
-
-        this.amountOutBN = BN(utils.formatUnits(this.amountOutJS, this.token1?.decimals!))
-
-        this.amountRepayBN = BN(utils.formatUnits(this.amountRepayJS, this.token1?.decimals!))
-
-        let amounts: Amounts = {
+        let amountsOut: Amounts = {
             tradeSize: tradeSize,
-            amountOutBN: this.amountOutBN,
-            amountOutJS: this.amountOutJS,
-            amountRepayBN: this.amountRepayBN,
-            amountRepayJS: this.amountRepayJS,
+            amountOutJS: out,
         }
-        return amounts;
-
+        return amountsOut;
     }
 
 }

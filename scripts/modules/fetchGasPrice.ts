@@ -24,9 +24,9 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<{ gasEstimate: Bi
                     trade.recipient.routerID,
                     trade.tokenIn.id,
                     trade.tokenOut.id,
-                    trade.tradeSize,
-                    trade.recipient.amountOutjs,
-                    trade.loanPool.amountRepayjs
+                    trade.recipient.tradeSize,
+                    trade.recipient.amountOutJS,
+                    trade.loanPool.amountRepayJS
                 );
             } catch (error) {
                 console.log(`Error in fetchGasPrice for trade: ${trade.ticker}`, ".Using default gas estimate");
@@ -47,16 +47,16 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<{ gasEstimate: Bi
         console.log("Gas Estimate: " + gasEstimate + " gas")
 
 
-        // const filter = {
-        //     address: flash.address, // Replace with the contract address
-        //     fromBlock: 0,
-        //     toBlock: 'latest',
-        // };
-        // const logs = await provider.getLogs(filter);
-        // logs.forEach(log => {
-        //     const parsedLog = flash.interface.parseLog(log);
-        //     console.log(parsedLog.args.message); // Print the log message
-        // });
+        const filter = {
+            address: flash.address, // Replace with the contract address
+            fromBlock: 0,
+            toBlock: 'latest',
+        };
+        const logs = await provider.getLogs(filter);
+        logs.forEach(log => {
+            const parsedLog = flash.interface.parseLog(log);
+            console.log(parsedLog.args.message); // Print the log message
+        });
 
         /* Convert the fetched GWEI gas price to WEI after converting ignore the decimal value
          * as the transaction payload only accepts whole number
