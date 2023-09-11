@@ -4,7 +4,7 @@ import { BigNumber as BN } from "bignumber.js";
 import { Prices } from './modules/prices';
 import { BoolFlash, HiLo, Difference, Pair, FactoryPair, BoolTrade } from '../constants/interfaces';
 import { AmountCalculator } from './amountCalcSingle'
-import { Trade } from './modules/populateTrade';
+import { Trade } from './modules/populateLocalTrade';
 import { gasVprofit } from './modules/gasVprofit';
 import { Reserves } from './modules/reserves';
 import { sendit } from './execute';

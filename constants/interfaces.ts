@@ -80,12 +80,13 @@ export interface BoolTrade {
     tokenIn: Token
     tokenOut: Token
     loanPool: {
-        tradeSize: BigNumber
+        priceIn: string
+        priceOut: string
+        // tradeSize: BigNumber
         exchange: string
         factory: Contract
         router: Contract
         pool: Contract
-        priceIn: BN
         amountOutJS: BigNumber
         amountRepayJS: BigNumber
         reserveInJS: BigNumber
@@ -94,13 +95,14 @@ export interface BoolTrade {
         routerID: string
     }
     recipient: {
+        priceIn: string
+        priceOut: string
         tradeSize: BigNumber
         exchange: string
         factory: Contract
         router: Contract
         pool: Contract
-        priceOut: BN
-        amountRepayJS: BigNumber
+        // amountRepayJS: BigNumber
         amountOutJS: BigNumber
         reserveInJS: BigNumber
         reserveOutJS: BigNumber
