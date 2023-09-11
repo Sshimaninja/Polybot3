@@ -5,7 +5,7 @@ import { BigNumber as BN } from "bignumber.js";
 import { Prices } from './modules/prices';
 import { BoolFlash, HiLo, Difference, Pair, FactoryPair, BoolTrade } from '../constants/interfaces';
 import { AmountCalculator } from './amountCalcSingle'
-import { Trade } from './modules/populateTrade';
+import { Trade } from './modules/populateDirectTrade';
 import { gasVprofit } from './modules/gasVprofit';
 import { Reserves } from './modules/reserves';
 import { sendit } from './execute';
@@ -48,17 +48,25 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
 
                     let c0 = new AmountCalculator(p0, match, slippageTolerance)
                     let c1 = new AmountCalculator(p1, match, slippageTolerance)
-                    let amounts0 = await c0.getAmounts()
-                    let amounts1 = await c1.getAmounts()
+                    //This uses price from opposing pool as 'target'price. Oracles can be used, but this is a simple solution, and not subject to manipulation.
+                    let amounts0 = await c0.getAmounts(p0.reserves.reserveInBN, p0.reserves.reserveOutBN, p1.priceOutBN, slippageTolerance)
+                    let amounts1 = await c1.getAmounts(p1.reserves.reserveInBN, p1.reserves.reserveOutBN, p0.priceOutBN, slippageTolerance)
 
 
                     // 3. Determine trade direction & profitability
                     let t = new Trade(pair, match, p0, p1, amounts0, amounts1, gasData)
                     let trade = await t.getTradefromAmounts()
+
                     // 4. Calculate Gas vs Profitability
+
+                    /**
+                     * I need to filter out trades with negative any values
+                     */
+
                     let profit = await gasVprofit(trade)
 
                     if (profit.profit !== undefined) {
+
                         let basicData = {
                             ticker: trade.ticker,
                             tradeSize: trade.recipient.tradeSize,
@@ -69,7 +77,7 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
 
                         // 5. If profitable, execute trade
 
-                        if (BN(profit.profit).gt(0)) {
+                        if (BN(profit.profit).gt(0) && warning == 0) {
                             logger.info("Profitable trade found on " + trade.ticker + "!")
                             // logger.info(trade)
                             logger.info("Profit: ", profit.profit.toString(), "Gas Cost: ", profit.gasCost.toString())
@@ -77,19 +85,22 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
                             pendingID = trade.recipient.pool.address
                             await sendit(trade, tradePending)
                             warning = 1
-                        } else if (BN(profit.profit).lt(0)) {
-                            console.log("No trade: \n", basicData)
-                        } else if (warning == 0) {
+                        } if (BN(profit.profit).gt(0) && warning !== 0) {
                             logger.info("Trade pending on " + pendingID + "?: ", tradePending)
                             warning = 1
                             return warning
                         }
-                    } else {
-                        console.log("Profit is undefined: error in gasVProfit")
+                        if (BN(profit.profit).lt(0)) {
+                            console.log("No trade")
+                            return
+                        } else {
+                            console.log("Profit is undefined: error in gasVProfit")
+                        }
                     }
                 }
             }
         }
     })
+
 }
 

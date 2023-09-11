@@ -3,7 +3,7 @@ import axios from "axios";
 import { provider, signer, wallet, flash, logger } from "../constants/contract";
 // import { abi as IFlash } from '../artifacts/contracts/flashOne.sol/flashOne.json';
 import { BoolTrade } from "../constants/interfaces";
-import { Trade } from "./modules/populateTrade";
+import { Trade } from "./modules/populateLocalTrade";
 // import { deployedMap } from "../constants/addresses";
 import { BigNumber as BN } from "bignumber.js";
 import { fetchGasPrice } from "./modules/fetchGasPrice";

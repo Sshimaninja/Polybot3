@@ -1,7 +1,7 @@
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IERC20 } from '@uniswap/v2-core/build/IERC20.json';
-import { Contract, BigNumber } from "ethers";
+import { Contract, utils, BigNumber } from "ethers";
 import { FactoryMap, RouterMap, uniswapV2Factory, uniswapV3Factory } from "../../../constants/addresses";
 import { wallet } from "../../../constants/contract";
 import { provider } from "../../../constants/contract";
@@ -67,22 +67,27 @@ export class AllV2Pairs {
                         const block = currentBlockTimestamp;
                         // console.log('Block: ' + block);
 
-                        if (reserves[0] > 1 && reserves[1] > 1 && blockTimeStampLast > (currentBlockTimestamp - 1000000)) {
-                            console.log('Pair: ' + pair);
-                            console.log('Last: ' + blockTimeStampLast)
-                            console.log('Current: ' + currentBlockTimestamp)
+                        if (reserves[0].gt(utils.parseEther("1")) && reserves[1].gt(utils.parseEther("1")) && blockTimeStampLast > (block - 40000 * 12)) {
                             const token0id = await pairContract.token0();
-                            console.log('Token0: ' + token0id);
+                            const token0 = new Contract(token0id, IERC20, wallet)
+
                             const token1id = await pairContract.token1();
-                            console.log('Token1: ' + token1id);
+                            const token1 = new Contract(token1id, IERC20, wallet)
+
                             try {
-                                const token0 = new Contract(token0id, IERC20, wallet);
-                                const token1 = new Contract(token1id, IERC20, wallet);
                                 const token0Symbol = await token0.symbol();
                                 const token0Decimals = await token0.decimals();
                                 const token1Symbol = await token1.symbol();
                                 const token1Decimals = await token1.decimals();
                                 const ticker = `${token0Symbol}/${token1Symbol}`;
+                                console.log('Pair: ' + pair);
+                                console.log('Last: ' + blockTimeStampLast)
+                                console.log('Current: ' + currentBlockTimestamp)
+                                console.log('Symbol: ' + ticker)
+                                console.log('Token0: ' + token0id);
+                                console.log('reserves0: ' + utils.formatUnits(reserves[0], token0Decimals))
+                                console.log('Token1: ' + token1id);
+                                console.log('reserves1: ' + utils.formatUnits(reserves[1], token1Decimals))
                                 const tokenData = {
                                     ticker: ticker,
                                     poolID: pair,
@@ -109,7 +114,7 @@ export class AllV2Pairs {
                         routerID: routerID,
                         pairs: validPairs,
                     }]
-                    fs.appendFileSync(pairsFile, JSON.stringify(factoryPair, null, 2) + '\n');
+                    fs.writeFileSync(pairsFile, JSON.stringify(factoryPair, null, 2) + '\n');
                     console.log(`Valid pairs: ${validPairs.length}`);
                     console.log(`Valid pairs written to ${pairsFile}`);
                 }
@@ -119,6 +124,4 @@ export class AllV2Pairs {
         });
 
     }
-
-
 }

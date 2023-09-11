@@ -18,7 +18,7 @@ import { BoolFlash, Trade } from '../constants/interfaces';
 import { lowSlippage } from './modules/lowslipBN';
 import { getAmountsIn, getAmountsOut, getAmountsIO } from './modules/getAmountsIO';
 import { getAmountsIn as getAmountsInjs, getAmountsOut as getAmountsOutjs, getAmountsIO as getAmountsIOjs } from './modules/getAmountsIOjs';
-import { getTradefromAmounts } from './modules/populateTrade';
+import { getTradefromAmounts } from './modules/populateLocalTrade';
 import { fetchGasPrice } from "./modules/fetchGasPrice";
 import { gasVprofit } from './modules/gasVprofit';
 import { calculateLoanCost } from './modules/loanCost'

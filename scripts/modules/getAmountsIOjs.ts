@@ -1,24 +1,26 @@
-import { BigNumber } from 'ethers';
+import { BigNumber, Contract } from 'ethers';
+import { wallet } from '../../constants/contract';
+import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
+import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
 
 
-
-
-export async function getAmountsOut(amountIn: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
-    const amountInWithFee = amountIn.mul(997);
-    const numerator = amountInWithFee.mul(reserveOut);
-    const denominator = reserveIn.mul(1000).add(amountInWithFee);
-    const amountOut = numerator.div(denominator);
-    return amountOut;
+export async function getAmountsOut(routerID: string, amountIn: BigNumber, path: string[]) {
+    const router = new Contract(routerID, IRouter, wallet)
+    var amountReceived = await router.getAmountsOut(amountIn, path)
+    return amountReceived
 }
 
-//amountIn = amountOut * reserveIn / (reserveOut - amountOut)
-export async function getAmountsIn(amountOut: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
-    const fee = amountOut.mul(BigNumber.from("3")).div(BigNumber.from("1000")); // Calculate the fee (0.3% of the borrowed amount)
-    const numerator = reserveIn.mul(amountOut).mul(1000);
-    const denominator = reserveOut.sub(amountOut).mul(997);
-    const amountIn = numerator.div(denominator).add(1);
-    return amountIn;
+export async function getAmountsIn(routerID: string, amountOut: BigNumber, path: string[]) {
+    const router = new Contract(routerID, IRouter, wallet)
+    var amountRequired = await router.getAmountsIn(amountOut, path)
+    return amountRequired
 }
+
+
+
+
+
+
 
 // ///
 // const borrowedAmount = utils.parseUnits("100", token0Decimals); // The amount of token0 borrowed from the pool
@@ -28,16 +30,16 @@ export async function getAmountsIn(amountOut: BigNumber, reserveIn: BigNumber, r
 // const amountInToken1 = utils.formatUnits(amountIn, token1Decimals); // Convert the amount of token1 to a human-readable format
 // ///
 // export async function getAmountsIO() {
-    // return
-    //     amountIn: BigNumber,
-    //     reserveIn: BigNumber,
-    //     reserveOut: BigNumber,
-    //     // B1: boolean,
-    //     // A1: boolean
-    // ): Promise<{ amountOut: BigNumber, amountRepay: BigNumber }> {
-    //     const amountOut = await getAmountsOut(amountIn, reserveIn, reserveOut)
-    //     const amountRepay = await getAmountsIn(amountIn, reserveOut, reserveIn)
-    // return { amountOut, amountRepay }
+// return
+//     amountIn: BigNumber,
+//     reserveIn: BigNumber,
+//     reserveOut: BigNumber,
+//     // B1: boolean,
+//     // A1: boolean
+// ): Promise<{ amountOut: BigNumber, amountRepay: BigNumber }> {
+//     const amountOut = await getAmountsOut(amountIn, reserveIn, reserveOut)
+//     const amountRepay = await getAmountsIn(amountIn, reserveOut, reserveIn)
+// return { amountOut, amountRepay }
 // }
 
 

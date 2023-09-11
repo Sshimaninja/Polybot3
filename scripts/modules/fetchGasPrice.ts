@@ -2,7 +2,7 @@ import { BigNumber, ethers, utils, Contract, Wallet } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { getGasData } from "./getPolygonGasPrices";
 import axios from "axios";
-import { Trade } from "./populateTrade"
+import { Trade } from "./populateLocalTrade"
 import { provider, flash, logger } from "../../constants/contract";
 import { BoolTrade, GasData } from "../../constants/interfaces";
 

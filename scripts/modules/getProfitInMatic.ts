@@ -1,7 +1,7 @@
 import { BigNumber, ethers, Contract } from "ethers";
 import { BoolTrade } from "../../constants/interfaces";
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
-import { getAmountsOut } from "./getAmountsIOjs";
+import { getAmountsOut } from "./getAmountsIOLocal";
 import { gasTokens } from "../../constants/addresses";
 import { provider, logger, wallet } from "../../constants/contract";
 import { getgasPoolForTrade } from "./gasPoolTools";
