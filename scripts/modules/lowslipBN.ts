@@ -2,13 +2,16 @@ import { BigNumber as BN } from "bignumber.js";
 
 export async function getRequiredTokenIn(reserveIn: BN, reserveOut: BN, targetPrice: BN, slippageTolerance: BN): Promise<BN> {
     // Calculate the expected trade size without considering slippage
-    const expectedTradeSize = reserveIn.minus(targetPrice.multipliedBy(reserveOut));
+    // ex reserveIn/reserveOut: 300000 / 10
+    // currentPrice = 30000 / 1
+    // targetPrice = 30000 / 1.2 = 25000
+    const expectedTradeSize = reserveIn.minus(targetPrice.multipliedBy(reserveOut)); // 300000 - (25000 * 10) = 50000
 
     // Calculate the maximum allowed slippage in the trade
-    const maxSlippage = expectedTradeSize.multipliedBy(slippageTolerance);
+    const maxSlippage = expectedTradeSize.multipliedBy(slippageTolerance); //50000 * 0.1 = 5000
 
     // Calculate the required tokenIn considering slippage
-    const requiredTokenIn = maxSlippage;
+    const requiredTokenIn = maxSlippage; // 5000
 
     return requiredTokenIn;
 }

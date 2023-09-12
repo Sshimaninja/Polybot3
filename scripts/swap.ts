@@ -16,7 +16,7 @@ Replace 0/1 new class instances with a loop that handles n instances
 */
 let warning = 0
 let tradePending = false;
-let slippageTolerance = BN(0.01)
+let slippageTolerance = BN(0.001) // 0.1%
 // var virtualReserveFactor = 1.1
 var pendingID: string | undefined
 
@@ -51,7 +51,6 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
                     //This uses price from opposing pool as 'target'price. Oracles can be used, but this is a simple solution, and not subject to manipulation.
                     let amounts0 = await c0.getAmounts(p0.reserves.reserveInBN, p0.reserves.reserveOutBN, p1.priceOutBN, slippageTolerance)
                     let amounts1 = await c1.getAmounts(p1.reserves.reserveInBN, p1.reserves.reserveOutBN, p0.priceOutBN, slippageTolerance)
-
 
                     // 3. Determine trade direction & profitability
                     let t = new Trade(pair, match, p0, p1, amounts0, amounts1, gasData)
