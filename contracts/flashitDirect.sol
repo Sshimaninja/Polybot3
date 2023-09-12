@@ -26,7 +26,16 @@ interface IUniswapV2Router02 {
         address to,
         uint deadline
     ) external returns (uint[] memory amounts);
+
+    function swapTokensForExactTokens(
+        uint amountOut,
+        uint amountInMax,
+        address[] calldata path,
+        address to,
+        uint deadline
+    ) external returns (uint[] memory amounts);
 }
+
 library SafeMath {
     function add(uint x, uint y) internal pure returns (uint z) {
         require((z = x + y) >= x, 'ds-math-add-overflow');
@@ -108,7 +117,7 @@ contract flashitV1 is IUniswapV2Callee{
         emit log("uniswapV2Call Entered");
         address[] memory path = new address[](2);
         emit log("Decoding Loan Data");
-        (address loanFactory, address recipientRouter, uint256 amount1Out,  uint256 amount1Repay) = abi.decode(_data, (address, address, uint256, uint256));
+        (address loanFactory, address recipientRouter, uint256 amount1Out,  uint256 amountRepay) = abi.decode(_data, (address, address, uint256, uint256));
         emit log("Loan Data Decoded");
         path[0] = IUniswapV2Pair(msg.sender).token0();
         path[1] = IUniswapV2Pair(msg.sender).token1();
@@ -130,25 +139,37 @@ contract flashitV1 is IUniswapV2Callee{
         token0.approve(address(recipientRouter), _amount0);
         uint256[] memory amounts = IUniswapV2Router02(address(recipientRouter))
             .swapExactTokensForTokens(
-                _amount0,
-                amount1Out,
-                path,
+                _amount0,// amount0In token0
+                amount1Out, // amountOutMin token1
+                path, // path token0 -> token1
                 address(this),
                 deadline
             );
+        uint256[] memory repayAmounts = IUniswapV2Router02(address(recipientRouter))
+            .swapTokensForExactTokens(
+                amountRepay, // amountRepay token0
+                0, // amountRequired token1
+                path, // path token0 -> token1 
+                address(this),
+                deadline
+            );
+        require (amounts[1] > repayAmounts[1], "Error: Insufficient output amount TO FLASHDIRECT CONTRACT");
+        uint256 profit = amounts[1] - repayAmounts[1]; // profit token1
         emit log("Swap executed");
         emit logValue("AmountsOut expected::::: ", amount1Out);
         emit logValue("AmountsOut calculated:::: ", amounts[1]);
+        emit logValue("AmountRepay expected::::: ", amountRepay);
+        emit logValue("AmountRepay calculated:::: ", repayAmounts[0]);
+        emit logValue("AmountRepay token1 calculated:::: ", repayAmounts[1]);
         emit log("Contract Balances: ");
         emit logValue("Token0: ", token0.balanceOf(address(this)));
         emit logValue("Token1: ", token1.balanceOf(address(this)));        
-        emit logValue("Amount repay expected::::: ", amount1Repay);
-        require(amounts[1] > amount1Repay, "Error: Insufficient output amount");
-        token1.approve(address(address(this)), amounts[1]);
-        emit logValue("AmountsOut approved::::: ", amounts[1]);
-        emit log("Repaying Loan");
-        token1.transfer(msg.sender, amount1Repay); 
-        token1.transfer(owner, amounts[1] - amount1Repay);
+        emit log("Repaying Loan & sending profit");
+        token0.approve(msg.sender, repayAmounts[1]);
+        token0.transfer(msg.sender, repayAmounts[1]); 
         emit log("Loan Repaid");
+        token1.approve(address(address(this)), profit);
+        token1.transfer(owner, profit);
+        emit logValue("Profit:::::::: ", profit);
     }
 }
