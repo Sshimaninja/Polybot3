@@ -2,7 +2,7 @@ import { BigNumber, ethers, utils, Contract, Wallet } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { getGasData } from "./getPolygonGasPrices";
 import axios from "axios";
-import { Trade } from "./populateLocalTrade"
+import { Trade } from "./populateDirectTrade"
 import { provider, flash, logger } from "../../constants/contract";
 import { BoolTrade, GasData } from "../../constants/interfaces";
 
@@ -17,16 +17,16 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<{ gasEstimate: Bi
         const lastestgasLimit = await provider.getBlock("latest");
         console.log('EstimatingGas for trade: ' + trade.ticker + '...');
         let gasEstimate;
-        if (trade.profitJS.gt(0)) {
+        if (trade.profit.gt(0)) {
             try {
                 gasEstimate = await flash.estimateGas.flashSwap(
-                    trade.loanPool.factoryID,
-                    trade.recipient.routerID,
+                    trade.loanPool.factory.address,
+                    trade.recipient.router.address,
                     trade.tokenIn.id,
                     trade.tokenOut.id,
                     trade.recipient.tradeSize,
-                    trade.recipient.amountOutJS,
-                    trade.loanPool.amountRepayJS
+                    trade.recipient.amountOut,
+                    trade.amountRepay
                 );
             } catch (error) {
                 console.log(`Error in fetchGasPrice for trade: ${trade.ticker}`, ".Using default gas estimate");

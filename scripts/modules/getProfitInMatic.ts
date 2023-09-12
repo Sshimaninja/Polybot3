@@ -20,13 +20,13 @@ export async function getProfitInMatic(trade: BoolTrade): Promise<MaticProfit> {
     async function getProfitIfMatic(): Promise<MaticProfit> {
 
         if (trade.tokenOut.id == matic) {
-            let profitInMatic = trade.profitJS;
+            let profitInMatic = trade.profit;
             let gasPool = new Contract(trade.recipient.pool.address, IPair, wallet);
             return { profitInMatic, gasPool };
         }
 
         if (trade.tokenIn.id == matic) {
-            let inMatic = await getAmountsOut(trade.profitJS, trade.recipient.reserveOutJS, trade.recipient.reserveInJS)
+            let inMatic = await getAmountsOut(trade.profit, trade.recipient.reserveOut, trade.recipient.reserveIn)
             let profitInMatic = inMatic;
             let gasPool = new Contract(trade.recipient.pool.address, IPair, wallet);
             return { profitInMatic, gasPool };
@@ -57,7 +57,7 @@ export async function getProfitInMatic(trade: BoolTrade): Promise<MaticProfit> {
 
                 logger.info("Case 1")
                 const reserves = await gasPool.getReserves();
-                const profitInMatic = await getAmountsOut(trade.profitJS, reserves[0], reserves[1])
+                const profitInMatic = await getAmountsOut(trade.profit, reserves[0], reserves[1])
                 // const profitInMatic = utils.parseUnits(profitInMaticBN.toFixed(18), 18)
                 return { profitInMatic, gasPool };
 
@@ -68,27 +68,21 @@ export async function getProfitInMatic(trade: BoolTrade): Promise<MaticProfit> {
 
                 logger.info("Case 2")
                 const reserves = await gasPool.getReserves();
-                const profitInMatic = await getAmountsOut(trade.profitJS, reserves[1], reserves[0]);
+                const profitInMatic = await getAmountsOut(trade.profit, reserves[1], reserves[0]);
                 // const profitInMatic = utils.parseUnits(profitInMaticBN.toFixed(18), 18)
                 return { profitInMatic, gasPool };
 
             }
 
-
-
-            //TODO: REVIEW THESE CASES AS THEY KEEP RETURNING UNDEFINED EVEN THOUGH I KNOW A DAI/WMATIC POOL EXISTS
-
-
-
             //Case: trade.tokenOut.id is paired with a gasToken in the trade.tokenIn position
             if ((gasPool.token0() && gasPool.token1() != matic) && (gasPool.token0() == trade.tokenOut.id)) {
                 logger.info("Case 3")
                 const reserves = await gasPool.getReserves();
-                const profitInGasToken = await getAmountsOut(trade.profitJS, reserves[0], reserves[1]);//returns profit in gasToken/WMATIC
+                const profitInGasToken = await getAmountsOut(trade.profit, reserves[0], reserves[1]);//returns profit in gasToken/WMATIC
                 const gasMaticPool = await (trade.loanPool.factory.getPair(gasPool.token1(), matic) ?? trade.recipient.factory.getPair(gasPool.token1(), matic) ?? undefined);
                 console.log(gasMaticPool.token1, matic)
                 const gasSMaticPoolContract = new ethers.Contract(gasMaticPool, IPair, provider);
-                const profitInMatic = gasSMaticPoolContract.token1() == matic ? await getAmountsOut(trade.profitJS, reserves[0], reserves[1]) : await getAmountsOut(profitInGasToken, reserves[1], reserves[0]);
+                const profitInMatic = gasSMaticPoolContract.token1() == matic ? await getAmountsOut(trade.profit, reserves[0], reserves[1]) : await getAmountsOut(profitInGasToken, reserves[1], reserves[0]);
                 // const profitInMatic = utils.parseUnits(profitInMaticBN.toFixed(18), 18)
                 return { profitInMatic, gasPool };
 
@@ -98,11 +92,11 @@ export async function getProfitInMatic(trade: BoolTrade): Promise<MaticProfit> {
             if ((gasPool.token0() && gasPool.token1() != matic) && (gasPool.token1() == trade.tokenOut.id)) {
                 logger.info("Case 4")
                 const reserves = await gasPool.getReserves();
-                const profitInGasToken = await getAmountsOut(trade.profitJS, reserves[1], reserves[0]);//returns profit in gasToken/MWATIC
+                const profitInGasToken = await getAmountsOut(trade.profit, reserves[1], reserves[0]);//returns profit in gasToken/MWATIC
                 const gasMaticPool = await trade.loanPool.factory.getPair(gasPool.token0(), matic) ?? trade.recipient.factory.getPair(gasPool.token0(), matic) ?? undefined;
                 console.log(gasMaticPool.token0, matic)
                 const gasSMaticPoolContract = new ethers.Contract(gasMaticPool, IPair, provider);
-                const profitInMatic = gasSMaticPoolContract.token1() == matic ? await getAmountsOut(trade.profitJS, reserves[1], reserves[0]) : await getAmountsOut(profitInGasToken, reserves[0], reserves[1]);
+                const profitInMatic = gasSMaticPoolContract.token1() == matic ? await getAmountsOut(trade.profit, reserves[1], reserves[0]) : await getAmountsOut(profitInGasToken, reserves[0], reserves[1]);
                 // const profitInMatic = utils.parseUnits(profitInMaticBN.toFixed(18), 18)
                 return { profitInMatic, gasPool };
 
