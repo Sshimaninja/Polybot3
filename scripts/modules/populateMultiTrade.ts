@@ -3,7 +3,7 @@ import { Amounts, FactoryPair, GasData, Pair, Profit } from "../../constants/int
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
-import { wallet } from "../../constants/contract";
+import { wallet, flashMulti } from "../../constants/contract";
 import { Contract } from "@ethersproject/contracts";
 import { Prices } from "./prices";
 import { BoolTrade } from "../../constants/interfaces"
@@ -11,7 +11,6 @@ import { getAmountsIn } from "./getAmountsIOLocal";
 /**
  *
  */
-
 export class Trade {
     trade: BoolTrade | undefined;
     pair: FactoryPair;
@@ -33,8 +32,9 @@ export class Trade {
     }
 
     // Get repayment amount for the loanPool
-    async getRepay(tradeSize: BigNumber, reserveOut: BigNumber, reserveIn: BigNumber): Promise<BigNumber> {
-        const amountRepay = await getAmountsIn(tradeSize, reserveOut, reserveIn); // result must be token1
+    async getRepay(tradeSize: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
+
+        const amountRepay = await getAmountsIn(tradeSize, reserveIn, reserveOut); // result must be token1
         return amountRepay;
     }
 
@@ -53,21 +53,22 @@ export class Trade {
          *  - Filter out negative amountsRepay trades as they are invalid.
          */
 
+
         //This will probably need some attention. I'm not sure if it's correct.
         //Try calculating this mathematically, rather than using getAmountsIn.
+
         const amountRepay0: BigNumber = await this.getRepay(
-            this.amounts1.tradeSize,            //if tradeSize == 1000
-            this.price0.reserves.reserveOut,
-            this.price0.reserves.reserveIn)
+            this.amounts0.tradeSize,
+            this.price0.reserves.reserveIn,
+            this.price0.reserves.reserveOut)
 
         const amountRepay1: BigNumber = await this.getRepay(
-            this.amounts0.tradeSize,
-            this.price1.reserves.reserveOut,
-            this.price1.reserves.reserveIn)
+            this.amounts1.amountOutJS,
+            this.price1.reserves.reserveIn,
+            this.price1.reserves.reserveOut)
 
-        let A: BigNumber = amountRepay0.sub(this.amounts1.amountOutJS);
-        let B: BigNumber = amountRepay1.sub(this.amounts0.amountOutJS)
-
+        let A: BigNumber = this.amounts0.amountOutJS.sub(amountRepay1);
+        let B: BigNumber = this.amounts1.amountOutJS.sub(amountRepay0);
 
         let direction = A.gt(B) ? "A" : B.gt(A) ? "B" : "DIRECTIONAL AMBIGUITY ERROR";
 
@@ -76,6 +77,7 @@ export class Trade {
             ticker: this.match.token0.symbol + "/" + this.match.token1.symbol,
             tokenIn: this.match.token0,
             tokenOut: this.match.token1,
+            flash: flashMulti,
             loanPool: {
                 exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
                 factory: A ? new Contract(this.pair.factoryB_id, IFactory, wallet) : new Contract(this.pair.factoryA_id, IFactory, wallet),
@@ -104,10 +106,14 @@ export class Trade {
             profit: A ? A : B,
         };
 
+        //We need the amountOut from loanpool to see now much of token0 loan can be repaid.
+        // trade.loanPool.amountOut = await getAmountsIn(trade.amountRepay, trade.loanPool.reserveIn, trade.loanPool.reserveOut);
 
-        let uniswapKPre = utils.formatUnits(trade.loanPool.reserveIn.mul(trade.loanPool.reserveOut), trade.tokenIn.decimals * 2)
-        let uniswapKPost = utils.formatUnits(trade.loanPool.reserveIn.sub(trade.amountRepay).mul(trade.loanPool.reserveOut.add(trade.profit)), trade.tokenIn.decimals * 2)
-        let uniswapKDiff = BigNumber.from(uniswapKPost).sub(BigNumber.from(uniswapKPre))
+
+        let uniswapKPre = (trade.loanPool.reserveIn.mul(trade.loanPool.reserveOut))
+        let uniswapKPost = (trade.loanPool.reserveIn.sub(trade.amountRepay).mul(trade.loanPool.reserveOut.add(trade.profit)))
+        let uniswapKDiff = uniswapKPost.sub(uniswapKPre)
+
         // if (A.gt(0) && B.gt(0)) {
         const d = {
             ticker: trade.ticker,
@@ -129,8 +135,8 @@ export class Trade {
                 amountOut: utils.formatUnits(trade.recipient.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
             },
             result: {
-                uniswapkPre: uniswapKPre,
-                uniswapkPost: uniswapKPost,
+                uniswapkPre: utils.formatUnits(uniswapKPre, trade.tokenIn.decimals * 2),
+                uniswapkPost: utils.formatUnits(uniswapKPost, trade.tokenIn.decimals * 2),
                 uniswapKPositive: uniswapKDiff.gt(0),
                 loanCostPercent: utils.formatUnits((trade.loanPool.amountOut.div(trade.amountRepay)).mul(100), trade.tokenOut.decimals),
                 profit: utils.formatUnits(trade.profit, trade.tokenOut.decimals),
