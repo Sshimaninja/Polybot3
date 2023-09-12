@@ -87,12 +87,14 @@ export class Trade {
         //We need the amountOut from loanpool to see now much of token0 loan can be repaid.
         trade.loanPool.amountOut = await getAmountsOut(trade.amountRepay, trade.loanPool.reserveIn, trade.loanPool.reserveOut);
         //The below could be correct, or could be reversed. Too tired to think about it just now. 
-        trade.profit = trade.loanPool.amountOut.sub(trade.recipient.amountOut);
+        trade.profit = trade.loanPool.amountOut.gt(trade.recipient.amountOut) ? trade.loanPool.amountOut.sub(trade.recipient.amountOut) : BigNumber.from(0);
 
         const loanCost = trade.amountRepay.sub(trade.recipient.tradeSize)
 
+        // While taking into account the trade, the constant for uniswap is x * y = k, which must remain, else the trade reverts.
+        // x * y = k
         let uniswapKPre = trade.loanPool.reserveIn.mul(trade.loanPool.reserveOut)
-        let uniswapKPost = trade.loanPool.reserveIn.sub(trade.amountRepay).mul(trade.loanPool.reserveOut.add(trade.profit))
+        let uniswapKPost = (trade.loanPool.reserveIn.sub(trade.recipient.tradeSize)).mul(trade.loanPool.reserveIn.add(trade.amountRepay))
         let uniswapKDiff = (uniswapKPost).sub(uniswapKPre);
 
         const tradeResult = {
