@@ -106,9 +106,11 @@ export class Trade {
 
         // While taking into account the trade, the constant for uniswap is x * y = k, which must remain, else the trade reverts.
         // x * y = k
-        let uniswapKPre = trade.loanPool.reserveIn.mul(trade.loanPool.reserveOut)
-        let uniswapKPost = (trade.loanPool.reserveIn.sub(trade.recipient.tradeSize)).mul(trade.loanPool.reserveOut.add(trade.profit))
-        let uniswapKDiff = (uniswapKPost).sub(uniswapKPre);
+        let k = {
+            uniswapKPre: trade.loanPool.reserveIn.mul(trade.loanPool.reserveOut),
+            uniswapKPost: (trade.loanPool.reserveIn.sub(trade.recipient.tradeSize)).mul(trade.loanPool.reserveOut.add(trade.profit))
+        }
+        let uniswapKDiff = (k.uniswapKPost).sub(k.uniswapKPre);
 
 
         // if (A.gt(0) && B.gt(0)) {
@@ -133,9 +135,9 @@ export class Trade {
                 amountOut: utils.formatUnits(trade.recipient.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
             },
             result: {
-                uniswapkPre: uniswapKPre.toString(),
-                uniswapkPost: uniswapKPost.toString(),
-                uniswapKPositive: uniswapKDiff.gt(0),
+                uniswapkPre: k.uniswapKPre.gt(0) ? k.uniswapKPre.toString() : 0,
+                uniswapkPost: k.uniswapKPost.gt(0) ? k.uniswapKPost.toString() : 0,
+                uniswapKPositive: uniswapKDiff.gte(0),
                 // loanCostPercent: utils.formatUnits((trade.loanPool.amountOut.div(trade.amountRepay)).mul(100), trade.tokenOut.decimals),
                 profit: utils.formatUnits(trade.profit, trade.tokenOut.decimals),
             }
