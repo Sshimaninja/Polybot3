@@ -39,41 +39,15 @@ export class Trade {
     }
 
     async getTradefromAmounts(): Promise<BoolTrade> {
-        /**
-         *  Here, try to experiment with the trade size to see if it is possible to get a profit.
-         *
-         *  Problems:
-         * *  - amountRepay is *sometimes* a negative number, sometimes not. Why?
-         *    - It seems correct for USDC/WETH, WMATIC/WETH, but not for WMATIC/QUICK etc.
-         *
-         *  - amountRepay in flash.sol is causing an error (see #1). Either try calculating it differently here, or in flash.sol.
-         *
-         *  Solutions:
-         *  - Write into this function a method to measure the profit from both direct and multi trades and then populate the trade with the most profitable one.
-         *  - Filter out negative amountsRepay trades as they are invalid.
-         */
 
-
-        //This will probably need some attention. I'm not sure if it's correct.
-        //Try calculating this mathematically, rather than using getAmountsIn.
-
-
-        const amountRepayB: BigNumber = await this.getRepay(
-            this.amounts0.tradeSize,
-            this.price1.reserves.reserveOut,
-            this.price1.reserves.reserveIn)
-
-        const amountRepayA: BigNumber = await this.getRepay(
-            this.amounts1.tradeSize,
-            this.price0.reserves.reserveOut,
-            this.price0.reserves.reserveIn)
 
         // //I prefer deciding trade based on profit, but it migth be necessary to decide based on price.
+        // The technique for using profit would be to calc the repay first, then work out profit first, et voila.
+        // however, walk before run.
         // let A: BigNumber = this.amounts0.amountOutJS.sub(amountRepayB);
         // let B: BigNumber = this.amounts1.amountOutJS.sub(amountRepayA);
         const A = this.price0.priceOutBN;
         const B = this.price1.priceOutBN;
-
 
         //Determines which trade is more profitable.
         //'A' means flash pool A, 'B' means flash pool B. This implies that the opposit pool is the loan pool.
@@ -114,9 +88,16 @@ export class Trade {
                 amountOut: A ? this.amounts0.amountOutJS : this.amounts1.amountOutJS,
             },
             gasData: this.gasData,
-            amountRepay: A ? amountRepayB : amountRepayA,
+            amountRepay: BigNumber.from(0),
             profit: BigNumber.from(0)
         };
+
+        trade.amountRepay = trade.loanPool.reserveIn.gt(trade.recipient.tradeSize) ?
+            await this.getRepay(
+                trade.recipient.tradeSize,
+                trade.loanPool.reserveOut,
+                trade.loanPool.reserveIn
+            ) : BigNumber.from(0);
 
         //We need the amountOut from loanpool to see now much of token0 loan can be repaid.
         // trade.loanPool.amountOut = await getAmountsIn(trade.amountRepay, trade.loanPool.reserveIn, trade.loanPool.reserveOut);
@@ -152,8 +133,8 @@ export class Trade {
                 amountOut: utils.formatUnits(trade.recipient.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
             },
             result: {
-                uniswapkPre: utils.formatUnits(uniswapKPre, trade.tokenIn.decimals * 2),
-                uniswapkPost: utils.formatUnits(uniswapKPost, trade.tokenIn.decimals * 2),
+                uniswapkPre: uniswapKPre.toString(),
+                uniswapkPost: uniswapKPost.toString(),
                 uniswapKPositive: uniswapKDiff.gt(0),
                 // loanCostPercent: utils.formatUnits((trade.loanPool.amountOut.div(trade.amountRepay)).mul(100), trade.tokenOut.decimals),
                 profit: utils.formatUnits(trade.profit, trade.tokenOut.decimals),
