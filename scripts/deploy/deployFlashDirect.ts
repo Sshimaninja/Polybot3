@@ -1,8 +1,9 @@
 import { ethers, run, network } from "hardhat";
 require('dotenv').config();
-import { signer, flashwallet } from '../constants/contract'
+import { signer, flashwallet } from '../../constants/contract'
 
-//TODO: REWRITE THIS IF NEEDED WITH PATRICK COLLIN'S TUTORIAL
+// npx hardhat run --network polygon scripts/deploy/deployFlashDirect.ts
+
 async function main() {
     try {
         const deployer = signer;
@@ -12,23 +13,23 @@ async function main() {
 
         console.log("Account balance:", (await deployer.getBalance()).toString());
 
-        const flashOne = await ethers.getContractFactory(
-            'flashOne'
+        const flashDirect = await ethers.getContractFactory(
+            'flashDirect'
         );
-        console.log('Deploying flashOne to' + network.name + '...')
-        const flashone = await flashOne.deploy(owner);
-        await flashone.deployed();
-        console.log("Contract 'flashOne' deployed: " + flashone.address);
+        console.log('Deploying flashDirect to' + network.name + '...')
+        const flashdirect = await flashDirect.deploy(owner);
+        await flashdirect.deployed();
+        console.log("Contract 'flashDirect' deployed: " + flashdirect.address);
 
         if ((network.config.chainId === 137 && process.env.POLYGONSCAN_APIKEY) || (network.config.chainId === 80001 && process.env.MUMBAISCAN_API_KEY)) {
-            await flashone.deployTransaction.wait(12);
-            verify(flashone.address, [owner]);
+            await flashdirect.deployTransaction.wait(12);
+            verify(flashdirect.address, [owner]);
 
         } else if (network.config.chainId === 31337) {
             console.log("Verification failed: Network is Hardhat");
         }
 
-        const checkOwner = await flashone.checkOwner();
+        const checkOwner = await flashdirect.checkOwner();
         console.log(checkOwner)
 
     } catch (error: any) {

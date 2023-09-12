@@ -67,7 +67,7 @@ export class AllV2Pairs {
                         const block = currentBlockTimestamp;
                         // console.log('Block: ' + block);
 
-                        if (reserves[0].gt(utils.parseEther("1")) && reserves[1].gt(utils.parseEther("1")) && blockTimeStampLast > (block - 40000 * 12)) {
+                        if (reserves[0].gt(BigNumber.from(1)) && reserves[1].gt(BigNumber.from(1)) && blockTimeStampLast > (block - 40000 * 12)) {
                             const token0id = await pairContract.token0();
                             const token0 = new Contract(token0id, IERC20, wallet)
 
