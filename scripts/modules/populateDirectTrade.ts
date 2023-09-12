@@ -91,11 +91,12 @@ export class Trade {
 
         const loanCost = trade.amountRepay.sub(trade.recipient.tradeSize)
 
-        let uniswapKPre: string = utils.formatUnits(trade.loanPool.reserveIn.mul(trade.loanPool.reserveOut), trade.tokenIn.decimals * 2);
-        let uniswapKPost: string = utils.formatUnits(trade.loanPool.reserveIn.sub(trade.amountRepay).mul(trade.loanPool.reserveOut.add(trade.profit)), trade.tokenIn.decimals * 2);
-        let uniswapKDiff: BigNumber = BigNumber.from(uniswapKPost).sub(BigNumber.from(uniswapKPre));
+        let uniswapKPre = trade.loanPool.reserveIn.mul(trade.loanPool.reserveOut)
+        let uniswapKPost = trade.loanPool.reserveIn.sub(trade.amountRepay).mul(trade.loanPool.reserveOut.add(trade.profit))
+        let uniswapKDiff = (uniswapKPost).sub(uniswapKPre);
 
         const tradeResult = {
+            trade: "direct",
             ticker: trade.ticker,
             loanPool: {
                 exchange: trade.loanPool.exchange,
@@ -117,10 +118,10 @@ export class Trade {
                 amountOut: utils.formatUnits(trade.recipient.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
             },
             result: {
-                uniswapKPre: uniswapKPre,
-                uniswapKPost: uniswapKPost,
+                uniswapkPre: utils.formatUnits(uniswapKPre, trade.tokenIn.decimals * 2),
+                uniswapkPost: utils.formatUnits(uniswapKPost, trade.tokenIn.decimals * 2),
                 uniswapKPositive: uniswapKDiff.gt(0),
-                loanCostPercent: utils.formatUnits(loanCost.div(trade.recipient.amountOut).mul(100), trade.tokenOut.decimals),
+                // loanCostPercent: utils.formatUnits(loanCost.div(trade.recipient.amountOut).mul(100), trade.tokenOut.decimals),
                 profit: utils.formatUnits(trade.profit, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
             },
         };

@@ -5,7 +5,7 @@ import { BigNumber as BN } from "bignumber.js";
 import { Prices } from './modules/prices';
 import { BoolFlash, HiLo, Difference, Pair, FactoryPair, BoolTrade } from '../constants/interfaces';
 import { AmountCalculator } from './modules/amountCalcSingle'
-import { Trade } from './modules/populateMultiTrade';
+import { getTrade } from './modules/populateTradeCtrl';
 import { gasVprofit } from './modules/gasVprofit';
 import { Reserves } from './modules/reserves';
 import { sendit } from './execute';
@@ -53,14 +53,9 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
                     let amounts1 = await c1.getAmounts(p1.reserves.reserveInBN, p1.reserves.reserveOutBN, p0.priceOutBN, slippageTolerance)
 
                     // 3. Determine trade direction & profitability
-                    let t = new Trade(pair, match, p0, p1, amounts0, amounts1, gasData)
-                    let trade = await t.getTradefromAmounts()
+                    let trade = await getTrade(pair, match, p0, p1, amounts0, amounts1, gasData)
 
                     // 4. Calculate Gas vs Profitability
-
-                    /**
-                     * I need to filter out trades with negative any values
-                     */
 
                     let profit = await gasVprofit(trade)
 

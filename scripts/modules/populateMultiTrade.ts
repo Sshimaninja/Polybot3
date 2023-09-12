@@ -57,20 +57,32 @@ export class Trade {
         //This will probably need some attention. I'm not sure if it's correct.
         //Try calculating this mathematically, rather than using getAmountsIn.
 
-        const amountRepay0: BigNumber = await this.getRepay(
+
+        const amountRepayB: BigNumber = await this.getRepay(
             this.amounts0.tradeSize,
-            this.price0.reserves.reserveIn,
-            this.price0.reserves.reserveOut)
+            this.price1.reserves.reserveOut,
+            this.price1.reserves.reserveIn)
 
-        const amountRepay1: BigNumber = await this.getRepay(
-            this.amounts1.amountOutJS,
-            this.price1.reserves.reserveIn,
-            this.price1.reserves.reserveOut)
+        const amountRepayA: BigNumber = await this.getRepay(
+            this.amounts1.tradeSize,
+            this.price0.reserves.reserveOut,
+            this.price0.reserves.reserveIn)
 
-        let A: BigNumber = this.amounts0.amountOutJS.sub(amountRepay1);
-        let B: BigNumber = this.amounts1.amountOutJS.sub(amountRepay0);
+        // //I prefer deciding trade based on profit, but it migth be necessary to decide based on price.
+        // let A: BigNumber = this.amounts0.amountOutJS.sub(amountRepayB);
+        // let B: BigNumber = this.amounts1.amountOutJS.sub(amountRepayA);
+        const A = this.price0.priceOutBN;
+        const B = this.price1.priceOutBN;
 
-        let direction = A.gt(B) ? "A" : B.gt(A) ? "B" : "DIRECTIONAL AMBIGUITY ERROR";
+
+        //Determines which trade is more profitable.
+        //'A' means flash pool A, 'B' means flash pool B. This implies that the opposit pool is the loan pool.
+
+        // Using profit, the greater is obviously better:
+        // let direction = A.gt(B) ? "A" : B.gt(A) ? "B" : "DIRECTIONAL AMBIGUITY ERROR";
+
+        // Using price, the lesser is better:
+        const direction = A.lt(B) ? "A" : B.lt(A) ? "B" : "DIRECTIONAL AMBIGUITY ERROR";
 
         var trade: BoolTrade = {
             direction: direction,
@@ -102,13 +114,14 @@ export class Trade {
                 amountOut: A ? this.amounts0.amountOutJS : this.amounts1.amountOutJS,
             },
             gasData: this.gasData,
-            amountRepay: A ? amountRepay1 : amountRepay0,
-            profit: A ? A : B,
+            amountRepay: A ? amountRepayB : amountRepayA,
+            profit: BigNumber.from(0)
         };
 
         //We need the amountOut from loanpool to see now much of token0 loan can be repaid.
         // trade.loanPool.amountOut = await getAmountsIn(trade.amountRepay, trade.loanPool.reserveIn, trade.loanPool.reserveOut);
 
+        trade.profit = trade.recipient.amountOut.sub(trade.amountRepay);
 
         let uniswapKPre = (trade.loanPool.reserveIn.mul(trade.loanPool.reserveOut))
         let uniswapKPost = (trade.loanPool.reserveIn.sub(trade.amountRepay).mul(trade.loanPool.reserveOut.add(trade.profit)))
@@ -116,6 +129,7 @@ export class Trade {
 
         // if (A.gt(0) && B.gt(0)) {
         const d = {
+            trade: "Multi",
             ticker: trade.ticker,
             loanPool: {
                 exchange: trade.loanPool.exchange,
@@ -138,7 +152,7 @@ export class Trade {
                 uniswapkPre: utils.formatUnits(uniswapKPre, trade.tokenIn.decimals * 2),
                 uniswapkPost: utils.formatUnits(uniswapKPost, trade.tokenIn.decimals * 2),
                 uniswapKPositive: uniswapKDiff.gt(0),
-                loanCostPercent: utils.formatUnits((trade.loanPool.amountOut.div(trade.amountRepay)).mul(100), trade.tokenOut.decimals),
+                // loanCostPercent: utils.formatUnits((trade.loanPool.amountOut.div(trade.amountRepay)).mul(100), trade.tokenOut.decimals),
                 profit: utils.formatUnits(trade.profit, trade.tokenOut.decimals),
             }
         }
