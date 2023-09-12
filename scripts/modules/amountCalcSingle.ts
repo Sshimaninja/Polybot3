@@ -1,6 +1,6 @@
 import { BigNumber, utils } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
-import { getRequiredTokenIn } from './lowslipBN';
+import { getTradeSize } from './lowslipBN';
 import { Pair, ReservesData } from "../../constants/interfaces";
 import { Prices } from "./prices";
 import { Token, Amounts } from "../../constants/interfaces";
@@ -32,7 +32,7 @@ export class AmountCalculator {
 
     async getSizeBN(reserveIn: BN, reserveOut: BN, targetPrice: BN, slippage: BN): Promise<BN> {
         // This is set to determine how much token0 can be traded for token1, while only the specified slippage.
-        const tradeSizeBN = await getRequiredTokenIn(reserveIn, reserveOut, targetPrice, slippage);
+        const tradeSizeBN = await getTradeSize(reserveIn, reserveOut, targetPrice, slippage);
         return tradeSizeBN;
     }
 
