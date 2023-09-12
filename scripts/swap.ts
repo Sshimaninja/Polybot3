@@ -4,7 +4,7 @@ import { utils } from 'ethers';
 import { BigNumber as BN } from "bignumber.js";
 import { Prices } from './modules/prices';
 import { BoolFlash, HiLo, Difference, Pair, FactoryPair, BoolTrade } from '../constants/interfaces';
-import { AmountCalculator } from './amountCalcSingle'
+import { AmountCalculator } from './modules/amountCalcSingle'
 import { Trade } from './modules/populateDirectTrade';
 import { gasVprofit } from './modules/gasVprofit';
 import { Reserves } from './modules/reserves';
