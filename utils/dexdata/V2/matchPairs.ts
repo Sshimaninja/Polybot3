@@ -51,7 +51,7 @@ export class PoolMatcher {
                         const poolB = factoryPoolB.pairs.find((poolB: Pool) => {
 
                             if (poolA.token0.id == poolB.token0.id && poolA.token1.id == poolB.token1.id) {
-                                console.log(`Found matching pair for ${poolA.token0.symbol}/${poolB.token1.symbol} `);
+                                console.log(`Found matching pair for ${poolA.token0.symbol}/${poolA.token1.symbol} `, ` ${poolB.token0.symbol}/${poolB.token1.symbol}`);
                                 return true;
                             }
 
