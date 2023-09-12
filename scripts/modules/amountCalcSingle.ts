@@ -1,11 +1,11 @@
 import { BigNumber, utils } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
-import { getRequiredTokenIn } from './modules/lowslipBN';
-import { Pair, ReservesData } from "../constants/interfaces";
-import { Prices } from "./modules/prices";
-import { Token, Amounts } from "../constants/interfaces";
-import { getAmountsOut, getAmountsIn } from './modules/getAmountsIOLocal';
-import { HiLo, Difference } from "../constants/interfaces";
+import { getRequiredTokenIn } from './lowslipBN';
+import { Pair, ReservesData } from "../../constants/interfaces";
+import { Prices } from "./prices";
+import { Token, Amounts } from "../../constants/interfaces";
+import { getAmountsOut, getAmountsIn } from './getAmountsIOLocal';
+import { HiLo, Difference } from "../../constants/interfaces";
 
 export class AmountCalculator {
     pair: Pair;
