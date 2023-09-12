@@ -5,10 +5,13 @@ import { Amounts, FactoryPair, GasData, Pair, BoolTrade } from "../../constants/
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
-import { wallet } from "../../constants/contract";
+import { wallet, flashDirect } from "../../constants/contract";
 import { Contract } from "@ethersproject/contracts";
 import { Prices } from "./prices";
 import { getAmountsIn, getAmountsOut } from "./getAmountsIOLocal";
+/**
+ *
+ */
 
 export class Trade {
     trade: BoolTrade | undefined;
@@ -50,6 +53,7 @@ export class Trade {
             ticker: this.match.token0.symbol + "/" + this.match.token1.symbol,
             tokenIn: this.match.token0,
             tokenOut: this.match.token1,
+            flash: flashDirect,
             loanPool: {
                 exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
                 factory: A ? new Contract(this.pair.factoryB_id, IFactory, wallet) : new Contract(this.pair.factoryA_id, IFactory, wallet),

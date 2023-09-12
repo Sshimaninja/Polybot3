@@ -1,9 +1,5 @@
-import { BigNumber, ethers, utils, Contract, Wallet } from "ethers";
-import { BigNumber as BN } from "bignumber.js";
-import { getGasData } from "./getPolygonGasPrices";
-import axios from "axios";
-import { Trade } from "./populateDirectTrade"
-import { provider, flash, logger } from "../../constants/contract";
+import { BigNumber } from "ethers";
+import { provider } from "../../constants/contract";
 import { BoolTrade, GasData } from "../../constants/interfaces";
 
 export async function fetchGasPrice(trade: BoolTrade): Promise<{ gasEstimate: BigNumber, gasPrice: BigNumber, maxFee: number, maxPriorityFee: number }> {
@@ -19,7 +15,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<{ gasEstimate: Bi
         let gasEstimate;
         if (trade.profit.gt(0)) {
             try {
-                gasEstimate = await flash.estimateGas.flashSwap(
+                gasEstimate = await trade.flash.estimateGas.flashSwap(
                     trade.loanPool.factory.address,
                     trade.recipient.router.address,
                     trade.tokenIn.id,
@@ -40,21 +36,18 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<{ gasEstimate: Bi
 
         }
 
-
-
-
         // Retrieve the emitted logs
         console.log("Gas Estimate: " + gasEstimate + " gas")
 
 
         const filter = {
-            address: flash.address, // Replace with the contract address
+            address: trade.flash.address, // Replace with the contract address
             fromBlock: 0,
             toBlock: 'latest',
         };
         const logs = await provider.getLogs(filter);
         logs.forEach(log => {
-            const parsedLog = flash.interface.parseLog(log);
+            const parsedLog = trade.flash.interface.parseLog(log);
             console.log(parsedLog.args.message); // Print the log message
         });
 
