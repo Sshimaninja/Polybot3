@@ -85,9 +85,9 @@ export class Trade {
         };
 
         //We need the amountOut from loanpool to see now much of token0 loan can be repaid.
-        trade.loanPool.amountOut = await getAmountsOut(trade.amountRepay, trade.loanPool.reserveIn, trade.loanPool.reserveOut);
+        trade.loanPool.amountOut = await getAmountsOut(trade.recipient.amountOut, trade.loanPool.reserveOut, trade.loanPool.reserveIn);
         //The below could be correct, or could be reversed. Too tired to think about it just now. 
-        trade.profit = trade.loanPool.amountOut.gt(trade.recipient.amountOut) ? trade.loanPool.amountOut.sub(trade.recipient.amountOut) : BigNumber.from(0);
+        trade.profit = trade.loanPool.amountOut.gt(trade.amountRepay) ? trade.loanPool.amountOut.sub(trade.recipient.amountOut) : BigNumber.from(0);
 
         const loanCost = trade.amountRepay.sub(trade.recipient.tradeSize)
 
@@ -107,7 +107,8 @@ export class Trade {
                 reservesIn: utils.formatUnits(trade.loanPool.reserveIn, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
                 reservesOut: utils.formatUnits(trade.loanPool.reserveOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
                 amountRepay: utils.formatUnits(trade.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
-                amountOut: utils.formatUnits(trade.loanPool.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,//wrong and needs calculated in trade.
+                // AmounOut direct is how much of token0 you can get for recipient.amountOut and whether that's enough to repay the loan.
+                amountOut: utils.formatUnits(trade.loanPool.amountOut, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
             },
             recipient: {
                 exchange: trade.recipient.exchange,
@@ -120,8 +121,8 @@ export class Trade {
                 amountOut: utils.formatUnits(trade.recipient.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
             },
             result: {
-                uniswapkPre: utils.formatUnits(uniswapKPre, trade.tokenIn.decimals * 2),
-                uniswapkPost: utils.formatUnits(uniswapKPost, trade.tokenIn.decimals * 2),
+                uniswapkPre: uniswapKPre.toString(),
+                uniswapkPost: uniswapKPost.toString(),
                 uniswapKPositive: uniswapKDiff.gt(0),
                 // loanCostPercent: utils.formatUnits(loanCost.div(trade.recipient.amountOut).mul(100), trade.tokenOut.decimals),
                 profit: utils.formatUnits(trade.profit, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,

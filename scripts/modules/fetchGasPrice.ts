@@ -25,7 +25,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<{ gasEstimate: Bi
                     trade.amountRepay
                 );
             } catch (error) {
-                console.log(`Error in fetchGasPrice for trade: ${trade.ticker}`, ".Using default gas estimate");
+                console.log(`Error in fetchGasPrice for trade: ${trade.ticker}`, ". Using default gas estimate");
                 console.log(error);
                 return { gasEstimate: BigNumber.from(300000), gasPrice: BigNumber.from(300000), maxFee: 150, maxPriorityFee: 60 };
             }
