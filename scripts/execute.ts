@@ -1,14 +1,8 @@
 import { BigNumber, ethers, utils, Contract, Wallet } from "ethers";
-import axios from "axios";
 import { provider, signer, wallet, flash, logger } from "../constants/contract";
-// import { abi as IFlash } from '../artifacts/contracts/flashOne.sol/flashOne.json';
 import { BoolTrade } from "../constants/interfaces";
-import { Trade } from "./modules/populateTrade";
-// import { deployedMap } from "../constants/addresses";
-import { BigNumber as BN } from "bignumber.js";
 import { fetchGasPrice } from "./modules/fetchGasPrice";
 import { checkBal, checkGasBal } from "./modules/checkBal";
-import { gasVprofit } from "./modules/gasVprofit";
 
 export async function sendit(
     trade: BoolTrade,
@@ -28,13 +22,13 @@ export async function sendit(
         console.log(":::::::::::Sending Transaction::::::::::: ")
         tradePending = true;
         let tx = await flash.flashSwap(
-            trade.loanPool.factoryID,
-            trade.recipient.routerID,
+            trade.loanPool.factory.address,
+            trade.recipient.router.address,
             trade.tokenIn.id,
             trade.tokenOut.id,
-            trade.tradeSize,
+            trade.recipient.tradeSize,
             trade.recipient.amountOut,
-            trade.loanPool.amountRepay,
+            trade.amountRepay,
             {
                 type: 2,
                 // gasPrice: gasLimit,

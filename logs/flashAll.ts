@@ -21,7 +21,7 @@ import { Flash, Trade } from '../constants/interfaces';
 import { lowSlippage } from '../scripts/modules/equalizeRatioBN';
 import { getAmountsIn, getAmountsOut, getAmountsIO } from '../scripts/modules/getAmountsIO';
 import { getAmountsIn as getAmountsInjs, getAmountsOut as getAmountsOutjs, getAmountsIO as getAmountsIOjs } from '../scripts/modules/getAmountsIOjs';
-import { getTrade } from '../scripts/modules/populateTrade';
+import { getTrade } from '../scripts/modules/populateLocalTrade';
 import { getDirection } from '../scripts/modules/getDirection'
 import { fetchGasPrice } from "../scripts/modules/fetchGasPrice";
 import { gasVprofit } from '../scripts/modules/gasVprofit';

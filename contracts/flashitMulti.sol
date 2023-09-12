@@ -51,6 +51,10 @@ interface IUniswapV2Callee {
         bytes calldata data
     ) external;
 }
+
+
+
+
 contract flashit is IUniswapV2Callee{
     address owner;
     IUniswapV2Pair pair;
@@ -88,10 +92,10 @@ contract flashit is IUniswapV2Callee{
         emit log("Data encoded");
         IERC20(token0ID).approve(address(pair), amount0In);
         pair.swap( 
-            amount0In,
-            0, 
-            address(this), 
-            data
+            amount0In, // Requested borrow of token0
+            0, // Borrow of token1
+            address(this), // Address to send swap callback to
+            data // Encoded data for callback
             );
         emit logValue("New Contract Balance (Token0):", IERC20(token0ID).balanceOf(address(this)));
         emit logValue("New Contract Balance (Token1):", IERC20(token1ID).balanceOf(address(this)));
@@ -130,11 +134,11 @@ contract flashit is IUniswapV2Callee{
         token0.approve(address(recipientRouter), _amount0);
         uint256[] memory amounts = IUniswapV2Router02(address(recipientRouter))
             .swapExactTokensForTokens(
-                _amount0,
-                amount1Out,
-                path,
-                address(this),
-                deadline
+                _amount0, // amountIn
+                amount1Out, // amountOutMin (expected). This should be at least the amount to repay the loan
+                path, // path
+                address(this), // to
+                deadline // deadline
             );
         emit log("Swap executed");
         emit logValue("AmountsOut expected::::: ", amount1Out);

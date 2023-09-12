@@ -1,6 +1,6 @@
 import { ethers, run, network } from "hardhat";
 require('dotenv').config();
-import { signer, flashwallet } from '../constants/contract'
+import { signer, flashwallet } from '../../constants/contract'
 
 //TODO: REWRITE THIS IF NEEDED WITH PATRICK COLLIN'S TUTORIAL
 async function main() {

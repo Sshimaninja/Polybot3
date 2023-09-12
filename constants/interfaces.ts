@@ -43,10 +43,7 @@ export interface Profit {
 }
 export interface Amounts {
     tradeSize: BigNumber;
-    amountOutBN: BN;
     amountOutJS: BigNumber;
-    amountRepayBN: BN;
-    amountRepayJS: BigNumber;
 }
 
 export interface ReservesData {
@@ -82,44 +79,32 @@ export interface BoolTrade {
     ticker: string
     tokenIn: Token
     tokenOut: Token
-    tradeSize: BigNumber
     loanPool: {
         exchange: string
         factory: Contract
         router: Contract
         pool: Contract
-        amountOut: BN
-        amountOutjs: BigNumber
-        amountRepay: BN
-        amountRepayjs: BigNumber
-        tokenOutPrice: BN
-        reserveIn: BN
-        reserveInjs: BigNumber
-        reserveOut: BN
-        reserveOutjs: BigNumber
-        factoryID: string
-        routerID: string
+        reserveIn: BigNumber
+        reserveOut: BigNumber
+        priceIn: string
+        priceOut: string
+        amountOut: BigNumber
     }
     recipient: {
         exchange: string
         factory: Contract
         router: Contract
         pool: Contract
-        amountOut: BN
-        amountOutjs: BigNumber
-        amountRepay: BN
-        amountRepayjs: BigNumber
-        tokenOutPrice: BN
-        reserveIn: BN
-        reserveInjs: BigNumber
-        reserveOut: BN
-        reserveOutjs: BigNumber
-        factoryID: string
-        routerID: string
+        reserveIn: BigNumber
+        reserveOut: BigNumber
+        priceIn: string
+        priceOut: string
+        tradeSize: BigNumber
+        amountOut: BigNumber
     }
     gasData: any;
-    profitBN: BN,
-    profitJS: BigNumber,
+    amountRepay: BigNumber
+    profit: BigNumber,
 }
 
 export interface Trade {
