@@ -1,5 +1,5 @@
 import { BigNumber, ethers, utils, Contract, Wallet } from "ethers";
-import { provider, signer, wallet, flash, logger } from "../constants/contract";
+import { provider, signer, wallet, logger } from "../constants/contract";
 import { BoolTrade } from "../constants/interfaces";
 import { fetchGasPrice } from "./modules/fetchGasPrice";
 import { checkBal, checkGasBal } from "./modules/checkBal";
@@ -21,7 +21,7 @@ export async function sendit(
         }
         console.log(":::::::::::Sending Transaction::::::::::: ")
         tradePending = true;
-        let tx = await flash.flashSwap(
+        let tx = await trade.flash.flashSwap(
             trade.loanPool.factory.address,
             trade.recipient.router.address,
             trade.tokenIn.id,
@@ -50,7 +50,7 @@ export async function sendit(
                 tradePending = false;
             });
         var filter = {
-            address: flash.address,
+            address: trade.flash.address,
             topics: [
                 utils.id("log(string,uint256)"),
                 utils.id("logValue(string,uint256)"),

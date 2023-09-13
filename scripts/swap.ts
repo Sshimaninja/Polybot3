@@ -5,7 +5,7 @@ import { BigNumber as BN } from "bignumber.js";
 import { Prices } from './modules/prices';
 import { BoolFlash, HiLo, Difference, Pair, FactoryPair, BoolTrade } from '../constants/interfaces';
 import { AmountCalculator } from './modules/amountCalcSingle'
-import { Trade } from './modules/populateDirectTrade';
+import { getTrade } from './modules/populateTradeCtrl';
 import { gasVprofit } from './modules/gasVprofit';
 import { Reserves } from './modules/reserves';
 import { sendit } from './execute';
@@ -16,7 +16,7 @@ Replace 0/1 new class instances with a loop that handles n instances
 */
 let warning = 0
 let tradePending = false;
-let slippageTolerance = BN(0.001) // 0.1%
+let slippageTolerance = BN(0.0006) // 0.065%
 // var virtualReserveFactor = 1.1
 var pendingID: string | undefined
 
@@ -32,7 +32,7 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
 
                 let match = pair.matches[m]
 
-                if (!tradePending && pair.matches[m].poolA_id !== pendingID && pair.matches[m].poolB_id !== pendingID) {
+                if (!tradePending) { //&& pair.matches[m].poolA_id !== pendingID && pair.matches[m].poolB_id !== pendingID) {
 
                     // 0. Get reserves for all pools:
 
@@ -53,14 +53,9 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
                     let amounts1 = await c1.getAmounts(p1.reserves.reserveInBN, p1.reserves.reserveOutBN, p0.priceOutBN, slippageTolerance)
 
                     // 3. Determine trade direction & profitability
-                    let t = new Trade(pair, match, p0, p1, amounts0, amounts1, gasData)
-                    let trade = await t.getTradefromAmounts()
+                    let trade = await getTrade(pair, match, p0, p1, amounts0, amounts1, gasData)
 
                     // 4. Calculate Gas vs Profitability
-
-                    /**
-                     * I need to filter out trades with negative any values
-                     */
 
                     let profit = await gasVprofit(trade)
 
@@ -84,18 +79,22 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
                             pendingID = trade.recipient.pool.address
                             await sendit(trade, tradePending)
                             warning = 1
-                        } if (BN(profit.profit).gt(0) && warning !== 0) {
+                            break; // exit the inner loop
+                        } else if (BN(profit.profit).gt(0) && warning !== 0) {
                             logger.info("Trade pending on " + pendingID + "?: ", tradePending)
                             warning = 1
-                            return warning
-                        }
-                        if (BN(profit.profit).lt(0)) {
+                            break; // exit the inner loop
+                        } else if (BN(profit.profit).lt(0)) {
                             console.log("No trade")
-                            return
+                            break; // exit the inner loop
                         } else {
                             console.log("Profit is undefined: error in gasVProfit")
+                            break; // exit the inner loop
                         }
                     }
+                } else {
+                    console.log("Trade pending on " + pendingID + "?: ", tradePending)
+                    break; // exit the inner loop
                 }
             }
         }

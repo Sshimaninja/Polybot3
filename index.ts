@@ -4,37 +4,43 @@ import { getGasData } from './scripts/modules/getPolygonGasPrices';
 import fs from 'fs'
 import path from 'path';
 import { FactoryPair } from './constants/interfaces';
+import { logger } from './constants/contract';
+
 async function main() {
     //full path to matches dataDir : '/mnt/d/code/arbitrage/polybot-live/polybotv3/data/matches/v2/'
     let matchDir = path.join(__dirname, '/data/matches/v2/');
-    // console.log(matchDir)
+
     async function dataFeed() {
         const pairList: FactoryPair[] = [];
         const files = await fs.promises.readdir(matchDir);
+
         for (const file of files) {
             const filePath = path.join(matchDir, file);
             const data = await fs.promises.readFile(filePath, 'utf8');
             const pairs = JSON.parse(data);
             pairList.push(pairs);
         }
-        // console.log(pairList)
         return pairList;
     }
+
     const pairList = await dataFeed();
+    console.log("V2 match lists: ", pairList.length)
+
+
     try {
         provider.on('block', async (blockNumber: any) => {
-            console.log('New block received:::::::::::::::::: Block # ' + blockNumber + ":::::::::::::::")
+            logger.info("New block received: Block # " + blockNumber);
             const gasData = await getGasData();
+            console.log({ gasData: gasData })
             await control(pairList, gasData);
         });
     } catch (error: any) {
-        console.log("PROVIDER ERROR:::::::::::::::::::::: " + error.message);
-        return
+        logger.error("PROVIDER ERROR: " + error.message);
+        return;
     }
 }
-main().catch((error) => {
-    console.error(error);
-    console.log("MAIN ERROR:::::::::::::::::::::: " + error.message);
-    return
-})
 
+main().catch((error) => {
+    logger.error("MAIN ERROR: " + error.message);
+    return;
+});

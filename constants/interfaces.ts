@@ -79,6 +79,7 @@ export interface BoolTrade {
     ticker: string
     tokenIn: Token
     tokenOut: Token
+    flash: Contract
     loanPool: {
         exchange: string
         factory: Contract
