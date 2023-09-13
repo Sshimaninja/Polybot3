@@ -1,6 +1,12 @@
 import { BigNumber, Contract } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 
+
+export interface TxData {
+    txResponse: any;
+    tradePending: boolean
+}
+
 export interface Factory {
     exchange: string;
     factoryID: string;
