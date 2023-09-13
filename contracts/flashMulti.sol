@@ -51,11 +51,7 @@ interface IUniswapV2Callee {
         bytes calldata data
     ) external;
 }
-
-
-
-
-contract flashit is IUniswapV2Callee{
+contract flashMulti is IUniswapV2Callee{
     address owner;
     IUniswapV2Pair pair;
     using SafeMath for uint256;

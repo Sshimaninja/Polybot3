@@ -1,13 +1,13 @@
-import { BigNumber as BN } from "bignumber.js";
 import { utils, BigNumber } from "ethers";
-import { Amounts, FactoryPair, GasData, Pair, BoolTrade } from "../../constants/interfaces";
+import { Amounts, FactoryPair, GasData, Pair, Profit } from "../../constants/interfaces";
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
-import { wallet, flashDirect } from "../../constants/contract";
+import { wallet, flashMulti } from "../../constants/contract";
 import { Contract } from "@ethersproject/contracts";
 import { Prices } from "./prices";
-import { getAmountsOut } from "./getAmountsIOLocal";
+import { BoolTrade } from "../../constants/interfaces"
+import { getAmountsIn } from "./getAmountsIOLocal";
 /**
  *
  */
@@ -26,32 +26,39 @@ export class Trade {
         this.price0 = price0;
         this.price1 = price1;
         this.match = match;
-        this.amounts0 = amounts0;
+        this.amounts0 = amounts0
         this.amounts1 = amounts1;
         this.gasData = gasData;
     }
 
     // Get repayment amount for the loanPool
-    async getRepayDirect(tradeSize: BigNumber): Promise<BigNumber> {
-        // const repayBN = BN(utils.formatUnits(tradeSize, this.match.token0.decimals)).multipliedBy(1.003009027).toFixed(this.match.token0.decimals);
-        // const repay = utils.parseUnits(repayBN, this.match.token0.decimals);
-        const repay = tradeSize.mul(1003009027).div(1000000000);
-        return repay;
+    async getRepay(tradeSize: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
+
+        const amountRepay = await getAmountsIn(tradeSize, reserveIn, reserveOut); // result must be token1
+        return amountRepay;
     }
 
     async getTradefromAmounts(): Promise<BoolTrade> {
-
-        const A: BN = this.price0.priceOutBN;
-        const B: BN = this.price1.priceOutBN;
-
+        // //I prefer deciding trade based on profit, but it migth be necessary to decide based on price.
+        // The technique for using profit would be to calc the repay first, then work out profit first, et voila.
+        // however, walk before run.
+        // let A: BigNumber = this.amounts0.amountOutJS.sub(amountRepayB);
+        // let B: BigNumber = this.amounts1.amountOutJS.sub(amountRepayA);
+        const A = this.price0.priceOutBN;
+        const B = this.price1.priceOutBN;
+        //Determines which trade is more profitable.
+        //'A' means flash pool A, 'B' means flash pool B. This implies that the opposit pool is the loan pool.
+        // Using profit, the greater is obviously better
+        // let direction = A.gt(B) ? "A" : B.gt(A) ? "B" : "DIRECTIONAL AMBIGUITY ERROR";
+        // Using price, the lesser is better:
         const direction = A.lt(B) ? "A" : B.lt(A) ? "B" : "DIRECTIONAL AMBIGUITY ERROR";
 
-        const trade: BoolTrade = {
+        var trade: BoolTrade = {
             direction: direction,
             ticker: this.match.token0.symbol + "/" + this.match.token1.symbol,
             tokenIn: this.match.token0,
             tokenOut: this.match.token1,
-            flash: flashDirect,
+            flash: flashMulti,
             loanPool: {
                 exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
                 factory: A ? new Contract(this.pair.factoryB_id, IFactory, wallet) : new Contract(this.pair.factoryA_id, IFactory, wallet),
@@ -61,7 +68,6 @@ export class Trade {
                 reserveOut: A ? this.price1.reserves.reserveOut : this.price0.reserves.reserveOut,
                 priceIn: A ? this.price1.priceInBN.toFixed(this.match.token0.decimals) : this.price0.priceInBN.toFixed(this.match.token0.decimals),
                 priceOut: A ? this.price1.priceOutBN.toFixed(this.match.token1.decimals) : this.price0.priceOutBN.toFixed(this.match.token1.decimals),
-                //this is wrong, but it's a placeholder. It must be recalculated using the recipient.amoutnOut as input.
                 amountOut: BigNumber.from(0),
             },
             recipient: {
@@ -74,32 +80,37 @@ export class Trade {
                 priceIn: A ? this.price0.priceInBN.toFixed(this.match.token0.decimals) : this.price1.priceInBN.toFixed(this.match.token0.decimals),
                 priceOut: A ? this.price0.priceOutBN.toFixed(this.match.token1.decimals) : this.price1.priceOutBN.toFixed(this.match.token1.decimals),
                 tradeSize: A ? this.amounts0.tradeSize : this.amounts1.tradeSize,
-                //calculated using loanPool's priceOut as target price
                 amountOut: A ? this.amounts0.amountOutJS : this.amounts1.amountOutJS,
             },
             gasData: this.gasData,
-            amountRepay: await this.getRepayDirect(A ? this.amounts0.tradeSize : this.amounts1.tradeSize,),
-            profit: BigNumber.from(0),
+            amountRepay: BigNumber.from(0),
+            profit: BigNumber.from(0)
         };
 
-        //We need the amountOut from loanpool to see now much of token0 loan can be repaid.
-        trade.loanPool.amountOut = await getAmountsOut(trade.recipient.amountOut, trade.loanPool.reserveOut, trade.loanPool.reserveIn);
-        //The below could be correct, or could be reversed. Too tired to think about it just now. 
-        trade.profit = trade.loanPool.amountOut.gt(trade.amountRepay) ? trade.loanPool.amountOut.sub(trade.recipient.amountOut) : BigNumber.from(0);
+        trade.amountRepay = trade.loanPool.reserveIn.gt(trade.recipient.tradeSize) ?
+            await this.getRepay(
+                trade.recipient.tradeSize,
+                trade.loanPool.reserveOut,
+                trade.loanPool.reserveIn
+            ) : BigNumber.from(0);
 
-        const loanCost = trade.amountRepay.sub(trade.recipient.tradeSize)
+        //We need the amountOut from loanpool to see now much of token0 loan can be repaid.
+        // trade.loanPool.amountOut = await getAmountsIn(trade.amountRepay, trade.loanPool.reserveIn, trade.loanPool.reserveOut);
+
+        trade.profit = trade.recipient.amountOut.gt(trade.amountRepay) ? trade.recipient.amountOut.sub(trade.amountRepay) : BigNumber.from(0);
 
         // While taking into account the trade, the constant for uniswap is x * y = k, which must remain, else the trade reverts.
         // x * y = k
         let k = {
             uniswapKPre: trade.loanPool.reserveIn.mul(trade.loanPool.reserveOut),
-            uniswapKPost: (trade.loanPool.reserveIn.sub(trade.recipient.tradeSize)).mul(trade.loanPool.reserveIn.add(trade.amountRepay))
+            uniswapKPost: (trade.loanPool.reserveIn.sub(trade.recipient.tradeSize)).mul(trade.loanPool.reserveOut.add(trade.profit))
         }
         let uniswapKDiff = (k.uniswapKPost).sub(k.uniswapKPre);
 
-        const tradeResult = {
-            trade: "direct",
-            direction: trade.direction,
+
+        // if (A.gt(0) && B.gt(0)) {
+        const d = {
+            trade: "Multi",
             ticker: trade.ticker,
             loanPool: {
                 exchange: trade.loanPool.exchange,
@@ -107,15 +118,12 @@ export class Trade {
                 priceOut: trade.loanPool.priceOut,
                 reservesIn: utils.formatUnits(trade.loanPool.reserveIn, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
                 reservesOut: utils.formatUnits(trade.loanPool.reserveOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
-                amountRepay: utils.formatUnits(trade.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
-                // AmounOut direct is how much of token0 you can get for recipient.amountOut and whether that's enough to repay the loan.
-                amountOut: utils.formatUnits(trade.loanPool.amountOut, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
+                amountRepay: utils.formatUnits(trade.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
             },
             recipient: {
                 exchange: trade.recipient.exchange,
                 priceIn: trade.recipient.priceIn,
                 priceOut: trade.recipient.priceOut,
-                targetPrice: trade.loanPool.priceOut,
                 reservesIn: utils.formatUnits(trade.recipient.reserveIn, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
                 reservesOut: utils.formatUnits(trade.recipient.reserveOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
                 tradeSize: utils.formatUnits(trade.recipient.tradeSize, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
@@ -125,13 +133,14 @@ export class Trade {
                 uniswapkPre: k.uniswapKPre.gt(0) ? k.uniswapKPre.toString() : 0,
                 uniswapkPost: k.uniswapKPost.gt(0) ? k.uniswapKPost.toString() : 0,
                 uniswapKPositive: uniswapKDiff.gte(0),
-                // loanCostPercent: utils.formatUnits(loanCost.div(trade.recipient.amountOut).mul(100), trade.tokenOut.decimals),
-                profit: utils.formatUnits(trade.profit, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
-            },
-        };
-
-        console.log(tradeResult);
+                // loanCostPercent: utils.formatUnits((trade.loanPool.amountOut.div(trade.amountRepay)).mul(100), trade.tokenOut.decimals),
+                profit: utils.formatUnits(trade.profit, trade.tokenOut.decimals),
+            }
+        }
+        console.log(d);
+        // }
 
         return trade;
     }
 }
+

@@ -11,11 +11,9 @@ interface MaticProfit {
     profitInMatic: BigNumber,
     gasPool: Contract
 }
-export async function getProfitInMatic(trade: BoolTrade): Promise<MaticProfit> {
+export async function getProfitInMatic(trade: BoolTrade): Promise<MaticProfit | undefined> {
 
     const matic = gasTokens.WMATIC;
-    // console.log('CHECK MATIC IS AN ADDRESS: ', matic)
-
 
     async function getProfitIfMatic(): Promise<MaticProfit> {
 
@@ -36,7 +34,8 @@ export async function getProfitInMatic(trade: BoolTrade): Promise<MaticProfit> {
     }
 
 
-    async function getProfitIfNotMatic() {
+    async function getProfitIfNotMatic(): Promise<MaticProfit> {
+        const matic = gasTokens.WMATIC;
 
         let g = await getgasPoolForTrade(trade).catch(async (error: any) => {
             logger.error("Error in getgasPoolForTrade: ", g?.gasTokenSymbol, "\n", error);
@@ -99,30 +98,28 @@ export async function getProfitInMatic(trade: BoolTrade): Promise<MaticProfit> {
                 const profitInMatic = gasSMaticPoolContract.token1() == matic ? await getAmountsOut(trade.profit, reserves[1], reserves[0]) : await getAmountsOut(profitInGasToken, reserves[0], reserves[1]);
                 // const profitInMatic = utils.parseUnits(profitInMaticBN.toFixed(18), 18)
                 return { profitInMatic, gasPool };
-
             }
-        } else {
-            logger.error("No gasPool Found for ", trade.tokenOut.symbol, " Please choose less esoteric coin.")
-            return { profitInMatic: BigNumber.from(0), gasPool: new Contract(trade.recipient.pool.address, IPair, wallet) };
         }
+
+        // If none of the above cases are met, return a default value
+        return { profitInMatic: BigNumber.from(0), gasPool: new Contract(trade.recipient.pool.address, IPair, wallet) };
     }
 
-
-    await getProfitIfMatic().then(async (result: MaticProfit) => {
-        if (result) {
+    try {
+        const result = await getProfitIfMatic();
+        if (result.profitInMatic.gt(0)) {
             return result;
-        } else {
-            await getProfitIfNotMatic().then((result: any) => {
-                if (result) {
-                    return result;
-                } else {
-                    return { profitInMatic: BigNumber.from(0), gasPool: new Contract(trade.recipient.pool.address, IPair, wallet) };
-                }
-            })
         }
-    })
-    console.log("No profit found for ", trade.ticker, "Profit in matic skipped.")
-    return { profitInMatic: BigNumber.from(0), gasPool: new Contract(trade.recipient.pool.address, IPair, wallet) };
+    } catch (error) {
+        logger.error("Error in getProfitIfMatic: ", error);
+    }
 
+    try {
+        const result = await getProfitIfNotMatic();
+        if (result.profitInMatic.gt(0)) {
+            return result;
+        }
+    } catch (error) {
+        logger.error("Error in getProfitIfNotMatic: ", error);
+    }
 }
-
