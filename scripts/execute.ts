@@ -1,26 +1,39 @@
 import { BigNumber, ethers, utils, Contract, Wallet } from "ethers";
 import { provider, signer, wallet, logger } from "../constants/contract";
-import { BoolTrade } from "../constants/interfaces";
+import { BoolTrade, TxData } from "../constants/interfaces";
 import { fetchGasPrice } from "./modules/fetchGasPrice";
 import { checkBal, checkGasBal } from "./modules/checkBal";
 
 export async function sendit(
     trade: BoolTrade,
     tradePending: boolean,
-) {
+): Promise<TxData> {
     console.log('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.ticker + ':::::::::::::::::::::::::: ')
     var gasbalance = await checkGasBal();
     const gasData = await fetchGasPrice(trade)
+
+    let result: TxData = {
+        txResponse: undefined,
+        tradePending: false,
+    }
+
     if (trade) {
+
         console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, 18) + " " + "MATIC")
+
         const gotGas = gasData.gasPrice < gasbalance
+
         gotGas == true ? console.log("Sufficient Matic Balance. Proceeding...") : console.log(">>>>Insufficient Matic Balance<<<<")
+
         if (gotGas == false) {
             console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION: " + trade.ticker + ':::::::::::::::::::::::::: ')
-            return tradePending = false;
+            return result;
         }
+
         console.log(":::::::::::Sending Transaction::::::::::: ")
-        tradePending = true;
+
+        result.tradePending = true;
+
         let tx = await trade.flash.flashSwap(
             trade.loanPool.factory.address,
             trade.recipient.router.address,
@@ -73,25 +86,22 @@ export async function sendit(
         console.log(bal)
         console.log("Transaction Sent. Await Confirmation...")
         console.log("Transaction Hash: " + txResponse.hash)
-        logger.info(txResponse)
-        tradePending = true;
+        result = {
+            txResponse: txResponse,
+            tradePending: false,
+        }
         if (txResponse == undefined) {
-            logger.info("Transaction sent to flashSwap contract")
             logger.info("Transaction response: ")
             logger.info(txResponse)
-            tradePending = true
             logger.info("===============================================================")
-            return { tradePending };
-        } else {
-            logger.error("=====================Transaction Error=====================")
-            tradePending = false
+            return result;
         }
         console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
-        return { tradePending };
+        return result;
     } else {
-        console.log("::::::::::::::::::::::::::::::::::::::::TRADE UNDEFINED:::::::::::::::::::::: ")
+        console.log("::::::::::::::::::::::::::::::::::::::::TRADE UNDEFINED::::::::::::::::::::::::::::::::::::::: ")
         console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
-        return { tradePending };
+        return result;
     }
 }
 

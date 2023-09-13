@@ -84,14 +84,20 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
                                 await sendit(trade, tradePending)
                                 warning = 1
                                 return warning
-                            } else if (BN(profit.profit).gt(0) && warning !== 0) {
+                            }
+                            if (BN(profit.profit).gt(0) && warning == 1) {
                                 logger.info("Trade pending on " + pendingID + "?: ", tradePending)
-                                warning = 1
+                                warning++
                                 return warning
-                            } else if (BN(profit.profit).lt(0)) {
+                            }
+                            if (BN(profit.profit).gt(0) && warning > 1) {
+                                return
+                            }
+                            if (BN(profit.profit).lt(0)) {
                                 console.log("No trade")
                                 return
-                            } else {
+                            }
+                            if (profit.profit == undefined) {
                                 console.log("Profit is undefined: error in gasVProfit")
                                 return
                             }
