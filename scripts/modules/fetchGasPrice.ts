@@ -1,4 +1,4 @@
-import { BigNumber } from "ethers";
+import { BigNumber, utils } from "ethers";
 import { provider } from "../../constants/contract";
 import { BoolTrade, GasData } from "../../constants/interfaces";
 
@@ -28,16 +28,6 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<{ gasEstimate: Bi
             console.log(`Error in fetchGasPrice for trade: ${trade.ticker}`, ". Using default gas estimate for gasPrice calcs");
             gasEstimate = BigNumber.from(300000);
         }
-        const filter = {
-            address: trade.flash.address,
-            fromBlock: 0,
-            toBlock: 'latest',
-        };
-        const logs = await provider.getLogs(filter);
-        logs.forEach(log => {
-            const parsedLog = trade.flash.interface.parseLog(log);
-            console.log(parsedLog.args.message); // Print the log message
-        });
         const gasPrice = BigNumber.from(maxFee)
             .add(BigNumber.from(maxPriorityFee))
             .mul(gasEstimate.toNumber());
