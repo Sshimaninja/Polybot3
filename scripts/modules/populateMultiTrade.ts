@@ -39,8 +39,6 @@ export class Trade {
     }
 
     async getTradefromAmounts(): Promise<BoolTrade> {
-
-
         // //I prefer deciding trade based on profit, but it migth be necessary to decide based on price.
         // The technique for using profit would be to calc the repay first, then work out profit first, et voila.
         // however, walk before run.
@@ -48,13 +46,10 @@ export class Trade {
         // let B: BigNumber = this.amounts1.amountOutJS.sub(amountRepayA);
         const A = this.price0.priceOutBN;
         const B = this.price1.priceOutBN;
-
         //Determines which trade is more profitable.
         //'A' means flash pool A, 'B' means flash pool B. This implies that the opposit pool is the loan pool.
-
-        // Using profit, the greater is obviously better:
+        // Using profit, the greater is obviously better
         // let direction = A.gt(B) ? "A" : B.gt(A) ? "B" : "DIRECTIONAL AMBIGUITY ERROR";
-
         // Using price, the lesser is better:
         const direction = A.lt(B) ? "A" : B.lt(A) ? "B" : "DIRECTIONAL AMBIGUITY ERROR";
 

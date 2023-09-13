@@ -1,6 +1,5 @@
 import { BigNumber as BN } from "bignumber.js";
 import { utils, BigNumber } from "ethers";
-import { RouterMap, uniswapV2Router } from "../../constants/addresses";
 import { Amounts, FactoryPair, GasData, Pair, BoolTrade } from "../../constants/interfaces";
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
@@ -8,11 +7,10 @@ import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
 import { wallet, flashDirect } from "../../constants/contract";
 import { Contract } from "@ethersproject/contracts";
 import { Prices } from "./prices";
-import { getAmountsIn, getAmountsOut } from "./getAmountsIOLocal";
+import { getAmountsOut } from "./getAmountsIOLocal";
 /**
  *
  */
-
 export class Trade {
     trade: BoolTrade | undefined;
     pair: FactoryPair;
@@ -34,10 +32,10 @@ export class Trade {
     }
 
     // Get repayment amount for the loanPool
-    // If this doesn't work, get the equation from unsiwap.
     async getRepayDirect(tradeSize: BigNumber): Promise<BigNumber> {
-        const repayBN = BN(utils.formatUnits(tradeSize, this.match.token0.decimals)).multipliedBy(1.003009027).toFixed(this.match.token0.decimals);
-        const repay = utils.parseUnits(repayBN, this.match.token0.decimals);
+        // const repayBN = BN(utils.formatUnits(tradeSize, this.match.token0.decimals)).multipliedBy(1.003009027).toFixed(this.match.token0.decimals);
+        // const repay = utils.parseUnits(repayBN, this.match.token0.decimals);
+        const repay = tradeSize.mul(1003009027).div(1000000000);
         return repay;
     }
 
@@ -101,6 +99,7 @@ export class Trade {
 
         const tradeResult = {
             trade: "direct",
+            direction: trade.direction,
             ticker: trade.ticker,
             loanPool: {
                 exchange: trade.loanPool.exchange,
