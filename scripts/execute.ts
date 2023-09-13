@@ -12,12 +12,12 @@ export async function sendit(
     var gasbalance = await checkGasBal();
     const gasData = await fetchGasPrice(trade)
     if (trade) {
-        console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, "gwei") + " " + "MATIC Gwei")
-        const gotGas = Number(gasData.gasPrice) < Number(gasbalance)
+        console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, 18) + " " + "MATIC")
+        const gotGas = gasData.gasPrice < gasbalance
         gotGas == true ? console.log("Sufficient Matic Balance. Proceeding...") : console.log(">>>>Insufficient Matic Balance<<<<")
         if (gotGas == false) {
             console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION: " + trade.ticker + ':::::::::::::::::::::::::: ')
-            return
+            return tradePending = false;
         }
         console.log(":::::::::::Sending Transaction::::::::::: ")
         tradePending = true;
