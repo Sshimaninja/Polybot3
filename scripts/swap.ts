@@ -28,9 +28,11 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
 
             let pair: FactoryPair = pairList[p]
 
-            for (let m = 0; m < pair.matches.length; m++) {
+            // for (let m = 0; m < pair.matches.length; m++) 
 
-                let match = pair.matches[m]
+            pair.matches.forEach(async (match: any, m: number) => {
+
+                // let match = pair.matches[m]
 
                 if (!tradePending) { //&& pair.matches[m].poolA_id !== pendingID && pair.matches[m].poolB_id !== pendingID) {
 
@@ -57,9 +59,9 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
 
                     // 4. Calculate Gas vs Profitability
 
-                    let profit = await gasVprofit(trade)
+                    if (trade.profit.gt(0)) {
 
-                    if (profit.profit !== undefined) {
+                        let profit = await gasVprofit(trade)
 
                         let basicData = {
                             ticker: trade.ticker,
@@ -69,36 +71,43 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
                             gasCost: profit.gasCost,
                         }
 
-                        // 5. If profitable, execute trade
+                        if (BN(profit.profit).gt(0)) {
 
-                        if (BN(profit.profit).gt(0) && warning == 0) {
-                            logger.info("Profitable trade found on " + trade.ticker + "!")
-                            // logger.info(trade)
-                            logger.info("Profit: ", profit.profit.toString(), "Gas Cost: ", profit.gasCost.toString())
-                            tradePending = true
-                            pendingID = trade.recipient.pool.address
-                            await sendit(trade, tradePending)
-                            warning = 1
-                            break; // exit the inner loop
-                        } else if (BN(profit.profit).gt(0) && warning !== 0) {
-                            logger.info("Trade pending on " + pendingID + "?: ", tradePending)
-                            warning = 1
-                            break; // exit the inner loop
-                        } else if (BN(profit.profit).lt(0)) {
-                            console.log("No trade")
-                            break; // exit the inner loop
-                        } else {
-                            console.log("Profit is undefined: error in gasVProfit")
-                            break; // exit the inner loop
+                            // 5. If profitable, execute trade
+
+                            if (BN(profit.profit).gt(0) && warning == 0) {
+                                logger.info("Profitable trade found on " + trade.ticker + "!")
+                                // logger.info(trade)
+                                logger.info("Profit: ", profit.profit.toString(), "Gas Cost: ", profit.gasCost.toString())
+                                tradePending = true
+                                pendingID = trade.recipient.pool.address
+                                await sendit(trade, tradePending)
+                                warning = 1
+                                return warning
+                            } else if (BN(profit.profit).gt(0) && warning !== 0) {
+                                logger.info("Trade pending on " + pendingID + "?: ", tradePending)
+                                warning = 1
+                                return warning
+                            } else if (BN(profit.profit).lt(0)) {
+                                console.log("No trade")
+                                return
+                            } else {
+                                console.log("Profit is undefined: error in gasVProfit")
+                                return
+                            }
                         }
+                    } else {
+                        // console.log(basicData)
+                        return
                     }
                 } else {
                     console.log("Trade pending on " + pendingID + "?: ", tradePending)
-                    break; // exit the inner loop
+                    return
                 }
-            }
+            })
         }
     })
+
 
 }
 

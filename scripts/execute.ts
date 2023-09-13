@@ -55,7 +55,9 @@ export async function sendit(
                 utils.id("log(string,uint256)"),
                 utils.id("logValue(string,uint256)"),
                 utils.id("logAddress(string,address)"),
-            ]
+            ],
+            fromBlock: "latest",
+            toBlock: "pending"
         }
         provider.on(filter, (log, logValue, logAddress) => {
             logger.info(log)
