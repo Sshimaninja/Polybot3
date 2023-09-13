@@ -16,7 +16,7 @@ Replace 0/1 new class instances with a loop that handles n instances
 */
 let warning = 0
 let tradePending = false;
-let slippageTolerance = BN(0.001) // 0.1%
+let slippageTolerance = BN(0.0006) // 0.065%
 // var virtualReserveFactor = 1.1
 var pendingID: string | undefined
 
@@ -32,7 +32,7 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
 
                 let match = pair.matches[m]
 
-                if (!tradePending && pair.matches[m].poolA_id !== pendingID && pair.matches[m].poolB_id !== pendingID) {
+                if (!tradePending) { //&& pair.matches[m].poolA_id !== pendingID && pair.matches[m].poolB_id !== pendingID) {
 
                     // 0. Get reserves for all pools:
 
@@ -79,18 +79,22 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
                             pendingID = trade.recipient.pool.address
                             await sendit(trade, tradePending)
                             warning = 1
-                        } if (BN(profit.profit).gt(0) && warning !== 0) {
+                            break; // exit the inner loop
+                        } else if (BN(profit.profit).gt(0) && warning !== 0) {
                             logger.info("Trade pending on " + pendingID + "?: ", tradePending)
                             warning = 1
-                            return warning
-                        }
-                        if (BN(profit.profit).lt(0)) {
+                            break; // exit the inner loop
+                        } else if (BN(profit.profit).lt(0)) {
                             console.log("No trade")
-                            return
+                            break; // exit the inner loop
                         } else {
                             console.log("Profit is undefined: error in gasVProfit")
+                            break; // exit the inner loop
                         }
                     }
+                } else {
+                    console.log("Trade pending on " + pendingID + "?: ", tradePending)
+                    break; // exit the inner loop
                 }
             }
         }
