@@ -34,21 +34,35 @@ export async function gasVprofit(trade: BoolTrade,): Promise<Profit> {
                 console.log("Profit: ", profit)
                 return profit;
             }
-            if (profitinMatic.profitInMatic.lte(BigNumber.from(0))) {
+            if (profitinMatic.profitInMatic.eq(BigNumber.from(0))) {
+                console.log("Trade is 0.")
+                profit = {
+                    profit: utils.formatUnits(profitinMatic.profitInMatic, 18),
+                    gasCost: utils.formatUnits(gasPrice, 18),
+                    gasPool: profitinMatic.gasPool.address,
+                }
+                console.log("Profit: ", profit)
+                return profit;
+            }
+            if (profitinMatic.profitInMatic.lt(BigNumber.from(0))) {
                 console.log("Trade is negative.")
-                return profit = {
+                profit = {
                     profit: utils.formatUnits(profitinMatic.profitInMatic, 18),
                     gasCost: utils.formatUnits(gasPrice, 18),
                     gasPool: "undefined",
                 };
+                console.log("Profit: ", profit)
+                return profit;
             }
         } else if (profitinMatic == undefined) {
             console.log("Profit in Matic is undefined.")
-            return profit = {
+            profit = {
                 profit: "undefined",
                 gasCost: "undefined",
                 gasPool: "undefined",
             };
+            console.log("Profit: ", profit)
+            return profit;
         }
     }
     if (trade.direction == undefined) {

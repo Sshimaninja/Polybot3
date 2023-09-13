@@ -25,8 +25,6 @@ async function main() {
 
     const pairList = await dataFeed();
     console.log("V2 match lists: ", pairList.length)
-
-
     try {
         provider.on('block', async (blockNumber: any) => {
             logger.info("New block received: Block # " + blockNumber);
