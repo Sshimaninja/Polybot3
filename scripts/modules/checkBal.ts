@@ -47,9 +47,9 @@ export async function checkBal(token0: string, token0dec: number, token1: string
 }
 // checkBal("0x2791bca1f2de4661ed88a30c99a7a9449aa84174", 6, "0x67eb41a14c0fe5cd701fc9d5a3d6597a72f641a6", 18);
 
-export async function checkGasBal() {
+export async function checkGasBal(): Promise<BigNumber> {
     const wmatictoken = new ethers.Contract(gasToken.WMATIC, IERC20, provider)
-    const walletbalanceMatic = await wmatictoken.balanceOf(flashwallet)
+    const walletbalanceMatic: BigNumber = await wmatictoken.balanceOf(flashwallet)
     // console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(walletbalanceMatic, 18) + " " + "MATIC")
     return walletbalanceMatic
 }
