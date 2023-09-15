@@ -27,7 +27,7 @@ export async function gasVprofit(trade: BoolTrade,): Promise<Profit> {
                     gasCost: gasPrice,
                     gasPool: profitinMatic.gasPool.address,
                 }
-                console.log("Profit: ", profit)
+                // console.log("Profit: ", profit)
                 return profit;
             }
             if (profitinMatic.profitInMatic.lte(BigNumber.from(0))) {
