@@ -68,6 +68,21 @@
                 }
             },
             {
+                "ticker": "WMATIC/DAI",
+                "poolA_id": "0xEEf611894CeaE652979C9D0DaE1dEb597790C6eE",
+                "poolB_id": "0x8929D3FEa77398F64448c85015633c2d6472fB29",
+                "token0": {
+                    "symbol": "WMATIC",
+                    "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+                    "decimals": 18
+                },
+                "token1": {
+                    "symbol": "DAI",
+                    "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+                    "decimals": 18
+                }
+            },
+            {
                 "ticker": "USDC/USDT",
                 "poolA_id": "0x2cF7252e74036d1Da831d11089D326296e64a728",
                 "poolB_id": "0x4B1F1e2435A9C96f7330FAea190Ef6A7C8D70001",
@@ -98,21 +113,6 @@
                 }
             },
             {
-                "ticker": "WETH/QUICK",
-                "poolA_id": "0x1Bd06B96dd42AdA85fDd0795f3B4A79DB914ADD5",
-                "poolB_id": "0xf4F78fda908563331360B331130342867F74eb21",
-                "token0": {
-                    "symbol": "WETH",
-                    "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-                    "decimals": 18
-                },
-                "token1": {
-                    "symbol": "QUICK",
-                    "id": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
-                    "decimals": 18
-                }
-            },
-            {
                 "ticker": "WMATIC/WETH",
                 "poolA_id": "0xadbF1854e5883eB8aa7BAf50705338739e558E5b",
                 "poolB_id": "0xc4e595acDD7d12feC385E5dA5D43160e8A0bAC0E",
@@ -128,17 +128,17 @@
                 }
             },
             {
-                "ticker": "WMATIC/UNI",
-                "poolA_id": "0xc45092e7e73951c6668f6C46AcFCa9F2B1c69aEf",
-                "poolB_id": "0x7FAe0648684ec375176E2d0F171cA9814798D920",
+                "ticker": "WETH/QUICK",
+                "poolA_id": "0x1Bd06B96dd42AdA85fDd0795f3B4A79DB914ADD5",
+                "poolB_id": "0xf4F78fda908563331360B331130342867F74eb21",
                 "token0": {
-                    "symbol": "WMATIC",
-                    "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+                    "symbol": "WETH",
+                    "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
                     "decimals": 18
                 },
                 "token1": {
-                    "symbol": "UNI",
-                    "id": "0xb33EaAd8d922B1083446DC23f610c2567fB5180f",
+                    "symbol": "QUICK",
+                    "id": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
                     "decimals": 18
                 }
             }
