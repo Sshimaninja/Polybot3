@@ -22,6 +22,8 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                     utils.formatUnits(trade.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol
                 ) : trade.type === "direct" ? (
                     utils.formatUnits(trade.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol) : "error",
+            amountOut: utils.formatUnits(trade.loanPool.amountOut, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
+
         },
         recipient: {
             exchange: trade.recipient.exchange,

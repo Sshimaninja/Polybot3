@@ -104,6 +104,11 @@ export class Trade {
             profit: BigNumber.from(0)
         };
 
+        if (trade.recipient.tradeSize.eq(0)) {
+            console.log("Trade size is 0, no trade possible: " + trade.ticker)
+            return trade;
+        }
+
         //We need the amountOut of tokenIn for directRepay from loanpool to see now much of token0 loan can be repaid, if the trade is direct.
         trade.loanPool.amountOut = await getAmountsOut(
             trade.recipient.amountOut,
@@ -121,7 +126,6 @@ export class Trade {
         ) //in token0
 
         const profitMulti = trade.recipient.amountOut.sub(multiRepay)
-
         const profitDirect = trade.loanPool.amountOut.sub(directRepay)
 
         trade.type = profitMulti.gt(profitDirect) ? "multi" : "direct";
