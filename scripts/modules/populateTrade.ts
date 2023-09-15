@@ -55,7 +55,7 @@ export class Trade {
         return repay; //in token0
     }
 
-    async getTradefromAmounts(): Promise<BoolTrade> {
+    async getTrade(): Promise<BoolTrade> {
 
         const A = this.price0.priceOutBN;
         const B = this.price1.priceOutBN;
