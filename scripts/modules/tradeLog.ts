@@ -9,7 +9,7 @@ import { BoolTrade } from "../../constants/interfaces";
  */
 export async function tradeLogs(trade: BoolTrade): Promise<any> {
     const d = {
-        trade: "Multi",
+        trade: trade.type,
         ticker: trade.ticker,
         loanPool: {
             exchange: trade.loanPool.exchange,
@@ -17,7 +17,11 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
             priceOut: trade.loanPool.priceOut,
             reservesIn: utils.formatUnits(trade.loanPool.reserveIn, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
             reservesOut: utils.formatUnits(trade.loanPool.reserveOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
-            amountRepay: utils.formatUnits(trade.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
+            amountRepay:
+                trade.type === "multi" ? (
+                    utils.formatUnits(trade.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol
+                ) : trade.type === "direct" ? (
+                    utils.formatUnits(trade.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol) : "error",
         },
         recipient: {
             exchange: trade.recipient.exchange,

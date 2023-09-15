@@ -12,7 +12,7 @@ import { tradeLogs } from './modules/tradeLog';
 import { logger } from '../constants/contract';
 /*
 TODO:
-Replace 0/1 new class instances with a loop that handles n instances
+
 */
 /**
  * @param data
@@ -64,7 +64,7 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
 
                     // 3. Determine trade direction & profitability
                     let t = new Trade(pair, match, p0, p1, amounts0, amounts1, gasData);
-                    let trade = await t.getTradefromAmounts()
+                    let trade = await t.getTrade()
                     // 4. Calculate Gas vs Profitability
 
                     let data = await tradeLogs(trade);
