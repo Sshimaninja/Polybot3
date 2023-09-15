@@ -9,33 +9,43 @@ import { logger } from './constants/contract';
 async function main() {
     //full path to matches dataDir : '/mnt/d/code/arbitrage/polybot-live/polybotv3/data/matches/v2/'
     let matchDir = path.join(__dirname, '/data/matches/v2/');
-
-    async function dataFeed() {
-        const pairList: FactoryPair[] = [];
-        const files = await fs.promises.readdir(matchDir);
-
-        for (const file of files) {
-            const filePath = path.join(matchDir, file);
-            const data = await fs.promises.readFile(filePath, 'utf8');
-            const pairs = JSON.parse(data);
-            pairList.push(pairs);
+    provider.on('block', async (blockNumber: any) => {
+        async function dataFeed() {
+            const pairList: FactoryPair[] = [];
+            const files = await fs.promises.readdir(matchDir);
+            // for (const file of files) {
+            files.forEach(async file => {
+                const filePath = path.join(matchDir, file);
+                const data = await fs.promises.readFile(filePath, 'utf8');
+                const pairs = JSON.parse(data);
+                pairList.push(pairs);
+            });
+            return pairList;
         }
-        return pairList;
-    }
 
-    const pairList = await dataFeed();
-    console.log("V2 match lists: ", pairList.length)
-    try {
-        provider.on('block', async (blockNumber: any) => {
-            logger.info("New block received: Block # " + blockNumber);
-            const gasData = await getGasData();
-            console.log({ gasData: gasData })
-            await control(pairList, gasData);
-        });
-    } catch (error: any) {
-        logger.error("PROVIDER ERROR: " + error.message);
-        return;
-    }
+        const pairList = await dataFeed();
+
+        console.log("V2 match lists: ", pairList.length)
+
+        try {
+
+            provider.on('block', async (blockNumber: any) => {
+
+                logger.info("New block received: Block # " + blockNumber);
+
+                const gasData = await getGasData();
+                console.log({ gasData: gasData })
+
+                pairList.forEach(async (pairList: any, d: any) => {
+                    await control(pairList, gasData);
+                });
+            });
+
+        } catch (error: any) {
+            logger.error("PROVIDER ERROR: " + error.message);
+            return;
+        }
+    });
 }
 
 main().catch((error) => {
