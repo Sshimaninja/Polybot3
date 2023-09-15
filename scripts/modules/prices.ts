@@ -3,7 +3,10 @@ import { BigNumber as BN } from "bignumber.js";
 import { Reserves } from "./reserves";
 import { Pair, ReservesData } from "../../constants/interfaces";
 import { Token } from "../../constants/interfaces";
-
+/**
+ * @description
+ * This class holds an array of prices for a given pair, using reserves.
+ */
 
 export class Prices {
     poolID: string;

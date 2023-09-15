@@ -1,5 +1,12 @@
 import { ethers, BigNumber } from 'ethers';
-
+/**
+ * 
+ * @param reserveIn 
+ * @param reserveOut 
+ * @param tokenIndec 
+ * @param amountIn 
+ * @returns price impact of trade on a V2 uniswap pool
+ */
 async function calculateOptimalTradeAmount(
     // pairContract: ethers.Contract, 
     reserveIn: BigNumber,

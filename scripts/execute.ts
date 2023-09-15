@@ -3,14 +3,25 @@ import { provider, signer, wallet, logger } from "../constants/contract";
 import { BoolTrade, TxData } from "../constants/interfaces";
 import { fetchGasPrice } from "./modules/fetchGasPrice";
 import { checkBal, checkGasBal } from "./modules/checkBal";
-
+/**
+ * @param trade
+ * @param gasCost
+ * @returns
+ * @description
+ * This function sends the transaction to the blockchain.
+ * It returns the transaction hash, and a boolean to indicate if the transaction is pending.
+ * The transaction hash is used to check the status of the transaction.
+ * The boolean is used to prevent multiple transactions from being sent.
+ * If the transaction is pending, the function will return.
+ * If the transaction is not pending, the function will send the transaction.
+ * If the transaction is undefined, the function will return.
+ */
 export async function sendit(
     trade: BoolTrade,
-    tradePending: boolean,
+    gasCost: BigNumber,
 ): Promise<TxData> {
     console.log('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.ticker + ':::::::::::::::::::::::::: ')
     var gasbalance = await checkGasBal();
-    const gasData = await fetchGasPrice(trade)
 
     let result: TxData = {
         txResponse: undefined,
@@ -20,8 +31,9 @@ export async function sendit(
     if (trade) {
 
         console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, 18) + " " + "MATIC")
+        console.log("Gas Cost::::::::::::: " + ethers.utils.formatUnits(gasCost, 18) + " " + "MATIC")
 
-        const gotGas = gasData.gasPrice < gasbalance
+        const gotGas = gasCost.lt(gasbalance)
 
         gotGas == true ? console.log("Sufficient Matic Balance. Proceeding...") : console.log(">>>>Insufficient Matic Balance<<<<")
 
@@ -45,9 +57,9 @@ export async function sendit(
             {
                 type: 2,
                 // gasPrice: gasLimit,
-                maxFeePerGas: gasData.maxFee,
-                maxPriorityFeePerGas: gasData.maxPriorityFee,
-                gasLimit: gasData.gasEstimate,
+                maxFeePerGas: trade.gasData.maxFee,
+                maxPriorityFeePerGas: trade.gasData.maxPriorityFee,
+                gasLimit: trade.gasData.gasEstimate,
                 // nonce: nonce,
             }
         );
@@ -60,7 +72,6 @@ export async function sendit(
                 logger.info("Transaction receipt: ")
                 logger.info(receipt)
                 logger.info("Transaction complete")
-                tradePending = false;
             });
         var filter = {
             address: trade.flash.address,

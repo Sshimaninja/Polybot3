@@ -1,5 +1,12 @@
 import { BigNumber as BN } from "bignumber.js";
-
+/**
+ * 
+ * @param reserveIn 
+ * @param reserveOut 
+ * @param targetPrice 
+ * @param slippageTolerance 
+ * @returns maximum trade size for a given pair, taking into account slippage
+ */
 export async function getTradeSize(reserveIn: BN, reserveOut: BN, targetPrice: BN, slippageTolerance: BN): Promise<BN> {
     // Calculate the expected trade size without considering slippage
     // ex reserveIn/reserveOut: 300000 / 10

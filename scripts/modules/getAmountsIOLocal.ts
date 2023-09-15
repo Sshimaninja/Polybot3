@@ -1,6 +1,12 @@
 
 import { BigNumber } from 'ethers';
-
+/**
+ * Local calculation of amounts in/out 
+ * @param amountIn 
+ * @param reserveIn 
+ * @param reserveOut 
+ * @returns amountOut or amountIn
+ */
 export async function getAmountsOut(amountIn: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
     const amountInWithFee = amountIn.mul(997);
     const numerator = amountInWithFee.mul(reserveOut);

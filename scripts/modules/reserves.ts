@@ -5,6 +5,10 @@ import { logger } from '../../constants/contract'
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
 import { wallet } from '../../constants/contract'
 import { ReservesData, Pair } from "../../constants/interfaces";
+/**
+ * @description
+ * This class returns an array of an array of reserves for an array of pairs.
+ */
 export class Reserves {
     static reserves: ReservesData[] = [];
 
