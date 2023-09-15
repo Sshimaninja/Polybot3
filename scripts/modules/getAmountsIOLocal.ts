@@ -1,5 +1,4 @@
 import { BigNumber } from 'ethers';
-
 /**
  * Local calculation of amounts in/out 
  * @param amountIn 
@@ -7,7 +6,6 @@ import { BigNumber } from 'ethers';
  * @param reserveOut 
  * @returns amountOut or amountIn
  */
-
 export async function getAmountsOut(amountIn: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
     const amountInWithFee = amountIn.mul(997);
     const numerator = amountInWithFee.mul(reserveOut);
@@ -19,18 +17,7 @@ export async function getAmountsOut(amountIn: BigNumber, reserveIn: BigNumber, r
 //amountIn = amountOut * reserveIn / (reserveOut - amountOut)
 export async function getAmountsIn(amountOut: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
     const numerator = reserveIn.mul(amountOut).mul(1000);
-    console.log({
-        numerator: numerator.toString(),
-        reserveIn: reserveIn.toString(),
-        amountOut: amountOut.toString(),
-    })
-    console.log({
-        reserveOut: reserveOut.toString(),
-        amountOut: amountOut.toString(),
-    })
-
-    return BigNumber.from(0);//DEBUG
-    // const denominator = reserveOut.sub(amountOut).mul(997);
-    // const amountIn = numerator.div(denominator).add(1);
-    // return amountIn;
+    const denominator = reserveOut.sub(amountOut).mul(997);
+    const amountIn = numerator.div(denominator).add(1);
+    return amountIn;
 }
