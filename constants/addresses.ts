@@ -23,17 +23,21 @@ export const uniswapQuoter: QuoterMap = {
 export type RouterMap = { [protocol: string]: string };
 
 export const uniswapV2Router: RouterMap = {
-  UNI: "0x7a250d5630b4caeaf5c20e6585a6e1ef6c992400",
+  // UNI: "0x7a250d5630b4caeaf5c20e6585a6e1ef6c992400",
   SUSHI: "0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",
   QUICK: "0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff",
-
+  APE: "0xC0788A3aD43d79aa53B09c2EaCc313A787d1d607",
+  JET: "0x5C6EC38fb0e2609672BDf628B1fD605A523E5923",
+  // POLYGON_UNISWAP_V3: "0xE592427A0AEce92De3Edee1F18E0157C05861564",
 };
 
 export type FactoryMap = { [protocol: string]: string };
 
 export const uniswapV2Factory: FactoryMap = {
-  SUSHI: "0xc35DADB65012eC5796536bD9864eD8773aBc74C4",
   QUICK: "0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32",
+  SUSHI: "0xc35DADB65012eC5796536bD9864eD8773aBc74C4",
+  APE: "0xCf083Be4164828f00cAE704EC15a36D711491284",
+  JET: "0x668ad0ed2622C62E24f0d5ab6B6Ac1b9D2cD4AC7",
 };
 
 export const uniswapV3Factory: FactoryMap = {
