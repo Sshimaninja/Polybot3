@@ -19,8 +19,8 @@ import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
 import { Flash, Trade } from '../constants/interfaces';
 
 import { lowSlippage } from '../scripts/modules/equalizeRatioBN';
-import { getAmountsIn, getAmountsOut, getAmountsIO } from '../scripts/modules/getAmountsIO';
-import { getAmountsIn as getAmountsInjs, getAmountsOut as getAmountsOutjs, getAmountsIO as getAmountsIOjs } from '../scripts/modules/getAmountsIOjs';
+import { getAmountsIn, getAmountsOut, getAmountsIO } from '../scripts/modules/getAmountsIOBN';
+import { getAmountsIn as getAmountsInjs, getAmountsOut as getAmountsOutjs, getAmountsIO as getAmountsIOjs } from '../scripts/modules/getAmountsIOJS';
 import { getTrade } from '../scripts/modules/populateMultiTrade';
 import { getDirection } from '../scripts/modules/getDirection'
 import { fetchGasPrice } from "../scripts/modules/fetchGasPrice";

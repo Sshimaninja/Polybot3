@@ -1,6 +1,13 @@
 // import { BigNumber } from 'ethers';
 import { BigNumber as BN } from "bignumber.js";
 import { utils, BigNumber } from "ethers";
+/**
+ * bignumber.js handles decimals; ethers.js can't
+ * @param amountIn 
+ * @param reserveIn 
+ * @param reserveOut 
+ * @returns Local calculation of amounts in/out in BN (bignnumber.js)
+ */
 // import { BN as BN } from "bignumber.js";
 
 // function getAmountOut(uint amountIn, uint reserveIn, uint reserveOut) internal pure returns(uint amountOut) {

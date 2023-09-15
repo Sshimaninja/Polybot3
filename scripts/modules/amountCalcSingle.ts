@@ -6,7 +6,10 @@ import { Prices } from "./prices";
 import { Token, Amounts } from "../../constants/interfaces";
 import { getAmountsOut, getAmountsIn } from './getAmountsIOLocal';
 import { HiLo, Difference } from "../../constants/interfaces";
-
+/**
+ * @description
+ * This class holds amounts in/out for a pair, as well as the trade size.
+ */
 export class AmountCalculator {
     pair: Pair;
     token0: Token;

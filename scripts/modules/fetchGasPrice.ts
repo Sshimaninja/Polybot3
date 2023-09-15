@@ -1,7 +1,12 @@
 import { BigNumber, utils } from "ethers";
 import { provider } from "../../constants/contract";
 import { BoolTrade, GasData } from "../../constants/interfaces";
-
+/**
+ * @param trade 
+ * @returns gas estimate and gas price for a given trade.
+ * If the gasEstimate fails, it will return a default gas estimate of 300000.
+ * @returns { gasEstimate: BigNumber, gasPrice: BigNumber, maxFee: number, maxPriorityFee: number }
+ */
 export async function fetchGasPrice(trade: BoolTrade): Promise<{ gasEstimate: BigNumber, gasPrice: BigNumber, maxFee: number, maxPriorityFee: number }> {
     if (trade.direction != undefined) {
         const gasData: GasData = trade.gasData;

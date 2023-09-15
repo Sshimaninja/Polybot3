@@ -1,7 +1,11 @@
 import axios from 'axios';
 import { provider } from '../../constants/contract';
 import { GasData } from '../../constants/interfaces';
-
+/**
+ * 
+ * @returns suggested gasData from polygon gas station
+ * 
+ */
 export async function getGasData(): Promise<GasData> {
     var gasData: GasData = {
         safeLow: {

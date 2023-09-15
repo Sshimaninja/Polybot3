@@ -1,19 +1,27 @@
 require('dotenv').config()
 require('colors')
-import { utils } from 'ethers';
 import { BigNumber as BN } from "bignumber.js";
 import { Prices } from './modules/prices';
-import { BoolFlash, HiLo, Difference, Pair, FactoryPair, BoolTrade } from '../constants/interfaces';
+import { FactoryPair } from '../constants/interfaces';
 import { AmountCalculator } from './modules/amountCalcSingle'
-import { getTrade } from './modules/populateTradeCtrl';
+import { Trade } from './modules/populateTrade';
 import { gasVprofit } from './modules/gasVprofit';
 import { Reserves } from './modules/reserves';
 import { sendit } from './execute';
+import { tradeLogs } from './modules/tradeLog';
 import { logger } from '../constants/contract';
 /*
 TODO:
-Replace 0/1 new class instances with a loop that handles n instances
+
 */
+/**
+ * @param data
+ * @param gasData
+ * @description
+ * This function controls the execution of the flash swaps.
+ * It loops through all pairs, and all matches, and executes the flash swaps.
+ * It prevents multiple flash swaps from being executed at the same time, on the same pool, if the profit is too low, or the gas cost too high.
+ */
 let warning = 0
 let tradePending = false;
 let slippageTolerance = BN(0.0006) // 0.065%
@@ -34,7 +42,7 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
 
                 // let match = pair.matches[m]
 
-                if (!tradePending) { //&& pair.matches[m].poolA_id !== pendingID && pair.matches[m].poolB_id !== pendingID) {
+                if (!tradePending && pair.matches[m].poolA_id !== pendingID && pair.matches[m].poolB_id !== pendingID) {
 
                     // 0. Get reserves for all pools:
 
@@ -55,59 +63,62 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
                     let amounts1 = await c1.getAmounts(p1.reserves.reserveInBN, p1.reserves.reserveOutBN, p0.priceOutBN, slippageTolerance)
 
                     // 3. Determine trade direction & profitability
-                    let trade = await getTrade(pair, match, p0, p1, amounts0, amounts1, gasData)
+                    let t = new Trade(pair, match, p0, p1, amounts0, amounts1, gasData);
+                    let trade = await t.getTrade()
 
                     // 4. Calculate Gas vs Profitability
 
+                    let data = await tradeLogs(trade);
+
+                    // 5. If profitable, execute trade
+
                     if (trade.profit.gt(0)) {
 
-                        let profit = await gasVprofit(trade)
+                        logger.info("Profitable: " + data)
 
-                        let basicData = {
-                            ticker: trade.ticker,
-                            tradeSize: trade.recipient.tradeSize,
-                            direction: trade.direction,
-                            profit: profit.profit,
-                            gasCost: profit.gasCost,
+                        let actualProfit = await gasVprofit(trade)
+
+                        if (BN(actualProfit.profit).gt(0) && warning === 0) {
+                            logger.info("Profitable trade found on " + trade.ticker + "!")
+                            logger.info("Profit: ", actualProfit.profit.toString(), "Gas Cost: ", actualProfit.gasCost.toString(), "Flash Type: ", trade.type)
+                            tradePending = true
+                            pendingID = trade.recipient.pool.address
+                            await sendit(trade, actualProfit.gasCost)
+                            warning++
+                            return warning
                         }
-
-                        if (BN(profit.profit).gt(0)) {
-
-                            // 5. If profitable, execute trade
-
-                            if (BN(profit.profit).gt(0) && warning == 0) {
-                                logger.info("Profitable trade found on " + trade.ticker + "!")
-                                // logger.info(trade)
-                                logger.info("Profit: ", profit.profit.toString(), "Gas Cost: ", profit.gasCost.toString())
-                                tradePending = true
-                                pendingID = trade.recipient.pool.address
-                                await sendit(trade, tradePending)
-                                warning = 1
-                                return warning
-                            } else if (BN(profit.profit).gt(0) && warning !== 0) {
-                                logger.info("Trade pending on " + pendingID + "?: ", tradePending)
-                                warning = 1
-                                return warning
-                            } else if (BN(profit.profit).lt(0)) {
-                                console.log("No trade")
-                                return
-                            } else {
-                                console.log("Profit is undefined: error in gasVProfit")
-                                return
-                            }
+                        if (BN(actualProfit.profit).gt(0) && warning === 1) {
+                            logger.info("Trade pending on " + pendingID + "?: ", tradePending)
+                            warning++
+                            return warning
                         }
-                    } else {
+                        if (BN(actualProfit.profit).gt(0) && warning > 1) {
+                            return
+                        }
+                        if (BN(actualProfit.profit).lte(0)) {
+                            console.log("<<<<<<<<<<<<No Trade>>>>>>>>>>>>")
+                            console.log(data)
+                            return
+                        }
+                        if (actualProfit.profit == undefined) {
+                            console.log("Profit is undefined: error in gasVProfit")
+                            return
+                        }
+                    } else if (trade.profit.lte(0)) {
+                        // let basicData = {
+                        //     ticker: trade.ticker,
+                        //     tradeSize: trade.recipient.tradeSize,
+                        //     direction: trade.direction,
+                        //     profit: trade.profit,
+                        //     gasCost: trade.gasData.gasEstimate,
+                        // }
                         // console.log(basicData)
+                        // trade.type != "error" ? console.log("No Trade: " + data) : console.log("No Trade: " + trade.ticker + " " + trade.type + "tradeSize: " + trade.recipient.tradeSize)
                         return
                     }
-                } else {
-                    console.log("Trade pending on " + pendingID + "?: ", tradePending)
-                    return
                 }
             })
         }
     })
-
-
 }
 
