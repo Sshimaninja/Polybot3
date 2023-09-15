@@ -8,6 +8,7 @@ import { Trade } from './modules/populateTrade';
 import { gasVprofit } from './modules/gasVprofit';
 import { Reserves } from './modules/reserves';
 import { sendit } from './execute';
+import { tradeLogs } from './modules/tradeLog';
 import { logger } from '../constants/contract';
 /*
 TODO:
@@ -66,55 +67,55 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
                     let trade = await t.getTradefromAmounts()
                     // 4. Calculate Gas vs Profitability
 
+                    let data = await tradeLogs(trade);
+
+                    let actualProfit = await gasVprofit(trade)
+
+                    let basicData = {
+                        ticker: trade.ticker,
+                        tradeSize: trade.recipient.tradeSize,
+                        direction: trade.direction,
+                        profit: actualProfit.profit,
+                        gasCost: actualProfit.gasCost,
+                    }
+
+                    // 5. If profitable, execute trade
+
                     if (trade.profit.gt(0)) {
 
-                        let profit = await gasVprofit(trade)
+                        logger.info(data)
 
-                        let basicData = {
-                            ticker: trade.ticker,
-                            tradeSize: trade.recipient.tradeSize,
-                            direction: trade.direction,
-                            profit: profit.profit,
-                            gasCost: profit.gasCost,
-                        }
+                    }
 
-                        if (BN(profit.profit).gt(0)) {
-
-                            // 5. If profitable, execute trade
-
-                            if (BN(profit.profit).gt(0) && warning == 0) {
-                                logger.info("Profitable trade found on " + trade.ticker + "!")
-                                // logger.info(trade)
-                                logger.info("Profit: ", profit.profit.toString(), "Gas Cost: ", profit.gasCost.toString(), "Flash Type: ", trade.flash.address)
-                                tradePending = true
-                                pendingID = trade.recipient.pool.address
-                                await sendit(trade, profit.gasCost)
-                                warning = 1
-                                return warning
-                            }
-                            if (BN(profit.profit).gt(0) && warning == 1) {
-                                logger.info("Trade pending on " + pendingID + "?: ", tradePending)
-                                warning++
-                                return warning
-                            }
-                            if (BN(profit.profit).gt(0) && warning > 1) {
-                                return
-                            }
-                            if (BN(profit.profit).lt(0)) {
-                                console.log("No trade")
-                                return
-                            }
-                            if (profit.profit == undefined) {
-                                console.log("Profit is undefined: error in gasVProfit")
-                                return
-                            }
-                        }
-                    } else {
-                        // console.log(basicData)
+                    if (BN(actualProfit.profit).gt(0) && warning === 0) {
+                        logger.info("Profitable trade found on " + trade.ticker + "!")
+                        // logger.info(trade)
+                        logger.info("Profit: ", actualProfit.profit.toString(), "Gas Cost: ", actualProfit.gasCost.toString(), "Flash Type: ", trade.flash.address)
+                        tradePending = true
+                        pendingID = trade.recipient.pool.address
+                        await sendit(trade, actualProfit.gasCost)
+                        warning++
+                        return warning
+                    }
+                    if (BN(actualProfit.profit).gt(0) && warning === 1) {
+                        logger.info("Trade pending on " + pendingID + "?: ", tradePending)
+                        warning++
+                        return warning
+                    }
+                    if (BN(actualProfit.profit).gt(0) && warning > 1) {
+                        return
+                    }
+                    if (BN(actualProfit.profit).lte(0)) {
+                        console.log("<<<<<<<<<<<<No Trade>>>>>>>>>>>>")
+                        console.log(data)
+                        return
+                    }
+                    if (actualProfit.profit == undefined) {
+                        console.log("Profit is undefined: error in gasVProfit")
                         return
                     }
                 } else {
-                    // console.log("Trade pending on " + pendingID + "?: ", tradePending)
+                    // console.log(basicData)
                     return
                 }
             })
