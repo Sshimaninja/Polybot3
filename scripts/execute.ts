@@ -1,7 +1,6 @@
 import { BigNumber, ethers, utils, Contract, Wallet } from "ethers";
 import { provider, signer, wallet, logger } from "../constants/contract";
 import { BoolTrade, TxData } from "../constants/interfaces";
-import { fetchGasPrice } from "./modules/fetchGasPrice";
 import { checkBal, checkGasBal } from "./modules/checkBal";
 /**
  * @param trade
@@ -45,7 +44,6 @@ export async function sendit(
         console.log(":::::::::::Sending Transaction::::::::::: ")
 
         result.tradePending = true;
-
         let tx = await trade.flash.flashSwap(
             trade.loanPool.factory.address,
             trade.recipient.router.address,
