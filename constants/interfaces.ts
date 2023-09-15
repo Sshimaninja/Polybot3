@@ -1,6 +1,10 @@
 import { BigNumber, Contract } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
-
+export interface K {
+    uniswapKPre: BigNumber,
+    uniswapKPost: BigNumber
+    uniswapKPositive: boolean
+}
 
 export interface TxData {
     txResponse: any;
@@ -44,7 +48,8 @@ export interface Token {
 
 export interface Profit {
     profit: string;
-    gasCost: string;
+    gasEstimate: BigNumber;
+    gasCost: BigNumber;
     gasPool: string;
 }
 export interface Amounts {
@@ -82,6 +87,7 @@ export interface Pool {
 };
 export interface BoolTrade {
     direction: string
+    type: string
     ticker: string
     tokenIn: Token
     tokenOut: Token
@@ -109,7 +115,8 @@ export interface BoolTrade {
         tradeSize: BigNumber
         amountOut: BigNumber
     }
-    gasData: any;
+    k: K
+    gasData: any
     amountRepay: BigNumber
     profit: BigNumber,
 }

@@ -5,7 +5,11 @@ import { logger } from "../../constants/contract";
 import { GasToken, gasTokens, uniswapV2Factory } from "../../constants/addresses";
 import { BoolTrade } from "../../constants/interfaces";
 require("dotenv").config();
-
+/**
+ * Gets the gastoken/tradetoken address for a given trade, if WMATIC is not in the traded pool.
+ * @param trade 
+ * @returns gasPool contract and symbol.
+ */
 
 export async function getgasPoolForTrade(trade: BoolTrade): Promise<{ gasPool: Contract, gasTokenSymbol: string } | undefined> {
 

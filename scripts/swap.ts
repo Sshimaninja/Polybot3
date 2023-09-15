@@ -14,6 +14,14 @@ import { logger } from '../constants/contract';
 TODO:
 Replace 0/1 new class instances with a loop that handles n instances
 */
+/**
+ * @param data
+ * @param gasData
+ * @description
+ * This function controls the execution of the flash swaps.
+ * It loops through all pairs, and all matches, and executes the flash swaps.
+ * It prevents multiple flash swaps from being executed at the same time, on the same pool, if the profit is too low, or the gas cost too high.
+ */
 let warning = 0
 let tradePending = false;
 let slippageTolerance = BN(0.0006) // 0.065%
@@ -34,7 +42,7 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
 
                 // let match = pair.matches[m]
 
-                if (!tradePending) { //&& pair.matches[m].poolA_id !== pendingID && pair.matches[m].poolB_id !== pendingID) {
+                if (!tradePending && pair.matches[m].poolA_id !== pendingID && pair.matches[m].poolB_id !== pendingID) {
 
                     // 0. Get reserves for all pools:
 
@@ -78,10 +86,10 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
                             if (BN(profit.profit).gt(0) && warning == 0) {
                                 logger.info("Profitable trade found on " + trade.ticker + "!")
                                 // logger.info(trade)
-                                logger.info("Profit: ", profit.profit.toString(), "Gas Cost: ", profit.gasCost.toString())
+                                logger.info("Profit: ", profit.profit.toString(), "Gas Cost: ", profit.gasCost.toString(), "Flash Type: ", trade.flash.address)
                                 tradePending = true
                                 pendingID = trade.recipient.pool.address
-                                await sendit(trade, tradePending)
+                                await sendit(trade, profit.gasCost)
                                 warning = 1
                                 return warning
                             }
@@ -107,7 +115,7 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
                         return
                     }
                 } else {
-                    console.log("Trade pending on " + pendingID + "?: ", tradePending)
+                    // console.log("Trade pending on " + pendingID + "?: ", tradePending)
                     return
                 }
             })
