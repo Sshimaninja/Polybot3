@@ -6,7 +6,12 @@ import { gasTokens } from "../../constants/addresses";
 import { provider, logger, wallet } from "../../constants/contract";
 import { getgasPoolForTrade } from "./gasPoolTools";
 require("dotenv").config();
-
+/**
+ * @description
+ * This function returns the profit in Matic for a given trade.
+ * @param trade
+ * @returns MaticProfit{profitInMatic: BigNumber, gasPool: Contract}
+ */
 interface MaticProfit {
     profitInMatic: BigNumber,
     gasPool: Contract
