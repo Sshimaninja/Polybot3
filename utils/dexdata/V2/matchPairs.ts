@@ -3,16 +3,9 @@ import path from 'path';
 import { Pair, Pool } from '../../../constants/interfaces';
 import { FactoryPool } from '../../../constants/interfaces';
 import { FactoryPair } from '../../../constants/interfaces';
-
-
 /**
 * NOT WORKING RIGHT NOW CORRECTLY
  */
-
-
-
-
-
 export class PoolMatcher {
     private dataDir: string;
     private matchesDir: string;
