@@ -9,6 +9,7 @@ import { logger } from './constants/contract';
 async function main() {
     //full path to matches dataDir : '/mnt/d/code/arbitrage/polybot-live/polybotv3/data/matches/v2/'
     let matchDir = path.join(__dirname, '/data/matches/v2/');
+
     provider.on('block', async (blockNumber: any) => {
         async function dataFeed() {
             const pairList: FactoryPair[] = [];
@@ -28,24 +29,24 @@ async function main() {
         console.log("V2 match lists: ", pairList.length)
 
         try {
-
             provider.on('block', async (blockNumber: any) => {
-
                 logger.info("New block received: Block # " + blockNumber);
-
                 const gasData = await getGasData();
                 console.log({ gasData: gasData })
-
-                pairList.forEach(async (pairList: any, d: any) => {
+                pairList.forEach(async (pairList: any) => {
                     await control(pairList, gasData);
                 });
             });
 
         } catch (error: any) {
+
             logger.error("PROVIDER ERROR: " + error.message);
+
             return;
         }
+
     });
+
 }
 
 main().catch((error) => {
