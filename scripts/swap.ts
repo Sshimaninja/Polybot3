@@ -5,9 +5,7 @@ import { Prices } from './modules/prices';
 import { FactoryPair } from '../constants/interfaces';
 import { AmountCalculator } from './modules/amountCalcSingle'
 import { Trade } from './modules/populateTrade';
-import { gasVprofit } from './modules/gasVprofit';
 import { Reserves } from './modules/reserves';
-import { sendit } from './execute';
 import { tradeLogs } from './modules/tradeLog';
 import { rollDamage } from './modules/damage';
 /*
@@ -31,50 +29,49 @@ export async function control(data: FactoryPair[] | undefined, gasData: any) {
 
     data?.forEach(async (pairList: any) => {
 
-        for (let p = 0; p < pairList.length; p++) {
+        // for (let p = 0; p < pairList.length; p++) {
 
-            let pair: FactoryPair = pairList[p]
+        let pair: FactoryPair = pairList
 
-            // for (let m = 0; m < pair.matches.length; m++) 
+        pair.matches.forEach(async (match: any, m: number) => {
 
-            pair.matches.forEach(async (match: any, m: number) => {
+            if (!tradePending && pair.matches[m].poolA_id !== pendingID && pair.matches[m].poolB_id !== pendingID) {
 
-                // let match = pair.matches[m]
+                // 0. Get reserves for all pools:
 
-                if (!tradePending && pair.matches[m].poolA_id !== pendingID && pair.matches[m].poolB_id !== pendingID) {
+                let r = new Reserves(match)
+                let reserves = await r.getReserves(match)
 
-                    // 0. Get reserves for all pools:
+                // 1. Get prices: (Note, for initial testing, we will specify dual pools. Later, we will loop through all pools)
 
-                    let r = new Reserves(match)
-                    let reserves = await r.getReserves(match)
+                let p0 = new Prices(match.token0, match.token1, match.poolA_id, reserves[0])
+                let p1 = new Prices(match.token0, match.token1, match.poolB_id, reserves[1])
 
+                // 2. Calculate AmountsOut
 
-                    // 1. Get prices: (Note, for initial testing, we will specify dual pools. Later, we will loop through all pools)
+                let c0 = new AmountCalculator(p0, match, slippageTolerance)
+                let c1 = new AmountCalculator(p1, match, slippageTolerance)
 
-                    let p0 = new Prices(match.token0, match.token1, match.poolA_id, reserves[0])
-                    let p1 = new Prices(match.token0, match.token1, match.poolB_id, reserves[1])
-                    // 2. Calculate AmountsOut
+                //This uses price from opposing pool as 'target'price. Oracles can be used, but this is a simple solution, and not subject to manipulation.
 
-                    let c0 = new AmountCalculator(p0, match, slippageTolerance)
-                    let c1 = new AmountCalculator(p1, match, slippageTolerance)
-                    //This uses price from opposing pool as 'target'price. Oracles can be used, but this is a simple solution, and not subject to manipulation.
-                    let amounts0 = await c0.getAmounts(p0.reserves.reserveInBN, p0.reserves.reserveOutBN, p1.priceOutBN, slippageTolerance)
-                    let amounts1 = await c1.getAmounts(p1.reserves.reserveInBN, p1.reserves.reserveOutBN, p0.priceOutBN, slippageTolerance)
+                let amounts0 = await c0.getAmounts(p0.reserves.reserveInBN, p0.reserves.reserveOutBN, p1.priceOutBN, slippageTolerance)
+                let amounts1 = await c1.getAmounts(p1.reserves.reserveInBN, p1.reserves.reserveOutBN, p0.priceOutBN, slippageTolerance)
 
-                    // 3. Determine trade direction & profitability
-                    let t = new Trade(pair, match, p0, p1, amounts0, amounts1, gasData);
-                    let trade = await t.getTrade()
+                // 3. Determine trade direction & profitability
 
-                    // 4. Calculate Gas vs Profitability
+                let t = new Trade(pair, match, p0, p1, amounts0, amounts1, gasData);
+                let trade = await t.getTrade()
 
-                    let data = await tradeLogs(trade);
+                // 4. Calculate Gas vs Profitability
 
-                    // 5. If profitable, execute trade
-                    await rollDamage(trade, data, warning, tradePending, pendingID)
+                let data = await tradeLogs(trade);
 
-                }
-            })
-        }
+                // 5. If profitable, execute trade
+                await rollDamage(trade, data, warning, tradePending, pendingID)
+
+            }
+        })
     })
 }
+
 
