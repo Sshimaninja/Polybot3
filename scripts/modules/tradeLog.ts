@@ -46,6 +46,7 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
     }
     const basicData = {
         ticker: trade.ticker,
+        exchanges: trade.loanPool.exchange + " / " + trade.recipient.exchange,
         tradeSize: u(trade.recipient.tradeSize, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
         direction: trade.direction,
         type: trade.type,

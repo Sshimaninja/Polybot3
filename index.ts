@@ -25,17 +25,23 @@ async function main() {
     }
 
     const pairList = await dataFeed();
+
+    console.log("V2 match lists: ", pairList.length)
+
     provider.on('block', async (blockNumber: any) => {
-        console.log("V2 match lists: ", pairList.length)
+
+        logger.info("New block received: Block # " + blockNumber);
 
         try {
-            provider.on('block', async (blockNumber: any) => {
-                logger.info("New block received: Block # " + blockNumber);
-                const gasData = await getGasData();
-                console.log({ gasData: gasData })
-                pairList.forEach(async (pairList: any) => {
-                    await control(pairList, gasData);
-                });
+
+
+
+            const gasData = await getGasData();
+
+            pairList.forEach(async (pairList: any) => {
+
+                await control(pairList, gasData);
+
             });
 
         } catch (error: any) {
