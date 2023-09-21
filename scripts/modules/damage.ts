@@ -18,14 +18,16 @@ export async function rollDamage(trade: BoolTrade, data: any, warning: number, t
 
         logger.info(data)
 
-        let actualProfit = await gasVprofit(trade)
+        const actualProfit = await gasVprofit(trade)
 
         if (BN(actualProfit.profit).gt(0) && warning === 0) {
             logger.info("Profitable trade found on " + trade.ticker + "!")
             logger.info("Profit: ", actualProfit.profit.toString(), "Gas Cost: ", actualProfit.gasCost.toString(), "Flash Type: ", trade.type)
             tradePending = true
             pendingID = trade.recipient.pool.address
-            await sendit(trade, actualProfit.gasCost)
+
+            await sendit(trade, actualProfit)
+
             warning++
             return warning
         }
