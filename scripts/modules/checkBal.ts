@@ -25,6 +25,7 @@ export async function checkBal(token0: string, token0dec: number, token1: string
     const walletbalance1 = await erctoken1.balanceOf(flashwallet)
     const walletbalanceMatic = await wmatictoken.balanceOf(flashwallet)
 
+    console.log("New wallet balance: ")
     console.log("Wallet: " + flashwallet)
     console.log("Wallet balance token0: " + ethers.utils.formatUnits(walletbalance0, token0dec) + " Asset:  " + token0)
     console.log("Wallet balance token1: " + ethers.utils.formatUnits(walletbalance1, token1dec) + " Asset:  " + token1)
