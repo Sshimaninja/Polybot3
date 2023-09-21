@@ -47,8 +47,8 @@ module.exports = {
         },
         // Override the Uniswap V2 contracts to use Solidity 0.6.9
         overrides: {
-          "contracts/uniswapv2/*.sol": {
-            version: "0.6.9",
+          "contracts/v3/*.sol": {
+            version: "0.7.6",
             settings: {
               optimizer: {
                 enabled: true,
