@@ -1,7 +1,10 @@
-import { BigNumber, ethers, utils, Contract, Wallet } from "ethers";
+import { BigNumber, ethers, utils, Contract, Wallet, Transaction, } from "ethers";
 import { provider, signer, wallet, logger } from "../constants/contract";
-import { BoolTrade, TxData } from "../constants/interfaces";
+import { BoolTrade, Profit, TxData, V2Params, V2Tx, TxGas } from "../constants/interfaces";
 import { checkBal, checkGasBal } from "./modules/checkBal";
+import { logEmits } from "./modules/emits";
+import { send } from "./modules/send";
+
 /**
  * @param trade
  * @param gasCost
@@ -17,7 +20,7 @@ import { checkBal, checkGasBal } from "./modules/checkBal";
  */
 export async function sendit(
     trade: BoolTrade,
-    gasCost: BigNumber,
+    profit: Profit,
 ): Promise<TxData> {
     console.log('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.ticker + ':::::::::::::::::::::::::: ')
     var gasbalance = await checkGasBal();
@@ -30,87 +33,70 @@ export async function sendit(
     if (trade) {
 
         console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, 18) + " " + "MATIC")
-        console.log("Gas Cost::::::::::::: " + ethers.utils.formatUnits(gasCost, 18) + " " + "MATIC")
+        console.log("Gas Cost::::::::::::: " + ethers.utils.formatUnits(profit.gasCost, 18) + " " + "MATIC")
 
-        const gotGas = gasCost.lt(gasbalance)
+        const gotGas = profit.gasCost.lt(gasbalance)
 
         gotGas == true ? console.log("Sufficient Matic Balance. Proceeding...") : console.log(">>>>Insufficient Matic Balance<<<<")
 
         if (gotGas == false) {
-            console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION: " + trade.ticker + ':::::::::::::::::::::::::: ')
+            console.log(":::::::::::::::::::::::END TRANSACTION: " + trade.ticker + ': GAS GREATER THAN PROFIT::::::::::::::::::::::::: ')
             return result;
         }
 
-        console.log(":::::::::::Sending Transaction::::::::::: ")
+        if (gotGas == true) {
 
-        result.tradePending = true;
-        let tx = await trade.flash.flashSwap(
-            trade.loanPool.factory.address,
-            trade.recipient.router.address,
-            trade.tokenIn.id,
-            trade.tokenOut.id,
-            trade.recipient.tradeSize,
-            trade.recipient.amountOut,
-            trade.amountRepay,
-            {
+            let flashParams: V2Params = {
+                loanFactory: trade.loanPool.factory.address,
+                recipientRouter: trade.recipient.router.address,
+                token0ID: trade.tokenIn.id,
+                token1ID: trade.tokenOut.id,
+                amount0In: trade.recipient.tradeSize,
+                amount1Out: trade.recipient.amountOut,
+                amountToRepay: trade.amountRepay,
+            }
+            let gasObj: TxGas = {
                 type: 2,
                 // gasPrice: gasLimit,
                 maxFeePerGas: trade.gasData.maxFee,
                 maxPriorityFeePerGas: trade.gasData.maxPriorityFee,
-                gasLimit: trade.gasData.gasEstimate,
+                gasLimit: profit.gasEstimate,
                 // nonce: nonce,
             }
-        );
-        console.log("Sending Transaction...")
-        const signedTx = await wallet.signTransaction(tx);
-        const txResponse = await provider.sendTransaction(signedTx);
-        logger.info("Transaction hash: " + txResponse.hash)
-        txResponse.wait()
-            .then((receipt: any) => {
-                logger.info("Transaction receipt: ")
-                logger.info(receipt)
-                logger.info("Transaction complete")
-            });
-        var filter = {
-            address: trade.flash.address,
-            topics: [
-                utils.id("log(string,uint256)"),
-                utils.id("logValue(string,uint256)"),
-                utils.id("logAddress(string,address)"),
-            ],
-            fromBlock: "latest",
-            toBlock: "pending"
-        }
-        provider.on(filter, (log, logValue, logAddress) => {
-            logger.info(log)
-            logger.info(logValue)
-            logger.info(logAddress)
-        });
-        provider.once(txResponse.hash, (transaction) => {
-            logger.info(txResponse.hash)
-            logger.info(transaction)
-        })
-        const bal = await checkBal(trade.tokenIn.id, trade.tokenIn.decimals, trade.tokenOut.id, trade.tokenOut.decimals)
-        console.log("New wallet balance: ")
-        console.log(bal)
-        console.log("Transaction Sent. Await Confirmation...")
-        console.log("Transaction Hash: " + txResponse.hash)
-        result = {
-            txResponse: txResponse,
-            tradePending: false,
-        }
-        if (txResponse == undefined) {
-            logger.info("Transaction response: ")
-            logger.info(txResponse)
-            logger.info("===============================================================")
+
+            console.log(":::::::::::Sending Transaction::::::::::: ")
+
+            result.tradePending = true;
+
+            let tx: V2Tx = await trade.flash.flashSwap(
+                flashParams,
+                gasObj
+            );
+
+            const req = await send(trade, flashParams, tx, gasObj);
+
+            const logs = await logEmits(trade, req);
+
+            logger.info("Transaction logs: \n" + logs)
+
+            //Print balances after trade
+            await checkBal(trade.tokenIn.id, trade.tokenIn.decimals, trade.tokenOut.id, trade.tokenOut.decimals)
+
+            result = {
+                txResponse: req.txResponse,
+                tradePending: false,
+            }
+
+            console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
+
+            return result;
+        } else {
+            console.log("::::::::::::::::::::::::::::::::::::::::TRADE UNDEFINED::::::::::::::::::::::::::::::::::::::: ")
+            console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
             return result;
         }
-        console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
-        return result;
     } else {
-        console.log("::::::::::::::::::::::::::::::::::::::::TRADE UNDEFINED::::::::::::::::::::::::::::::::::::::: ")
         console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
         return result;
     }
 }
-

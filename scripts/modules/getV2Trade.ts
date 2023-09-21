@@ -62,7 +62,7 @@ export class Trade {
 
         const direction = A.lt(B) ? "A" : B.lt(A) ? "B" : "DIRECTIONAL AMBIGUITY ERROR";
 
-        var trade: BoolTrade = {
+        const trade: BoolTrade = {
             direction: direction,
             type: "error",
             ticker: this.match.token0.symbol + "/" + this.match.token1.symbol,
