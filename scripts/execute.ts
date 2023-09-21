@@ -4,6 +4,8 @@ import { BoolTrade, Profit, TxData, V2Params, V2Tx, TxGas } from "../constants/i
 import { checkBal, checkGasBal } from "./modules/checkBal";
 import { logEmits } from "./modules/emits";
 import { send } from "./modules/send";
+import { notify } from "./modules/notify";
+
 
 /**
  * @param trade
@@ -45,6 +47,9 @@ export async function sendit(
         }
 
         if (gotGas == true) {
+
+            //Notify of possible trade (after testing move to post-profitable trade)
+            await notify(trade, profit);
 
             let flashParams: V2Params = {
                 loanFactory: trade.loanPool.factory.address,
