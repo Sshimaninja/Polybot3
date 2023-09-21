@@ -1,4 +1,5 @@
 {
   "dotenv.enableAutocloaking": false,
-  "solidity.compileUsingRemoteVersion": "v0.6.9+commit.3e3065ac"
+  "solidity.compileUsingRemoteVersion": "latest",
+  "solidity.compileUsingLocalVersion": "d:\\CODE\\arbitrage\\polybot-live\\polybotv3\\soljson-v0.7.6+commit.7338295f.js"
 }
