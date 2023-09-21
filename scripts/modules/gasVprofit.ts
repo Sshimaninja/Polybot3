@@ -14,11 +14,12 @@ export async function gasVprofit(trade: BoolTrade,): Promise<Profit> {
     console.log("Trade: ", trade.direction, trade.tokenIn.symbol, "/", trade.tokenOut.symbol, " @ ", trade.ticker)
     if (trade.direction != undefined) {
         const prices = await fetchGasPrice(trade);
+
         const gasPrice = BigNumber.from(prices.maxFee)
             .add(BigNumber.from(prices.maxPriorityFee))
             .mul(prices.gasEstimate.toNumber());
 
-        var profitinMatic = await getProfitInMatic(trade);
+        const profitinMatic = await getProfitInMatic(trade);
         if (profitinMatic != undefined) {
             if (profitinMatic.profitInMatic.gt(BigNumber.from(0))) {
                 profit = {
@@ -27,6 +28,7 @@ export async function gasVprofit(trade: BoolTrade,): Promise<Profit> {
                     gasCost: gasPrice,
                     gasPool: profitinMatic.gasPool.address,
                 }
+                console.log("Possible trade: " + trade.ticker + " Gas Estimate: ", utils.formatUnits(prices.gasEstimate, 18), "Gas Price: ", utils.formatUnits(prices.gasPrice.toString()))
                 // console.log("Profit: ", profit)
                 return profit;
             }

@@ -11,6 +11,29 @@ export interface TxData {
     tradePending: boolean
 }
 
+export interface V2Params {
+    loanFactory: string
+    recipientRouter: string
+    token0ID: string
+    token1ID: string
+    amount0In: BigNumber
+    amount1Out: BigNumber
+    amountToRepay: BigNumber
+}
+
+export interface V2Tx {
+    flashParamsL: V2Params
+    gasObj: TxGas
+
+}
+
+export interface TxGas {
+    type: number
+    maxFeePerGas: number
+    maxPriorityFeePerGas: number
+    gasLimit: BigNumber
+}
+
 export interface Factory {
     exchange: string;
     factoryID: string;
