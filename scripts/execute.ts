@@ -24,6 +24,9 @@ export async function sendit(
     trade: BoolTrade,
     profit: Profit,
 ): Promise<TxData> {
+
+    const tel = await notify(trade, profit);
+    console.log(tel)
     console.log('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.ticker + ':::::::::::::::::::::::::: ')
     var gasbalance = await checkGasBal();
 
@@ -48,18 +51,6 @@ export async function sendit(
 
         if (gotGas == true) {
 
-            //Notify of possible trade (after testing move to post-profitable trade)
-            await notify(trade, profit);
-
-            let flashParams: V2Params = {
-                loanFactory: trade.loanPool.factory.address,
-                recipientRouter: trade.recipient.router.address,
-                token0ID: trade.tokenIn.id,
-                token1ID: trade.tokenOut.id,
-                amount0In: trade.recipient.tradeSize,
-                amount1Out: trade.recipient.amountOut,
-                amountToRepay: trade.amountRepay,
-            }
             let gasObj: TxGas = {
                 type: 2,
                 // gasPrice: gasLimit,
@@ -68,17 +59,14 @@ export async function sendit(
                 gasLimit: profit.gasEstimate,
                 // nonce: nonce,
             }
+            //Notify of possible trade (after testing move to post-profitable trade)
+            // await notify(trade, profit);
 
             console.log(":::::::::::Sending Transaction::::::::::: ")
 
             result.tradePending = true;
 
-            let tx: V2Tx = await trade.flash.flashSwap(
-                flashParams,
-                gasObj
-            );
-
-            const req = await send(trade, flashParams, tx, gasObj);
+            const req = await send(trade, gasObj);
 
             const logs = await logEmits(trade, req);
 
@@ -95,9 +83,13 @@ export async function sendit(
             console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
 
             return result;
+
         } else {
+
             console.log("::::::::::::::::::::::::::::::::::::::::TRADE UNDEFINED::::::::::::::::::::::::::::::::::::::: ")
+
             console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
+
             return result;
         }
     } else {
