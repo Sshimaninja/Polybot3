@@ -22,9 +22,8 @@ export interface V2Params {
 }
 
 export interface V2Tx {
-    flashParamsL: V2Params
+    flashParams: V2Params
     gasObj: TxGas
-
 }
 
 export interface TxGas {
