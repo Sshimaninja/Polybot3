@@ -5,25 +5,62 @@ import TelegramBot from 'node-telegram-bot-api';
 import { config as dotEnvConfig } from "dotenv";
 dotEnvConfig();
 
-const telegramApiKey = process.env.telegramApiKey;
+const TELEGRAM_BOT_TOKEN = process.env.telegramApiKey;
+const TELEGRAM_CHAT_ID = process.env.telegramChatId;
+
+
+
+
+
+
+
+
+export async function telegramInfo(message: string): Promise<void> {
+
+    try {
+
+        if (!TELEGRAM_BOT_TOKEN) {
+            throw new Error('Telegram bot token not found in environment variables');
+        }
+        if (!TELEGRAM_CHAT_ID) {
+            throw new Error('Telegram chat id not found in environment variables');
+        } else {
+
+            const bot = new TelegramBot(TELEGRAM_BOT_TOKEN);
+            const note = await bot.sendMessage(TELEGRAM_CHAT_ID, message);
+            const sent = note.message_id;
+            console.log("Telegram message sent: " + sent)
+
+        }
+    } catch (error: any) {
+        logger.error("TELEGRAM ERROR: " + error.message);
+        return;
+    }
+}
+
 export async function notify(trade: BoolTrade, profit: Profit) {
 
-    if (!telegramApiKey) {
-        throw new Error('Telegram API key not found in environment variables');
-    } else {
+    try {
 
-        const bot = new TelegramBot(telegramApiKey, { polling: false });
+        if (!TELEGRAM_BOT_TOKEN) {
+            throw new Error('Telegram bot token not found in environment variables');
+        }
 
+        if (!TELEGRAM_CHAT_ID) {
+            throw new Error('Telegram chat id not found in environment variables');
+        } else {
 
-        const logs = await tradeLogs(trade);
-        logger.info("Sending Notification (BasicData): " + Date.now());
+            const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, { polling: false });
+            const logs = await tradeLogs(trade);
+            logger.info("Sending BasicData to Telegram: " + Date.now());
+            // Set up Telegram message
+            const message = `Trade ${trade.ticker} is ongoing. Projected profit: ${profit.profit} MATIC equivalent. \n\n` + ` ${JSON.stringify(logs.basicData)}`;
+            // Send Telegram message
+            bot.sendMessage(TELEGRAM_BOT_TOKEN, message)
 
-        // Set up Telegram message
-        const message = `Trade ${trade.ticker} is ongoing. Current profit: ${profit.profit} MATIC. \n\n` + ` ${JSON.stringify(logs.basicData)}`;
-
-        // Send Telegram message
-        bot.sendMessage(telegramApiKey, message)
-            .then(() => console.log('Telegram notification sent'))
-            .catch((error: any) => console.error(error));
+        }
+    } catch (error: any) {
+        logger.error("TELEGRAM ERROR: " + error.message);
+        return;
     }
 }

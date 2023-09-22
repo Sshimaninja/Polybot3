@@ -1,10 +1,20 @@
 import { wallet, provider } from "../../constants/contract";
-import { TxData, V2Tx, TxGas } from "../../constants/interfaces";
-import { BoolTrade, V2Params } from "../../constants/interfaces";
+import { BoolTrade, TxData, V2Tx, TxGas } from "../../constants/interfaces";
 
-export async function send(trade: BoolTrade, flashParams: V2Params, tx: V2Tx, gasObj: TxGas,): Promise<TxData> {
+export async function send(trade: BoolTrade, gasObj: TxGas): Promise<TxData> {
 
-    async function send(tx: any, gasObj: any): Promise<TxData> {
+    let tx: V2Tx = await trade.flash.flashSwap(
+        trade.loanPool.factory.address,
+        trade.recipient.router.address,
+        trade.tokenIn.id,
+        trade.tokenOut.id,
+        trade.recipient.tradeSize,
+        trade.recipient.amountOut,
+        trade.amountRepay,
+        gasObj
+    );
+
+    async function send(tx: any): Promise<TxData> {
         let signedTx = await wallet.signTransaction(tx);
         let txResponse = await provider.sendTransaction(signedTx);
         await txResponse.wait(1);
@@ -28,22 +38,24 @@ export async function send(trade: BoolTrade, flashParams: V2Params, tx: V2Tx, ga
 
     try {
 
-        const t = await send(tx, gasObj)
+        const t = await send(tx)
         return t
 
     } catch (error: any) {
+
         if (error.message.includes("transaction underpriced")) {
+
             console.log("Error TRANSACTION UNDERPRICED in execute.ts " + error.message)
+
             gasObj = {
                 type: 2,
                 maxFeePerGas: gasObj.maxFeePerGas + 2,
                 maxPriorityFeePerGas: gasObj.maxPriorityFeePerGas + 2,
                 gasLimit: gasObj.gasLimit.add(100000),
             }
-            tx = await trade.flash.flashSwap(
-                flashParams,
-                gasObj)
-            await send(tx, gasObj)
+
+            await send(tx)
+
             console.log("Retrying transaction with new gas price: " + gasObj.maxFeePerGas)
         } else {
             console.log("Transaction failed. Error: " + error.message)

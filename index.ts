@@ -5,8 +5,16 @@ import fs from 'fs'
 import path from 'path';
 import { FactoryPair } from './constants/interfaces';
 import { logger } from './constants/contract';
+import { telegramInfo } from './scripts/modules/notify';
+
+
+
+
 
 async function main() {
+    // // Set up Telegram message
+    const message = `Polybot V2 Started: ${Date.now()}`
+    await telegramInfo(message);
     //full path to matches dataDir : '/mnt/d/code/arbitrage/polybot-live/polybotv3/data/matches/v2/'
     let matchDir = path.join(__dirname, '/data/matches/v2/');
     async function dataFeed() {
