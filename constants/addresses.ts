@@ -41,8 +41,11 @@ export const uniswapV2Factory: FactoryMap = {
 };
 
 export const uniswapV3Factory: FactoryMap = {
-  UNI: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
-  QUICK: "0x411b0fAcC3489691f28ad58c47006AF5E3Ab3A28",
+  UNI: "0x1F98431c8aD98523631AE4a59f267346ea31F984",  
+};
+
+export const algebraFactory: FactoryMap = {
+QUICK: "0x411b0fAcC3489691f28ad58c47006AF5E3Ab3A28",
 };
 
 
