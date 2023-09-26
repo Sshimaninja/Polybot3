@@ -62,6 +62,24 @@ export interface Pair {
         decimals: number;
     };
 };
+
+export interface Pool {
+    ticker: string;
+    poolA_id: string;
+    poolB_id: string;
+    token0: {
+        symbol: string;
+        id: string;
+        decimals: number;
+    };
+    token1: {
+        symbol: string;
+        id: string;
+        decimals: number;
+    };
+    feeTier: number;
+};
+
 export interface Token {
     symbol: string;
     id: string;
@@ -142,119 +160,43 @@ export interface BoolTrade {
     amountRepay: BigNumber
     profit: BigNumber,
 }
-
-export interface Trade {
-    trade: any;
+export interface BoolTradeV3 {
     direction: string
-    amountIn: BN
-    tokenInsymbol: string
-    tokenInPrice: BN
-    tokenInID: string
-    tokenIndec: number
-    tokenOutsymbol: string
-    tokenOutPrice: BN
-    tokenOutID: string
-    tokenOutdec: number
-    loanPool: {
-        exchange: string
-        poolID: string
-        tokenInPrice: BN
-        tokenOutPrice: BN
-        reserveIn: BN
-        reserveInjs: BigNumber
-        reserveOut: BN
-        reserveOutjs: BigNumber
-        factoryID: string
-        routerID: string
-    }
-    recipient: {
-        exchange: string
-        poolID: string
-        tokenInPrice: BN
-        tokenOutPrice: BN
-        reserveIn: BN
-        reserveInjs: BigNumber
-        reserveOut: BN
-        reserveOutjs: BigNumber
-        factoryID: string
-        routerID: string
-    }
-}
-
-export interface BoolFlash {
+    type: string
     ticker: string
-    tokenInsymbol: string
-    // tokenInPrice: BigNumber
-    tokenInID: string
-    tokenIndec: number
-    tokenOutsymbol: string
-    tokenOutPrice: BigNumber
-    tokenOutID: string
-    tokenOutdec: number
-    amountIn: BigNumber
-    expectedProfit: BigNumber
+    tokenIn: Token
+    tokenOut: Token
+    flash: Contract
     loanPool: {
         exchange: string
-        poolID: string
-        // tokenInPrice: BigNumber
-        tokenOutPrice: BigNumber
+        factory: Contract
+        router: Contract
+        pool: Contract
+        feeTier: number
         reserveIn: BigNumber
         reserveOut: BigNumber
-        factoryID: string
-        routerID: string
+        priceIn: string
+        priceOut: string
         amountOut: BigNumber
-        amountRepay: BigNumber
     }
     recipient: {
         exchange: string
-        poolID: string
-        // tokenInPrice: BigNumber
-        tokenOutPrice: BigNumber
+        factory: Contract
+        router: Contract
+        pool: Contract
+        feeTier: number
         reserveIn: BigNumber
         reserveOut: BigNumber
-        factoryID: string
-        routerID: string
+        priceIn: string
+        priceOut: string
+        tradeSize: BigNumber
         amountOut: BigNumber
     }
+    k: K
+    gasData: any
+    amountRepay: BigNumber
+    profit: BigNumber,
 }
-
-export interface Flash {
-    ticker: string
-    tokenInsymbol: string
-    tokenInPrice: BigNumber
-    tokenInID: string
-    tokenIndec: number
-    tokenOutsymbol: string
-    tokenOutPrice: BigNumber
-    tokenOutID: string
-    tokenOutdec: number
-    amountIn: BigNumber
-    expectedProfit: BigNumber
-    loanPool: {
-        exchange: string
-        poolID: string
-        tokenInPrice: BigNumber
-        tokenOutPrice: BigNumber
-        reserveIn: BigNumber
-        reserveOut: BigNumber
-        factoryID: string
-        routerID: string
-        amountOut: BigNumber
-        amountRepay: BigNumber
-    }
-    recipient: {
-        exchange: string
-        poolID: string
-        tokenInPrice: BigNumber
-        tokenOutPrice: BigNumber
-        reserveIn: BigNumber
-        reserveOut: BigNumber
-        factoryID: string
-        routerID: string
-        amountOut: BigNumber
-    }
-}
-
 export interface V2POOLS {
     ticker: string
     token0symbol: string
@@ -301,4 +243,29 @@ export interface GasData {
     estimatedBaseFee: number,
     blockTime: number,
     blockNumber: Promise<number>,
+}
+
+
+
+export interface V3FlashParams {
+    token0: string;
+    token1: string;
+    amount0: BigNumber;
+    amount1: BigNumber;
+    fee: number;
+    recipient: string;
+    deadline: number;
+    sqrtPriceLimitX96: BigNumber;
+    maxFlashSwapFee: BigNumber;
+    flashFee: BigNumber;
+    uniswapV3Pool1: string;
+    uniswapV3PoolKey1: string;
+    uniswapV3Fee1: number;
+    uniswapV3TickLower1: number;
+    uniswapV3TickUpper1: number;
+    uniswapV3Pool2: string;
+    uniswapV3PoolKey2: string;
+    uniswapV3Fee2: number;
+    uniswapV3TickLower2: number;
+    uniswapV3TickUpper2: number;
 }

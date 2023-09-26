@@ -48,13 +48,13 @@ export class AllV2Pairs {
                         pairs.push(allPairs);
                     })
                 );
-                const subsetPairs = pairs.flat().slice(0, 30);//TESTING
+                // const subsetPairs = pairs.flat().slice(0, 30);//TESTING
                 // console.log('Pairs: ' + pairs);
                 const validPairs: any[] = [];
 
                 async function validatePairs() {
                     const pairsFile = `./data/validPairs/V2/${protocol}.json`;
-                    for (const pair of subsetPairs) {
+                    for (const pair of pairs) {
                         const pairContract = new Contract(pair, IPair, wallet);
                         // console.log('PairContract: ' + pairContract.address);
 
