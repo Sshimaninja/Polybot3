@@ -4,16 +4,14 @@ import { abi as IUniswapV3Pool } from '@uniswap/v3-core/artifacts/contracts/inte
 import { abi as IUniswapV3Factory } from '@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Factory.sol/IUniswapV3Factory.json'
 import { uniswapV3Factory } from '../../../constants/addresses';
 import { wallet } from '../../../constants/contract';
-import { Pool, FeeAmount, Tick } from '@uniswap/v3-sdk';
-import { TickMath } from '@uniswap/v3-sdk';
-import { TickDataProvider } from '@uniswap/v3-sdk';
-import { TickProvider } from '../../../scripts/v3/modules/TickProvider';
-import JSBI from 'jsbi';
+import fs from 'fs';
+import path from 'path';
+import { Pool } from '@uniswap/v3-sdk';
 import { Token } from '@uniswap/sdk-core';
-import { parse } from 'path';
 import { fitFee } from './fitFee';
 
 export async function getAllV3Pools() {
+
 	// Get the addresses of all the deployed UNISWAP V3 factories
 	const uniswapV3Factories = Object.values(uniswapV3Factory);
 	let deployedPools: Pool[] = [];
@@ -38,51 +36,48 @@ export async function getAllV3Pools() {
 				toBlock: toBlock,
 			};
 			const events = await provider.getLogs(filter);
-			const poolAddresses = events.map(async (event) => {
+			events.map(async (event) => {
 				const parsedEvent = factory.interface.parseLog(event);
 				if (parsedEvent.args.token0 != undefined && parsedEvent.args.token1 != undefined) {
-					//Verify undefined results are cleaned up
-
-					console.log('parsedEvent', parsedEvent.args.token0, parsedEvent.args.token1, parsedEvent.args.pool);
 					const t0 = new ethers.Contract(parsedEvent.args.token0, IERC20, provider);
 					const t1 = new ethers.Contract(parsedEvent.args.token1, IERC20, provider);
 					const v3Pool = new ethers.Contract(parsedEvent.args.pool, IUniswapV3Pool, wallet);
-					const token0 = new Token(137, await parsedEvent.args.token0, await t0.decimals(), await t0.symbol());
-					const token1 = new Token(137, await parsedEvent.args.token1, await t1.decimals(), await t1.symbol());
-
-					const fee = await v3Pool.fee();
-					const feeAmount = await fitFee(fee);
-
-					console.log('fee', fee)
-					const slot0 = await v3Pool.slot0();
-					console.log('slot0', slot0)
-					const tickSpacing = await v3Pool.tickSpacing();
-					console.log('tickSpacing', tickSpacing)
-					const tick = slot0.tick;
-
-					// // Possibly useful later, but apparently not useful just now.
-					// const tick = TickMath.getTickAtSqrtRatio(slot0.sqrtRatioX96);
-					// const tickProvider = new TickProvider(v3Pool);
-
-					const deployedPool = new Pool(
-						token0,
-						token1,
-						feeAmount,
-						slot0.sqrtPriceX96,
-						await v3Pool.liquidity(),
-						await slot0.tick,
-					);
-
-					console.log('deployedPool', deployedPool);
-					deployedPools.push(deployedPool); // add the new Pool object to the deployedPools array
+					const liquidity = await v3Pool.liquidity();
+					if (liquidity.gt(10000)) {
+						const token0 = new Token(137, await parsedEvent.args.token0, await t0.decimals(), await t0.symbol());
+						const token1 = new Token(137, await parsedEvent.args.token1, await t1.decimals(), await t1.symbol());
+						const fee = await v3Pool.fee();
+						const feeAmount = await fitFee(fee);
+						const slot0 = await v3Pool.slot0();
+						const tickSpacing = await v3Pool.tickSpacing();
+						const deployedPool = new Pool(
+							token0,
+							token1,
+							feeAmount,
+							slot0.sqrtPriceX96,
+							liquidity,
+							await slot0.tick,
+						);
+						deployedPools.push(deployedPool); // add the new Pool object to the deployedPools array
+					}
 				}
-
-				console.log('poolAddresses', deployedPools);
+				// console.log('poolAddresses', deployedPools);
+				return deployedPools;
 			});
 		}
+		const fileName = `${exchange}.json`;
+		const filePath = path.join(__dirname, `../../../data/v3/validPairs/${fileName}`);
+		fs.writeFileSync(filePath, JSON.stringify(deployedPools));
+		deployedPools = []; // reset the deployedPools array for the next exchange
+
 	}
 }
 getAllV3Pools();
+
+
+// // Possibly useful later, but apparently not useful just now.
+// const tick = TickMath.getTickAtSqrtRatio(slot0.sqrtRatioX96);
+// const tickProvider = new TickProvider(v3Pool);
 
 
 // const fee = FeeAmount.MEDIUM;
