@@ -1,5 +1,5 @@
 import { ethers } from "hardhat";
-import { uniswapRouter } from "../constants/addresses";;
+import { uniswapV2Router } from "../constants/addresses";;
 
 
 
@@ -36,8 +36,8 @@ export const replaceTokenAddress = (
 };
 
 export const findRouter = (router: string) => {
-  for (let k of Object.keys(uniswapRouter)) {
-    if (router.toLowerCase() === uniswapRouter[k].toLowerCase()) {
+  for (let k of Object.keys(uniswapV2Router)) {
+    if (router.toLowerCase() === uniswapV2Router[k].toLowerCase()) {
       return k;
     }
   }
@@ -56,6 +56,6 @@ export const findRouter = (router: string) => {
  * @returns router address
  */
 export const findRouterFromProtocol = (protocol: number) => {
-  return uniswapRouter[Object.keys(uniswapRouter)[protocol]];
+  return uniswapV2Router[Object.keys(uniswapV2Router)[protocol]];
 };
 

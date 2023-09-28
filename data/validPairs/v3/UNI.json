@@ -1,0 +1,2586 @@
+[
+    {
+        "poolID": "",
+        "token0": "",
+        "token1": "",
+        "fee": 0,
+        "tickSpacing": 0,
+        "block": 23018363
+    },
+    {
+        "poolID": "0x2678DE408c04a609781E502C13987460BdF0Ed79",
+        "token0": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "token1": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23018417
+    },
+    {
+        "poolID": "0xFE80B0DA1B0e8B8D8878f9f9fc34Da99c21F084f",
+        "token0": "0xE61B839E87FfE2adDd41b33F1b048F40FBB6A7F6",
+        "token1": "0xE61B839E87FfE2adDd41b33F1b048F40FBB6A7F6",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23018882
+    },
+    {
+        "poolID": "0xd3B1f11f0ff29Add929941095C696D464D6961FC",
+        "token0": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "token1": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23021252
+    },
+    {
+        "poolID": "0x36Cfbb48553D239621d2d4bCaBa3F7A519EEe361",
+        "token0": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "token1": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23020580
+    },
+    {
+        "poolID": "0x749c584D5B81fA483378a9346F2329d86C68fc42",
+        "token0": "0xf28164A485B0B2C90639E47b0f377b4a438a16B1",
+        "token1": "0xf28164A485B0B2C90639E47b0f377b4a438a16B1",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23022410
+    },
+    {
+        "poolID": "0x7372282C46c7D2847a87F48d14CC3bbcd49B9AE0",
+        "token0": "0x9f8d1C9C9bD9Dc1DBB6A8D863211f001F03Ea4ba",
+        "token1": "0x9f8d1C9C9bD9Dc1DBB6A8D863211f001F03Ea4ba",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23025306
+    },
+    {
+        "poolID": "0xD896e6404F8cFdFa50719B78213433D9e82B7BB8",
+        "token0": "0xeEef481b50787A99f9cf4ba5cE0b82fa25e8b2c4",
+        "token1": "0xeEef481b50787A99f9cf4ba5cE0b82fa25e8b2c4",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23025196
+    },
+    {
+        "poolID": "0xfacDa1FcD65b76465b8F384D500B03E3F1B95ff8",
+        "token0": "0xeEef481b50787A99f9cf4ba5cE0b82fa25e8b2c4",
+        "token1": "0xeEef481b50787A99f9cf4ba5cE0b82fa25e8b2c4",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23025282
+    },
+    {
+        "poolID": "0xC10221C3F25AEbd2fDD5fbE47bE01e84Fe1d4cd4",
+        "token0": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "token1": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23030054
+    },
+    {
+        "poolID": "0xe02d2E147A453972c586d4c902aBE05714379A53",
+        "token0": "0xaE29AC47A9E3b0a52840E547aDf74B912999F7fc",
+        "token1": "0xaE29AC47A9E3b0a52840E547aDf74B912999F7fc",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23031432
+    },
+    {
+        "poolID": "0xfa3f210Cbad19C8B860A256d67A400d616A87C2A",
+        "token0": "0x2C89bbc92BD86F8075d1DEcc58C7F4E0107f286b",
+        "token1": "0x2C89bbc92BD86F8075d1DEcc58C7F4E0107f286b",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23032589
+    },
+    {
+        "poolID": "0x6e0952BCC0C17e7203Ee6779b2b4a7d59f8bAD07",
+        "token0": "0x8e915a77e301aD12Ad1f62012734cF7557Eee81a",
+        "token1": "0x8e915a77e301aD12Ad1f62012734cF7557Eee81a",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23034450
+    },
+    {
+        "poolID": "0x30fE5E402139925634430eB88E9C209e4a2d6deC",
+        "token0": "0x430EF9263E76DAE63c84292C3409D61c598E9682",
+        "token1": "0x430EF9263E76DAE63c84292C3409D61c598E9682",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23036230
+    },
+    {
+        "poolID": "0x09ca5c64c749998BAE9dAd9f14D38d859FC41cAE",
+        "token0": "0x4e78011Ce80ee02d2c3e649Fb657E45898257815",
+        "token1": "0x4e78011Ce80ee02d2c3e649Fb657E45898257815",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23041227
+    },
+    {
+        "poolID": "0x45249269fE2c22302c9DC7102beEed3616755b7d",
+        "token0": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "token1": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23043059
+    },
+    {
+        "poolID": "0xaD6e07a1dAD71474D5c0996D0d8cfc7a9744aDc1",
+        "token0": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "token1": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23042996
+    },
+    {
+        "poolID": "0x941061770214613BA0ca3db9A700c39587bb89B6",
+        "token0": "0x430EF9263E76DAE63c84292C3409D61c598E9682",
+        "token1": "0x430EF9263E76DAE63c84292C3409D61c598E9682",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23048910
+    },
+    {
+        "poolID": "0x5c86CbfCC0C598F3A75F1095fa33B59B8638B8A8",
+        "token0": "0x7387d94485731546AA0F43002c733f19bf67ef31",
+        "token1": "0x7387d94485731546AA0F43002c733f19bf67ef31",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23059372
+    },
+    {
+        "poolID": "0x8cD6aE59499cde5A4125473d8FB13414c6BEd02f",
+        "token0": "0x8e2275957022060b31D1b6924AbecfA4aCE93480",
+        "token1": "0x8e2275957022060b31D1b6924AbecfA4aCE93480",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23066506
+    },
+    {
+        "poolID": "0xb2F8Ba544E4874D4E0F817359D0F4bcff209b87E",
+        "token0": "0x769434dcA303597C8fc4997Bf3DAB233e961Eda2",
+        "token1": "0x769434dcA303597C8fc4997Bf3DAB233e961Eda2",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23070493
+    },
+    {
+        "poolID": "0x89f485b9514E41276a58bBF54090D01B2Ce7e7b2",
+        "token0": "0xD6DF932A45C0f255f85145f286eA0b292B21C90B",
+        "token1": "0xD6DF932A45C0f255f85145f286eA0b292B21C90B",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23070967
+    },
+    {
+        "poolID": "0xF243092f28B3824B8F922284B8cD5F9Cab86B27d",
+        "token0": "0x45CfbABd0D78eC50ED6c07d75E3DA600892E5D50",
+        "token1": "0x45CfbABd0D78eC50ED6c07d75E3DA600892E5D50",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23076072
+    },
+    {
+        "poolID": "0xd20f057B05F1D62c1fe306f6EE77ab4c8fD7e2FB",
+        "token0": "0xD6DF932A45C0f255f85145f286eA0b292B21C90B",
+        "token1": "0xD6DF932A45C0f255f85145f286eA0b292B21C90B",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23075412
+    },
+    {
+        "poolID": "0x5FFE14287e547E185EB15c0b7d7cCAA6f1B227Dc",
+        "token0": "0x9Cb74C8032b007466865f060ad2c46145d45553D",
+        "token1": "0x9Cb74C8032b007466865f060ad2c46145d45553D",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23077792
+    },
+    {
+        "poolID": "0xfc43FC38666c2Fa32C3E967095FFd2F0051DFE3b",
+        "token0": "0xf962e0d074e532ABA0324dCCD841349137EC503C",
+        "token1": "0xf962e0d074e532ABA0324dCCD841349137EC503C",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23084039
+    },
+    {
+        "poolID": "0xB3866Eb993e1aEf93f219C3da0a71c3f11BeCBf2",
+        "token0": "0xD6DF932A45C0f255f85145f286eA0b292B21C90B",
+        "token1": "0xD6DF932A45C0f255f85145f286eA0b292B21C90B",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23085369
+    },
+    {
+        "poolID": "0x0ca9B6f1CAF99e1d0F8C46eb298c2cd74fF72c48",
+        "token0": "0x33693d872e9c9aaaf339351DA75d44D3104aC7f4",
+        "token1": "0x33693d872e9c9aaaf339351DA75d44D3104aC7f4",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23095299
+    },
+    {
+        "poolID": "0x6FDbCD85D1d929FC7B06FE92A122614680b0a58c",
+        "token0": "0x776c9E91053ea946F8B633fe66ffC703ff33469a",
+        "token1": "0x776c9E91053ea946F8B633fe66ffC703ff33469a",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23096829
+    },
+    {
+        "poolID": "0xEb3A72F77fa5bb4E6Fa31fDfBc65571e830DB068",
+        "token0": "0xe46F5128B933e5A6F907Fe73EcE80059c222DB0A",
+        "token1": "0xe46F5128B933e5A6F907Fe73EcE80059c222DB0A",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23102907
+    },
+    {
+        "poolID": "0xc27F90198E6b1a06Ef78e1635d331b9EaA2dce72",
+        "token0": "0x723B17718289A91AF252D616DE2C77944962d122",
+        "token1": "0x723B17718289A91AF252D616DE2C77944962d122",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23113367
+    },
+    {
+        "poolID": "0x48491B85307da04e36cb43cD086A48C2f4F15700",
+        "token0": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+        "token1": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23146289
+    },
+    {
+        "poolID": "0x62A4B3ef3867AF9ACc53F68F57b2D4cb71d30465",
+        "token0": "0xFbdd194376de19a88118e84E279b977f165d01b8",
+        "token1": "0xFbdd194376de19a88118e84E279b977f165d01b8",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23146869
+    },
+    {
+        "poolID": "0x37bd50a90f26328941B71a651032e8121d50d5Fd",
+        "token0": "0xA1c57f48F0Deb89f569dFbE6E2B7f46D33606fD4",
+        "token1": "0xA1c57f48F0Deb89f569dFbE6E2B7f46D33606fD4",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23146431
+    },
+    {
+        "poolID": "0x32C936874FF276c626a9Ed028FAA10071e3A2faC",
+        "token0": "0xFA3c05C2023918A4324fDE7163591Fe6BEBd1692",
+        "token1": "0xFA3c05C2023918A4324fDE7163591Fe6BEBd1692",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23150999
+    },
+    {
+        "poolID": "0x3c92bd9596E6aca8cfa29ec733ebe0c189bec1F3",
+        "token0": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "token1": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23156607
+    },
+    {
+        "poolID": "0x99958f68a25B127F92Ca2239e851B1c1A078ef20",
+        "token0": "0xd53F8410618d83fABce1B614915d918ed5cADC09",
+        "token1": "0xd53F8410618d83fABce1B614915d918ed5cADC09",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23158992
+    },
+    {
+        "poolID": "0x4fD46d8b133645A72aF8c9d70aAdB938914102B0",
+        "token0": "0xD83A3f7Ae67D81ad7620D9E097A9e1B1C5f0dE60",
+        "token1": "0xD83A3f7Ae67D81ad7620D9E097A9e1B1C5f0dE60",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23171962
+    },
+    {
+        "poolID": "0x46c12c19d71EFB66DF412dcc0afBEd8aC2EC12e5",
+        "token0": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "token1": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23174468
+    },
+    {
+        "poolID": "0x482488D437767F881FfD0bDB9303068fe129ED57",
+        "token0": "0xeb2b37f75BfAcd1D973B928Ab12E55A49114052e",
+        "token1": "0xeb2b37f75BfAcd1D973B928Ab12E55A49114052e",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23178786
+    },
+    {
+        "poolID": "0x6b5B9D240Fd5602F59f65C2ad42491910B1fF88D",
+        "token0": "0xF2a255003597FBb164A1f254A57702C7671Eae90",
+        "token1": "0xF2a255003597FBb164A1f254A57702C7671Eae90",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23200712
+    },
+    {
+        "poolID": "0xa291294ea4B7F01777D4c46A8afCA599A2a2baE9",
+        "token0": "0xF6a38Ce301700e28e0d0a3b021BaE6D4Fa1b5d1b",
+        "token1": "0xF6a38Ce301700e28e0d0a3b021BaE6D4Fa1b5d1b",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23202427
+    },
+    {
+        "poolID": "0xBDBEa0091e31c0542413C59BE5C9BcDb6ad661f7",
+        "token0": "0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195",
+        "token1": "0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23204186
+    },
+    {
+        "poolID": "0xB093eEfe1b5916Fb34A71a7DD4b06aB754B7F503",
+        "token0": "0xd192BAc61522E0Bc13543528173E69c44472c93a",
+        "token1": "0xd192BAc61522E0Bc13543528173E69c44472c93a",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23209422
+    },
+    {
+        "poolID": "0xfc81399507494Face944d4d48b0a586550EA81a3",
+        "token0": "0xA2623C3938CF45c76aaA9678bFdeAC0991cA778B",
+        "token1": "0xA2623C3938CF45c76aaA9678bFdeAC0991cA778B",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23217395
+    },
+    {
+        "poolID": "0xA158e5D306D344A9D5AB73F29682D8ECb84fE4F4",
+        "token0": "0xCaCee7657BB8EB6eFc7D0c2AAB2D20857b485Eb8",
+        "token1": "0xCaCee7657BB8EB6eFc7D0c2AAB2D20857b485Eb8",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23224800
+    },
+    {
+        "poolID": "0x6c1bb10b1fd339a273CfCa20D79450AA332b2e82",
+        "token0": "0x7a640ccb10c72646eda67Dcd2b528E6480295b79",
+        "token1": "0x7a640ccb10c72646eda67Dcd2b528E6480295b79",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23232283
+    },
+    {
+        "poolID": "0xDDd919428330369186D27Df0848b23908F1F4c24",
+        "token0": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "token1": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23236947
+    },
+    {
+        "poolID": "0xcAf4637Db48d9582df0b8C75c2aDE0571DBeDaEC",
+        "token0": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+        "token1": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23239039
+    },
+    {
+        "poolID": "0xfDcfFC6560483a1DDc7335eC014d814DC2DBe9ca",
+        "token0": "0xdf9B4b57865B403e08c85568442f95c26b7896b0",
+        "token1": "0xdf9B4b57865B403e08c85568442f95c26b7896b0",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23239278
+    },
+    {
+        "poolID": "0x0fC035E9963F6Ad2Cad8704170DEDc6158b6482F",
+        "token0": "0xA1c57f48F0Deb89f569dFbE6E2B7f46D33606fD4",
+        "token1": "0xA1c57f48F0Deb89f569dFbE6E2B7f46D33606fD4",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23239449
+    },
+    {
+        "poolID": "0x1a610fDBF281C821050345c1a6E6d705625E6A96",
+        "token0": "0x707a07c5f35a2098D84559Bba646A5dA1daB1F85",
+        "token1": "0x707a07c5f35a2098D84559Bba646A5dA1daB1F85",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23249619
+    },
+    {
+        "poolID": "0x99799d0e96d4E436F4b8D2E125f0B1cE8E1770A7",
+        "token0": "0x49a0400587A7F65072c87c4910449fDcC5c47242",
+        "token1": "0x49a0400587A7F65072c87c4910449fDcC5c47242",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23254612
+    },
+    {
+        "poolID": "0xA160169b40De0A275a58B573635eE2e43ee42779",
+        "token0": "0xac51C4c48Dc3116487eD4BC16542e27B5694Da1b",
+        "token1": "0xac51C4c48Dc3116487eD4BC16542e27B5694Da1b",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23270808
+    },
+    {
+        "poolID": "0xdf8a18eAd670Fe036473271b2be6e47d29eEc61C",
+        "token0": "0x85955046DF4668e1DD369D2DE9f3AEB98DD2A369",
+        "token1": "0x85955046DF4668e1DD369D2DE9f3AEB98DD2A369",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23274548
+    },
+    {
+        "poolID": "0x3af49D558686d261FC18A235708FE2bB342d9a1e",
+        "token0": "0xc840B326E6aB36460aDB535a061342c66a6a9d07",
+        "token1": "0xc840B326E6aB36460aDB535a061342c66a6a9d07",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23277058
+    },
+    {
+        "poolID": "0xab1825D1D82d67e2bada177B1A3f76B67c5091fF",
+        "token0": "0x502B8CadC8e52d3c6334CC46524ccfC5625De212",
+        "token1": "0x502B8CadC8e52d3c6334CC46524ccfC5625De212",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23284056
+    },
+    {
+        "poolID": "0x0c11648728935578C6f3f625F31C4b5923250896",
+        "token0": "0xAcD7B3D9c10e97d0efA418903C0c7669E702E4C0",
+        "token1": "0xAcD7B3D9c10e97d0efA418903C0c7669E702E4C0",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23289737
+    },
+    {
+        "poolID": "0x4A852959b5C437155Dda0473Ad8b040772461391",
+        "token0": "0x839F1a22A59eAAf26c85958712aB32F80FEA23d9",
+        "token1": "0x839F1a22A59eAAf26c85958712aB32F80FEA23d9",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23289746
+    },
+    {
+        "poolID": "0x30501d27A06216c83026b15a20FA419F6e7D0078",
+        "token0": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "token1": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23302494
+    },
+    {
+        "poolID": "0x88EFfbf397A9E96d4dad6754787935058D03d307",
+        "token0": "0x905013c0DCE481e1396681feA00D8Eeb81f68d35",
+        "token1": "0x905013c0DCE481e1396681feA00D8Eeb81f68d35",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23352295
+    },
+    {
+        "poolID": "0xa8626B467b46fe2B9D0303FB5283E422C2ce4321",
+        "token0": "0xD6c06EDF02fBFF31a5d906F07ab4076623e2A6f6",
+        "token1": "0xD6c06EDF02fBFF31a5d906F07ab4076623e2A6f6",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23370639
+    },
+    {
+        "poolID": "0x56fCB902BeE19a645f9607cD1E1C0737b6358FEB",
+        "token0": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "token1": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23371655
+    },
+    {
+        "poolID": "0xCE4ECAE580F963CdD371011733fA5d0F9CcA1F50",
+        "token0": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "token1": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23379286
+    },
+    {
+        "poolID": "0xFfE74bBCf5606Dc9d092a2cEA85CdAb96Ec9dBaB",
+        "token0": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "token1": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23379815
+    },
+    {
+        "poolID": "0xfFBe396F47b863f02349e0DCa2f1Baf4e99fa7B4",
+        "token0": "0x596eBE76e2DB4470966ea395B0d063aC6197A8C5",
+        "token1": "0x596eBE76e2DB4470966ea395B0d063aC6197A8C5",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23381223
+    },
+    {
+        "poolID": "0xF8967c3Cc7F3c1e0928580C80057e7F336946fFb",
+        "token0": "0x3Afe98235d680e8d7A52e1458a59D60f45F935C0",
+        "token1": "0x3Afe98235d680e8d7A52e1458a59D60f45F935C0",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23391840
+    },
+    {
+        "poolID": "0xa5935fd21d5eb057C0cBC3694C843B78364dAF1C",
+        "token0": "0x3Afe98235d680e8d7A52e1458a59D60f45F935C0",
+        "token1": "0x3Afe98235d680e8d7A52e1458a59D60f45F935C0",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23394558
+    },
+    {
+        "poolID": "0xD0E5D1fB39B4D572aC2610A29e696d383D3F9B41",
+        "token0": "0xb33EaAd8d922B1083446DC23f610c2567fB5180f",
+        "token1": "0xb33EaAd8d922B1083446DC23f610c2567fB5180f",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23401767
+    },
+    {
+        "poolID": "0x96AbB8cd2D547E4e862437D408c871D900F662A4",
+        "token0": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "token1": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23407321
+    },
+    {
+        "poolID": "0x041b2a609614E59b19CEde4b907DdfDea4d0590B",
+        "token0": "0x7FB27EE135dB455de5Ab1CcEC66a24cBC82E712D",
+        "token1": "0x7FB27EE135dB455de5Ab1CcEC66a24cBC82E712D",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23413176
+    },
+    {
+        "poolID": "0x15729E1eAB9C8C4E4cBDe4A510552d221A298d9d",
+        "token0": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "token1": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23418315
+    },
+    {
+        "poolID": "0x1ae7144CA6072f05A88f0EAA36fc52D1dee39d95",
+        "token0": "0x7278060968e15ebc9F631d7a310805730f083ad5",
+        "token1": "0x7278060968e15ebc9F631d7a310805730f083ad5",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23421731
+    },
+    {
+        "poolID": "0x629193DAD00F63e9dEf85E052EE7E21b47A9BcFa",
+        "token0": "0x235737dBb56e8517391473f7c964DB31fA6ef280",
+        "token1": "0x235737dBb56e8517391473f7c964DB31fA6ef280",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23430864
+    },
+    {
+        "poolID": "0x82C883B2F7ff0591F8CC9BcCC062ad4B52d61f52",
+        "token0": "0x785BF2e493482B324E117f2fDF5b94212D010019",
+        "token1": "0x785BF2e493482B324E117f2fDF5b94212D010019",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23438556
+    },
+    {
+        "poolID": "0x140Ae14be4B5e86aa149f76e84953746E0BC04F1",
+        "token0": "0x62a872d9977Db171d9e213A5dc2b782e72ca0033",
+        "token1": "0x62a872d9977Db171d9e213A5dc2b782e72ca0033",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23450778
+    },
+    {
+        "poolID": "0x991a0E83CDA62EA5F07888132e362AC183ec923c",
+        "token0": "0x172370d5Cd63279eFa6d502DAB29171933a610AF",
+        "token1": "0x172370d5Cd63279eFa6d502DAB29171933a610AF",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23453685
+    },
+    {
+        "poolID": "0x89121543b6B168f629c33aACcD3d5b206A638c9f",
+        "token0": "0xCe2217DC19466Be2b57677b62E6B0375530EA380",
+        "token1": "0xCe2217DC19466Be2b57677b62E6B0375530EA380",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23458393
+    },
+    {
+        "poolID": "0x0d1375f18E23099AE6a151E818cfE491B4FefF31",
+        "token0": "0x83000597e8420aD7e9EDD410b2883Df1b83823cF",
+        "token1": "0x83000597e8420aD7e9EDD410b2883Df1b83823cF",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23458565
+    },
+    {
+        "poolID": "0x4F65d577A523eF5fCEe1556265C00Ce09f51E875",
+        "token0": "0xDd8db4409C5aEE3B3eece0f4215B68dE3A40098e",
+        "token1": "0xDd8db4409C5aEE3B3eece0f4215B68dE3A40098e",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23487684
+    },
+    {
+        "poolID": "0x5f8d86A9F7439D49768123f4E5CD611810c6C823",
+        "token0": "0xd307bD2f5be4623b9125e4ea650B6b63a2d4b12e",
+        "token1": "0xd307bD2f5be4623b9125e4ea650B6b63a2d4b12e",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23488864
+    },
+    {
+        "poolID": "0x8CbDc31F28374044756f94b3dd1765FB5b097DbF",
+        "token0": "0xd307bD2f5be4623b9125e4ea650B6b63a2d4b12e",
+        "token1": "0xd307bD2f5be4623b9125e4ea650B6b63a2d4b12e",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23489015
+    },
+    {
+        "poolID": "0x849Ec65748107AEdC518dbc42961f358ea1361A7",
+        "token0": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "token1": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23488608
+    },
+    {
+        "poolID": "0x1c4BCC7d2B8a1BE94Ab710eBDF196791933871a5",
+        "token0": "0xd307bD2f5be4623b9125e4ea650B6b63a2d4b12e",
+        "token1": "0xd307bD2f5be4623b9125e4ea650B6b63a2d4b12e",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23489091
+    },
+    {
+        "poolID": "0x3D34Bf7A12Da6897500994a65acc2F027Ca0728F",
+        "token0": "0xa390D725e1918bf169EC5b4726df29530B1bc369",
+        "token1": "0xa390D725e1918bf169EC5b4726df29530B1bc369",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23490120
+    },
+    {
+        "poolID": "0x99a87f7758E28540cCBb7E4D7b82D69b81CE5927",
+        "token0": "0x60Ff7B0744d5981d8A3DFB8b84716F381652508D",
+        "token1": "0x60Ff7B0744d5981d8A3DFB8b84716F381652508D",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23498643
+    },
+    {
+        "poolID": "0x4Ff09B032D4a2C7401a0f920CE44623f309F0072",
+        "token0": "0xD5d86FC8d5C0Ea1aC1Ac5Dfab6E529c9967a45E9",
+        "token1": "0xD5d86FC8d5C0Ea1aC1Ac5Dfab6E529c9967a45E9",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23508258
+    },
+    {
+        "poolID": "0x0581ef32B9393c5c282517282853267eED69621e",
+        "token0": "0xD5d86FC8d5C0Ea1aC1Ac5Dfab6E529c9967a45E9",
+        "token1": "0xD5d86FC8d5C0Ea1aC1Ac5Dfab6E529c9967a45E9",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23508644
+    },
+    {
+        "poolID": "0xbCBDE63aEE334285bBF804C419c9066Ad3e8AbfB",
+        "token0": "0x8e2275957022060b31D1b6924AbecfA4aCE93480",
+        "token1": "0x8e2275957022060b31D1b6924AbecfA4aCE93480",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23513230
+    },
+    {
+        "poolID": "0x9B31dB9FD853AeA6Adc9470052612F9903cf13e9",
+        "token0": "0xBBE237EC1314c8AC9CA3DA8c93C3CF24f485C4C7",
+        "token1": "0xBBE237EC1314c8AC9CA3DA8c93C3CF24f485C4C7",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23514685
+    },
+    {
+        "poolID": "0x4c62Cc6C6d74533b8Cb3A70C6C3E15DA6fDdc23D",
+        "token0": "0x8c2CE29726C8A62781cf0Ea85e0a40FCe1eC3309",
+        "token1": "0x8c2CE29726C8A62781cf0Ea85e0a40FCe1eC3309",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23518075
+    },
+    {
+        "poolID": "0x87a0E484D687A1C46B976058649B012624501766",
+        "token0": "0xaa5204B434b4D18800960b6B504425e1Ce4822DD",
+        "token1": "0xaa5204B434b4D18800960b6B504425e1Ce4822DD",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23518850
+    },
+    {
+        "poolID": "0x9d041C37AAdaE961eC0cc49429C3b4078b0C7A08",
+        "token0": "0x94A6421bA5a8D055Da67751aFDb9AaC9591BB826",
+        "token1": "0x94A6421bA5a8D055Da67751aFDb9AaC9591BB826",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23519893
+    },
+    {
+        "poolID": "0xE33a4F0e4a5793DC8Ee882f8bd393100DEA21dab",
+        "token0": "0xaa5204B434b4D18800960b6B504425e1Ce4822DD",
+        "token1": "0xaa5204B434b4D18800960b6B504425e1Ce4822DD",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23519498
+    },
+    {
+        "poolID": "0xD0403e4717Bcae5369D132dE8F60A48fa53B17c7",
+        "token0": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "token1": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23521179
+    },
+    {
+        "poolID": "0x6B6e6860571a49Da9519d525906fBBc37aFB54F6",
+        "token0": "0xA1c57f48F0Deb89f569dFbE6E2B7f46D33606fD4",
+        "token1": "0xA1c57f48F0Deb89f569dFbE6E2B7f46D33606fD4",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23525788
+    },
+    {
+        "poolID": "0xcF245d0C40f3DEE36aA45f7131E56551336DbF9f",
+        "token0": "0xCd9c7397B0ef2E9b2a9440d61B0e1E3351a38A28",
+        "token1": "0xCd9c7397B0ef2E9b2a9440d61B0e1E3351a38A28",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23528271
+    },
+    {
+        "poolID": "0x450918694c49DF24092Dba12D0B58b7a44ebf07b",
+        "token0": "0x61299774020dA444Af134c82fa83E3810b309991",
+        "token1": "0x61299774020dA444Af134c82fa83E3810b309991",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23528798
+    },
+    {
+        "poolID": "0x0ad3aDDeb69c01EfC10B1B1668494b989D506ccF",
+        "token0": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "token1": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23529280
+    },
+    {
+        "poolID": "0x984AD2bE2aA6DBACCa52753Cb088F4f37a009a64",
+        "token0": "0xaAb727AD5f0Be2aFF3c62bc737D12fd662050a4c",
+        "token1": "0xaAb727AD5f0Be2aFF3c62bc737D12fd662050a4c",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23530627
+    },
+    {
+        "poolID": "0x2D2d1022ea2F82EAe41f637082Bf7C1732C483De",
+        "token0": "0x5cf753a1C43d08bC0ec60C40fa43c19B8720E6EE",
+        "token1": "0x5cf753a1C43d08bC0ec60C40fa43c19B8720E6EE",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23533887
+    },
+    {
+        "poolID": "0xe88c80673644AD0Cb4F4769C8c3f972941DA2E28",
+        "token0": "0x91bD16976edd5C6ac3c8FF1A45eE95544f97D0d8",
+        "token1": "0x91bD16976edd5C6ac3c8FF1A45eE95544f97D0d8",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23533503
+    },
+    {
+        "poolID": "0x59154AB178937BBc9792af9DB4E8709640f0cc2A",
+        "token0": "0x20F4F80d2CB021C59ae3EF42F6Da176e1b8e801C",
+        "token1": "0x20F4F80d2CB021C59ae3EF42F6Da176e1b8e801C",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23541141
+    },
+    {
+        "poolID": "0xFFC72c7beC82A9cd3e3B95Fa2Ed06943185FB54b",
+        "token0": "0xE0339c80fFDE91F3e20494Df88d4206D86024cdF",
+        "token1": "0xE0339c80fFDE91F3e20494Df88d4206D86024cdF",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23547034
+    },
+    {
+        "poolID": "0xE94dE909F03B2a089a51ad2025d44bEb454746bC",
+        "token0": "0xb381e34822d06B4CdFD2Af0e243f4c3a8dD839F8",
+        "token1": "0xb381e34822d06B4CdFD2Af0e243f4c3a8dD839F8",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23548794
+    },
+    {
+        "poolID": "0x7DE7ec5b5e97327B14BC83aFb6636379BF2A161d",
+        "token0": "0xb381e34822d06B4CdFD2Af0e243f4c3a8dD839F8",
+        "token1": "0xb381e34822d06B4CdFD2Af0e243f4c3a8dD839F8",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23549969
+    },
+    {
+        "poolID": "0x39365296E3537f86bf6073096666C7D7d43f57Bb",
+        "token0": "0xf51aAB6723cD2b4C0C7Fcda55a99a80F84Ae455d",
+        "token1": "0xf51aAB6723cD2b4C0C7Fcda55a99a80F84Ae455d",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23552043
+    },
+    {
+        "poolID": "0xBEb89416FE362d975Fe98099Bc463D475ef4CEc4",
+        "token0": "0x1631244689EC1fEcbDD22fb5916E920dFC9b8D30",
+        "token1": "0x1631244689EC1fEcbDD22fb5916E920dFC9b8D30",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23553737
+    },
+    {
+        "poolID": "0xd6193257c0e6DFAEE725507A476C2479e3BC6f57",
+        "token0": "0x3ACD12456144fE234E5Aa8F753E424FC49921FC7",
+        "token1": "0x3ACD12456144fE234E5Aa8F753E424FC49921FC7",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23560585
+    },
+    {
+        "poolID": "0xbeeB2B769aE6dDe56be595B6C2F361d9Eccb6dF3",
+        "token0": "0x3ACD12456144fE234E5Aa8F753E424FC49921FC7",
+        "token1": "0x3ACD12456144fE234E5Aa8F753E424FC49921FC7",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23562211
+    },
+    {
+        "poolID": "0x3CDa99e8C91a0775Dd3005cd7f7DB2e99FA94CC7",
+        "token0": "0x332Ee67F838F2896BF721465e2096C1197df7Fca",
+        "token1": "0x332Ee67F838F2896BF721465e2096C1197df7Fca",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23567678
+    },
+    {
+        "poolID": "0xBdC84F29EaCe1A6649367001250f6757d7C241CD",
+        "token0": "0x85E91893269435FAbF59d26BEeC51c6C2A304492",
+        "token1": "0x85E91893269435FAbF59d26BEeC51c6C2A304492",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23568147
+    },
+    {
+        "poolID": "0x11FE2dD4dB4e0E27d13a8c3420dF76A4A5763ec9",
+        "token0": "0xDA537104D6A5edd53c6fBba9A898708E465260b6",
+        "token1": "0xDA537104D6A5edd53c6fBba9A898708E465260b6",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23569667
+    },
+    {
+        "poolID": "0x19f5AB46F4ac6c1A51128746976AD4f1441e35A2",
+        "token0": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "token1": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23573519
+    },
+    {
+        "poolID": "0x25bD0d07170910498e55c56f112A08624454BDee",
+        "token0": "0x72C84728a5AE08787707f14fb2D411362a0abA6e",
+        "token1": "0x72C84728a5AE08787707f14fb2D411362a0abA6e",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23587553
+    },
+    {
+        "poolID": "0xeC7dabfE1bEf942bf63EDF30C9cF4955732EEf85",
+        "token0": "0xE221A3c5Af2E7922EE16390d15F944f1A75669D6",
+        "token1": "0xE221A3c5Af2E7922EE16390d15F944f1A75669D6",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23591812
+    },
+    {
+        "poolID": "0x576862b438Ec41b3722482baDFbc86C9d0f778E6",
+        "token0": "0x995f3498780ac900256dD7ecDb68EA28f39bFD82",
+        "token1": "0x995f3498780ac900256dD7ecDb68EA28f39bFD82",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23600459
+    },
+    {
+        "poolID": "0x25B202e6e2DdF6De5d0C3ff55DbE9D57A7E8f953",
+        "token0": "0xf28164A485B0B2C90639E47b0f377b4a438a16B1",
+        "token1": "0xf28164A485B0B2C90639E47b0f377b4a438a16B1",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23625848
+    },
+    {
+        "poolID": "0xbe60B65657cA5a1F160C9e2C9bC812Fc632398E4",
+        "token0": "0x93d2575994ed83Ccc1BceE858912BD0D6c13CA32",
+        "token1": "0x93d2575994ed83Ccc1BceE858912BD0D6c13CA32",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23625575
+    },
+    {
+        "poolID": "0x4959eA6AC6b2ed2C6a048fEA4F9A6B9B4bF6ECec",
+        "token0": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "token1": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23639174
+    },
+    {
+        "poolID": "0x6d61F4a857700d51BFC6AD71d3596E3C8f3191df",
+        "token0": "0x9C32185b81766a051E08dE671207b34466DD1021",
+        "token1": "0x9C32185b81766a051E08dE671207b34466DD1021",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23640274
+    },
+    {
+        "poolID": "0x014327b7DF353290FcD2EF52A9873E861E6d84e6",
+        "token0": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "token1": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23648418
+    },
+    {
+        "poolID": "0x154C794e68334CD3D49D5fbf4c1b83F8dc909d0c",
+        "token0": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+        "token1": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23653051
+    },
+    {
+        "poolID": "0xeDF68826A5e27c8ebE1B30B0DDDaf59D4e0f1fdC",
+        "token0": "0xef938b6da8576a896f6E0321ef80996F4890f9c4",
+        "token1": "0xef938b6da8576a896f6E0321ef80996F4890f9c4",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23653308
+    },
+    {
+        "poolID": "0x515596a0E150D42b242De9ca3874f2F7B9B2E12D",
+        "token0": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+        "token1": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23653445
+    },
+    {
+        "poolID": "0x9781b8b63F097231174a83513170d2578DF8F861",
+        "token0": "0x569222e1B879f047d45C471a20819d96c954D501",
+        "token1": "0x569222e1B879f047d45C471a20819d96c954D501",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23657248
+    },
+    {
+        "poolID": "0x583Ae21FAE5e6999c0FEe8B0FfbF498EFf2727aF",
+        "token0": "0x1DADF066518E2b7064D85cED45625BFeC52ca07d",
+        "token1": "0x1DADF066518E2b7064D85cED45625BFeC52ca07d",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23661098
+    },
+    {
+        "poolID": "0xBa0216254163B57aF68B7161cf824dBadcAD61Df",
+        "token0": "0xE5417Af564e4bFDA1c483642db72007871397896",
+        "token1": "0xE5417Af564e4bFDA1c483642db72007871397896",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23664632
+    },
+    {
+        "poolID": "0x7c66F99A93C6eeB4b4137ed958fFb2553E4fdC55",
+        "token0": "0x42d61D766B85431666B39B89C43011f24451bFf6",
+        "token1": "0x42d61D766B85431666B39B89C43011f24451bFf6",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23666584
+    },
+    {
+        "poolID": "0xdDd67996aC6904F297E1408C4286817BC9eb2a30",
+        "token0": "0x5Ff3D7900720bC9f42649f0c0A77Fcd093Ef1073",
+        "token1": "0x5Ff3D7900720bC9f42649f0c0A77Fcd093Ef1073",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23670909
+    },
+    {
+        "poolID": "0x6f6A921e1C9b8caCcE0da724C1AD93727e43edd4",
+        "token0": "0x83306fa77814e6F9aEFe9F25de6572C2ABA74De0",
+        "token1": "0x83306fa77814e6F9aEFe9F25de6572C2ABA74De0",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23672432
+    },
+    {
+        "poolID": "0x2C9aB913ed75c3bb5bc8913A5B3fCB551217b62D",
+        "token0": "0x8035647FEdc2636e543c098e83A5D3490caC180b",
+        "token1": "0x8035647FEdc2636e543c098e83A5D3490caC180b",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23677204
+    },
+    {
+        "poolID": "0xbC44B606FC6a7B700b1802F8A82eb11aBA9100eD",
+        "token0": "0x6847D3A4c80a82e1fb26f1fC6F09F3Ad5BEB5222",
+        "token1": "0x6847D3A4c80a82e1fb26f1fC6F09F3Ad5BEB5222",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23686045
+    },
+    {
+        "poolID": "0xd3e126121fa12aeb4A2015eF408BC901aceFD38E",
+        "token0": "0xcD5C91E309fc8D8886Ccc371D9472c0de11fa1a4",
+        "token1": "0xcD5C91E309fc8D8886Ccc371D9472c0de11fa1a4",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23688513
+    },
+    {
+        "poolID": "0xD7F78bBd24CEDaf9640C6Bc3821D32822Ee06C79",
+        "token0": "0x576Cf361711cd940CD9C397BB98C4C896cBd38De",
+        "token1": "0x576Cf361711cd940CD9C397BB98C4C896cBd38De",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23702966
+    },
+    {
+        "poolID": "0x25cfa72266BA28Fbf16319B3f564a27B3cfB1B11",
+        "token0": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "token1": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23704712
+    },
+    {
+        "poolID": "0xCAfE7B24cC641F66A958C8f6eF53F8b401b802F5",
+        "token0": "0x90F3edc7D5298918F7BB51694134b07356F7d0C7",
+        "token1": "0x90F3edc7D5298918F7BB51694134b07356F7d0C7",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23709426
+    },
+    {
+        "poolID": "0xf6cb5bdb2dC4108A97bD653FeF45d9751Cae5a9C",
+        "token0": "0x42dbBd5ae373FEA2FC320F62d44C058522Bb3758",
+        "token1": "0x42dbBd5ae373FEA2FC320F62d44C058522Bb3758",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23746623
+    },
+    {
+        "poolID": "0x1846E4Ab47A47E12E408d6dACF034d9A3cE112Ca",
+        "token0": "0xDa294Af752F7897C01D97e9C8D8875caF858E78D",
+        "token1": "0xDa294Af752F7897C01D97e9C8D8875caF858E78D",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23757496
+    },
+    {
+        "poolID": "0x4f78a9B3015704c1152327E14963F54E4a63c28A",
+        "token0": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "token1": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23757950
+    },
+    {
+        "poolID": "0xebD838B3e1e27c184c74C67F6dE48E539920E9D9",
+        "token0": "0xcE829A89d4A55a63418bcC43F00145adef0eDB8E",
+        "token1": "0xcE829A89d4A55a63418bcC43F00145adef0eDB8E",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23763910
+    },
+    {
+        "poolID": "0xD49Dfb63F63cC1AeaA36a0C6F23633F6d68B1cF0",
+        "token0": "0xeCb4cAc0C9e5cBd42a9Ed36467ce8f96072AD58b",
+        "token1": "0xeCb4cAc0C9e5cBd42a9Ed36467ce8f96072AD58b",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23765935
+    },
+    {
+        "poolID": "0x205e5132e48a8654dDb6b154fBadCAD5684A69Fa",
+        "token0": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "token1": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23766710
+    },
+    {
+        "poolID": "0x208002E64674d3F0EDA9cA8bF248010693cB82ec",
+        "token0": "0x2356D0B581eAafD83694b7c636Ce2Ef942613dEf",
+        "token1": "0x2356D0B581eAafD83694b7c636Ce2Ef942613dEf",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23767449
+    },
+    {
+        "poolID": "0xBF2Ef4622D8Ce53646822C566d30059C12D517f6",
+        "token0": "0xd86b7e7E330631Cb2973A3cF4395de4889EA8C9A",
+        "token1": "0xd86b7e7E330631Cb2973A3cF4395de4889EA8C9A",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23768396
+    },
+    {
+        "poolID": "0xf7024fF3Cd59e1942B6DE1770b296162fe97E6A1",
+        "token0": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
+        "token1": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23781065
+    },
+    {
+        "poolID": "0x25D17b05680C3DFaa568A86D651cdF5D91184fbC",
+        "token0": "0x8839e639F210B80ffea73AedF51baed8DAc04499",
+        "token1": "0x8839e639F210B80ffea73AedF51baed8DAc04499",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23783869
+    },
+    {
+        "poolID": "0x9085e8E794f8E7c30B484A43c83Dc52b7bE42058",
+        "token0": "0xDa294Af752F7897C01D97e9C8D8875caF858E78D",
+        "token1": "0xDa294Af752F7897C01D97e9C8D8875caF858E78D",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23784322
+    },
+    {
+        "poolID": "0xa5EB36666d895E0F9f19Bd653744D3a634C2f6Aa",
+        "token0": "0xb2D28599428C66F75fEe3184Aeda2eAe62c3707c",
+        "token1": "0xb2D28599428C66F75fEe3184Aeda2eAe62c3707c",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23785548
+    },
+    {
+        "poolID": "0x5a94E62450F156aCDD15b1f1FacEdbeC23726D83",
+        "token0": "0xb2D28599428C66F75fEe3184Aeda2eAe62c3707c",
+        "token1": "0xb2D28599428C66F75fEe3184Aeda2eAe62c3707c",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23785751
+    },
+    {
+        "poolID": "0xe365465c94EC27C4846aE197a652ACA689187281",
+        "token0": "0xb91c05cf30A973a58295C8Db9248D0911CF091E5",
+        "token1": "0xb91c05cf30A973a58295C8Db9248D0911CF091E5",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23786691
+    },
+    {
+        "poolID": "0x48FE66167280a22Dc7c06Db4aE2E9838d13Df184",
+        "token0": "0x58E6CfE595f104E23c17B53E15EB6da5a5DAdcF1",
+        "token1": "0x58E6CfE595f104E23c17B53E15EB6da5a5DAdcF1",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23788538
+    },
+    {
+        "poolID": "0x1E0238b38E78e4854Dad6030fe5b7b3bA4021AD2",
+        "token0": "0x311434160D7537be358930def317AfB606C0D737",
+        "token1": "0x311434160D7537be358930def317AfB606C0D737",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23798964
+    },
+    {
+        "poolID": "0x8c22d4c352Bf853aF91e5F8d2d66E00CE8eC6F35",
+        "token0": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+        "token1": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23802490
+    },
+    {
+        "poolID": "0x7DA2630Bee246595FBFe175BB66A3857e1f50AFF",
+        "token0": "0xe2e5E8Eea9104946deEd6786f478DC1B8D54B630",
+        "token1": "0xe2e5E8Eea9104946deEd6786f478DC1B8D54B630",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23809260
+    },
+    {
+        "poolID": "0x051289A745A1Ec267F9bff627eEeE7c3c260d2Af",
+        "token0": "0x39cDBd331c94d781D4B50802346152549689B1e5",
+        "token1": "0x39cDBd331c94d781D4B50802346152549689B1e5",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23813008
+    },
+    {
+        "poolID": "0x4d25400cb378362864De4e7FDD73017d03d24A3e",
+        "token0": "0x8b1f836491903743fE51ACd13f2CC8Ab95b270f6",
+        "token1": "0x8b1f836491903743fE51ACd13f2CC8Ab95b270f6",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23825672
+    },
+    {
+        "poolID": "0x118F9f2CFF491FeacF7A2E5a7D5923Aa8a7B19f3",
+        "token0": "0x4e78011Ce80ee02d2c3e649Fb657E45898257815",
+        "token1": "0x4e78011Ce80ee02d2c3e649Fb657E45898257815",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23842024
+    },
+    {
+        "poolID": "0xb05FC284d321756a41e1309248E74c18cd9Bc9c8",
+        "token0": "0x2F800Db0fdb5223b3C3f354886d907A671414A7F",
+        "token1": "0x2F800Db0fdb5223b3C3f354886d907A671414A7F",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23841918
+    },
+    {
+        "poolID": "0x99ee855067cD4c445D0321b3A4e69472C0B6E3bd",
+        "token0": "0x2F800Db0fdb5223b3C3f354886d907A671414A7F",
+        "token1": "0x2F800Db0fdb5223b3C3f354886d907A671414A7F",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23842082
+    },
+    {
+        "poolID": "0xf9132ce7cC64d9788dAdE9AA561d7EC191300d0E",
+        "token0": "0xE8B298D3A0523c46B58aAa04B9EfB34ebe809390",
+        "token1": "0xE8B298D3A0523c46B58aAa04B9EfB34ebe809390",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23852700
+    },
+    {
+        "poolID": "0x833Ec22f63Af39527D5F8D060b0BE3EADB0C094E",
+        "token0": "0xe6F8Bb55C179BBb042e3fF33E51d99b0d47cb12e",
+        "token1": "0xe6F8Bb55C179BBb042e3fF33E51d99b0d47cb12e",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23857324
+    },
+    {
+        "poolID": "0x2ECa00374Af39F2B0AF1Ae14A351592c35171B27",
+        "token0": "0xD0Ca1F7E82c63c8BE543cDc8B374282870856776",
+        "token1": "0xD0Ca1F7E82c63c8BE543cDc8B374282870856776",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23857662
+    },
+    {
+        "poolID": "0x8Fe5034A03abCC32e206dFE806D5616FD250790e",
+        "token0": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "token1": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23858227
+    },
+    {
+        "poolID": "0x839530b5dc772FD4B9c6F4253032597F1A80a99e",
+        "token0": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "token1": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23863537
+    },
+    {
+        "poolID": "0x30Bd080e9b7a53d7a6Ca5562E199d301B0E0E371",
+        "token0": "0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7",
+        "token1": "0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23869932
+    },
+    {
+        "poolID": "0x2E5DE4efbc705739A958e7Fe4123700F5e4ca9fD",
+        "token0": "0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7",
+        "token1": "0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23869873
+    },
+    {
+        "poolID": "0x28DB3eD1bC731C1C02C0c685bdd62f19b11B2513",
+        "token0": "0x83C3A4BE5730610D6FB059FD67054F37C4BD9D94",
+        "token1": "0x83C3A4BE5730610D6FB059FD67054F37C4BD9D94",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23870945
+    },
+    {
+        "poolID": "0x63c21124f857AD3c293Dd97bDfE364Cfc10e7c7a",
+        "token0": "0xb4228798fF437ecD8fa43429664e9992256fe6Ac",
+        "token1": "0xb4228798fF437ecD8fa43429664e9992256fe6Ac",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23878038
+    },
+    {
+        "poolID": "0x9B230046e1f3F4B34167B2ff0C8B107BE8b43DcF",
+        "token0": "0xE631DABeF60c37a37d70d3B4f812871df663226f",
+        "token1": "0xE631DABeF60c37a37d70d3B4f812871df663226f",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23885217
+    },
+    {
+        "poolID": "0x7fd3C3f56FEB907bF15b667E833205818c4C3c61",
+        "token0": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "token1": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23885554
+    },
+    {
+        "poolID": "0x9fC8130aF0E3cAF180297Df2DB3118a5654Cd937",
+        "token0": "0x7DfF46370e9eA5f0Bad3C4E29711aD50062EA7A4",
+        "token1": "0x7DfF46370e9eA5f0Bad3C4E29711aD50062EA7A4",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23901694
+    },
+    {
+        "poolID": "0x4efa9F49e35788215882c2cAa7c84E201AFA03C3",
+        "token0": "0x94b45F046aa7A45815bDFdFe9ae50D782819ade0",
+        "token1": "0x94b45F046aa7A45815bDFdFe9ae50D782819ade0",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23914698
+    },
+    {
+        "poolID": "0x4A30D61Dd0f5872ac093755a36C66e1002885405",
+        "token0": "0x9ab2e73e65ff204936Ed62fE19F22fbA7545Cf61",
+        "token1": "0x9ab2e73e65ff204936Ed62fE19F22fbA7545Cf61",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23920224
+    },
+    {
+        "poolID": "0x81b91BD9358ae9ac98304B959660b4006fa6f5E3",
+        "token0": "0x359a3F50405922d12c1a3934D90F874FA9799741",
+        "token1": "0x359a3F50405922d12c1a3934D90F874FA9799741",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23933924
+    },
+    {
+        "poolID": "0xB786caEef4657d38D03dE0dbbEdeD3FE39770a0A",
+        "token0": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+        "token1": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23954625
+    },
+    {
+        "poolID": "0xFE097dFE7b3578aF96e63c6F8a371a63cB858032",
+        "token0": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "token1": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23957799
+    },
+    {
+        "poolID": "0x568EA439d0D8e5785B818aD0966c7C92efe68C61",
+        "token0": "0xddCd5F79ceCc152A66A0bdAe5e287c7814A005Bf",
+        "token1": "0xddCd5F79ceCc152A66A0bdAe5e287c7814A005Bf",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23958920
+    },
+    {
+        "poolID": "0xDbc7e8C04596B74FE543806dC9979f41E782778E",
+        "token0": "0xc87e8488002c2E69ef99E8E4b76608edc2C6ed98",
+        "token1": "0xc87e8488002c2E69ef99E8E4b76608edc2C6ed98",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 23974646
+    },
+    {
+        "poolID": "0x4055C92B0E5e6ed0Be169E9EF3866bd63fFBd2a2",
+        "token0": "0x2d21Ca7900bf3bAa8B210DBdFc8773737931B46c",
+        "token1": "0x2d21Ca7900bf3bAa8B210DBdFc8773737931B46c",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23975985
+    },
+    {
+        "poolID": "0xD03d737A3b171d82c4EDc37861294C9Bb0df4B5b",
+        "token0": "0x263026E7e53DBFDce5ae55Ade22493f828922965",
+        "token1": "0x263026E7e53DBFDce5ae55Ade22493f828922965",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23980985
+    },
+    {
+        "poolID": "0x27843215A4115d3FEF55085DA41CCda2b8456A4B",
+        "token0": "0xC8De979afb436043357CE8E10A539a4b517841FF",
+        "token1": "0xC8De979afb436043357CE8E10A539a4b517841FF",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 23993601
+    },
+    {
+        "poolID": "0xB820b6ac2191b0041C92b64c2396fEDab423b0cA",
+        "token0": "0xa69d14d6369E414a32a5C7E729B7afbAfd285965",
+        "token1": "0xa69d14d6369E414a32a5C7E729B7afbAfd285965",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 23996184
+    },
+    {
+        "poolID": "0x635fd65c546e66f73b7a760307Ad884916f4C204",
+        "token0": "0x3809dcDd5dDe24B37AbE64A5a339784c3323c44F",
+        "token1": "0x3809dcDd5dDe24B37AbE64A5a339784c3323c44F",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24020835
+    },
+    {
+        "poolID": "0x0c9B811709AAC4B0465A0Eb7580d0Ee2Df401E0f",
+        "token0": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "token1": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24024640
+    },
+    {
+        "poolID": "0x8454cb2BAE297C85aD35DAE9F3d77aeb595585f2",
+        "token0": "0x442c12ca8E10039177c61BC48d02d3F5D9EabA25",
+        "token1": "0x442c12ca8E10039177c61BC48d02d3F5D9EabA25",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24035962
+    },
+    {
+        "poolID": "0xEC22F6dF543988E1A9B437F044FE200A4D298A9F",
+        "token0": "0x4D0Def42Cf57D6f27CD4983042a55dce1C9F853c",
+        "token1": "0x4D0Def42Cf57D6f27CD4983042a55dce1C9F853c",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24038008
+    },
+    {
+        "poolID": "0xB64b7abDE5E208F1F08a6C4C1716fB77Deaecd99",
+        "token0": "0xe88A26A86aD7465a0F0d783e103653C3606dD9B5",
+        "token1": "0xe88A26A86aD7465a0F0d783e103653C3606dD9B5",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24040540
+    },
+    {
+        "poolID": "0x43A3117895737bCC866D792551F1C8a728158310",
+        "token0": "0xe9EB211208b52434bcFf5E830D5BD4EcfFC0B73F",
+        "token1": "0xe9EB211208b52434bcFf5E830D5BD4EcfFC0B73F",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24041495
+    },
+    {
+        "poolID": "0xB35d2094f50a95944117D927B197F49F4A39F4bD",
+        "token0": "0xf91E6E28c3feF7b05d27EE8F5B802d8a425B58F0",
+        "token1": "0xf91E6E28c3feF7b05d27EE8F5B802d8a425B58F0",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24045006
+    },
+    {
+        "poolID": "0xe261a405194190d4f7ee68ddf27392657e154C93",
+        "token0": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+        "token1": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24046026
+    },
+    {
+        "poolID": "0x4df66c6DD396C0341f4BDFf9373d2200ad16d365",
+        "token0": "0xcAB86F6Fb6d1C2cBeeB97854A0C023446A075Fe3",
+        "token1": "0xcAB86F6Fb6d1C2cBeeB97854A0C023446A075Fe3",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24072964
+    },
+    {
+        "poolID": "0x56B160B5f3C5ee6CCa892DfF558085cB54a42933",
+        "token0": "0xAa7DbD1598251f856C12f63557A4C4397c253Cea",
+        "token1": "0xAa7DbD1598251f856C12f63557A4C4397c253Cea",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24076025
+    },
+    {
+        "poolID": "0x1f1E8838f8B651D9ad3b1018EB097dFD271D8F3c",
+        "token0": "0xAa7DbD1598251f856C12f63557A4C4397c253Cea",
+        "token1": "0xAa7DbD1598251f856C12f63557A4C4397c253Cea",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24076115
+    },
+    {
+        "poolID": "0x500aDa87F25f9a53266B30c20ebA1Dd50f9a4bA5",
+        "token0": "0x43308565C0204C8076A291F0726f914c3133CE34",
+        "token1": "0x43308565C0204C8076A291F0726f914c3133CE34",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24099322
+    },
+    {
+        "poolID": "0xAC2C581324Dd10026D144Ee6156Ec926119D19FF",
+        "token0": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "token1": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24104187
+    },
+    {
+        "poolID": "0x8E202e354621B91484126541620b609BA5914bEf",
+        "token0": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "token1": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24110932
+    },
+    {
+        "poolID": "0xfde013d6110387E274Bf3C49762239C3b65F89F9",
+        "token0": "0xa9Ee51B3ECd466E5c340635216AF7298b3533122",
+        "token1": "0xa9Ee51B3ECd466E5c340635216AF7298b3533122",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24113163
+    },
+    {
+        "poolID": "0x8800a77D9B825CF5141B73aa13E55a4478B23dB8",
+        "token0": "0x92117C2AAceC7780f05c00f96277e600b62fC5E6",
+        "token1": "0x92117C2AAceC7780f05c00f96277e600b62fC5E6",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24113123
+    },
+    {
+        "poolID": "0x95FF971d9DfeBE5711310A44dF86B61B0634C393",
+        "token0": "0xbE6451360Be5ae43daeBDe18330CB3Ba518447A1",
+        "token1": "0xbE6451360Be5ae43daeBDe18330CB3Ba518447A1",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24126701
+    },
+    {
+        "poolID": "0xef869575058d1892C1562aeB383c540D5CA63Bda",
+        "token0": "0x31d3BC3efE41b2E0e1661F81F967f2E874B19E1d",
+        "token1": "0x31d3BC3efE41b2E0e1661F81F967f2E874B19E1d",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24133522
+    },
+    {
+        "poolID": "0x2EA11E46ECa5E3e9B2EA2D62A65AeA9AE38bb76d",
+        "token0": "0xcc7E369f09b40B3cABf3e495D118F9c446821519",
+        "token1": "0xcc7E369f09b40B3cABf3e495D118F9c446821519",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24138592
+    },
+    {
+        "poolID": "0x273aff47D9f78B8A6d92B52c5f66B987cd599Db1",
+        "token0": "0xb99224e7D1e23f3C5B81a6f3d71Cf02bB8B84c61",
+        "token1": "0xb99224e7D1e23f3C5B81a6f3d71Cf02bB8B84c61",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24152930
+    },
+    {
+        "poolID": "0xdcF592Cc57D1d634d70304A8f4AB2A813eb875A5",
+        "token0": "0xA1c57f48F0Deb89f569dFbE6E2B7f46D33606fD4",
+        "token1": "0xA1c57f48F0Deb89f569dFbE6E2B7f46D33606fD4",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24172493
+    },
+    {
+        "poolID": "0x3A7D68508a7EE46702BB07969138c81CE80019e4",
+        "token0": "0x2b2D687353A836D101b18270525f6675e44D5D46",
+        "token1": "0x2b2D687353A836D101b18270525f6675e44D5D46",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24212124
+    },
+    {
+        "poolID": "0xd0beb9570bC3d2AF7FA461dFD3c75cC3a34f95e2",
+        "token0": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+        "token1": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24225005
+    },
+    {
+        "poolID": "0x4D8262E0f4b2E6e93fDC2e984eC55E12747249fA",
+        "token0": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "token1": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24227483
+    },
+    {
+        "poolID": "0xE6F4B613eDe2346d816D468768d73Af8Fa90CB74",
+        "token0": "0xd86b7e7E330631Cb2973A3cF4395de4889EA8C9A",
+        "token1": "0xd86b7e7E330631Cb2973A3cF4395de4889EA8C9A",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24231512
+    },
+    {
+        "poolID": "0x6E81a3B1538C98A5df22d417d388544Be5082082",
+        "token0": "0x91642fB562F0736757E47f1853026A32e601a2c5",
+        "token1": "0x91642fB562F0736757E47f1853026A32e601a2c5",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24265884
+    },
+    {
+        "poolID": "0xF488eBFC73BDC8aa711a93420393cc7471f922D1",
+        "token0": "0x2aF1D53393a17B548a07d8ff4CfA873044399fCA",
+        "token1": "0x2aF1D53393a17B548a07d8ff4CfA873044399fCA",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24273493
+    },
+    {
+        "poolID": "0x9f32237AE1A240DfF3bE9458606B246ee2b199C4",
+        "token0": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "token1": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24278270
+    },
+    {
+        "poolID": "0x0eB89B9C15A0429D768bc213d88dcA595a33b475",
+        "token0": "0x88Fac3b07803Fcb4784aD628a038e8c71A34876e",
+        "token1": "0x88Fac3b07803Fcb4784aD628a038e8c71A34876e",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24294982
+    },
+    {
+        "poolID": "0x2051Af465Ca7C83eEfaC57FB8a5cbad077b917c4",
+        "token0": "0xE9B79567Ae26D7fD6566dc37e4af634782E4e415",
+        "token1": "0xE9B79567Ae26D7fD6566dc37e4af634782E4e415",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24296964
+    },
+    {
+        "poolID": "0xbb1f504259Cf7078E447E24e55CF1d7A511A38a2",
+        "token0": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "token1": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24300407
+    },
+    {
+        "poolID": "0xa2BBC4EE88e66BbD0f566DFcDB89b552c446E3ba",
+        "token0": "0x43ce24F9D459467C3A4586204148108DD96E6bE8",
+        "token1": "0x43ce24F9D459467C3A4586204148108DD96E6bE8",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24302362
+    },
+    {
+        "poolID": "0x4f28EeF4dDe2BFA0BDB95A7EFE586c3654e6CF07",
+        "token0": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "token1": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24309326
+    },
+    {
+        "poolID": "0x47564Bdb62cd848eC955A0a8Ce2A8Ed303974583",
+        "token0": "0xaeE24d5296444c007a532696aaDa9dE5cE6caFD0",
+        "token1": "0xaeE24d5296444c007a532696aaDa9dE5cE6caFD0",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24311271
+    },
+    {
+        "poolID": "0x4dD47D22e5d61F33C407fe230aCDdf160a69F028",
+        "token0": "0x3CE442bd5190516665436587b9E613655C0C78AD",
+        "token1": "0x3CE442bd5190516665436587b9E613655C0C78AD",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24313831
+    },
+    {
+        "poolID": "0x59ae630F7D3CF8121F935aA78cEc5871b94c1290",
+        "token0": "0x70c006878a5A50Ed185ac4C87d837633923De296",
+        "token1": "0x70c006878a5A50Ed185ac4C87d837633923De296",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24316246
+    },
+    {
+        "poolID": "0xBb379e0A727200Ca3aeF6CBE3bEAfa720d703228",
+        "token0": "0x70c006878a5A50Ed185ac4C87d837633923De296",
+        "token1": "0x70c006878a5A50Ed185ac4C87d837633923De296",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24316467
+    },
+    {
+        "poolID": "0xdB11b39d8aCDc877C58392E996A4A88424483705",
+        "token0": "0x64060aB139Feaae7f06Ca4E63189D86aDEb51691",
+        "token1": "0x64060aB139Feaae7f06Ca4E63189D86aDEb51691",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24323057
+    },
+    {
+        "poolID": "0x15f1fF2ac7dD5d3FDaB858DEaBd352432197b4A1",
+        "token0": "0xa9Ee51B3ECd466E5c340635216AF7298b3533122",
+        "token1": "0xa9Ee51B3ECd466E5c340635216AF7298b3533122",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24325229
+    },
+    {
+        "poolID": "0x61e417868f24e6811CC0249C4dBbc51c69bF55bf",
+        "token0": "0x92117C2AAceC7780f05c00f96277e600b62fC5E6",
+        "token1": "0x92117C2AAceC7780f05c00f96277e600b62fC5E6",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24325761
+    },
+    {
+        "poolID": "0x108FdC5Bc0289104d933ab6974eF197629d81a2D",
+        "token0": "0x4FAfad147c8Cd0e52f83830484d164e960BdC6C3",
+        "token1": "0x4FAfad147c8Cd0e52f83830484d164e960BdC6C3",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24329101
+    },
+    {
+        "poolID": "0x08D1b5797D099E3F247391b68C093b474CbE6040",
+        "token0": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "token1": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24332476
+    },
+    {
+        "poolID": "0x915Cc8092fDB7dd2A1cA0E489A28ee6987D6bB2F",
+        "token0": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "token1": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24336489
+    },
+    {
+        "poolID": "0x3f3920A184aa6059483d63d07Ff269495eF79FD7",
+        "token0": "0xb7Fa104d9fa8e19916799Ca41BD8BDA973d4730C",
+        "token1": "0xb7Fa104d9fa8e19916799Ca41BD8BDA973d4730C",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24340424
+    },
+    {
+        "poolID": "0x098B57eb2e663bfB84c6C4789dA02cdC7833e048",
+        "token0": "0xFA84f4eCB2A1bddBB5013681be785ce607c92bE6",
+        "token1": "0xFA84f4eCB2A1bddBB5013681be785ce607c92bE6",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24352678
+    },
+    {
+        "poolID": "0x1D21e6d868aCB8119a62682397078443d1A273eE",
+        "token0": "0x6dd04Cf9D7221fEdd6a8008d1577F3aBBb011E1C",
+        "token1": "0x6dd04Cf9D7221fEdd6a8008d1577F3aBBb011E1C",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24356460
+    },
+    {
+        "poolID": "0xeDA816EfBb09fD7951D03e0b94Af7b745b6a15fD",
+        "token0": "0x8C2b597c4B757b9d06A292daF29B27FC966A9A8b",
+        "token1": "0x8C2b597c4B757b9d06A292daF29B27FC966A9A8b",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24360185
+    },
+    {
+        "poolID": "0xf6A240386c1Cc0B7B63541b810dBefb791Cf3ac9",
+        "token0": "0x165997aaFa86aD7FAa9906B6c8ED15d536E65Bf6",
+        "token1": "0x165997aaFa86aD7FAa9906B6c8ED15d536E65Bf6",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24360264
+    },
+    {
+        "poolID": "0xd70429C60d86fe6bC0F81AD5644DfD7cb0C63bB6",
+        "token0": "0x88A1a3e32874ee9b264E40f0Df55eccA65Cc6DDD",
+        "token1": "0x88A1a3e32874ee9b264E40f0Df55eccA65Cc6DDD",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24390685
+    },
+    {
+        "poolID": "0xBB672b44A03419bD6960b48b5880235473176244",
+        "token0": "0x7e9928aFe96FefB820b85B4CE6597B8F660Fe4F4",
+        "token1": "0x7e9928aFe96FefB820b85B4CE6597B8F660Fe4F4",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24396264
+    },
+    {
+        "poolID": "0xF5D085c669F63D9983Dc57b629b235793d009B0E",
+        "token0": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
+        "token1": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24399895
+    },
+    {
+        "poolID": "0x342D91CA9d88Ba0A2121D3C16c211891b32C2bf9",
+        "token0": "0x53f8036e43b2EF39cFCD0C5f26C1257a85D5A3B2",
+        "token1": "0x53f8036e43b2EF39cFCD0C5f26C1257a85D5A3B2",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24401819
+    },
+    {
+        "poolID": "0x39231fF5136F68748C7C32F872a09DaF24D165Df",
+        "token0": "0xd17628B62647dFbd5f1b05dab045fF2823213205",
+        "token1": "0xd17628B62647dFbd5f1b05dab045fF2823213205",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24404291
+    },
+    {
+        "poolID": "0xc39D4bAd9E87f895B16C61401bdD792dB0625BB3",
+        "token0": "0x2C89bbc92BD86F8075d1DEcc58C7F4E0107f286b",
+        "token1": "0x2C89bbc92BD86F8075d1DEcc58C7F4E0107f286b",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24406895
+    },
+    {
+        "poolID": "0x0b5e371cFa954b8a4A3D18710700520eE7F46c82",
+        "token0": "0x4A4eee0450C01B12E0Db8A941c79E51A36fCaf24",
+        "token1": "0x4A4eee0450C01B12E0Db8A941c79E51A36fCaf24",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24418714
+    },
+    {
+        "poolID": "0x0B3e9eE6fcF76A072B52d151A3C9B06851867adC",
+        "token0": "0x6B8bCe6E4EF035A7d8E40FBEC2184E3B649Df4dE",
+        "token1": "0x6B8bCe6E4EF035A7d8E40FBEC2184E3B649Df4dE",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24430746
+    },
+    {
+        "poolID": "0x75E270ED57C907952d41e789aD7f2754Ad275bF1",
+        "token0": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "token1": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24445487
+    },
+    {
+        "poolID": "0x265ac14abb6F1cC3C9159343F7D542ac26ba2878",
+        "token0": "0x612509Ff74bbd1f6CC86A435c981F4266B306c27",
+        "token1": "0x612509Ff74bbd1f6CC86A435c981F4266B306c27",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24449355
+    },
+    {
+        "poolID": "0xacDbc93DA6B269530d721c1BAe7c54c796488Ffc",
+        "token0": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "token1": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24448701
+    },
+    {
+        "poolID": "0x35337a22b37626ddfEaf51FC1fBFF2D2B4bE5A20",
+        "token0": "0x358e82C85BAF9DaBF0C5726e7543555feeD3eA9D",
+        "token1": "0x358e82C85BAF9DaBF0C5726e7543555feeD3eA9D",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24467007
+    },
+    {
+        "poolID": "0xdD86c721b2d286925171c79907ED1CB4542144D1",
+        "token0": "0xd93f7E271cB87c23AaA73edC008A79646d1F9912",
+        "token1": "0xd93f7E271cB87c23AaA73edC008A79646d1F9912",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24474479
+    },
+    {
+        "poolID": "0xc0248a6B88376655504A7c9717A0648F7D7d226C",
+        "token0": "0xD1fF520b847445eEaD067108106f68e31BfFfD9A",
+        "token1": "0xD1fF520b847445eEaD067108106f68e31BfFfD9A",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24490006
+    },
+    {
+        "poolID": "0xb95af20Fb5407DbCD9C7082753FF1AeB2A841412",
+        "token0": "0xA9155Cd871501047dB745dd0bFF615FbE2d23B1f",
+        "token1": "0xA9155Cd871501047dB745dd0bFF615FbE2d23B1f",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24499714
+    },
+    {
+        "poolID": "0xfEa4e7Cf483Fba34E87E4245169389CA25390Cb9",
+        "token0": "0xc64144D81049BD475FA38a068b0512940928DDc2",
+        "token1": "0xc64144D81049BD475FA38a068b0512940928DDc2",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24503494
+    },
+    {
+        "poolID": "0x3421F905eF43CE3AB1c3BC2240e9F837c4A82070",
+        "token0": "0xB85517b87BF64942adf3A0B9E4c71E4Bc5Caa4e5",
+        "token1": "0xB85517b87BF64942adf3A0B9E4c71E4Bc5Caa4e5",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24512151
+    },
+    {
+        "poolID": "0x7F759C4Cdd208F600e290F4bC6B761c5b31CDF8C",
+        "token0": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "token1": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24519658
+    },
+    {
+        "poolID": "0x2D9Cb35BaE80B7985F5B0cdf1d66E099Bf55762d",
+        "token0": "0x1D0f246ABE4454678EeB1D2e4E763471940b73e3",
+        "token1": "0x1D0f246ABE4454678EeB1D2e4E763471940b73e3",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24519692
+    },
+    {
+        "poolID": "0xc8E51c98b0A773611A98766E185b0BC4cB2A5Df9",
+        "token0": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "token1": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24520283
+    },
+    {
+        "poolID": "0x91Bd108961850Ffc9292eC435bef593f744c76dB",
+        "token0": "0x3e014fdb8fb2E9FD29FCb05448804cBD840FEeA9",
+        "token1": "0x3e014fdb8fb2E9FD29FCb05448804cBD840FEeA9",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24526468
+    },
+    {
+        "poolID": "0x968434C17E7a372526cEC76d2C77aC3FD2f197ab",
+        "token0": "0xa353dEb6Fb81dF3844D8bd614D33d040fDBb8188",
+        "token1": "0xa353dEb6Fb81dF3844D8bd614D33d040fDBb8188",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24529003
+    },
+    {
+        "poolID": "0xf139DC5BF820d051a92Ed85B0D4e9497fbecbb14",
+        "token0": "0xE81563DA851826145760AE167e35E7Dfe1a4003E",
+        "token1": "0xE81563DA851826145760AE167e35E7Dfe1a4003E",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24533447
+    },
+    {
+        "poolID": "0x84AA7c85D25c3e1dDC80217af094152D1CeD0fd4",
+        "token0": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "token1": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24548243
+    },
+    {
+        "poolID": "0x0C5CB08C0079E926954F161A5eF52141DC0Bd691",
+        "token0": "0x7E4c577ca35913af564ee2a24d882a4946Ec492B",
+        "token1": "0x7E4c577ca35913af564ee2a24d882a4946Ec492B",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24551694
+    },
+    {
+        "poolID": "0xa6070102499F3a82E8E9e96f5fBE58863C5e7a04",
+        "token0": "0x340f412860dA7b7823df372a2b59Ff78b7ae6abc",
+        "token1": "0x340f412860dA7b7823df372a2b59Ff78b7ae6abc",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24554493
+    },
+    {
+        "poolID": "0xB86b7DbfB244B3Be51c0ead860af222852d07dDA",
+        "token0": "0xbD7A5Cf51d22930B8B3Df6d834F9BCEf90EE7c4f",
+        "token1": "0xbD7A5Cf51d22930B8B3Df6d834F9BCEf90EE7c4f",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24557223
+    },
+    {
+        "poolID": "0x22d13d247f78cb50CE7c2c9Cd6863C406e6B2d7a",
+        "token0": "0xA9B8e4BE7e4Fc1B1d28B396af7c4CBa37979bC0F",
+        "token1": "0xA9B8e4BE7e4Fc1B1d28B396af7c4CBa37979bC0F",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24557099
+    },
+    {
+        "poolID": "0x7df696252718a534b7Ec7854a13d6dCC1bebAc24",
+        "token0": "0xA9B8e4BE7e4Fc1B1d28B396af7c4CBa37979bC0F",
+        "token1": "0xA9B8e4BE7e4Fc1B1d28B396af7c4CBa37979bC0F",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24557283
+    },
+    {
+        "poolID": "0xE9DC4327708c52DB57b22D9Ef9364aCeab112104",
+        "token0": "0xA9B8e4BE7e4Fc1B1d28B396af7c4CBa37979bC0F",
+        "token1": "0xA9B8e4BE7e4Fc1B1d28B396af7c4CBa37979bC0F",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24557434
+    },
+    {
+        "poolID": "0xC52918788804e004957B02bfAAD5ce01e45121Cf",
+        "token0": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "token1": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24572403
+    },
+    {
+        "poolID": "0x2578b3e311f5FEDd14945576f795C0abe9fc335a",
+        "token0": "0x631879e83c034e763d9540CEa709116Ee26A92E2",
+        "token1": "0x631879e83c034e763d9540CEa709116Ee26A92E2",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24581626
+    },
+    {
+        "poolID": "0x1627f1ea455D999F1acAA87617C1e6E1ce723DaD",
+        "token0": "0xBD0b54F2170040806bAf9967f98D16D9DBB1811d",
+        "token1": "0xBD0b54F2170040806bAf9967f98D16D9DBB1811d",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24599622
+    },
+    {
+        "poolID": "0x12059391B53964b3DD2593F0278f48750e68DfC3",
+        "token0": "0x0D6ae2a429df13e44A07Cd2969E085e4833f64A0",
+        "token1": "0x0D6ae2a429df13e44A07Cd2969E085e4833f64A0",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24609221
+    },
+    {
+        "poolID": "0xba3FB49e1c3Ff7812068DfAaB510Ce6c0eA0E8aa",
+        "token0": "0xdC21129A4Ac36B750b4bd428946df85169AB1908",
+        "token1": "0xdC21129A4Ac36B750b4bd428946df85169AB1908",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24622812
+    },
+    {
+        "poolID": "0x9c32fc2e2F9b9aD0FF49EA0C79053a62babda0d2",
+        "token0": "0x4e1D8Ea83903B6FBD6A2FA3C9c8310C3489c526F",
+        "token1": "0x4e1D8Ea83903B6FBD6A2FA3C9c8310C3489c526F",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24625963
+    },
+    {
+        "poolID": "0x5cD1C9488F1CCC197Cf75eB340Db38D46ae523dB",
+        "token0": "0x50B728D8D964fd00C2d0AAD81718b71311feF68a",
+        "token1": "0x50B728D8D964fd00C2d0AAD81718b71311feF68a",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24628061
+    },
+    {
+        "poolID": "0xA94CF8048cAB69aF1465d017f9f5725629aa6589",
+        "token0": "0x7c28F627eA3aEc8B882b51eb1935f66e5b875714",
+        "token1": "0x7c28F627eA3aEc8B882b51eb1935f66e5b875714",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24628361
+    },
+    {
+        "poolID": "0xa0822a660b2f733239B4797f2DB8d825CE66f8E1",
+        "token0": "0xc6C855AD634dCDAd23e64DA71Ba85b8C51E5aD7c",
+        "token1": "0xc6C855AD634dCDAd23e64DA71Ba85b8C51E5aD7c",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24631054
+    },
+    {
+        "poolID": "0x9B3e2B08b2a2da8af315cEaa8834B8DF618d0Ce7",
+        "token0": "0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195",
+        "token1": "0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24631786
+    },
+    {
+        "poolID": "0xD8BFC36de57926Ce276C4B31ac47A436bdb8a909",
+        "token0": "0x6f370dba99E32A3cAD959b341120DB3C9E280bA6",
+        "token1": "0x6f370dba99E32A3cAD959b341120DB3C9E280bA6",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24632467
+    },
+    {
+        "poolID": "0x6eaBF5873AC42C502347874ED54351064bEF58a3",
+        "token0": "0xe240d10F24A03fec2cabDC1245d3b0dcD22a8884",
+        "token1": "0xe240d10F24A03fec2cabDC1245d3b0dcD22a8884",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24632653
+    },
+    {
+        "poolID": "0x4FB0f1AB44507b7D619E219C7692060c84acD5e1",
+        "token0": "0xAa7DbD1598251f856C12f63557A4C4397c253Cea",
+        "token1": "0xAa7DbD1598251f856C12f63557A4C4397c253Cea",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24633807
+    },
+    {
+        "poolID": "0x96fAcc9F45172663a72d14FC58fE4Dd445c816B1",
+        "token0": "0x6BB3EF1202f69e1905870C0Dbc6EA58323b28A30",
+        "token1": "0x6BB3EF1202f69e1905870C0Dbc6EA58323b28A30",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24634171
+    },
+    {
+        "poolID": "0x296dB304b9B5C4b3A42c864e2FE0BF9AF1909A55",
+        "token0": "0x50e3537E82d26576fA68605DAE6aBddc1AB1304B",
+        "token1": "0x50e3537E82d26576fA68605DAE6aBddc1AB1304B",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24634050
+    },
+    {
+        "poolID": "0x727E8Ae9BF1DfEfc89f9A0Ac31b389e59E00dc71",
+        "token0": "0x6f370dba99E32A3cAD959b341120DB3C9E280bA6",
+        "token1": "0x6f370dba99E32A3cAD959b341120DB3C9E280bA6",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24634718
+    },
+    {
+        "poolID": "0x8F178bB0b35d2C9A0F176d5df3CC0cb37D3A2640",
+        "token0": "0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195",
+        "token1": "0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24635137
+    },
+    {
+        "poolID": "0xfb1c3b4B237d4fa64a2f5c1C75E9Dc7d495d518D",
+        "token0": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "token1": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24637381
+    },
+    {
+        "poolID": "0xa0955300c748BDca796DA85f6c437cb31e2b2121",
+        "token0": "0x361A5a4993493cE00f61C32d4EcCA5512b82CE90",
+        "token1": "0x361A5a4993493cE00f61C32d4EcCA5512b82CE90",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24637847
+    },
+    {
+        "poolID": "0x495b3576e2f67fa870e14d0996433FbdB4015794",
+        "token0": "0x8505b9d2254A7Ae468c0E9dd10Ccea3A837aef5c",
+        "token1": "0x8505b9d2254A7Ae468c0E9dd10Ccea3A837aef5c",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24639091
+    },
+    {
+        "poolID": "0x2260E0081A2A042DC55A07D379eb3c18bE28A1F2",
+        "token0": "0x8505b9d2254A7Ae468c0E9dd10Ccea3A837aef5c",
+        "token1": "0x8505b9d2254A7Ae468c0E9dd10Ccea3A837aef5c",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24639067
+    },
+    {
+        "poolID": "0xB0e10B81f0e420eF7E3938ae224Cf2D29E3EE80f",
+        "token0": "0x867A670dAB59596efe84e2839d54bB6AbcAB585d",
+        "token1": "0x867A670dAB59596efe84e2839d54bB6AbcAB585d",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24650672
+    },
+    {
+        "poolID": "0xf9aEF7Ac47748Cd0B2096A70f8472d70f8b35e6F",
+        "token0": "0xC3Ec80343D2bae2F8E680FDADDe7C17E71E114ea",
+        "token1": "0xC3Ec80343D2bae2F8E680FDADDe7C17E71E114ea",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24652059
+    },
+    {
+        "poolID": "0x84aFc806FC68BBCD9D5d34c4CF9465a5b14901AB",
+        "token0": "0x5a3077Aa78178FFcCf8D2A1Bd12f86946F20DDbe",
+        "token1": "0x5a3077Aa78178FFcCf8D2A1Bd12f86946F20DDbe",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24653122
+    },
+    {
+        "poolID": "0xFe481a95FE2a552672e72AADA0025aB1f20D737f",
+        "token0": "0x90F3edc7D5298918F7BB51694134b07356F7d0C7",
+        "token1": "0x90F3edc7D5298918F7BB51694134b07356F7d0C7",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24653493
+    },
+    {
+        "poolID": "0xB5Bf6B58a64C070c9A95C43644a90B07AD03e0a7",
+        "token0": "0xb33EaAd8d922B1083446DC23f610c2567fB5180f",
+        "token1": "0xb33EaAd8d922B1083446DC23f610c2567fB5180f",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24655722
+    },
+    {
+        "poolID": "0x7EAf03A6e604bf41d725D04B60F0D1314f31dD91",
+        "token0": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "token1": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24668158
+    },
+    {
+        "poolID": "0x8E019016E932a356B964E57A16f8b42f9B664B93",
+        "token0": "0xE0d4A49c386f5c0184f72ac0752aaD4Bd62C579a",
+        "token1": "0xE0d4A49c386f5c0184f72ac0752aaD4Bd62C579a",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24671205
+    },
+    {
+        "poolID": "0xC589AdAb2498E768b3DFf16C3043C3EA5c5ff971",
+        "token0": "0x88C949b4eB85a90071f2C0beF861BDDEe1a7479D",
+        "token1": "0x88C949b4eB85a90071f2C0beF861BDDEe1a7479D",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24672451
+    },
+    {
+        "poolID": "0x4717722aFb8bcF01Fb3c5Ab21569705F90E797B5",
+        "token0": "0xA1c57f48F0Deb89f569dFbE6E2B7f46D33606fD4",
+        "token1": "0xA1c57f48F0Deb89f569dFbE6E2B7f46D33606fD4",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24685919
+    },
+    {
+        "poolID": "0x21e74ce7970aFb3dFd9DBfc57E67Bc833f084f9A",
+        "token0": "0x340f412860dA7b7823df372a2b59Ff78b7ae6abc",
+        "token1": "0x340f412860dA7b7823df372a2b59Ff78b7ae6abc",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24697886
+    },
+    {
+        "poolID": "0xAC647441ad14c5801D96445466F2FeABE7De7dB9",
+        "token0": "0x4f025829C4B13dF652f38Abd2AB901185fF1e609",
+        "token1": "0x4f025829C4B13dF652f38Abd2AB901185fF1e609",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24697994
+    },
+    {
+        "poolID": "0xbA589Ba3aF52975a12Acc6dE69C9AB3AC1AE7804",
+        "token0": "0x14Af1F2f02DCcB1e43402339099A05a5E363b83c",
+        "token1": "0x14Af1F2f02DCcB1e43402339099A05a5E363b83c",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24705210
+    },
+    {
+        "poolID": "0xdAE893EdC7EB244AE35553a6b85f96aD38c33f2B",
+        "token0": "0xcF0AA6361145f41099a5A9790220944BBcC5E770",
+        "token1": "0xcF0AA6361145f41099a5A9790220944BBcC5E770",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24736829
+    },
+    {
+        "poolID": "0x3B2bF802c196Aca24DC7b68106812647ce3c9D7A",
+        "token0": "0xE9823fD037B4abfb1837A66536189B30301AEC06",
+        "token1": "0xE9823fD037B4abfb1837A66536189B30301AEC06",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24740312
+    },
+    {
+        "poolID": "0x998eEDa50ABB09C662D51396C2b41d963a6bafaC",
+        "token0": "0xE9823fD037B4abfb1837A66536189B30301AEC06",
+        "token1": "0xE9823fD037B4abfb1837A66536189B30301AEC06",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24740304
+    },
+    {
+        "poolID": "0x9E013e4f48adD0ab5eb708f6535A80e2f0E69006",
+        "token0": "0xD5d86FC8d5C0Ea1aC1Ac5Dfab6E529c9967a45E9",
+        "token1": "0xD5d86FC8d5C0Ea1aC1Ac5Dfab6E529c9967a45E9",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24749506
+    },
+    {
+        "poolID": "0x68621F6dAe86a85B1dF11d3AbF826A395b693209",
+        "token0": "0x7Fd7a14ea8D7b24556C150fA971dc17eF0845188",
+        "token1": "0x7Fd7a14ea8D7b24556C150fA971dc17eF0845188",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24755707
+    },
+    {
+        "poolID": "0x10c1cAB00CBDC3a1178030E0925B07f00816E2D7",
+        "token0": "0xE0339c80fFDE91F3e20494Df88d4206D86024cdF",
+        "token1": "0xE0339c80fFDE91F3e20494Df88d4206D86024cdF",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24756509
+    },
+    {
+        "poolID": "0x055EC32de33C948c07d9CdA4109A3CB20908cb9a",
+        "token0": "0xEac48fc254dCb52C80d9D77013cc6AB961E7179D",
+        "token1": "0xEac48fc254dCb52C80d9D77013cc6AB961E7179D",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24759244
+    },
+    {
+        "poolID": "0xA14D086B007a8065313fF035CE987C6EEa9B44B3",
+        "token0": "0xdb29E298B80e929185671f093FD66682Ecc9f20b",
+        "token1": "0xdb29E298B80e929185671f093FD66682Ecc9f20b",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24759580
+    },
+    {
+        "poolID": "0x733677F9cB3D8ea56882504767e0027a21f7334d",
+        "token0": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "token1": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24762499
+    },
+    {
+        "poolID": "0x56fbA3A846ADe89FF4eC33aA6939Ad8ab847D906",
+        "token0": "0x99c73Cf56CBbF02DDf035f43bE6E90e29927c9B9",
+        "token1": "0x99c73Cf56CBbF02DDf035f43bE6E90e29927c9B9",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24771921
+    },
+    {
+        "poolID": "0xDFE26C013E063f27B4134dd7f29e2Eb8B9188a21",
+        "token0": "0x723a42dff0bdCE09B7DCf86F4D47D8Be491E6345",
+        "token1": "0x723a42dff0bdCE09B7DCf86F4D47D8Be491E6345",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24772719
+    },
+    {
+        "poolID": "0x497fFE2f314957C85c87A06ab97208571323ce9e",
+        "token0": "0x34cA4b5E96Ff0B43c5aDfb2b204F409676a5F186",
+        "token1": "0x34cA4b5E96Ff0B43c5aDfb2b204F409676a5F186",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24777831
+    },
+    {
+        "poolID": "0x1E5Bd2Ab4C308396c06C182e1b7E7ba8b2935B83",
+        "token0": "0x61299774020dA444Af134c82fa83E3810b309991",
+        "token1": "0x61299774020dA444Af134c82fa83E3810b309991",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24779271
+    },
+    {
+        "poolID": "0xD9B24efCB43bECee0A1A08c4BAAc1CA0B6c1C730",
+        "token0": "0xCeE9D87C7F31eDE5c2fc6AEaDaC91FFed7B22BB3",
+        "token1": "0xCeE9D87C7F31eDE5c2fc6AEaDaC91FFed7B22BB3",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24787128
+    },
+    {
+        "poolID": "0xe75650B6dB4c2FE586290825859C9E2dD6F3cd9D",
+        "token0": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "token1": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "fee": 500,
+        "tickSpacing": 10,
+        "block": 24806771
+    },
+    {
+        "poolID": "0x14CFD49c72F5E5531dA5275a93621137604430f0",
+        "token0": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "token1": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24819973
+    },
+    {
+        "poolID": "0x50cFD28563a2087812b0CB88364c363CE9000C45",
+        "token0": "0xB33Dd79cDa2198E2F867d214173e89C2CA022158",
+        "token1": "0xB33Dd79cDa2198E2F867d214173e89C2CA022158",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24825384
+    },
+    {
+        "poolID": "0x6ECC0A1EBF7d70af47d393c8D8C41724c94F91C9",
+        "token0": "0x88A4E6Db6809a82431176C40C7670d70f3047A80",
+        "token1": "0x88A4E6Db6809a82431176C40C7670d70f3047A80",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24825396
+    },
+    {
+        "poolID": "0x4115e76061e3c47aef32a8768723A554625E6c99",
+        "token0": "0x96E7694d7400421D7C831C8Fa89e1a6221cF4417",
+        "token1": "0x96E7694d7400421D7C831C8Fa89e1a6221cF4417",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24835031
+    },
+    {
+        "poolID": "0x2F27ebd19798Bf3A7b150494baED4b741ef4D67C",
+        "token0": "0xDB726b9CaA4bCEB0a8fED615B915D1Eb0Aed990A",
+        "token1": "0xDB726b9CaA4bCEB0a8fED615B915D1Eb0Aed990A",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24841618
+    },
+    {
+        "poolID": "0x422c0dF3009884BA8c56f4083a298Ed70e59BE1C",
+        "token0": "0x7DfF46370e9eA5f0Bad3C4E29711aD50062EA7A4",
+        "token1": "0x7DfF46370e9eA5f0Bad3C4E29711aD50062EA7A4",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24848783
+    },
+    {
+        "poolID": "0x42DB00acE9490C73831E9F802525EB3FD23eB875",
+        "token0": "0xE5417Af564e4bFDA1c483642db72007871397896",
+        "token1": "0xE5417Af564e4bFDA1c483642db72007871397896",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24880183
+    },
+    {
+        "poolID": "0xCB990041d28A2781D6e6BAcf2903dbFd15B50092",
+        "token0": "0x5c4b7CCBF908E64F32e12c6650ec0C96d717f03F",
+        "token1": "0x5c4b7CCBF908E64F32e12c6650ec0C96d717f03F",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24899120
+    },
+    {
+        "poolID": "0x04d813B9BccDEe53faef9886797CB95DB6ec9D2E",
+        "token0": "0x2fb36d7dD2B8EfbaeB434C18437EE5232A1c57a8",
+        "token1": "0x2fb36d7dD2B8EfbaeB434C18437EE5232A1c57a8",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24907690
+    },
+    {
+        "poolID": "0x8f685bfBF8278e5C630DA812d54945543faB95ae",
+        "token0": "0xf8F9efC0db77d8881500bb06FF5D6ABc3070E695",
+        "token1": "0xf8F9efC0db77d8881500bb06FF5D6ABc3070E695",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24912939
+    },
+    {
+        "poolID": "0x2C544cAE7B8c4bD4EaE77d2Efce6Cb5D5495D9f5",
+        "token0": "0x85955046DF4668e1DD369D2DE9f3AEB98DD2A369",
+        "token1": "0x85955046DF4668e1DD369D2DE9f3AEB98DD2A369",
+        "fee": 10000,
+        "tickSpacing": 200,
+        "block": 24917521
+    },
+    {
+        "poolID": "0x2AB19DCa6Ef4267fAC0Bf37dCff9EDcACcaB0539",
+        "token0": "0x9675A948B72c082657f64916e3EAd1c16Bb226bB",
+        "token1": "0x9675A948B72c082657f64916e3EAd1c16Bb226bB",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24919254
+    },
+    {
+        "poolID": "0x17A7D37E75B4614fd0DEB49271F09402C91bEE8b",
+        "token0": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "token1": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24930373
+    },
+    {
+        "poolID": "0xFb803e03b76905BfEF316482a5953354E47ad473",
+        "token0": "0xA08bECB12615C34cFeF0E501947Ad2CA8D50e578",
+        "token1": "0xA08bECB12615C34cFeF0E501947Ad2CA8D50e578",
+        "fee": 3000,
+        "tickSpacing": 60,
+        "block": 24932683
+    }
+]
