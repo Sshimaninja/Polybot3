@@ -25,11 +25,21 @@ task("accounts", "Prints the list of accounts", async (taskArgs: any, hre: { eth
   }
 });
 
+
 module.exports = {
   solidity: {
     compilers: [
       {
         version: "0.6.9",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200
+          },
+        },
+      },
+      {
+        version: "0.7.5",
         settings: {
           optimizer: {
             enabled: true,
@@ -45,19 +55,30 @@ module.exports = {
             runs: 200
           },
         },
-        // Override the Uniswap V2 contracts to use Solidity 0.6.9
-        overrides: {
-          "contracts/v3/*.sol": {
-            version: "0.7.6",
-            settings: {
-              optimizer: {
-                enabled: true,
-                runs: 200
-              },
-            },
+      },
+      {
+        version: "0.8.19",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200
           },
         },
       },
+
+      // // Override the Uniswap V2 contracts to use Solidity 0.6.9
+      // overrides: {
+      //   "contracts/v3/*.sol": {
+      //     version: "0.8.0",
+      //     settings: {
+      //       optimizer: {
+      //         enabled: true,
+      //         runs: 200
+      //       },
+      //     },
+      //   },
+      // },
+      // },
     ],
   },
 

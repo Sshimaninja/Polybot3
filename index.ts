@@ -1,11 +1,11 @@
-import { control } from './scripts/swap';
+import { control } from './scripts/v2/swap';
 import { provider } from './constants/contract'
-import { getGasData } from './scripts/modules/getPolygonGasPrices';
+import { getGasData } from './scripts/v2/modules/getPolygonGasPrices';
 import fs from 'fs'
 import path from 'path';
 import { FactoryPair } from './constants/interfaces';
 import { logger } from './constants/contract';
-import { telegramInfo } from './scripts/modules/notify';
+import { telegramInfo } from './scripts//v2/modules/notify';
 
 
 
