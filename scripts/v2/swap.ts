@@ -28,41 +28,41 @@ const slippageTolerance = BN(0.0006) // 0.065%
 var pendingID: string | undefined
 
 export async function control(data: FactoryPair[], gasData: any) {
-    const promises: any[] = [];
+	const promises: any[] = [];
 
-    for (const pair of data) {
-        console.log("ExchangeA: " + pair.exchangeA + " ExchangeB: " + pair.exchangeB + " matches: " + pair.matches.length, " gasData: " + gasData.fast.maxFee + " " + gasData.fast.maxPriorityFee);
+	for (const pair of data) {
+		console.log("ExchangeA: " + pair.exchangeA + " ExchangeB: " + pair.exchangeB + " matches: " + pair.matches.length, " gasData: " + gasData.fast.maxFee + " " + gasData.fast.maxPriorityFee);
 
-        for (const match of pair.matches) {
-            if (!tradePending && match.poolA_id !== pendingID && match.poolB_id !== pendingID) {
+		for (const match of pair.matches) {
+			if (!tradePending && match.poolA_id !== pendingID && match.poolB_id !== pendingID) {
 
-                const r = new Reserves(match);
-                const reserves = await r.getReserves(match);
+				const r = new Reserves(match);
+				const reserves = await r.getReserves(match);
 
-                const p0 = new Prices(match.token0, match.token1, match.poolA_id, reserves[0]);
-                const p1 = new Prices(match.token0, match.token1, match.poolB_id, reserves[1]);
+				const p0 = new Prices(match.token0, match.token1, match.poolA_id, reserves[0]);
+				const p1 = new Prices(match.token0, match.token1, match.poolB_id, reserves[1]);
 
-                const c0 = new AmountCalculator(p0, match, slippageTolerance);
-                const c1 = new AmountCalculator(p1, match, slippageTolerance);
+				const c0 = new AmountCalculator(p0, match, slippageTolerance);
+				const c1 = new AmountCalculator(p1, match, slippageTolerance);
 
-                const amounts0 = await c0.getAmounts(p0.reserves.reserveInBN, p0.reserves.reserveOutBN, p1.priceOutBN, slippageTolerance);
-                const amounts1 = await c1.getAmounts(p1.reserves.reserveInBN, p1.reserves.reserveOutBN, p0.priceOutBN, slippageTolerance);
+				const amounts0 = await c0.getAmounts(p0.reserves.reserveInBN, p0.reserves.reserveOutBN, p1.priceOutBN, slippageTolerance);
+				const amounts1 = await c1.getAmounts(p1.reserves.reserveInBN, p1.reserves.reserveOutBN, p0.priceOutBN, slippageTolerance);
 
-                const amounts = await Promise.all([amounts0, amounts1]);
+				const amounts = await Promise.all([amounts0, amounts1]);
 
-                const t = new Trade(pair, match, p0, p1, amounts[0], amounts[1], gasData);
-                const trade = await t.getTrade();
+				const t = new Trade(pair, match, p0, p1, amounts[0], amounts[1], gasData);
+				const trade = await t.getTrade();
 
-                const dataPromise = tradeLogs(trade);
-                const rollPromise = rollDamage(trade, await dataPromise, warning, tradePending, pendingID);
+				const dataPromise = tradeLogs(trade);
+				const rollPromise = rollDamage(trade, await dataPromise, warning, tradePending, pendingID);
 
-                promises.push(dataPromise, rollPromise);
-            }
-        }
-    }
+				promises.push(dataPromise, rollPromise);
+			}
+		}
+	}
 
-    await Promise.all(promises).catch((error: any) => {
-        console.log("Error in control.ts: " + error.message);
-        return;
-    });
+	await Promise.all(promises).catch((error: any) => {
+		console.log("Error in control.ts: " + error.message);
+		return;
+	});
 }
