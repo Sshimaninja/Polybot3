@@ -5,6 +5,7 @@ import { checkBal, checkGasBal } from "./modules/checkBal";
 import { logEmits } from "./modules/emits";
 import { send } from "./modules/send";
 import { notify } from "./modules/notify";
+import { fetchGasPrice } from "./modules/fetchGasPrice";
 
 
 /**
@@ -21,79 +22,81 @@ import { notify } from "./modules/notify";
  * If the transaction is undefined, the function will return.
  */
 export async function sendit(
-    trade: BoolTrade,
-    profit: Profit,
+	trade: BoolTrade,
+	profit: Profit,
 ): Promise<TxData> {
 
-    const tel = await notify(trade, profit);
-    console.log(tel)
-    console.log('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.ticker + ':::::::::::::::::::::::::: ')
-    var gasbalance = await checkGasBal();
 
-    let result: TxData = {
-        txResponse: undefined,
-        tradePending: false,
-    }
+	console.log('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.ticker + ':::::::::::::::::::::::::: ')
+	var gasbalance = await checkGasBal();
 
-    if (trade) {
+	let result: TxData = {
+		txResponse: undefined,
+		tradePending: false,
+	}
 
-        console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, 18) + " " + "MATIC")
-        console.log("Gas Cost::::::::::::: " + ethers.utils.formatUnits(profit.gasCost, 18) + " " + "MATIC")
+	if (trade) {
 
-        const gotGas = profit.gasCost.lt(gasbalance)
+		console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, 18) + " " + "MATIC")
+		console.log("Gas Cost::::::::::::: " + ethers.utils.formatUnits(profit.gasCost, 18) + " " + "MATIC")
 
-        gotGas == true ? console.log("Sufficient Matic Balance. Proceeding...") : console.log(">>>>Insufficient Matic Balance<<<<")
+		const gotGas = profit.gasCost.lt(gasbalance)
 
-        if (gotGas == false) {
-            console.log(":::::::::::::::::::::::END TRANSACTION: " + trade.ticker + ': GAS GREATER THAN PROFIT::::::::::::::::::::::::: ')
-            return result;
-        }
+		gotGas == true ? console.log("Sufficient Matic Balance. Proceeding...") : console.log(">>>>Insufficient Matic Balance<<<<")
 
-        if (gotGas == true) {
+		if (gotGas == false) {
+			console.log(":::::::::::::::::::::::END TRANSACTION: " + trade.ticker + ': GAS GREATER THAN PROFIT::::::::::::::::::::::::: ')
+			return result;
+		}
 
-            let gasObj: TxGas = {
-                type: 2,
-                // gasPrice: gasLimit,
-                maxFeePerGas: trade.gasData.maxFee,
-                maxPriorityFeePerGas: trade.gasData.maxPriorityFee,
-                gasLimit: profit.gasEstimate,
-                // nonce: nonce,
-            }
-            //Notify of possible trade (after testing move to post-profitable trade)
-            // await notify(trade, profit);
+		if (gotGas == true) {
 
-            console.log(":::::::::::Sending Transaction::::::::::: ")
+			let gasEstimate = await fetchGasPrice(trade);
+			let gasObj: TxGas = {
+				type: 2,
+				// gasPrice: gasLimit,
+				maxFeePerGas: trade.gasData.fast.maxFee * 2,
+				maxPriorityFeePerGas: trade.gasData.fast.maxPriorityFee * 2,
+				gasLimit: gasEstimate.gasEstimate,
+				// nonce: nonce,
+			}
+			//Notify of possible trade (after testing move to post-profitable trade)
+			// await notify(trade, profit);
 
-            result.tradePending = true;
+			console.log(":::::::::::Sending Transaction::::::::::: ")
 
-            const req = await send(trade, gasObj);
+			result.tradePending = true;
 
-            const logs = await logEmits(trade, req);
+			const tel = await notify(trade, profit);
 
-            logger.info("Transaction logs: \n" + logs)
+			const req = await send(trade, gasObj);
 
-            //Print balances after trade
-            await checkBal(trade.tokenIn.id, trade.tokenIn.decimals, trade.tokenOut.id, trade.tokenOut.decimals)
+			const logs = await logEmits(trade, req);
 
-            result = {
-                txResponse: req.txResponse,
-                tradePending: false,
-            }
+			logger.info("Transaction logs: \n" + logs)
 
-            console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
+			//Print balances after trade
+			await checkBal(trade.tokenIn.id, trade.tokenIn.decimals, trade.tokenOut.id, trade.tokenOut.decimals)
 
-            return result;
+			result = {
+				txResponse: req.txResponse,
+				tradePending: false,
+			}
 
-        } else {
+			console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
 
-            console.log("::::::::::::::::::::::::::::::::::::::::TRADE UNDEFINED::::::::::::::::::::::::::::::::::::::: ")
+			return result;
 
-            console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
+		} else {
 
-            return result;
-        }
-    } else {
-        console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
-        return result;
-    }
+			console.log("::::::::::::::::::::::::::::::::::::::::TRADE UNDEFINED::::::::::::::::::::::::::::::::::::::: ")
+
+			console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
+
+			return result;
+		}
+	} else {
+		console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
+		return result;
+	}
 }

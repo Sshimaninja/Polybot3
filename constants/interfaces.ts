@@ -1,5 +1,6 @@
 import { BigNumber, Contract } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
+import { Token as V3Token } from "@uniswap/sdk-core";
 export interface K {
 	uniswapKPre: BigNumber,
 	uniswapKPost: BigNumber
@@ -105,6 +106,25 @@ export interface Amounts {
 	amountOutJS: BigNumber;
 }
 
+
+export interface DeployedPools {
+	poolID: string;
+	token0: string;
+	token1: string;
+	tickSpacing: number;
+	fee: number;
+	block: number;
+}
+
+export interface Valid3Pool {
+	poolID: string;
+	token0: string;
+	token1: string;
+	tickSpacing: number;
+	fee: number;
+	block: number;
+}
+
 export interface ReservesData {
 	reserveIn: BigNumber;
 	reserveOut: BigNumber;
@@ -164,7 +184,7 @@ export interface BoolTrade {
 		amountOut: BigNumber
 	}
 	k: K
-	gasData: any
+	gasData: GasData
 	amountRepay: BigNumber
 	profit: BigNumber,
 }
@@ -240,7 +260,8 @@ export interface GasData {
 	safeLow: {
 		maxPriorityFee: number,
 		maxFee: number
-	}, standard: {
+	},
+	standard: {
 		maxPriorityFee: number,
 		maxFee: number
 	},
@@ -251,6 +272,13 @@ export interface GasData {
 	estimatedBaseFee: number,
 	blockTime: number,
 	blockNumber: Promise<number>,
+}
+
+export interface GAS {
+	gasEstimate: BigNumber,
+	gasPrice: BigNumber,
+	maxFee: number,
+	maxPriorityFee: number
 }
 
 
