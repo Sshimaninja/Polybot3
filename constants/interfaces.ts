@@ -109,6 +109,34 @@ export interface Valid3Pool {
 	block: number;
 }
 
+export interface Match3Pools {
+	ticker: string;
+	poolID0: {
+		factory: Contract,
+		id: string,
+		tickSpacing: number
+		fee: number
+	}
+	poolID1: {
+		factory: Contract,
+		id: string,
+		tickSpacing: number
+		fee: number
+	}
+	token0: {
+		contract: Contract,
+		id: string,
+		symbol: string,
+		decimals: number
+	}
+	token1: {
+		contract: Contract,
+		id: string,
+		symbol: string,
+		decimals: number
+	}
+}
+
 export interface ReservesData {
 	reserveIn: BigNumber;
 	reserveOut: BigNumber;
@@ -123,7 +151,7 @@ export interface FactoryPool {
 	routerID: string;
 	pairs: Pair[];
 };
-export interface PoolV3 {
+export interface PoolsV3 {
 	ticker: string;
 	poolA_id: string;
 	poolB_id: string;

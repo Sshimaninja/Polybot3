@@ -1,181 +1,123 @@
-// import {
-// 	Currency,
-// 	CurrencyAmount,
-// 	Percent,
-// 	Token,
-// 	TradeType,
-// } from '@uniswap/sdk-core'
-// import {
-// 	Pool,
-// 	Route,
-// 	SwapOptions,
-// 	SwapQuoter,
-// 	SwapRouter,
-// 	Trade,
-// } from '@uniswap/v3-sdk'
-// import { ethers } from 'ethers'
-// import JSBI from 'jsbi'
+import { Currency, CurrencyAmount, Percent, Token, TradeType, } from '@uniswap/sdk-core'
+import { Pool, Route, SwapOptions, SwapQuoter, SwapRouter, Trade, } from '@uniswap/v3-sdk'
+import { ethers } from 'ethers'
+import JSBI from 'jsbi'
+import { getOutputQuote, getTokenTransferApproval } from './swapHelpers'
 
-// import { CurrentConfig } from '../config'
-// import {
-// 	ERC20_ABI,
-// 	QUOTER_CONTRACT_ADDRESS,
-// 	SWAP_ROUTER_ADDRESS,
-// 	TOKEN_AMOUNT_TO_APPROVE_FOR_TRANSFER,
-// } from './constants'
-// import { MAX_FEE_PER_GAS, MAX_PRIORITY_FEE_PER_GAS } from './constants'
-// import { getPoolInfo } from './pool'
-// import {
-// 	getProvider,
-// 	getWalletAddress,
-// 	sendTransaction,
-// 	TransactionState,
-// } from './providers'
-// import { fromReadableAmount } from './utils'
+import { matches } from '../config'
+import { ERC20_ABI, QUOTER_CONTRACT_ADDRESS, SWAP_ROUTER_ADDRESS, TOKEN_AMOUNT_TO_APPROVE_FOR_TRANSFER, } from './constants'
+import { MAX_FEE_PER_GAS, MAX_PRIORITY_FEE_PER_GAS } from './constants'
+import { getPoolInfo } from './pool'
+import { getProvider, getWalletAddress, sendTransaction, TransactionState, } from './providers'
+import { fromReadableAmount } from './utils'
 
-// export type TokenTrade = Trade<Token, Token, TradeType>
+export type TokenTrade = Trade<Token, Token, TradeType>
 
-// // Trading Functions
+/**
+ * 
+ * Sample trade from Uni V3 docs sdk which we will adapt to flash arbitrage
+ */
 
-// export async function createTrade(): Promise<TokenTrade> {
-// 	const poolInfo = await getPoolInfo()
+// Trading Functions
 
-// 	const pool = new Pool(
-// 		CurrentConfig.tokens.in,
-// 		CurrentConfig.tokens.out,
-// 		CurrentConfig.tokens.poolFee,
-// 		poolInfo.sqrtPriceX96.toString(),
-// 		poolInfo.liquidity.toString(),
-// 		poolInfo.tick
-// 	)
+export async function createArbFlash(): Promise<TokenTrade> {
+	const poolData = await getPoolInfo()
 
-// 	const swapRoute = new Route(
-// 		[pool],
-// 		CurrentConfig.tokens.in,
-// 		CurrentConfig.tokens.out
-// 	)
+	//create pool instances:
 
-// 	const amountOut = await getOutputQuote(swapRoute)
+	//matches will be replaced by the data from the matchPools function
 
-// 	const uncheckedTrade = Trade.createUncheckedTrade({
-// 		route: swapRoute,
-// 		inputAmount: CurrencyAmount.fromRawAmount(
-// 			CurrentConfig.tokens.in,
-// 			fromReadableAmount(
-// 				CurrentConfig.tokens.amountIn,
-// 				CurrentConfig.tokens.in.decimals
-// 			).toString()
-// 		),
-// 		outputAmount: CurrencyAmount.fromRawAmount(
-// 			CurrentConfig.tokens.out,
-// 			JSBI.BigInt(amountOut)
-// 		),
-// 		tradeType: TradeType.EXACT_INPUT,
-// 	})
+	const poolA = new Pool(
+		matches.tokens.in,
+		matches.tokens.out,
+		matches.tokens.poolFee,
+		poolData.sqrtPriceX96.toString(),
+		poolData.liquidity.toString(),
+		poolData.tick
+	)
 
-// 	return uncheckedTrade
-// }
+	const poolB = new Pool(
+		matches.tokens.in,
+		matches.tokens.out,
+		matches.tokens.poolFee,
+		poolData.sqrtPriceX96.toString(),
+		poolData.liquidity.toString(),
+		poolData.tick
+	)
 
-// export async function executeTrade(
-// 	trade: TokenTrade
-// ): Promise<TransactionState> {
-// 	const walletAddress = getWalletAddress()
-// 	const provider = getProvider()
+	const swapRouteA = new Route(
+		[poolA, poolB],
+		matches.tokens.in,
+		matches.tokens.out
+	)
 
-// 	if (!walletAddress || !provider) {
-// 		throw new Error('Cannot execute a trade without a connected wallet')
-// 	}
+	const swapRouteB = new Route(
+		[poolB, poolA],
+		matches.tokens.in,
+		matches.tokens.out
+	)
 
-// 	// Give approval to the router to spend the token
-// 	const tokenApproval = await getTokenTransferApproval(CurrentConfig.tokens.in)
+	const amountOutA = await getOutputQuote(swapRouteA)
+	const amountOutB = await getOutputQuote(swapRouteB)
+	const amountOut = amountOutA[0] > amountOutB[0] ? amountOutA[0] : amountOutB[0]
 
-// 	// Fail if transfer approvals do not go through
-// 	if (tokenApproval !== TransactionState.Sent) {
-// 		return TransactionState.Failed
-// 	}
+	const uncheckedTrade = Trade.createUncheckedTrade({
+		route: swapRouteA,
+		inputAmount: CurrencyAmount.fromRawAmount(
+			matches.tokens.in,
+			fromReadableAmount(
+				matches.tokens.amountIn,
+				matches.tokens.in.decimals
+			).toString()
+		),
+		outputAmount: CurrencyAmount.fromRawAmount(
+			matches.tokens.out,
+			JSBI.BigInt(amountOut)
+		),
+		tradeType: TradeType.EXACT_INPUT,
+	})
 
-// 	const options: SwapOptions = {
-// 		slippageTolerance: new Percent(500, 10000), // 50 bips, or 0.50%
-// 		deadline: Math.floor(Date.now() / 1000) + 60 * 20, // 20 minutes from the current Unix time
-// 		recipient: walletAddress,
-// 	}
+	return uncheckedTrade
+}
 
-// 	const methodParameters = SwapRouter.swapCallParameters([trade], options)
+// This needs converted to flash trade.
 
-// 	const tx = {
-// 		data: methodParameters.calldata,
-// 		to: SWAP_ROUTER_ADDRESS,
-// 		value: methodParameters.value,
-// 		from: walletAddress,
-// 		maxFeePerGas: MAX_FEE_PER_GAS,
-// 		maxPriorityFeePerGas: MAX_PRIORITY_FEE_PER_GAS,
-// 	}
+export async function executeFlash(
+	trade: TokenTrade
+): Promise<TransactionState> {
+	const walletAddress = getWalletAddress()
+	const provider = getProvider()
 
-// 	const res = await sendTransaction(tx)
+	if (!walletAddress || !provider) {
+		throw new Error('Cannot execute a trade without a connected wallet')
+	}
 
-// 	return res
-// }
+	// Give approval to the router to spend the token
+	const tokenApproval = await getTokenTransferApproval(matches.tokens.in)
 
-// // Helper Quoting and Pool Functions
+	// Fail if transfer approvals do not go through
+	if (tokenApproval !== TransactionState.Sent) {
+		return TransactionState.Failed
+	}
 
-// async function getOutputQuote(route: Route<Currency, Currency>) {
-// 	const provider = getProvider()
+	const options: SwapOptions = {
+		slippageTolerance: new Percent(500, 10000), // 50 bips, or 0.50%
+		deadline: Math.floor(Date.now() / 1000) + 60 * 20, // 20 minutes from the current Unix time
+		recipient: walletAddress,
+	}
 
-// 	if (!provider) {
-// 		throw new Error('Provider required to get pool state')
-// 	}
+	const methodParameters = SwapRouter.swapCallParameters([trade], options)
 
-// 	const { calldata } = await SwapQuoter.quoteCallParameters(
-// 		route,
-// 		CurrencyAmount.fromRawAmount(
-// 			CurrentConfig.tokens.in,
-// 			fromReadableAmount(
-// 				CurrentConfig.tokens.amountIn,
-// 				CurrentConfig.tokens.in.decimals
-// 			)
-// 		),
-// 		TradeType.EXACT_INPUT,
-// 		{
-// 			useQuoterV2: true,
-// 		}
-// 	)
+	const tx = {
+		data: methodParameters.calldata,
+		to: SWAP_ROUTER_ADDRESS,
+		value: methodParameters.value,
+		from: walletAddress,
+		maxFeePerGas: MAX_FEE_PER_GAS,
+		maxPriorityFeePerGas: MAX_PRIORITY_FEE_PER_GAS,
+	}
 
-// 	const quoteCallReturnData = await provider.call({
-// 		to: QUOTER_CONTRACT_ADDRESS,
-// 		data: calldata,
-// 	})
+	const res = await sendTransaction(tx)
 
-// 	return ethers.utils.defaultAbiCoder.decode(['uint256'], quoteCallReturnData)
-// }
-
-// export async function getTokenTransferApproval(
-// 	token: Token
-// ): Promise<TransactionState> {
-// 	const provider = getProvider()
-// 	const address = getWalletAddress()
-// 	if (!provider || !address) {
-// 		console.log('No Provider Found')
-// 		return TransactionState.Failed
-// 	}
-
-// 	try {
-// 		const tokenContract = new ethers.Contract(
-// 			token.address,
-// 			ERC20_ABI,
-// 			provider
-// 		)
-
-// 		const transaction = await tokenContract.populateTransaction.approve(
-// 			SWAP_ROUTER_ADDRESS,
-// 			TOKEN_AMOUNT_TO_APPROVE_FOR_TRANSFER
-// 		)
-
-// 		return sendTransaction({
-// 			...transaction,
-// 			from: address,
-// 		})
-// 	} catch (e) {
-// 		console.error(e)
-// 		return TransactionState.Failed
-// 	}
-// }
+	return res
+}
