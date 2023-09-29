@@ -1,14 +1,13 @@
-import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
-import { abi as IERC20 } from '@uniswap/v2-core/build/IERC20.json';
 import { abi as IUniswapV3Factory } from '@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Factory.sol/IUniswapV3Factory.json';
 import { abi as IUniswapV3Pool } from '@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Pool.sol/IUniswapV3Pool.json';
-import { Contract, utils, BigNumber } from "ethers";
-import { FactoryMap, RouterMap, uniswapV3Factory } from "../../../../constants/addresses";
+import { Contract } from "ethers";
+import { FactoryMap, uniswapV3Factory } from "../../../../constants/addresses";
 import { wallet } from "../../../../constants/contract";
-import { provider } from "../../../../constants/contract";
 import fs from "fs";
-/* 
+/*
+NOTE: USE GETVALIDV3POOLS (FILTERED) OR GETALLV3POOLS (UNFILTERED) INSTEAD OF THIS FILE.
+
 Gets uniV3 pools from Valid UniV2 pairs (not most efficient way to do this, but it works)
 Use getAlUniv3Pools.ts and filter with validatev3Pools.ts to get valid pools
 OR 

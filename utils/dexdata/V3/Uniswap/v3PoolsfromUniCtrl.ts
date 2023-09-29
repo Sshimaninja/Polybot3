@@ -1,4 +1,4 @@
-import { AllV3Pools } from './uniV3PoolsfromUni';
+import { AllV3Pools } from './V3PoolsfromUni'
 import { uniswapV3Factory } from '../../../../constants/addresses';
 import fs from 'fs';
 
