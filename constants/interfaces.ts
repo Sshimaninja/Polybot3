@@ -64,22 +64,6 @@ export interface Pair {
 	};
 };
 
-export interface Pool {
-	ticker: string;
-	poolA_id: string;
-	poolB_id: string;
-	token0: {
-		symbol: string;
-		id: string;
-		decimals: number;
-	};
-	token1: {
-		symbol: string;
-		id: string;
-		decimals: number;
-	};
-	feeTier: number;
-};
 
 export interface Token {
 	symbol: string;
@@ -137,11 +121,12 @@ export interface FactoryPool {
 	exchange: string;
 	factoryID: string;
 	routerID: string;
-	pairs: Pool[];
+	pairs: Pair[];
 };
-export interface Pool {
+export interface PoolV3 {
 	ticker: string;
-	poolID: string;
+	poolA_id: string;
+	poolB_id: string;
 	token0: {
 		symbol: string;
 		id: string;
@@ -152,7 +137,9 @@ export interface Pool {
 		id: string;
 		decimals: number;
 	};
+	feeTier: number;
 };
+
 export interface BoolTrade {
 	direction: string
 	type: string
