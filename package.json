@@ -58,6 +58,8 @@
     },
     "scripts": {
         "bot": "npx ts-node index",
+		"match2": "npx ts-node utils/dexdata/V2/matchPairsCtrl",
+		"match3": "npx ts-node utils/dexdata/V3/matchPools",
         "test": "mocha",
         "dev": "cross-env NODE_ENV=development tsnd --respawn --debug ./index.ts"
     }

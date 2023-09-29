@@ -8,6 +8,8 @@ import path from 'path';
 import { Valid3Pool } from '../../../../constants/interfaces';
 /**
 Validates pools from DB by filtering by liquidity then mapping with required values
+getvalidV3Pools.ts is more robust and restarts from last block in json file, 
+and writes json file properly, so you may want to update this doc with that logic.
  */
 
 export async function validateAlgebraPools() {
@@ -55,7 +57,7 @@ export async function validateAlgebraPools() {
 			});
 		const validPools = await Promise.all(validated);
 		console.log('validPool', validated)
-		fs.writeFile(`./data/validPairs/v3/${exchangeName}`, JSON.stringify(validPools), 'utf8', (err: any) => {
+		fs.writeFile(`./data/validPairs/v3/${exchangeName}.json`, JSON.stringify(validPools), 'utf8', (err: any) => {
 			if (err) throw err;
 			console.log(`File ${fileName} written successfully.`);
 		});

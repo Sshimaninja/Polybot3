@@ -17,38 +17,25 @@ export class PoolMatcher {
 	}
 	async matchPairs() {
 		const files = fs.readdirSync(this.dataDir);
-
 		const jsonFiles = files.filter((file) => path.extname(file) === '.json');
-
 		const factoryPairs: FactoryPair[] = [];
-
 		for (let i = 0; i < jsonFiles.length; i++) {
-
 			const fileA = jsonFiles[i];
 			const dataA = require(path.join(this.dataDir, fileA));
 			const factoryPoolA = dataA[0] as FactoryPool;
-
 			for (let j = i + 1; j < jsonFiles.length; j++) {
-
 				const fileB = jsonFiles[j];
 				const dataB = await require(path.join(this.dataDir, fileB));
 				const factoryPoolB = dataB[0] as FactoryPool;
-
 				const matchingPairs: Pair[] = [];
-
 				if (factoryPoolA.pairs.length > 0 && factoryPoolB.pairs.length > 0) {
-
 					for (const poolA of factoryPoolA.pairs) {
-
 						const poolB = factoryPoolB.pairs.find((poolB: Pair) => {
-
 							if (poolA.token0.id == poolB.token0.id && poolA.token1.id == poolB.token1.id) {
 								console.log(`Found matching pair for ${poolA.token0.symbol}/${poolA.token1.symbol} `, ` ${poolB.token0.symbol}/${poolB.token1.symbol}`);
 								return true;
 							}
-
 						});
-
 						if (poolB !== undefined && poolB !== null) {
 							const pair: Pair = {
 								ticker: `${poolA.token0.symbol}/${poolB.token1.symbol}`,

@@ -1,4 +1,5 @@
 import { BigNumber as BN } from "bignumber.js";
+import { ChainId, Fetcher, Pair, Token, TokenAmount, TradeType, Route, Trade } from '@uniswap/sdk';
 /**
  * 
  * @param reserveIn 
@@ -7,77 +8,60 @@ import { BigNumber as BN } from "bignumber.js";
  * @param slippageTolerance 
  * @returns maximum trade size for a given pair, taking into account slippage
  */
-export async function getTradeSize(reserveIn: BN, reserveOut: BN, targetPrice: BN, slippageTolerance: BN): Promise<BN> {
-    // Calculate the expected trade size without considering slippage
-    // ex reserveIn/reserveOut: 300000 / 10
-    // currentPrice = 30000 / 1
-    // targetPrice = 30000 / 1.2 = 25000
-    const expectedTradeSize = reserveIn.minus(targetPrice.multipliedBy(reserveOut)); // 300000 - (25000 * 10) = 50000
 
-    // Calculate the maximum allowed slippage in the trade
-    const maxSlippage = expectedTradeSize.multipliedBy(slippageTolerance); //50000 * 0.1 = 5000
+const SLIPPAGE_TOLERANCE = 0.006; // 0.6%
+export async function getOptimalTradeSize(inputToken: Token, outputToken: Token): Promise<TokenAmount> {
+	const token0 = new Token(ChainId.MAINNET, '0x...', 18); // Replace with token0 address and decimals
+	const token1 = new Token(ChainId.MAINNET, '0x...', 18); // Replace with token1 address and decimals
 
-    // Calculate the required tokenIn considering slippage
-    const requiredTokenIn = maxSlippage; // 5000
+	const inputPair = await Fetcher.fetchPairData(inputToken, token0); // Fetch the input pair data
+	const inputRoute = new Route([inputPair], inputToken); // Create a route for the input token -> token0 trade
 
-    // If this is negative, then the trade would need to be reversed, which is additional complexity to be handled later
-    // return requiredTokenIn;
-    return requiredTokenIn.gt(0) ? requiredTokenIn : new BN(0);
+	const outputPair = await Fetcher.fetchPairData(token1, outputToken); // Fetch the output pair data
+	const outputRoute = new Route([outputPair], token1); // Create a route for the token1 -> output token trade
+
+	const inputTrade = new Trade(
+		inputRoute,
+		new TokenAmount(inputToken, 0),
+		TradeType.EXACT_INPUT
+	);
+
+	const maxInputAmount = inputTrade.maximumAmountOut(
+		new TokenAmount(token0, 0),
+		SLIPPAGE_TOLERANCE
+	).toSignificant(6);
+
+	const outputTrade = new Trade(
+		outputRoute,
+		new TokenAmount(token1, maxInputAmount),
+		TradeType.EXACT_INPUT
+	);
+
+	const maxOutputAmount = outputTrade.maximumAmountOut(
+		new TokenAmount(outputToken, 0),
+		SLIPPAGE_TOLERANCE
+	).toSignificant(6);
+
+	const optimalTradeSize = Math.min(maxInputAmount, maxOutputAmount);
+
+	return new TokenAmount(outputToken, optimalTradeSize);
 }
 
+// export async function getTradeSize(reserveIn: BN, reserveOut: BN, targetPrice: BN, slippageTolerance: BN): Promise<BN> {
+// 	// Calculate the expected trade size without considering slippage
+// 	// ex reserveIn/reserveOut: 300000 / 10
+// 	// currentPrice = 30000 / 1
+// 	// targetPrice = 30000 / 1.2 = 25000
+// 	const expectedTradeSize = reserveIn.minus(targetPrice.multipliedBy(reserveOut)); // 300000 - (25000 * 10) = 50000
 
-// async function main() {
-//     const loanPoolReservesIn = new BN('2423983.604268487571547835');
-//     const loanPoolReservesOut = new BN('781.755288809069338644');
-//     const loanPoolPriceOut = new BN('0.000322508488684678');
-//     const loanPoolTargetPrice = new BN('0.000322508488684678');
-//     const recipientReservesIn = new BN('1527056.518517431821924297');
-//     const recipientReservesOut = new BN('492.452464990875230849');
-//     const recipientTradeSize = new BN('-1527209.065333301321831524');
-//     const slippageTolerance = new BN('0.1');
+// 	// Calculate the maximum allowed slippage in the trade
+// 	const maxSlippage = expectedTradeSize.multipliedBy(slippageTolerance); //50000 * 0.1 = 5000
 
-//     const requiredTokenInForLoanPool = await getRequiredTokenIn(
-//         loanPoolReservesIn,
-//         loanPoolReservesOut,
-//         loanPoolTargetPrice,
-//         slippageTolerance
-//     );
+// 	// Calculate the required tokenIn considering slippage
+// 	const requiredTokenIn = maxSlippage; // 5000
 
-//     const requiredTokenInForRecipient = await getRequiredTokenIn(
-//         recipientReservesIn,
-//         recipientReservesOut,
-//         loanPoolPriceOut,
-//         slippageTolerance
-//     );
-
-//     console.log("Required Token In for LoanPool:", requiredTokenInForLoanPool.toString());
-//     console.log("Required Token In for Recipient:", requiredTokenInForRecipient.toString());
-
+// 	// If this is negative, then the trade would need to be reversed, which is additional complexity to be handled later
+// 	// return requiredTokenIn;
+// 	return requiredTokenIn.gt(0) ? requiredTokenIn : new BN(0);
 // }
-// main();
 
-
-// New block received:::::::::::::::::: Block # 47423259:::::::::::::::
-// [{
-//     ticker: 'WMATIC/DAI',
-//     loanPool: {
-//         exchange: 'SUSHI',
-//         priceIn: '1.985360991372836496',
-//         priceOut: '0.503686737245965765',
-//         reservesIn: '3990.509538705296998254',
-//         reservesOut: '2009.966729499374980796',
-//         amountRepay: '29.891766765454845649',
-//         amountOut: '35.523024389369096477'
-//     },
-//     recipient: {
-//         exchange: 'QUICK',
-//         priceIn: '1.989474363781820944',
-//         priceOut: '0.502645330950173874',
-//         targetPrice: '0.503686737245965765',
-//         reservesIn: '19151.606113404079526688',
-//         reservesOut: '9626.465393099366752257',
-//         tradeSize: '143.028831683426562465',
-//         amountOut: '69.347487273239591823'
-//     },
-//     result: { loanCostPercent: '0.0', profit: '5.631257623914250828' }
-// }]
