@@ -1,14 +1,14 @@
 import { BigNumber, utils as u } from "ethers";
-import { Amounts, FactoryPair, GasData, Pair, Profit, K } from "../../constants/interfaces";
+import { Amounts, FactoryPair, GasData, Pair, Profit, K } from "../../../constants/interfaces";
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
-import { wallet, flashMulti } from "../../constants/contract";
+import { wallet, flashMulti } from "../../../constants/contract";
 import { Contract } from "@ethersproject/contracts";
-import { Prices } from "./prices";
-import { getK } from "./getK";
-import { BoolTrade } from "../../constants/interfaces"
-import { getAmountsIn, getAmountsOut } from "./getAmountsIOLocal";
+// import { Prices } from "../../prices";
+// import { getK } from "./getK";
+import { BoolTrade } from "../../../constants/interfaces"
+// import { getAmountsIn, getAmountsOut } from "./getAmountsIOLocal";
 /**
  * @description
  * Class to determine trade direction

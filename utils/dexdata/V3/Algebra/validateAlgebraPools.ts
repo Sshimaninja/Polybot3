@@ -7,7 +7,9 @@ import fs from 'fs';
 import path from 'path';
 import { Valid3Pool } from '../../../../constants/interfaces';
 /**
-Validates pools from DB by filtering by liquidity
+Validates pools from DB by filtering by liquidity then mapping with required values
+getvalidV3Pools.ts is more robust and restarts from last block in json file, 
+and writes json file properly, so you may want to update this doc with that logic.
  */
 
 export async function validateAlgebraPools() {
@@ -32,31 +34,30 @@ export async function validateAlgebraPools() {
 		const allPools = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 		console.log('check contract init factory.address', factory.address, 'blockNumber', blockNumber)
 
-		const validPools = allPools.map(async (pool: any) => {
-			const algPool = new ethers.Contract(pool.poolID, IAlgebraPool, provider);
-			const algPoolOptions = algPool.functions;
-			// console.log('algPoolOptions', algPoolOptions)
-			// const t0 = new ethers.Contract(parsedEvent.args.token0, IERC20, provider);
-			// const t1 = new ethers.Contract(parsedEvent.args.token1, IERC20, provider);
-			// const dec0 = await t0.decimals();
-			// const dec1 = await t1.decimals();
-			// const token0 = new V3Token(chainID.POLYGON, await pool.token0(), dec0, await t0.symbol());
-			// const token1 = new V3Token(chainID.POLYGON, await pool.token1(), dec1, await t1.symbol());
-			const liquidity = await algPool.liquidity();
-			if (liquidity.gt(10000)) {
+		const validated = allPools
+			.filter(async (pool: any) => {
+				const algPool = new ethers.Contract(pool.poolID, IAlgebraPool, provider);
+				const liquidity = await algPool.liquidity();
+				return liquidity.gt(10000);
+			})
+			.map(async (pool: any) => {
+				// const algPoolOptions = algPool.functions;// in case you want to see what's available
+				const algPool = new ethers.Contract(pool.poolID, IAlgebraPool, provider);
+				const globalState = await algPool.globalState()
+				const tickSpacing = await algPool.tickSpacing()
 				let validPool: Valid3Pool = {
 					poolID: pool.poolID,
-					token0: pool.token0,
-					token1: pool.token1,
-					fee: await algPool.fee(),
-					tickSpacing: await algPool.tickSpacing,
+					token0: pool.token0ID,
+					token1: pool.token1ID,
+					fee: globalState.fee,
+					tickSpacing: tickSpacing,
 					block: pool.block,
 				};
-				console.log('validPool', validPool)
-				validPools.push(validPool);
-			};
-		});
-		fs.writeFile(`./data/validPairs/v3/${exchangeName}`, JSON.stringify(validPools), 'utf8', (err: any) => {
+				return validPool;
+			});
+		const validPools = await Promise.all(validated);
+		console.log('validPool', validated)
+		fs.writeFile(`./data/validPairs/v3/${exchangeName}.json`, JSON.stringify(validPools), 'utf8', (err: any) => {
 			if (err) throw err;
 			console.log(`File ${fileName} written successfully.`);
 		});
@@ -64,6 +65,18 @@ export async function validateAlgebraPools() {
 		console.log('deployedPools', validPools.length);
 	};
 }
-// }
 
 validateAlgebraPools();
+
+
+
+
+
+
+// console.log('algPoolOptions', algPoolOptions)
+// const t0 = new ethers.Contract(parsedEvent.args.token0, IERC20, provider);
+// const t1 = new ethers.Contract(parsedEvent.args.token1, IERC20, provider);
+// const dec0 = await t0.decimals();
+// const dec1 = await t1.decimals();
+// const token0 = new V3Token(chainID.POLYGON, await pool.token0(), dec0, await t0.symbol());
+// const token1 = new V3Token(chainID.POLYGON, await pool.token1(), dec1, await t1.symbol());
