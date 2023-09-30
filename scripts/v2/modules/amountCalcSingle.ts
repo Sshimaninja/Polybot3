@@ -1,6 +1,6 @@
 import { BigNumber, utils } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
-import { getTradeSize } from './lowslipBN';
+import { getMaxTokenIn, getMaxTokenOut } from './lowslipBN';
 import { Pair, ReservesData } from "../../../constants/interfaces";
 import { Prices } from "./prices";
 import { Token, Amounts } from "../../../constants/interfaces";
@@ -26,15 +26,14 @@ export class AmountCalculator {
 
 	async getMaxTokenIn(): Promise<BigNumber> {
 		const targetPrice = this.reserves.reserveOutBN.div(this.reserves.reserveInBN);
-		const maxTokenIn = await getTradeSize(this.reserves.reserveInBN, this.reserves.reserveOutBN, targetPrice, this.slip);
+		const maxTokenIn = await getMaxTokenIn(this.reserves.reserveInBN, this.reserves.reserveOutBN, this.slip);
 		const maxIn = utils.parseUnits(maxTokenIn.toFixed(this.token0.decimals), this.token0.decimals!);
 		return maxIn;
 	}
 
 	async getMaxTokenOut(): Promise<BigNumber> {
-		const targetPrice = this.reserves.reserveInBN.div(this.reserves.reserveOutBN);
-		const maxTokenPit = await getTradeSize(this.reserves.reserveOutBN, this.reserves.reserveInBN, targetPrice, this.slip);
-		const maxOut = utils.parseUnits(maxTokenPit.toFixed(this.token1.decimals), this.token1.decimals!);
+		const maxTokenOut = await getMaxTokenOut(this.reserves.reserveOutBN, this.slip);
+		const maxOut = utils.parseUnits(maxTokenOut.toFixed(this.token1.decimals), this.token1.decimals!);
 		return maxOut;
 	}
 

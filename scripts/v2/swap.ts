@@ -4,7 +4,7 @@ import { BigNumber as BN } from "bignumber.js";
 import { Prices } from './modules/prices';
 import { FactoryPair, Pair } from '../../constants/interfaces';
 import { AmountCalculator } from './modules/amountCalcSingle'
-import { Trade } from './modules/getV2Trade';
+import { Trade } from './modules/getTrade';
 import { gasVprofit } from './modules/gasVprofit';
 import { Reserves } from './modules/reserves';
 import { sendit } from './execute';
@@ -23,7 +23,7 @@ TODO:
  */
 const warning = 0
 const tradePending = false;
-const slippageTolerance = BN(0.006) // 0.65%
+const slippageTolerance = BN(0.06) // 0.65%
 // var virtualReserveFactor = 1.1
 var pendingID: string | undefined
 

@@ -10,8 +10,18 @@ import { BigNumber } from "ethers";
  * @returns maximum trade size for a given pair, taking into account slippage
  */
 
+export async function getMaxTokenIn(reserveIn: BN, reserveOut: BN, slippageTolerance: BN): Promise<BN> {
+	// Calculate the maximum allowed slippage in the trade
+	const maxSlippage = reserveIn.multipliedBy(slippageTolerance);
 
-export async function getTradeSize(reserveIn: BN, reserveOut: BN, targetPrice: BN, slippageTolerance: BN): Promise<BN> {
+	// Calculate the maximum amount of tokenIn that can be added to the pool without going over the slippageTolerance
+	const maxTokenIn = maxSlippage.plus(reserveIn).multipliedBy(reserveOut).dividedBy(reserveOut.minus(maxSlippage));
+
+	// If this is negative, then the trade would need to be reversed, which is additional complexity to be handled later
+	return maxTokenIn.gt(0) ? maxTokenIn : new BN(0);
+}
+
+export async function tradeToPrice(reserveIn: BN, reserveOut: BN, targetPrice: BN, slippageTolerance: BN): Promise<BN> {
 	// Calculate the expected trade size without considering slippage
 	// ex reserveIn/reserveOut: 300000 / 10
 	// currentPrice = 30000 / 1
@@ -29,6 +39,16 @@ export async function getTradeSize(reserveIn: BN, reserveOut: BN, targetPrice: B
 	return requiredTokenIn.gt(0) ? requiredTokenIn : new BN(0);
 }
 
+export async function getMaxTokenOut(reserveOut: BN, slippageTolerance: BN): Promise<BN> {
+	// Calculate the maximum allowed slippage in the trade
+	const maxSlippage = reserveOut.multipliedBy(slippageTolerance);
+
+	// Calculate the maximum amount of tokenOut that can be added to the pool without causing greater than slippageTolerance slippage
+	const maxTokenOut = maxSlippage.dividedBy(new BN(1).minus(slippageTolerance));
+
+	// If this is negative, then the trade would need to be reversed, which is additional complexity to be handled later
+	return maxTokenOut.gt(0) ? maxTokenOut : new BN(0);
+}
 
 
 
