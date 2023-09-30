@@ -86,8 +86,8 @@ export interface Profit {
 	gasPool: string;
 }
 export interface Amounts {
-	tradeSize: BigNumber;
-	amountOutJS: BigNumber;
+	maxIn: BigNumber;
+	maxOut: BigNumber;
 }
 
 

@@ -90,9 +90,9 @@ export class Trade {
 				priceIn: A ? this.price0.priceInBN.toFixed(this.match.token0.decimals) : this.price1.priceInBN.toFixed(this.match.token0.decimals),
 				priceOut: A ? this.price0.priceOutBN.toFixed(this.match.token1.decimals) : this.price1.priceOutBN.toFixed(this.match.token1.decimals),
 				tradeSize: A ? //this.amounts0.tradeSize : this.amounts1.tradeSize,
-					(this.amounts0.tradeSize.lt(this.price1.reserves.reserveIn) ? this.amounts0.tradeSize : this.price1.reserves.reserveIn) :
-					(this.amounts1.tradeSize.lt(this.price0.reserves.reserveIn) ? this.amounts1.tradeSize : this.price0.reserves.reserveIn),
-				amountOut: A ? this.amounts0.amountOutJS : this.amounts1.amountOutJS,
+					(this.amounts0.maxIn.lt(this.amounts1.maxOut) ? this.amounts0.maxIn : this.amounts1.maxOut) :
+					(this.amounts1.maxIn.lt(this.amounts0.maxOut) ? this.amounts1.maxIn : this.amounts0.maxOut),
+				amountOut: BigNumber.from(0),
 			},
 			k: {
 				uniswapKPre: BigNumber.from(0),
@@ -109,6 +109,11 @@ export class Trade {
 			trade.recipient.amountOut,
 			trade.loanPool.reserveOut,
 			trade.loanPool.reserveIn);
+
+		trade.recipient.amountOut = await getAmountsOut(
+			trade.recipient.tradeSize,
+			trade.recipient.reserveIn,
+			trade.recipient.reserveOut);
 
 		const multiRepay = await this.getRepayMulti(
 			trade.recipient.tradeSize,
