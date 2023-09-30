@@ -1,15 +1,15 @@
 require('dotenv').config()
 require('colors')
 import { BigNumber as BN } from "bignumber.js";
-import { Prices } from './v3/modules/prices';
+import { Prices } from './modules/prices';
 import { FactoryPair, Pair } from '../../constants/interfaces';
-import { AmountCalculator } from './v3/modules/amountCalcSingle'
-import { Trade } from './v3/modules/getV3Trade';
-import { gasVprofit } from './v3/modules/gasVprofit';
+import { AmountCalculator } from './modules/amountCalcSingle'
+import { Trade } from './modules/getV3Trade';
+import { gasVprofit } from './modules/gasVprofit';
 import { InRangeLiquidity } from './modules/reserves';
 import { sendit } from './execute';
-import { tradeLogs } from './v3/modules/tradeLog';
-import { rollDamage } from './v3/modules/damage';
+import { tradeLogs } from './modules/tradeLog';
+import { rollDamage } from './modules/damage';
 /*
 TODO:
 */
@@ -36,7 +36,9 @@ export async function control(data: FactoryPair[], gasData: any) {
 		for (const match of pair.matches) {
 			if (!tradePending && match.poolA_id !== pendingID && match.poolB_id !== pendingID) {
 
-				const size = await getTradeSize();
+				const a = new AmountsCalculator();
+
+
 
 				const t = new Trade(pair, match, p0, p1, amounts[0], amounts[1], gasData);
 				const trade = await t.getTrade();
