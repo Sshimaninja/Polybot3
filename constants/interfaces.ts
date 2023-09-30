@@ -64,22 +64,6 @@ export interface Pair {
 	};
 };
 
-export interface Pool {
-	ticker: string;
-	poolA_id: string;
-	poolB_id: string;
-	token0: {
-		symbol: string;
-		id: string;
-		decimals: number;
-	};
-	token1: {
-		symbol: string;
-		id: string;
-		decimals: number;
-	};
-	feeTier: number;
-};
 
 export interface Token {
 	symbol: string;
@@ -102,8 +86,8 @@ export interface Profit {
 	gasPool: string;
 }
 export interface Amounts {
-	tradeSize: BigNumber;
-	amountOutJS: BigNumber;
+	maxIn: BigNumber;
+	maxOut: BigNumber;
 }
 
 
@@ -125,6 +109,34 @@ export interface Valid3Pool {
 	block: number;
 }
 
+export interface Match3Pools {
+	ticker: string;
+	poolID0: {
+		factory: Contract,
+		id: string,
+		tickSpacing: number
+		fee: number
+	}
+	poolID1: {
+		factory: Contract,
+		id: string,
+		tickSpacing: number
+		fee: number
+	}
+	token0: {
+		contract: Contract,
+		id: string,
+		symbol: string,
+		decimals: number
+	}
+	token1: {
+		contract: Contract,
+		id: string,
+		symbol: string,
+		decimals: number
+	}
+}
+
 export interface ReservesData {
 	reserveIn: BigNumber;
 	reserveOut: BigNumber;
@@ -137,11 +149,12 @@ export interface FactoryPool {
 	exchange: string;
 	factoryID: string;
 	routerID: string;
-	pairs: Pool[];
+	pairs: Pair[];
 };
-export interface Pool {
+export interface PoolsV3 {
 	ticker: string;
-	poolID: string;
+	poolA_id: string;
+	poolB_id: string;
 	token0: {
 		symbol: string;
 		id: string;
@@ -152,7 +165,9 @@ export interface Pool {
 		id: string;
 		decimals: number;
 	};
+	feeTier: number;
 };
+
 export interface BoolTrade {
 	direction: string
 	type: string

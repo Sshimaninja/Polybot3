@@ -1,15 +1,15 @@
 require('dotenv').config()
 require('colors')
 import { BigNumber as BN } from "bignumber.js";
-import { Prices } from './v3/modules/prices';
+import { Prices } from './modules/prices';
 import { FactoryPair, Pair } from '../../constants/interfaces';
-import { AmountCalculator } from './v3/modules/amountCalcSingle'
-import { Trade } from './v3/modules/getV3Trade';
-import { gasVprofit } from './v3/modules/gasVprofit';
+import { AmountCalculator } from './modules/amountCalcSingle'
+import { Trade } from './modules/getV3Trade';
+import { gasVprofit } from './modules/gasVprofit';
 import { InRangeLiquidity } from './modules/reserves';
 import { sendit } from './execute';
-import { tradeLogs } from './v3/modules/tradeLog';
-import { rollDamage } from './v3/modules/damage';
+import { tradeLogs } from './modules/tradeLog';
+import { rollDamage } from './modules/damage';
 /*
 TODO:
 */
@@ -36,19 +36,9 @@ export async function control(data: FactoryPair[], gasData: any) {
 		for (const match of pair.matches) {
 			if (!tradePending && match.poolA_id !== pendingID && match.poolB_id !== pendingID) {
 
-				// const r = new Reserves(match);
-				// const reserves = await r.getReserves(match);
+				const a = new AmountsCalculator();
 
-				// const p0 = new Prices(match.token0, match.token1, match.poolA_id, reserves[0]);
-				// const p1 = new Prices(match.token0, match.token1, match.poolB_id, reserves[1]);
 
-				// const c0 = new AmountCalculator(p0, match, slippageTolerance);
-				// const c1 = new AmountCalculator(p1, match, slippageTolerance);
-
-				// const amounts0 = await c0.getAmounts(p0.reserves.reserveInBN, p0.reserves.reserveOutBN, p1.priceOutBN, slippageTolerance);
-				// const amounts1 = await c1.getAmounts(p1.reserves.reserveInBN, p1.reserves.reserveOutBN, p0.priceOutBN, slippageTolerance);
-
-				// const amounts = await Promise.all([amounts0, amounts1]);
 
 				const t = new Trade(pair, match, p0, p1, amounts[0], amounts[1], gasData);
 				const trade = await t.getTrade();

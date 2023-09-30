@@ -6,7 +6,7 @@ import { uniswapV3Factory } from '../../../../constants/addresses';
 import { wallet } from '../../../../constants/contract';
 import fs from 'fs';
 import path from 'path';
-import { Token as V3Token } from '@uniswap/sdk-core';
+import { Token as V3Token, sqrt } from '@uniswap/sdk-core';
 import { DeployedPools } from '../../../../constants/interfaces';
 import { chainID } from '../../../../constants/addresses';
 /**
@@ -17,51 +17,37 @@ import { chainID } from '../../../../constants/addresses';
  */
 
 export async function getAllV3Pools() {
-
-	let deployedPools: DeployedPools[] = [{
-		poolID: '',
-		token0: '',
-		token1: '',
-		fee: 0,
-		tickSpacing: 0,
-		block: 0x015F3B7B
-	} //<==add new deployedPool objects here
-	];
 	const uniswapV3Factories = Object.values(uniswapV3Factory);
-	// console.log('uniswapV3Factories', uniswapV3Factories)
 	const uniswapV3FactoryNames = Object.keys(uniswapV3Factory);
-	// console.log('uniswapV3FactoryNames', uniswapV3FactoryNames)
-	// Load the last recorded block number from a file
 
 	for (const exchange of uniswapV3Factories) {
-
 		const provider = new ethers.providers.JsonRpcProvider("https://polygon-mainnet.infura.io/v3/ae479bfaa1b54326a4770a0fe8aa801d")
 		// const provider = new ethers.providers.JsonRpcProvider("https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-")
 		const blockNumber = await provider.getBlockNumber();
 		const factory = new ethers.Contract(exchange, IUniswapV3Factory, provider);
 
 		const exchangeName = uniswapV3FactoryNames[uniswapV3Factories.indexOf(exchange)];
-
 		const fileName = `${exchangeName}.json`;
 		const filePath = path.join(`./data/validPairs/v3/${fileName}`);
-		//If file exists, read it and assign it to the deployedPools array, else create it.
-		let lastBlockNumber = 0x015F3B7B; // 22757547 factory block deployed
+
+		let deployedPools: DeployedPools[] = [];
+		let lastBlockNumber = 0x015F3B7B; // 22757547 v3factory block deployed
+
 		if (fs.existsSync(filePath)) {
-			deployedPools = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-			lastBlockNumber = deployedPools[deployedPools.length - 1].block;
-			console.log(`File ${fileName} read successfully. Current block number: ${deployedPools[deployedPools.length].block}`);
-		} else {
-			fs.writeFileSync(filePath, JSON.stringify(deployedPools), 'utf8');
+			const fileContents = fs.readFileSync(filePath, 'utf8');
+			if (fileContents.trim() !== '') {
+				deployedPools = JSON.parse(fileContents);
+				lastBlockNumber = deployedPools[deployedPools.length - 1].block;
+				console.log(`File ${fileName} read successfully. Current block number: `, lastBlockNumber);
+			}
 		}
 
 		console.log(">>Starting from block number: " + lastBlockNumber++ + "<<");
-
 		console.log('check contract init factory.address', factory.address, 'blockNumber', blockNumber)
 
-
 		const batchSize = 1000;
-		const startBlock = 0x015F3B7B; // 22757547 
-		const endBlock = blockNumber; // 
+		const startBlock = lastBlockNumber + 1;
+		const endBlock = blockNumber;
 		const numBatches = Math.ceil((endBlock - startBlock) / batchSize);
 
 		for (let i = 0; i < numBatches; i++) {
@@ -76,44 +62,38 @@ export async function getAllV3Pools() {
 
 			const events = await provider.getLogs(filter);
 			events.map(async (event) => {
-				const parsedEvent = factory.interface.parseLog(event);
-				console.log('parsedEvent', parsedEvent);
+				let parsedEvent = factory.interface.parseLog(event);
+				// console.log('parsedEvent', parsedEvent);
 				if (
 					parsedEvent.args.pool !== '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE' &&
 					parsedEvent.args.pool !== undefined &&
 					parsedEvent.args.token0 !== undefined &&
 					parsedEvent.args.token1 !== undefined
 				) {
-					console.log('parsedEvent.args.pool', parsedEvent.args.pool)
-					const pool = new ethers.Contract(parsedEvent.args.pool, IUniswapV3Pool, wallet);
-					// const t0 = new ethers.Contract(parsedEvent.args.token0, IERC20, provider);
-					// const t1 = new ethers.Contract(parsedEvent.args.token1, IERC20, provider);
-					// const dec0 = await t0.decimals();
-					// const dec1 = await t1.decimals();
-					// const token0 = new V3Token(chainID.POLYGON, await pool.token0(), dec0, await t0.symbol());
-					// const token1 = new V3Token(chainID.POLYGON, await pool.token1(), dec1, await t1.symbol());
-					const liquidity = await pool.liquidity();
+					console.log('>>>parsedEvent.args.pool', parsedEvent.args.pool)
+					let pool = new ethers.Contract(parsedEvent.args.pool, IUniswapV3Pool, wallet);
+					let liquidity = await pool.liquidity();
 					if (liquidity.gt(10000)) {
+						console.log('>>>LIQUIDITY.GT(10K)', parsedEvent.args.pool, " Liquidity: ", liquidity.toString())
 						let deployedPool: DeployedPools = {
 							poolID: parsedEvent.args.pool,
-							token0: parsedEvent.args.token1,
+							token0: parsedEvent.args.token0,
 							token1: parsedEvent.args.token1,
 							fee: parsedEvent.args.fee,
 							tickSpacing: parsedEvent.args.tickSpacing,
 							block: event.blockNumber,
 						};
 						deployedPools.push(deployedPool);
-						fs.appendFileSync(filePath, JSON.stringify(deployedPools) + '\n');
-						// fs.appendFileSync(filePath, JSON.stringify(deployedPool) + '\n');
-
+						const newPools = deployedPools.slice(-1);
+						if (newPools.length > 0) {
+							const fileContents = JSON.stringify(deployedPools);
+							const formattedContents = fileContents.replace(/\]\[/g, ',');
+							fs.writeFileSync(filePath, formattedContents, 'utf8');
+						}
 					}
 				}
 			});
 		}
-		console.log('deployedPools', deployedPools)
-		//Append deployedPools to DeployedPools object in .json file
-
 	}
-
 }
 getAllV3Pools();

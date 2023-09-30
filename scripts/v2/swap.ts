@@ -4,7 +4,7 @@ import { BigNumber as BN } from "bignumber.js";
 import { Prices } from './modules/prices';
 import { FactoryPair, Pair } from '../../constants/interfaces';
 import { AmountCalculator } from './modules/amountCalcSingle'
-import { Trade } from './modules/getV2Trade';
+import { Trade } from './modules/getTrade';
 import { gasVprofit } from './modules/gasVprofit';
 import { Reserves } from './modules/reserves';
 import { sendit } from './execute';
@@ -23,7 +23,7 @@ TODO:
  */
 const warning = 0
 const tradePending = false;
-const slippageTolerance = BN(0.0006) // 0.065%
+const slippageTolerance = BN(0.006) // 0.65%
 // var virtualReserveFactor = 1.1
 var pendingID: string | undefined
 
@@ -45,8 +45,8 @@ export async function control(data: FactoryPair[], gasData: any) {
 				const c0 = new AmountCalculator(p0, match, slippageTolerance);
 				const c1 = new AmountCalculator(p1, match, slippageTolerance);
 
-				const amounts0 = await c0.getAmounts(p0.reserves.reserveInBN, p0.reserves.reserveOutBN, p1.priceOutBN, slippageTolerance);
-				const amounts1 = await c1.getAmounts(p1.reserves.reserveInBN, p1.reserves.reserveOutBN, p0.priceOutBN, slippageTolerance);
+				const amounts0 = await c0.getAmounts();
+				const amounts1 = await c1.getAmounts();
 
 				const amounts = await Promise.all([amounts0, amounts1]);
 
