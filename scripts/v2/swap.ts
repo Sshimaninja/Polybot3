@@ -3,7 +3,7 @@ require('colors')
 import { BigNumber as BN } from "bignumber.js";
 import { Prices } from './modules/prices';
 import { FactoryPair, Pair } from '../../constants/interfaces';
-import { AmountCalculator } from './modules/amountCalcSingle'
+import { AmountConverter } from './modules/amountConverter'
 import { Trade } from './modules/getTrade';
 import { gasVprofit } from './modules/gasVprofit';
 import { Reserves } from './modules/reserves';
@@ -42,8 +42,8 @@ export async function control(data: FactoryPair[], gasData: any) {
 				const p0 = new Prices(match.token0, match.token1, match.poolA_id, reserves[0]);
 				const p1 = new Prices(match.token0, match.token1, match.poolB_id, reserves[1]);
 
-				const c0 = new AmountCalculator(p0, match, slippageTolerance);
-				const c1 = new AmountCalculator(p1, match, slippageTolerance);
+				const c0 = new AmountConverter(p0, match, slippageTolerance);
+				const c1 = new AmountConverter(p1, match, slippageTolerance);
 
 				const amounts0 = await c0.getAmounts();
 				const amounts1 = await c1.getAmounts();

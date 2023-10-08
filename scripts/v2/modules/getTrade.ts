@@ -43,13 +43,13 @@ export class Trade {
 		this.gasData = gasData;
 	}
 
-	// Get repayment amount for the loanPool
+	// Get repayment amount for the loanPool direct tokent trade
 	async getRepayMulti(tradeSize: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
 		const amountRepay = await getAmountsIn(tradeSize, reserveIn, reserveOut); // result must be token1
 		return amountRepay; //in token1
 	}
 
-	// Get repayment amount for the loanPool
+	// Get repayment amount for the loanPool multitoken trade
 	async getRepayDirect(tradeSize: BigNumber): Promise<BigNumber> {
 		const repay = tradeSize.mul(1003009027).div(1000000000);
 		return repay; //in token0
@@ -60,7 +60,9 @@ export class Trade {
 		const A = this.price0.priceOutBN;
 		const B = this.price1.priceOutBN;
 
+
 		const direction = A.lt(B) ? "A" : B.lt(A) ? "B" : "DIRECTIONAL AMBIGUITY ERROR";
+		const targetPrice = A.lt(B) ? B : A;
 
 		const trade: BoolTrade = {
 			direction: direction,
@@ -68,14 +70,16 @@ export class Trade {
 			ticker: this.match.token0.symbol + "/" + this.match.token1.symbol,
 			tokenIn: this.match.token0,
 			tokenOut: this.match.token1,
-			flash: flashMulti,
+			flash: flashMulti, // This has to be set initially, but must be changed later per type.
 			loanPool: {
 				exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
 				factory: A ? new Contract(this.pair.factoryB_id, IFactory, wallet) : new Contract(this.pair.factoryA_id, IFactory, wallet),
 				router: A ? new Contract(this.pair.routerB_id, IRouter, wallet) : new Contract(this.pair.routerA_id, IRouter, wallet),
 				pool: A ? new Contract(this.match.poolB_id, IPair, wallet) : new Contract(this.match.poolA_id, IPair, wallet),
 				reserveIn: A ? this.price1.reserves.reserveIn : this.price0.reserves.reserveIn,
+				reserveInBN: A ? this.price1.reserves.reserveInBN : this.price0.reserves.reserveInBN,
 				reserveOut: A ? this.price1.reserves.reserveOut : this.price0.reserves.reserveOut,
+				reserveOutBN: A ? this.price1.reserves.reserveOutBN : this.price0.reserves.reserveOutBN,
 				priceIn: A ? this.price1.priceInBN.toFixed(this.match.token0.decimals) : this.price0.priceInBN.toFixed(this.match.token0.decimals),
 				priceOut: A ? this.price1.priceOutBN.toFixed(this.match.token1.decimals) : this.price0.priceOutBN.toFixed(this.match.token1.decimals),
 				amountOut: BigNumber.from(0),
@@ -86,9 +90,13 @@ export class Trade {
 				router: A ? new Contract(this.pair.routerA_id, IRouter, wallet) : new Contract(this.pair.routerB_id, IRouter, wallet),
 				pool: A ? new Contract(this.match.poolA_id, IPair, wallet) : new Contract(this.match.poolB_id, IPair, wallet),
 				reserveIn: A ? this.price0.reserves.reserveIn : this.price1.reserves.reserveIn,
+				reserveInBN: A ? this.price0.reserves.reserveInBN : this.price1.reserves.reserveInBN,
 				reserveOut: A ? this.price0.reserves.reserveOut : this.price1.reserves.reserveOut,
+				reserveOutBN: A ? this.price0.reserves.reserveOutBN : this.price1.reserves.reserveOutBN,
 				priceIn: A ? this.price0.priceInBN.toFixed(this.match.token0.decimals) : this.price1.priceInBN.toFixed(this.match.token0.decimals),
 				priceOut: A ? this.price0.priceOutBN.toFixed(this.match.token1.decimals) : this.price1.priceOutBN.toFixed(this.match.token1.decimals),
+				actualPriceOut: BigNumber.from(0),
+				//Can redefine tradeSize here, by calculating the amount needed to equalize recipient.priceOut and loanPool.priceOut:
 				tradeSize: A ? //this.amounts0.tradeSize : this.amounts1.tradeSize,
 					(this.amounts0.maxIn.lt(this.amounts1.maxOut) ? this.amounts0.maxIn : this.amounts1.maxOut) :
 					(this.amounts1.maxIn.lt(this.amounts0.maxOut) ? this.amounts1.maxIn : this.amounts0.maxOut),
@@ -115,6 +123,7 @@ export class Trade {
 			trade.recipient.reserveIn,
 			trade.recipient.reserveOut);
 
+		// arbitrage type options: 
 		const multiRepay = await this.getRepayMulti(
 			trade.recipient.tradeSize,
 			trade.loanPool.reserveOut,
@@ -124,6 +133,10 @@ export class Trade {
 		const directRepay = await this.getRepayDirect(
 			trade.recipient.tradeSize,
 		) //in token0
+
+		trade.loanPool.amountOut
+
+		trade.recipient.amountOut
 
 		const profitMulti = trade.recipient.amountOut.sub(multiRepay)
 
@@ -135,7 +148,18 @@ export class Trade {
 
 		trade.profit = trade.type === "multi" ? profitMulti : profitDirect;
 
+		trade.flash = trade.type === "multi" ? flashMulti : flashMulti;
+
 		trade.k = await getK(trade);
+
+
+		// // Calculate the price impact of the trade
+		// const { priceImpact, newPrice } = await getImpact(
+		// 	trade.recipient.reserveIn,
+		// 	trade.recipient.reserveOut,
+		// 	trade.recipient.tradeSize,
+		// 	trade.amountRepay
+		// );
 
 		return trade;
 	}
