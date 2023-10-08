@@ -9,6 +9,8 @@ import { Prices } from "./prices";
 import { getK } from "./getK";
 import { BoolTrade } from "../../../constants/interfaces"
 import { getAmountsIn, getAmountsOut } from "./getAmountsIOLocal";
+import { getImpact } from "./getImpact";
+
 /**
  * @description
  * Class to determine trade direction 
@@ -62,7 +64,6 @@ export class Trade {
 
 
 		const direction = A.lt(B) ? "A" : B.lt(A) ? "B" : "DIRECTIONAL AMBIGUITY ERROR";
-		const targetPrice = A.lt(B) ? B : A;
 
 		const trade: BoolTrade = {
 			direction: direction,
@@ -96,10 +97,13 @@ export class Trade {
 				priceIn: A ? this.price0.priceInBN.toFixed(this.match.token0.decimals) : this.price1.priceInBN.toFixed(this.match.token0.decimals),
 				priceOut: A ? this.price0.priceOutBN.toFixed(this.match.token1.decimals) : this.price1.priceOutBN.toFixed(this.match.token1.decimals),
 				actualPriceOut: BigNumber.from(0),
-				//Can redefine tradeSize here, by calculating the amount needed to equalize recipient.priceOut and loanPool.priceOut:
-				tradeSize: A ? //this.amounts0.tradeSize : this.amounts1.tradeSize,
-					(this.amounts0.maxIn.lt(this.amounts1.maxOut) ? this.amounts0.maxIn : this.amounts1.maxOut) :
-					(this.amounts1.maxIn.lt(this.amounts0.maxOut) ? this.amounts1.maxIn : this.amounts0.maxOut),
+
+				tradeSize: A ? this.amounts0.toPrice : this.amounts1.toPrice,
+
+				// tradeSize: A ? 
+				// 	(this.amounts0.maxIn.lt(this.amounts1.maxOut) ? this.amounts0.maxIn : this.amounts1.maxOut) :
+				// 	(this.amounts1.maxIn.lt(this.amounts0.maxOut) ? this.amounts1.maxIn : this.amounts0.maxOut),
+
 				amountOut: BigNumber.from(0),
 			},
 			k: {
@@ -134,13 +138,25 @@ export class Trade {
 			trade.recipient.tradeSize,
 		) //in token0
 
-		trade.loanPool.amountOut
-
-		trade.recipient.amountOut
-
 		const profitMulti = trade.recipient.amountOut.sub(multiRepay)
 
 		const profitDirect = trade.loanPool.amountOut.sub(directRepay)
+
+		// // // Calculate the price impact of the trade
+		// const impact = await getImpact(
+		// 	trade.recipient.reserveIn,
+		// 	trade.recipient.reserveOut,
+		// 	trade.recipient.tradeSize,
+		// 	trade.amountRepay
+		// );
+
+		// const actualPrice = impact.newPrice;
+		// const priceImpact = impact.priceImpact;
+
+		// //calculate most profitable trade
+
+
+
 
 		trade.type = profitMulti.gt(profitDirect) ? "multi" : "direct";
 
@@ -151,15 +167,6 @@ export class Trade {
 		trade.flash = trade.type === "multi" ? flashMulti : flashMulti;
 
 		trade.k = await getK(trade);
-
-
-		// // Calculate the price impact of the trade
-		// const { priceImpact, newPrice } = await getImpact(
-		// 	trade.recipient.reserveIn,
-		// 	trade.recipient.reserveOut,
-		// 	trade.recipient.tradeSize,
-		// 	trade.amountRepay
-		// );
 
 		return trade;
 	}

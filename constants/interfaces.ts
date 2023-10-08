@@ -88,6 +88,7 @@ export interface Profit {
 export interface Amounts {
 	maxIn: BigNumber;
 	maxOut: BigNumber;
+	toPrice: BigNumber;
 }
 
 

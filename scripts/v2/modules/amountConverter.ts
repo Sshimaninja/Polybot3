@@ -15,21 +15,22 @@ export class AmountConverter {
 	token0: Token;
 	token1: Token;
 	reserves: ReservesData;
+	targetPrice: BN;
 	slip: BN;
 
-	constructor(price: Prices, pair: Pair, slippageTolerance: BN) {
+	constructor(price: Prices, pair: Pair, targetPrice: BN, slippageTolerance: BN) {
 		this.reserves = price.reserves;
 		this.slip = slippageTolerance
+		this.targetPrice = targetPrice;
 		this.token0 = pair.token0;
 		this.token1 = pair.token1;
 	}
 
-	async tradeToPrice(targetPrice: BN): Promise<BigNumber> {
-		const tradeSize = await tradeToPrice(this.reserves.reserveInBN, this.reserves.reserveOutBN, targetPrice, this.slip);
+	async tradeToPrice(): Promise<BigNumber> {
+		const tradeSize = await tradeToPrice(this.reserves.reserveInBN, this.reserves.reserveOutBN, this.targetPrice, this.slip);
 		const tradeSizeJS = utils.parseUnits(tradeSize.toFixed(this.token0.decimals), this.token0.decimals!);
 		return tradeSizeJS;
 	}
-
 
 	async getMaxTokenIn(): Promise<BigNumber> {
 		const maxTokenIn = await getMaxTokenIn(this.reserves.reserveInBN, this.reserves.reserveOutBN, this.slip);
@@ -46,6 +47,7 @@ export class AmountConverter {
 	async getAmounts() {
 		const maxIn = await this.getMaxTokenIn();
 		const maxOut = await this.getMaxTokenOut();
-		return { maxIn, maxOut };
+		const toPrice = await this.tradeToPrice();
+		return { maxIn, maxOut, toPrice };
 	}
 }

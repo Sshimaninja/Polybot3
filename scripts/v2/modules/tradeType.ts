@@ -32,7 +32,6 @@ export async function getMaxTokenOut(reserveOut: BN, slippageTolerance: BN): Pro
 	return maxTokenOut.gt(0) ? maxTokenOut : new BN(0);
 }
 
-
 export async function tradeToPrice(reserveIn: BN, reserveOut: BN, targetPrice: BN, slippageTolerance: BN): Promise<BN> {
 	// Calculate the expected trade size without considering slippage
 	// ex reserveIn/reserveOut: 300000 / 10
@@ -40,16 +39,23 @@ export async function tradeToPrice(reserveIn: BN, reserveOut: BN, targetPrice: B
 	// targetPrice = 30000 / 1.2 = 25000
 	const expectedTradeSize = reserveIn.minus(targetPrice.multipliedBy(reserveOut)); // 300000 - (25000 * 10) = 50000
 
-	// Calculate the maximum allowed slippage in the trade
-	const maxSlippage = expectedTradeSize.multipliedBy(slippageTolerance); //50000 * 0.1 = 5000
+	return expectedTradeSize;
 
-	// Calculate the required tokenIn considering slippage
-	const requiredTokenIn = maxSlippage; // 5000
-
-	// If this is negative, then the trade would need to be reversed, which is additional complexity to be handled later
-	// return requiredTokenIn;
-	return requiredTokenIn.gt(0) ? requiredTokenIn : new BN(0);
 }
+
+
+
+// // USE THE FOLLOWING TO ACCOUNT FOR SLIPPAGE TOLERANCE
+// // Calculate the maximum allowed slippage in the trade
+// const maxSlippage = expectedTradeSize.multipliedBy(slippageTolerance); //50000 * 0.1 = 5000
+
+// // Calculate the required tokenIn considering slippage
+// const requiredTokenIn = maxSlippage; // 5000
+
+// If this is negative, then the trade would need to be reversed, which is additional complexity to be handled later
+// return requiredTokenIn;
+// return requiredTokenIn.gt(0) ? requiredTokenIn : new BN(0);
+
 
 
 
