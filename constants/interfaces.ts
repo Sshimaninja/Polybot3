@@ -181,7 +181,9 @@ export interface BoolTrade {
 		router: Contract
 		pool: Contract
 		reserveIn: BigNumber
+		reserveInBN: BN
 		reserveOut: BigNumber
+		reserveOutBN: BN
 		priceIn: string
 		priceOut: string
 		amountOut: BigNumber
@@ -192,9 +194,12 @@ export interface BoolTrade {
 		router: Contract
 		pool: Contract
 		reserveIn: BigNumber
+		reserveInBN: BN
 		reserveOut: BigNumber
+		reserveOutBN: BN
 		priceIn: string
 		priceOut: string
+		actualPriceOut: BigNumber
 		tradeSize: BigNumber
 		amountOut: BigNumber
 	}

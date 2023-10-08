@@ -1,0 +1,69 @@
+
+2023-10-08T01:09:14.805 INFO {
+  data: {
+    trade: 'multi',
+    ticker: 'WMATIC/QUICK',
+    loanPool: {
+      exchange: 'SUSHI',
+      priceIn: '85.152537109706696981',
+      priceOut: '0.011743631299107917',
+      reservesIn: '37.19335387925326764 WMATIC',
+      reservesOut: '0.436785034735195549 QUICK',
+      amountRepay: '0.000031057797388296 QUICK',
+      amountOut: '0.0 WMATIC'
+    },
+    recipient: {
+      exchange: 'QUICK',
+      priceIn: '83.813358501903244076',
+      priceOut: '0.011931272268218340',
+      reservesIn: '303428.477877304984871822 WMATIC',
+      reservesOut: '3620.287783485191010394 QUICK',
+      tradeSize: '0.00263652938471949 WMATIC',
+      amountOut: '0.000031362778210751 QUICK'
+    },
+    result: {
+      uniswapkPre: 0,
+      uniswapkPost: 0,
+      uniswapKPositive: false,
+      profit: '0.000000304980822455 QUICK'
+    }
+  },
+  basicData: {
+    ticker: 'WMATIC/QUICK',
+    exchanges: 'SUSHI / QUICK',
+    tradeSize: '0.00263652938471949 WMATIC',
+    direction: 'B',
+    type: 'multi',
+    profit: '0.000000304980822455 QUICK'
+  }
+}
+Trade:  B WMATIC / QUICK  @  WMATIC/QUICK
+EstimatingGas for trade: WMATIC/QUICK...
+{
+  ticker: 'WMATIC/WETH',
+  exchanges: 'SUSHI / QUICK',
+  tradeSize: '0.0 WMATIC',
+  direction: 'A',
+  type: 'direct',
+  profit: '0.0 WETH'
+}
+{
+  ticker: 'WETH/QUICK',
+  exchanges: 'SUSHI / QUICK',
+  tradeSize: '0.000984451343133071 WETH',
+  direction: 'B',
+  type: 'direct',
+  profit: '-0.000987413583804744 QUICK'
+}
+Possible trade: WMATIC/QUICK Gas Estimate:  0.000000000000412191 Gas Price:  0.056591512973591544
+2023-10-08T01:09:14.833 INFO Profitable trade found on WMATIC/QUICK!
+2023-10-08T01:09:14.833 INFO Profit:  0.000025484782605459 Gas Cost:  56591512973591544 Flash Type:  multi
+::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/QUICK::::::::::::::::::::::::::
+Wallet Balance Matic: 4.549717211759735403 MATIC
+Gas Cost::::::::::::: 0.056591512973591544 MATIC
+Sufficient Matic Balance. Proceeding...
+EstimatingGas for trade: WMATIC/QUICK...
+:::::::::::Sending Transaction:::::::::::
+Telegram message sent: 154938
+Error in control.ts: underflow [ See: https://links.ethers.org/v5-errors-NUMERIC_FAULT-underflow ] (fault="underflow", operation="BigNumber.from", value=159.335353798, code=NUMERIC_FAULT, version=bignumber/5.7.0)
+^C

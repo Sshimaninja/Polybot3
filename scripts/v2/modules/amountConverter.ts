@@ -1,6 +1,6 @@
 import { BigNumber, utils } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
-import { getMaxTokenIn, getMaxTokenOut, tradeToPrice } from './lowslipBN';
+import { getMaxTokenIn, getMaxTokenOut, tradeToPrice } from './tradeType';
 import { Pair, ReservesData } from "../../../constants/interfaces";
 import { Prices } from "./prices";
 import { Token, Amounts } from "../../../constants/interfaces";
@@ -11,7 +11,7 @@ import { HiLo, Difference } from "../../../constants/interfaces";
  * @description
  * This class holds amounts in/out for a pair, as well as the trade size.
  */
-export class AmountCalculator {
+export class AmountConverter {
 	token0: Token;
 	token1: Token;
 	reserves: ReservesData;
