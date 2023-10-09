@@ -116,10 +116,17 @@ export class Trade {
 				priceOut: A ? this.price0.priceOutBN.toFixed(this.match.token1.decimals) : this.price1.priceOutBN.toFixed(this.match.token1.decimals),
 
 				// Unclear what is the best strategy for tradesize.
-				tradeSize: A ? this.amounts0.toPrice : this.amounts1.toPrice,
-				// tradeSize: A ? 
-				// 	(this.amounts0.maxIn.lt(this.amounts1.maxOut) ? this.amounts0.maxIn : this.amounts1.maxOut) :
-				// 	(this.amounts1.maxIn.lt(this.amounts0.maxOut) ? this.amounts1.maxIn : this.amounts0.maxOut),
+				// Would be good to have a strategy that takes into account the reserves of the pool and uses the min of the three below.
+				// Also would be good to have a function that determines the optimal tradesize for a given pool.
+
+				tradeSize: A ?
+					this.amounts0.toPrice.lt(this.amounts0.maxIn) ? this.amounts0.toPrice : this.amounts0.maxIn :
+					this.amounts1.toPrice.lt(this.amounts1.maxIn) ? this.amounts1.toPrice : this.amounts1.maxIn,
+
+
+				// tradeSize: A ? // Using the following results in div-by-zero error. 
+				// (this.amounts0.maxIn.lt(this.amounts1.maxOut) ? this.amounts0.maxIn : this.amounts1.maxOut) :
+				// (this.amounts1.maxIn.lt(this.amounts0.maxOut) ? this.amounts1.maxIn : this.amounts0.maxOut),
 
 				amountOut: BigNumber.from(0),
 			},
