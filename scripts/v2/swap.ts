@@ -23,7 +23,7 @@ TODO:
  */
 const warning = 0
 const tradePending = false;
-const slippageTolerance = BN(0.006) // 0.65%
+const slippageTolerance = BN(0.02) // 0.2%
 // var virtualReserveFactor = 1.1
 var pendingID: string | undefined
 
