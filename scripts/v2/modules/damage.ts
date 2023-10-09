@@ -14,7 +14,7 @@ import { logger } from "../../../constants/contract";
  */
 export async function rollDamage(trade: BoolTrade, data: any, warning: number, tradePending: boolean, pendingID: string | undefined) {
 
-	if (trade.profit.gt(0)) {
+	if (trade.profitPercent.gt(0)) {
 
 		logger.info(data)
 
