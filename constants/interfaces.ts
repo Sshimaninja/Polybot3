@@ -200,14 +200,14 @@ export interface BoolTrade {
 		reserveOutBN: BN
 		priceIn: string
 		priceOut: string
-		actualPriceOut: BigNumber
 		tradeSize: BigNumber
 		amountOut: BigNumber
 	}
 	k: K
 	gasData: GasData
 	amountRepay: BigNumber
-	profit: BigNumber,
+	profit: BigNumber
+	profitPercent: BigNumber
 }
 export interface BoolTradeV3 {
 	direction: string
