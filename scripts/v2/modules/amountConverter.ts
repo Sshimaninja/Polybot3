@@ -26,6 +26,9 @@ export class AmountConverter {
 		this.token1 = pair.token1;
 	}
 
+	/**
+	 * @returns Amounts in/out for a trade. Can be negative which means the trade should change direction.
+	 */
 	async tradeToPrice(): Promise<BigNumber> {
 		const tradeSize = await tradeToPrice(this.reserves.reserveInBN, this.reserves.reserveOutBN, this.targetPrice, this.slip);
 		const tradeSizeJS = utils.parseUnits(tradeSize.toFixed(this.token0.decimals), this.token0.decimals!);

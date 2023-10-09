@@ -18,7 +18,7 @@ export async function rollDamage(trade: BoolTrade, data: any, warning: number, t
 	// Conversion to BN because BN works with decimals
 	const profpercBN = BN(u.formatUnits(trade.profitPercent, trade.tokenOut.decimals))
 
-	if (profpercBN.gt(0.6) || profpercBN.lt(-0.6)) {
+	if (profpercBN.gt(0.3) || profpercBN.lt(-0.3)) {
 
 		logger.info(data)
 
@@ -58,8 +58,8 @@ export async function rollDamage(trade: BoolTrade, data: any, warning: number, t
 		}
 
 	} else if (profpercBN.lt(0.6) && profpercBN.gt(-0.6)) {
-		console.log("<<<<<<<<<<<<No Trade: " + trade.ticker + " [ profit < 0.6% ] >>>>>>>>>>>>")
-		// console.log(data.basicData)
+		// console.log("<<<<<<<<<<<<No Trade: " + trade.ticker + " [ profit < 0.3% | " + profpercBN.toFixed(trade.tokenOut.decimals) + " ] >>>>>>>>>>>>")
+		console.log(data.basicData)
 		return
 	}
 }

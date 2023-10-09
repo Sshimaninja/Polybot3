@@ -15,6 +15,7 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
 	const data = {
 		trade: trade.type,
 		ticker: trade.ticker,
+		direction: trade.direction,
 		loanPool: {
 			exchange: trade.loanPool.exchange,
 			priceIn: trade.loanPool.priceIn,
@@ -26,7 +27,7 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
 					u(trade.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol
 				) : trade.type === "direct" ? (
 					u(trade.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol) : "error",
-			amountOut: u(trade.loanPool.amountOut, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
+			amountOut: u(trade.loanPool.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
 
 		},
 		recipient: {
@@ -56,17 +57,19 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
 		prices: {
 			loanPool: {
 				exchange: trade.loanPool.exchange,
-				priceIn: trade.loanPool.priceIn + '/1',
-				priceOut: trade.loanPool.priceOut + '/1',
+				reserves: (trade.loanPool.reserveInBN).toFixed(trade.tokenIn.decimals) + trade.tokenIn.symbol + '/' + (trade.loanPool.reserveOutBN).toFixed(trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
+				priceIn: BN(trade.loanPool.priceIn).toFixed(trade.tokenIn.decimals),
+				priceOut: BN(trade.loanPool.priceOut).toFixed(trade.tokenOut.decimals),
 			},
 			recipient: {
 				exchange: trade.recipient.exchange,
-				priceIn: trade.recipient.priceIn + '/1',
-				priceOut: trade.recipient.priceOut + '/1',
+				reserves: (trade.recipient.reserveInBN).toFixed(trade.tokenIn.decimals) + trade.tokenIn.symbol + '/' + (trade.recipient.reserveOutBN).toFixed(trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
+				priceIn: BN(trade.recipient.priceIn).toFixed(trade.tokenIn.decimals),
+				priceOut: BN(trade.recipient.priceOut).toFixed(trade.tokenIn.decimals),
 			},
 			difference: {
-				In: BN(trade.loanPool.priceIn).minus(BN(trade.recipient.priceIn)).dividedBy(BN(trade.loanPool.priceIn)).multipliedBy(100).toFixed(trade.tokenIn.decimals) + '%',
-				Out: BN(trade.loanPool.priceOut).minus(BN(trade.recipient.priceOut)).dividedBy(BN(trade.loanPool.priceOut)).multipliedBy(100).toFixed(trade.tokenOut.decimals) + '%',
+				tokenOut: trade.differenceTokenOut,
+				percent: trade.differencePercent,
 			}
 		},
 		profit: u(trade.profit, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,

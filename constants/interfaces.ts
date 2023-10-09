@@ -187,7 +187,7 @@ export interface BoolTrade {
 		reserveOutBN: BN
 		priceIn: string
 		priceOut: string
-		amountOut: BigNumber
+		amountRepay: BigNumber
 	}
 	recipient: {
 		exchange: string
@@ -206,6 +206,8 @@ export interface BoolTrade {
 	k: K
 	gasData: GasData
 	amountRepay: BigNumber
+	differenceTokenOut: string
+	differencePercent: string
 	profit: BigNumber
 	profitPercent: BigNumber
 }
