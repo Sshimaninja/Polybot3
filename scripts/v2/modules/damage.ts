@@ -1,4 +1,5 @@
 import { BoolTrade } from "../../../constants/interfaces";
+import { utils as u } from "ethers";
 import { gasVprofit } from "./gasVprofit";
 import { sendit } from "../execute";
 import { BigNumber as BN } from "bignumber.js";
@@ -14,7 +15,10 @@ import { logger } from "../../../constants/contract";
  */
 export async function rollDamage(trade: BoolTrade, data: any, warning: number, tradePending: boolean, pendingID: string | undefined) {
 
-	if (trade.profitPercent.gt(0)) {
+	// Conversion to BN because BN works with decimals
+	const profpercBN = BN(u.formatUnits(trade.profitPercent, trade.tokenOut.decimals))
+
+	if (profpercBN.gt(0.6) || profpercBN.lt(-0.6)) {
 
 		logger.info(data)
 
@@ -53,8 +57,9 @@ export async function rollDamage(trade: BoolTrade, data: any, warning: number, t
 			return
 		}
 
-	} else if (trade.profit.lte(0)) {
-		console.log(data.basicData)
+	} else if (profpercBN.lt(0.6) && profpercBN.gt(-0.6)) {
+		console.log("<<<<<<<<<<<<No Trade: " + trade.ticker + " [ profit < 0.6% ] >>>>>>>>>>>>")
+		// console.log(data.basicData)
 		return
 	}
 }
