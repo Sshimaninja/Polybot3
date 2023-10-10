@@ -3,8 +3,8 @@ require('colors')
 import { BigNumber as BN } from "bignumber.js";
 import { Prices } from './modules/prices';
 import { FactoryPair, Pair } from '../../constants/interfaces';
-import { AmountCalculator } from './modules/amountCalcSingle'
-import { Trade } from './modules/getTrade';
+import { AmountConverter } from './modules/amountConverter'
+import { Trade } from './getTrade';
 import { gasVprofit } from './modules/gasVprofit';
 import { Reserves } from './modules/reserves';
 import { sendit } from './execute';
@@ -23,7 +23,7 @@ TODO:
  */
 const warning = 0
 const tradePending = false;
-const slippageTolerance = BN(0.006) // 0.65%
+const slippageTolerance = BN(0.01)
 // var virtualReserveFactor = 1.1
 var pendingID: string | undefined
 
@@ -42,15 +42,7 @@ export async function control(data: FactoryPair[], gasData: any) {
 				const p0 = new Prices(match.token0, match.token1, match.poolA_id, reserves[0]);
 				const p1 = new Prices(match.token0, match.token1, match.poolB_id, reserves[1]);
 
-				const c0 = new AmountCalculator(p0, match, slippageTolerance);
-				const c1 = new AmountCalculator(p1, match, slippageTolerance);
-
-				const amounts0 = await c0.getAmounts();
-				const amounts1 = await c1.getAmounts();
-
-				const amounts = await Promise.all([amounts0, amounts1]);
-
-				const t = new Trade(pair, match, p0, p1, amounts[0], amounts[1], gasData);
+				const t = new Trade(pair, match, p0, p1, slippageTolerance, gasData);
 				const trade = await t.getTrade();
 
 				const dataPromise = tradeLogs(trade);

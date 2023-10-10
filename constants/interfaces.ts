@@ -88,6 +88,7 @@ export interface Profit {
 export interface Amounts {
 	maxIn: BigNumber;
 	maxOut: BigNumber;
+	toPrice: BigNumber;
 }
 
 
@@ -181,10 +182,12 @@ export interface BoolTrade {
 		router: Contract
 		pool: Contract
 		reserveIn: BigNumber
+		reserveInBN: BN
 		reserveOut: BigNumber
+		reserveOutBN: BN
 		priceIn: string
 		priceOut: string
-		amountOut: BigNumber
+		amountRepay: BigNumber
 	}
 	recipient: {
 		exchange: string
@@ -192,7 +195,9 @@ export interface BoolTrade {
 		router: Contract
 		pool: Contract
 		reserveIn: BigNumber
+		reserveInBN: BN
 		reserveOut: BigNumber
+		reserveOutBN: BN
 		priceIn: string
 		priceOut: string
 		tradeSize: BigNumber
@@ -201,7 +206,10 @@ export interface BoolTrade {
 	k: K
 	gasData: GasData
 	amountRepay: BigNumber
-	profit: BigNumber,
+	differenceTokenOut: string
+	differencePercent: string
+	profit: BigNumber
+	profitPercent: BigNumber
 }
 export interface BoolTradeV3 {
 	direction: string
