@@ -14,52 +14,60 @@ import { logger } from "../../../constants/contract";
  * @returns 
  */
 export async function rollDamage(trade: BoolTrade, data: any, warning: number, tradePending: boolean, pendingID: string | undefined) {
-
-	// Conversion to BN because BN works with decimals
-	const profpercBN = BN(u.formatUnits(trade.profitPercent, trade.tokenOut.decimals))
-
-	if (profpercBN.gt(0.3) || profpercBN.lt(-0.3)) {
-
-		logger.info(data)
-
-		const actualProfit = await gasVprofit(trade)
-
-		if (BN(actualProfit.profit).gt(0) && warning === 0) {
-			logger.info("Profitable trade found on " + trade.ticker + "!")
-			logger.info("Profit: ", actualProfit.profit.toString(), "Gas Cost: ", actualProfit.gasCost.toString(), "Flash Type: ", trade.type)
-			tradePending = true
-			pendingID = trade.recipient.pool.address
-
-			await sendit(trade, actualProfit)
-
-			warning++
-			return warning
-		}
-
-		if (BN(actualProfit.profit).gt(0) && warning === 1) {
-			logger.info("Trade pending on " + pendingID + "?: ", tradePending)
-			warning++
-			return warning
-		}
-
-		if (BN(actualProfit.profit).gt(0) && warning > 1) {
-			return
-		}
-
-		if (BN(actualProfit.profit).lte(0)) {
-			console.log("<<<<<<<<<<<<No Trade: " + trade.ticker + " [ gas > profit ] >>>>>>>>>>>>")
-			console.log(data)
-			return
-		}
-
-		if (actualProfit.profit == undefined) {
-			console.log("Profit is undefined: error in gasVProfit")
-			return
-		}
-
-	} else if (profpercBN.lt(0.6) && profpercBN.gt(-0.6)) {
-		// console.log("<<<<<<<<<<<<No Trade: " + trade.ticker + " [ profit < 0.3% | " + profpercBN.toFixed(trade.tokenOut.decimals) + " ] >>>>>>>>>>>>")
+	// DEBUG
+	if (BN(trade.loanPool.priceOut).gt(BN(trade.recipient.priceIn))) {
 		console.log(data.basicData)
-		return
+	} else {
+		console.log('LOANPOOL < RECIPIENT')
+		console.log(data.basicData)
 	}
+	// DEBUG
+
+	// // Conversion to BN because BN works with decimals
+	// const profpercBN = BN(u.formatUnits(trade.profitPercent, trade.tokenOut.decimals))
+
+	// if (profpercBN.gt(0.3) || profpercBN.lt(-0.3)) {
+
+	// 	logger.info(data)
+
+	// 	const actualProfit = await gasVprofit(trade)
+
+	// 	if (BN(actualProfit.profit).gt(0) && warning === 0) {
+	// 		logger.info("Profitable trade found on " + trade.ticker + "!")
+	// 		logger.info("Profit: ", actualProfit.profit.toString(), "Gas Cost: ", actualProfit.gasCost.toString(), "Flash Type: ", trade.type)
+	// 		tradePending = true
+	// 		pendingID = trade.recipient.pool.address
+
+	// 		await sendit(trade, actualProfit)
+
+	// 		warning++
+	// 		return warning
+	// 	}
+
+	// 	if (BN(actualProfit.profit).gt(0) && warning === 1) {
+	// 		logger.info("Trade pending on " + pendingID + "?: ", tradePending)
+	// 		warning++
+	// 		return warning
+	// 	}
+
+	// 	if (BN(actualProfit.profit).gt(0) && warning > 1) {
+	// 		return
+	// 	}
+
+	// 	if (BN(actualProfit.profit).lte(0)) {
+	// 		console.log("<<<<<<<<<<<<No Trade: " + trade.ticker + " [ gas > profit ] >>>>>>>>>>>>")
+	// 		console.log(data)
+	// 		return
+	// 	}
+
+	// 	if (actualProfit.profit == undefined) {
+	// 		console.log("Profit is undefined: error in gasVProfit")
+	// 		return
+	// 	}
+
+	// } else if (profpercBN.lt(0.6) && profpercBN.gt(-0.6)) {
+	// 	// console.log("<<<<<<<<<<<<No Trade: " + trade.ticker + " [ profit < 0.3% | " + profpercBN.toFixed(trade.tokenOut.decimals) + " ] >>>>>>>>>>>>")
+	// 	console.log(data.basicData)
+	// 	return
+	// }
 }

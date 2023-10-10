@@ -16,6 +16,7 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
 		trade: trade.type,
 		ticker: trade.ticker,
 		direction: trade.direction,
+		tradeSize: u(trade.recipient.tradeSize, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
 		loanPool: {
 			exchange: trade.loanPool.exchange,
 			priceIn: trade.loanPool.priceIn,
@@ -36,7 +37,6 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
 			priceOut: trade.recipient.priceOut,
 			reservesIn: u(trade.recipient.reserveIn, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
 			reservesOut: u(trade.recipient.reserveOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
-			tradeSize: u(trade.recipient.tradeSize, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
 			amountOut: u(trade.recipient.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
 		},
 		result: {
