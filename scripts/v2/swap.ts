@@ -23,7 +23,7 @@ TODO:
  */
 const warning = 0
 const tradePending = false;
-const slippageTolerance = BN(0.02) // 0.2%
+const slippageTolerance = BN(0.01)
 // var virtualReserveFactor = 1.1
 var pendingID: string | undefined
 
@@ -42,7 +42,7 @@ export async function control(data: FactoryPair[], gasData: any) {
 				const p0 = new Prices(match.token0, match.token1, match.poolA_id, reserves[0]);
 				const p1 = new Prices(match.token0, match.token1, match.poolB_id, reserves[1]);
 
-				const t = new Trade(pair, match, p0, p1, gasData);
+				const t = new Trade(pair, match, p0, p1, slippageTolerance, gasData);
 				const trade = await t.getTrade();
 
 				const dataPromise = tradeLogs(trade);

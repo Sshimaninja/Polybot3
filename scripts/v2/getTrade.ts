@@ -34,22 +34,27 @@ export class Trade {
 	match: Pair;
 	price0: Prices;
 	price1: Prices;
-	amounts0: AmountConverter;
-	amounts1: AmountConverter;
+	slip: BN;
 	gasData: GasData;
 
-	constructor(pair: FactoryPair, match: Pair, price0: Prices, price1: Prices, gasData: GasData) {
+	amounts0: AmountConverter;
+	amounts1: AmountConverter;
+
+	constructor(pair: FactoryPair, match: Pair, price0: Prices, price1: Prices, slip: BN, gasData: GasData) {
 		this.pair = pair;
 		this.price0 = price0;
 		this.price1 = price1;
 		this.match = match;
+		this.slip = slip;
 		this.gasData = gasData;
-		this.amounts0 = new AmountConverter(price0, match, this.price1.priceOutBN, BN(0.02));
-		this.amounts1 = new AmountConverter(price1, match, this.price0.priceOutBN, BN(0.02));
+
+		// Pass in the opposing pool's priceOut as target
+		this.amounts0 = new AmountConverter(price0, match, this.price1.priceOutBN, slip);
+		this.amounts1 = new AmountConverter(price1, match, this.price0.priceOutBN, slip);
 
 	}
 
-	// Get repayment amount for the loanPool direct tokent trade
+	// Get repayment amount for the loanPool direct token trade
 	async getRepayMulti(tradeSize: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
 		const amountRepay = await getAmountsIn(tradeSize, reserveIn, reserveOut); // result must be token1
 		return amountRepay; //in token1
@@ -121,9 +126,7 @@ export class Trade {
 				// Would be good to have a strategy that takes into account the reserves of the pool and uses the min of the three below.
 				// Also would be good to have a function that determines the optimal tradesize for a given pool.
 				// for this tradeSize, amounts0.price gets passed amounts1.price as target, and vice versa.
-				tradeSize: A ?
-					(await this.amounts.tradeToPrice(this.price1.priceOutBN)).lt(this.amounts.getMaxTokenIn()) ?
-						(await this.amounts.tradeToPrice(this.price0.priceOutBN)),
+				tradeSize: A ? await this.amounts0.tradeToPrice() : await this.amounts1.tradeToPrice(),
 				// tradeSize: A ? // This is a possible solution but it results in div-by-zero error (likely due to toPrice being negative sometimes)
 				// this.amounts0.toPrice.lt(this.amounts0.maxIn) ? this.amounts0.toPrice : this.amounts0.maxIn :
 				// this.amounts1.toPrice.lt(this.amounts1.maxIn) ? this.amounts1.toPrice : this.amounts1.maxIn,
