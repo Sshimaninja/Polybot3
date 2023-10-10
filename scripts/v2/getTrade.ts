@@ -12,6 +12,7 @@ import { BoolTrade } from "../../constants/interfaces"
 import { getAmountsIn, getAmountsOut } from "./modules/getAmountsIOLocal";
 import { getImpact } from "./modules/getImpact";
 import { getProfitInTokenOut } from "./modules/getProfitInTokenOut";
+import { AmountConverter } from "./modules/amountConverter";
 
 /**
  * @description
@@ -33,18 +34,16 @@ export class Trade {
 	match: Pair;
 	price0: Prices;
 	price1: Prices;
-	amounts0: Amounts;
-	amounts1: Amounts;
+	amounts: AmountConverter;
 	gasData: GasData;
 
-	constructor(pair: FactoryPair, match: Pair, price0: Prices, price1: Prices, amounts0: Amounts, amounts1: Amounts, gasData: GasData) {
+	constructor(pair: FactoryPair, match: Pair, price0: Prices, price1: Prices, gasData: GasData) {
 		this.pair = pair;
 		this.price0 = price0;
 		this.price1 = price1;
 		this.match = match;
-		this.amounts0 = amounts0
-		this.amounts1 = amounts1;
 		this.gasData = gasData;
+		this.amounts = new AmountConverter(price0, match, BN(0.02));
 	}
 
 	// Get repayment amount for the loanPool direct tokent trade
@@ -75,9 +74,8 @@ export class Trade {
 		const A = this.price0.priceOutBN
 		const B = this.price1.priceOutBN
 		const diff = A.lt(B) ? B.minus(A) : A.minus(B)
-		console.log("diff: ", diff.toString())
 		const dperc = diff.div(A.gt(B) ? A : B).multipliedBy(100)// 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
-		console.log("dperc: ", dperc.toString())
+
 		const dir = A.lt(B) ? "A" : "B"
 		return { dir, diff, dperc }
 	}
@@ -121,17 +119,15 @@ export class Trade {
 				// Would be good to have a strategy that takes into account the reserves of the pool and uses the min of the three below.
 				// Also would be good to have a function that determines the optimal tradesize for a given pool.
 				// for this tradeSize, amounts0.price gets passed amounts1.price as target, and vice versa.
-				tradeSize: A ? this.amounts0.toPrice : this.amounts1.toPrice,
+				tradeSize: A ? await this.amounts.tradeToPrice(this.price1.priceOutBN) : await this.amounts.tradeToPrice(this.price0.priceOutBN),
 
 				// tradeSize: A ? // This is a possible solution but it results in div-by-zero error (likely due to toPrice being negative sometimes)
 				// this.amounts0.toPrice.lt(this.amounts0.maxIn) ? this.amounts0.toPrice : this.amounts0.maxIn :
 				// this.amounts1.toPrice.lt(this.amounts1.maxIn) ? this.amounts1.toPrice : this.amounts1.maxIn,
 
-
 				// tradeSize: A ? // Using the following results in div-by-zero error. 
 				// (this.amounts0.maxIn.lt(this.amounts1.maxOut) ? this.amounts0.maxIn : this.amounts1.maxOut) :
 				// (this.amounts1.maxIn.lt(this.amounts0.maxOut) ? this.amounts1.maxIn : this.amounts0.maxOut),
-
 				amountOut: BigNumber.from(0),
 			},
 			k: {

@@ -15,7 +15,7 @@ import { logger } from "../../../constants/contract";
  */
 export async function rollDamage(trade: BoolTrade, data: any, warning: number, tradePending: boolean, pendingID: string | undefined) {
 	// DEBUG
-	if (BN(trade.loanPool.priceOut).gt(BN(trade.recipient.priceIn))) {
+	if (BN(trade.loanPool.priceOut).gt(BN(trade.recipient.priceOut))) {
 		console.log(data.basicData)
 	} else {
 		console.log('LOANPOOL < RECIPIENT')
