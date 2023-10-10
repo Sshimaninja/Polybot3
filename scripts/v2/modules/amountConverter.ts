@@ -1,6 +1,6 @@
 import { BigNumber, utils } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
-import { getMaxTokenIn, getMaxTokenOut, tradeToPrice } from './tradeType';
+import { getMaxTokenIn, getMaxTokenOut, tradeToPrice } from './tradeMath';
 import { Pair, ReservesData } from "../../../constants/interfaces";
 import { Prices } from "./prices";
 import { Token, Amounts } from "../../../constants/interfaces";
@@ -16,22 +16,28 @@ export class AmountConverter {
 	token0: Token;
 	token1: Token;
 	reserves: ReservesData;
+	price: Prices;
+	targetPrice: BN;
 	slip: BN;
 
-	constructor(price: Prices, pair: Pair, slippageTolerance: BN) {
+	constructor(price: Prices, pair: Pair, targetPrice: BN, slippageTolerance: BN) {
 		this.reserves = price.reserves;
+		this.price = price
+		this.targetPrice = targetPrice;
 		this.slip = slippageTolerance
 		this.token0 = pair.token0;
 		this.token1 = pair.token1;
 	}
 
 	/**
-	 * @returns Amounts in/out for a trade. Can be negative which means the trade needs to be reversed.
+	 * @returns Amounts in/out for a trade. Should never be negative.
 	 */
-	async tradeToPrice(targetPrice: BN): Promise<BigNumber> {
-		targetPrice = this.reserves.reserveOutBN.plus(targetPrice).div(2);// average of two prices
-		const tradeSize = await tradeToPrice(this.reserves.reserveInBN, this.reserves.reserveOutBN, targetPrice, this.slip);
+	async tradeToPrice(): Promise<BigNumber> {
+		this.targetPrice = this.price.priceOutBN.plus(this.targetPrice).div(2);// average of two prices
+		const tradeSize = await tradeToPrice(this.reserves.reserveInBN, this.reserves.reserveOutBN, this.targetPrice, this.slip);
+		console.log('tradeSize: ', tradeSize.toFixed(this.token0.decimals));//DEBUG
 		const tradeSizeJS = utils.parseUnits(tradeSize.toFixed(this.token0.decimals), this.token0.decimals);
+		console.log('tradeSizeJS: ', utils.formatUnits(tradeSizeJS, this.token0.decimals));//DEBUG
 		return tradeSizeJS;
 	}
 
