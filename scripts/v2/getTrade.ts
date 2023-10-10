@@ -34,7 +34,8 @@ export class Trade {
 	match: Pair;
 	price0: Prices;
 	price1: Prices;
-	amounts: AmountConverter;
+	amounts0: AmountConverter;
+	amounts1: AmountConverter;
 	gasData: GasData;
 
 	constructor(pair: FactoryPair, match: Pair, price0: Prices, price1: Prices, gasData: GasData) {
@@ -43,7 +44,9 @@ export class Trade {
 		this.price1 = price1;
 		this.match = match;
 		this.gasData = gasData;
-		this.amounts = new AmountConverter(price0, match, BN(0.02));
+		this.amounts0 = new AmountConverter(price0, match, this.price1.priceOutBN, BN(0.02));
+		this.amounts1 = new AmountConverter(price1, match, this.price0.priceOutBN, BN(0.02));
+
 	}
 
 	// Get repayment amount for the loanPool direct tokent trade
@@ -75,12 +78,11 @@ export class Trade {
 		const B = this.price1.priceOutBN
 		const diff = A.lt(B) ? B.minus(A) : A.minus(B)
 		const dperc = diff.div(A.gt(B) ? A : B).multipliedBy(100)// 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
-
 		const dir = A.lt(B) ? "A" : "B"
 		return { dir, diff, dperc }
 	}
 
-	async getTrade(): Promise<BoolTrade> {
+	async getTrade() {
 		const dir = await this.direction();
 		const A = dir.dir == "A"
 		const trade: BoolTrade = {
@@ -119,8 +121,9 @@ export class Trade {
 				// Would be good to have a strategy that takes into account the reserves of the pool and uses the min of the three below.
 				// Also would be good to have a function that determines the optimal tradesize for a given pool.
 				// for this tradeSize, amounts0.price gets passed amounts1.price as target, and vice versa.
-				tradeSize: A ? await this.amounts.tradeToPrice(this.price1.priceOutBN) : await this.amounts.tradeToPrice(this.price0.priceOutBN),
-
+				tradeSize: A ?
+					(await this.amounts.tradeToPrice(this.price1.priceOutBN)).lt(this.amounts.getMaxTokenIn()) ?
+						(await this.amounts.tradeToPrice(this.price0.priceOutBN)),
 				// tradeSize: A ? // This is a possible solution but it results in div-by-zero error (likely due to toPrice being negative sometimes)
 				// this.amounts0.toPrice.lt(this.amounts0.maxIn) ? this.amounts0.toPrice : this.amounts0.maxIn :
 				// this.amounts1.toPrice.lt(this.amounts1.maxIn) ? this.amounts1.toPrice : this.amounts1.maxIn,
@@ -157,28 +160,33 @@ export class Trade {
 			trade.recipient.reserveOut); // token1 max out
 
 		// arbitrage type options: 
-		const multiRepay = trade.loanPool.amountRepay.mul(1003).div(1000000000) //repayment in token1 using getAmountIn
+		if (trade.recipient.tradeSize.gt(0)) {
+			const multiRepay = trade.loanPool.amountRepay.mul(1003).div(1000000000) //repayment in token1 using getAmountIn
 
-		const directRepay = await this.getRepayDirect(trade.recipient.tradeSize) //repayment in token0 using simple addition of 0.3%
+			const directRepay = await this.getRepayDirect(trade.recipient.tradeSize) //repayment in token0 using simple addition of 0.3%
 
-		const profitMulti = multiRepay.sub(trade.recipient.amountOut); // token1 repay - token1 out
-		// const profitDirect = directRepay.sub(trade.recipient.amountOut); // token0 repay - token1 out
-		const profitDirect = (await getAmountsIn(trade.recipient.amountOut, trade.loanPool.reserveIn, trade.loanPool.reserveOut,)).sub(directRepay);
+			const profitMulti = multiRepay.sub(trade.recipient.amountOut); // token1 repay - token1 out
+			// const profitDirect = directRepay.sub(trade.recipient.amountOut); // token0 repay - token1 out
+			const profitDirect = (await getAmountsIn(trade.recipient.amountOut, trade.loanPool.reserveIn, trade.loanPool.reserveOut,)).sub(directRepay);
 
-		// The below will not work for direct trades, as multi repay is in token0, while directRepay is in token1.
-		trade.type = profitMulti.gt(profitDirect) ? "multi" : "direct";
+			// The below will not work for direct trades, as multi repay is in token0, while directRepay is in token1.
+			trade.type = profitMulti.gt(profitDirect) ? "multi" : "direct";
 
-		trade.amountRepay = trade.type === "multi" ? multiRepay : directRepay;
+			trade.amountRepay = trade.type === "multi" ? multiRepay : directRepay;
 
-		trade.profit = trade.type === "multi" ? profitMulti : profitDirect;
+			trade.profit = trade.type === "multi" ? profitMulti : profitDirect;
 
-		trade.profitPercent = trade.profit.div(trade.recipient.amountOut).mul(100);
+			trade.profitPercent = trade.profit.div(trade.recipient.amountOut).mul(100);
 
-		trade.flash = trade.type === "multi" ? flashMulti : flashMulti;
+			trade.flash = trade.type === "multi" ? flashMulti : flashMulti;
 
-		trade.k = await getK(trade);
+			trade.k = await getK(trade);
 
-		return trade;
+			return trade;
+		} else {
+			console.log("<<<<<<No trade: tradeSize is zero or negative: ", trade.ticker, ">>>>>>>");
+			return trade;
+		}
 	}
 }
 

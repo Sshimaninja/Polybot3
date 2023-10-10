@@ -42,14 +42,6 @@ export async function control(data: FactoryPair[], gasData: any) {
 				const p0 = new Prices(match.token0, match.token1, match.poolA_id, reserves[0]);
 				const p1 = new Prices(match.token0, match.token1, match.poolB_id, reserves[1]);
 
-				// const c0 = new AmountConverter(p0, match, p1.priceOutBN, slippageTolerance);
-				// const c1 = new AmountConverter(p1, match, p0.priceOutBN, slippageTolerance);
-
-				// const amounts0 = await c0.getAmounts();
-				// const amounts1 = await c1.getAmounts();
-
-				// const amounts = await Promise.all([amounts0, amounts1]);
-
 				const t = new Trade(pair, match, p0, p1, gasData);
 				const trade = await t.getTrade();
 
