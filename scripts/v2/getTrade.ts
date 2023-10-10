@@ -56,6 +56,7 @@ export class Trade {
 
 	// Get repayment amount for the loanPool direct token trade
 	async getRepayMulti(tradeSize: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
+		// should be recipient.amountOut, loanPool.reserveIn, loanPool.reserveOut
 		const amountRepay = await getAmountsIn(tradeSize, reserveIn, reserveOut); // result must be token1
 		return amountRepay; //in token1
 	}
@@ -149,14 +150,6 @@ export class Trade {
 			profitPercent: BigNumber.from(0),
 		};
 
-		//We need the amountOut of tokenIn for directRepay from loanpool 
-		//to see now much of token0 loan can be repaid, if the trade is direct.
-
-		trade.loanPool.amountRepay = await getAmountsIn(
-			trade.recipient.tradeSize, // token0 in to calculate
-			trade.loanPool.reserveOut, // token1 already received
-			trade.loanPool.reserveIn); // token0 in to calculate
-
 		trade.recipient.amountOut = await getAmountsOut(
 			trade.recipient.tradeSize, // token0 in given
 			trade.recipient.reserveIn, // token0 in 
@@ -164,28 +157,36 @@ export class Trade {
 
 		// arbitrage type options: 
 		if (trade.recipient.tradeSize.gt(0)) {
-			const multiRepay = trade.loanPool.amountRepay.mul(1003).div(1000000000) //repayment in token1 using getAmountIn
 
-			const directRepay = await this.getRepayDirect(trade.recipient.tradeSize) //repayment in token0 using simple addition of 0.3%
+			const multiRepay = await this.getRepayMulti(
+				trade.recipient.amountOut,
+				trade.loanPool.reserveOut,
+				trade.loanPool.reserveIn
+			); //repayment in token1 using getAmountIn
+
+			const directRepay = await this.getRepayDirect(trade.recipient.tradeSize); //repayment in token0 using simple addition of 0.3%
 
 			const profitMulti = multiRepay.sub(trade.recipient.amountOut); // token1 repay - token1 out
-			// const profitDirect = directRepay.sub(trade.recipient.amountOut); // token0 repay - token1 out
-			const profitDirect = (await getAmountsIn(trade.recipient.amountOut, trade.loanPool.reserveIn, trade.loanPool.reserveOut,)).sub(directRepay);
 
-			// The below will not work for direct trades, as multi repay is in token0, while directRepay is in token1.
+			const profitDirect = trade.recipient.tradeSize.sub(directRepay); // token0 borrowed - token0 repay
+
 			trade.type = profitMulti.gt(profitDirect) ? "multi" : "direct";
 
+			// The below will be either in token0 or token1, depending on the trade type.
 			trade.amountRepay = trade.type === "multi" ? multiRepay : directRepay;
+			///////////////////////////////////////////////////////////////////////////////
 
 			trade.profit = trade.type === "multi" ? profitMulti : profitDirect;
+			//////////////////////////////////////////////////////////////////////////
 
-			trade.profitPercent = trade.profit.div(trade.recipient.amountOut).mul(100);
+			trade.profitPercent = trade.type == "multi" ? profitMulti.mul(100).div(trade.recipient.amountOut) : profitDirect.mul(100).div(trade.recipient.tradeSize);
 
 			trade.flash = trade.type === "multi" ? flashMulti : flashMulti;
 
 			trade.k = await getK(trade);
 
 			return trade;
+
 		} else {
 			console.log("<<<<<<No trade: tradeSize is zero or negative: ", trade.ticker, ">>>>>>>");
 			return trade;
