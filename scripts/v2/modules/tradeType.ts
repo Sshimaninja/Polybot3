@@ -1,5 +1,4 @@
 import { BigNumber as BN } from "bignumber.js";
-import { ChainId, Fetcher, Pair, Token, TokenAmount, TradeType, Route, Trade } from '@uniswap/sdk';
 /**
  * 
  * @param reserveIn 
@@ -27,7 +26,7 @@ export async function getMaxTokenIn(reserveIn: BN, reserveOut: BN, slippageToler
 	const targetPrice = currentToken0Price.plus(slippageNum);
 	const targetReserves = targetPrice.multipliedBy(reserveIn);
 	if (reserveIn.lt(targetReserves)) {
-		console.log('[getMaxTokenIn:] targetReserves must be higher than reserveIn')
+		console.log('[getMaxTokenIn:] targetReserves must be higher than reserveIn or else maxToken0In will be negative')
 	}
 	const maxToken0In = targetReserves.minus(reserveIn);
 	return maxToken0In
@@ -50,7 +49,7 @@ export async function getMaxTokenOut(reserveIn: BN, reserveOut: BN, slippageTole
 	const lowestPrice = currentToken1Price.minus(slippageNum);
 	const targetReserves = reserveIn.multipliedBy(lowestPrice);
 	if (reserveOut.lt(targetReserves)) {
-		console.log('[getMaxTokenOut:] targetReserves must be higher than reserveOut')
+		console.log('[getMaxTokenOut:] targetReserves must be higher than reserveOut or else maxToken1Out will be negative')
 	}
 	const maxToken1Out = reserveOut.minus(targetReserves);
 	return maxToken1Out;
@@ -67,12 +66,13 @@ export async function getMaxTokenOut(reserveIn: BN, reserveOut: BN, slippageTole
  */
 
 export async function tradeToPrice(reserveIn: BN, reserveOut: BN, targetPrice: BN, slippageTolerance: BN): Promise<BN> {
-	const currentPrice = reserveIn.div(reserveOut);
-	const diff = targetPrice.minus(currentPrice);
+	const currentPrice = reserveOut.div(reserveIn); // 1580
+	const diff = targetPrice.minus(currentPrice); // 1650 - 1580 = 70
 	if (targetPrice.lt(currentPrice)) {
-		console.log('[tradeToPrice:] targetPrice must be higher than currentPrice');
+		console.log('[tradeToPrice:] targetPrice must be higher than currentPrice or else tradeSize will be negative');
+		console.log('currentPrice: ', currentPrice.toFixed(6), 'targetPrice: ', targetPrice.toFixed(6));
 	}
-	const tradeSize = diff.multipliedBy(reserveIn);
+	const tradeSize = diff.multipliedBy(reserveIn); // 70 * 1000 = 70000
 	return tradeSize
 }
 

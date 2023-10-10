@@ -24,7 +24,7 @@ export class AmountConverter {
 		this.slip = slippageTolerance
 		this.token0 = pair.token0;
 		this.token1 = pair.token1;
-		this.targetPrice = targetPrice.plus(price.priceOutBN).div(2)
+		this.targetPrice = targetPrice.plus(price.priceOutBN).div(2) // average of two prices must be higher than price.priceOutBN
 	}
 
 	/**
