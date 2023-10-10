@@ -21,12 +21,13 @@ import { BigNumber as BN } from "bignumber.js";
  */
 
 export async function getMaxTokenIn(reserveIn: BN, reserveOut: BN, slippageTolerance: BN): Promise<BN> {
-	const currentToken0Price = reserveOut.div(reserveIn);
-	const slippageNum = currentToken0Price.multipliedBy(slippageTolerance);
-	const targetPrice = currentToken0Price.plus(slippageNum);
+	const currentPrice = reserveOut.div(reserveIn);
+	const slippageNum = currentPrice.multipliedBy(slippageTolerance);
+	const targetPrice = currentPrice.plus(slippageNum);
 	const targetReserves = targetPrice.multipliedBy(reserveIn);
 	if (reserveIn.lt(targetReserves)) {
-		console.log('[getMaxTokenIn:] targetReserves must be higher than reserveIn or else maxToken0In will be negative')
+		console.log('[getMaxTokenIn]: targetReserves must be higher than reserveIn or else maxToken0In will be negative');
+		console.log('[tradeToPrice]: currentPrice: ', currentPrice.toFixed(6), 'targetPrice: ', targetPrice.toFixed(6));
 	}
 	const maxToken0In = targetReserves.minus(reserveIn);
 	return maxToken0In
@@ -44,12 +45,14 @@ export async function getMaxTokenIn(reserveIn: BN, reserveOut: BN, slippageToler
 */
 
 export async function getMaxTokenOut(reserveIn: BN, reserveOut: BN, slippageTolerance: BN): Promise<BN> {
-	const currentToken1Price = reserveIn.div(reserveOut);
-	const slippageNum = currentToken1Price.multipliedBy(slippageTolerance);
-	const lowestPrice = currentToken1Price.minus(slippageNum);
-	const targetReserves = reserveIn.multipliedBy(lowestPrice);
+	const currentPrice = reserveOut.div(reserveIn);
+	const slippageNum = currentPrice.multipliedBy(slippageTolerance);
+	const targetPrice = currentPrice.minus(slippageNum);
+	const targetReserves = reserveOut.multipliedBy(targetPrice);
 	if (reserveOut.lt(targetReserves)) {
-		console.log('[getMaxTokenOut:] targetReserves must be higher than reserveOut or else maxToken1Out will be negative')
+		console.log('[getMaxTokenOut]: targetReserves must be higher than reserveOut or else maxToken1Out will be negative')
+		console.log('[tradeToPrice]: currentPrice: ', currentPrice.toFixed(6), 'targetPrice: ', targetPrice.toFixed(6));
+
 	}
 	const maxToken1Out = reserveOut.minus(targetReserves);
 	return maxToken1Out;
@@ -69,8 +72,8 @@ export async function tradeToPrice(reserveIn: BN, reserveOut: BN, targetPrice: B
 	const currentPrice = reserveOut.div(reserveIn); // 1580
 	const diff = targetPrice.minus(currentPrice); // 1650 - 1580 = 70
 	if (targetPrice.lt(currentPrice)) {
-		console.log('[tradeToPrice:] targetPrice must be higher than currentPrice or else tradeSize will be negative');
-		console.log('currentPrice: ', currentPrice.toFixed(6), 'targetPrice: ', targetPrice.toFixed(6));
+		console.log('[tradeToPrice]: targetPrice must be higher than currentPrice or else tradeSize will be negative');
+		console.log('[tradeToPrice]: currentPrice: ', currentPrice.toFixed(6), 'targetPrice: ', targetPrice.toFixed(6));
 	}
 	const tradeSize = diff.multipliedBy(reserveIn); // 70 * 1000 = 70000
 	return tradeSize

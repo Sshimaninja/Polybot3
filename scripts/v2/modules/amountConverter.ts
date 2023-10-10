@@ -15,23 +15,22 @@ import { HiLo, Difference } from "../../../constants/interfaces";
 export class AmountConverter {
 	token0: Token;
 	token1: Token;
-	targetPrice: BN;
 	reserves: ReservesData;
 	slip: BN;
 
-	constructor(price: Prices, pair: Pair, targetPrice: BN, slippageTolerance: BN) {
+	constructor(price: Prices, pair: Pair, slippageTolerance: BN) {
 		this.reserves = price.reserves;
 		this.slip = slippageTolerance
 		this.token0 = pair.token0;
 		this.token1 = pair.token1;
-		this.targetPrice = targetPrice.plus(price.priceOutBN).div(2) // average of two prices must be higher than price.priceOutBN
 	}
 
 	/**
 	 * @returns Amounts in/out for a trade. Can be negative which means the trade needs to be reversed.
 	 */
-	async tradeToPrice(): Promise<BigNumber> {
-		const tradeSize = await tradeToPrice(this.reserves.reserveInBN, this.reserves.reserveOutBN, this.targetPrice, this.slip);
+	async tradeToPrice(targetPrice: BN): Promise<BigNumber> {
+		targetPrice = this.reserves.reserveOutBN.plus(targetPrice).div(2);// average of two prices
+		const tradeSize = await tradeToPrice(this.reserves.reserveInBN, this.reserves.reserveOutBN, targetPrice, this.slip);
 		const tradeSizeJS = utils.parseUnits(tradeSize.toFixed(this.token0.decimals), this.token0.decimals);
 		return tradeSizeJS;
 	}
@@ -51,7 +50,6 @@ export class AmountConverter {
 	async getAmounts() {
 		const maxIn = await this.getMaxTokenIn();
 		const maxOut = await this.getMaxTokenOut();
-		const toPrice = await this.tradeToPrice();
-		return { maxIn, maxOut, toPrice };
+		return { maxIn, maxOut };
 	}
 }
