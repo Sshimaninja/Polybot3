@@ -74,9 +74,9 @@ export class Trade {
 	async direction() {
 		const A = this.price0.priceOutBN
 		const B = this.price1.priceOutBN
-		const diff = A.gt(B) ? A.minus(B) : B.minus(A)
+		const diff = A.lt(B) ? B.minus(A) : A.minus(B)
 		const dperc = diff.div(A.gt(B) ? A : B).multipliedBy(100)// 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
-		const dir = A.gt(B) ? "A" : "B"
+		const dir = A.lt(B) ? "A" : "B"
 		return { dir, diff, dperc }
 	}
 
@@ -118,10 +118,11 @@ export class Trade {
 				// Unclear what is the best strategy for tradesize.
 				// Would be good to have a strategy that takes into account the reserves of the pool and uses the min of the three below.
 				// Also would be good to have a function that determines the optimal tradesize for a given pool.
+				tradeSize: A ? this.amounts0.toPrice : this.amounts1.toPrice,
 
-				tradeSize: A ?
-					this.amounts0.toPrice.lt(this.amounts0.maxIn) ? this.amounts0.toPrice : this.amounts0.maxIn :
-					this.amounts1.toPrice.lt(this.amounts1.maxIn) ? this.amounts1.toPrice : this.amounts1.maxIn,
+				// tradeSize: A ? // This is a possible solution but it results in div-by-zero error (likely due to toPrice being negative sometimes)
+				// this.amounts0.toPrice.lt(this.amounts0.maxIn) ? this.amounts0.toPrice : this.amounts0.maxIn :
+				// this.amounts1.toPrice.lt(this.amounts1.maxIn) ? this.amounts1.toPrice : this.amounts1.maxIn,
 
 
 				// tradeSize: A ? // Using the following results in div-by-zero error. 
