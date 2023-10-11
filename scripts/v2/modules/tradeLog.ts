@@ -44,37 +44,10 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
 				uniswapkPost: trade.k.uniswapKPost.gt(0) ? trade.k.uniswapKPost.toString() : 0,
 				uniswapKPositive: trade.k.uniswapKPositive,
 				// loanCostPercent: utils.formatUnits((trade.loanPool.amountOut.div(trade.amountRepay)).mul(100), trade.tokenOut.decimals),
-				profit: u(trade.profit, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
-				profperc: BN(f.formatUnits(trade.profitPercent, trade.tokenOut.decimals)).toFixed(trade.tokenOut.decimals) + "%",
+				profit: u(trade.profit, (trade.direction === "multi" ? trade.tokenOut.decimals : trade.tokenIn.decimals)) + " " + (trade.direction === "multi" ? trade.tokenOut.symbol : trade.tokenIn.symbol),
+				profperc: BN(f.formatUnits(trade.profitPercent, (trade.direction === "multi" ? trade.tokenOut.decimals : trade.tokenIn.decimals))).toFixed((trade.direction === "multi" ? trade.tokenOut.decimals : trade.tokenIn.decimals)) + "%",
 			}
 		}
-		// const basicData = {
-		// 	ticker: trade.ticker,
-		// 	exchanges: trade.loanPool.exchange + " / " + trade.recipient.exchange,
-		// 	tradeSize: u(trade.recipient.tradeSize, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
-		// 	direction: trade.direction,
-		// 	type: trade.type,
-		// 	prices: {
-		// 		loanPool: {
-		// 			exchange: trade.loanPool.exchange,
-		// 			reserves: (trade.loanPool.reserveInBN).toFixed(trade.tokenIn.decimals) + trade.tokenIn.symbol + '/' + (trade.loanPool.reserveOutBN).toFixed(trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
-		// 			priceIn: BN(trade.loanPool.priceIn).toFixed(trade.tokenIn.decimals),
-		// 			priceOut: BN(trade.loanPool.priceOut).toFixed(trade.tokenOut.decimals),
-		// 		},
-		// 		recipient: {
-		// 			exchange: trade.recipient.exchange,
-		// 			reserves: (trade.recipient.reserveInBN).toFixed(trade.tokenIn.decimals) + trade.tokenIn.symbol + '/' + (trade.recipient.reserveOutBN).toFixed(trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
-		// 			priceIn: BN(trade.recipient.priceIn).toFixed(trade.tokenIn.decimals),
-		// 			priceOut: BN(trade.recipient.priceOut).toFixed(trade.tokenIn.decimals),
-		// 		},
-		// 		difference: {
-		// 			tokenOut: trade.differenceTokenOut,
-		// 			percent: trade.differencePercent,
-		// 		}
-		// 	},
-		// 	profit: u(trade.profit, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
-		// 	profitPercent: BN(u(trade.profitPercent, trade.tokenOut.decimals)).toFixed(trade.tokenOut.decimals) + "%",
-		// }
 		return data
 	} catch (error: any) {
 		console.log("Error in tradeLog.ts: " + error.message);

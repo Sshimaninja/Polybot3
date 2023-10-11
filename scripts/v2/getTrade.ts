@@ -178,13 +178,21 @@ export class Trade {
 
 			trade.profit = trade.type === "multi" ? profitMulti : profitDirect;
 			//////////////////////////////////////////////////////////////////////////
+
 			try {
+				const profitMultiBN = BN(u.formatUnits(profitMulti, trade.tokenOut.decimals));
+				console.log("profitMultiBN: ", profitMultiBN.toFixed(trade.tokenOut.decimals));
+				const profitDirectBN = BN(u.formatUnits(profitDirect, trade.tokenIn.decimals));
+				console.log("profitDirectBN: ", profitDirectBN.toFixed(trade.tokenIn.decimals));
+				const profitPercMultiBN = trade.recipient.amountOut.eq(0) ? BN(0) : profitMultiBN.dividedBy(u.formatUnits(trade.recipient.amountOut, trade.tokenOut.decimals)).multipliedBy(100);
+				const profitPercDirectBN = trade.recipient.tradeSize.eq(0) ? BN(0) : profitDirectBN.dividedBy(u.formatUnits(trade.recipient.tradeSize, trade.tokenIn.decimals)).multipliedBy(100);
 				trade.profitPercent = trade.type == "multi" ?
-					profitMulti.mul(100).div(trade.recipient.amountOut) :
-					profitDirect.mul(100).div(trade.recipient.tradeSize);
+					u.parseUnits((profitPercMultiBN.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals) :
+					u.parseUnits((profitPercDirectBN.toFixed(trade.tokenIn.decimals)), trade.tokenIn.decimals);
+
 			} catch (error: any) {
-				console.log("Error in division by tiny numbers: " + error.message)
-				console.log(error.message)
+				console.log("Error in profitCalc: " + error.message + " " + trade.ticker + " " + trade.type + " " + trade.profitPercent);
+				console.log(error.stack);
 			}
 			trade.flash = trade.type === "multi" ? flashMulti : flashMulti;
 

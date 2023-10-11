@@ -1,0 +1,2776 @@
+
+2023-10-11T21:16:51.760 INFO Logging Info
+2023-10-11T21:16:51.761 ERROR Logging Error
+2023-10-11T21:16:51.761 WARN Logging Warn
+Telegram message sent: 155024
+V2 match lists:  0
+2023-10-11T21:16:57.120 INFO New block received: Block # 48602727
+ExchangeA: APE ExchangeB: JET matches: 2  gasData: 92.729328155 46.029434951
+ExchangeA: JET ExchangeB: QUICK matches: 5  gasData: 92.729328155 46.029434951
+ExchangeA: APE ExchangeB: SUSHI matches: 6  gasData: 92.729328155 46.029434951
+ExchangeA: APE ExchangeB: QUICK matches: 5  gasData: 92.729328155 46.029434951
+ExchangeA: JET ExchangeB: SUSHI matches: 4  gasData: 92.729328155 46.029434951
+ExchangeA: QUICK ExchangeB: SUSHI matches: 9  gasData: 92.729328155 46.029434951
+profitMultiBN:  -0.275577
+profitDirectBN:  -0.001633433338991571
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -99.999637 ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'A',
+  tradeSize: '0.542844360981663267 WMATIC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.953081087181994532',
+    priceOut: '0.512012',
+    reservesIn: '8546.596995688464249018 WMATIC',
+    reservesOut: '4375.956048 USDC',
+    amountRepay: '0.000001 USDC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'APE',
+    priceIn: '1.961718323028105413',
+    priceOut: '0.509757',
+    reservesIn: '481.601100888718805232 WMATIC',
+    reservesOut: '245.499619 USDC',
+    amountOut: '0.275578 USDC'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000000275577 WMATIC',
+    profperc: '-0.000000000099999637%'
+  }
+}
+profitMultiBN:  -0.267477
+profitDirectBN:  -0.001585367181670551
+profitMultiBN:  1.379254
+profitDirectBN:  -0.672134
+profitMultiBN:  -0.355895
+profitDirectBN:  -0.002110187329029986
+profitMultiBN:  1.412456
+profitDirectBN:  -0.683340
+profitMultiBN:  -232.752762323413442961
+profitDirectBN:  -0.000628
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -99.999626 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -99.999719 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: USDC/WETH [ profit < 0.3% | -0.000000000000300776 ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'A',
+  tradeSize: '0.526870374267346862 WMATIC',
+  loanPool: {
+    exchange: 'SUSHI',
+    priceIn: '1.953334164174094318',
+    priceOut: '0.511945',
+    reservesIn: '258179.101593482274991491 WMATIC',
+    reservesOut: '132173.545279 USDC',
+    amountRepay: '0.000001 USDC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'APE',
+    priceIn: '1.961718323028105413',
+    priceOut: '0.509757',
+    reservesIn: '481.601100888718805232 WMATIC',
+    reservesOut: '245.499619 USDC',
+    amountOut: '0.267478 USDC'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000000267477 WMATIC',
+    profperc: '-0.000000000099999626%'
+  }
+}
+2023-10-11T21:16:58.240 INFO {
+  trade: 'multi',
+  ticker: 'USDC/USDT',
+  direction: 'B',
+  tradeSize: '223.372692 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000347',
+    priceOut: '0.999653',
+    reservesIn: '63115.803174 USDC',
+    reservesOut: '63093.920006 USDT',
+    amountRepay: '223.662096 USDT',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1.001376',
+    priceOut: '0.998626',
+    reservesIn: '434997.534013 USDC',
+    reservesOut: '434399.968649 USDT',
+    amountOut: '222.282842 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '1.379254 USDC',
+    profperc: '0.620495%'
+  }
+}
+Trade:  B USDC / USDT  @  USDC/USDT
+EstimatingGas for trade: USDC/USDT...
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'A',
+  tradeSize: '0.701285607949010255 WMATIC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.950574437867860327',
+    priceOut: '0.512669',
+    reservesIn: '1751987.023824592325557389 WMATIC',
+    reservesOut: '898190.291953 USDC',
+    amountRepay: '0.000001 USDC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'APE',
+    priceIn: '1.961718323028105413',
+    priceOut: '0.509757',
+    reservesIn: '481.601100888718805232 WMATIC',
+    reservesOut: '245.499619 USDC',
+    amountOut: '0.355896 USDC'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000000355895 WMATIC',
+    profperc: '-0.000000000099999719%'
+  }
+}
+2023-10-11T21:16:58.243 INFO {
+  trade: 'multi',
+  ticker: 'USDC/USDT',
+  direction: 'B',
+  tradeSize: '227.096908 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000347',
+    priceOut: '0.999653',
+    reservesIn: '63115.803174 USDC',
+    reservesOut: '63093.920006 USDT',
+    amountRepay: '227.077938 USDT',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.002334',
+    priceOut: '0.997672',
+    reservesIn: '229188.649494 USDC',
+    reservesOut: '228654.992636 USDT',
+    amountOut: '225.665482 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '1.412456 USDC',
+    profperc: '0.625907%'
+  }
+}
+Trade:  B USDC / USDT  @  USDC/USDT
+EstimatingGas for trade: USDC/USDT...
+{
+  trade: 'direct',
+  ticker: 'USDC/WETH',
+  direction: 'A',
+  tradeSize: '0.208793 USDC',
+  loanPool: {
+    exchange: 'SUSHI',
+    priceIn: '1560.467768',
+    priceOut: '0.000640833486469353',
+    reservesIn: '361132.392113 USDC',
+    reservesOut: '231.425729914791272085 WETH',
+    amountRepay: '0.209421 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1561.556306',
+    priceOut: '0.000640386770833275',
+    reservesIn: '934791.308101 USDC',
+    reservesOut: '598.627987197812366977 WETH',
+    amountOut: '0.000133307120531594 WETH'
+  },
+  result: {
+    uniswapkPre: '83575327440625635749150291065605',
+    uniswapkPost: '361132392741',
+    uniswapKPositive: false,
+    profit: '-0.000628 USDC',
+    profperc: '-0.300776%'
+  }
+}
+Error in fetchGasPrice for trade: USDC/USDT . Using default gas estimate for gasPrice calcs
+GasToken Key:  WMATIC
+Trying token WMATIC...
+Error in fetchGasPrice for trade: USDC/USDT . Using default gas estimate for gasPrice calcs
+GasToken Key:  WMATIC
+Trying token WMATIC...
+profitMultiBN:  -5662.729554932558377572
+profitDirectBN:  -0.333436
+<<<<<<<<<<<<No Trade: USDC/DAI [ profit < 0.3% | -0.000000000000300903 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'USDC/DAI',
+  direction: 'A',
+  tradeSize: '110.811963 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000491',
+    priceOut: '0.999509304247116717',
+    reservesIn: '5538.523323 USDC',
+    reservesOut: '5535.805593128158892041 DAI',
+    amountRepay: '111.145399 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'APE',
+    priceIn: '1.001452',
+    priceOut: '0.998549829005135520',
+    reservesIn: '230984.518393 USDC',
+    reservesOut: '230649.55134416373043784 DAI',
+    amountOut: '110.266572579284513831 DAI'
+  },
+  result: {
+    uniswapkPre: '30660188389134156551618917572243',
+    uniswapkPost: '5538856759',
+    uniswapKPositive: false,
+    profit: '-0.333436 USDC',
+    profperc: '-0.300903%'
+  }
+}
+profitMultiBN:  -1.434848
+profitDirectBN:  -0.008460579121238991
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -99.999930 ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'A',
+  tradeSize: '2.811732537208536649 WMATIC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.950574437867860327',
+    priceOut: '0.512669',
+    reservesIn: '1751987.023824592325557389 WMATIC',
+    reservesOut: '898190.291953 USDC',
+    amountRepay: '0.000001 USDC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'JET',
+    priceIn: '1.953081087181994532',
+    priceOut: '0.512012',
+    reservesIn: '8546.596995688464249018 WMATIC',
+    reservesOut: '4375.956048 USDC',
+    amountOut: '1.434849 USDC'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000001434848 WMATIC',
+    profperc: '-0.000000000099999930%'
+  }
+}
+profitMultiBN:  -0.901847296231283440
+profitDirectBN:  -0.010979220187057708
+profitMultiBN:  -4.370700
+profitDirectBN:  -0.025767543494588479
+<<<<<<<<<<<<No Trade: WMATIC/DAI [ profit < 0.3% | -0.300902699999999973 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -99.999977 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'WMATIC/DAI',
+  direction: 'B',
+  tradeSize: '3.648760940682057347 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.948162152558819399',
+    priceOut: '0.513304294864032243',
+    reservesIn: '124169.145508901493338897 WMATIC',
+    reservesOut: '63736.555679316097098486 DAI',
+    amountRepay: '3.659740160869115055 WMATIC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.955152342150852382',
+    priceOut: '0.511469095497645712',
+    reservesIn: '3976.419137356602161301 WMATIC',
+    reservesOut: '2033.815499503309931585 DAI',
+    amountOut: '1.858929137114804027 DAI'
+  },
+  result: {
+    uniswapkPre: '7914113656381202326937705956875680797983609942',
+    uniswapkPost: '124169156488121680396605',
+    uniswapKPositive: false,
+    profit: '-0.010979220187057708 WMATIC',
+    profperc: '-0.300902699999999973%'
+  }
+}
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'B',
+  tradeSize: '8.563413852580412184 WMATIC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.953081087181994532',
+    priceOut: '0.512012',
+    reservesIn: '8546.596995688464249018 WMATIC',
+    reservesOut: '4375.956048 USDC',
+    amountRepay: '0.000001 USDC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.953334164174094318',
+    priceOut: '0.511945',
+    reservesIn: '258179.101593482274991491 WMATIC',
+    reservesOut: '132173.545279 USDC',
+    amountOut: '4.370701 USDC'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.0000000000043707 WMATIC',
+    profperc: '-0.000000000099999977%'
+  }
+}
+profitMultiBN:  -47.706751
+profitDirectBN:  -0.281348181915237261
+profitMultiBN:  -3.214807962136088904
+profitDirectBN:  -0.039094131667252029
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -99.999998 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/DAI [ profit < 0.3% | -0.300902699999999999 ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'B',
+  tradeSize: '93.501381647701154307 WMATIC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.950574437867860327',
+    priceOut: '0.512669',
+    reservesIn: '1751987.023824592325557389 WMATIC',
+    reservesOut: '898190.291953 USDC',
+    amountRepay: '0.000001 USDC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.953334164174094318',
+    priceOut: '0.511945',
+    reservesIn: '258179.101593482274991491 WMATIC',
+    reservesOut: '132173.545279 USDC',
+    amountOut: '47.706752 USDC'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000047706751 WMATIC',
+    profperc: '-0.000000000099999998%'
+  }
+}
+{
+  trade: 'direct',
+  ticker: 'WMATIC/DAI',
+  direction: 'B',
+  tradeSize: '12.992283441541743943 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.948162152558819399',
+    priceOut: '0.513304294864032243',
+    reservesIn: '124169.145508901493338897 WMATIC',
+    reservesOut: '63736.555679316097098486 DAI',
+    amountRepay: '13.031377573208995972 WMATIC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1.953360661565246835',
+    priceOut: '0.511938230187706507',
+    reservesIn: '19021.476313239721720794 WMATIC',
+    reservesOut: '9737.820919357323572928 DAI',
+    amountOut: '6.626780125178423559 DAI'
+  },
+  result: {
+    uniswapkPre: '7914113656381202326937705956875680797983609942',
+    uniswapkPost: '124169184603033160590926',
+    uniswapKPositive: false,
+    profit: '-0.039094131667252029 WMATIC',
+    profperc: '-0.300902699999999999%'
+  }
+}
+GasPool found for:  USDT   WMATIC
+GasPool found for:  USDT   WMATIC
+gasToken:  WMATIC
+2023-10-11T21:16:58.599 INFO <<<<<<<<<<<<<<<<<<<<<<<<<BEGIN GAS CONVERSION LOOP:  USDC/USDT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-10-11T21:16:58.599 INFO Pair:  USDC/USDT  finding profit through  USDT /  /WMATIC
+2023-10-11T21:16:58.600 INFO gaspool.address:  0x55FF76BFFC3Cdd9D5FdbBC2ece4528ECcE45047e
+gasToken:  WMATIC
+2023-10-11T21:16:58.601 INFO <<<<<<<<<<<<<<<<<<<<<<<<<BEGIN GAS CONVERSION LOOP:  USDC/USDT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-10-11T21:16:58.602 INFO Pair:  USDC/USDT  finding profit through  USDT /  /WMATIC
+2023-10-11T21:16:58.602 INFO gaspool.address:  0x604229c960e5CACF2aaEAc8Be68Ac07BA9dF81c3
+Trade is negative.
+Trade is negative.
+<<<<<<<<<<<<No Trade: USDC/USDT [ gas > profit ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'USDC/USDT',
+  direction: 'B',
+  tradeSize: '227.096908 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000347',
+    priceOut: '0.999653',
+    reservesIn: '63115.803174 USDC',
+    reservesOut: '63093.920006 USDT',
+    amountRepay: '227.077938 USDT',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.002334',
+    priceOut: '0.997672',
+    reservesIn: '229188.649494 USDC',
+    reservesOut: '228654.992636 USDT',
+    amountOut: '225.665482 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '1.412456 USDC',
+    profperc: '0.625907%'
+  }
+}
+<<<<<<<<<<<<No Trade: USDC/USDT [ gas > profit ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'USDC/USDT',
+  direction: 'B',
+  tradeSize: '223.372692 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000347',
+    priceOut: '0.999653',
+    reservesIn: '63115.803174 USDC',
+    reservesOut: '63093.920006 USDT',
+    amountRepay: '223.662096 USDT',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1.001376',
+    priceOut: '0.998626',
+    reservesIn: '434997.534013 USDC',
+    reservesOut: '434399.968649 USDT',
+    amountOut: '222.282842 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '1.379254 USDC',
+    profperc: '0.620495%'
+  }
+}
+profitMultiBN:  -5710.761659183787127673
+profitDirectBN:  -0.479080
+<<<<<<<<<<<<No Trade: USDC/DAI [ profit < 0.3% | -0.000000000000300902 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'USDC/DAI',
+  direction: 'B',
+  tradeSize: '159.21457 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000491',
+    priceOut: '0.999509304247116717',
+    reservesIn: '5538.523323 USDC',
+    reservesOut: '5535.805593128158892041 DAI',
+    amountRepay: '159.69365 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1.002011',
+    priceOut: '0.997992958218042376',
+    reservesIn: '209997.675058 USDC',
+    reservesOut: '209576.200950044633602169 DAI',
+    amountOut: '158.298676915136594503 DAI'
+  },
+  result: {
+    uniswapkPre: '30660188389134156551618917572243',
+    uniswapkPost: '5539002403',
+    uniswapKPositive: false,
+    profit: '-0.47908 USDC',
+    profperc: '-0.300902%'
+  }
+}
+profitMultiBN:  -5683.555430267732751696
+profitDirectBN:  -0.397032
+<<<<<<<<<<<<No Trade: USDC/DAI [ profit < 0.3% | -0.000000000000300902 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'USDC/DAI',
+  direction: 'B',
+  tradeSize: '131.94711 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000491',
+    priceOut: '0.999509304247116717',
+    reservesIn: '5538.523323 USDC',
+    reservesOut: '5535.805593128158892041 DAI',
+    amountRepay: '132.344142 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.002499',
+    priceOut: '0.997506930695074581',
+    reservesIn: '131790.703919 USDC',
+    reservesOut: '131462.140560385027023071 DAI',
+    amountOut: '131.092447958764768993 DAI'
+  },
+  result: {
+    uniswapkPre: '30660188389134156551618917572243',
+    uniswapkPost: '5538920355',
+    uniswapKPositive: false,
+    profit: '-0.397032 USDC',
+    profperc: '-0.300902%'
+  }
+}
+profitMultiBN:  -0.591958
+profitDirectBN:  -0.003487997670211987
+profitMultiBN:  -4.209250
+profitDirectBN:  -0.024798032361567437
+profitMultiBN:  -0.383864
+profitDirectBN:  -0.002261805972679597
+<<<<<<<<<<<<No Trade: WMATIC/USDT [ profit < 0.3% | -99.999831 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/USDT [ profit < 0.3% | -99.999976 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/USDT [ profit < 0.3% | -99.999739 ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDT',
+  direction: 'B',
+  tradeSize: '1.159177923698254374 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.951832330516788104',
+    priceOut: '0.512339',
+    reservesIn: '123877.961820451459386011 WMATIC',
+    reservesOut: '63467.522227 USDT',
+    amountRepay: '0.000001 USDT',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.952228870658964173',
+    priceOut: '0.512235',
+    reservesIn: '22277.485913504953956203 WMATIC',
+    reservesOut: '11411.308504 USDT',
+    amountOut: '0.591959 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000000591958 WMATIC',
+    profperc: '-0.000000000099999831%'
+  }
+}
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDT',
+  direction: 'B',
+  tradeSize: '8.241212977340328754 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.951832330516788104',
+    priceOut: '0.512339',
+    reservesIn: '123877.961820451459386011 WMATIC',
+    reservesOut: '63467.522227 USDT',
+    amountRepay: '0.000001 USDT',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1.951971714262729125',
+    priceOut: '0.512303',
+    reservesIn: '450531.362860468355181699 WMATIC',
+    reservesOut: '230808.346027 USDT',
+    amountOut: '4.209251 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.00000000000420925 WMATIC',
+    profperc: '-0.000000000099999976%'
+  }
+}
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDT',
+  direction: 'B',
+  tradeSize: '0.751673538549038575 WMATIC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.951971714262729125',
+    priceOut: '0.512303',
+    reservesIn: '450531.362860468355181699 WMATIC',
+    reservesOut: '230808.346027 USDT',
+    amountRepay: '0.000001 USDT',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.952228870658964173',
+    priceOut: '0.512235',
+    reservesIn: '22277.485913504953956203 WMATIC',
+    reservesOut: '11411.308504 USDT',
+    amountOut: '0.383865 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000000383864 WMATIC',
+    profperc: '-0.000000000099999739%'
+  }
+}
+profitMultiBN:  -1.670656697876083284
+profitDirectBN:  -0.000798
+<<<<<<<<<<<<No Trade: USDC/WETH [ profit < 0.3% | -0.000000000000300872 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'USDC/WETH',
+  direction: 'B',
+  tradeSize: '0.265229 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1560.173801',
+    priceOut: '0.000640954231859841',
+    reservesIn: '2598.391988 USDC',
+    reservesOut: '1.665450340739304673 WETH',
+    amountRepay: '0.266027 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1561.556306',
+    priceOut: '0.000640386770833275',
+    reservesIn: '934791.308101 USDC',
+    reservesOut: '598.627987197812366977 WETH',
+    amountOut: '0.000169339547510125 WETH'
+  },
+  result: {
+    uniswapkPre: '4327492821788879259014159924',
+    uniswapkPost: '2598392786',
+    uniswapKPositive: false,
+    profit: '-0.000798 USDC',
+    profperc: '-0.300872%'
+  }
+}
+profitMultiBN:  -1.670787305014986981
+profitDirectBN:  -0.000065
+<<<<<<<<<<<<No Trade: USDC/WETH [ profit < 0.3% | -0.000000000000298124 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'USDC/WETH',
+  direction: 'B',
+  tradeSize: '0.021803 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1560.173801',
+    priceOut: '0.000640954231859841',
+    reservesIn: '2598.391988 USDC',
+    reservesOut: '1.665450340739304673 WETH',
+    amountRepay: '0.021868 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1560.467768',
+    priceOut: '0.000640833486469353',
+    reservesIn: '361132.392113 USDC',
+    reservesOut: '231.425729914791272085 WETH',
+    amountOut: '0.000013930175389477 WETH'
+  },
+  result: {
+    uniswapkPre: '4327492821788879259014159924',
+    uniswapkPost: '2598392053',
+    uniswapKPositive: false,
+    profit: '-0.000065 USDC',
+    profperc: '-0.298124%'
+  }
+}
+profitMultiBN:  -0.000156801052042768
+profitDirectBN:  -0.001445342478519259
+profitMultiBN:  -210238.666353578200762136
+profitDirectBN:  -0.096369
+profitMultiBN:  -0.000162666017778529
+profitDirectBN:  -0.001500734865061386
+<<<<<<<<<<<<No Trade: WMATIC/WETH [ profit < 0.3% | -99.967107802076894137 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: USDC/DAI [ profit < 0.3% | -0.000000000000300900 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/WETH [ profit < 0.3% | -99.967107802076529342 ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'WMATIC/WETH',
+  direction: 'B',
+  tradeSize: '0.480335496663625662 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '3049.382804377897809958',
+    priceOut: '0.000327935213173083',
+    reservesIn: '431540.190108822662135135 WMATIC',
+    reservesOut: '141.517224236089583794 WETH',
+    amountRepay: '0.000000051592282219 WETH',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '3053.148358956374428807',
+    priceOut: '0.000327530759213358',
+    reservesIn: '2375229.541529478317494223 WMATIC',
+    reservesOut: '777.960735043146751627 WETH',
+    amountOut: '0.000156852644324987 WETH'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000156801052042768 WMATIC',
+    profperc: '-99.967107802076894137%'
+  }
+}
+{
+  trade: 'direct',
+  ticker: 'USDC/DAI',
+  direction: 'B',
+  tradeSize: '32.026955 USDC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.002011',
+    priceOut: '0.997992958218042376',
+    reservesIn: '209997.675058 USDC',
+    reservesOut: '209576.200950044633602169 DAI',
+    amountRepay: '32.123324 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.002499',
+    priceOut: '0.997506930695074581',
+    reservesIn: '131790.703919 USDC',
+    reservesOut: '131462.140560385027023071 DAI',
+    amountOut: '31.843553046399423482 DAI'
+  },
+  result: {
+    uniswapkPre: '44010514946997583857784953706000802',
+    uniswapkPost: '209997771427',
+    uniswapKPositive: false,
+    profit: '-0.096369 USDC',
+    profperc: '-0.300900%'
+  }
+}
+{
+  trade: 'multi',
+  ticker: 'WMATIC/WETH',
+  direction: 'B',
+  tradeSize: '0.49874423362149516 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '3049.382804377897809958',
+    priceOut: '0.000327935213173083',
+    reservesIn: '431540.190108822662135135 WMATIC',
+    reservesOut: '141.517224236089583794 WETH',
+    amountRepay: '0.000000053522033095 WETH',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '3055.858130179929461278',
+    priceOut: '0.000327240322488767',
+    reservesIn: '1435460.986535355368103922 WMATIC',
+    reservesOut: '469.740716153873011803 WETH',
+    amountOut: '0.000162719539811624 WETH'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000162666017778529 WMATIC',
+    profperc: '-99.967107802076529342%'
+  }
+}
+2023-10-11T21:16:59.810 INFO New block received: Block # 48602728
+ExchangeA: APE ExchangeB: JET matches: 2  gasData: 92.729328155 46.029434951
+ExchangeA: JET ExchangeB: QUICK matches: 5  gasData: 92.729328155 46.029434951
+ExchangeA: APE ExchangeB: SUSHI matches: 6  gasData: 92.729328155 46.029434951
+ExchangeA: APE ExchangeB: QUICK matches: 5  gasData: 92.729328155 46.029434951
+ExchangeA: JET ExchangeB: SUSHI matches: 4  gasData: 92.729328155 46.029434951
+ExchangeA: QUICK ExchangeB: SUSHI matches: 9  gasData: 92.729328155 46.029434951
+profitMultiBN:  -35534.222942181329029186
+profitDirectBN:  -1.472613922228473895
+<<<<<<<<<<<<No Trade: WETH/DAI [ profit < 0.3% | -0.300902700000000000 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'WETH/DAI',
+  direction: 'B',
+  tradeSize: '489.398706701027905409 WETH',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '0.000624447548922457',
+    priceOut: '1601.415525972667323802',
+    reservesIn: '0.000374093614396949 WETH',
+    reservesOut: '0.599079322262506276 DAI',
+    amountRepay: '490.871320623256379304 WETH',
+    amountOut: '0.0 WETH'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '0.000640845617573415',
+    priceOut: '1560.438228143833645804',
+    reservesIn: '23.886333781465818227 WETH',
+    reservesOut: '37273.148362802719109379 DAI',
+    amountOut: '35533.622060206836010168 DAI'
+  },
+  result: {
+    uniswapkPre: '224111748975655567379301067751924',
+    uniswapkPost: '1472988015842870844',
+    uniswapKPositive: false,
+    profit: '-1.472613922228473895 WETH',
+    profperc: '-0.300902700000000000%'
+  }
+}
+profitMultiBN:  -231401.745234746778527022
+profitDirectBN:  -0.175940
+profitMultiBN:  0.00000001
+profitDirectBN:  -0.000000061637832000
+Error in division by tiny numbers: invalid decimal value (argument="value", value="Infinity", code=INVALID_ARGUMENT, version=bignumber/5.7.0) WMATIC/WBTC multi 0
+profitMultiBN:  -0.231346609522055658
+profitDirectBN:  -0.002806634065979558
+<<<<<<<<<<<<No Trade: USDC/DAI [ profit < 0.3% | -0.000000000000300902 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/DAI [ profit < 0.3% | -0.300902699999999952 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'USDC/DAI',
+  direction: 'B',
+  tradeSize: '58.470785 USDC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.001452',
+    priceOut: '0.998549829005135520',
+    reservesIn: '230984.518393 USDC',
+    reservesOut: '230649.55134416373043784 DAI',
+    amountRepay: '58.646725 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1.002011',
+    priceOut: '0.997992958218042376',
+    reservesIn: '209997.675058 USDC',
+    reservesOut: '209576.200950044633602169 DAI',
+    amountOut: '58.162225557592975433 DAI'
+  },
+  result: {
+    uniswapkPre: '53276475534793185066522747423191120',
+    uniswapkPost: '230984694333',
+    uniswapKPositive: false,
+    profit: '-0.17594 USDC',
+    profperc: '-0.300902%'
+  }
+}
+{
+  trade: 'direct',
+  ticker: 'WMATIC/DAI',
+  direction: 'B',
+  tradeSize: '0.93273807977780141 WMATIC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.953360661565246835',
+    priceOut: '0.511938230187706507',
+    reservesIn: '19021.476313239721720794 WMATIC',
+    reservesOut: '9737.820919357323572928 DAI',
+    amountRepay: '0.935544713843780968 WMATIC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.955152342150852382',
+    priceOut: '0.511469095497645712',
+    reservesIn: '3976.419137356602161301 WMATIC',
+    reservesOut: '2033.815499503309931585 DAI',
+    amountOut: '0.475524294050423101 DAI'
+  },
+  result: {
+    uniswapkPre: '185227729960125580713098628765932560513064832',
+    uniswapkPost: '19021479119873787700352',
+    uniswapKPositive: false,
+    profit: '-0.002806634065979558 WMATIC',
+    profperc: '-0.300902699999999952%'
+  }
+}
+profitMultiBN:  -0.275577
+profitDirectBN:  -0.001633433338991571
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -99.999637 ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'A',
+  tradeSize: '0.542844360981663267 WMATIC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.953081087181994532',
+    priceOut: '0.512012',
+    reservesIn: '8546.596995688464249018 WMATIC',
+    reservesOut: '4375.956048 USDC',
+    amountRepay: '0.000001 USDC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'APE',
+    priceIn: '1.961718323028105413',
+    priceOut: '0.509757',
+    reservesIn: '481.601100888718805232 WMATIC',
+    reservesOut: '245.499619 USDC',
+    amountOut: '0.275578 USDC'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000000275577 WMATIC',
+    profperc: '-0.000000000099999637%'
+  }
+}
+profitMultiBN:  1.379254
+profitDirectBN:  -0.672134
+profitMultiBN:  -0.355895
+profitDirectBN:  -0.002110187329029986
+profitMultiBN:  -0.267477
+profitDirectBN:  -0.001585367181670551
+profitMultiBN:  1.412456
+profitDirectBN:  -0.683340
+profitMultiBN:  -232.752762323413442961
+profitDirectBN:  -0.000628
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -99.999719 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -99.999626 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: USDC/WETH [ profit < 0.3% | -0.000000000000300776 ] >>>>>>>>>>>>
+2023-10-11T21:17:00.433 INFO {
+  trade: 'multi',
+  ticker: 'USDC/USDT',
+  direction: 'B',
+  tradeSize: '223.372692 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000347',
+    priceOut: '0.999653',
+    reservesIn: '63115.803174 USDC',
+    reservesOut: '63093.920006 USDT',
+    amountRepay: '223.662096 USDT',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1.001376',
+    priceOut: '0.998626',
+    reservesIn: '434997.534013 USDC',
+    reservesOut: '434399.968649 USDT',
+    amountOut: '222.282842 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '1.379254 USDC',
+    profperc: '0.620495%'
+  }
+}
+Trade:  B USDC / USDT  @  USDC/USDT
+EstimatingGas for trade: USDC/USDT...
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'A',
+  tradeSize: '0.701285607949010255 WMATIC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.950574437867860327',
+    priceOut: '0.512669',
+    reservesIn: '1751987.023824592325557389 WMATIC',
+    reservesOut: '898190.291953 USDC',
+    amountRepay: '0.000001 USDC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'APE',
+    priceIn: '1.961718323028105413',
+    priceOut: '0.509757',
+    reservesIn: '481.601100888718805232 WMATIC',
+    reservesOut: '245.499619 USDC',
+    amountOut: '0.355896 USDC'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000000355895 WMATIC',
+    profperc: '-0.000000000099999719%'
+  }
+}
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'A',
+  tradeSize: '0.526870374267346862 WMATIC',
+  loanPool: {
+    exchange: 'SUSHI',
+    priceIn: '1.953334164174094318',
+    priceOut: '0.511945',
+    reservesIn: '258179.101593482274991491 WMATIC',
+    reservesOut: '132173.545279 USDC',
+    amountRepay: '0.000001 USDC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'APE',
+    priceIn: '1.961718323028105413',
+    priceOut: '0.509757',
+    reservesIn: '481.601100888718805232 WMATIC',
+    reservesOut: '245.499619 USDC',
+    amountOut: '0.267478 USDC'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000000267477 WMATIC',
+    profperc: '-0.000000000099999626%'
+  }
+}
+2023-10-11T21:17:00.439 INFO {
+  trade: 'multi',
+  ticker: 'USDC/USDT',
+  direction: 'B',
+  tradeSize: '227.096908 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000347',
+    priceOut: '0.999653',
+    reservesIn: '63115.803174 USDC',
+    reservesOut: '63093.920006 USDT',
+    amountRepay: '227.077938 USDT',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.002334',
+    priceOut: '0.997672',
+    reservesIn: '229188.649494 USDC',
+    reservesOut: '228654.992636 USDT',
+    amountOut: '225.665482 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '1.412456 USDC',
+    profperc: '0.625907%'
+  }
+}
+Trade:  B USDC / USDT  @  USDC/USDT
+EstimatingGas for trade: USDC/USDT...
+{
+  trade: 'direct',
+  ticker: 'USDC/WETH',
+  direction: 'A',
+  tradeSize: '0.208793 USDC',
+  loanPool: {
+    exchange: 'SUSHI',
+    priceIn: '1560.467768',
+    priceOut: '0.000640833486469353',
+    reservesIn: '361132.392113 USDC',
+    reservesOut: '231.425729914791272085 WETH',
+    amountRepay: '0.209421 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1561.556306',
+    priceOut: '0.000640386770833275',
+    reservesIn: '934791.308101 USDC',
+    reservesOut: '598.627987197812366977 WETH',
+    amountOut: '0.000133307120531594 WETH'
+  },
+  result: {
+    uniswapkPre: '83575327440625635749150291065605',
+    uniswapkPost: '361132392741',
+    uniswapKPositive: false,
+    profit: '-0.000628 USDC',
+    profperc: '-0.300776%'
+  }
+}
+profitMultiBN:  0.204680
+profitDirectBN:  -0.329210
+2023-10-11T21:17:00.485 INFO {
+  trade: 'multi',
+  ticker: 'USDC/USDT',
+  direction: 'B',
+  tradeSize: '109.407768 USDC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.001376',
+    priceOut: '0.998626',
+    reservesIn: '434997.534013 USDC',
+    reservesOut: '434399.968649 USDT',
+    amountRepay: '108.978467 USDT',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.002334',
+    priceOut: '0.997672',
+    reservesIn: '229188.649494 USDC',
+    reservesOut: '228654.992636 USDT',
+    amountOut: '108.773787 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '0.20468 USDC',
+    profperc: '0.188170%'
+  }
+}
+Trade:  B USDC / USDT  @  USDC/USDT
+EstimatingGas for trade: USDC/USDT...
+profitMultiBN:  -231411.892529004448746055
+profitDirectBN:  -0.206786
+<<<<<<<<<<<<No Trade: USDC/DAI [ profit < 0.3% | -0.000000000000300902 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'USDC/DAI',
+  direction: 'B',
+  tradeSize: '68.722151 USDC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.001452',
+    priceOut: '0.998549829005135520',
+    reservesIn: '230984.518393 USDC',
+    reservesOut: '230649.55134416373043784 DAI',
+    amountRepay: '68.928937 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.002499',
+    priceOut: '0.997506930695074581',
+    reservesIn: '131790.703919 USDC',
+    reservesOut: '131462.140560385027023071 DAI',
+    amountOut: '68.309656296613567945 DAI'
+  },
+  result: {
+    uniswapkPre: '53276475534793185066522747423191120',
+    uniswapkPost: '230984725179',
+    uniswapKPositive: false,
+    profit: '-0.206786 USDC',
+    profperc: '-0.300902%'
+  }
+}
+Error in fetchGasPrice for trade: USDC/USDT . Using default gas estimate for gasPrice calcs
+GasToken Key:  WMATIC
+Trying token WMATIC...
+Error in fetchGasPrice for trade: USDC/USDT . Using default gas estimate for gasPrice calcs
+GasToken Key:  WMATIC
+Trying token WMATIC...
+Error in fetchGasPrice for trade: USDC/USDT . Using default gas estimate for gasPrice calcs
+GasToken Key:  WMATIC
+Trying token WMATIC...
+profitMultiBN:  -5662.729554932558377572
+profitDirectBN:  -0.333436
+<<<<<<<<<<<<No Trade: USDC/DAI [ profit < 0.3% | -0.000000000000300903 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'USDC/DAI',
+  direction: 'A',
+  tradeSize: '110.811963 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000491',
+    priceOut: '0.999509304247116717',
+    reservesIn: '5538.523323 USDC',
+    reservesOut: '5535.805593128158892041 DAI',
+    amountRepay: '111.145399 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'APE',
+    priceIn: '1.001452',
+    priceOut: '0.998549829005135520',
+    reservesIn: '230984.518393 USDC',
+    reservesOut: '230649.55134416373043784 DAI',
+    amountOut: '110.266572579284513831 DAI'
+  },
+  result: {
+    uniswapkPre: '30660188389134156551618917572243',
+    uniswapkPost: '5538856759',
+    uniswapKPositive: false,
+    profit: '-0.333436 USDC',
+    profperc: '-0.300903%'
+  }
+}
+profitMultiBN:  -1.434848
+profitDirectBN:  -0.008460579121238991
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -99.999930 ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'A',
+  tradeSize: '2.811732537208536649 WMATIC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.950574437867860327',
+    priceOut: '0.512669',
+    reservesIn: '1751987.023824592325557389 WMATIC',
+    reservesOut: '898190.291953 USDC',
+    amountRepay: '0.000001 USDC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'JET',
+    priceIn: '1.953081087181994532',
+    priceOut: '0.512012',
+    reservesIn: '8546.596995688464249018 WMATIC',
+    reservesOut: '4375.956048 USDC',
+    amountOut: '1.434849 USDC'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000001434848 WMATIC',
+    profperc: '-0.000000000099999930%'
+  }
+}
+profitMultiBN:  -4.370700
+profitDirectBN:  -0.025767543494588479
+profitMultiBN:  -0.901847296231283440
+profitDirectBN:  -0.010979220187057708
+profitMultiBN:  -3.214807962136088904
+profitDirectBN:  -0.039094131667252029
+profitMultiBN:  -47.706751
+profitDirectBN:  -0.281348181915237261
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -99.999977 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/DAI [ profit < 0.3% | -0.300902699999999973 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/DAI [ profit < 0.3% | -0.300902699999999999 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -99.999998 ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'B',
+  tradeSize: '8.563413852580412184 WMATIC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.953081087181994532',
+    priceOut: '0.512012',
+    reservesIn: '8546.596995688464249018 WMATIC',
+    reservesOut: '4375.956048 USDC',
+    amountRepay: '0.000001 USDC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.953334164174094318',
+    priceOut: '0.511945',
+    reservesIn: '258179.101593482274991491 WMATIC',
+    reservesOut: '132173.545279 USDC',
+    amountOut: '4.370701 USDC'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.0000000000043707 WMATIC',
+    profperc: '-0.000000000099999977%'
+  }
+}
+{
+  trade: 'direct',
+  ticker: 'WMATIC/DAI',
+  direction: 'B',
+  tradeSize: '3.648760940682057347 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.948162152558819399',
+    priceOut: '0.513304294864032243',
+    reservesIn: '124169.145508901493338897 WMATIC',
+    reservesOut: '63736.555679316097098486 DAI',
+    amountRepay: '3.659740160869115055 WMATIC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.955152342150852382',
+    priceOut: '0.511469095497645712',
+    reservesIn: '3976.419137356602161301 WMATIC',
+    reservesOut: '2033.815499503309931585 DAI',
+    amountOut: '1.858929137114804027 DAI'
+  },
+  result: {
+    uniswapkPre: '7914113656381202326937705956875680797983609942',
+    uniswapkPost: '124169156488121680396605',
+    uniswapKPositive: false,
+    profit: '-0.010979220187057708 WMATIC',
+    profperc: '-0.300902699999999973%'
+  }
+}
+{
+  trade: 'direct',
+  ticker: 'WMATIC/DAI',
+  direction: 'B',
+  tradeSize: '12.992283441541743943 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.948162152558819399',
+    priceOut: '0.513304294864032243',
+    reservesIn: '124169.145508901493338897 WMATIC',
+    reservesOut: '63736.555679316097098486 DAI',
+    amountRepay: '13.031377573208995972 WMATIC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1.953360661565246835',
+    priceOut: '0.511938230187706507',
+    reservesIn: '19021.476313239721720794 WMATIC',
+    reservesOut: '9737.820919357323572928 DAI',
+    amountOut: '6.626780125178423559 DAI'
+  },
+  result: {
+    uniswapkPre: '7914113656381202326937705956875680797983609942',
+    uniswapkPost: '124169184603033160590926',
+    uniswapKPositive: false,
+    profit: '-0.039094131667252029 WMATIC',
+    profperc: '-0.300902699999999999%'
+  }
+}
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'B',
+  tradeSize: '93.501381647701154307 WMATIC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.950574437867860327',
+    priceOut: '0.512669',
+    reservesIn: '1751987.023824592325557389 WMATIC',
+    reservesOut: '898190.291953 USDC',
+    amountRepay: '0.000001 USDC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.953334164174094318',
+    priceOut: '0.511945',
+    reservesIn: '258179.101593482274991491 WMATIC',
+    reservesOut: '132173.545279 USDC',
+    amountOut: '47.706752 USDC'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000047706751 WMATIC',
+    profperc: '-0.000000000099999998%'
+  }
+}
+GasPool found for:  USDT   WMATIC
+GasPool found for:  USDT   WMATIC
+gasToken:  WMATIC
+2023-10-11T21:17:00.799 INFO <<<<<<<<<<<<<<<<<<<<<<<<<BEGIN GAS CONVERSION LOOP:  USDC/USDT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-10-11T21:17:00.799 INFO Pair:  USDC/USDT  finding profit through  USDT /  /WMATIC
+2023-10-11T21:17:00.799 INFO gaspool.address:  0x604229c960e5CACF2aaEAc8Be68Ac07BA9dF81c3
+gasToken:  WMATIC
+2023-10-11T21:17:00.800 INFO <<<<<<<<<<<<<<<<<<<<<<<<<BEGIN GAS CONVERSION LOOP:  USDC/USDT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-10-11T21:17:00.800 INFO Pair:  USDC/USDT  finding profit through  USDT /  /WMATIC
+2023-10-11T21:17:00.800 INFO gaspool.address:  0x55FF76BFFC3Cdd9D5FdbBC2ece4528ECcE45047e
+Trade is negative.
+Trade is negative.
+<<<<<<<<<<<<No Trade: USDC/USDT [ gas > profit ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'USDC/USDT',
+  direction: 'B',
+  tradeSize: '223.372692 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000347',
+    priceOut: '0.999653',
+    reservesIn: '63115.803174 USDC',
+    reservesOut: '63093.920006 USDT',
+    amountRepay: '223.662096 USDT',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1.001376',
+    priceOut: '0.998626',
+    reservesIn: '434997.534013 USDC',
+    reservesOut: '434399.968649 USDT',
+    amountOut: '222.282842 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '1.379254 USDC',
+    profperc: '0.620495%'
+  }
+}
+<<<<<<<<<<<<No Trade: USDC/USDT [ gas > profit ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'USDC/USDT',
+  direction: 'B',
+  tradeSize: '227.096908 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000347',
+    priceOut: '0.999653',
+    reservesIn: '63115.803174 USDC',
+    reservesOut: '63093.920006 USDT',
+    amountRepay: '227.077938 USDT',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.002334',
+    priceOut: '0.997672',
+    reservesIn: '229188.649494 USDC',
+    reservesOut: '228654.992636 USDT',
+    amountOut: '225.665482 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '1.412456 USDC',
+    profperc: '0.625907%'
+  }
+}
+profitMultiBN:  -0.000020665663181456
+profitDirectBN:  -0.000005205176590542
+<<<<<<<<<<<<No Trade: WMATIC/QUICK [ profit < 0.3% | -0.300902699999953697 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'WMATIC/QUICK',
+  direction: 'B',
+  tradeSize: '0.001729853733629775 WMATIC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '81.790888776221973941',
+    priceOut: '0.012226300691461826',
+    reservesIn: '299357.208982216388823298 WMATIC',
+    reservesOut: '3660.03125117335449828 QUICK',
+    amountRepay: '0.001735058910220317 WMATIC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '82.428237092665228410',
+    priceOut: '0.012131764978496474',
+    reservesIn: '36.596830538820296113 WMATIC',
+    reservesOut: '0.443984147054830297 QUICK',
+    amountOut: '0.000020922234424413 QUICK'
+  },
+  result: {
+    uniswapkPre: '1095656740138944805107251028412654224364927440',
+    uniswapkPost: '299357208987421565413840',
+    uniswapKPositive: false,
+    profit: '-0.000005205176590542 WMATIC',
+    profperc: '-0.300902699999953697%'
+  }
+}
+GasPool found for:  USDT   WMATIC
+gasToken:  WMATIC
+2023-10-11T21:17:00.831 INFO <<<<<<<<<<<<<<<<<<<<<<<<<BEGIN GAS CONVERSION LOOP:  USDC/USDT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-10-11T21:17:00.831 INFO Pair:  USDC/USDT  finding profit through  USDT /  /WMATIC
+2023-10-11T21:17:00.831 INFO gaspool.address:  0x55FF76BFFC3Cdd9D5FdbBC2ece4528ECcE45047e
+Trade is negative.
+<<<<<<<<<<<<No Trade: USDC/USDT [ gas > profit ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'USDC/USDT',
+  direction: 'B',
+  tradeSize: '109.407768 USDC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.001376',
+    priceOut: '0.998626',
+    reservesIn: '434997.534013 USDC',
+    reservesOut: '434399.968649 USDT',
+    amountRepay: '108.978467 USDT',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.002334',
+    priceOut: '0.997672',
+    reservesIn: '229188.649494 USDC',
+    reservesOut: '228654.992636 USDT',
+    amountOut: '108.773787 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '0.20468 USDC',
+    profperc: '0.188170%'
+  }
+}
+profitMultiBN:  -5710.761659183787127673
+profitDirectBN:  -0.479080
+<<<<<<<<<<<<No Trade: USDC/DAI [ profit < 0.3% | -0.000000000000300902 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'USDC/DAI',
+  direction: 'B',
+  tradeSize: '159.21457 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000491',
+    priceOut: '0.999509304247116717',
+    reservesIn: '5538.523323 USDC',
+    reservesOut: '5535.805593128158892041 DAI',
+    amountRepay: '159.69365 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1.002011',
+    priceOut: '0.997992958218042376',
+    reservesIn: '209997.675058 USDC',
+    reservesOut: '209576.200950044633602169 DAI',
+    amountOut: '158.298676915136594503 DAI'
+  },
+  result: {
+    uniswapkPre: '30660188389134156551618917572243',
+    uniswapkPost: '5539002403',
+    uniswapKPositive: false,
+    profit: '-0.47908 USDC',
+    profperc: '-0.300902%'
+  }
+}
+profitMultiBN:  -5683.555430267732751696
+profitDirectBN:  -0.397032
+profitMultiBN:  -4.209250
+profitDirectBN:  -0.024798032361567437
+profitMultiBN:  -0.591958
+profitDirectBN:  -0.003487997670211987
+<<<<<<<<<<<<No Trade: USDC/DAI [ profit < 0.3% | -0.000000000000300902 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/USDT [ profit < 0.3% | -99.999976 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/USDT [ profit < 0.3% | -99.999831 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'USDC/DAI',
+  direction: 'B',
+  tradeSize: '131.94711 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000491',
+    priceOut: '0.999509304247116717',
+    reservesIn: '5538.523323 USDC',
+    reservesOut: '5535.805593128158892041 DAI',
+    amountRepay: '132.344142 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.002499',
+    priceOut: '0.997506930695074581',
+    reservesIn: '131790.703919 USDC',
+    reservesOut: '131462.140560385027023071 DAI',
+    amountOut: '131.092447958764768993 DAI'
+  },
+  result: {
+    uniswapkPre: '30660188389134156551618917572243',
+    uniswapkPost: '5538920355',
+    uniswapKPositive: false,
+    profit: '-0.397032 USDC',
+    profperc: '-0.300902%'
+  }
+}
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDT',
+  direction: 'B',
+  tradeSize: '8.241212977340328754 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.951832330516788104',
+    priceOut: '0.512339',
+    reservesIn: '123877.961820451459386011 WMATIC',
+    reservesOut: '63467.522227 USDT',
+    amountRepay: '0.000001 USDT',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1.951971714262729125',
+    priceOut: '0.512303',
+    reservesIn: '450531.362860468355181699 WMATIC',
+    reservesOut: '230808.346027 USDT',
+    amountOut: '4.209251 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.00000000000420925 WMATIC',
+    profperc: '-0.000000000099999976%'
+  }
+}
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDT',
+  direction: 'B',
+  tradeSize: '1.159177923698254374 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.951832330516788104',
+    priceOut: '0.512339',
+    reservesIn: '123877.961820451459386011 WMATIC',
+    reservesOut: '63467.522227 USDT',
+    amountRepay: '0.000001 USDT',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.952228870658964173',
+    priceOut: '0.512235',
+    reservesIn: '22277.485913504953956203 WMATIC',
+    reservesOut: '11411.308504 USDT',
+    amountOut: '0.591959 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000000591958 WMATIC',
+    profperc: '-0.000000000099999831%'
+  }
+}
+profitMultiBN:  -0.383864
+profitDirectBN:  -0.002261805972679597
+profitMultiBN:  -0.000067987980224112
+profitDirectBN:  -0.000627247606747509
+<<<<<<<<<<<<No Trade: WMATIC/USDT [ profit < 0.3% | -99.999739 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/WETH [ profit < 0.3% | -99.967148369184206974 ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDT',
+  direction: 'B',
+  tradeSize: '0.751673538549038575 WMATIC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.951971714262729125',
+    priceOut: '0.512303',
+    reservesIn: '450531.362860468355181699 WMATIC',
+    reservesOut: '230808.346027 USDT',
+    amountRepay: '0.000001 USDT',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.952228870658964173',
+    priceOut: '0.512235',
+    reservesIn: '22277.485913504953956203 WMATIC',
+    reservesOut: '11411.308504 USDT',
+    amountOut: '0.383865 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000000383864 WMATIC',
+    profperc: '-0.000000000099999739%'
+  }
+}
+{
+  trade: 'multi',
+  ticker: 'WMATIC/WETH',
+  direction: 'A',
+  tradeSize: '0.20845529360404853 WMATIC',
+  loanPool: {
+    exchange: 'SUSHI',
+    priceIn: '3053.148358956374428807',
+    priceOut: '0.000327530759213358',
+    reservesIn: '2375229.541529478317494223 WMATIC',
+    reservesOut: '777.960735043146751627 WETH',
+    amountRepay: '0.000000022342500138 WETH',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '3055.858130179929461278',
+    priceOut: '0.000327240322488767',
+    reservesIn: '1435460.986535355368103922 WMATIC',
+    reservesOut: '469.740716153873011803 WETH',
+    amountOut: '0.00006801032272425 WETH'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000067987980224112 WMATIC',
+    profperc: '-99.967148369184206974%'
+  }
+}
+2023-10-11T21:17:01.193 INFO New block received: Block # 48602729
+ExchangeA: APE ExchangeB: JET matches: 2  gasData: 89.137695317 41.923662631
+ExchangeA: JET ExchangeB: QUICK matches: 5  gasData: 89.137695317 41.923662631
+ExchangeA: APE ExchangeB: SUSHI matches: 6  gasData: 89.137695317 41.923662631
+ExchangeA: APE ExchangeB: QUICK matches: 5  gasData: 89.137695317 41.923662631
+ExchangeA: JET ExchangeB: SUSHI matches: 4  gasData: 89.137695317 41.923662631
+ExchangeA: QUICK ExchangeB: SUSHI matches: 9  gasData: 89.137695317 41.923662631
+profitMultiBN:  -1.670656697876083284
+profitDirectBN:  -0.000798
+<<<<<<<<<<<<No Trade: USDC/WETH [ profit < 0.3% | -0.000000000000300872 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'USDC/WETH',
+  direction: 'B',
+  tradeSize: '0.265229 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1560.173801',
+    priceOut: '0.000640954231859841',
+    reservesIn: '2598.391988 USDC',
+    reservesOut: '1.665450340739304673 WETH',
+    amountRepay: '0.266027 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1561.556306',
+    priceOut: '0.000640386770833275',
+    reservesIn: '934791.308101 USDC',
+    reservesOut: '598.627987197812366977 WETH',
+    amountOut: '0.000169339547510125 WETH'
+  },
+  result: {
+    uniswapkPre: '4327492821788879259014159924',
+    uniswapkPost: '2598392786',
+    uniswapKPositive: false,
+    profit: '-0.000798 USDC',
+    profperc: '-0.300872%'
+  }
+}
+profitMultiBN:  -1.670787305014986981
+profitDirectBN:  -0.000065
+<<<<<<<<<<<<No Trade: USDC/WETH [ profit < 0.3% | -0.000000000000298124 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'USDC/WETH',
+  direction: 'B',
+  tradeSize: '0.021803 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1560.173801',
+    priceOut: '0.000640954231859841',
+    reservesIn: '2598.391988 USDC',
+    reservesOut: '1.665450340739304673 WETH',
+    amountRepay: '0.021868 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1560.467768',
+    priceOut: '0.000640833486469353',
+    reservesIn: '361132.392113 USDC',
+    reservesOut: '231.425729914791272085 WETH',
+    amountOut: '0.000013930175389477 WETH'
+  },
+  result: {
+    uniswapkPre: '4327492821788879259014159924',
+    uniswapkPost: '2598392053',
+    uniswapKPositive: false,
+    profit: '-0.000065 USDC',
+    profperc: '-0.298124%'
+  }
+}
+profitMultiBN:  -0.000156801052042768
+profitDirectBN:  -0.001445342478519259
+profitMultiBN:  -0.000162666017778529
+profitDirectBN:  -0.001500734865061386
+<<<<<<<<<<<<No Trade: WMATIC/WETH [ profit < 0.3% | -99.967107802076894137 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/WETH [ profit < 0.3% | -99.967107802076529342 ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'WMATIC/WETH',
+  direction: 'B',
+  tradeSize: '0.480335496663625662 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '3049.382804377897809958',
+    priceOut: '0.000327935213173083',
+    reservesIn: '431540.190108822662135135 WMATIC',
+    reservesOut: '141.517224236089583794 WETH',
+    amountRepay: '0.000000051592282219 WETH',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '3053.148358956374428807',
+    priceOut: '0.000327530759213358',
+    reservesIn: '2375229.541529478317494223 WMATIC',
+    reservesOut: '777.960735043146751627 WETH',
+    amountOut: '0.000156852644324987 WETH'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000156801052042768 WMATIC',
+    profperc: '-99.967107802076894137%'
+  }
+}
+{
+  trade: 'multi',
+  ticker: 'WMATIC/WETH',
+  direction: 'B',
+  tradeSize: '0.49874423362149516 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '3049.382804377897809958',
+    priceOut: '0.000327935213173083',
+    reservesIn: '431540.190108822662135135 WMATIC',
+    reservesOut: '141.517224236089583794 WETH',
+    amountRepay: '0.000000053522033095 WETH',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '3055.858130179929461278',
+    priceOut: '0.000327240322488767',
+    reservesIn: '1435460.986535355368103922 WMATIC',
+    reservesOut: '469.740716153873011803 WETH',
+    amountOut: '0.000162719539811624 WETH'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000162666017778529 WMATIC',
+    profperc: '-99.967107802076529342%'
+  }
+}
+profitMultiBN:  -210238.666353578200762136
+profitDirectBN:  -0.096369
+profitMultiBN:  1.122679512174924850
+profitDirectBN:  -0.000003085590896601
+<<<<<<<<<<<<No Trade: USDC/DAI [ profit < 0.3% | -0.000000000000300900 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'USDC/DAI',
+  direction: 'B',
+  tradeSize: '32.026955 USDC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.002011',
+    priceOut: '0.997992958218042376',
+    reservesIn: '209997.675058 USDC',
+    reservesOut: '209576.200950044633602169 DAI',
+    amountRepay: '32.123324 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.002499',
+    priceOut: '0.997506930695074581',
+    reservesIn: '131790.703919 USDC',
+    reservesOut: '131462.140560385027023071 DAI',
+    amountOut: '31.843553046399423482 DAI'
+  },
+  result: {
+    uniswapkPre: '44010514946997583857784953706000802',
+    uniswapkPost: '209997771427',
+    uniswapKPositive: false,
+    profit: '-0.096369 USDC',
+    profperc: '-0.300900%'
+  }
+}
+profitMultiBN:  -0.275577
+profitDirectBN:  -0.001633433338991571
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -99.999637 ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'A',
+  tradeSize: '0.542844360981663267 WMATIC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.953081087181994532',
+    priceOut: '0.512012',
+    reservesIn: '8546.596995688464249018 WMATIC',
+    reservesOut: '4375.956048 USDC',
+    amountRepay: '0.000001 USDC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'APE',
+    priceIn: '1.961718323028105413',
+    priceOut: '0.509757',
+    reservesIn: '481.601100888718805232 WMATIC',
+    reservesOut: '245.499619 USDC',
+    amountOut: '0.275578 USDC'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000000275577 WMATIC',
+    profperc: '-0.000000000099999637%'
+  }
+}
+profitMultiBN:  1.379254
+profitDirectBN:  -0.672134
+profitMultiBN:  -0.267477
+profitDirectBN:  -0.001585367181670551
+profitMultiBN:  -0.355895
+profitDirectBN:  -0.002110187329029986
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -99.999626 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -99.999719 ] >>>>>>>>>>>>
+2023-10-11T21:17:01.802 INFO {
+  trade: 'multi',
+  ticker: 'USDC/USDT',
+  direction: 'B',
+  tradeSize: '223.372692 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000347',
+    priceOut: '0.999653',
+    reservesIn: '63115.803174 USDC',
+    reservesOut: '63093.920006 USDT',
+    amountRepay: '223.662096 USDT',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1.001376',
+    priceOut: '0.998626',
+    reservesIn: '434997.534013 USDC',
+    reservesOut: '434399.968649 USDT',
+    amountOut: '222.282842 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '1.379254 USDC',
+    profperc: '0.620495%'
+  }
+}
+Trade:  B USDC / USDT  @  USDC/USDT
+EstimatingGas for trade: USDC/USDT...
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'A',
+  tradeSize: '0.526870374267346862 WMATIC',
+  loanPool: {
+    exchange: 'SUSHI',
+    priceIn: '1.953334164174094318',
+    priceOut: '0.511945',
+    reservesIn: '258179.101593482274991491 WMATIC',
+    reservesOut: '132173.545279 USDC',
+    amountRepay: '0.000001 USDC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'APE',
+    priceIn: '1.961718323028105413',
+    priceOut: '0.509757',
+    reservesIn: '481.601100888718805232 WMATIC',
+    reservesOut: '245.499619 USDC',
+    amountOut: '0.267478 USDC'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000000267477 WMATIC',
+    profperc: '-0.000000000099999626%'
+  }
+}
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'A',
+  tradeSize: '0.701285607949010255 WMATIC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.950574437867860327',
+    priceOut: '0.512669',
+    reservesIn: '1751987.023824592325557389 WMATIC',
+    reservesOut: '898190.291953 USDC',
+    amountRepay: '0.000001 USDC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'APE',
+    priceIn: '1.961718323028105413',
+    priceOut: '0.509757',
+    reservesIn: '481.601100888718805232 WMATIC',
+    reservesOut: '245.499619 USDC',
+    amountOut: '0.355896 USDC'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000000355895 WMATIC',
+    profperc: '-0.000000000099999719%'
+  }
+}
+profitMultiBN:  1.412456
+profitDirectBN:  -0.683340
+profitMultiBN:  -35534.222942181329029186
+profitDirectBN:  -1.472613922228473895
+profitMultiBN:  -232.752762323413442961
+profitDirectBN:  -0.000628
+<<<<<<<<<<<<No Trade: WETH/DAI [ profit < 0.3% | -0.300902700000000000 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: USDC/WETH [ profit < 0.3% | -0.000000000000300776 ] >>>>>>>>>>>>
+2023-10-11T21:17:01.814 INFO {
+  trade: 'multi',
+  ticker: 'USDC/USDT',
+  direction: 'B',
+  tradeSize: '227.096908 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000347',
+    priceOut: '0.999653',
+    reservesIn: '63115.803174 USDC',
+    reservesOut: '63093.920006 USDT',
+    amountRepay: '227.077938 USDT',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.002334',
+    priceOut: '0.997672',
+    reservesIn: '229188.649494 USDC',
+    reservesOut: '228654.992636 USDT',
+    amountOut: '225.665482 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '1.412456 USDC',
+    profperc: '0.625907%'
+  }
+}
+Trade:  B USDC / USDT  @  USDC/USDT
+EstimatingGas for trade: USDC/USDT...
+{
+  trade: 'direct',
+  ticker: 'WETH/DAI',
+  direction: 'B',
+  tradeSize: '489.398706701027905409 WETH',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '0.000624447548922457',
+    priceOut: '1601.415525972667323802',
+    reservesIn: '0.000374093614396949 WETH',
+    reservesOut: '0.599079322262506276 DAI',
+    amountRepay: '490.871320623256379304 WETH',
+    amountOut: '0.0 WETH'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '0.000640845617573415',
+    priceOut: '1560.438228143833645804',
+    reservesIn: '23.886333781465818227 WETH',
+    reservesOut: '37273.148362802719109379 DAI',
+    amountOut: '35533.622060206836010168 DAI'
+  },
+  result: {
+    uniswapkPre: '224111748975655567379301067751924',
+    uniswapkPost: '1472988015842870844',
+    uniswapKPositive: false,
+    profit: '-1.472613922228473895 WETH',
+    profperc: '-0.300902700000000000%'
+  }
+}
+{
+  trade: 'direct',
+  ticker: 'USDC/WETH',
+  direction: 'A',
+  tradeSize: '0.208793 USDC',
+  loanPool: {
+    exchange: 'SUSHI',
+    priceIn: '1560.467768',
+    priceOut: '0.000640833486469353',
+    reservesIn: '361132.392113 USDC',
+    reservesOut: '231.425729914791272085 WETH',
+    amountRepay: '0.209421 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1561.556306',
+    priceOut: '0.000640386770833275',
+    reservesIn: '934791.308101 USDC',
+    reservesOut: '598.627987197812366977 WETH',
+    amountOut: '0.000133307120531594 WETH'
+  },
+  result: {
+    uniswapkPre: '83575327440625635749150291065605',
+    uniswapkPost: '361132392741',
+    uniswapKPositive: false,
+    profit: '-0.000628 USDC',
+    profperc: '-0.300776%'
+  }
+}
+profitMultiBN:  0.00000001
+profitDirectBN:  -0.000000061637832000
+Error in division by tiny numbers: invalid decimal value (argument="value", value="Infinity", code=INVALID_ARGUMENT, version=bignumber/5.7.0) WMATIC/WBTC multi 0
+profitMultiBN:  -231401.745234746778527022
+profitDirectBN:  -0.175940
+<<<<<<<<<<<<No Trade: USDC/DAI [ profit < 0.3% | -0.000000000000300902 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'USDC/DAI',
+  direction: 'B',
+  tradeSize: '58.470785 USDC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.001452',
+    priceOut: '0.998549829005135520',
+    reservesIn: '230984.518393 USDC',
+    reservesOut: '230649.55134416373043784 DAI',
+    amountRepay: '58.646725 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1.002011',
+    priceOut: '0.997992958218042376',
+    reservesIn: '209997.675058 USDC',
+    reservesOut: '209576.200950044633602169 DAI',
+    amountOut: '58.162225557592975433 DAI'
+  },
+  result: {
+    uniswapkPre: '53276475534793185066522747423191120',
+    uniswapkPost: '230984694333',
+    uniswapKPositive: false,
+    profit: '-0.17594 USDC',
+    profperc: '-0.300902%'
+  }
+}
+profitMultiBN:  -0.231346609522055658
+profitDirectBN:  -0.002806634065979558
+<<<<<<<<<<<<No Trade: WMATIC/DAI [ profit < 0.3% | -0.300902699999999952 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'WMATIC/DAI',
+  direction: 'B',
+  tradeSize: '0.93273807977780141 WMATIC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.953360661565246835',
+    priceOut: '0.511938230187706507',
+    reservesIn: '19021.476313239721720794 WMATIC',
+    reservesOut: '9737.820919357323572928 DAI',
+    amountRepay: '0.935544713843780968 WMATIC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.955152342150852382',
+    priceOut: '0.511469095497645712',
+    reservesIn: '3976.419137356602161301 WMATIC',
+    reservesOut: '2033.815499503309931585 DAI',
+    amountOut: '0.475524294050423101 DAI'
+  },
+  result: {
+    uniswapkPre: '185227729960125580713098628765932560513064832',
+    uniswapkPost: '19021479119873787700352',
+    uniswapKPositive: false,
+    profit: '-0.002806634065979558 WMATIC',
+    profperc: '-0.300902699999999952%'
+  }
+}
+Error in fetchGasPrice for trade: USDC/USDT . Using default gas estimate for gasPrice calcs
+GasToken Key:  WMATIC
+Trying token WMATIC...
+Error in fetchGasPrice for trade: USDC/USDT . Using default gas estimate for gasPrice calcs
+GasToken Key:  WMATIC
+Trying token WMATIC...
+profitMultiBN:  -5662.729554932558377572
+profitDirectBN:  -0.333436
+<<<<<<<<<<<<No Trade: USDC/DAI [ profit < 0.3% | -0.000000000000300903 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'USDC/DAI',
+  direction: 'A',
+  tradeSize: '110.811963 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000491',
+    priceOut: '0.999509304247116717',
+    reservesIn: '5538.523323 USDC',
+    reservesOut: '5535.805593128158892041 DAI',
+    amountRepay: '111.145399 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'APE',
+    priceIn: '1.001452',
+    priceOut: '0.998549829005135520',
+    reservesIn: '230984.518393 USDC',
+    reservesOut: '230649.55134416373043784 DAI',
+    amountOut: '110.266572579284513831 DAI'
+  },
+  result: {
+    uniswapkPre: '30660188389134156551618917572243',
+    uniswapkPost: '5538856759',
+    uniswapKPositive: false,
+    profit: '-0.333436 USDC',
+    profperc: '-0.300903%'
+  }
+}
+profitMultiBN:  -1.434848
+profitDirectBN:  -0.008460579121238991
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -99.999930 ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'A',
+  tradeSize: '2.811732537208536649 WMATIC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.950574437867860327',
+    priceOut: '0.512669',
+    reservesIn: '1751987.023824592325557389 WMATIC',
+    reservesOut: '898190.291953 USDC',
+    amountRepay: '0.000001 USDC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'JET',
+    priceIn: '1.953081087181994532',
+    priceOut: '0.512012',
+    reservesIn: '8546.596995688464249018 WMATIC',
+    reservesOut: '4375.956048 USDC',
+    amountOut: '1.434849 USDC'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000001434848 WMATIC',
+    profperc: '-0.000000000099999930%'
+  }
+}
+profitMultiBN:  -3.214807962136088904
+profitDirectBN:  -0.039094131667252029
+profitMultiBN:  -0.901847296231283440
+profitDirectBN:  -0.010979220187057708
+profitMultiBN:  -4.370700
+profitDirectBN:  -0.025767543494588479
+profitMultiBN:  -47.706751
+profitDirectBN:  -0.281348181915237261
+<<<<<<<<<<<<No Trade: WMATIC/DAI [ profit < 0.3% | -0.300902699999999999 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/DAI [ profit < 0.3% | -0.300902699999999973 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -99.999977 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -99.999998 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'WMATIC/DAI',
+  direction: 'B',
+  tradeSize: '12.992283441541743943 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.948162152558819399',
+    priceOut: '0.513304294864032243',
+    reservesIn: '124169.145508901493338897 WMATIC',
+    reservesOut: '63736.555679316097098486 DAI',
+    amountRepay: '13.031377573208995972 WMATIC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1.953360661565246835',
+    priceOut: '0.511938230187706507',
+    reservesIn: '19021.476313239721720794 WMATIC',
+    reservesOut: '9737.820919357323572928 DAI',
+    amountOut: '6.626780125178423559 DAI'
+  },
+  result: {
+    uniswapkPre: '7914113656381202326937705956875680797983609942',
+    uniswapkPost: '124169184603033160590926',
+    uniswapKPositive: false,
+    profit: '-0.039094131667252029 WMATIC',
+    profperc: '-0.300902699999999999%'
+  }
+}
+{
+  trade: 'direct',
+  ticker: 'WMATIC/DAI',
+  direction: 'B',
+  tradeSize: '3.648760940682057347 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.948162152558819399',
+    priceOut: '0.513304294864032243',
+    reservesIn: '124169.145508901493338897 WMATIC',
+    reservesOut: '63736.555679316097098486 DAI',
+    amountRepay: '3.659740160869115055 WMATIC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.955152342150852382',
+    priceOut: '0.511469095497645712',
+    reservesIn: '3976.419137356602161301 WMATIC',
+    reservesOut: '2033.815499503309931585 DAI',
+    amountOut: '1.858929137114804027 DAI'
+  },
+  result: {
+    uniswapkPre: '7914113656381202326937705956875680797983609942',
+    uniswapkPost: '124169156488121680396605',
+    uniswapKPositive: false,
+    profit: '-0.010979220187057708 WMATIC',
+    profperc: '-0.300902699999999973%'
+  }
+}
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'B',
+  tradeSize: '8.563413852580412184 WMATIC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.953081087181994532',
+    priceOut: '0.512012',
+    reservesIn: '8546.596995688464249018 WMATIC',
+    reservesOut: '4375.956048 USDC',
+    amountRepay: '0.000001 USDC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.953334164174094318',
+    priceOut: '0.511945',
+    reservesIn: '258179.101593482274991491 WMATIC',
+    reservesOut: '132173.545279 USDC',
+    amountOut: '4.370701 USDC'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.0000000000043707 WMATIC',
+    profperc: '-0.000000000099999977%'
+  }
+}
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'B',
+  tradeSize: '93.501381647701154307 WMATIC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.950574437867860327',
+    priceOut: '0.512669',
+    reservesIn: '1751987.023824592325557389 WMATIC',
+    reservesOut: '898190.291953 USDC',
+    amountRepay: '0.000001 USDC',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.953334164174094318',
+    priceOut: '0.511945',
+    reservesIn: '258179.101593482274991491 WMATIC',
+    reservesOut: '132173.545279 USDC',
+    amountOut: '47.706752 USDC'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000047706751 WMATIC',
+    profperc: '-0.000000000099999998%'
+  }
+}
+GasPool found for:  USDT   WMATIC
+gasToken:  WMATIC
+2023-10-11T21:17:02.189 INFO <<<<<<<<<<<<<<<<<<<<<<<<<BEGIN GAS CONVERSION LOOP:  USDC/USDT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-10-11T21:17:02.190 INFO Pair:  USDC/USDT  finding profit through  USDT /  /WMATIC
+2023-10-11T21:17:02.190 INFO gaspool.address:  0x604229c960e5CACF2aaEAc8Be68Ac07BA9dF81c3
+Trade is negative.
+<<<<<<<<<<<<No Trade: USDC/USDT [ gas > profit ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'USDC/USDT',
+  direction: 'B',
+  tradeSize: '223.372692 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000347',
+    priceOut: '0.999653',
+    reservesIn: '63115.803174 USDC',
+    reservesOut: '63093.920006 USDT',
+    amountRepay: '223.662096 USDT',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1.001376',
+    priceOut: '0.998626',
+    reservesIn: '434997.534013 USDC',
+    reservesOut: '434399.968649 USDT',
+    amountOut: '222.282842 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '1.379254 USDC',
+    profperc: '0.620495%'
+  }
+}
+GasPool found for:  USDT   WMATIC
+gasToken:  WMATIC
+2023-10-11T21:17:02.201 INFO <<<<<<<<<<<<<<<<<<<<<<<<<BEGIN GAS CONVERSION LOOP:  USDC/USDT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-10-11T21:17:02.201 INFO Pair:  USDC/USDT  finding profit through  USDT /  /WMATIC
+2023-10-11T21:17:02.201 INFO gaspool.address:  0x55FF76BFFC3Cdd9D5FdbBC2ece4528ECcE45047e
+Trade is negative.
+<<<<<<<<<<<<No Trade: USDC/USDT [ gas > profit ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'USDC/USDT',
+  direction: 'B',
+  tradeSize: '227.096908 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000347',
+    priceOut: '0.999653',
+    reservesIn: '63115.803174 USDC',
+    reservesOut: '63093.920006 USDT',
+    amountRepay: '227.077938 USDT',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.002334',
+    priceOut: '0.997672',
+    reservesIn: '229188.649494 USDC',
+    reservesOut: '228654.992636 USDT',
+    amountOut: '225.665482 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '1.412456 USDC',
+    profperc: '0.625907%'
+  }
+}
+profitMultiBN:  -231411.892529004448746055
+profitDirectBN:  -0.206786
+<<<<<<<<<<<<No Trade: USDC/DAI [ profit < 0.3% | -0.000000000000300902 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'USDC/DAI',
+  direction: 'B',
+  tradeSize: '68.722151 USDC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.001452',
+    priceOut: '0.998549829005135520',
+    reservesIn: '230984.518393 USDC',
+    reservesOut: '230649.55134416373043784 DAI',
+    amountRepay: '68.928937 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.002499',
+    priceOut: '0.997506930695074581',
+    reservesIn: '131790.703919 USDC',
+    reservesOut: '131462.140560385027023071 DAI',
+    amountOut: '68.309656296613567945 DAI'
+  },
+  result: {
+    uniswapkPre: '53276475534793185066522747423191120',
+    uniswapkPost: '230984725179',
+    uniswapKPositive: false,
+    profit: '-0.206786 USDC',
+    profperc: '-0.300902%'
+  }
+}
+profitMultiBN:  0.204680
+profitDirectBN:  -0.329210
+2023-10-11T21:17:02.275 INFO {
+  trade: 'multi',
+  ticker: 'USDC/USDT',
+  direction: 'B',
+  tradeSize: '109.407768 USDC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.001376',
+    priceOut: '0.998626',
+    reservesIn: '434997.534013 USDC',
+    reservesOut: '434399.968649 USDT',
+    amountRepay: '108.978467 USDT',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.002334',
+    priceOut: '0.997672',
+    reservesIn: '229188.649494 USDC',
+    reservesOut: '228654.992636 USDT',
+    amountOut: '108.773787 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '0.20468 USDC',
+    profperc: '0.188170%'
+  }
+}
+Trade:  B USDC / USDT  @  USDC/USDT
+EstimatingGas for trade: USDC/USDT...
+Error in fetchGasPrice for trade: USDC/USDT . Using default gas estimate for gasPrice calcs
+GasToken Key:  WMATIC
+Trying token WMATIC...
+profitMultiBN:  -5710.761659183787127673
+profitDirectBN:  -0.479080
+<<<<<<<<<<<<No Trade: USDC/DAI [ profit < 0.3% | -0.000000000000300902 ] >>>>>>>>>>>>
+{
+  trade: 'direct',
+  ticker: 'USDC/DAI',
+  direction: 'B',
+  tradeSize: '159.21457 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000491',
+    priceOut: '0.999509304247116717',
+    reservesIn: '5538.523323 USDC',
+    reservesOut: '5535.805593128158892041 DAI',
+    amountRepay: '159.69365 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1.002011',
+    priceOut: '0.997992958218042376',
+    reservesIn: '209997.675058 USDC',
+    reservesOut: '209576.200950044633602169 DAI',
+    amountOut: '158.298676915136594503 DAI'
+  },
+  result: {
+    uniswapkPre: '30660188389134156551618917572243',
+    uniswapkPost: '5539002403',
+    uniswapKPositive: false,
+    profit: '-0.47908 USDC',
+    profperc: '-0.300902%'
+  }
+}
+profitMultiBN:  -0.591958
+profitDirectBN:  -0.003487997670211987
+profitMultiBN:  -4.209250
+profitDirectBN:  -0.024798032361567437
+profitMultiBN:  -5683.555430267732751696
+profitDirectBN:  -0.397032
+<<<<<<<<<<<<No Trade: WMATIC/USDT [ profit < 0.3% | -99.999831 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/USDT [ profit < 0.3% | -99.999976 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: USDC/DAI [ profit < 0.3% | -0.000000000000300902 ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDT',
+  direction: 'B',
+  tradeSize: '1.159177923698254374 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.951832330516788104',
+    priceOut: '0.512339',
+    reservesIn: '123877.961820451459386011 WMATIC',
+    reservesOut: '63467.522227 USDT',
+    amountRepay: '0.000001 USDT',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.952228870658964173',
+    priceOut: '0.512235',
+    reservesIn: '22277.485913504953956203 WMATIC',
+    reservesOut: '11411.308504 USDT',
+    amountOut: '0.591959 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000000591958 WMATIC',
+    profperc: '-0.000000000099999831%'
+  }
+}
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDT',
+  direction: 'B',
+  tradeSize: '8.241212977340328754 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.951832330516788104',
+    priceOut: '0.512339',
+    reservesIn: '123877.961820451459386011 WMATIC',
+    reservesOut: '63467.522227 USDT',
+    amountRepay: '0.000001 USDT',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '1.951971714262729125',
+    priceOut: '0.512303',
+    reservesIn: '450531.362860468355181699 WMATIC',
+    reservesOut: '230808.346027 USDT',
+    amountOut: '4.209251 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.00000000000420925 WMATIC',
+    profperc: '-0.000000000099999976%'
+  }
+}
+{
+  trade: 'direct',
+  ticker: 'USDC/DAI',
+  direction: 'B',
+  tradeSize: '131.94711 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.000491',
+    priceOut: '0.999509304247116717',
+    reservesIn: '5538.523323 USDC',
+    reservesOut: '5535.805593128158892041 DAI',
+    amountRepay: '132.344142 USDC',
+    amountOut: '0.0 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.002499',
+    priceOut: '0.997506930695074581',
+    reservesIn: '131790.703919 USDC',
+    reservesOut: '131462.140560385027023071 DAI',
+    amountOut: '131.092447958764768993 DAI'
+  },
+  result: {
+    uniswapkPre: '30660188389134156551618917572243',
+    uniswapkPost: '5538920355',
+    uniswapKPositive: false,
+    profit: '-0.397032 USDC',
+    profperc: '-0.300902%'
+  }
+}
+profitMultiBN:  -0.383864
+profitDirectBN:  -0.002261805972679597
+<<<<<<<<<<<<No Trade: WMATIC/USDT [ profit < 0.3% | -99.999739 ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'WMATIC/USDT',
+  direction: 'B',
+  tradeSize: '0.751673538549038575 WMATIC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.951971714262729125',
+    priceOut: '0.512303',
+    reservesIn: '450531.362860468355181699 WMATIC',
+    reservesOut: '230808.346027 USDT',
+    amountRepay: '0.000001 USDT',
+    amountOut: '0.0 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.952228870658964173',
+    priceOut: '0.512235',
+    reservesIn: '22277.485913504953956203 WMATIC',
+    reservesOut: '11411.308504 USDT',
+    amountOut: '0.383865 USDT'
+  },
+  result: {
+    uniswapkPre: 0,
+    uniswapkPost: 0,
+    uniswapKPositive: false,
+    profit: '-0.000000000000383864 WMATIC',
+    profperc: '-0.000000000099999739%'
+  }
+}
+^C
+(base) prophecy@DESKTOP-ODVLU60:/mnt/d/code/arbitrage/polybot-live/polybotv3$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
