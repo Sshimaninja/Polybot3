@@ -60,7 +60,7 @@ export async function rollDamage(trade: BoolTrade, data: any, warning: number, t
 	} else if (profpercBN.lt(0) /*&& profpercBN.gt(-0.6)*/) { // TESTING
 		console.log("<<<<<<<<<<<<No Trade: " + trade.ticker + " [ profit < 0.3% | " + profpercBN.toFixed(trade.tokenOut.decimals) + " ] >>>>>>>>>>>>")
 		// console.log(data.data)
-		console.log(data.basicData)
+		// console.log(data.basicData)
 		return
 	}
 }
