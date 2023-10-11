@@ -18,9 +18,9 @@ export async function rollDamage(trade: BoolTrade, data: any, warning: number, t
 	// Conversion to BN because BN works with decimals
 	const profpercBN = BN(u.formatUnits(trade.profitPercent, trade.tokenOut.decimals))
 
-	if (profpercBN.gt(BN(0)) && trade.loanPool.reserveIn.gt(BigNumber.from(1)) && trade.loanPool.reserveOut.gt(BigNumber.from(1)) && trade.recipient.reserveIn.gt(BigNumber.from(1)) && trade.recipient.reserveOut.gt(BigNumber.from(1)) /* || profpercBN.lt(0)*/) { // May need to take fees into account here, but testing now.
+	if (profpercBN.gt(BN(0)) && trade.loanPool.reserveInBN.gt(BN(1)) && trade.loanPool.reserveOutBN.gt(BN(1)) && trade.recipient.reserveInBN.gt(BN(1)) && trade.recipient.reserveOutBN.gt(BN(1)) /* || profpercBN.lt(0)*/) { // May need to take fees into account here, but testing now.
 
-		logger.info(data)
+		logger.info(await data)
 
 		const actualProfit = await gasVprofit(trade)
 
@@ -59,7 +59,7 @@ export async function rollDamage(trade: BoolTrade, data: any, warning: number, t
 
 	} else if (profpercBN.lt(0) /*&& profpercBN.gt(-0.6)*/) { // TESTING
 		console.log("<<<<<<<<<<<<No Trade: " + trade.ticker + " [ profit < 0.3% | " + profpercBN.toFixed(trade.tokenOut.decimals) + " ] >>>>>>>>>>>>")
-		// console.log(data.data)
+		console.log(await data)
 		// console.log(data.basicData)
 		return
 	}
