@@ -35,9 +35,9 @@ export class AmountConverter {
 	async tradeToPrice(): Promise<BigNumber> {
 		this.targetPrice = this.price.priceOutBN.plus(this.targetPrice).div(2);// average of two prices
 		const tradeSize = await tradeToPrice(this.reserves.reserveInBN, this.reserves.reserveOutBN, this.targetPrice, this.slip);
-		console.log('tradeSize: ', tradeSize.toFixed(this.token0.decimals));//DEBUG
+		// console.log('tradeSize: ', tradeSize.toFixed(this.token0.decimals));//DEBUG
 		const tradeSizeJS = utils.parseUnits(tradeSize.toFixed(this.token0.decimals), this.token0.decimals);
-		console.log('tradeSizeJS: ', utils.formatUnits(tradeSizeJS, this.token0.decimals));//DEBUG
+		// console.log('tradeSizeJS: ', utils.formatUnits(tradeSizeJS, this.token0.decimals));//DEBUG
 		return tradeSizeJS;
 	}
 

@@ -178,9 +178,14 @@ export class Trade {
 
 			trade.profit = trade.type === "multi" ? profitMulti : profitDirect;
 			//////////////////////////////////////////////////////////////////////////
-
-			trade.profitPercent = trade.type == "multi" ? profitMulti.mul(100).div(trade.recipient.amountOut) : profitDirect.mul(100).div(trade.recipient.tradeSize);
-
+			try {
+				trade.profitPercent = trade.type == "multi" ?
+					profitMulti.mul(100).div(trade.recipient.amountOut) :
+					profitDirect.mul(100).div(trade.recipient.tradeSize);
+			} catch (error: any) {
+				console.log("Error in division by tiny numbers: " + error.message)
+				console.log(error.message)
+			}
 			trade.flash = trade.type === "multi" ? flashMulti : flashMulti;
 
 			trade.k = await getK(trade);
