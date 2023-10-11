@@ -1,5 +1,5 @@
 import { BoolTrade } from "../../../constants/interfaces";
-import { utils as u } from "ethers";
+import { utils as u, BigNumber } from "ethers";
 import { gasVprofit } from "./gasVprofit";
 import { sendit } from "../execute";
 import { BigNumber as BN } from "bignumber.js";
@@ -18,7 +18,7 @@ export async function rollDamage(trade: BoolTrade, data: any, warning: number, t
 	// Conversion to BN because BN works with decimals
 	const profpercBN = BN(u.formatUnits(trade.profitPercent, trade.tokenOut.decimals))
 
-	if (profpercBN.gt(0) && trade.loanPool.reserveIn.gt(1) && trade.loanPool.reserveOut.gt(1) && trade.recipient.reserveIn.gt(1) && trade.recipient.reserveOut.gt(1) /* || profpercBN.lt(0)*/) { // May need to take fees into account here, but testing now.
+	if (profpercBN.gt(BN(0)) && trade.loanPool.reserveIn.gt(BigNumber.from(1)) && trade.loanPool.reserveOut.gt(BigNumber.from(1)) && trade.recipient.reserveIn.gt(BigNumber.from(1)) && trade.recipient.reserveOut.gt(BigNumber.from(1)) /* || profpercBN.lt(0)*/) { // May need to take fees into account here, but testing now.
 
 		logger.info(data)
 
