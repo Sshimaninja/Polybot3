@@ -6,12 +6,13 @@ export async function send(trade: BoolTrade, gasObj: TxGas): Promise<TxData> {
 
 	let tx: V2Tx = await trade.flash.flashSwap(
 		trade.loanPool.factory.address,
+		trade.loanPool.router.address,
 		trade.recipient.router.address,
 		trade.tokenIn.id,
 		trade.tokenOut.id,
 		trade.recipient.tradeSize,
 		trade.recipient.amountOut,
-		trade.amountRepay,
+		trade.loanPool.amountRepay,
 		gasObj
 	);
 

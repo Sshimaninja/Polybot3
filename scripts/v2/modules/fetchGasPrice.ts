@@ -27,15 +27,18 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 				trade.tokenOut.id,
 				trade.recipient.tradeSize,
 				trade.recipient.amountOut,
-				trade.amountRepay
+				trade.loanPool.amountRepay
 			);
 		} catch (error: any) {
 			console.log(`Error in fetchGasPrice for trade: ${trade.ticker}`, ". Using default gas estimate for gasPrice calcs");
 			gasEstimate = BigNumber.from(300000);
 		}
-		const gasPrice = BigNumber.from(maxFee)
-			.add(BigNumber.from(maxPriorityFee))
-			.mul(gasEstimate.toNumber());
+		console.log('[fetchGasPrice]: Raw Gas Estimate toString() : ' + gasEstimate)
+		const gasPriceCalc = maxFee + maxPriorityFee * Number(utils.formatUnits(gasEstimate, 18));
+		console.log('[fetchGasPrice]: Gas Price String Converted from BigNumber : ' + gasPriceCalc)
+		const gasPrice = utils.parseUnits(gasPriceCalc.toString(), 18);
+
+
 		return { gasEstimate, gasPrice, maxFee, maxPriorityFee }
 	} else {
 		console.log(`(fetchGasPrice) Trade direction undefined: ${trade.ticker}`, ". Using default gas estimate");

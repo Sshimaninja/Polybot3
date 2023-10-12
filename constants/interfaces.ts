@@ -205,7 +205,6 @@ export interface BoolTrade {
 	}
 	k: K
 	gasData: GasData
-	amountRepay: BigNumber
 	differenceTokenOut: string
 	differencePercent: string
 	profit: BigNumber

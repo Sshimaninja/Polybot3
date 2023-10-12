@@ -220,7 +220,7 @@ export class Trade {
 				// console.log("profitDirectBN: ", profitDirectBN.toFixed(trade.tokenIn.decimals));
 
 				const profitPercMultiBN = trade.recipient.amountOut.eq(0) ? BN(0) : profitMultiBN.dividedBy(u.formatUnits(trade.recipient.amountOut, trade.tokenOut.decimals)).multipliedBy(100);
-				const profitPercDirectBN = directRepayinTokenOut.eq(0) ? BN(0) : profitDirectBN.dividedBy(u.formatUnits(directRepayinTokenOut, trade.tokenOut.decimals)).multipliedBy(100);
+				const profitPercDirectBN = trade.recipient.tradeSize.eq(0) ? BN(0) : profitDirectBN.dividedBy(u.formatUnits(trade.recipient.tradeSize, trade.tokenOut.decimals)).multipliedBy(100);
 
 				trade.profitPercent = trade.type == "multi" ?
 					u.parseUnits((profitPercMultiBN.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals) :
