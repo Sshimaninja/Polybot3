@@ -90,7 +90,10 @@ export class Trade {
 
 	async getTrade() {
 		const dir = await this.direction();
-		const A = dir.dir == "A"
+		const A = dir.dir == "A" ? true : false;
+		const maxIn = A ? await this.amounts0.getMaxTokenIn() : await this.amounts1.getMaxTokenIn();
+		const maxOut = A ? await this.amounts0.getMaxTokenOut() : await this.amounts1.getMaxTokenOut();
+		const toPrice = A ? await this.amounts0.tradeToPrice() : await this.amounts1.tradeToPrice();
 		const trade: BoolTrade = {
 			direction: dir.dir,
 			type: "error",
@@ -127,7 +130,7 @@ export class Trade {
 				// Would be good to have a strategy that takes into account the reserves of the pool and uses the min of the three below.
 				// Also would be good to have a function that determines the optimal tradesize for a given pool.
 				// for this tradeSize, amounts0.price gets passed amounts1.price as target, and vice versa.
-				tradeSize: A ? await this.amounts0.tradeToPrice() : await this.amounts1.tradeToPrice(),
+				tradeSize: toPrice.gt(maxIn) ? toPrice : maxIn, // This strategy attempts to use the biggest tradeSize possible. It will use toPrice, despite high slippage, if slippage creates profitable trades. If toPrice is smaller than maxIn(for slippage) it will use maxIn.
 				// tradeSize: A ? // This is a possible solution but it results in div-by-zero error (likely due to toPrice being negative sometimes)
 				// this.amounts0.toPrice.lt(this.amounts0.maxIn) ? this.amounts0.toPrice : this.amounts0.maxIn :
 				// this.amounts1.toPrice.lt(this.amounts1.maxIn) ? this.amounts1.toPrice : this.amounts1.maxIn,
@@ -158,6 +161,9 @@ export class Trade {
 		// arbitrage type options: 
 		if (trade.recipient.tradeSize.gt(0)) {
 
+			// Define what repay is for each trade type: 
+			/*multiRepay using getAmountsIn seems broken, 
+			so direct is offered as an alternative and profit is calculated for both.*/
 			const multiRepay = await this.getRepayMulti(
 				trade.recipient.amountOut,
 				trade.loanPool.reserveOut,
@@ -166,26 +172,37 @@ export class Trade {
 
 			const directRepay = await this.getRepayDirect(trade.recipient.tradeSize); //repayment in token0 using simple addition of 0.3%
 
-			const profitMulti = multiRepay.sub(trade.recipient.amountOut); // token1 repay - token1 out
+			//Define what 'profit' is for each trade type: 
+			/* Must check the actual strategy to troubleshoot this, 
+			i.e. does the strategy sell *all* of the token0 borrowed,
+			OR does the strategy *only* sell the token0 borrowed that is required to repay the loan?
+			In case 1, the profit is the remainder of token1 out.
+			In case 2, the profit is the remainder of token0 borrowed.
+			*/
+			const profitMulti = multiRepay.sub(trade.recipient.amountOut); // token1 repay - token1 out (profit will be remainder of token1 out)
 
-			const profitDirect = trade.recipient.tradeSize.sub(directRepay); // token0 borrowed - token0 repay
+			const profitDirect = trade.recipient.tradeSize.sub(directRepay); // token0 borrowed - token0 repay (profit will be remainder of token0 borrowed)
 
 			trade.type = profitMulti.gt(profitDirect) ? "multi" : "direct";
+			////////////////////////////////////////////////////////////////////////////////
 
 			// The below will be either in token0 or token1, depending on the trade type.
 			trade.amountRepay = trade.type === "multi" ? multiRepay : directRepay;
-			///////////////////////////////////////////////////////////////////////////////
+			////////////////////////////////////////////////////////////////////////////
 
 			trade.profit = trade.type === "multi" ? profitMulti : profitDirect;
-			//////////////////////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////////////////////
 
 			try {
 				const profitMultiBN = BN(u.formatUnits(profitMulti, trade.tokenOut.decimals));
-				console.log("profitMultiBN: ", profitMultiBN.toFixed(trade.tokenOut.decimals));
+				// console.log("profitMultiBN: ", profitMultiBN.toFixed(trade.tokenOut.decimals));
+
 				const profitDirectBN = BN(u.formatUnits(profitDirect, trade.tokenIn.decimals));
-				console.log("profitDirectBN: ", profitDirectBN.toFixed(trade.tokenIn.decimals));
+				// console.log("profitDirectBN: ", profitDirectBN.toFixed(trade.tokenIn.decimals));
+
 				const profitPercMultiBN = trade.recipient.amountOut.eq(0) ? BN(0) : profitMultiBN.dividedBy(u.formatUnits(trade.recipient.amountOut, trade.tokenOut.decimals)).multipliedBy(100);
 				const profitPercDirectBN = trade.recipient.tradeSize.eq(0) ? BN(0) : profitDirectBN.dividedBy(u.formatUnits(trade.recipient.tradeSize, trade.tokenIn.decimals)).multipliedBy(100);
+
 				trade.profitPercent = trade.type == "multi" ?
 					u.parseUnits((profitPercMultiBN.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals) :
 					u.parseUnits((profitPercDirectBN.toFixed(trade.tokenIn.decimals)), trade.tokenIn.decimals);
