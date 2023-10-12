@@ -25,9 +25,9 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
 				reservesOut: u(trade.loanPool.reserveOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
 				amountRepay:
 					trade.type === "multi" ? (
-						u(trade.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol
+						u(trade.loanPool.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol
 					) : trade.type === "direct" ? (
-						u(trade.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol) : "error",
+						u(trade.loanPool.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol) : "error",
 				amountOut: u(trade.loanPool.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
 
 			},
@@ -40,12 +40,12 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
 				amountOut: u(trade.recipient.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
 			},
 			result: {
-				uniswapkPre: trade.k.uniswapKPre.gt(0) ? trade.k.uniswapKPre.toString() : 0,
-				uniswapkPost: trade.k.uniswapKPost.gt(0) ? trade.k.uniswapKPost.toString() : 0,
+				uniswapkPreT: trade.k.uniswapKPre.gt(0) ? trade.k.uniswapKPre.toString() : 0,
+				uniswapkPosT: trade.k.uniswapKPost.gt(0) ? trade.k.uniswapKPost.toString() : 0,
 				uniswapKPositive: trade.k.uniswapKPositive,
 				// loanCostPercent: utils.formatUnits((trade.loanPool.amountOut.div(trade.amountRepay)).mul(100), trade.tokenOut.decimals),
-				profit: u(trade.profit, (trade.direction === "multi" ? trade.tokenOut.decimals : trade.tokenIn.decimals)) + " " + (trade.direction === "multi" ? trade.tokenOut.symbol : trade.tokenIn.symbol),
-				profperc: BN(f.formatUnits(trade.profitPercent, (trade.direction === "multi" ? trade.tokenOut.decimals : trade.tokenIn.decimals))).toFixed((trade.direction === "multi" ? trade.tokenOut.decimals : trade.tokenIn.decimals)) + "%",
+				profit: u(trade.profit, (trade.tokenOut.decimals)) + " " + (trade.tokenOut.symbol),
+				profperc: u(trade.profitPercent, (trade.tokenOut.decimals)) + "%",
 			}
 		}
 		return data

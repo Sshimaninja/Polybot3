@@ -24,6 +24,8 @@ export async function rollDamage(trade: BoolTrade, data: any, warning: number, t
 
 		const actualProfit = await gasVprofit(trade)
 
+		return
+
 		if (BN(actualProfit.profit).gt(0) && warning === 0) {
 			logger.info("Profitable trade found on " + trade.ticker + "!")
 			logger.info("Profit: ", actualProfit.profit.toString(), "Gas Cost: ", actualProfit.gasCost.toString(), "Flash Type: ", trade.type)
