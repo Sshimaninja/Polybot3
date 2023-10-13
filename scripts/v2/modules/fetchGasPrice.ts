@@ -17,6 +17,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 	const maxPriorityFeeString = (Math.trunc(maxPriorityFeeGasData * 10 ** 9)).toString();
 	const maxFee = utils.parseUnits(utils.formatUnits(maxFeeString, 18), 18);
 	const maxPriorityFee = utils.parseUnits(utils.formatUnits(maxPriorityFeeString, 18), 18);
+
 	if (trade.direction != undefined) {
 		console.log('EstimatingGas for trade: ' + trade.ticker + '...');
 		let gasEstimate: BigNumber;

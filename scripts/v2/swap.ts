@@ -4,7 +4,7 @@ import { BigNumber as BN } from "bignumber.js";
 import { Prices } from './modules/prices';
 import { FactoryPair, Pair } from '../../constants/interfaces';
 import { AmountConverter } from './modules/amountConverter'
-import { Trade } from './getTrade';
+import { Trade } from './modules/getTrade';
 import { gasVprofit } from './modules/gasVprofit';
 import { Reserves } from './modules/reserves';
 import { tradeLogs } from './modules/tradeLog';
@@ -21,10 +21,7 @@ TODO:
  * It prevents multiple flash swaps from being executed at the same time, on the same pool, if the profit is too low, or the gas cost too high.
  */
 const warning = 0
-const tradePending = false;
 const slippageTolerance = BN(0.01)
-// var virtualReserveFactor = 1.1
-var pendingID: string | undefined
 
 export async function control(data: FactoryPair[], gasData: any) {
 	const promises: any[] = [];
@@ -33,27 +30,25 @@ export async function control(data: FactoryPair[], gasData: any) {
 		console.log("ExchangeA: " + pair.exchangeA + " ExchangeB: " + pair.exchangeB + " matches: " + pair.matches.length, " gasData: " + gasData.fast.maxFee + " " + gasData.fast.maxPriorityFee);
 
 		for (const match of pair.matches) {
-			if (!tradePending && match.poolA_id !== pendingID && match.poolB_id !== pendingID) {
 
-				const r = new Reserves(match);
-				const reserves = await r.getReserves(match);
+			const r = new Reserves(match);
+			const reserves = await r.getReserves(match);
 
-				const p0 = new Prices(match.token0, match.token1, match.poolA_id, reserves[0]);
-				const p1 = new Prices(match.token0, match.token1, match.poolB_id, reserves[1]);
+			const p0 = new Prices(match.token0, match.token1, match.poolA_id, reserves[0]);
+			const p1 = new Prices(match.token0, match.token1, match.poolB_id, reserves[1]);
 
-				const t = new Trade(pair, match, p0, p1, slippageTolerance, gasData);
-				const trade = await t.getTrade();
+			const t = new Trade(pair, match, p0, p1, slippageTolerance, gasData);
+			const trade = await t.getTrade();
 
-				const dataPromise = tradeLogs(trade);
-				const rollPromise = rollDamage(trade, await dataPromise, warning, tradePending, pendingID);
+			const dataPromise = tradeLogs(trade);
+			const rollPromise = rollDamage(trade, await dataPromise, warning);
 
-				promises.push(dataPromise, rollPromise);
-			}
+			promises.push(dataPromise, rollPromise);
 		}
 	}
 
 	await Promise.all(promises).catch((error: any) => {
-		console.log("Error in control.ts: " + error.message);
-		return;
+		console.log("Error in swap.ts: " + error.message);
+		return ("Error in swap.ts: " + error.message);
 	});
 }
