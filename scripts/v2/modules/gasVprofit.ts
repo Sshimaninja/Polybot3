@@ -10,10 +10,62 @@ require('dotenv').config()
  * @returns Profit{profit: string, gasEstimate: BigNumber, gasCost: BigNumber, gasPool: string}
  */
 export async function gasVprofit(trade: BoolTrade,): Promise<Profit> {
-	let profit: Profit;
-	console.log("Trade: ", trade.direction, trade.tokenIn.symbol, "/", trade.tokenOut.symbol, " @ ", trade.ticker)
-	if (trade.direction == undefined) {
-		console.log("Trade direction is undefined.")
+	let profit: Profit; {
+		console.log("Trade: ", trade.direction, trade.tokenIn.symbol, "/", trade.tokenOut.symbol, " @ ", trade.ticker)
+		if (trade.direction == undefined) {
+			console.log("Trade direction is undefined.")
+			return profit = {
+				profit: "undefined",
+				gasEstimate: BigNumber.from(0),
+				gasCost: BigNumber.from(0),
+				gasPool: "undefined",
+				gas: {
+					gasEstimate: BigNumber.from(0),
+					gasPrice: BigNumber.from(0),
+					maxFee: BigNumber.from(0),
+					maxPriorityFee: BigNumber.from(0),
+				}
+			};
+
+		} else {
+
+			const prices = await fetchGasPrice(trade);
+
+			const profitinMatic = await getProfitInMatic(trade);
+			if (profitinMatic != undefined) {
+				if (profitinMatic.profitInMatic.gt(BigNumber.from(0))) {
+					profit = {
+						profit: u.formatUnits(profitinMatic.profitInMatic, 18),
+						gasEstimate: prices.gasEstimate,
+						gasCost: prices.gasPrice,
+						gasPool: profitinMatic.gasPool.address,
+						gas: prices,
+					}
+					console.log("Possible trade: " + trade.ticker + " Gas Estimate: ", prices.gasEstimate.toString(), "Gas Price: ", u.formatUnits(prices.gasPrice.toString()))
+					// console.log("Profit: ", profit)
+					return profit;
+				}
+				if (profitinMatic.profitInMatic.lte(BigNumber.from(0))) {
+					console.log("Trade is negative.")
+					return profit = {
+						profit: u.formatUnits(profitinMatic.profitInMatic, 18),
+						gasEstimate: prices.gasEstimate,
+						gasCost: prices.gasPrice,
+						gasPool: "undefined",
+						gas: prices,
+					};
+				}
+			} else if (profitinMatic == undefined) {
+				console.log("Profit in Matic is undefined.")
+				return profit = {
+					profit: "undefined",
+					gasEstimate: BigNumber.from(0),
+					gasCost: BigNumber.from(0),
+					gasPool: "undefined",
+					gas: prices,
+				};
+			}
+		}
 		return profit = {
 			profit: "undefined",
 			gasEstimate: BigNumber.from(0),
@@ -26,57 +78,6 @@ export async function gasVprofit(trade: BoolTrade,): Promise<Profit> {
 				maxPriorityFee: BigNumber.from(0),
 			}
 		};
-
-	} else {
-
-		const prices = await fetchGasPrice(trade);
-
-		const profitinMatic = await getProfitInMatic(trade);
-		if (profitinMatic != undefined) {
-			if (profitinMatic.profitInMatic.gt(BigNumber.from(0))) {
-				profit = {
-					profit: u.formatUnits(profitinMatic.profitInMatic, 18),
-					gasEstimate: prices.gasEstimate,
-					gasCost: prices.gasPrice,
-					gasPool: profitinMatic.gasPool.address,
-					gas: prices,
-				}
-				console.log("Possible trade: " + trade.ticker + " Gas Estimate: ", prices.gasEstimate.toString(), "Gas Price: ", u.formatUnits(prices.gasPrice.toString()))
-				// console.log("Profit: ", profit)
-				return profit;
-			}
-			if (profitinMatic.profitInMatic.lte(BigNumber.from(0))) {
-				console.log("Trade is negative.")
-				return profit = {
-					profit: u.formatUnits(profitinMatic.profitInMatic, 18),
-					gasEstimate: prices.gasEstimate,
-					gasCost: prices.gasPrice,
-					gasPool: "undefined",
-					gas: prices,
-				};
-			}
-		} else if (profitinMatic == undefined) {
-			console.log("Profit in Matic is undefined.")
-			return profit = {
-				profit: "undefined",
-				gasEstimate: BigNumber.from(0),
-				gasCost: BigNumber.from(0),
-				gasPool: "undefined",
-				gas: prices,
-			};
-		}
 	}
-	return profit = {
-		profit: "undefined",
-		gasEstimate: BigNumber.from(0),
-		gasCost: BigNumber.from(0),
-		gasPool: "undefined",
-		gas: {
-			gasEstimate: BigNumber.from(0),
-			gasPrice: BigNumber.from(0),
-			maxFee: BigNumber.from(0),
-			maxPriorityFee: BigNumber.from(0),
-		}
-	};
 };
 

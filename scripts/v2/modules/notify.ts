@@ -8,13 +8,6 @@ dotEnvConfig();
 const TELEGRAM_BOT_TOKEN = process.env.telegramApiKey;
 const TELEGRAM_CHAT_ID = process.env.telegramChatId;
 
-
-
-
-
-
-
-
 export async function telegramInfo(message: string): Promise<void> {
 
 	try {
