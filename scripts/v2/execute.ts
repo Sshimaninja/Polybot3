@@ -21,12 +21,14 @@ import { fetchGasPrice } from "./modules/fetchGasPrice";
  * If the transaction is not pending, the function will send the transaction.
  * If the transaction is undefined, the function will return.
  */
-export async function sendit(
+export async function execute(
 	trade: BoolTrade,
 	profit: Profit,
 ): Promise<TxData> {
-	console.log('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.ticker + '::::::::::::::::::::::::::8')
+	console.log('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.ticker + '::::::::::::::::::::::::::')
+
 	var gasbalance = await checkGasBal();
+
 	console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, 18) + " " + "MATIC")
 
 	let result: TxData = {
@@ -36,7 +38,7 @@ export async function sendit(
 
 	if (trade) {
 		console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, 18) + " " + "MATIC")
-		console.log("Gas Cost::::::::::::: " + ethers.utils.formatUnits(profit.gasCost, 18) + " " + "MATIC")
+		console.log("Gas Cost::::::::::::: " + ethers.utils.formatUnits(profit.gas.gasPrice, 18) + " " + "MATIC")
 
 		const gotGas = profit.gasCost.lt(gasbalance)
 
