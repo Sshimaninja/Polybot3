@@ -1,6 +1,7 @@
 import { BigNumber, utils } from "ethers";
 import { provider } from "../../../constants/contract";
 import { BoolTrade, GAS, GasData } from "../../../constants/interfaces";
+import { logger } from "../../../constants/contract";
 
 /**
  * @param trade 
@@ -24,6 +25,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 		try {
 			gasEstimate = await trade.flash.estimateGas.flashSwap(
 				trade.loanPool.factory.address,
+				trade.loanPool.router.address,
 				trade.recipient.router.address,
 				trade.tokenIn.id,
 				trade.tokenOut.id,
@@ -32,8 +34,10 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 				trade.loanPool.amountRepay
 			);
 		} catch (error: any) {
-			console.log(`Error in fetchGasPrice for trade: ${trade.ticker} `, ". Using default gas estimate for gasPrice calcs");
+			console.log(`Error in fetchGasPrice for trade: ${trade.ticker} `);
 			gasEstimate = BigNumber.from(300000);
+			logger.info(error.message);
+			return { gasEstimate, gasPrice: BigNumber.from(150 + 60 * 300000), maxFee, maxPriorityFee };
 		}
 		// Helpful for figuring out how to determine and display gas prices:
 		const gasLogs = {

@@ -7,10 +7,6 @@ import { FactoryPair } from './constants/interfaces';
 import { logger } from './constants/contract';
 import { telegramInfo } from './scripts//v2/modules/notify';
 
-
-
-
-
 async function main() {
 	// // Set up Telegram message
 	const message = `Polybot V2 Started: ${Date.now()}`

@@ -49,6 +49,5 @@ export async function control(data: FactoryPair[], gasData: any) {
 
 	await Promise.all(promises).catch((error: any) => {
 		console.log("Error in swap.ts: " + error.message);
-		return ("Error in swap.ts: " + error.message);
 	});
 }

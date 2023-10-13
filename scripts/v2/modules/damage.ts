@@ -20,7 +20,7 @@ export async function rollDamage(trade: BoolTrade, data: any, warning: number) {
 
 	if (profpercBN.gt(BN(0)) && trade.loanPool.reserveInBN.gt(BN(1)) && trade.loanPool.reserveOutBN.gt(BN(1)) && trade.recipient.reserveInBN.gt(BN(1)) && trade.recipient.reserveOutBN.gt(BN(1)) /* || profpercBN.lt(0)*/) { // May need to take fees into account here, but testing now.
 
-		logger.info(await data)
+		// logger.info(await data)// 
 
 		const actualProfit = await gasVprofit(trade)
 

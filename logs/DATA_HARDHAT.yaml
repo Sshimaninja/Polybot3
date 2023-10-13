@@ -1,0 +1,2887 @@
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  1835168944867033417035
+    amount1Out expected:  1760514970827304600886
+    Contract Balance Before Swap:  0
+    Pair address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    msg.sender address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    Amount0 requested:  1835168944867033417035
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+    New token0 balance (loaned)::::::::::::::::::  1835168944867033417035
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  1760514970827304600886
+    AmountsOut calculated::::  1762275793976443283070
+    Contract Balances:
+    Token0:  0
+    Token1:  1762275793976443283070
+    Amount repay expected:::::  1976588472482707271668
+    AmountsOut approved:::::  1762275793976443283070
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0xeef611894ceae652979c9d0dae1deb597790c6ee)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainId (2)eth_chainId (2)
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  1873480300176839169725
+    amount1Out expected:  1797161934778258280682
+    Contract Balance Before Swap:  0
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    msg.sender address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Amount0 requested:  1873480300176839169725
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+    New token0 balance (loaned)::::::::::::::::::  1873480300176839169725
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  1797161934778258280682
+    AmountsOut calculated::::  1798959305288171270650
+    Contract Balances:
+    Token0:  0
+    Token1:  1798959305288171270650
+    Amount repay expected:::::  4667815185169056060077
+    AmountsOut approved:::::  1798959305288171270650
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x8929d3fea77398f64448c85015633c2d6472fb29)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  353098958
+    amount1Out expected:  351141253694791853394
+    Contract Balance Before Swap:  0
+    Pair address:  0x4a53119dd905fd39ccc532c68e69505dfb47fc2c
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4a53119dd905fd39ccc532c68e69505dfb47fc2c)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainId (2)
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  409010205789768965955
+    amount1Out expected:  393143525
+    Contract Balance Before Swap:  0
+    Pair address:  0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_chainId (2)eth_chainId (4)eth_chainId
+eth_chainId
+
+eth_chainId (2)
+
+eth_chainId
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  704718190
+    amount1Out expected:  701101303150398712912
+    Contract Balance Before Swap:  0
+    Pair address:  0x4a53119dd905fd39ccc532c68e69505dfb47fc2c
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4a53119dd905fd39ccc532c68e69505dfb47fc2c)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainId
+eth_chainId (2)
+
+eth_chainId
+
+eth_chainIdeth_chainId (2)eth_chainIdeth_chainId (2)
+eth_chainIdeth_chainIdeth_chainId
+
+eth_chainIdeth_chainId (2)
+
+eth_chainId
+
+eth_chainId (3)
+
+eth_chainId
+eth_chainId
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  644320777
+    amount1Out expected:  640342991
+    Contract Balance Before Swap:  0
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    msg.sender address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Amount0 requested:  644320777
+    Token0 address:  0x2791bca1f2de4661ed88a30c99a7a9449aa84174
+    Amount1 expected:  0
+    Token1 address:  0xc2132d05d31c914a87c6611c10748aeb04b58e8f
+    New token0 balance (loaned)::::::::::::::::::  644320777
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  640342991
+    AmountsOut calculated::::  640342991
+    Contract Balances:
+    Token0:  0
+    Token1:  640342991
+    Amount repay expected:::::  643952875
+    AmountsOut approved:::::  640342991
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+eth_chainId (2)eth_chainId
+
+eth_chainIdeth_chainIdeth_chainId
+
+eth_chainId
+
+eth_chainIdeth_chainId
+
+eth_chainId
+
+Mined empty block #42181361 with base fee 7
+eth_blockNumber
+eth_chainId
+eth_blockNumber
+eth_chainId
+eth_getLogs (3)
+eth_chainId
+eth_chainId (8)
+
+eth_chainId
+
+eth_chainId
+
+eth_chainIdeth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  302911112
+    amount1Out expected:  301221507
+    Contract Balance Before Swap:  0
+    Pair address:  0x20bf018fddba3b352f3d913fe1c81b846fe0f490
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x20bf018fddba3b352f3d913fe1c81b846fe0f490)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+eth_chainId (4)
+
+eth_chainId
+eth_chainId (2)
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  37947049
+    amount1Out expected:  37773193
+    Contract Balance Before Swap:  0
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    msg.sender address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Amount0 requested:  37947049
+    Token0 address:  0x2791bca1f2de4661ed88a30c99a7a9449aa84174
+    Amount1 expected:  0
+    Token1 address:  0xc2132d05d31c914a87c6611c10748aeb04b58e8f
+    New token0 balance (loaned)::::::::::::::::::  37947049
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  37773193
+    AmountsOut calculated::::  37848922
+    Contract Balances:
+    Token0:  0
+    Token1:  37848922
+    Amount repay expected:::::  37900385
+    AmountsOut approved:::::  37848922
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainId (2)eth_chainId (4)
+eth_chainId
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  1835168944867033417035
+    amount1Out expected:  1760514970827304600886
+    Contract Balance Before Swap:  0
+    Pair address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    msg.sender address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    Amount0 requested:  1835168944867033417035
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+    New token0 balance (loaned)::::::::::::::::::  1835168944867033417035
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  1760514970827304600886
+    AmountsOut calculated::::  1762275793976443283070
+    Contract Balances:
+    Token0:  0
+    Token1:  1762275793976443283070
+    Amount repay expected:::::  1976588472482707271668
+    AmountsOut approved:::::  1762275793976443283070
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0xeef611894ceae652979c9d0dae1deb597790c6ee)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainIdeth_chainId
+
+eth_chainId
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  3414681938298277438624
+    amount1Out expected:  3277616237
+    Contract Balance Before Swap:  0
+    Pair address:  0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_chainId
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  353098958
+    amount1Out expected:  351141253694791853394
+    Contract Balance Before Swap:  0
+    Pair address:  0x4a53119dd905fd39ccc532c68e69505dfb47fc2c
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4a53119dd905fd39ccc532c68e69505dfb47fc2c)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_chainId (3)eth_chainIdeth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  409010205789768965955
+    amount1Out expected:  393143525
+    Contract Balance Before Swap:  0
+    Pair address:  0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  1873480300176839169725
+    amount1Out expected:  1797161934778258280682
+    Contract Balance Before Swap:  0
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    msg.sender address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Amount0 requested:  1873480300176839169725
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+    New token0 balance (loaned)::::::::::::::::::  1873480300176839169725
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  1797161934778258280682
+    AmountsOut calculated::::  1798959305288171270650
+    Contract Balances:
+    Token0:  0
+    Token1:  1798959305288171270650
+    Amount repay expected:::::  4667815185169056060077
+    AmountsOut approved:::::  1798959305288171270650
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x8929d3fea77398f64448c85015633c2d6472fb29)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainId (4)
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  704718190
+    amount1Out expected:  701101303150398712912
+    Contract Balance Before Swap:  0
+    Pair address:  0x4a53119dd905fd39ccc532c68e69505dfb47fc2c
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4a53119dd905fd39ccc532c68e69505dfb47fc2c)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainId
+
+eth_chainId (2)
+eth_chainId (2)eth_chainId
+
+eth_chainId
+eth_chainIdeth_chainId
+eth_chainId
+
+eth_chainId
+
+eth_chainId (4)
+eth_chainIdeth_chainId
+
+eth_chainIdeth_chainId
+
+eth_chainId
+eth_chainIdeth_chainId
+
+eth_chainIdeth_chainId (2)eth_chainId
+eth_chainId
+
+eth_chainId
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  644320777
+    amount1Out expected:  640342991
+    Contract Balance Before Swap:  0
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    msg.sender address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Amount0 requested:  644320777
+    Token0 address:  0x2791bca1f2de4661ed88a30c99a7a9449aa84174
+    Amount1 expected:  0
+    Token1 address:  0xc2132d05d31c914a87c6611c10748aeb04b58e8f
+    New token0 balance (loaned)::::::::::::::::::  644320777
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  640342991
+    AmountsOut calculated::::  640342991
+    Contract Balances:
+    Token0:  0
+    Token1:  640342991
+    Amount repay expected:::::  643952875
+    AmountsOut approved:::::  640342991
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+eth_chainId (2)
+
+eth_chainIdeth_chainId
+
+eth_chainIdeth_chainIdeth_chainIdeth_blockNumber
+eth_chainId
+Mined empty block #42181362 with base fee 7
+eth_blockNumber
+eth_chainId
+eth_blockNumber
+eth_chainId
+eth_getLogs (3)
+eth_chainId
+eth_chainId
+eth_chainId
+
+eth_chainIdeth_chainId (2)
+
+eth_chainId
+
+eth_chainIdeth_chainId (2)
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  302911112
+    amount1Out expected:  301221507
+    Contract Balance Before Swap:  0
+    Pair address:  0x20bf018fddba3b352f3d913fe1c81b846fe0f490
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x20bf018fddba3b352f3d913fe1c81b846fe0f490)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_chainId
+eth_chainId (3)
+eth_chainIdeth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  37947049
+    amount1Out expected:  37773193
+    Contract Balance Before Swap:  0
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    msg.sender address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Amount0 requested:  37947049
+    Token0 address:  0x2791bca1f2de4661ed88a30c99a7a9449aa84174
+    Amount1 expected:  0
+    Token1 address:  0xc2132d05d31c914a87c6611c10748aeb04b58e8f
+    New token0 balance (loaned)::::::::::::::::::  37947049
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  37773193
+    AmountsOut calculated::::  37848922
+    Contract Balances:
+    Token0:  0
+    Token1:  37848922
+    Amount repay expected:::::  37900385
+    AmountsOut approved:::::  37848922
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_chainId (5)
+
+eth_chainId (2)
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  1835168944867033417035
+    amount1Out expected:  1760514970827304600886
+    Contract Balance Before Swap:  0
+    Pair address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    msg.sender address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    Amount0 requested:  1835168944867033417035
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+    New token0 balance (loaned)::::::::::::::::::  1835168944867033417035
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  1760514970827304600886
+    AmountsOut calculated::::  1762275793976443283070
+    Contract Balances:
+    Token0:  0
+    Token1:  1762275793976443283070
+    Amount repay expected:::::  1976588472482707271668
+    AmountsOut approved:::::  1762275793976443283070
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0xeef611894ceae652979c9d0dae1deb597790c6ee)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_chainId (4)
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  409010205789768965955
+    amount1Out expected:  393143525
+    Contract Balance Before Swap:  0
+    Pair address:  0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_chainId (3)eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  3414681938298277438624
+    amount1Out expected:  3277616237
+    Contract Balance Before Swap:  0
+    Pair address:  0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+eth_chainId (3)
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  353098958
+    amount1Out expected:  351141253694791853394
+    Contract Balance Before Swap:  0
+    Pair address:  0x4a53119dd905fd39ccc532c68e69505dfb47fc2c
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4a53119dd905fd39ccc532c68e69505dfb47fc2c)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+eth_chainId
+
+eth_chainId
+eth_chainId
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  1873480300176839169725
+    amount1Out expected:  1797161934778258280682
+    Contract Balance Before Swap:  0
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    msg.sender address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Amount0 requested:  1873480300176839169725
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+    New token0 balance (loaned)::::::::::::::::::  1873480300176839169725
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  1797161934778258280682
+    AmountsOut calculated::::  1798959305288171270650
+    Contract Balances:
+    Token0:  0
+    Token1:  1798959305288171270650
+    Amount repay expected:::::  4667815185169056060077
+    AmountsOut approved:::::  1798959305288171270650
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x8929d3fea77398f64448c85015633c2d6472fb29)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  704718190
+    amount1Out expected:  701101303150398712912
+    Contract Balance Before Swap:  0
+    Pair address:  0x4a53119dd905fd39ccc532c68e69505dfb47fc2c
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4a53119dd905fd39ccc532c68e69505dfb47fc2c)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainId (2)
+
+eth_chainId
+
+eth_chainId (2)
+eth_chainId
+eth_chainId (2)eth_chainIdeth_chainId (4)
+eth_chainId
+
+eth_chainId (2)
+
+eth_chainId
+
+eth_chainId
+
+eth_chainIdeth_chainId (2)
+
+eth_chainId (2)eth_chainIdeth_chainId (2)
+
+eth_chainId (2)eth_chainId
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  644320777
+    amount1Out expected:  640342991
+    Contract Balance Before Swap:  0
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    msg.sender address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Amount0 requested:  644320777
+    Token0 address:  0x2791bca1f2de4661ed88a30c99a7a9449aa84174
+    Amount1 expected:  0
+    Token1 address:  0xc2132d05d31c914a87c6611c10748aeb04b58e8f
+    New token0 balance (loaned)::::::::::::::::::  644320777
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  640342991
+    AmountsOut calculated::::  640342991
+    Contract Balances:
+    Token0:  0
+    Token1:  640342991
+    Amount repay expected:::::  643952875
+    AmountsOut approved:::::  640342991
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+eth_chainId (2)
+
+eth_chainIdeth_chainId
+
+eth_chainIdeth_chainIdeth_chainId
+
+eth_chainId
+
+Mined empty block range #42181363 to #42181364
+Mined empty block range #42181363 to #42181372
+^C
+(base) prophecy@DESKTOP-ODVLU60:/mnt/d/code/arbitrage/polybot-live/polybotv3$ ^C
+(base) prophecy@DESKTOP-ODVLU60:/mnt/d/code/arbitrage/polybot-live/polybotv3$ npx hardhat node
+Started HTTP and WebSocket JSON-RPC server at http://127.0.0.1:8545/
+
+Accounts
+========
+
+WARNING: These accounts, and their private keys, are publicly known.
+Any funds sent to them on Mainnet or any other live network WILL BE LOST.
+
+Account #0: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 (10000 ETH)
+Private Key: 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+
+Account #1: 0x70997970C51812dc3A010C7d01b50e0d17dc79C8 (10000 ETH)
+Private Key: 0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d
+
+Account #2: 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC (10000 ETH)
+Private Key: 0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a
+
+Account #3: 0x90F79bf6EB2c4f870365E785982E1f101E93b906 (10000 ETH)
+Private Key: 0x7c852118294e51e653712a81e05800f419141751be58f605c371e15141b007a6
+
+Account #4: 0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65 (10000 ETH)
+Private Key: 0x47e179ec197488593b187f80a00eb0da91f1b9d0b13f8733639f19c30a34926a
+
+Account #5: 0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc (10000 ETH)
+Private Key: 0x8b3a350cf5c34c9194ca85829a2df0ec3153be0318b5e2d3348e872092edffba
+
+Account #6: 0x976EA74026E726554dB657fA54763abd0C3a0aa9 (10000 ETH)
+Private Key: 0x92db14e403b83dfe3df233f83dfa3a0d7096f21ca9b0d6d6b8d88b2b4ec1564e
+
+Account #7: 0x14dC79964da2C08b23698B3D3cc7Ca32193d9955 (10000 ETH)
+Private Key: 0x4bbbf85ce3377467afe5d46f804f221813b2bb87f24d81f60f1fcdbf7cbf4356
+
+Account #8: 0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f (10000 ETH)
+Private Key: 0xdbda1821b80551c9d65939329250298aa3472ba22feea921c0cf5d620ea67b97
+
+Account #9: 0xa0Ee7A142d267C1f36714E4a8F75612F20a79720 (10000 ETH)
+Private Key: 0x2a871d0798f97d79848a013d4936a73bf4cc922c825d33c1cf7073dff6d409c6
+
+Account #10: 0xBcd4042DE499D14e55001CcbB24a551F3b954096 (10000 ETH)
+Private Key: 0xf214f2b2cd398c806f84e317254e0f0b801d0643303237d97a22a48e01628897
+
+Account #11: 0x71bE63f3384f5fb98995898A86B02Fb2426c5788 (10000 ETH)
+Private Key: 0x701b615bbdfb9de65240bc28bd21bbc0d996645a3dd57e7b12bc2bdf6f192c82
+
+Account #12: 0xFABB0ac9d68B0B445fB7357272Ff202C5651694a (10000 ETH)
+Private Key: 0xa267530f49f8280200edf313ee7af6b827f2a8bce2897751d06a843f644967b1
+
+Account #13: 0x1CBd3b2770909D4e10f157cABC84C7264073C9Ec (10000 ETH)
+Private Key: 0x47c99abed3324a2707c28affff1267e45918ec8c3f20b8aa892e8b065d2942dd
+
+Account #14: 0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097 (10000 ETH)
+Private Key: 0xc526ee95bf44d8fc405a158bb884d9d1238d99f0612e9f33d006bb0789009aaa
+
+Account #15: 0xcd3B766CCDd6AE721141F452C550Ca635964ce71 (10000 ETH)
+Private Key: 0x8166f546bab6da521a8369cab06c5d2b9e46670292d85c875ee9ec20e84ffb61
+
+Account #16: 0x2546BcD3c84621e976D8185a91A922aE77ECEc30 (10000 ETH)
+Private Key: 0xea6c44ac03bff858b476bba40716402b03e41b8e97e276d1baec7c37d42484a0
+
+Account #17: 0xbDA5747bFD65F08deb54cb465eB87D40e51B197E (10000 ETH)
+Private Key: 0x689af8efa8c651a91ad287602527f3af2fe9f6501a7ac4b061667b5a93e037fd
+
+Account #18: 0xdD2FD4581271e230360230F9337D5c0430Bf44C0 (10000 ETH)
+Private Key: 0xde9be858da4a475276426320d5e9262ecfc3ba460bfac56360bfa6c4c28b4ee0
+
+Account #19: 0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199 (10000 ETH)
+Private Key: 0xdf57089febbacf7ba0bc227dafbffa9fc08a93fdc68e1e42411a14efcf23656e
+
+WARNING: These accounts, and their private keys, are publicly known.
+Any funds sent to them on Mainnet or any other live network WILL BE LOST.
+
+Mined empty block range #42181067 to #42181071
+eth_chainId
+Mined empty block #42181072 with base fee 136206809361
+eth_accounts
+eth_blockNumber
+eth_chainId (2)
+eth_estimateGas
+eth_getBlockByNumber
+eth_feeHistory
+eth_sendTransaction
+eth_chainId
+eth_getTransactionByHash
+eth_chainId
+eth_getTransactionReceipt
+eth_chainId
+eth_getTransactionReceipt
+eth_chainId
+eth_getTransactionCount
+Mined block #42181073
+  Block: 0x60d15eda3b256c5f2cd75d264e700daea3a2b1b9db6e119c53a0b1a7903cdbd7
+    Base fee: 119180958191
+    Transaction:           0xd231a945cd4d2fb15600f92ce36766ce6e2609383101c26bb86091f000cadac2
+      Contract deployment: <UnrecognizedContract>
+      Contract address:    0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+      From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+      Value:               0 ETH
+      Gas used:            1372451 of 1372451
+
+eth_blockNumber
+eth_chainId (2)
+eth_getTransactionReceipt
+eth_chainId
+
+eth_chainId
+eth_getTransactionCount
+Mined empty block range #42181074 to #42181080
+eth_chainId
+eth_accounts
+eth_chainId
+eth_blockNumber
+eth_chainId
+eth_estimateGas
+eth_getBlockByNumber
+eth_feeHistory
+eth_sendTransaction
+eth_chainId
+eth_getTransactionByHash
+eth_chainId
+eth_getTransactionReceipt
+eth_chainId
+eth_getTransactionReceipt
+eth_chainId
+eth_getTransactionCount
+Mined block #42181081
+  Block: 0x7f4f21a33bdc2fde0f57b2a171977879c123e36bb858e344097828367e7d30fd
+    Base fee: 41486917154
+    Transaction:           0x931354e6f0f05593a092f856c5e5764c03e94f5791d495a3c7600001e1a400b5
+      Contract deployment: <UnrecognizedContract>
+      Contract address:    0x7279291ef60f0196692e20ea7df5237e650dfd3b
+      From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+      Value:               0 ETH
+      Gas used:            2110243 of 2110243
+
+eth_blockNumber
+eth_chainId (2)
+eth_getTransactionReceipt
+eth_chainId
+
+eth_chainId
+eth_getTransactionCount
+Mined empty block range #42181082 to #42181083
+
+Mined empty block range #42181082 to #42181086
+Mined empty block range #42181082 to #42181088
+eth_chainId
+eth_blockNumber
+eth_chainId
+eth_blockNumber
+eth_chainId (2)
+eth_chainId (11)
+eth_chainIdeth_chainId (4)
+
+eth_chainId
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  302911112
+    amount1Out expected:  301221507
+    Contract Balance Before Swap:  0
+    Pair address:  0x20bf018fddba3b352f3d913fe1c81b846fe0f490
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x20bf018fddba3b352f3d913fe1c81b846fe0f490)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_chainId (11)
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  37947049
+    amount1Out expected:  37773193
+    Contract Balance Before Swap:  0
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    msg.sender address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Amount0 requested:  37947049
+    Token0 address:  0x2791bca1f2de4661ed88a30c99a7a9449aa84174
+    Amount1 expected:  0
+    Token1 address:  0xc2132d05d31c914a87c6611c10748aeb04b58e8f
+    New token0 balance (loaned)::::::::::::::::::  37947049
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  37773193
+    AmountsOut calculated::::  37848922
+    Contract Balances:
+    Token0:  0
+    Token1:  37848922
+    Amount repay expected:::::  37900385
+    AmountsOut approved:::::  37848922
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)Mined empty block #42181089 with base fee 14541770755
+eth_chainId (7)
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  3414681938298277438624
+    amount1Out expected:  3277616237
+    Contract Balance Before Swap:  0
+    Pair address:  0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  1873480300176839169725
+    amount1Out expected:  1797161934778258280682
+    Contract Balance Before Swap:  0
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    msg.sender address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Amount0 requested:  1873480300176839169725
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+    New token0 balance (loaned)::::::::::::::::::  1873480300176839169725
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  1797161934778258280682
+    AmountsOut calculated::::  1798959305288171270650
+    Contract Balances:
+    Token0:  0
+    Token1:  1798959305288171270650
+    Amount repay expected:::::  4667815185169056060077
+    AmountsOut approved:::::  1798959305288171270650
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x8929d3fea77398f64448c85015633c2d6472fb29)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  1835168944867033417035
+    amount1Out expected:  1760514970827304600886
+    Contract Balance Before Swap:  0
+    Pair address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    msg.sender address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    Amount0 requested:  1835168944867033417035
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+    New token0 balance (loaned)::::::::::::::::::  1835168944867033417035
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  1760514970827304600886
+    AmountsOut calculated::::  1762275793976443283070
+    Contract Balances:
+    Token0:  0
+    Token1:  1762275793976443283070
+    Amount repay expected:::::  1976588472482707271668
+    AmountsOut approved:::::  1762275793976443283070
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0xeef611894ceae652979c9d0dae1deb597790c6ee)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  353098958
+    amount1Out expected:  351141253694791853394
+    Contract Balance Before Swap:  0
+    Pair address:  0x4a53119dd905fd39ccc532c68e69505dfb47fc2c
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4a53119dd905fd39ccc532c68e69505dfb47fc2c)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_chainId (10)
+
+eth_accounts (3)
+
+eth_chainId (3)
+eth_chainId (3)
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  409010205789768965955
+    amount1Out expected:  393143525
+    Contract Balance Before Swap:  0
+    Pair address:  0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainId
+
+eth_chainId (4)
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  704718190
+    amount1Out expected:  701101303150398712912
+    Contract Balance Before Swap:  0
+    Pair address:  0x4a53119dd905fd39ccc532c68e69505dfb47fc2c
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4a53119dd905fd39ccc532c68e69505dfb47fc2c)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_chainId
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  3414681938298277438624
+    amount1Out expected:  3277616237
+    Contract Balance Before Swap:  0
+    Pair address:  0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  1873480300176839169725
+    amount1Out expected:  1797161934778258280682
+    Contract Balance Before Swap:  0
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    msg.sender address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Amount0 requested:  1873480300176839169725
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+    New token0 balance (loaned)::::::::::::::::::  1873480300176839169725
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  1797161934778258280682
+    AmountsOut calculated::::  1798959305288171270650
+    Contract Balances:
+    Token0:  0
+    Token1:  1798959305288171270650
+    Amount repay expected:::::  4667815185169056060077
+    AmountsOut approved:::::  1798959305288171270650
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x8929d3fea77398f64448c85015633c2d6472fb29)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainId (5)
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  1835168944867033417035
+    amount1Out expected:  1760514970827304600886
+    Contract Balance Before Swap:  0
+    Pair address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    msg.sender address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    Amount0 requested:  1835168944867033417035
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+    New token0 balance (loaned)::::::::::::::::::  1835168944867033417035
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  1760514970827304600886
+    AmountsOut calculated::::  1762275793976443283070
+    Contract Balances:
+    Token0:  0
+    Token1:  1762275793976443283070
+    Amount repay expected:::::  1976588472482707271668
+    AmountsOut approved:::::  1762275793976443283070
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0xeef611894ceae652979c9d0dae1deb597790c6ee)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainId (2)eth_chainId (2)
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  409010205789768965955
+    amount1Out expected:  393143525
+    Contract Balance Before Swap:  0
+    Pair address:  0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainId (4)
+eth_chainId
+
+eth_chainId (2)eth_chainId (2)
+
+eth_chainId
+
+eth_chainId (2)
+
+eth_chainId (2)
+eth_getTransactionCount
+
+eth_chainId (2)
+eth_sendRawTransaction
+
+eth_chainId
+eth_sendRawTransaction
+
+  Known transaction: 0x9e7393aa8fee13a9a05ba0e2ef87db547c1fb40f4d44d9924db8ee5cdecb973b
+
+eth_chainId
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  644320777
+    amount1Out expected:  640342991
+    Contract Balance Before Swap:  0
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    msg.sender address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Amount0 requested:  644320777
+    Token0 address:  0x2791bca1f2de4661ed88a30c99a7a9449aa84174
+    Amount1 expected:  0
+    Token1 address:  0xc2132d05d31c914a87c6611c10748aeb04b58e8f
+    New token0 balance (loaned)::::::::::::::::::  644320777
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  640342991
+    AmountsOut calculated::::  640342991
+    Contract Balances:
+    Token0:  0
+    Token1:  640342991
+    Amount repay expected:::::  643952875
+    AmountsOut approved:::::  640342991
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+eth_chainId (3)
+
+eth_chainId
+eth_chainId
+
+eth_chainId
+
+eth_chainId (2)eth_chainId
+
+eth_chainIdeth_chainIdeth_chainId
+eth_getTransactionCount
+eth_chainId
+eth_sendRawTransaction
+eth_chainId
+eth_sendRawTransaction
+
+  Known transaction: 0x100ad5cf4fc66254d3195c2778dcf2f65a8b90e81997be5f13eba679784c1d0b
+
+eth_chainId
+
+eth_chainId
+
+eth_chainId
+eth_getTransactionCount
+eth_chainId (2)
+
+eth_getTransactionCount
+eth_chainId
+eth_sendRawTransaction
+eth_chainId
+eth_sendRawTransaction
+
+  Replacement transaction underpriced. A gasPrice/maxFeePerGas of at least 165000000000 is necessary to replace the existing transaction with nonce 1931.
+
+eth_chainId
+eth_sendRawTransaction
+
+  Known transaction: 0xaf2aa8f9f7a35480f6c090efc45d35b1e7aa9b4ffcce079d7aecdd8717608e99
+
+eth_chainId
+
+eth_chainId
+
+eth_chainId
+
+eth_blockNumber
+eth_chainId
+eth_blockNumber
+eth_chainId
+eth_getLogs (3)
+eth_chainId
+eth_chainId (10)
+
+eth_chainId
+
+eth_chainId (2)eth_chainIdeth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  302911112
+    amount1Out expected:  301221507
+    Contract Balance Before Swap:  0
+    Pair address:  0x20bf018fddba3b352f3d913fe1c81b846fe0f490
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x20bf018fddba3b352f3d913fe1c81b846fe0f490)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_chainId (7)
+
+eth_chainIdeth_chainId
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  37947049
+    amount1Out expected:  37773193
+    Contract Balance Before Swap:  0
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    msg.sender address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Amount0 requested:  37947049
+    Token0 address:  0x2791bca1f2de4661ed88a30c99a7a9449aa84174
+    Amount1 expected:  0
+    Token1 address:  0xc2132d05d31c914a87c6611c10748aeb04b58e8f
+    New token0 balance (loaned)::::::::::::::::::  37947049
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  37773193
+    AmountsOut calculated::::  37848922
+    Contract Balances:
+    Token0:  0
+    Token1:  37848922
+    Amount repay expected:::::  37900385
+    AmountsOut approved:::::  37848922
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_chainId (3)
+eth_chainId
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  1873480300176839169725
+    amount1Out expected:  1797161934778258280682
+    Contract Balance Before Swap:  0
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    msg.sender address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Amount0 requested:  1873480300176839169725
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+    New token0 balance (loaned)::::::::::::::::::  1873480300176839169725
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  1797161934778258280682
+    AmountsOut calculated::::  1798959305288171270650
+    Contract Balances:
+    Token0:  0
+    Token1:  1798959305288171270650
+    Amount repay expected:::::  4667815185169056060077
+    AmountsOut approved:::::  1798959305288171270650
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x8929d3fea77398f64448c85015633c2d6472fb29)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+eth_chainIdeth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  3414681938298277438624
+    amount1Out expected:  3277616237
+    Contract Balance Before Swap:  0
+    Pair address:  0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainId
+
+eth_chainId
+
+eth_chainId
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  353098958
+    amount1Out expected:  351141253694791853394
+    Contract Balance Before Swap:  0
+    Pair address:  0x4a53119dd905fd39ccc532c68e69505dfb47fc2c
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4a53119dd905fd39ccc532c68e69505dfb47fc2c)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainIdeth_chainId
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  1835168944867033417035
+    amount1Out expected:  1760514970827304600886
+    Contract Balance Before Swap:  0
+    Pair address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    msg.sender address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    Amount0 requested:  1835168944867033417035
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+    New token0 balance (loaned)::::::::::::::::::  1835168944867033417035
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  1760514970827304600886
+    AmountsOut calculated::::  1762275793976443283070
+    Contract Balances:
+    Token0:  0
+    Token1:  1762275793976443283070
+    Amount repay expected:::::  1976588472482707271668
+    AmountsOut approved:::::  1762275793976443283070
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0xeef611894ceae652979c9d0dae1deb597790c6ee)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainId
+
+Mined block #42181090
+  Block: 0x9b88198ba7e3301dfc6ecfbb35c188168e2488ee2d555f95a706bb9c0a756a37
+    Base fee: 12724049411
+    Transaction:           0x9e7393aa8fee13a9a05ba0e2ef87db547c1fb40f4d44d9924db8ee5cdecb973b
+      Contract call:       <UnrecognizedContract>
+      From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+      To:                  0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+      Value:               0 ETH
+      Gas used:            137511 of 300000
+
+      console.log:
+        Contract flashMultiTest Entered
+        amount0In requested:  3414681938298277438624
+        amount1Out expected:  3277616237
+        Contract Balance Before Swap:  0
+        Pair address:  0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495
+        Data encoded
+
+      Error: Transaction reverted without a reason string
+          at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+          at <UnrecognizedContract>.<unknown> (0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495)
+          at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at async HardhatNode._mineBlockWithPendingTxs (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/node.ts:1840:23)
+          at async HardhatNode.mineBlock (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/node.ts:517:16)
+          at async HardhatModule._intervalMineAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/hardhat.ts:184:20)
+          at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+          at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+          at async MiningTimer._mineFunction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:335:11)
+
+    Transaction:           0x100ad5cf4fc66254d3195c2778dcf2f65a8b90e81997be5f13eba679784c1d0b
+      Contract call:       <UnrecognizedContract>
+      From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+      To:                  0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+      Value:               0 ETH
+      Gas used:            284386 of 300000
+
+      console.log:
+        Contract flashMultiTest Entered
+        amount0In requested:  1873480300176839169725
+        amount1Out expected:  1797161934778258280682
+        Contract Balance Before Swap:  0
+        Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+        Data encoded
+        uniswapV2Call Entered
+        Decoding Loan Data
+        Loan Data Decoded
+        Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+        msg.sender address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+        Amount0 requested:  1873480300176839169725
+        Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+        Amount1 expected:  0
+        Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+        New token0 balance (loaned)::::::::::::::::::  1873480300176839169725
+        Approving recipientRouter to trade token0
+        Swap executed
+        AmountsOut expected:::::  1797161934778258280682
+        AmountsOut calculated::::  1798959305288171270650
+        Contract Balances:
+        Token0:  0
+        Token1:  1798959305288171270650
+        Amount repay expected:::::  4667815185169056060077
+
+      Error: Transaction reverted without a reason string
+          at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+          at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+          at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+          at <UnrecognizedContract>.<unknown> (0x8929d3fea77398f64448c85015633c2d6472fb29)
+          at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at async HardhatNode._mineBlockWithPendingTxs (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/node.ts:1840:23)
+          at async HardhatNode.mineBlock (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/node.ts:517:16)
+          at async HardhatModule._intervalMineAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/hardhat.ts:184:20)
+          at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+          at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+          at async MiningTimer._mineFunction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:335:11)
+
+    Transaction:           0xaf2aa8f9f7a35480f6c090efc45d35b1e7aa9b4ffcce079d7aecdd8717608e99
+      Contract call:       <UnrecognizedContract>
+      From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+      To:                  0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+      Value:               0 ETH
+      Gas used:            284376 of 300000
+
+      console.log:
+        Contract flashMultiTest Entered
+        amount0In requested:  1835168944867033417035
+        amount1Out expected:  1760514970827304600886
+        Contract Balance Before Swap:  0
+        Pair address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+        Data encoded
+        uniswapV2Call Entered
+        Decoding Loan Data
+        Loan Data Decoded
+        Pair address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+        msg.sender address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+        Amount0 requested:  1835168944867033417035
+        Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+        Amount1 expected:  0
+        Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+        New token0 balance (loaned)::::::::::::::::::  1835168944867033417035
+        Approving recipientRouter to trade token0
+        Swap executed
+        AmountsOut expected:::::  1760514970827304600886
+        AmountsOut calculated::::  1762275793976443283070
+        Contract Balances:
+        Token0:  0
+        Token1:  1762275793976443283070
+        Amount repay expected:::::  1976588472482707271668
+
+      Error: Transaction reverted without a reason string
+          at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+          at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+          at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+          at <UnrecognizedContract>.<unknown> (0xeef611894ceae652979c9d0dae1deb597790c6ee)
+          at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+          at processTicksAndRejections (node:internal/process/task_queues:95:5)
+          at async HardhatNode._mineBlockWithPendingTxs (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/node.ts:1840:23)
+          at async HardhatNode.mineBlock (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/node.ts:517:16)
+          at async HardhatModule._intervalMineAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/hardhat.ts:184:20)
+          at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+          at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+          at async MiningTimer._mineFunction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:335:11)
+eth_chainId
+
+eth_chainId
+eth_chainId (2)
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  409010205789768965955
+    amount1Out expected:  393143525
+    Contract Balance Before Swap:  0
+    Pair address:  0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  704718190
+    amount1Out expected:  701101303150398712912
+    Contract Balance Before Swap:  0
+    Pair address:  0x4a53119dd905fd39ccc532c68e69505dfb47fc2c
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4a53119dd905fd39ccc532c68e69505dfb47fc2c)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainId (3)eth_chainId (3)eth_chainId (2)
+
+eth_chainId
+
+eth_chainId (2)
+
+eth_chainId
+eth_chainIdeth_chainId (3)
+
+eth_chainId
+
+eth_chainId
+
+eth_chainId
+
+eth_chainId
+
+eth_chainId
+
+eth_chainId (2)eth_chainId (2)eth_chainId
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  644320777
+    amount1Out expected:  640342991
+    Contract Balance Before Swap:  0
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    msg.sender address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Amount0 requested:  644320777
+    Token0 address:  0x2791bca1f2de4661ed88a30c99a7a9449aa84174
+    Amount1 expected:  0
+    Token1 address:  0xc2132d05d31c914a87c6611c10748aeb04b58e8f
+    New token0 balance (loaned)::::::::::::::::::  644320777
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  640342991
+    AmountsOut calculated::::  640342991
+    Contract Balances:
+    Token0:  0
+    Token1:  640342991
+    Amount repay expected:::::  643952875
+    AmountsOut approved:::::  640342991
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+eth_chainId (2)
+eth_chainIdeth_chainIdeth_chainId
+
+eth_chainId
+
+eth_chainIdeth_chainId
+
+eth_chainId
+
+eth_blockNumber
+eth_chainId
+eth_blockNumber
+eth_chainId
+eth_getLogs (3)
+eth_chainId
+eth_chainId (10)eth_chainId
+eth_chainIdeth_chainIdeth_chainId
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  302911112
+    amount1Out expected:  301221507
+    Contract Balance Before Swap:  0
+    Pair address:  0x20bf018fddba3b352f3d913fe1c81b846fe0f490
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x20bf018fddba3b352f3d913fe1c81b846fe0f490)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_chainId
+
+eth_chainId (4)eth_chainId (2)
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  37947049
+    amount1Out expected:  37773193
+    Contract Balance Before Swap:  0
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    msg.sender address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Amount0 requested:  37947049
+    Token0 address:  0x2791bca1f2de4661ed88a30c99a7a9449aa84174
+    Amount1 expected:  0
+    Token1 address:  0xc2132d05d31c914a87c6611c10748aeb04b58e8f
+    New token0 balance (loaned)::::::::::::::::::  37947049
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  37773193
+    AmountsOut calculated::::  37848922
+    Contract Balances:
+    Token0:  0
+    Token1:  37848922
+    Amount repay expected:::::  37900385
+    AmountsOut approved:::::  37848922
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_chainId (7)
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  3414681938298277438624
+    amount1Out expected:  3277616237
+    Contract Balance Before Swap:  0
+    Pair address:  0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  1873480300176839169725
+    amount1Out expected:  1797161934778258280682
+    Contract Balance Before Swap:  0
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    msg.sender address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Amount0 requested:  1873480300176839169725
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+    New token0 balance (loaned)::::::::::::::::::  1873480300176839169725
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  1797161934778258280682
+    AmountsOut calculated::::  1798959305288171270650
+    Contract Balances:
+    Token0:  0
+    Token1:  1798959305288171270650
+    Amount repay expected:::::  4667815185169056060077
+    AmountsOut approved:::::  1798959305288171270650
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x8929d3fea77398f64448c85015633c2d6472fb29)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_chainId (4)
+
+eth_chainId
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  409010205789768965955
+    amount1Out expected:  393143525
+    Contract Balance Before Swap:  0
+    Pair address:  0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  353098958
+    amount1Out expected:  351141253694791853394
+    Contract Balance Before Swap:  0
+    Pair address:  0x4a53119dd905fd39ccc532c68e69505dfb47fc2c
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4a53119dd905fd39ccc532c68e69505dfb47fc2c)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainId
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  1835168944867033417035
+    amount1Out expected:  1760514970827304600886
+    Contract Balance Before Swap:  0
+    Pair address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    msg.sender address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    Amount0 requested:  1835168944867033417035
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+    New token0 balance (loaned)::::::::::::::::::  1835168944867033417035
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  1760514970827304600886
+    AmountsOut calculated::::  1762275793976443283070
+    Contract Balances:
+    Token0:  0
+    Token1:  1762275793976443283070
+    Amount repay expected:::::  1976588472482707271668
+    AmountsOut approved:::::  1762275793976443283070
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0xeef611894ceae652979c9d0dae1deb597790c6ee)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_chainId (3)
+
+eth_chainId (3)
+eth_chainId
+eth_chainId (2)
+
+eth_chainId
+eth_chainId (3)eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  704718190
+    amount1Out expected:  701101303150398712912
+    Contract Balance Before Swap:  0
+    Pair address:  0x4a53119dd905fd39ccc532c68e69505dfb47fc2c
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4a53119dd905fd39ccc532c68e69505dfb47fc2c)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+eth_chainId (5)eth_chainId (3)
+
+eth_chainId (2)
+
+eth_chainId
+
+eth_chainId (2)eth_chainId (3)
+eth_chainIdeth_chainId
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  644320777
+    amount1Out expected:  640342991
+    Contract Balance Before Swap:  0
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    msg.sender address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Amount0 requested:  644320777
+    Token0 address:  0x2791bca1f2de4661ed88a30c99a7a9449aa84174
+    Amount1 expected:  0
+    Token1 address:  0xc2132d05d31c914a87c6611c10748aeb04b58e8f
+    New token0 balance (loaned)::::::::::::::::::  644320777
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  640342991
+    AmountsOut calculated::::  640342991
+    Contract Balances:
+    Token0:  0
+    Token1:  640342991
+    Amount repay expected:::::  643952875
+    AmountsOut approved:::::  640342991
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+eth_chainId (2)
+eth_chainId
+
+eth_chainIdeth_chainIdeth_chainIdMined empty block #42181091 with base fee 11208432006
+eth_blockNumber
+eth_chainId
+eth_blockNumber
+eth_chainId
+eth_getLogs (3)
+eth_chainId
+eth_chainId (10)
+
+eth_chainId
+
+eth_chainId
+
+eth_chainId
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  302911112
+    amount1Out expected:  301221507
+    Contract Balance Before Swap:  0
+    Pair address:  0x20bf018fddba3b352f3d913fe1c81b846fe0f490
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x20bf018fddba3b352f3d913fe1c81b846fe0f490)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainId (2)eth_chainIdeth_chainId (4)eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  37947049
+    amount1Out expected:  37773193
+    Contract Balance Before Swap:  0
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    msg.sender address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Amount0 requested:  37947049
+    Token0 address:  0x2791bca1f2de4661ed88a30c99a7a9449aa84174
+    Amount1 expected:  0
+    Token1 address:  0xc2132d05d31c914a87c6611c10748aeb04b58e8f
+    New token0 balance (loaned)::::::::::::::::::  37947049
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  37773193
+    AmountsOut calculated::::  37848922
+    Contract Balances:
+    Token0:  0
+    Token1:  37848922
+    Amount repay expected:::::  37900385
+    AmountsOut approved:::::  37848922
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+eth_chainId (5)
+
+eth_chainId (4)
+
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  3414681938298277438624
+    amount1Out expected:  3277616237
+    Contract Balance Before Swap:  0
+    Pair address:  0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_chainId (2)
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  353098958
+    amount1Out expected:  351141253694791853394
+    Contract Balance Before Swap:  0
+    Pair address:  0x4a53119dd905fd39ccc532c68e69505dfb47fc2c
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4a53119dd905fd39ccc532c68e69505dfb47fc2c)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  1873480300176839169725
+    amount1Out expected:  1797161934778258280682
+    Contract Balance Before Swap:  0
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    msg.sender address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Amount0 requested:  1873480300176839169725
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+    New token0 balance (loaned)::::::::::::::::::  1873480300176839169725
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  1797161934778258280682
+    AmountsOut calculated::::  1798959305288171270650
+    Contract Balances:
+    Token0:  0
+    Token1:  1798959305288171270650
+    Amount repay expected:::::  4667815185169056060077
+    AmountsOut approved:::::  1798959305288171270650
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x8929d3fea77398f64448c85015633c2d6472fb29)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  1835168944867033417035
+    amount1Out expected:  1760514970827304600886
+    Contract Balance Before Swap:  0
+    Pair address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    msg.sender address:  0xeef611894ceae652979c9d0dae1deb597790c6ee
+    Amount0 requested:  1835168944867033417035
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+    New token0 balance (loaned)::::::::::::::::::  1835168944867033417035
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  1760514970827304600886
+    AmountsOut calculated::::  1762275793976443283070
+    Contract Balances:
+    Token0:  0
+    Token1:  1762275793976443283070
+    Amount repay expected:::::  1976588472482707271668
+    AmountsOut approved:::::  1762275793976443283070
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x8f3cf7ad23cd3cadbd9735aff958023239c6a063)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0xeef611894ceae652979c9d0dae1deb597790c6ee)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+eth_chainIdeth_chainId (5)
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  409010205789768965955
+    amount1Out expected:  393143525
+    Contract Balance Before Swap:  0
+    Pair address:  0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x5e58e0ced3a272caeb8ba00f4a4c2805df6be495)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+eth_chainId (2)
+eth_chainId
+
+eth_chainId
+
+eth_chainId (2)
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  704718190
+    amount1Out expected:  701101303150398712912
+    Contract Balance Before Swap:  0
+    Pair address:  0x4a53119dd905fd39ccc532c68e69505dfb47fc2c
+    Data encoded
+
+  Error: Transaction reverted without a reason string
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4a53119dd905fd39ccc532c68e69505dfb47fc2c)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainId
+eth_chainId (2)
+eth_chainId
+eth_chainId (2)
+eth_chainId
+
+eth_chainId
+eth_chainId
+eth_chainId
+
+eth_chainId
+
+eth_chainIdeth_chainIdeth_chainId (2)eth_chainId
+
+eth_chainId (2)
+
+eth_chainId (2)
+
+eth_chainId (2)eth_chainId
+eth_estimateGas
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  644320777
+    amount1Out expected:  640342991
+    Contract Balance Before Swap:  0
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    msg.sender address:  0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001
+    Amount0 requested:  644320777
+    Token0 address:  0x2791bca1f2de4661ed88a30c99a7a9449aa84174
+    Amount1 expected:  0
+    Token1 address:  0xc2132d05d31c914a87c6611c10748aeb04b58e8f
+    New token0 balance (loaned)::::::::::::::::::  644320777
+    Approving recipientRouter to trade token0
+    Swap executed
+    AmountsOut expected:::::  640342991
+    AmountsOut calculated::::  640342991
+    Contract Balances:
+    Token0:  0
+    Token1:  640342991
+    Amount repay expected:::::  643952875
+    AmountsOut approved:::::  640342991
+    Repaying Loan
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0xc2132d05d31c914a87c6611c10748aeb04b58e8f)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at <UnrecognizedContract>.<unknown> (0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001)
+      at <UnrecognizedContract>.<unknown> (0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)eth_chainIdeth_chainId (2)eth_chainIdeth_chainIdeth_chainId
+
+eth_chainId
+
+eth_chainIdeth_chainIdMined empty block range #42181092 to #42181096
