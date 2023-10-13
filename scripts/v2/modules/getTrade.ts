@@ -1,18 +1,18 @@
 import { BigNumber, utils as u } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
-import { Amounts, FactoryPair, GasData, Pair, Profit, K } from "../../constants/interfaces";
+import { Amounts, FactoryPair, GasData, Pair, Profit, K } from "../../../constants/interfaces";
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
-import { wallet, flashMulti } from "../../constants/contract";
+import { wallet, flashMulti } from "../../../constants/contract";
 import { Contract } from "@ethersproject/contracts";
-import { Prices } from "./modules/prices";
-import { getK } from "./modules/getK";
-import { BoolTrade } from "../../constants/interfaces"
-import { getAmountsIn, getAmountsOut } from "./modules/getAmountsIOLocal";
-import { getImpact } from "./modules/getImpact";
-import { getProfitInTokenOut } from "./modules/getProfitInTokenOut";
-import { AmountConverter } from "./modules/amountConverter";
+import { Prices } from "./prices";
+import { getK } from "./getK";
+import { BoolTrade } from "../../../constants/interfaces"
+import { getAmountsIn, getAmountsOut } from "./getAmountsIOLocal";
+import { getImpact } from "./getImpact";
+import { getProfitInTokenOut } from "./getProfitInTokenOut";
+import { AmountConverter } from "./amountConverter";
 
 /**
  * @description
@@ -21,13 +21,6 @@ import { AmountConverter } from "./modules/amountConverter";
   * 
 */
 
-/*
-I prefer deciding trade based on profit, but it migth be necessary to decide based on price.
-The technique for using profit would be to calc the repay, then work out profit, then use that to determine direction, et voila.
-however, this works for now.
-let A: BigNumber = this.amounts0.amountOutJS.sub(amountRepayB);
-let B: BigNumber = this.amounts1.amountOutJS.sub(amountRepayA);
- */
 export class Trade {
 	trade: BoolTrade | undefined;
 	pair: FactoryPair;
@@ -47,11 +40,9 @@ export class Trade {
 		this.match = match;
 		this.slip = slip;
 		this.gasData = gasData;
-
 		// Pass in the opposing pool's priceOut as target
 		this.amounts0 = new AmountConverter(price0, match, this.price1.priceOutBN, slip);
 		this.amounts1 = new AmountConverter(price1, match, this.price0.priceOutBN, slip);
-
 	}
 
 	// Get repayment amount for the loanPool direct token trade
@@ -62,23 +53,12 @@ export class Trade {
 	}
 
 	// Get repayment amount for the loanPool multitoken trade
-	async getRepayDirect(tradeSize: BigNumber): Promise<BigNumber> {
+	async addFee(tradeSize: BigNumber): Promise<BigNumber> {
 		const repay = tradeSize.mul(1003009027).div(1000000000);
+		// ex 100000 * 1003009027 / 1000000000 = 100301
 		return repay; //in token0
 	}
 
-	// Here, I attempt to determine the direction of the trade allowing negative expression to inform direction
-	// async direction() {
-	// 	const diff = this.price0.priceOutBN.minus(this.price1.priceOutBN)
-	// 	const dperc = diff.div(this.price0.priceOutBN).multipliedBy(100)// 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
-	// 	const dir = dperc.gt(0.6) ? "A" : dperc.lt(-0.6) ? "B" : "[getTrade]: PRICE DIFFERENCE LOWER THAN FEES.";
-	// 	return { dir, diff, dperc };
-	// }
-
-	// Another method forces a positive value, in line with ethers BigNumbers preference for positive values.
-	// Making this trade in any way viable may require taking reserves into account. 
-	// That might make this more comlicated than it needs to be.
-	// Though if that's the case exactly what is wrong with this method?
 	async direction() {
 		const A = this.price0.priceOutBN
 		const B = this.price1.priceOutBN
@@ -90,8 +70,10 @@ export class Trade {
 
 	async getTrade() {
 		const dir = await this.direction();
-		const A = dir.dir == "A"
+		const A = dir.dir == "A" ? true : false;
+		const size = A ? await this.amounts0.tradeToPrice() : await this.amounts1.tradeToPrice();
 		const trade: BoolTrade = {
+			ID: A ? this.match.poolB_id + this.match.poolA_id : this.match.poolA_id + this.match.poolB_id,
 			direction: dir.dir,
 			type: "error",
 			ticker: this.match.token0.symbol + "/" + this.match.token1.symbol,
@@ -122,19 +104,8 @@ export class Trade {
 				reserveOutBN: A ? this.price0.reserves.reserveOutBN : this.price1.reserves.reserveOutBN,
 				priceIn: A ? this.price0.priceInBN.toFixed(this.match.token0.decimals) : this.price1.priceInBN.toFixed(this.match.token0.decimals),
 				priceOut: A ? this.price0.priceOutBN.toFixed(this.match.token1.decimals) : this.price1.priceOutBN.toFixed(this.match.token1.decimals),
-
-				// Unclear what is the best strategy for tradesize.
-				// Would be good to have a strategy that takes into account the reserves of the pool and uses the min of the three below.
-				// Also would be good to have a function that determines the optimal tradesize for a given pool.
-				// for this tradeSize, amounts0.price gets passed amounts1.price as target, and vice versa.
-				tradeSize: A ? await this.amounts0.tradeToPrice() : await this.amounts1.tradeToPrice(),
-				// tradeSize: A ? // This is a possible solution but it results in div-by-zero error (likely due to toPrice being negative sometimes)
-				// this.amounts0.toPrice.lt(this.amounts0.maxIn) ? this.amounts0.toPrice : this.amounts0.maxIn :
-				// this.amounts1.toPrice.lt(this.amounts1.maxIn) ? this.amounts1.toPrice : this.amounts1.maxIn,
-
-				// tradeSize: A ? // Using the following results in div-by-zero error. 
-				// (this.amounts0.maxIn.lt(this.amounts1.maxOut) ? this.amounts0.maxIn : this.amounts1.maxOut) :
-				// (this.amounts1.maxIn.lt(this.amounts0.maxOut) ? this.amounts1.maxIn : this.amounts0.maxOut),
+				// Would be good to have a strategy that takes into account the reserves of the pool and uses the min of the three below, but that adds a lot of complexity.
+				tradeSize: A ? (size.lt(this.price1.reserves.reserveIn) ? size : this.price1.reserves.reserveIn) : size.lt(this.price0.reserves.reserveIn) ? size : this.price0.reserves.reserveIn, // This strategy attempts to use the biggest tradeSize possible. It will use toPrice, despite high slippage, if slippage creates profitable trades. If toPrice is smaller than maxIn(for slippage) it will use maxIn.
 				amountOut: BigNumber.from(0),
 			},
 			k: {
@@ -143,7 +114,6 @@ export class Trade {
 				uniswapKPositive: false,
 			},
 			gasData: this.gasData,
-			amountRepay: BigNumber.from(0), // decided based on direct v multi trade returns
 			differenceTokenOut: dir.diff.toFixed(this.match.token1.decimals) + " " + this.match.token1.symbol,
 			differencePercent: dir.dperc.toFixed(this.match.token1.decimals) + "%",
 			profit: BigNumber.from(0),
@@ -158,33 +128,55 @@ export class Trade {
 		// arbitrage type options: 
 		if (trade.recipient.tradeSize.gt(0)) {
 
+			// Define what repay is for each trade type: 
 			const multiRepay = await this.getRepayMulti(
 				trade.recipient.amountOut,
 				trade.loanPool.reserveOut,
 				trade.loanPool.reserveIn
 			); //repayment in token1 using getAmountIn
 
-			const directRepay = await this.getRepayDirect(trade.recipient.tradeSize); //repayment in token0 using simple addition of 0.3%
+			const directRepay = await this.addFee(trade.recipient.tradeSize); //repayment in token0 using simple addition of 0.3%
 
-			const profitMulti = multiRepay.sub(trade.recipient.amountOut); // token1 repay - token1 out
+			// define what 'profit' is for each trade type: the remainder of token1Out after repay is subtracted, for both direct and multi-trade.
+			const profitMulti = multiRepay.sub(trade.recipient.amountOut); // token1 repay - token1 out (profit will be remainder of token1 out)
 
-			const profitDirect = trade.recipient.tradeSize.sub(directRepay); // token0 borrowed - token0 repay
+			// get equivalent to getTokensforExactTokensIn:
+			const directRepayinTokenOut = await getAmountsOut(
+				directRepay,
+				trade.loanPool.reserveIn.add(directRepay.sub(trade.recipient.tradeSize)), // add 0.3% fee to reserves
+				trade.loanPool.reserveOut
+			)
+
+			// subtract the result from amountOut to get profit
+			const profitDirect = trade.recipient.amountOut.sub(directRepayinTokenOut); // profit is remainder of token1 out
 
 			trade.type = profitMulti.gt(profitDirect) ? "multi" : "direct";
+			////////////////////////////////////////////////////////////////////////////////
 
 			// The below will be either in token0 or token1, depending on the trade type.
-			trade.amountRepay = trade.type === "multi" ? multiRepay : directRepay;
-			///////////////////////////////////////////////////////////////////////////////
+			trade.loanPool.amountRepay = trade.type === "multi" ? multiRepay : directRepay;
+			////////////////////////////////////////////////////////////////////////////
 
 			trade.profit = trade.type === "multi" ? profitMulti : profitDirect;
-			//////////////////////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////////////////////
+
 			try {
+				const profitMultiBN = BN(u.formatUnits(profitMulti, trade.tokenOut.decimals));
+				// console.log("profitMultiBN: ", profitMultiBN.toFixed(trade.tokenOut.decimals));
+
+				const profitDirectBN = BN(u.formatUnits(profitDirect, trade.tokenOut.decimals));
+				// console.log("profitDirectBN: ", profitDirectBN.toFixed(trade.tokenIn.decimals));
+
+				const profitPercMultiBN = trade.recipient.amountOut.eq(0) ? BN(0) : profitMultiBN.dividedBy(u.formatUnits(trade.recipient.amountOut, trade.tokenOut.decimals)).multipliedBy(100);
+				const profitPercDirectBN = directRepayinTokenOut.eq(0) ? BN(0) : profitDirectBN.dividedBy(u.formatUnits(directRepayinTokenOut, trade.tokenOut.decimals)).multipliedBy(100);
+
 				trade.profitPercent = trade.type == "multi" ?
-					profitMulti.mul(100).div(trade.recipient.amountOut) :
-					profitDirect.mul(100).div(trade.recipient.tradeSize);
+					u.parseUnits((profitPercMultiBN.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals) :
+					u.parseUnits((profitPercDirectBN.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals);
+
 			} catch (error: any) {
-				console.log("Error in division by tiny numbers: " + error.message)
-				console.log(error.message)
+				console.log("Error in profitCalc: " + error.message + " " + trade.ticker + " " + trade.type + " " + trade.profitPercent);
+				console.log(error.stack);
 			}
 			trade.flash = trade.type === "multi" ? flashMulti : flashMulti;
 

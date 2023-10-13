@@ -9,7 +9,7 @@ export interface K {
 
 export interface TxData {
 	txResponse: any;
-	tradePending: boolean
+	pendingID: string | null;
 }
 
 export interface V2Params {
@@ -84,6 +84,7 @@ export interface Profit {
 	gasEstimate: BigNumber;
 	gasCost: BigNumber;
 	gasPool: string;
+	gas: GAS;
 }
 export interface Amounts {
 	maxIn: BigNumber;
@@ -170,6 +171,7 @@ export interface PoolsV3 {
 };
 
 export interface BoolTrade {
+	ID: string
 	direction: string
 	type: string
 	ticker: string
@@ -205,7 +207,6 @@ export interface BoolTrade {
 	}
 	k: K
 	gasData: GasData
-	amountRepay: BigNumber
 	differenceTokenOut: string
 	differencePercent: string
 	profit: BigNumber
@@ -300,8 +301,8 @@ export interface GasData {
 export interface GAS {
 	gasEstimate: BigNumber,
 	gasPrice: BigNumber,
-	maxFee: number,
-	maxPriorityFee: number
+	maxFee: BigNumber,
+	maxPriorityFee: BigNumber
 }
 
 

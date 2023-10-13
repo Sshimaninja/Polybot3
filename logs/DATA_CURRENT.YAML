@@ -1,0 +1,259 @@
+2023-10-13T00:37:40.320 INFO {
+  trade: 'direct',
+  ticker: 'WMATIC/USDC',
+  direction: 'B',
+  tradeSize: '71.61108743884715288 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.970135160574757662',
+    priceOut: '0.507579',
+    reservesIn: '482.648516797260773785 WMATIC',
+    reservesOut: '244.982439 USDC',
+    amountRepay: '71.826567134450004811 WMATIC',
+    amountOut: '71.826567134450004811 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.972280051976243840',
+    priceOut: '0.507027',
+    reservesIn: '259459.490053123334415439 WMATIC',
+    reservesOut: '131553.067118 USDC',
+    amountOut: '36.189897 USDC'
+  },
+  result: {
+    uniswapkPreT: '118240410824725412880876561615',
+    uniswapkPosT: '254077069251045628863913637259',
+    uniswapKPositive: false,
+    profit: '4.550137 USDC',
+    profperc: '14.381073%'
+  }
+}
+Trade:  B WMATIC / USDC  @  WMATIC/USDC
+EstimatingGas for trade: WMATIC/USDC...
+2023-10-13T00:37:40.324 INFO {
+  trade: 'multi',
+  ticker: 'USDC/USDT',
+  direction: 'B',
+  tradeSize: '92.238468 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '0.999671',
+    priceOut: '1.000329',
+    reservesIn: '63096.50755 USDC',
+    reservesOut: '63117.242369 USDT',
+    amountRepay: '92.322181 USDT',
+    amountOut: '92.322181 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.000477',
+    priceOut: '0.999523',
+    reservesIn: '228980.651647 USDC',
+    reservesOut: '228871.422494 USDT',
+    amountOut: '91.880984 USDT'
+  },
+  result: {
+    uniswapkPreT: 0,
+    uniswapkPosT: 0,
+    uniswapKPositive: false,
+    profit: '0.441197 USDT',
+    profperc: '0.480183%'
+  }
+}
+Trade:  B USDC / USDT  @  USDC/USDT
+EstimatingGas for trade: USDC/USDT...
+2023-10-13T00:37:40.326 INFO {
+  trade: 'multi',
+  ticker: 'USDC/USDT',
+  direction: 'B',
+  tradeSize: '6.350147 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '0.999671',
+    priceOut: '1.000329',
+    reservesIn: '63096.50755 USDC',
+    reservesOut: '63117.242369 USDT',
+    amountRepay: '6.354679 USDT',
+    amountOut: '6.354679 USDC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '0.999701',
+    priceOut: '1.000299',
+    reservesIn: '431687.551095 USDC',
+    reservesOut: '431816.71227 USDT',
+    amountOut: '6.332897 USDT'
+  },
+  result: {
+    uniswapkPreT: 0,
+    uniswapkPosT: 0,
+    uniswapKPositive: false,
+    profit: '0.021782 USDT',
+    profperc: '0.34395%'
+  }
+}
+Trade:  B USDC / USDT  @  USDC/USDT
+EstimatingGas for trade: USDC/USDT...
+Error in fetchGasPrice for trade: WMATIC/USDC . Using default gas estimate for gasPrice calcs
+[fetchGasPrice]: Raw Gas Estimate toString() : 300000
+[fetchGasPrice]: Gas Price String Converted from BigNumber : 64291449717.01039
+Error in fetchGasPrice for trade: USDC/USDT . Using default gas estimate for gasPrice calcs
+[fetchGasPrice]: Raw Gas Estimate toString() : 300000
+[fetchGasPrice]: Gas Price String Converted from BigNumber : 64291449717.01039
+Error in fetchGasPrice for trade: USDC/USDT . Using default gas estimate for gasPrice calcs
+[fetchGasPrice]: Raw Gas Estimate toString() : 300000
+[fetchGasPrice]: Gas Price String Converted from BigNumber : 64291449717.01039
+GasToken Key:  WMATIC
+GasToken Key:  WMATIC
+Trying token WMATIC...
+Trying token WMATIC...
+Possible trade: WMATIC/USDC Gas Estimate:  0.0000000000003 Gas Price:  64291449717.01039
+2023-10-13T00:37:40.331 INFO Profitable trade found on WMATIC/USDC!
+2023-10-13T00:37:40.331 INFO Profit:  8.946913479455592015 Gas Cost:  29676223545900000 Flash Type:  direct
+::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/USDC::::::::::::::::::::::::::
+Wallet Balance Matic: 4.549717211759735403 MATIC
+Gas Cost::::::::::::: 0.0296762235459 MATIC
+Sufficient Matic Balance. Proceeding...
+EstimatingGas for trade: WMATIC/USDC...
+Error in fetchGasPrice for trade: WMATIC/USDC . Using default gas estimate for gasPrice calcs
+[fetchGasPrice]: Raw Gas Estimate toString() : 300000
+[fetchGasPrice]: Gas Price String Converted from BigNumber : 64291449717.01039
+:::::::::::Sending Transaction:::::::::::
+GasPool found for:  USDT   WMATIC
+GasPool found for:  USDT   WMATIC
+gasToken:  WMATIC
+2023-10-13T00:37:40.424 INFO <<<<<<<<<<<<<<<<<<<<<<<<<BEGIN GAS CONVERSION LOOP:  USDC/USDT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-10-13T00:37:40.425 INFO Pair:  USDC/USDT  finding profit through  USDT /  /WMATIC
+2023-10-13T00:37:40.425 INFO gaspool.address:  0x55FF76BFFC3Cdd9D5FdbBC2ece4528ECcE45047e
+gasToken:  WMATIC
+2023-10-13T00:37:40.425 INFO <<<<<<<<<<<<<<<<<<<<<<<<<BEGIN GAS CONVERSION LOOP:  USDC/USDT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2023-10-13T00:37:40.425 INFO Pair:  USDC/USDT  finding profit through  USDT /  /WMATIC
+2023-10-13T00:37:40.426 INFO gaspool.address:  0x604229c960e5CACF2aaEAc8Be68Ac07BA9dF81c3
+Trade is negative.
+Trade is negative.
+<<<<<<<<<<<<No Trade: USDC/USDT [ gas > profit ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'USDC/USDT',
+  direction: 'B',
+  tradeSize: '92.238468 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '0.999671',
+    priceOut: '1.000329',
+    reservesIn: '63096.50755 USDC',
+    reservesOut: '63117.242369 USDT',
+    amountRepay: '92.322181 USDT',
+    amountOut: '92.322181 USDC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.000477',
+    priceOut: '0.999523',
+    reservesIn: '228980.651647 USDC',
+    reservesOut: '228871.422494 USDT',
+    amountOut: '91.880984 USDT'
+  },
+  result: {
+    uniswapkPreT: 0,
+    uniswapkPosT: 0,
+    uniswapKPositive: false,
+    profit: '0.441197 USDT',
+    profperc: '0.480183%'
+  }
+}
+<<<<<<<<<<<<No Trade: USDC/USDT [ gas > profit ] >>>>>>>>>>>>
+{
+  trade: 'multi',
+  ticker: 'USDC/USDT',
+  direction: 'B',
+  tradeSize: '6.350147 USDC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '0.999671',
+    priceOut: '1.000329',
+    reservesIn: '63096.50755 USDC',
+    reservesOut: '63117.242369 USDT',
+    amountRepay: '6.354679 USDT',
+    amountOut: '6.354679 USDC'
+  },
+  recipient: {
+    exchange: 'QUICK',
+    priceIn: '0.999701',
+    priceOut: '1.000299',
+    reservesIn: '431687.551095 USDC',
+    reservesOut: '431816.71227 USDT',
+    amountOut: '6.332897 USDT'
+  },
+  result: {
+    uniswapkPreT: 0,
+    uniswapkPosT: 0,
+    uniswapKPositive: false,
+    profit: '0.021782 USDT',
+    profperc: '0.34395%'
+  }
+}
+<<<<<<<<<<<<No Trade: WMATIC/DAI [ profit < 0.3% | -0.269608113217000403 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/DAI [ profit < 0.3% | -0.371548681607562844 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: USDC/DAI [ profit < 0.3% | -0.537021632654468981 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -0.460062 ] >>>>>>>>>>>>
+<<<<<<<<<<<<No Trade: WMATIC/USDC [ profit < 0.3% | -0.316220 ] >>>>>>>>>>>>
+2023-10-13T00:37:40.539 INFO {
+  trade: 'direct',
+  ticker: 'WMATIC/USDC',
+  direction: 'B',
+  tradeSize: '78.465438665826075825 WMATIC',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.969930104032950129',
+    priceOut: '0.507632',
+    reservesIn: '8583.784384184695105687 WMATIC',
+    reservesOut: '4357.405558 USDC',
+    amountRepay: '78.701543289338390464 WMATIC',
+    amountOut: '78.701543289338390464 WMATIC'
+  },
+  recipient: {
+    exchange: 'SUSHI',
+    priceIn: '1.972280051976243840',
+    priceOut: '0.507027',
+    reservesIn: '259459.490053123334415439 WMATIC',
+    reservesOut: '131553.067118 USDC',
+    amountOut: '39.652818 USDC'
+  },
+  result: {
+    uniswapkPreT: '37403029784319997752055931208346',
+    uniswapkPosT: '75148994110792136208862470215604',
+    uniswapKPositive: false,
+    profit: '0.183116 USDC',
+    profperc: '0.463941%'
+  }
+}
+Trade:  B WMATIC / USDC  @  WMATIC/USDC
+EstimatingGas for trade: WMATIC/USDC...
+Error in fetchGasPrice for trade: WMATIC/USDC . Using default gas estimate for gasPrice calcs
+[fetchGasPrice]: Raw Gas Estimate toString() : 300000
+[fetchGasPrice]: Gas Price String Converted from BigNumber : 64291449717.01039
+Possible trade: WMATIC/USDC Gas Estimate:  0.0000000000003 Gas Price:  64291449717.01039
+2023-10-13T00:37:40.542 INFO Profitable trade found on WMATIC/USDC!
+2023-10-13T00:37:40.542 INFO Profit:  0.360072066195050561 Gas Cost:  29676223545900000 Flash Type:  direct
+::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/USDC::::::::::::::::::::::::::
+Telegram message sent: 155051
+/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269
+        const error: any = new Error(message);
+                           ^
+Error: underflow [ See: https://links.ethers.org/v5-errors-NUMERIC_FAULT-underflow ] (fault="underflow", operation="BigNumber.from", value=128.582899434, code=NUMERIC_FAULT, version=bignumber/5.7.0)
+    at Logger.makeError (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at throwFault (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/@ethersproject/bignumber/src.ts/bignumber.ts:356:19)
+    at Function.BigNumber.from (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/@ethersproject/bignumber/src.ts/bignumber.ts:243:17)
+    at /mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/@ethersproject/contracts/src.ts/index.ts:241:64
+    at step (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/@ethersproject/contracts/lib/index.js:48:23)
+    at Object.next (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/@ethersproject/contracts/lib/index.js:29:53)
+    at fulfilled (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/@ethersproject/contracts/lib/index.js:20:58) {
+  reason: 'underflow',
+  code: 'NUMERIC_FAULT',
+  fault: 'underflow',
+  operation: 'BigNumber.from',
+  value: 128.582899434
+}
+(base) prophecy@DESKTOP-ODVLU60:/mnt/d/code/arbitrage/polybot-live/polybotv3$ npm run bot
