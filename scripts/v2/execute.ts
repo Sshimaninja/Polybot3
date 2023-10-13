@@ -25,10 +25,9 @@ export async function sendit(
 	trade: BoolTrade,
 	profit: Profit,
 ): Promise<TxData> {
-
-
-	console.log('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.ticker + ':::::::::::::::::::::::::: ')
+	console.log('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.ticker + '::::::::::::::::::::::::::8')
 	var gasbalance = await checkGasBal();
+	console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, 18) + " " + "MATIC")
 
 	let result: TxData = {
 		txResponse: undefined,
@@ -36,7 +35,6 @@ export async function sendit(
 	}
 
 	if (trade) {
-
 		console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, 18) + " " + "MATIC")
 		console.log("Gas Cost::::::::::::: " + ethers.utils.formatUnits(profit.gasCost, 18) + " " + "MATIC")
 

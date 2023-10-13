@@ -21,13 +21,6 @@ import { AmountConverter } from "./modules/amountConverter";
   * 
 */
 
-/*
-I prefer deciding trade based on profit, but it migth be necessary to decide based on price.
-The technique for using profit would be to calc the repay, then work out profit, then use that to determine direction, et voila.
-however, this works for now.
-let A: BigNumber = this.amounts0.amountOutJS.sub(amountRepayB);
-let B: BigNumber = this.amounts1.amountOutJS.sub(amountRepayA);
- */
 export class Trade {
 	trade: BoolTrade | undefined;
 	pair: FactoryPair;
@@ -47,11 +40,9 @@ export class Trade {
 		this.match = match;
 		this.slip = slip;
 		this.gasData = gasData;
-
 		// Pass in the opposing pool's priceOut as target
 		this.amounts0 = new AmountConverter(price0, match, this.price1.priceOutBN, slip);
 		this.amounts1 = new AmountConverter(price1, match, this.price0.priceOutBN, slip);
-
 	}
 
 	// Get repayment amount for the loanPool direct token trade
@@ -68,18 +59,6 @@ export class Trade {
 		return repay; //in token0
 	}
 
-	// Here, I attempt to determine the direction of the trade allowing negative expression to inform direction
-	// async direction() {
-	// 	const diff = this.price0.priceOutBN.minus(this.price1.priceOutBN)
-	// 	const dperc = diff.div(this.price0.priceOutBN).multipliedBy(100)// 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
-	// 	const dir = dperc.gt(0.6) ? "A" : dperc.lt(-0.6) ? "B" : "[getTrade]: PRICE DIFFERENCE LOWER THAN FEES.";
-	// 	return { dir, diff, dperc };
-	// }
-
-	// Another method forces a positive value, in line with ethers BigNumbers preference for positive values.
-	// Making this trade in any way viable may require taking reserves into account. 
-	// That might make this more comlicated than it needs to be.
-	// Though if that's the case exactly what is wrong with this method?
 	async direction() {
 		const A = this.price0.priceOutBN
 		const B = this.price1.priceOutBN
@@ -123,19 +102,8 @@ export class Trade {
 				reserveOutBN: A ? this.price0.reserves.reserveOutBN : this.price1.reserves.reserveOutBN,
 				priceIn: A ? this.price0.priceInBN.toFixed(this.match.token0.decimals) : this.price1.priceInBN.toFixed(this.match.token0.decimals),
 				priceOut: A ? this.price0.priceOutBN.toFixed(this.match.token1.decimals) : this.price1.priceOutBN.toFixed(this.match.token1.decimals),
-
-				// Unclear what is the best strategy for tradesize.
-				// Would be good to have a strategy that takes into account the reserves of the pool and uses the min of the three below.
-				// Also would be good to have a function that determines the optimal tradesize for a given pool.
-				// for this tradeSize, amounts0.price gets passed amounts1.price as target, and vice versa.
+				// Would be good to have a strategy that takes into account the reserves of the pool and uses the min of the three below, but that adds a lot of complexity.
 				tradeSize: A ? await this.amounts0.tradeToPrice() : await this.amounts1.tradeToPrice(), // This strategy attempts to use the biggest tradeSize possible. It will use toPrice, despite high slippage, if slippage creates profitable trades. If toPrice is smaller than maxIn(for slippage) it will use maxIn.
-				// tradeSize: A ? // This is a possible solution but it results in div-by-zero error (likely due to toPrice being negative sometimes)
-				// this.amounts0.toPrice.lt(this.amounts0.maxIn) ? this.amounts0.toPrice : this.amounts0.maxIn :
-				// this.amounts1.toPrice.lt(this.amounts1.maxIn) ? this.amounts1.toPrice : this.amounts1.maxIn,
-
-				// tradeSize: A ? // Using the following results in div-by-zero error. 
-				// (this.amounts0.maxIn.lt(this.amounts1.maxOut) ? this.amounts0.maxIn : this.amounts1.maxOut) :
-				// (this.amounts1.maxIn.lt(this.amounts0.maxOut) ? this.amounts1.maxIn : this.amounts0.maxOut),
 				amountOut: BigNumber.from(0),
 			},
 			k: {
@@ -159,8 +127,6 @@ export class Trade {
 		if (trade.recipient.tradeSize.gt(0)) {
 
 			// Define what repay is for each trade type: 
-			/*multiRepay using getAmountsIn seems broken, 
-			so direct is offered as an alternative and profit is calculated for both.*/
 			const multiRepay = await this.getRepayMulti(
 				trade.recipient.amountOut,
 				trade.loanPool.reserveOut,
@@ -169,30 +135,10 @@ export class Trade {
 
 			const directRepay = await this.addFee(trade.recipient.tradeSize); //repayment in token0 using simple addition of 0.3%
 
-			//Define what 'profit' is for each trade type: 
-			/* Must check the actual strategy to troubleshoot this, 
-			i.e. does the strategy sell *all* of the token0 borrowed,
-			OR does the strategy *only* sell the token0 borrowed that is required to repay the loan?
-			In case 1, the profit is the remainder of token1 out.
-			In case 2, the profit is the remainder of token0 borrowed.
-			*/
+			// define what 'profit' is for each trade type: the remainder of token1Out after repay is subtracted, for both direct and multi-trade.
 			const profitMulti = multiRepay.sub(trade.recipient.amountOut); // token1 repay - token1 out (profit will be remainder of token1 out)
 
 			// get equivalent to getTokensforExactTokensIn:
-			// function swapTokensForExactTokens(
-			// 	uint amountOut,
-			// 	uint amountInMax,
-			// 	address[] calldata path,
-			// 	address to,
-			// 	uint deadline
-			// ) external virtual override ensure(deadline) returns(uint[] memory amounts) {
-			// 	amounts = UniswapV2Library.getAmountsIn(factory, amountOut, path);
-			// 	require(amounts[0] <= amountInMax, 'UniswapV2Router: EXCESSIVE_INPUT_AMOUNT');
-			// 	TransferHelper.safeTransferFrom(
-			// 		path[0], msg.sender, UniswapV2Library.pairFor(factory, path[0], path[1]), amounts[0]
-			// 	);
-			// 	_swap(amounts, path, to);
-			// }
 			const directRepayinTokenOut = await getAmountsOut(
 				directRepay,
 				trade.loanPool.reserveIn.add(directRepay.sub(trade.recipient.tradeSize)), // add 0.3% fee to reserves
