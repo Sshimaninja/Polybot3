@@ -1,18 +1,18 @@
 import { BigNumber, utils as u } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
-import { Amounts, FactoryPair, GasData, Pair, Profit, K } from "../../constants/interfaces";
+import { Amounts, FactoryPair, GasData, Pair, Profit, K } from "../../../constants/interfaces";
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
-import { wallet, flashMulti } from "../../constants/contract";
+import { wallet, flashMulti } from "../../../constants/contract";
 import { Contract } from "@ethersproject/contracts";
-import { Prices } from "./modules/prices";
-import { getK } from "./modules/getK";
-import { BoolTrade } from "../../constants/interfaces"
-import { getAmountsIn, getAmountsOut } from "./modules/getAmountsIOLocal";
-import { getImpact } from "./modules/getImpact";
-import { getProfitInTokenOut } from "./modules/getProfitInTokenOut";
-import { AmountConverter } from "./modules/amountConverter";
+import { Prices } from "./prices";
+import { getK } from "./getK";
+import { BoolTrade } from "../../../constants/interfaces"
+import { getAmountsIn, getAmountsOut } from "./getAmountsIOLocal";
+import { getImpact } from "./getImpact";
+import { getProfitInTokenOut } from "./getProfitInTokenOut";
+import { AmountConverter } from "./amountConverter";
 
 /**
  * @description
@@ -71,7 +71,9 @@ export class Trade {
 	async getTrade() {
 		const dir = await this.direction();
 		const A = dir.dir == "A" ? true : false;
+		const size = A ? await this.amounts0.tradeToPrice() : await this.amounts1.tradeToPrice();
 		const trade: BoolTrade = {
+			ID: A ? this.match.poolB_id + this.match.poolA_id : this.match.poolA_id + this.match.poolB_id,
 			direction: dir.dir,
 			type: "error",
 			ticker: this.match.token0.symbol + "/" + this.match.token1.symbol,
@@ -103,7 +105,7 @@ export class Trade {
 				priceIn: A ? this.price0.priceInBN.toFixed(this.match.token0.decimals) : this.price1.priceInBN.toFixed(this.match.token0.decimals),
 				priceOut: A ? this.price0.priceOutBN.toFixed(this.match.token1.decimals) : this.price1.priceOutBN.toFixed(this.match.token1.decimals),
 				// Would be good to have a strategy that takes into account the reserves of the pool and uses the min of the three below, but that adds a lot of complexity.
-				tradeSize: A ? await this.amounts0.tradeToPrice() : await this.amounts1.tradeToPrice(), // This strategy attempts to use the biggest tradeSize possible. It will use toPrice, despite high slippage, if slippage creates profitable trades. If toPrice is smaller than maxIn(for slippage) it will use maxIn.
+				tradeSize: A ? (size.lt(this.price1.reserves.reserveIn) ? size : this.price1.reserves.reserveIn) : size.lt(this.price0.reserves.reserveIn) ? size : this.price0.reserves.reserveIn, // This strategy attempts to use the biggest tradeSize possible. It will use toPrice, despite high slippage, if slippage creates profitable trades. If toPrice is smaller than maxIn(for slippage) it will use maxIn.
 				amountOut: BigNumber.from(0),
 			},
 			k: {

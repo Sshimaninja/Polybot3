@@ -9,7 +9,7 @@ export interface K {
 
 export interface TxData {
 	txResponse: any;
-	tradePending: boolean
+	pendingID: string | null;
 }
 
 export interface V2Params {
@@ -171,6 +171,7 @@ export interface PoolsV3 {
 };
 
 export interface BoolTrade {
+	ID: string
 	direction: string
 	type: string
 	ticker: string

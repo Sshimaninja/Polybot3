@@ -26,6 +26,7 @@ export async function gasVprofit(trade: BoolTrade,): Promise<Profit> {
 				maxPriorityFee: BigNumber.from(0),
 			}
 		};
+
 	} else {
 
 		const prices = await fetchGasPrice(trade);
