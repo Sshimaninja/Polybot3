@@ -7,7 +7,6 @@ import { AmountConverter } from './modules/amountConverter'
 import { Trade } from './getTrade';
 import { gasVprofit } from './modules/gasVprofit';
 import { Reserves } from './modules/reserves';
-import { sendit } from './execute';
 import { tradeLogs } from './modules/tradeLog';
 import { rollDamage } from './modules/damage';
 /*

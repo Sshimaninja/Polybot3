@@ -1,7 +1,7 @@
 import { BoolTrade } from "../../../constants/interfaces";
 import { utils as u, BigNumber } from "ethers";
 import { gasVprofit } from "./gasVprofit";
-import { sendit } from "../execute";
+import { execute } from "../execute";
 import { BigNumber as BN } from "bignumber.js";
 import { logger } from "../../../constants/contract";
 /**
@@ -26,11 +26,11 @@ export async function rollDamage(trade: BoolTrade, data: any, warning: number, t
 
 		if (BN(actualProfit.profit).gt(0) && warning === 0) {
 			logger.info("Profitable trade found on " + trade.ticker + "!")
-			logger.info("Profit: ", actualProfit.profit.toString(), "Gas Cost: ", actualProfit.gasCost.toString(), "Flash Type: ", trade.type)
+			logger.info("Profit: ", actualProfit.profit.toString(), "Gas Cost: ", u.formatUnits(actualProfit.gas.gasPrice, 18), "Flash Type: ", trade.type)
 			tradePending = true
 			pendingID = trade.recipient.pool.address
 
-			await sendit(trade, actualProfit)
+			await execute(trade, actualProfit)
 
 			warning++
 			return warning

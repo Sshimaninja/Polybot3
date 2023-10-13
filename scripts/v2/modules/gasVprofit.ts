@@ -12,9 +12,23 @@ require('dotenv').config()
 export async function gasVprofit(trade: BoolTrade,): Promise<Profit> {
 	let profit: Profit;
 	console.log("Trade: ", trade.direction, trade.tokenIn.symbol, "/", trade.tokenOut.symbol, " @ ", trade.ticker)
-	if (trade.direction != undefined) {
+	if (trade.direction == undefined) {
+		console.log("Trade direction is undefined.")
+		return profit = {
+			profit: "undefined",
+			gasEstimate: BigNumber.from(0),
+			gasCost: BigNumber.from(0),
+			gasPool: "undefined",
+			gas: {
+				gasEstimate: BigNumber.from(0),
+				gasPrice: BigNumber.from(0),
+				maxFee: BigNumber.from(0),
+				maxPriorityFee: BigNumber.from(0),
+			}
+		};
+	} else {
+
 		const prices = await fetchGasPrice(trade);
-		const gasPrice = prices.gasPrice
 
 		const profitinMatic = await getProfitInMatic(trade);
 		if (profitinMatic != undefined) {
@@ -22,10 +36,11 @@ export async function gasVprofit(trade: BoolTrade,): Promise<Profit> {
 				profit = {
 					profit: u.formatUnits(profitinMatic.profitInMatic, 18),
 					gasEstimate: prices.gasEstimate,
-					gasCost: gasPrice,
+					gasCost: prices.gasPrice,
 					gasPool: profitinMatic.gasPool.address,
+					gas: prices,
 				}
-				console.log("Possible trade: " + trade.ticker + " Gas Estimate: ", u.formatUnits(prices.gasEstimate, 18), "Gas Price: ", u.formatUnits(prices.gasPrice.toString()))
+				console.log("Possible trade: " + trade.ticker + " Gas Estimate: ", prices.gasEstimate.toString(), "Gas Price: ", u.formatUnits(prices.gasPrice.toString()))
 				// console.log("Profit: ", profit)
 				return profit;
 			}
@@ -34,8 +49,9 @@ export async function gasVprofit(trade: BoolTrade,): Promise<Profit> {
 				return profit = {
 					profit: u.formatUnits(profitinMatic.profitInMatic, 18),
 					gasEstimate: prices.gasEstimate,
-					gasCost: gasPrice,
+					gasCost: prices.gasPrice,
 					gasPool: "undefined",
+					gas: prices,
 				};
 			}
 		} else if (profitinMatic == undefined) {
@@ -45,23 +61,21 @@ export async function gasVprofit(trade: BoolTrade,): Promise<Profit> {
 				gasEstimate: BigNumber.from(0),
 				gasCost: BigNumber.from(0),
 				gasPool: "undefined",
+				gas: prices,
 			};
 		}
-	}
-	if (trade.direction == undefined) {
-		console.log("Trade direction is undefined.")
-		return profit = {
-			profit: "undefined",
-			gasEstimate: BigNumber.from(0),
-			gasCost: BigNumber.from(0),
-			gasPool: "undefined",
-		};
 	}
 	return profit = {
 		profit: "undefined",
 		gasEstimate: BigNumber.from(0),
 		gasCost: BigNumber.from(0),
 		gasPool: "undefined",
+		gas: {
+			gasEstimate: BigNumber.from(0),
+			gasPrice: BigNumber.from(0),
+			maxFee: BigNumber.from(0),
+			maxPriorityFee: BigNumber.from(0),
+		}
 	};
-}
+};
 

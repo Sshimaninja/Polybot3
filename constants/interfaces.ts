@@ -84,6 +84,7 @@ export interface Profit {
 	gasEstimate: BigNumber;
 	gasCost: BigNumber;
 	gasPool: string;
+	gas: GAS;
 }
 export interface Amounts {
 	maxIn: BigNumber;
@@ -299,8 +300,8 @@ export interface GasData {
 export interface GAS {
 	gasEstimate: BigNumber,
 	gasPrice: BigNumber,
-	maxFee: number,
-	maxPriorityFee: number
+	maxFee: BigNumber,
+	maxPriorityFee: BigNumber
 }
 
 
