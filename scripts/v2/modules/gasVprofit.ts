@@ -1,4 +1,4 @@
-import { BigNumber, Contract, utils, ethers } from 'ethers'
+import { BigNumber, Contract, utils as u, ethers } from 'ethers'
 import { BoolTrade } from '../../../constants/interfaces'
 import { Profit } from '../../../constants/interfaces'
 import { fetchGasPrice } from './fetchGasPrice';
@@ -14,28 +14,25 @@ export async function gasVprofit(trade: BoolTrade,): Promise<Profit> {
 	console.log("Trade: ", trade.direction, trade.tokenIn.symbol, "/", trade.tokenOut.symbol, " @ ", trade.ticker)
 	if (trade.direction != undefined) {
 		const prices = await fetchGasPrice(trade);
-
-		const gasPrice = BigNumber.from(prices.maxFee)
-			.add(BigNumber.from(prices.maxPriorityFee))
-			.mul(prices.gasEstimate.toNumber());
+		const gasPrice = prices.gasPrice
 
 		const profitinMatic = await getProfitInMatic(trade);
 		if (profitinMatic != undefined) {
 			if (profitinMatic.profitInMatic.gt(BigNumber.from(0))) {
 				profit = {
-					profit: utils.formatUnits(profitinMatic.profitInMatic, 18),
+					profit: u.formatUnits(profitinMatic.profitInMatic, 18),
 					gasEstimate: prices.gasEstimate,
 					gasCost: gasPrice,
 					gasPool: profitinMatic.gasPool.address,
 				}
-				console.log("Possible trade: " + trade.ticker + " Gas Estimate: ", utils.formatUnits(prices.gasEstimate, 18), "Gas Price: ", utils.formatUnits(prices.gasPrice.toString()))
+				console.log("Possible trade: " + trade.ticker + " Gas Estimate: ", u.formatUnits(prices.gasEstimate, 18), "Gas Price: ", u.formatUnits(prices.gasPrice.toString()))
 				// console.log("Profit: ", profit)
 				return profit;
 			}
 			if (profitinMatic.profitInMatic.lte(BigNumber.from(0))) {
 				console.log("Trade is negative.")
 				return profit = {
-					profit: utils.formatUnits(profitinMatic.profitInMatic, 18),
+					profit: u.formatUnits(profitinMatic.profitInMatic, 18),
 					gasEstimate: prices.gasEstimate,
 					gasCost: gasPrice,
 					gasPool: "undefined",
