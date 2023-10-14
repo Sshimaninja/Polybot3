@@ -7,9 +7,13 @@ import { BigNumber } from 'ethers';
  * @returns amountOut from amountIn
  */
 export async function getAmountsOut(amountIn: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
+	// amountIn * 997
 	const amountInWithFee = amountIn.mul(997);
+	// (amountInwithFee) * reserveOut
 	const numerator = amountInWithFee.mul(reserveOut);
+	// (reserveIn * 1000) + (amountInwithFee)
 	const denominator = reserveIn.mul(1000).add(amountInWithFee);
+	// (amountInwithFee * reserveOut) / (reserveIn + amountInwithFee)
 	const amountOut = numerator.div(denominator);
 	return amountOut;
 }
@@ -18,18 +22,18 @@ export async function getAmountsOut(amountIn: BigNumber, reserveIn: BigNumber, r
  * @param amountIn 
  * @param reserveIn 
  * @param reserveOut 
- * @returns the minimum input asset amount required to buy the given output asset amount (accounting for fees) given reserves.
+ * @returns the minimum output asset amount required to buy the given input asset amount (accounting for fees) given reserves.
  */
-//amountIn = amountOut * reserveIn / (reserveOut - amountOut)
+//amountIn = amountOut * reserveIn / reserveOut - amountOut
+// 
 export async function getAmountsIn(amountOut: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
-	// reserveIn * amountOut * 1000
+	// reserveIn * amountOut
 	const numerator = reserveIn.mul(amountOut).mul(1000);
-	// reserveOut = amountOut * 997
+	// reserveOut - amountOut (minus fee)
 	const denominator = reserveOut.sub(amountOut).mul(997);
-	// numerator / denominator + 1
+	// reserveIn * amountOut / reserveOut - amountOut
 	const amountIn = numerator.div(denominator).add(1);
 	return amountIn;
-
 }
 
 
