@@ -36,7 +36,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 			);
 		} catch (error: any) {
 			console.log(`>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`);
-			gasEstimate = BigNumber.from(30000000 * 10 ** 9)
+			gasEstimate = p('300000', 18)
 			logger.info(error.reason);
 			return { gasEstimate, tested: false, gasPrice: BigNumber.from(150 + 60 * 300000), maxFee, maxPriorityFee };
 		}

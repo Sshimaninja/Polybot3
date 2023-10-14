@@ -194,6 +194,7 @@ export interface BoolTrade {
 		priceIn: string
 		priceOut: string
 		amountRepay: BigNumber
+		tradeSizeInTermsOfTokenOutWithFee: BigNumber
 	}
 	target: {
 		exchange: string
