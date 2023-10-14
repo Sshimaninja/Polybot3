@@ -26,6 +26,7 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
 				amountRepay: trade.type === "multi" ?
 					(u(trade.loanPool.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol) :
 					(u(trade.loanPool.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol),
+				tradeSizeInTermsOfTokenOutWithFee: u(trade.loanPool.tradeSizeInTermsOfTokenOutWithFee, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
 			},
 			target: {
 				exchange: trade.target.exchange,
