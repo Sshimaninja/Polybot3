@@ -1,8 +1,9 @@
-import { BoolTrade } from "../../../constants/interfaces";
+import { BoolTrade, PendingTx } from "../../../constants/interfaces";
 import { utils as u, BigNumber } from "ethers";
 import { gasVprofit } from "./gasVprofit";
 import { execute } from "./execute";
 import { BigNumber as BN } from "bignumber.js";
+import { tradeLogs } from "./tradeLog";
 import { logger } from "../../../constants/contract";
 /**
  * Executes profitable trades
@@ -13,48 +14,69 @@ import { logger } from "../../../constants/contract";
  * @param pendingID 
  * @returns 
  */
-export async function rollDamage(trade: BoolTrade, data: any, warning: number) {
 
-	// Conversion to BN because BN works with decimals
+var pendingTrades: PendingTx[] = []
+console.log(pendingTrades)//debug
+
+export async function rollDamage(trade: BoolTrade) {
+
 	const profpercBN = BN(u.formatUnits(trade.profitPercent, trade.tokenOut.decimals))
 
-	if (profpercBN.gt(BN(0)) && trade.loanPool.reserveInBN.gt(BN(1)) && trade.loanPool.reserveOutBN.gt(BN(1)) && trade.recipient.reserveInBN.gt(BN(1)) && trade.recipient.reserveOutBN.gt(BN(1)) /* || profpercBN.lt(0)*/) { // May need to take fees into account here, but testing now.
+	let newTx: PendingTx = {
+		ID: trade.ID,
+		warning: false
+	}
+	// Conversion to BN because BN works with decimals
 
-		// logger.info(await data)// 
-
+	if (pendingTrades.includes(newTx)) {
+		console.log("<<<<<<<<<<<<Trade Pending: " + trade.ticker + trade.loanPool.exchange + trade.target.exchange + " [ pending ] >>>>>>>>>>>>")
+		newTx = {
+			ID: trade.ID,
+			warning: true
+		}
+		return
+	}
+	// If profit > 0, and all reserves > 1, find profit vs gas cost
+	if (
+		profpercBN.gt(BN(0)) && (trade.loanPool.reserveInBN && trade.loanPool.reserveOutBN && trade.target.reserveInBN && trade.target.reserveOutBN).gt(BN(1))
+	) {
+		const log = await tradeLogs(trade)
+		console.log(log)
+		// compare profit vs gas cost
+		// logger.info(await data)// debug
 		const actualProfit = await gasVprofit(trade)
 
-		if (BN(actualProfit.profit).gt(0) && warning === 0) {
+		// If profit is greater than gas cost, execute trade
+		if (BN(actualProfit.profit).gt(0)) {
 			logger.info("Profitable trade found on " + trade.ticker + "!")
 			logger.info("Profit: ", actualProfit.profit.toString(), "Gas Cost: ", u.formatUnits(actualProfit.gas.gasPrice, 18), "Flash Type: ", trade.type)
-			await execute(trade, actualProfit)
+			pendingTrades.push(newTx)
+			// Execute trade
+			const x = await execute(trade, actualProfit)
+			// if execute returns either txresponse or undefined, remove it from pendingTrades:
+			if (x.txResponse || x.txResponse == undefined) {
+				pendingTrades = pendingTrades.filter((tx) => tx.ID !== trade.ID)
+			}
 			return
 		}
 
-		if (BN(actualProfit.profit).gt(0) && warning === 1) {
-			logger.info(">>>>>>>>>>>Trade pending on " + trade.loanPool.exchange + trade.recipient.exchange + " for " + trade.ticker + "<<<<<<<<<<<<")
-			return
-		}
-
-		if (BN(actualProfit.profit).gt(0) && warning > 1) {
-			return
-		}
-
+		// If profit is less than gas cost, return
 		if (BN(actualProfit.profit).lte(0)) {
 			console.log("<<<<<<<<<<<<No Trade After gasVprofit: " + trade.ticker + " [ gas > profit ] >>>>>>>>>>>>")
-			console.log(data)
 			return
 		}
 
+		// If profit is undefined, return
 		if (actualProfit.profit == undefined) {
-			console.log("Profit is undefined: error in gasVProfit")
+			console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>Profit is undefined: error in gasVProfit<<<<<<<<<<<<<<<<<<<<<<<<")
 			return
 		}
 
-	} else if (profpercBN.lt(0) /*&& profpercBN.gt(-0.6)*/) { // TESTING
+		// If profit is less than 0, return
+	} else if (profpercBN.lte(0) /*&& profpercBN.gt(-0.6)*/) { // TESTING
 		console.log("<<<<<<<<<<<<No Trade: " + trade.ticker + " [ profit < 0.3% | " + profpercBN.toFixed(trade.tokenOut.decimals) + " ] >>>>>>>>>>>>")
-		// console.log(await data)
-		// console.log(data.basicData)
+
+		console.log("<<<<<<<<<<<<No Trade: " + trade.ticker + " [ profit < 0.3% | " + profpercBN.toFixed(trade.tokenOut.decimals) + " ] >>>>>>>>>>>>")
 		return
 	}
 }

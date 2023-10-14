@@ -16,28 +16,24 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
 			trade: trade.type,
 			ticker: trade.ticker,
 			direction: trade.direction,
-			tradeSize: u(trade.recipient.tradeSize, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
+			tradeSize: u(trade.target.tradeSize, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
 			loanPool: {
 				exchange: trade.loanPool.exchange,
 				priceIn: trade.loanPool.priceIn,
 				priceOut: trade.loanPool.priceOut,
 				reservesIn: u(trade.loanPool.reserveIn, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
 				reservesOut: u(trade.loanPool.reserveOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
-				amountRepay:
-					trade.type === "multi" ? (
-						u(trade.loanPool.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol
-					) : trade.type === "direct" ? (
-						u(trade.loanPool.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol) : "error",
-				amountOut: u(trade.loanPool.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
-
+				amountRepay: trade.type === "multi" ?
+					(u(trade.loanPool.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol) :
+					(u(trade.loanPool.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol),
 			},
-			recipient: {
-				exchange: trade.recipient.exchange,
-				priceIn: trade.recipient.priceIn,
-				priceOut: trade.recipient.priceOut,
-				reservesIn: u(trade.recipient.reserveIn, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
-				reservesOut: u(trade.recipient.reserveOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
-				amountOut: u(trade.recipient.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
+			target: {
+				exchange: trade.target.exchange,
+				priceIn: trade.target.priceIn,
+				priceOut: trade.target.priceOut,
+				reservesIn: u(trade.target.reserveIn, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
+				reservesOut: u(trade.target.reserveOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
+				amountOut: u(trade.target.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
 			},
 			result: {
 				uniswapkPreT: trade.k.uniswapKPre.gt(0) ? trade.k.uniswapKPre.toString() : 0,

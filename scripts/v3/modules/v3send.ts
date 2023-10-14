@@ -9,7 +9,7 @@
 //     amount0: BigNumber;
 //     amount1: BigNumber;
 //     fee: number;
-//     recipient: string;
+//     target: string;
 //     deadline: number;
 //     sqrtPriceLimitX96: BigNumber;
 //     maxFlashSwapFee: BigNumber;

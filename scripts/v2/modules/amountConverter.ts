@@ -53,6 +53,13 @@ export class AmountConverter {
 		return maxOut;
 	}
 
+	// Adds Uniswap V2 trade fee to any amount
+	async addFee(amount: BigNumber): Promise<BigNumber> {
+		const repay = amount.mul(1003009027).div(1000000000);
+		// ex 100000 * 1003009027 / 1000000000 = 100301
+		return repay; //in token0
+	}
+
 	async getAmounts() {
 		const maxIn = await this.getMaxTokenIn();
 		const maxOut = await this.getMaxTokenOut();

@@ -32,7 +32,7 @@ export async function execute(
 		logger.info("::::::::::::::::::::::::" + trade.ticker + trade.ID + ': PENDING TRANSACTION::::::::::::::::::::::::: ')
 		return {
 			txResponse: undefined,
-			pendingID: trade.recipient.pool.address,
+			pendingID: trade.target.pool.address,
 		};
 	} else {
 		logger.info('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.ticker + '::::::::::::::::::::::::::')
@@ -74,7 +74,7 @@ export async function execute(
 				// Set the pending transaction flag for this pool
 				pendingTransactions[trade.ID] = true;
 
-				logger.info(":::::::::::Sending Transaction: " + trade.loanPool.exchange + " to " + trade.recipient.exchange + " for " + trade.ticker + " : profit: " + profit.profit + ":::::::::: ")
+				logger.info(":::::::::::Sending Transaction: " + trade.loanPool.exchange + " to " + trade.target.exchange + " for " + trade.ticker + " : profit: " + profit.profit + ":::::::::: ")
 
 				await notify(trade, profit);
 
@@ -95,7 +95,7 @@ export async function execute(
 				logger.info("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
 
 				// Clear the pending transaction flag for this pool
-				pendingTransactions[trade.recipient.pool.address] = false;
+				pendingTransactions[trade.target.pool.address] = false;
 
 				return result;
 
