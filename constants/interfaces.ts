@@ -174,6 +174,12 @@ export interface PoolsV3 {
 	feeTier: number;
 };
 
+export interface Repays {
+	simpleMulti: BigNumber
+	getAmountsOut: BigNumber
+	getAmountsIn: BigNumber
+}
+
 export interface BoolTrade {
 	ID: string
 	direction: string
@@ -193,8 +199,8 @@ export interface BoolTrade {
 		reserveOutBN: BN
 		priceIn: string
 		priceOut: string
+		repays: Repays
 		amountRepay: BigNumber
-		tradeSizeInTermsOfTokenOutWithFee: BigNumber
 	}
 	target: {
 		exchange: string
