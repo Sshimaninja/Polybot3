@@ -88,6 +88,7 @@ export class Trade {
 					simpleMulti: BigNumber.from(0),
 					getAmountsOut: BigNumber.from(0),
 					getAmountsIn: BigNumber.from(0),
+					repay: BigNumber.from(0),
 				},
 				amountRepay: BigNumber.from(0),
 
@@ -148,10 +149,13 @@ export class Trade {
 						trade.loanPool.reserveOut, // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
 						trade.loanPool.reserveIn
 					)
+					const simple = await calc.addFee(tradeSizeInTermsOfTokenOutOnLoanPool);
 					const repays: Repays = {
-						simpleMulti: await calc.addFee(tradeSizeInTermsOfTokenOutOnLoanPool),
+						simpleMulti: simple,
 						getAmountsOut: repayByGetAmounsOut,
 						getAmountsIn: repayByGetAmoutsIn,
+						//SET YOUR CHOICE HERE:
+						repay: simple,
 					}
 					return repays;
 				}
@@ -162,7 +166,7 @@ export class Trade {
 				const repays = await getRepay();
 
 				async function getProfit(): Promise<Profcalcs> {
-					let repay = repays.getAmountsIn;
+					let repay = repays.repay;
 					// this must be re-assigned to be accurate, if you re-assign trade.loanPool.amountRepay below. The correct amountRepay should be decided upon and this message should be removed.
 					// if (repay.lt(trade.target.amountOut)) {
 					let profit: Profcalcs = { profit: BigNumber.from(0), profitPercent: BN(0) };
@@ -209,7 +213,7 @@ export class Trade {
 			trade.type = multi.profits.profit.gt(direct.profit) ? "multi" : "direct";
 
 
-			trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.getAmountsIn : direct.repay;
+			trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.repay : direct.repay;
 
 			trade.loanPool.repays = multi.repays;
 
