@@ -28,12 +28,9 @@ export async function getAmountsOut(amountIn: BigNumber, reserveIn: BigNumber, r
 // 
 export async function getAmountsIn(amountOut: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
 	// reserveIn * amountOut
-	const numerator = reserveIn.mul(amountOut).mul(1000);
-	// reserveOut - amountOut (minus fee)
-	const denominator = reserveOut.sub(amountOut).mul(997);
-	// reserveIn * amountOut / reserveOut - amountOut
-	const amountIn = numerator.div(denominator).add(1);
-	return amountIn;
+	const numerator = amountOut.mul(reserveIn).mul(1000);
+	const denominator = reserveOut.mul(997).add(amountOut.mul(1000));
+	return numerator.div(denominator);
 }
 
 

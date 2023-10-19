@@ -16,7 +16,10 @@ export async function getK(type: string, tradeSize: BigNumber, reserveIn: BigNum
 		uniswapKPositive: false,
 	}
 	const tradeSizewithFee = await calc.addFee(tradeSize);
-	const newReserveIn = reserveIn.sub(tradeSize);
+	const newReserveIn = reserveIn.mul(1000).sub(tradeSize.mul(1000)).div(1000);
+	if (newReserveIn.lte(0)) {
+		return kalc;
+	}
 	const tradeSizeInTermsOfTokenOut = tradeSize.mul(reserveOut.mul(1000).div(newReserveIn.mul(1000)).div(1000));
 	const tradeSizeInTermsOfTokenOutWithFee = await calc.addFee(tradeSizeInTermsOfTokenOut);
 	if (type === "multi") {
