@@ -2,7 +2,7 @@ import { BigNumber, utils } from "ethers";
 import { provider } from "../../../constants/contract";
 import { BoolTrade, GAS, GasData } from "../../../constants/interfaces";
 import { logger } from "../../../constants/contract";
-import { f, p } from "./convertBN";
+import { fu, pu } from "./convertBN";
 
 /**
  * @param trade 
@@ -11,7 +11,6 @@ import { f, p } from "./convertBN";
  * @returns gasData: { gasEstimate: BigNumber, gasPrice: BigNumber, maxFee: number, maxPriorityFee: number }
  */
 export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
-	const f = utils.formatUnits;
 	// Commented out for now to elimiate from testing & debugging:
 	const maxFeeGasData = 150//gasData.fast.maxFee;
 	const maxPriorityFeeGasData = 60//gasData.fast.maxPriorityFee;
@@ -36,20 +35,20 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 			);
 		} catch (error: any) {
 			console.log(`>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`);
-			gasEstimate = p('300000', 18)
+			gasEstimate = pu('300000', 18)
 			logger.info(error.reason);
 			return { gasEstimate, tested: false, gasPrice: BigNumber.from(150 + 60 * 300000), maxFee, maxPriorityFee };
 		}
 		// Helpful for figuring out how to determine and display gas prices:		
 		const gasLogs = {
 			gasEstimate: gasEstimate.toString(),
-			gasPrice: f(maxFee.add(maxPriorityFee), 18),
-			maxFee: f(maxFee.toString(), 18),
-			maxPriorityFee: f(maxPriorityFee.toString(), 18),
-			gasLimit: f(gasEstimate.toString(), 18),
-			gasEstimateTimesMaxFee: f(gasEstimate.mul(maxFee).toString()),
-			gasEstimateTimesMaxPriorityFee: f(gasEstimate.mul(maxPriorityFee).toString(), 18),
-			gasEstimateTimeesMaxFeePlusMaxPriorityFee: f(gasEstimate.mul(maxFee.add(maxPriorityFee)).toString(), 18)
+			gasPrice: fu(maxFee.add(maxPriorityFee), 18),
+			maxFee: fu(maxFee.toString(), 18),
+			maxPriorityFee: fu(maxPriorityFee.toString(), 18),
+			gasLimit: fu(gasEstimate.toString(), 18),
+			gasEstimateTimesMaxFee: fu(gasEstimate.mul(maxFee).toString()),
+			gasEstimateTimesMaxPriorityFee: fu(gasEstimate.mul(maxPriorityFee).toString(), 18),
+			gasEstimateTimeesMaxFeePlusMaxPriorityFee: fu(gasEstimate.mul(maxFee.add(maxPriorityFee)).toString(), 18)
 		}
 		console.log(gasLogs);
 		const gasPrice = gasEstimate.mul(maxFee.add(maxPriorityFee));

@@ -3,7 +3,7 @@ import { BoolTrade } from '../../../constants/interfaces'
 import { Profit } from '../../../constants/interfaces'
 import { fetchGasPrice } from './fetchGasPrice';
 import { getProfitInMatic } from './getProfitInMatic';
-import { f } from './convertBN';
+import { fu } from './convertBN';
 require('dotenv').config()
 /**
  * Determines whether the profit is greater than the gas cost.
@@ -12,7 +12,7 @@ require('dotenv').config()
  */
 export async function gasVprofit(trade: BoolTrade,): Promise<Profit> {
 	let profit: Profit; {
-		console.log("[gasVprofit]: Trade: ", trade.type, trade.loanPool.exchange, ":", trade.target.exchange, " @ ", trade.ticker, " profitPercent: ", f(trade.profitPercent, trade.tokenOut.decimals))
+		console.log("[gasVprofit]: Trade: ", trade.type, trade.loanPool.exchange, ":", trade.target.exchange, " @ ", trade.ticker, " profitPercent: ", fu(trade.profitPercent, trade.tokenOut.decimals))
 		if (trade.direction == undefined) {
 			console.log("Trade direction is undefined.")
 			return profit = {

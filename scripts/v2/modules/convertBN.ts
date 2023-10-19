@@ -5,22 +5,22 @@ import { BigNumber as BN } from 'bignumber.js'
  */
 
 
-export const f = u.formatUnits
-export const p = u.parseUnits
+export const fu = u.formatUnits
+export const pu = u.parseUnits
 
 export function JS2BN(bn: BigNumber, decimals: number): BN {
-	return BN(f(bn, decimals))
+	return BN(fu(bn, decimals))
 }
 
 export function JS2BNS(bn: BigNumber, decimals: number): string {
-	return BN(f(bn, decimals)).toFixed(decimals)
+	return BN(fu(bn, decimals)).toFixed(decimals)
 }
 
 export function BN2JS(bn: BN, decimals: number): BigNumber {
-	return p(bn.toFixed(decimals), decimals)
+	return pu(bn.toFixed(decimals), decimals)
 }
 
 export function BN2JSS(bn: BN, decimals: number): string {
-	return f(bn.toFixed(decimals), decimals)
+	return fu(bn.toFixed(decimals), decimals)
 }
 
