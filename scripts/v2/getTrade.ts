@@ -11,7 +11,7 @@ import { getK } from "./modules/getK";
 import { BoolTrade } from "../../constants/interfaces"
 import { getAmountsIn, getAmountsOut } from "./modules/getAmountsIOLocal";
 import { AmountConverter } from "./modules/amountConverter";
-import { JS2BN, JS2BNS, BN2JS, BN2JSS, f, p } from "./modules/convertBN";
+import { JS2BN, JS2BNS, BN2JS, BN2JSS, fu, pu } from "./modules/convertBN";
 /**
  * @description
  * Class to determine trade direction 
@@ -52,11 +52,12 @@ export class Trade {
 		return { dir, diff, dperc }
 	}
 
-	async getSize(calc: AmountConverter): Promise<BigNumber> {
-		const toPrice = await calc.tradeToPrice()
+	async getSize(loan: AmountConverter, target: AmountConverter): Promise<BigNumber> {
+		const toPrice = await target.tradeToPrice()
 		// use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
-		const maxIn = await calc.getMaxTokenIn();
-		const size = toPrice.lt(maxIn) ? toPrice : maxIn;
+		const maxIn = await target.getMaxTokenIn();
+		const bestSize = toPrice.lt(maxIn) ? toPrice : maxIn;
+		const size = bestSize.gt(loan.reserves.reserveIn) ? loan.reserves.reserveIn : bestSize;
 		return size;
 	}
 
@@ -103,7 +104,7 @@ export class Trade {
 				priceIn: A ? this.price0.priceInBN.toFixed(this.match.token0.decimals) : this.price1.priceInBN.toFixed(this.match.token0.decimals),
 				priceOut: A ? this.price0.priceOutBN.toFixed(this.match.token1.decimals) : this.price1.priceOutBN.toFixed(this.match.token1.decimals),
 				//TODO: FIX THE CALCS FOR MAXIN() WHICH ARE WRONG.
-				tradeSize: A ? await this.getSize(this.calc0) : await this.getSize(this.calc1),
+				tradeSize: A ? await this.getSize(this.calc1, this.calc0) : await this.getSize(this.calc0, this.calc1),
 				amountOut: BigNumber.from(0),
 			},
 			k: {
@@ -124,7 +125,7 @@ export class Trade {
 			trade.target.reserveOut); // token1 max out
 
 		// arbitrage type options: 
-		if (trade.target.tradeSize.gt(0)) {
+		if (trade.target.tradeSize.gt('0') && trade.target.amountOut.gt('0') && trade.target.reserveIn.gt('1') && trade.target.reserveOut.gt('1')) {
 
 			// Define repay for each trade type: 
 			async function getMulti(calc: AmountConverter): Promise<{ repays: Repays, profits: { profit: BigNumber, profitPercent: BN } }> {
@@ -152,8 +153,11 @@ export class Trade {
 						getAmountsOut: repayByGetAmounsOut,
 						getAmountsIn: repayByGetAmoutsIn,
 					}
-					return repays
+					return repays;
 				}
+
+
+
 
 				const repays = await getRepay();
 
@@ -164,7 +168,7 @@ export class Trade {
 					let profit: Profcalcs = { profit: BigNumber.from(0), profitPercent: BN(0) };
 					profit.profit = trade.target.amountOut.sub(repay);
 					const profitBN = JS2BN(profit.profit, trade.tokenOut.decimals);
-					profit.profitPercent = trade.target.amountOut.gt(0) ? profitBN.dividedBy(f(trade.target.amountOut, trade.tokenOut.decimals)).multipliedBy(100) : BN(0);
+					profit.profitPercent = trade.target.amountOut.gt(0) ? profitBN.dividedBy(fu(trade.target.amountOut, trade.tokenOut.decimals)).multipliedBy(100) : BN(0);
 					return profit;
 					// } else {
 					// 	return { profit: BigNumber.from(0), profitPercent: BN(0) };
@@ -187,7 +191,7 @@ export class Trade {
 				const directRepayLoanPoolInTokenOutWithFee = await calc.addFee(directRepayLoanPoolInTokenOut);
 				const profit = trade.target.amountOut.sub(directRepayLoanPoolInTokenOutWithFee); // profit is remainder of token1 out
 				const profitBN = JS2BN(profit, trade.tokenOut.decimals);
-				const percentProfit = trade.target.amountOut.gt(0) ? profitBN.dividedBy(f(trade.target.amountOut, trade.tokenOut.decimals)).multipliedBy(100) : BN(0);
+				const percentProfit = trade.target.amountOut.gt(0) ? profitBN.dividedBy(fu(trade.target.amountOut, trade.tokenOut.decimals)).multipliedBy(100) : BN(0);
 				return { repay, profit, percentProfit };
 			}
 
@@ -212,15 +216,16 @@ export class Trade {
 			trade.profit = trade.type === "multi" ? multi.profits.profit : direct.profit;
 
 			trade.profitPercent = trade.type == "multi" ?
-				p((multi.profits.profitPercent.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals) :
-				p((direct.percentProfit.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals);
+				pu((multi.profits.profitPercent.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals) :
+				pu((direct.percentProfit.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals);
 
 
 			trade.flash = trade.type === "multi" ? flashMulti : flashMulti;
 
 			trade.k = await getK(trade.type, trade.target.tradeSize, trade.loanPool.reserveIn, trade.loanPool.reserveOut, this.calc0);
 
-			return trade;
+			// return trade;
+			return trade
 
 		} else {
 			console.log("<<<<<<No trade: tradeSize is zero or negative: ", trade.ticker, ">>>>>>>");
