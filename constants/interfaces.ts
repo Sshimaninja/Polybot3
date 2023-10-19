@@ -105,7 +105,10 @@ export interface DeployedPools {
 	fee: number;
 	block: number;
 }
-
+export interface Profcalcs {
+	profit: BigNumber,
+	profitPercent: BN
+}
 export interface Valid3Pool {
 	poolID: string;
 	token0: string;

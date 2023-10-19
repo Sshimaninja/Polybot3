@@ -12,6 +12,25 @@ npx hardhat run--network localhost scripts / deployFlashDirectTestTest.ts; npx h
 # Notes:
 I've moved smart contracts to a new repo because neither VSCode, nor Hardhat can handle multiple different versions of solidity docs and compilers, resulting in insane amounts of wasted time.
 
+re: tradeSize
+				// Would be good to have a strategy that takes into account the reserves of the pool and uses the min of the three below, but that adds a lot of complexity.
+				
+				Wrong/deprecated:
+					// This strategy attempts to use the biggest tradeSize possible. 
+					// It will use toPrice, despite high slippage, if slippage creates profitable trades. 
+					// If toPrice is smaller than maxIn(for slippage) it will use maxIn.
+				According to Uniswap Analysis (see README), AMMs are resistant to large trades, thus the above strategy is flawed. 
+				
+				Instead this tradesize will ensure that trades are not > reserves, and above, size will be min(maxIn, toPrice)
+				
+				(Hopefully limiting by target.maxOut is redundant because maxIn works on slippage in the same way, and amountsOut will only calculate a number it will output.)
+
+
+JETSWAP: They've stupidly copied the Uniswap V2 contracts directly, but decided to change only the name of contract functions from 'Uniswap...' to 'Jetswap...' causing any dev who wants to interact with Jetswap to create custom contracts and logic for their little exchange. So:
+# TODO: Make Univ2 clone contracts, but change name to Jetswap, so I can arb them.
+
+
+
 # Ideas:
 Price difference between assets could be used as a 'slippage' parameter, to limit trade sizes to available profit, in-line with the 'optimal arbitrage 2' problem. (Though this may already be the effective result of the tradeToPrice function.)
 
