@@ -1,42 +1,47 @@
 import { BigNumber } from "ethers";
-import { BoolTrade, K } from "../../../constants/interfaces";
+import { K } from "../../../constants/interfaces";
+import { AmountConverter } from "./amountConverter"
 
 /**
- * This doc calculates whether trade will revert due to uniswak K being positive or negative
+ * This doc calculates whether will revert due to uniswak K being positive or negative
  * Uni V2 price formula: X * Y = K
- * @param trade 
- * @returns Uniswap K before and after trade, and whether it is positive or negative
+ * @param 
+ * @returns Uniswap K before and after  and whether it is positive or negative
  */
 
-export async function getK(trade: BoolTrade): Promise<K> {
+export async function getK(type: string, tradeSize: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber, calc: AmountConverter): Promise<K> {
 	let kalc = {
 		uniswapKPre: BigNumber.from(0),
 		uniswapKPost: BigNumber.from(0),
 		uniswapKPositive: false,
 	}
-	if (trade.type === "multi") {
+	const tradeSizewithFee = await calc.addFee(tradeSize);
+	const newReserveIn = reserveIn.mul(1000).sub(tradeSize.mul(1000)).div(1000);
+	if (newReserveIn.lte(0)) {
+		return kalc;
+	}
+	const tradeSizeInTermsOfTokenOut = tradeSize.mul(reserveOut.mul(1000).div(newReserveIn.mul(1000)).div(1000));
+	const tradeSizeInTermsOfTokenOutWithFee = await calc.addFee(tradeSizeInTermsOfTokenOut);
+	if (type === "multi") {
 		kalc = {
 			uniswapKPre:
 				// 1000 * 2000 = 2000000 
-				trade.loanPool.reserveIn.mul(trade.loanPool.reserveOut),
+				reserveIn.mul(reserveOut),
 			uniswapKPost:
 				// 200000 = 1800 * 110
 				//subtract loan: 
-				trade.loanPool.reserveIn.sub(trade.recipient.tradeSize)
-					// multiply by new reservesOut by adding tradeSizeInTermsOfTokenOut
-					.mul(trade.loanPool.reserveOut.add((trade.recipient.tradeSize.mul(1003009027).div(1000000000))
-						// get the price of loanpool tokenOut and multiply by tradeSize
-						.mul(trade.loanPool.reserveOut.div(trade.loanPool.reserveIn))))
-			,
+				reserveIn.sub(tradeSize)
+					// multiply new reserveIn by new reservesOut by adding tradeSizeInTermsOfTokenOut
+					.mul(reserveOut.add(tradeSizeInTermsOfTokenOutWithFee)),
 			uniswapKPositive: false,
 		}
 	}
-	if (trade.type === "direct") {
+	if (type === "direct") {
 		kalc = {
-			uniswapKPre: trade.loanPool.reserveIn.mul(trade.loanPool.reserveOut),
-			uniswapKPost: trade.loanPool.reserveIn
-				.add(trade.loanPool.reserveIn.add(trade.recipient.tradeSize.mul(1003009027).div(1000000000)))
-				.mul(trade.loanPool.reserveOut),
+			uniswapKPre: reserveIn.mul(reserveOut),
+			uniswapKPost:
+				// reserveIn + tradeSizewithFee * reserveOut(unchanged)
+				reserveIn.add(tradeSizewithFee).mul(reserveOut),
 			uniswapKPositive: false,
 		}
 	} else {
@@ -45,6 +50,9 @@ export async function getK(trade: BoolTrade): Promise<K> {
 			uniswapKPost: BigNumber.from(0),
 			uniswapKPositive: false,
 		}
+	}
+	if (kalc.uniswapKPre.lt(kalc.uniswapKPost)) {
+		kalc.uniswapKPositive = true;
 	}
 	return kalc;
 }

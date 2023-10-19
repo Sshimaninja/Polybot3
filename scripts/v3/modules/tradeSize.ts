@@ -4,7 +4,7 @@ import { ChainId, Fetcher, Pair, Token, TokenAmount, TradeType, Route, Trade } f
  * @description
  * 
  * A function using the v3 sdk to beast a maxOutputAmount from a given pool, and a given output token.
- * and a maximumAmountIn for a recipient pool, and a given input token,
+ * and a maximumAmountIn for a target pool, and a given input token,
  * then chooses the minimum of the two for a tradeSize.
  * 
  *  */

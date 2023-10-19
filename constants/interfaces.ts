@@ -1,4 +1,4 @@
-import { BigNumber, Contract } from "ethers";
+import { BigNumber, Contract, ethers } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { Token as V3Token } from "@uniswap/sdk-core";
 export interface K {
@@ -7,14 +7,18 @@ export interface K {
 	uniswapKPositive: boolean
 }
 
+export interface PendingTx {
+	ID: string
+	warning: boolean
+}
 export interface TxData {
-	txResponse: any;
+	txResponse: ethers.providers.TransactionResponse | undefined;
 	pendingID: string | null;
 }
 
 export interface V2Params {
 	loanFactory: string
-	recipientRouter: string
+	targetRouter: string
 	token0ID: string
 	token1ID: string
 	amount0In: BigNumber
@@ -101,7 +105,10 @@ export interface DeployedPools {
 	fee: number;
 	block: number;
 }
-
+export interface Profcalcs {
+	profit: BigNumber,
+	profitPercent: BN
+}
 export interface Valid3Pool {
 	poolID: string;
 	token0: string;
@@ -170,6 +177,12 @@ export interface PoolsV3 {
 	feeTier: number;
 };
 
+export interface Repays {
+	simpleMulti: BigNumber
+	getAmountsOut: BigNumber
+	getAmountsIn: BigNumber
+}
+
 export interface BoolTrade {
 	ID: string
 	direction: string
@@ -189,9 +202,10 @@ export interface BoolTrade {
 		reserveOutBN: BN
 		priceIn: string
 		priceOut: string
+		repays: Repays
 		amountRepay: BigNumber
 	}
-	recipient: {
+	target: {
 		exchange: string
 		factory: Contract
 		router: Contract
@@ -231,7 +245,7 @@ export interface BoolTradeV3 {
 		priceOut: string
 		amountOut: BigNumber
 	}
-	recipient: {
+	target: {
 		exchange: string
 		factory: Contract
 		router: Contract
@@ -300,6 +314,7 @@ export interface GasData {
 
 export interface GAS {
 	gasEstimate: BigNumber,
+	tested: boolean,
 	gasPrice: BigNumber,
 	maxFee: BigNumber,
 	maxPriorityFee: BigNumber
@@ -313,7 +328,7 @@ export interface V3FlashParams {
 	amount0: BigNumber;
 	amount1: BigNumber;
 	fee: number;
-	recipient: string;
+	target: string;
 	deadline: number;
 	sqrtPriceLimitX96: BigNumber;
 	maxFlashSwapFee: BigNumber;

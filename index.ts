@@ -7,10 +7,6 @@ import { FactoryPair } from './constants/interfaces';
 import { logger } from './constants/contract';
 import { telegramInfo } from './scripts//v2/modules/notify';
 
-
-
-
-
 async function main() {
 	// // Set up Telegram message
 	const message = `Polybot V2 Started: ${Date.now()}`
@@ -42,13 +38,16 @@ async function main() {
 				await control(pairList, gasData);
 			}));
 		} catch (error: any) {
-			logger.error("PROVIDER ERROR: " + error.message);
+			//Verbose:
+			logger.error(`PROVIDER ERROR: ${error.stack}`);
+			//Concise:
+			// logger.error("PROVIDER ERROR: " + error.message);
 			return;
 		}
 	});
 }
 
 main().catch((error) => {
-	logger.error("MAIN ERROR: " + error.message);
+	logger.error(`MAIN ERROR:  ${error.stack}`);
 	return;
 });
