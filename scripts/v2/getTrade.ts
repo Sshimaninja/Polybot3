@@ -139,12 +139,12 @@ export class Trade {
 				async function getRepay(): Promise<Repays> {
 					const tradeSizeInTermsOfTokenOutOnLoanPool =
 						trade.target.tradeSize.mul(trade.loanPool.reserveOut).div(trade.loanPool.reserveIn);
-					const repayByGetAmounsOut = await getAmountsOut(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
+					const repayByGetAmountsOut = await getAmountsOut(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
 						trade.target.tradeSize,
 						trade.loanPool.reserveIn,
 						trade.loanPool.reserveOut // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
 					)
-					const repayByGetAmoutsIn = await getAmountsIn( //Will output tokenIn.
+					const repayByGetAmountsIn = await getAmountsIn( //Will output tokenIn.
 						trade.target.tradeSize,
 						trade.loanPool.reserveOut, // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
 						trade.loanPool.reserveIn
@@ -152,10 +152,10 @@ export class Trade {
 					const simple = await calc.addFee(tradeSizeInTermsOfTokenOutOnLoanPool);
 					const repays: Repays = {
 						simpleMulti: simple,
-						getAmountsOut: repayByGetAmounsOut,
-						getAmountsIn: repayByGetAmoutsIn,
+						getAmountsOut: repayByGetAmountsOut,
+						getAmountsIn: repayByGetAmountsIn,
 						//SET YOUR CHOICE HERE:
-						repay: simple,
+						repay: repayByGetAmountsIn,
 					}
 					return repays;
 				}
