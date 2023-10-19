@@ -38,13 +38,16 @@ async function main() {
 				await control(pairList, gasData);
 			}));
 		} catch (error: any) {
-			logger.error("PROVIDER ERROR: " + error.message);
+			//Verbose:
+			logger.error(`PROVIDER ERROR: ${error.stack}`);
+			//Concise:
+			// logger.error("PROVIDER ERROR: " + error.message);
 			return;
 		}
 	});
 }
 
 main().catch((error) => {
-	logger.error("MAIN ERROR: " + error.message);
+	logger.error(`MAIN ERROR:  ${error.stack}`);
 	return;
 });

@@ -1,6 +1,7 @@
 
 import { utils as f } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
+import { BigNumber } from "ethers";
 import { BoolTrade } from "../../../constants/interfaces";
 /**
  * This doc calculates whether trade will revert due to uniswak K being positive or negative
@@ -31,12 +32,11 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
 						{
 							simpleMulti: (u(trade.loanPool.repays.simpleMulti, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol),
 							amountsOut: (u(trade.loanPool.repays.getAmountsOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol),
-							amountsIn: (u(trade.loanPool.repays.getAmountsIn, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol)
-						} :
-						{
-							simpleMulti: (u(trade.loanPool.repays.simpleMulti, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol),
-							amountsOut: (u(trade.loanPool.repays.getAmountsOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol),
-							amountsIn: (u(trade.loanPool.repays.getAmountsIn, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol)
+							amountsIn: (u(trade.loanPool.repays.getAmountsIn, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol)
+						} : {
+							simpleMulti: BigNumber.from(0),
+							getAmountsOut: BigNumber.from(0),
+							getAmountsIn: BigNumber.from(0),
 						},
 			},
 			target: {

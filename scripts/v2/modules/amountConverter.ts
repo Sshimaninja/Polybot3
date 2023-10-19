@@ -32,6 +32,8 @@ export class AmountConverter {
 	/**
 	 * @returns Amounts in/out for a trade. Should never be negative.
 	 */
+	// tradeToPrice gets a mid-level between price of pool and target price, and returns the amount of token0 needed to reach that price
+	// can be limited by slippageTolerance if uniswap returns 'EXCESSIVE_INPUT_AMOUNT'
 	async tradeToPrice(): Promise<BigNumber> {
 		this.targetPrice = this.price.priceOutBN.plus(this.targetPrice).div(2);// average of two prices
 		const tradeSize = await tradeToPrice(this.reserves.reserveInBN, this.reserves.reserveOutBN, this.targetPrice, this.slip);
@@ -42,13 +44,14 @@ export class AmountConverter {
 	}
 
 	async getMaxTokenIn(): Promise<BigNumber> {
-		const maxTokenIn = await getMaxTokenIn(this.reserves.reserveInBN, this.reserves.reserveOutBN, this.slip);
+		const maxTokenIn = await getMaxTokenIn(this.reserves.reserveInBN, this.slip);
+		// console.log('maxTokenIn: ', maxTokenIn.toFixed(this.token0.decimals));//DEBUG
 		const maxIn = utils.parseUnits(maxTokenIn.toFixed(this.token0.decimals), this.token0.decimals!);
 		return maxIn;
 	}
 
 	async getMaxTokenOut(): Promise<BigNumber> {
-		const maxTokenOut = await getMaxTokenOut(this.reserves.reserveInBN, this.reserves.reserveOutBN, this.slip);
+		const maxTokenOut = await getMaxTokenOut(this.reserves.reserveOutBN, this.slip);
 		const maxOut = utils.parseUnits(maxTokenOut.toFixed(this.token1.decimals), this.token1.decimals!);
 		return maxOut;
 	}

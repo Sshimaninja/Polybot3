@@ -1,6 +1,6 @@
 import { BigNumber } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
-import { FactoryPair, GasData, Pair, Repays } from "../../constants/interfaces";
+import { Amounts, FactoryPair, GasData, Pair, Profcalcs, Repays } from "../../constants/interfaces";
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
@@ -52,10 +52,18 @@ export class Trade {
 		return { dir, diff, dperc }
 	}
 
+	async getSize(calc: AmountConverter): Promise<BigNumber> {
+		const toPrice = await calc.tradeToPrice()
+		// use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
+		const maxIn = await calc.getMaxTokenIn();
+		const size = toPrice.lt(maxIn) ? toPrice : maxIn;
+		return size;
+	}
+
 	async getTrade() {
 		const dir = await this.direction();
 		const A = dir.dir == "A" ? true : false;
-		const size = A ? await this.calc0.tradeToPrice() : await this.calc1.tradeToPrice();
+
 		const trade: BoolTrade = {
 			ID: A ? this.match.poolB_id + this.match.poolA_id : this.match.poolA_id + this.match.poolB_id,
 			direction: dir.dir,
@@ -94,8 +102,8 @@ export class Trade {
 				reserveOutBN: A ? this.price0.reserves.reserveOutBN : this.price1.reserves.reserveOutBN,
 				priceIn: A ? this.price0.priceInBN.toFixed(this.match.token0.decimals) : this.price1.priceInBN.toFixed(this.match.token0.decimals),
 				priceOut: A ? this.price0.priceOutBN.toFixed(this.match.token1.decimals) : this.price1.priceOutBN.toFixed(this.match.token1.decimals),
-				// Would be good to have a strategy that takes into account the reserves of the pool and uses the min of the three below, but that adds a lot of complexity.
-				tradeSize: A ? (size.lt(this.price1.reserves.reserveIn) ? size : this.price1.reserves.reserveIn) : size.lt(this.price0.reserves.reserveIn) ? size : this.price0.reserves.reserveIn, // This strategy attempts to use the biggest tradeSize possible. It will use toPrice, despite high slippage, if slippage creates profitable trades. If toPrice is smaller than maxIn(for slippage) it will use maxIn.
+				//TODO: FIX THE CALCS FOR MAXIN() WHICH ARE WRONG.
+				tradeSize: A ? await this.getSize(this.calc0) : await this.getSize(this.calc1),
 				amountOut: BigNumber.from(0),
 			},
 			k: {
@@ -119,40 +127,55 @@ export class Trade {
 		if (trade.target.tradeSize.gt(0)) {
 
 			// Define repay for each trade type: 
-			async function getMulti(calc: AmountConverter): Promise<{ repays: Repays, profit: BigNumber, percentProfit: BN }> {
+			async function getMulti(calc: AmountConverter): Promise<{ repays: Repays, profits: { profit: BigNumber, profitPercent: BN } }> {
 				/*
 				I have to send back only the amount of token1 needed to repay the amount of token0 I was loaned.
 				Thus I need to calculate the exact amount of token1 that tradeSize in tokenOut represents on loanPool, 
 				and subtract it from recipient.amountOut before sending it back
 				*/
 				// const postReserveIn = trade.loanPool.reserveIn.sub(trade.target.tradeSize); // I think this is only relevant for uniswap K calcs				
-				const tradeSizeInTermsOfTokenOutOnLoanPool =
-					trade.target.tradeSize.mul(
-						trade.loanPool.reserveOut.div(
-							trade.loanPool.reserveIn));
-				const repayByGetAmounsOut = await getAmountsOut(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
-					trade.target.tradeSize,
-					trade.loanPool.reserveIn, // add 0.3% fee to reserves
-					trade.loanPool.reserveOut
-				)
-				const repayByGetAmoutsIn = await getAmountsIn(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
-					trade.target.tradeSize,
-					trade.loanPool.reserveIn, // add 0.3% fee to reserves
-					trade.loanPool.reserveOut
-				)
-				const repays: Repays = {
-					simpleMulti: tradeSizeInTermsOfTokenOutOnLoanPool,
-					getAmountsOut: repayByGetAmounsOut,
-					getAmountsIn: repayByGetAmoutsIn,
+				async function getRepay(): Promise<Repays> {
+					const tradeSizeInTermsOfTokenOutOnLoanPool =
+						trade.target.tradeSize.mul(trade.loanPool.reserveOut).div(trade.loanPool.reserveIn);
+					const repayByGetAmounsOut = await getAmountsOut(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
+						trade.target.tradeSize,
+						trade.loanPool.reserveIn,
+						trade.loanPool.reserveOut // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
+					)
+					const repayByGetAmoutsIn = await getAmountsIn( //Will output tokenIn.
+						trade.target.tradeSize,
+						trade.loanPool.reserveOut, // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
+						trade.loanPool.reserveIn
+					)
+					const repays: Repays = {
+						simpleMulti: await calc.addFee(tradeSizeInTermsOfTokenOutOnLoanPool),
+						getAmountsOut: repayByGetAmounsOut,
+						getAmountsIn: repayByGetAmoutsIn,
+					}
+					return repays
 				}
-				const tradeSizeInTermsOfTokenOutWithFee = await calc.addFee(tradeSizeInTermsOfTokenOutOnLoanPool);
-				const repay = tradeSizeInTermsOfTokenOutWithFee
-				// const postReserveOut = trade.loanPool.reserveOut.add(tradeSizeInTermsOfTokenOutWithFee);
-				const profit = tradeSizeInTermsOfTokenOutWithFee.sub(trade.target.amountOut);
-				const profitBN = JS2BN(profit, trade.tokenOut.decimals);
-				const percentProfit = trade.target.amountOut.gt(0) ? profitBN.dividedBy(f(trade.target.amountOut, trade.tokenOut.decimals)).multipliedBy(100) : BN(0);
-				return { repays, profit, percentProfit };
+
+				const repays = await getRepay();
+
+				async function getProfit(): Promise<Profcalcs> {
+					let repay = repays.getAmountsIn;
+					// this must be re-assigned to be accurate, if you re-assign trade.loanPool.amountRepay below. The correct amountRepay should be decided upon and this message should be removed.
+					// if (repay.lt(trade.target.amountOut)) {
+					let profit: Profcalcs = { profit: BigNumber.from(0), profitPercent: BN(0) };
+					profit.profit = trade.target.amountOut.sub(repay);
+					const profitBN = JS2BN(profit.profit, trade.tokenOut.decimals);
+					profit.profitPercent = trade.target.amountOut.gt(0) ? profitBN.dividedBy(f(trade.target.amountOut, trade.tokenOut.decimals)).multipliedBy(100) : BN(0);
+					return profit;
+					// } else {
+					// 	return { profit: BigNumber.from(0), profitPercent: BN(0) };
+					// }
+				}
+
+				const profits = await getProfit();
+				// const postReserveOut = trade.loanPool.reserveOut.add(tradeSizeInTermsOfTokenOutWithFee);				
+				return { repays, profits };
 			}
+
 
 			async function getDirect(calc: AmountConverter): Promise<{ repay: BigNumber, profit: BigNumber, percentProfit: BN }> {
 				const repay = await calc.addFee(trade.target.tradeSize);
@@ -168,19 +191,28 @@ export class Trade {
 				return { repay, profit, percentProfit };
 			}
 
+
+
 			const multi = await getMulti(this.calc0);
 			const direct = await getDirect(this.calc0);
 			// subtract the result from amountOut to get profit
 
-			trade.type = multi.profit.gt(direct.profit) ? "multi" : "direct";
-
 			// The below will be either in token0 or token1, depending on the trade type.
-			trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.simpleMulti : direct.repay;
+			// Set repayCalculation here for testing, until you find the correct answer (of which there is only 1):
+			trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.getAmountsIn : direct.repay;
+
+
+			trade.type = multi.profits.profit.gt(direct.profit) ? "multi" : "direct";
+
+
+			trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.getAmountsIn : direct.repay;
+
 			trade.loanPool.repays = multi.repays;
-			trade.profit = trade.type === "multi" ? multi.profit : direct.profit;
+
+			trade.profit = trade.type === "multi" ? multi.profits.profit : direct.profit;
 
 			trade.profitPercent = trade.type == "multi" ?
-				p((multi.percentProfit.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals) :
+				p((multi.profits.profitPercent.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals) :
 				p((direct.percentProfit.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals);
 
 
