@@ -16,15 +16,15 @@ export async function getK(type: string, tradeSize: BigNumber, reserveIn: BigNum
 		uniswapKPositive: false,
 	}
 	const tradeSizewithFee = await calc.addFee(tradeSize);
-	const newReserveIn = reserveIn.sub(tradeSize);
+	const newReserveIn = reserveIn.mul(1000).mul(reserveOut).div(reserveOut.mul(1000).sub(tradeSize.mul(997)));
 	console.log("newReserveIn: ", newReserveIn.toString())
-	if (newReserveIn.lte(0)) {
-		return kalc;
-	}
+	// if (newReserveIn.lte(0)) {
+	// 	return kalc;
+	// }
 	const tradeSizeInTermsOfTokenOut = tradeSize.mul(reserveOut.mul(1000).div(newReserveIn.mul(1000)).div(1000));
-	console.log('tradeSizeInTermsOfTokenOut: ', tradeSizeInTermsOfTokenOut.toString())
+	console.log("tradeSizeInTermsOfTokenOut: ", tradeSizeInTermsOfTokenOut.toString())
 	const tradeSizeInTermsOfTokenOutWithFee = await calc.addFee(tradeSizeInTermsOfTokenOut);
-	console.log('tradeSizeInTermsOfTokenOutWithFee: ', tradeSizeInTermsOfTokenOutWithFee.toString())
+	console.log("tradeSizeInTermsOfTokenOutWithFee: ", tradeSizeInTermsOfTokenOutWithFee.toString())
 	if (type === "multi") {
 		kalc = {
 			uniswapKPre:
@@ -39,6 +39,7 @@ export async function getK(type: string, tradeSize: BigNumber, reserveIn: BigNum
 			uniswapKPositive: false,
 		}
 	}
+	console.log("kalc.uniswapKPre: ", kalc.uniswapKPre.toString())
 	if (type === "direct") {
 		kalc = {
 			uniswapKPre: reserveIn.mul(reserveOut),
@@ -57,5 +58,6 @@ export async function getK(type: string, tradeSize: BigNumber, reserveIn: BigNum
 	if (kalc.uniswapKPre.lt(kalc.uniswapKPost)) {
 		kalc.uniswapKPositive = true;
 	}
+	console.log("kalc.uniswapKPost: ", kalc.uniswapKPost.toString())
 	return kalc;
 }
