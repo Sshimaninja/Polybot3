@@ -1,6 +1,8 @@
 import { BigNumber, utils } from "ethers";
 import { provider } from "../../../constants/contract";
 import { BoolTrade, GAS, GasData } from "../../../constants/interfaces";
+import { logger } from "../../../constants/contract";
+import { fu, pu } from "./convertBN";
 
 /**
  * @param trade 
@@ -9,7 +11,6 @@ import { BoolTrade, GAS, GasData } from "../../../constants/interfaces";
  * @returns gasData: { gasEstimate: BigNumber, gasPrice: BigNumber, maxFee: number, maxPriorityFee: number }
  */
 export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
-	const f = utils.formatUnits;
 	// Commented out for now to elimiate from testing & debugging:
 	const maxFeeGasData = 150//gasData.fast.maxFee;
 	const maxPriorityFeeGasData = 60//gasData.fast.maxPriorityFee;
@@ -24,33 +25,36 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 		try {
 			gasEstimate = await trade.flash.estimateGas.flashSwap(
 				trade.loanPool.factory.address,
-				trade.recipient.router.address,
+				trade.loanPool.router.address,
+				trade.target.router.address,
 				trade.tokenIn.id,
 				trade.tokenOut.id,
-				trade.recipient.tradeSize,
-				trade.recipient.amountOut,
+				trade.target.tradeSize,
+				trade.target.amountOut,
 				trade.loanPool.amountRepay
 			);
 		} catch (error: any) {
-			console.log(`Error in fetchGasPrice for trade: ${trade.ticker} `, ". Using default gas estimate for gasPrice calcs");
-			gasEstimate = BigNumber.from(300000);
+			console.log(`>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`);
+			gasEstimate = pu('300000', 18)
+			logger.info(error.reason);
+			return { gasEstimate, tested: false, gasPrice: BigNumber.from(150 + 60 * 300000), maxFee, maxPriorityFee };
 		}
-		// Helpful for figuring out how to determine and display gas prices:
+		// Helpful for figuring out how to determine and display gas prices:		
 		const gasLogs = {
 			gasEstimate: gasEstimate.toString(),
-			gasPrice: f(maxFee.add(maxPriorityFee), 18),
-			maxFee: f(maxFee.toString(), 18),
-			maxPriorityFee: f(maxPriorityFee.toString(), 18),
-			gasLimit: f(gasEstimate.toString(), 18),
-			gasEstimateTimesMaxFee: f(gasEstimate.mul(maxFee).toString()),
-			gasEstimateTimesMaxPriorityFee: f(gasEstimate.mul(maxPriorityFee).toString(), 18),
-			gasEstimateTimeesMaxFeePlusMaxPriorityFee: f(gasEstimate.mul(maxFee.add(maxPriorityFee)).toString(), 18)
+			gasPrice: fu(maxFee.add(maxPriorityFee), 18),
+			maxFee: fu(maxFee.toString(), 18),
+			maxPriorityFee: fu(maxPriorityFee.toString(), 18),
+			gasLimit: fu(gasEstimate.toString(), 18),
+			gasEstimateTimesMaxFee: fu(gasEstimate.mul(maxFee).toString()),
+			gasEstimateTimesMaxPriorityFee: fu(gasEstimate.mul(maxPriorityFee).toString(), 18),
+			gasEstimateTimeesMaxFeePlusMaxPriorityFee: fu(gasEstimate.mul(maxFee.add(maxPriorityFee)).toString(), 18)
 		}
 		console.log(gasLogs);
 		const gasPrice = gasEstimate.mul(maxFee.add(maxPriorityFee));
-		return { gasEstimate, gasPrice, maxFee: maxFee, maxPriorityFee: maxPriorityFee }
+		return { gasEstimate, tested: true, gasPrice, maxFee: maxFee, maxPriorityFee: maxPriorityFee }
 	} else {
 		console.log(`>>>>>>>>>>>>>>>>>>>>> (fetchGasPrice) Trade direction undefined: ${trade.ticker} `, ` <<<<<<<<<<<<<<<<<<<<<<<<<< `);
-		return { gasEstimate: BigNumber.from(300000), gasPrice: BigNumber.from(150 + 60 * 300000), maxFee: maxFee, maxPriorityFee: maxPriorityFee };
+		return { gasEstimate: BigNumber.from(300000), tested: false, gasPrice: BigNumber.from(150 + 60 * 300000), maxFee: maxFee, maxPriorityFee: maxPriorityFee };
 	}
 }

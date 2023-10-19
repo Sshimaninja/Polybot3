@@ -4,7 +4,7 @@ import { BigNumber as BN } from "bignumber.js";
 import { Prices } from './modules/prices';
 import { FactoryPair, Pair } from '../../constants/interfaces';
 import { AmountConverter } from './modules/amountConverter'
-import { Trade } from './modules/getTrade';
+import { Trade } from './getTrade';
 import { gasVprofit } from './modules/gasVprofit';
 import { Reserves } from './modules/reserves';
 import { tradeLogs } from './modules/tradeLog';
@@ -20,8 +20,9 @@ TODO:
  * It loops through all pairs, and all matches, and executes the flash swaps.
  * It prevents multiple flash swaps from being executed at the same time, on the same pool, if the profit is too low, or the gas cost too high.
  */
-const warning = 0
-const slippageTolerance = BN(0.01)
+
+const slippageTolerance = BN(0.001)
+
 
 export async function control(data: FactoryPair[], gasData: any) {
 	const promises: any[] = [];
@@ -41,7 +42,7 @@ export async function control(data: FactoryPair[], gasData: any) {
 			const trade = await t.getTrade();
 
 			const dataPromise = tradeLogs(trade);
-			const rollPromise = rollDamage(trade, await dataPromise, warning);
+			const rollPromise = rollDamage(trade);
 
 			promises.push(dataPromise, rollPromise);
 		}
@@ -49,6 +50,5 @@ export async function control(data: FactoryPair[], gasData: any) {
 
 	await Promise.all(promises).catch((error: any) => {
 		console.log("Error in swap.ts: " + error.message);
-		return ("Error in swap.ts: " + error.message);
 	});
 }

@@ -29,29 +29,29 @@ export async function execute(
 	profit: Profit,
 ): Promise<TxData> {
 	if (pendingTransactions[trade.ID]) {
-		console.log("::::::::::::::::::::::::" + trade.ticker + trade.ID + ': PENDING TRANSACTION::::::::::::::::::::::::: ')
+		logger.info("::::::::::::::::::::::::" + trade.ticker + trade.ID + ': PENDING TRANSACTION::::::::::::::::::::::::: ')
 		return {
 			txResponse: undefined,
-			pendingID: trade.recipient.pool.address,
+			pendingID: trade.target.pool.address,
 		};
 	} else {
-		console.log('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.ticker + '::::::::::::::::::::::::::')
+		logger.info('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.ticker + '::::::::::::::::::::::::::')
 
 
 		var gasbalance = await checkGasBal();
 
-		console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, 18) + " " + "MATIC")
+		logger.info("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, 18) + " " + "MATIC")
 
 		if (trade) {
-			console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, 18) + " " + "MATIC")
-			console.log("Gas Cost::::::::::::: " + ethers.utils.formatUnits(profit.gas.gasPrice, 18) + " " + "MATIC")
+			logger.info("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, 18) + " " + "MATIC")
+			logger.info("Gas Cost::::::::::::: " + ethers.utils.formatUnits(profit.gas.gasPrice, 18) + " " + "MATIC (if this is tiny, it's probably because gasEstimate has failed.")
 
 			const gotGas = profit.gasCost.lt(gasbalance)
 
-			gotGas == true ? console.log("Sufficient Matic Balance. Proceeding...") : console.log(">>>>Insufficient Matic Balance<<<<")
+			gotGas == true ? logger.info("Sufficient Matic Balance. Proceeding...") : console.log(">>>>Insufficient Matic Balance<<<<")
 
 			if (gotGas == false) {
-				console.log(":::::::::::::::::::::::END TRANSACTION: " + trade.ticker + ': GAS GREATER THAN PROFIT::::::::::::::::::::::::: ')
+				logger.info(":::::::::::::::::::::::END TRANSACTION: " + trade.ticker + ': GAS GREATER THAN PROFIT::::::::::::::::::::::::: ')
 				return {
 					txResponse: undefined,
 					pendingID: null,
@@ -74,7 +74,7 @@ export async function execute(
 				// Set the pending transaction flag for this pool
 				pendingTransactions[trade.ID] = true;
 
-				console.log(":::::::::::Sending Transaction: " + trade.loanPool.exchange + " to " + trade.recipient.exchange + " for " + trade.ticker + " : profit: " + profit.profit + ":::::::::: ")
+				logger.info(":::::::::::Sending Transaction: " + trade.loanPool.exchange + " to " + trade.target.exchange + " for " + trade.ticker + " : profit: " + profit.profit + ":::::::::: ")
 
 				await notify(trade, profit);
 
@@ -92,18 +92,18 @@ export async function execute(
 					pendingID: null,
 				}
 
-				console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
+				logger.info("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
 
 				// Clear the pending transaction flag for this pool
-				pendingTransactions[trade.recipient.pool.address] = false;
+				pendingTransactions[trade.target.pool.address] = false;
 
 				return result;
 
 			} else {
 
-				console.log("::::::::::::::::::::::::::::::::::::::::TRADE UNDEFINED::::::::::::::::::::::::::::::::::::::: ")
+				logger.info("::::::::::::::::::::::::::::::::::::::::TRADE UNDEFINED::::::::::::::::::::::::::::::::::::::: ")
 
-				console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
+				logger.info("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
 
 				return {
 					txResponse: undefined,
@@ -111,7 +111,7 @@ export async function execute(
 				};
 			}
 		} else {
-			console.log("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
+			logger.info("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
 			return {
 				txResponse: undefined,
 				pendingID: null,

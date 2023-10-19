@@ -1,42 +1,42 @@
 [
-  {
-    "exchangeA": "APE",
-    "factoryA_id": "0xCf083Be4164828f00cAE704EC15a36D711491284",
-    "routerA_id": "0xC0788A3aD43d79aa53B09c2EaCc313A787d1d607",
-    "exchangeB": "JET",
-    "factoryB_id": "0x668ad0ed2622C62E24f0d5ab6B6Ac1b9D2cD4AC7",
-    "routerB_id": "0x5C6EC38fb0e2609672BDf628B1fD605A523E5923",
-    "matches": [
-      {
-        "ticker": "WMATIC/USDC",
-        "poolA_id": "0x019011032a7ac3A87eE885B6c08467AC46ad11CD",
-        "poolB_id": "0x5E58e0CeD3a272CAeb8bA00F4A4C2805Df6BE495",
-        "token0": {
-          "symbol": "WMATIC",
-          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-          "decimals": 18
-        },
-        "token1": {
-          "symbol": "USDC",
-          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-          "decimals": 6
-        }
-      },
-      {
-        "ticker": "USDC/DAI",
-        "poolA_id": "0x5b13B583D4317aB15186Ed660A1E4C65C10da659",
-        "poolB_id": "0x4A53119dd905fD39ccC532C68e69505dfB47fc2C",
-        "token0": {
-          "symbol": "USDC",
-          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-          "decimals": 6
-        },
-        "token1": {
-          "symbol": "DAI",
-          "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
-          "decimals": 18
-        }
-      }
-    ]
-  }
+    {
+        "exchangeA": "APE",
+        "factoryA_id": "0xCf083Be4164828f00cAE704EC15a36D711491284",
+        "routerA_id": "0xC0788A3aD43d79aa53B09c2EaCc313A787d1d607",
+        "exchangeB": "JET",
+        "factoryB_id": "0x668ad0ed2622C62E24f0d5ab6B6Ac1b9D2cD4AC7",
+        "routerB_id": "0x5C6EC38fb0e2609672BDf628B1fD605A523E5923",
+        "matches": [
+            {
+                "ticker": "WMATIC/USDC",
+                "poolA_id": "0x019011032a7ac3A87eE885B6c08467AC46ad11CD",
+                "poolB_id": "0x5E58e0CeD3a272CAeb8bA00F4A4C2805Df6BE495",
+                "token0": {
+                    "symbol": "WMATIC",
+                    "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+                    "decimals": 18
+                },
+                "token1": {
+                    "symbol": "USDC",
+                    "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+                    "decimals": 6
+                }
+            },
+            {
+                "ticker": "USDC/DAI",
+                "poolA_id": "0x5b13B583D4317aB15186Ed660A1E4C65C10da659",
+                "poolB_id": "0x4A53119dd905fD39ccC532C68e69505dfB47fc2C",
+                "token0": {
+                    "symbol": "USDC",
+                    "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+                    "decimals": 6
+                },
+                "token1": {
+                    "symbol": "DAI",
+                    "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+                    "decimals": 18
+                }
+            }
+        ]
+    }
 ]

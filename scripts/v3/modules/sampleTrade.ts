@@ -103,7 +103,7 @@ export async function executeFlash(
 	const options: SwapOptions = {
 		slippageTolerance: new Percent(500, 10000), // 50 bips, or 0.50%
 		deadline: Math.floor(Date.now() / 1000) + 60 * 20, // 20 minutes from the current Unix time
-		recipient: walletAddress,
+		target: walletAddress,
 	}
 
 	const methodParameters = SwapRouter.swapCallParameters([trade], options)

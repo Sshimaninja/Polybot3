@@ -80,7 +80,7 @@
 //                 priceOut: A ? this.price1.priceOutBN.toFixed(this.match.token1.decimals) : this.price0.priceOutBN.toFixed(this.match.token1.decimals),
 //                 amountOut: BigNumber.from(0),
 //             },
-//             recipient: {
+//             target: {
 //                 exchange: A ? this.pair.exchangeA : this.pair.exchangeB,
 //                 factory: A ? new Contract(this.pair.factoryA_id, IFactory, wallet) : new Contract(this.pair.factoryB_id, IFactory, wallet),
 //                 router: A ? new Contract(this.pair.routerA_id, IRouter, wallet) : new Contract(this.pair.routerB_id, IRouter, wallet),
@@ -104,28 +104,28 @@
 //             profit: BigNumber.from(0)
 //         };
 
-//         if (trade.recipient.tradeSize.eq(0)) {
+//         if (trade.target.tradeSize.eq(0)) {
 //             console.log("Trade size is 0, no trade possible: " + trade.ticker)
 //             return trade;
 //         }
 
 //         //We need the amountOut of tokenIn for directRepay from loanpool to see now much of token0 loan can be repaid, if the trade is direct.
 //         trade.loanPool.amountOut = await getAmountsOut(
-//             trade.recipient.amountOut,
+//             trade.target.amountOut,
 //             trade.loanPool.reserveOut,
 //             trade.loanPool.reserveIn);
 
 //         const multiRepay = await this.getRepayMulti(
-//             trade.recipient.tradeSize,
+//             trade.target.tradeSize,
 //             trade.loanPool.reserveOut,
 //             trade.loanPool.reserveIn
 //         ) //in token1
 
 //         const directRepay = await this.getRepayDirect(
-//             trade.recipient.tradeSize,
+//             trade.target.tradeSize,
 //         ) //in token0
 
-//         const profitMulti = trade.recipient.amountOut.sub(multiRepay)
+//         const profitMulti = trade.target.amountOut.sub(multiRepay)
 //         const profitDirect = trade.loanPool.amountOut.sub(directRepay)
 
 //         trade.type = profitMulti.gt(profitDirect) ? "multi" : "direct";

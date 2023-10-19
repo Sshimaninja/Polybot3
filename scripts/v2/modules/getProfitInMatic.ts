@@ -24,16 +24,16 @@ export async function getProfitInMatic(trade: BoolTrade): Promise<MaticProfit> {
 	if (trade.tokenOut.id == matic) {
 		console.log('[getProfitInMatic]: tokenOut is WMATIC')
 		let profitInMatic = trade.profit;
-		let gasPool = new Contract(trade.recipient.pool.address, IPair, wallet);
+		let gasPool = new Contract(trade.target.pool.address, IPair, wallet);
 		let maticProfit = { profitInMatic, gasPool };
 		return maticProfit
 	}
 
 	if (trade.tokenIn.id == matic) {
 		console.log('[getProfitInMatic]: tokenIn is WMATIC')
-		let inMatic = await getAmountsOut(trade.profit, trade.recipient.reserveOut, trade.recipient.reserveIn)
+		let inMatic = await getAmountsOut(trade.profit, trade.target.reserveOut, trade.target.reserveIn)
 		let profitInMatic = inMatic;
-		let gasPool = new Contract(trade.recipient.pool.address, IPair, wallet);
+		let gasPool = new Contract(trade.target.pool.address, IPair, wallet);
 		let maticProfit = { profitInMatic, gasPool };
 		return maticProfit
 	}
@@ -41,7 +41,7 @@ export async function getProfitInMatic(trade: BoolTrade): Promise<MaticProfit> {
 	let g = await getgasPoolForTrade(trade)
 
 	if (g == undefined) {
-		let maticProfit = { profitInMatic: BigNumber.from(0), gasPool: new Contract(trade.recipient.pool.address, IPair, wallet) };
+		let maticProfit = { profitInMatic: BigNumber.from(0), gasPool: new Contract(trade.target.pool.address, IPair, wallet) };
 		return maticProfit
 	}
 
@@ -82,7 +82,7 @@ export async function getProfitInMatic(trade: BoolTrade): Promise<MaticProfit> {
 			logger.info("[getProfitInMatic]: Case 3: trade.tokenOut.id is paired with a gasToken in the trade.tokenIn position")
 			const reserves = await gasPool.getReserves();
 			const profitInGasToken = await getAmountsOut(trade.profit, reserves[0], reserves[1]);//returns profit in gasToken/WMATIC
-			const gasMaticPool = await (trade.loanPool.factory.getPair(gasPool.token1(), matic) ?? trade.recipient.factory.getPair(gasPool.token1(), matic) ?? undefined);
+			const gasMaticPool = await (trade.loanPool.factory.getPair(gasPool.token1(), matic) ?? trade.target.factory.getPair(gasPool.token1(), matic) ?? undefined);
 			console.log(gasMaticPool.token1, matic)
 			const gasSMaticPoolContract = new ethers.Contract(gasMaticPool, IPair, provider);
 			const profitInMatic = gasSMaticPoolContract.token1() == matic ? await getAmountsOut(trade.profit, reserves[0], reserves[1]) : await getAmountsOut(profitInGasToken, reserves[1], reserves[0]);
@@ -96,7 +96,7 @@ export async function getProfitInMatic(trade: BoolTrade): Promise<MaticProfit> {
 			logger.info("[getProfitInMatic]: Case 4: trade.tokenOut.id is paired with a gasToken in the trade.tokenOut position")
 			const reserves = await gasPool.getReserves();
 			const profitInGasToken = await getAmountsOut(trade.profit, reserves[1], reserves[0]);//returns profit in gasToken/MWATIC
-			const gasMaticPool = await trade.loanPool.factory.getPair(gasPool.token0(), matic) ?? trade.recipient.factory.getPair(gasPool.token0(), matic) ?? undefined;
+			const gasMaticPool = await trade.loanPool.factory.getPair(gasPool.token0(), matic) ?? trade.target.factory.getPair(gasPool.token0(), matic) ?? undefined;
 			console.log(gasMaticPool.token0, matic)
 			const gasSMaticPoolContract = new ethers.Contract(gasMaticPool, IPair, provider);
 			const profitInMatic = gasSMaticPoolContract.token1() == matic ? await getAmountsOut(trade.profit, reserves[1], reserves[0]) : await getAmountsOut(profitInGasToken, reserves[0], reserves[1]);
@@ -106,5 +106,5 @@ export async function getProfitInMatic(trade: BoolTrade): Promise<MaticProfit> {
 		}
 	}
 	// If none of the conditions are met, return a default MaticProfit object
-	return { profitInMatic: BigNumber.from(0), gasPool: new Contract(trade.recipient.pool.address, IPair, wallet) };
+	return { profitInMatic: BigNumber.from(0), gasPool: new Contract(trade.target.pool.address, IPair, wallet) };
 }
