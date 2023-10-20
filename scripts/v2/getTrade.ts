@@ -4,7 +4,7 @@ import { Amounts, FactoryPair, GasData, Pair, Profcalcs, Repays } from "../../co
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
-import { wallet, flashMulti } from "../../constants/contract";
+import { wallet, flashMulti, flashDirect } from "../../constants/contract";
 import { Contract } from "@ethersproject/contracts";
 import { Prices } from "./modules/prices";
 import { getK } from "./modules/getK";
@@ -158,7 +158,7 @@ export class Trade {
 			pu((direct.percentProfit.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals);
 
 
-		trade.flash = trade.type === "multi" ? flashMulti : flashMulti;
+		trade.flash = trade.type === "multi" ? flashMulti : flashDirect;
 
 		trade.k = await getK(trade.type, trade.target.tradeSize, trade.loanPool.reserveIn, trade.loanPool.reserveOut, this.calc0);
 
