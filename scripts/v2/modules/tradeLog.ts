@@ -13,6 +13,7 @@ import { JS2BN, fu } from "./convertBN";
 export async function tradeLogs(trade: BoolTrade): Promise<any> {
 	try {
 		const data = {
+			id: trade.ID,
 			trade: trade.type,
 			ticker: trade.ticker,
 			direction: trade.direction,
