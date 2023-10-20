@@ -18,16 +18,16 @@ export async function getK(type: string, tradeSize: BigNumber, reserveIn: BigNum
 	}
 	const tradeSizewithFee = await calc.addFee(tradeSize);
 	const newReserveIn = reserveIn.mul(1000).sub(tradeSize.mul(1000));
-	console.log("newReserveIn: ", newReserveIn.toString())
+	// console.log("newReserveIn: ", newReserveIn.toString())
 	if (newReserveIn.lte(0)) {
 		return kalc;
 	}
 	const tokenOutPrice = BN2JS(calc.price.priceOutBN, calc.token1.decimals);
-	console.log("TradeSize: " + tradeSize.toString() + " * tokenOutPrice: " + tokenOutPrice.toString() + " = " + tokenOutPrice.mul(tradeSize).toString())
+	// console.log("TradeSize: " + tradeSize.toString() + " * tokenOutPrice: " + tokenOutPrice.toString() + " = " + tokenOutPrice.mul(tradeSize).toString())
 	const tradeSizeInTermsOfTokenOut = tradeSize.mul(tokenOutPrice);
-	console.log('tradeSizeInTermsOfTokenOut: ', tradeSizeInTermsOfTokenOut.toString())
+	// console.log('tradeSizeInTermsOfTokenOut: ', tradeSizeInTermsOfTokenOut.toString())
 	const tradeSizeInTermsOfTokenOutWithFee = await calc.addFee(tradeSizeInTermsOfTokenOut);
-	console.log('tradeSizeInTermsOfTokenOutWithFee: ', tradeSizeInTermsOfTokenOutWithFee.toString())
+	// console.log('tradeSizeInTermsOfTokenOutWithFee: ', tradeSizeInTermsOfTokenOutWithFee.toString())
 	if (type === "multi") {
 		kalc = {
 			uniswapKPre:
