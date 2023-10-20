@@ -26,7 +26,7 @@ re: tradeSize
 				(Hopefully limiting by target.maxOut is redundant because maxIn works on slippage in the same way, and amountsOut will only calculate a number it will output.)
 
 
-JETSWAP: They've stupidly copied the Uniswap V2 contracts directly, but decided to change only the name of contract functions from 'Uniswap...' to 'Jetswap...' causing any dev who wants to interact with Jetswap to create custom contracts and logic for their little exchange. So:
+JETSWAP: Removing Jetswap for now as all trades seem to exit prematurely out of contract without reason.
 # TODO: Make Univ2 clone contracts, but change name to Jetswap, so I can arb them.
 
 
