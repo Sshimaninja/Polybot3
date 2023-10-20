@@ -60,16 +60,14 @@ export async function execute(
 
 			if (gotGas == true) {
 
+				//re-fetch gas price. Might be unnecessary but it's free.
 				let gasEstimate = await fetchGasPrice(trade);
 				let gasObj: TxGas = {
 					type: 2,
-					maxFeePerGas: Number(profit.gas.maxFee),
-					maxPriorityFeePerGas: Number(profit.gas.maxPriorityFee),
-					gasLimit: gasEstimate.gasEstimate,
+					maxFeePerGas: Number(profit.gas.maxFee.mul('2')),
+					maxPriorityFeePerGas: Number(profit.gas.maxPriorityFee.mul('2')),
+					gasLimit: gasEstimate.gasEstimate.mul('2'),
 				}
-
-				// Check if there is already a pending transaction for this pool
-
 
 				// Set the pending transaction flag for this pool
 				pendingTransactions[trade.ID] = true;

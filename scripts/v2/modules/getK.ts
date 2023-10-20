@@ -1,6 +1,7 @@
 import { BigNumber } from "ethers";
 import { K } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter"
+import { BN2JS } from "./convertBN";
 
 /**
  * This doc calculates whether will revert due to uniswak K being positive or negative
@@ -16,12 +17,14 @@ export async function getK(type: string, tradeSize: BigNumber, reserveIn: BigNum
 		uniswapKPositive: false,
 	}
 	const tradeSizewithFee = await calc.addFee(tradeSize);
-	const newReserveIn = reserveIn.sub(tradeSize);
+	const newReserveIn = reserveIn.mul(1000).sub(tradeSize.mul(1000));
 	console.log("newReserveIn: ", newReserveIn.toString())
 	if (newReserveIn.lte(0)) {
 		return kalc;
 	}
-	const tradeSizeInTermsOfTokenOut = tradeSize.mul(reserveOut.mul(1000).div(newReserveIn.mul(1000)).div(1000));
+	const tokenOutPrice = BN2JS(calc.price.priceOutBN, calc.token1.decimals);
+	console.log("TradeSize: " + tradeSize.toString() + " * tokenOutPrice: " + tokenOutPrice.toString() + " = " + tokenOutPrice.mul(tradeSize).toString())
+	const tradeSizeInTermsOfTokenOut = tradeSize.mul(tokenOutPrice);
 	console.log('tradeSizeInTermsOfTokenOut: ', tradeSizeInTermsOfTokenOut.toString())
 	const tradeSizeInTermsOfTokenOutWithFee = await calc.addFee(tradeSizeInTermsOfTokenOut);
 	console.log('tradeSizeInTermsOfTokenOutWithFee: ', tradeSizeInTermsOfTokenOutWithFee.toString())

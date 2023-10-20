@@ -9,16 +9,17 @@ import { Contract } from "@ethersproject/contracts";
 import { Prices } from "./modules/prices";
 import { getK } from "./modules/getK";
 import { BoolTrade } from "../../constants/interfaces"
+import { getMulti, getDirect } from "./modules/populateRepays";
 import { getAmountsIn, getAmountsOut } from "./modules/getAmountsIOLocal";
 import { AmountConverter } from "./modules/amountConverter";
 import { JS2BN, JS2BNS, BN2JS, BN2JSS, fu, pu } from "./modules/convertBN";
+import { filterTrade } from "./filterTrade";
 /**
  * @description
- * Class to determine trade direction 
+ * Class to determine trade parameters 
  * returns a BoolTrade object, which fills out all params needed for a trade.
   * 
 */
-
 export class Trade {
 	trade: BoolTrade | undefined;
 	pair: FactoryPair;
@@ -57,7 +58,9 @@ export class Trade {
 		// use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
 		const maxIn = await target.getMaxTokenIn();
 		const bestSize = toPrice.lt(maxIn) ? toPrice : maxIn;
-		const size = bestSize.gt(loan.reserves.reserveIn) ? loan.reserves.reserveIn : bestSize;
+		const safeReserves = loan.reserves.reserveIn.mul(1000).div(800);
+		const size = bestSize.gt(safeReserves) ? safeReserves : bestSize;
+
 		return size;
 	}
 
@@ -125,116 +128,42 @@ export class Trade {
 			trade.target.reserveIn, // token0 in 
 			trade.target.reserveOut); // token1 max out
 
-		// arbitrage type options: 
-		if (trade.target.tradeSize.gt('0') && trade.target.amountOut.gt('0') && trade.target.reserveIn.gt('1') && trade.target.reserveOut.gt('1')) {
 
-			// Define repay for each trade type: 
-			async function getMulti(calc: AmountConverter): Promise<{ repays: Repays, profits: { profit: BigNumber, profitPercent: BN } }> {
-				/*
-				I have to send back only the amount of token1 needed to repay the amount of token0 I was loaned.
-				Thus I need to calculate the exact amount of token1 that tradeSize in tokenOut represents on loanPool, 
-				and subtract it from recipient.amountOut before sending it back
-				*/
-				// const postReserveIn = trade.loanPool.reserveIn.sub(trade.target.tradeSize); // I think this is only relevant for uniswap K calcs				
-				async function getRepay(): Promise<Repays> {
-					const tradeSizeInTermsOfTokenOutOnLoanPool =
-						trade.target.tradeSize.mul(trade.loanPool.reserveOut).div(trade.loanPool.reserveIn);
-					const repayByGetAmountsOut = await getAmountsOut(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
-						trade.target.tradeSize,
-						trade.loanPool.reserveIn,
-						trade.loanPool.reserveOut // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
-					)
-					const repayByGetAmountsIn = await getAmountsIn( //Will output tokenIn.
-						trade.target.tradeSize,
-						trade.loanPool.reserveOut, // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
-						trade.loanPool.reserveIn
-					)
-					const simple = await calc.addFee(tradeSizeInTermsOfTokenOutOnLoanPool);
-					const repays: Repays = {
-						simpleMulti: simple,
-						getAmountsOut: repayByGetAmountsOut,
-						getAmountsIn: repayByGetAmountsIn,
-						//SET YOUR CHOICE HERE:
-						repay: repayByGetAmountsIn,
-					}
-					return repays;
-				}
-
-
-
-
-				const repays = await getRepay();
-
-				async function getProfit(): Promise<Profcalcs> {
-					let repay = repays.repay;
-					// this must be re-assigned to be accurate, if you re-assign trade.loanPool.amountRepay below. The correct amountRepay should be decided upon and this message should be removed.
-					// if (repay.lt(trade.target.amountOut)) {
-					let profit: Profcalcs = { profit: BigNumber.from(0), profitPercent: BN(0) };
-					profit.profit = trade.target.amountOut.sub(repay);
-					const profitBN = JS2BN(profit.profit, trade.tokenOut.decimals);
-					profit.profitPercent = trade.target.amountOut.gt(0) ? profitBN.dividedBy(fu(trade.target.amountOut, trade.tokenOut.decimals)).multipliedBy(100) : BN(0);
-					return profit;
-					// } else {
-					// 	return { profit: BigNumber.from(0), profitPercent: BN(0) };
-					// }
-				}
-
-				const profits = await getProfit();
-				// const postReserveOut = trade.loanPool.reserveOut.add(tradeSizeInTermsOfTokenOutWithFee);				
-				return { repays, profits };
-			}
-
-
-			async function getDirect(calc: AmountConverter): Promise<{ repay: BigNumber, profit: BigNumber, percentProfit: BN }> {
-				const repay = await calc.addFee(trade.target.tradeSize);
-				const directRepayLoanPoolInTokenOut = await getAmountsOut(
-					trade.target.tradeSize,
-					trade.loanPool.reserveIn, // add 0.3% fee to reserves
-					trade.loanPool.reserveOut
-				);
-				const directRepayLoanPoolInTokenOutWithFee = await calc.addFee(directRepayLoanPoolInTokenOut);
-				const profit = trade.target.amountOut.sub(directRepayLoanPoolInTokenOutWithFee); // profit is remainder of token1 out
-				const profitBN = JS2BN(profit, trade.tokenOut.decimals);
-				const percentProfit = trade.target.amountOut.gt(0) ? profitBN.dividedBy(fu(trade.target.amountOut, trade.tokenOut.decimals)).multipliedBy(100) : BN(0);
-				return { repay, profit, percentProfit };
-			}
-
-
-
-			const multi = await getMulti(this.calc0);
-			const direct = await getDirect(this.calc0);
-			// subtract the result from amountOut to get profit
-
-			// The below will be either in token0 or token1, depending on the trade type.
-			// Set repayCalculation here for testing, until you find the correct answer (of which there is only 1):
-			trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.getAmountsIn : direct.repay;
-
-
-			trade.type = multi.profits.profit.gt(direct.profit) ? "multi" : "direct";
-
-
-			trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.repay : direct.repay;
-
-			trade.loanPool.repays = multi.repays;
-
-			trade.profit = trade.type === "multi" ? multi.profits.profit : direct.profit;
-
-			trade.profitPercent = trade.type == "multi" ?
-				pu((multi.profits.profitPercent.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals) :
-				pu((direct.percentProfit.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals);
-
-
-			trade.flash = trade.type === "multi" ? flashMulti : flashMulti;
-
-			trade.k = await getK(trade.type, trade.target.tradeSize, trade.loanPool.reserveIn, trade.loanPool.reserveOut, this.calc0);
-
-			// return trade;
-			return trade
-
-		} else {
-			console.log("<<<<<<No trade: tradeSize is zero or negative: ", trade.ticker, ">>>>>>>");
+		const filteredTrade = await filterTrade(trade);
+		if (filteredTrade == undefined) {
 			return trade;
 		}
+
+		// Define repay & profit for each trade type: 
+		const multi = await getMulti(trade, this.calc0);
+		const direct = await getDirect(trade, this.calc0);
+
+		// subtract the result from amountOut to get profit
+		// The below will be either in token0 or token1, depending on the trade type.
+		// Set repayCalculation here for testing, until you find the correct answer (of which there is only 1):
+		trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.getAmountsIn : direct.repay;
+
+
+		trade.type = multi.profits.profit.gt(direct.profit) ? "multi" : "direct";
+
+
+		trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.repay : direct.repay;
+
+		trade.loanPool.repays = multi.repays;
+
+		trade.profit = trade.type === "multi" ? multi.profits.profit : direct.profit;
+
+		trade.profitPercent = trade.type == "multi" ?
+			pu((multi.profits.profitPercent.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals) :
+			pu((direct.percentProfit.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals);
+
+
+		trade.flash = trade.type === "multi" ? flashMulti : flashMulti;
+
+		trade.k = await getK(trade.type, trade.target.tradeSize, trade.loanPool.reserveIn, trade.loanPool.reserveOut, this.calc0);
+
+		// return trade;
+		return trade
+
 	}
 }
-
