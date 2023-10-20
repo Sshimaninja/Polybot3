@@ -181,6 +181,7 @@ export interface Repays {
 	simpleMulti: BigNumber
 	getAmountsOut: BigNumber
 	getAmountsIn: BigNumber
+	repay: BigNumber
 }
 
 export interface BoolTrade {
