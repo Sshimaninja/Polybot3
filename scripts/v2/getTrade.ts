@@ -141,8 +141,7 @@ export class Trade {
 		// subtract the result from amountOut to get profit
 		// The below will be either in token0 or token1, depending on the trade type.
 		// Set repayCalculation here for testing, until you find the correct answer (of which there is only 1):
-		trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.getAmountsIn : direct.repay;
-
+		trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.repay : direct.repay;
 
 		trade.type = multi.profits.profit.gt(direct.profit) ? "multi" : "direct";
 
