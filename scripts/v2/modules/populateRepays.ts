@@ -15,7 +15,9 @@ export async function getMulti(trade: BoolTrade, calc: AmountConverter): Promise
 	// const postReserveIn = trade.loanPool.reserveIn.sub(trade.target.tradeSize); // I think this is only relevant for uniswap K calcs				
 	async function getRepay(): Promise<Repays> {
 		const tradeSizeInTermsOfTokenOutOnLoanPool =
-			trade.target.tradeSize.mul(trade.loanPool.reserveOut).div(trade.loanPool.reserveIn);
+			trade.target.tradeSize
+				.mul(trade.loanPool.reserveOut)
+				.div(trade.loanPool.reserveIn);
 		const repayByGetAmountsOut = await getAmountsOut(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
 			trade.target.tradeSize,
 			trade.loanPool.reserveIn,
@@ -63,7 +65,7 @@ export async function getDirect(trade: BoolTrade, calc: AmountConverter): Promis
 	const repay = await calc.addFee(trade.target.tradeSize);
 	const directRepayLoanPoolInTokenOut = await getAmountsOut(
 		trade.target.tradeSize,
-		trade.loanPool.reserveIn, // add 0.3% fee to reserves
+		trade.loanPool.reserveIn, // 
 		trade.loanPool.reserveOut
 	);
 	const directRepayLoanPoolInTokenOutWithFee = await calc.addFee(directRepayLoanPoolInTokenOut);
