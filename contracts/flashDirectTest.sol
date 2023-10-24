@@ -281,6 +281,10 @@ contract flashDirectTest is IUniswapV2Callee {
         console.log("getRepay0: ", getRepay[0]);
         console.log("getRepay1: ", getRepay[1]);
 
+        /*
+		This seems to function correctly. Might be good to test on another block or live data.
+		*/
+
         token0.approve(targetRouter, _amount0);
 
         swap = IUniswapV2Router02(targetRouter).swapExactTokensForTokens(
