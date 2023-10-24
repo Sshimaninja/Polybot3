@@ -142,13 +142,10 @@ export class Trade {
 		// The below will be either in token0 or token1, depending on the trade type.
 		// Set repayCalculation here for testing, until you find the correct answer (of which there is only 1):
 		trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.repay : direct.repay;
-
-		trade.type = multi.profits.profit.gt(direct.profit) ? "multi" : "direct";
-
-
-		trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.repay : direct.repay;
-
 		trade.loanPool.repays = multi.repays;
+
+		trade.type = multi.profits.profit.gt(direct.profit) ? "multi" : direct.profit.gt(multi.profits.profit) ? "direct" : "error";
+
 
 		trade.profit = trade.type === "multi" ? multi.profits.profit : direct.profit;
 
