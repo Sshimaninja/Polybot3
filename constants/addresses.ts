@@ -3,8 +3,8 @@ type deployedContracts = { [contract: string]: string };
 export const deployedMap: deployedContracts = {
 	flashDirect: "0x17c06032315ac8527Ab07e4cA1D558AA30a2011E",//owner: 0x3018FB91d635D85bFc7590c611dE012db163e8a3
 	flashMulti: "0x476816D622f2FedBd205f2c65520D9C617ca37b8",//owner: 0x3018FB91d635D85bFc7590c611dE012db163e8a3
-	flashDirectTest: "0xBf3556521fD4F94fF688d715A96a75258bee339d",
-	flashMultiTest: "0xCd86135176a1e054912EC5CFbe6B6ACf0C36c81e",
+	flashDirectTest: "0x119D963FF798E1A29249182ea9b5C9057Ef24547",
+	flashMultiTest: "0xC7116c3dD488712Eb056Ec18870df17D5aBAe481",
 	flashV3: "DEPLOY_ME",
 	// flashB: "DEPLOY_ME",
 	// flashOne: "0xf4059341491E0Ec3FE6003708d2F6F9dB0fC7c4a",

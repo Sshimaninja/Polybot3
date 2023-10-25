@@ -4,7 +4,7 @@ import { Amounts, FactoryPair, GasData, Pair, Profcalcs, Repays } from "../../co
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
-import { wallet, flashMulti } from "../../constants/contract";
+import { wallet, flashMulti, flashDirect } from "../../constants/contract";
 import { Contract } from "@ethersproject/contracts";
 import { Prices } from "./modules/prices";
 import { getK } from "./modules/getK";
@@ -13,7 +13,7 @@ import { getMulti, getDirect } from "./modules/populateRepays";
 import { getAmountsIn, getAmountsOut } from "./modules/getAmountsIOLocal";
 import { AmountConverter } from "./modules/amountConverter";
 import { JS2BN, JS2BNS, BN2JS, BN2JSS, fu, pu } from "./modules/convertBN";
-import { filterTrade } from "./filterTrade";
+import { filterTrade } from "./modules/filterTrade";
 /**
  * @description
  * Class to determine trade parameters 
@@ -141,15 +141,11 @@ export class Trade {
 		// subtract the result from amountOut to get profit
 		// The below will be either in token0 or token1, depending on the trade type.
 		// Set repayCalculation here for testing, until you find the correct answer (of which there is only 1):
-		trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.getAmountsIn : direct.repay;
-
-
-		trade.type = multi.profits.profit.gt(direct.profit) ? "multi" : "direct";
-
-
 		trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.repay : direct.repay;
-
 		trade.loanPool.repays = multi.repays;
+
+		trade.type = multi.profits.profit.gt(direct.profit) ? "multi" : direct.profit.gt(multi.profits.profit) ? "direct" : "error";
+
 
 		trade.profit = trade.type === "multi" ? multi.profits.profit : direct.profit;
 
@@ -158,7 +154,7 @@ export class Trade {
 			pu((direct.percentProfit.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals);
 
 
-		trade.flash = trade.type === "multi" ? flashMulti : flashMulti;
+		trade.flash = trade.type === "multi" ? flashMulti : flashDirect;
 
 		trade.k = await getK(trade.type, trade.target.tradeSize, trade.loanPool.reserveIn, trade.loanPool.reserveOut, this.calc0);
 

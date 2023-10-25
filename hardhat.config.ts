@@ -10,25 +10,19 @@ import '@nomiclabs/hardhat-ethers'
 import "@nomicfoundation/hardhat-chai-matchers";
 import "@nomiclabs/hardhat-ethers";
 
-task("accounts", "Prints the list of accounts", async (taskArgs: any, hre: { ethers: { getSigners: () => any; provider: any; utils: { formatEther: (arg0: any) => any; }; }; }) => {
-	const accounts = await hre.ethers.getSigners();
-	const provider = hre.ethers.provider;
-
-	for (const account of accounts) {
-		console.log(
-			"%s (%i ETH)",
-			account.address,
-			hre.ethers.utils.formatEther(
-				await provider.getBalance(account.address)
-			)
-		);
-	}
-});
-
 
 module.exports = {
 	solidity: {
 		compilers: [
+			{
+				version: "0.8.19",
+				settings: {
+					optimizer: {
+						enabled: true,
+						runs: 200
+					},
+				},
+			},
 			{
 				version: "0.6.9",
 				settings: {
@@ -56,15 +50,7 @@ module.exports = {
 					},
 				},
 			},
-			{
-				version: "0.8.19",
-				settings: {
-					optimizer: {
-						enabled: true,
-						runs: 200
-					},
-				},
-			},
+
 
 			// // Override the Uniswap V2 contracts to use Solidity 0.6.9
 			// overrides: {
@@ -91,7 +77,7 @@ module.exports = {
 			},
 			forking: {
 				url: `https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-`,
-				blockNumber: 42181066,
+				blockNumber: 48668449,
 			}
 		},
 		localhost: {
@@ -104,7 +90,7 @@ module.exports = {
 		},
 		polygon: {
 			// url: `https://rpc.ankr.com/polygon`,
-			url: "https://polygon-mainnet.infura.io/v3/ae479bfaa1b54326a4770a0fe8aa801d",
+			url: "https://polygon-mainnet.infura.io/v3/d4003610616e45549765c2945a2f335b",
 			// url: `wss://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-`,
 			accounts: [process.env.PRIVATE_KEY],
 			chainID: 137,

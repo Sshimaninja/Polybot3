@@ -22,7 +22,7 @@ export async function getAmountsOut(amountIn: BigNumber, reserveIn: BigNumber, r
  * @param amountIn 
  * @param reserveIn 
  * @param reserveOut 
- * @returns the minimum output asset amount required to buy the given input asset amount (accounting for fees) given reserves.
+ * @returns the minimum 'input asset' amount required to buy the given output asset amount (accounting for fees) given reserves.
  */
 //amountIn = amountOut * reserveIn / reserveOut - amountOut
 // 
