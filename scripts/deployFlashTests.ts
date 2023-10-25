@@ -1,13 +1,13 @@
 import { ethers, run, network } from "hardhat";
 require('dotenv').config();
-import { signer, flashwallet } from '../constants/contract'
+import { testSigner, testFlashwallet } from '../constants/contract'
 
 // npx hardhat run --network localhost scripts/deployFlashMultiTest.ts
 // npx hardhat run --network localhost scripts/deployFlashDirectTestTest.ts; npx hardhat run--network localhost scripts/deployFlashMultiTest.ts
 async function main() {
 	try {
-		const deployer = signer;
-		const owner = flashwallet;
+		const deployer = testSigner;
+		const owner = testFlashwallet;
 
 		console.log("Deploying contracts with the account: " + deployer.address);
 
