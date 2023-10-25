@@ -1,6 +1,6 @@
-import { BoolTrade } from '../../constants/interfaces';
+import { BoolTrade } from '../../../constants/interfaces';
 import { BigNumber as BN } from 'bignumber.js';
-import { JS2BN } from './modules/convertBN';
+import { JS2BN } from './convertBN';
 
 /**
  * @param trade

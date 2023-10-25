@@ -66,7 +66,7 @@ export async function execute(
 					type: 2,
 					maxFeePerGas: Number(profit.gas.maxFee.mul('2')),
 					maxPriorityFeePerGas: Number(profit.gas.maxPriorityFee.mul('2')),
-					gasLimit: gasEstimate.gasEstimate.mul('2'),
+					gasLimit: gasEstimate.gasEstimate.mul('10'),
 				}
 
 				// Set the pending transaction flag for this pool

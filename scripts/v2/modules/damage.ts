@@ -38,7 +38,12 @@ export async function rollDamage(trade: BoolTrade) {
 	}
 	// If profit > 0, and all reserves > 1, find profit vs gas cost
 	if (
-		profpercBN.gt(BN(0)) && (trade.loanPool.reserveInBN && trade.loanPool.reserveOutBN && trade.target.reserveInBN && trade.target.reserveOutBN).gt(BN(1))
+		profpercBN.gt(BN(0)) &&
+		trade.k.uniswapKPositive && (
+			trade.loanPool.reserveInBN &&
+			trade.loanPool.reserveOutBN &&
+			trade.target.reserveInBN &&
+			trade.target.reserveOutBN).gt(BN(1))
 	) {
 		const log = await tradeLogs(trade)
 		console.log(log)
@@ -74,7 +79,7 @@ export async function rollDamage(trade: BoolTrade) {
 
 		// If profit is less than 0, return
 	} else if (profpercBN.lte(0) /*&& profpercBN.gt(-0.6)*/) { // TESTING
-		console.log("<<<<<<<<<<<<No Trade: " + trade.ticker + " [ profit < 0.3% | " + profpercBN.toFixed(trade.tokenOut.decimals) + " ] >>>>>>>>>>>>")
+		// console.log("<<<<<<<<<<<<No Trade: " + trade.ticker + " [ profit < 0.3% | " + profpercBN.toFixed(trade.tokenOut.decimals) + " ] >>>>>>>>>>>>")
 		return
 	}
 }
