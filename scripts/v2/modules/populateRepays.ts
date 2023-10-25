@@ -63,10 +63,15 @@ export async function getMulti(trade: BoolTrade, calc: AmountConverter): Promise
 
 export async function getDirect(trade: BoolTrade, calc: AmountConverter): Promise<{ repay: BigNumber, profit: BigNumber, percentProfit: BN }> {
 	const repay = await calc.addFee(trade.target.tradeSize);
-	const directRepayLoanPoolInTokenOut = await getAmountsOut(
+	// const directRepayLoanPoolInTokenOut = await getAmountsOut(
+	// 	trade.target.tradeSize,
+	// 	trade.loanPool.reserveIn, // 
+	// 	trade.loanPool.reserveOut
+	// );
+	const directRepayLoanPoolInTokenOut = await getAmountsIn(
 		trade.target.tradeSize,
-		trade.loanPool.reserveIn, // 
-		trade.loanPool.reserveOut
+		trade.loanPool.reserveOut,
+		trade.loanPool.reserveIn
 	);
 	const directRepayLoanPoolInTokenOutWithFee = await calc.addFee(directRepayLoanPoolInTokenOut);
 	const profit = trade.target.amountOut.sub(directRepayLoanPoolInTokenOutWithFee); // profit is remainder of token1 out
