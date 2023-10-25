@@ -249,6 +249,14 @@ contract flashDirectTest is IUniswapV2Callee {
             targetRouter
         );
 
+        console.log("getAmounts results: ");
+        console.log("swap[0]: ", swap[0]);
+        console.log("swap[1]: ", swap[1]);
+        console.log("repay[0] ", repay[0]);
+        console.log("repay[1] ", repay[1]);
+        console.log("Final balances: ");
+        console.log("Token0: ", token0.balanceOf(address(this)));
+        console.log("Token1: ", token1.balanceOf(address(this)));
         console.log("Approving profit transfer.");
         token1.approve(address(address(this)), token1.balanceOf(address(this)));
         console.log("Approved");
@@ -264,54 +272,58 @@ contract flashDirectTest is IUniswapV2Callee {
         address loanRouter,
         address targetRouter
     ) internal returns (uint256[] memory swap, uint256[] memory repay) {
+        uint256 deadline = block.timestamp + 5 minutes;
+        // Define tokens
         IERC20 token0 = IERC20(path[0]);
         IERC20 token1 = IERC20(path[1]);
-        uint256 deadline = block.timestamp + 5 minutes;
-
         swap = new uint256[](2);
         repay = new uint256[](2);
-        console.log("Token balances: ");
-        console.log("Token0: ", IERC20(path[0]).balanceOf(address(this)));
-        console.log("Token1: ", IERC20(path[1]).balanceOf(address(this)));
 
-        uint256[] memory getRepay = IUniswapV2Router02(loanRouter).getAmountsIn(
-            amountRepay, //amountOut
-            path
-        ); // TOKEN1
-        console.log("getRepay0: ", getRepay[0]);
-        console.log("getRepay1: ", getRepay[1]);
+        console.log("Token balances: ");
+        console.log("Token0: ", token0.balanceOf(address(this)));
+        console.log("Token1: ", token1.balanceOf(address(this)));
 
         /*
 		This seems to function correctly. Might be good to test on another block or live data.
 		*/
-
+        console.log("__________swapExactTokensForTokens_______________");
         token0.approve(targetRouter, _amount0);
-
+        //https://docs.uniswap.org/contracts/v2/reference/smart-contracts/router-02
         swap = IUniswapV2Router02(targetRouter).swapExactTokensForTokens(
             _amount0, //amountIn
             amountOut, //amountOutMin
-            path,
+            path, //token0, token1
             address(this),
             deadline
         );
         console.log("Swap complete");
+        console.log("swap[0](token0): ", swap[0]);
+        console.log("swap[1](token1): ", swap[1]);
         console.log("Token balances: ");
         console.log("Token0: ", token0.balanceOf(address(this)));
         console.log("Token1: ", token1.balanceOf(address(this)));
-        console.log("repay: ", getRepay[1]);
-        // function swapTokensForExactTokens(
-        // 	uint amountOut,
-        // 	uint amountInMax,
-        // 	address[] calldata path,
-        // 	address to,
-        // 	uint deadline
+
+        console.log("_________________getAmountsIn______________________");
+        //reverse the path to find how much token1 is needed to repay token0 loan.
+        path[0] = IUniswapV2Pair(msg.sender).token1();
+        path[1] = IUniswapV2Pair(msg.sender).token0();
+        uint256[] memory getRepay = IUniswapV2Router02(loanRouter).getAmountsIn(
+            _amount0, //amountOut
+            path //(token1, token0)
+        ); // TOKEN1
+        console.log("getRepay0 (token1Required): ", getRepay[0]);
+        console.log("getRepay1 (token0Output)::: ", getRepay[1]);
+        console.log("calc'd amountRepay: ", amountRepay);
+
+        console.log("___________swapTokensForExactTokens__________");
         console.log("Approving loanRouter to trade getRepay");
+        //If this doesn't work, I can try the swap on targetRouter
         token1.approve(loanRouter, token1.balanceOf(address(this)));
         console.log("Approved");
         repay = IUniswapV2Router02(loanRouter).swapTokensForExactTokens(
-            amountRepay, //amountOut
+            swap[1], //amountOut
             getRepay[0], //amountInMax
-            path,
+            path, //(token1, token0)
             msg.sender,
             deadline
         );
@@ -323,3 +335,43 @@ contract flashDirectTest is IUniswapV2Callee {
         console.log("Token1: ", IERC20(path[1]).balanceOf(address(this)));
     }
 }
+
+//         console.log("_________________getAmountsIn______________________");
+
+//         // uint256[] memory getRepay = IUniswapV2Router02(loanRouter).getAmountsOut(
+//         //     _amount0, //amountOut
+//         //     path //(token1, token0)
+//         // ); // TOKEN1
+//         path[0] = IUniswapV2Pair(msg.sender).token1();
+//         path[1] = IUniswapV2Pair(msg.sender).token0();
+//         uint256[] memory getRepay = IUniswapV2Router02(loanRouter)
+//             .getAmountsOut(
+//                 swap[1], //amountIn
+//                 path //(token0, token1)
+//             ); // TOKEN1
+//         console.log("getRepay0 (token0Input):::: ", getRepay[0]);
+//         console.log("getRepay1 (token1Output)::: ", getRepay[1]);
+//         // console.log("calc'd amountRepay: ", amountRepay);
+
+//         console.log("___________swapTokensForExactTokens__________");
+//         console.log("Approving loanRouter to trade getRepay");
+//         //If this doesn't work, I can try the swap on targetRouter
+//         //reverse the path to find how much token1 is needed to repay token0 loan.
+
+//         token1.approve(loanRouter, token1.balanceOf(address(this)));
+//         console.log("Approved");
+//         repay = IUniswapV2Router02(loanRouter).swapTokensForExactTokens(
+//             swap[1], //amountOut
+//             getRepay[1], //amountInMax
+//             path, //(token1, token0)
+//             msg.sender,
+//             deadline
+//         );
+//         console.log("Repay complete");
+//         console.log("repay[0]: ", repay[0]);
+//         console.log("repay[1]: ", repay[1]);
+//         console.log("Token balances: ");
+//         console.log("Token0: ", IERC20(path[0]).balanceOf(address(this)));
+//         console.log("Token1: ", IERC20(path[1]).balanceOf(address(this)));
+//     }
+// }

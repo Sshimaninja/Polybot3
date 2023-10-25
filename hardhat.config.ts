@@ -77,7 +77,7 @@ module.exports = {
 			},
 			forking: {
 				url: `https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-`,
-				blockNumber: 48902578,
+				blockNumber: 48668449,
 			}
 		},
 		localhost: {
