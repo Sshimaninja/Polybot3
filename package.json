@@ -6,7 +6,7 @@
         "@nomicfoundation/hardhat-toolbox": "^2.0.1",
         "@nomiclabs/hardhat-ethers": "^2.2.3",
         "@nomiclabs/hardhat-etherscan": "^3.1.2",
-        "@openzeppelin/contracts": "^4.0.0",
+        "@openzeppelin/contracts": "^5.0.0",
         "@openzeppelin/hardhat-upgrades": "^1.10.0",
         "@thanpolas/uniswap-chain-queries": "^0.1.1",
         "@thanpolas/univ3prices": "^3.0.2",
@@ -58,8 +58,8 @@
     },
     "scripts": {
         "bot": "npx ts-node index",
-		"match2": "npx ts-node utils/dexdata/V2/matchPairsCtrl",
-		"match3": "npx ts-node utils/dexdata/V3/matchPools",
+        "match2": "npx ts-node utils/dexdata/V2/matchPairsCtrl",
+        "match3": "npx ts-node utils/dexdata/V3/matchPools",
         "test": "mocha",
         "dev": "cross-env NODE_ENV=development tsnd --respawn --debug ./index.ts"
     }

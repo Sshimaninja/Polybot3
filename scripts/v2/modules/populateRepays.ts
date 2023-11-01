@@ -17,7 +17,9 @@ export async function getMulti(trade: BoolTrade, calc: AmountConverter): Promise
 		const tradeSizeInTermsOfTokenOutOnLoanPool =
 			trade.target.tradeSize
 				.mul(trade.loanPool.reserveOut)
-				.div(trade.loanPool.reserveIn);
+				.div(trade.loanPool.reserveIn.add(trade.target.tradeSize)); // <= This is the amount of tokenOut that tradeSize in tokenOut represents on loanPool.
+		const simple = tradeSizeInTermsOfTokenOutOnLoanPool
+
 		const repayByGetAmountsOut = await getAmountsOut(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
 			trade.target.tradeSize,
 			trade.loanPool.reserveIn,
@@ -28,7 +30,6 @@ export async function getMulti(trade: BoolTrade, calc: AmountConverter): Promise
 			trade.loanPool.reserveOut, // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
 			trade.loanPool.reserveIn
 		)
-		const simple = await calc.addFee(tradeSizeInTermsOfTokenOutOnLoanPool);
 		const repays: Repays = {
 			simpleMulti: simple,
 			getAmountsOut: repayByGetAmountsOut,
@@ -70,7 +71,7 @@ export async function getDirect(trade: BoolTrade, calc: AmountConverter): Promis
 	// );
 	const directRepayLoanPoolInTokenOut = await getAmountsIn(
 		trade.target.tradeSize,
-		trade.loanPool.reserveOut,
+		trade.loanPool.reserveOut, //<== getAmountsIn returns amountIn in terms of token in this position.  
 		trade.loanPool.reserveIn
 	);
 	const directRepayLoanPoolInTokenOutWithFee = await calc.addFee(directRepayLoanPoolInTokenOut);

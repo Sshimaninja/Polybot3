@@ -15,6 +15,15 @@ module.exports = {
 	solidity: {
 		compilers: [
 			{
+				version: "0.8.20",
+				settings: {
+					optimizer: {
+						enabled: true,
+						runs: 200
+					},
+				},
+			},
+			{
 				version: "0.8.19",
 				settings: {
 					optimizer: {
@@ -77,11 +86,12 @@ module.exports = {
 			},
 			forking: {
 				url: `https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-`,
-				blockNumber: 48668449,
+				blockNumber: 48668455,
 			}
 		},
 		localhost: {
 			url: "http://127.0.0.1:8545/",
+			accounts: [process.env.TEST_KEY],
 		},
 		mumbai: {
 			url: process.env.INFURA_MUMBAI,
