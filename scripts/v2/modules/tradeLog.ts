@@ -24,9 +24,8 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
 				priceOut: trade.loanPool.priceOut,
 				reservesIn: fu(trade.loanPool.reserveIn, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
 				reservesOut: fu(trade.loanPool.reserveOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
-				amountRepay: trade.type === "multi" ?
-					(fu(trade.loanPool.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol) :
-					(fu(trade.loanPool.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol),
+				amountRepay: trade.type === "multi" ? fu(trade.loanPool.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol : trade.type === "direct" ? fu(trade.loanPool.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol : "error",
+
 				repaysObj:
 				{
 					simpleMulti: fu(trade.loanPool.repays.simpleMulti, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
@@ -51,6 +50,8 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
 				profperc: fu(trade.profitPercent, (trade.tokenOut.decimals)) + "%",
 			}
 		}
+
+
 		return data
 	} catch (error: any) {
 		console.log("Error in tradeLog.ts: " + error.message);

@@ -69,7 +69,7 @@ export class Trade {
 		const A = dir.dir == "A" ? true : false;
 
 		const trade: BoolTrade = {
-			ID: A ? this.match.poolB_id + this.match.poolA_id : this.match.poolA_id + this.match.poolB_id,
+			ID: A ? this.match.poolA_id : this.match.poolB_id,
 			direction: dir.dir,
 			type: "error",
 			ticker: this.match.token0.symbol + "/" + this.match.token1.symbol,
@@ -138,14 +138,14 @@ export class Trade {
 		const multi = await getMulti(trade, this.calc0);
 		const direct = await getDirect(trade, this.calc0);
 
+		trade.type = multi.profits.profit.gt(direct.profit) ? "multi" : direct.profit.gt(multi.profits.profit) ? "direct" : "error";
+
 		// subtract the result from amountOut to get profit
 		// The below will be either in token0 or token1, depending on the trade type.
 		// Set repayCalculation here for testing, until you find the correct answer (of which there is only 1):
 		trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.repay : direct.repay;
+
 		trade.loanPool.repays = multi.repays;
-
-		trade.type = multi.profits.profit.gt(direct.profit) ? "multi" : direct.profit.gt(multi.profits.profit) ? "direct" : "error";
-
 
 		trade.profit = trade.type === "multi" ? multi.profits.profit : direct.profit;
 
@@ -153,10 +153,9 @@ export class Trade {
 			pu((multi.profits.profitPercent.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals) :
 			pu((direct.percentProfit.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals);
 
+		trade.k = await getK(trade.type, trade.target.tradeSize, trade.loanPool.reserveIn, trade.loanPool.reserveOut, this.calc0);
 
 		trade.flash = trade.type === "multi" ? flashMulti : flashDirect;
-
-		trade.k = await getK(trade.type, trade.target.tradeSize, trade.loanPool.reserveIn, trade.loanPool.reserveOut, this.calc0);
 
 		// return trade;
 		return trade

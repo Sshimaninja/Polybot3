@@ -13,17 +13,17 @@ import { fu, pu } from "./convertBN";
 export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 	// Commented out for now to elimiate from testing & debugging:
 	const maxFeeGasData = trade.gasData.fast.maxFee;//150 is placeholder until gasData works.
-	console.log('maxFeeGasData: ', maxFeeGasData)
+	// console.log('maxFeeGasData: ', maxFeeGasData)
 	const maxPriorityFeeGasData = trade.gasData.fast.maxPriorityFee;//60 is placeholder until gasData works.
-	console.log('maxPriorityFeeGasData: ', maxPriorityFeeGasData)
+	// console.log('maxPriorityFeeGasData: ', maxPriorityFeeGasData)
 	const maxFeeString = (Math.trunc(maxFeeGasData * 10 ** 9)).toString();
-	console.log('maxFeeString: ', maxFeeString)
+	// console.log('maxFeeString: ', maxFeeString)
 	const maxPriorityFeeString = (Math.trunc(maxPriorityFeeGasData * 10 ** 9)).toString();
-	console.log('maxPriorityFeeString: ', maxPriorityFeeString)
+	// console.log('maxPriorityFeeString: ', maxPriorityFeeString)
 	const maxFee = utils.parseUnits(utils.formatUnits(maxFeeString, 18), 18);
-	console.log('maxFee: ', maxFee)
+	// console.log('maxFee: ', maxFee)
 	const maxPriorityFee = utils.parseUnits(utils.formatUnits(maxPriorityFeeString, 18), 18);
-	console.log('maxPriorityFee: ', maxPriorityFee)
+	// console.log('maxPriorityFee: ', maxPriorityFee)
 
 	if (trade.direction != undefined) {
 		console.log('EstimatingGas for trade: ' + trade.ticker + '...');
