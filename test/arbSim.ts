@@ -4,7 +4,7 @@ import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.js
 import { abi as IUniswapV2Router } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json"
 import { uniswapV2Router } from "../constants/addresses";
 
-import { fu } from "../scripts/v2/modules/convertBN";
+import { fu, pu } from "../scripts/v2/modules/convertBN";
 
 import { BigNumber } from "ethers";
 import { MockWMATIC } from "../typechain-types";
@@ -22,6 +22,7 @@ async function arbSim() {
 
 	// Define the ABI for the WMATIC contract
 	const WMATIC_ABI = [
+		"function approve(address spender, uint256 amount) public override returns (bool)",
 		"function deposit() public payable",
 		"function withdraw(uint wad) public",
 		"function balanceOf(address account) external view returns (uint256)",
@@ -39,38 +40,49 @@ async function arbSim() {
 
 	// Convert half of MATIC to WMATIC
 	const gasBal = await matic.balanceOf(signer.address);
-	console.log("Balance of MATIC:: ", fu(gasBal, 18));
-	const halfMatic = gasBal.div(2)
-	console.log("Half of MATIC:: ", fu(halfMatic, 18));
-	console.log("Approving MATIC spend")
-	const maticApprove = await matic.approve(wmatic.address, halfMatic, { gasLimit: ethers.utils.hexlify(91000) });
-	if (maticApprove) console.log("MATIC>WMATIC APPROVED");
-	console.log("Balance of MATIC:: ", fu(await matic.balanceOf(signer.address), 18));
-	const wrap = await wmatic.deposit({ value: halfMatic });
-	const reciept = await wrap.wait();
-	if (reciept) console.log("MATIC WRAPPED");
-	console.log("Reciept: ", reciept.transactionHash);
+	// console.log("Balance of MATIC:: ", fu(gasBal, 18));
+	const wmaticBal = await wmatic.balanceOf(signer.address);
+	async function getWMATIC(): Promise<BigNumber> {
+		if (wmaticBal.eq(0)) {
+			console.log("Balance of WMATIC:: ", fu(gasBal, 18));
+			const halfMatic = gasBal.div(2)
+			console.log("Half of MATIC:: ", fu(halfMatic, 18));
+			console.log("Approving MATIC spend")
+			const maticApprove = await matic.approve(wmatic.address, halfMatic, { gasLimit: ethers.utils.hexlify(91000) });
+			if (maticApprove) console.log("MATIC>WMATIC APPROVED");
+			console.log("Balance of MATIC:: ", fu(await matic.balanceOf(signer.address), 18));
+			const wrap = await wmatic.deposit({ value: halfMatic });
+			const reciept = await wrap.wait();
+			if (reciept) console.log("MATIC WRAPPED");
+			console.log("Reciept: ", reciept.transactionHash);
+			return halfMatic;
+		} else {
+			const halfMatic = await wmatic.balanceOf(signer.address);
+			return halfMatic;
+		}
+	}
+	const halfMatic = await getWMATIC();
+
 	console.log("Balance of MATIC:: ", fu(await matic.balanceOf(signer.address), 18));
 	console.log("Balance of WMATIC: ", fu(await wmatic.balanceOf(signer.address), 18));
 	console.log("Balance of USDC::: ", fu(await usdc.balanceOf(signer.address), 6));
 
-
-
 	// approve the router to spend WMATIC
-	await wmatic.connect(signer).approve(quickRouter.address, ethers.utils.parseEther(halfMatic));
+	const approveWmatic = await wmatic.connect(signer).approve(quickRouter.address, halfMatic);
+	if (approveWmatic) console.log("WMATIC on QUICKROUTER APPROVED")
 
 	// Sell a large amount of WMATIC for USDC
-	await quickRouter.connect(signer).swapExactTokensForTokens(
-		halfMatic, // amountIn
+	const swap = await quickRouter.connect(signer).swapExactTokensForTokens(
+		halfMatic.toString(), // amountIn
 		0, // amountOutMin
 		[wmatic.address, usdc.address], // path
 		signer.address, // to
 		Math.floor(Date.now() / 1000) + 60 * 20 // deadline
 	);
-	console.log("Balance of MATIC:: ", fu(await wmatic.balanceOf(signer.address), 18));
-	console.log("Balance of WMATIC: ", fu(await wmatic.balanceOf(signer.address), 18));
-	console.log("Balance of USDC: ", fu(await usdc.balanceOf(signer.address), 6));
-
+	if (swap) console.log("WMATIC>USDC SWAPPED");
+	console.log("New Balance of MATIC:: ", fu(await wmatic.balanceOf(signer.address), 18));
+	console.log("New Balance of WMATIC: ", fu(await wmatic.balanceOf(signer.address), 18));
+	console.log("New Balance of USDC: ", fu(await usdc.balanceOf(signer.address), 6));
 }
 
 

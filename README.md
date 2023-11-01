@@ -3,8 +3,12 @@ Start:
 npm run bot
 
 # Deploy Hardhat tests:
-Navigate to contractsv2 repo:
-npx hardhat run--network localhost scripts / deployFlashDirectTestTest.ts; npx hardhat run--network localhost scripts / deployFlashMultiTest.ts
+
+To create arb opportunity:
+	npx hardhat run --network localhost test/arbSim.ts
+
+To deploy test contracts on localhost hardhat polygon fork:
+	npx hardhat run --network localhost scripts/deployFlashTest.ts;
 
 
 
