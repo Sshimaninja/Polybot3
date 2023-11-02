@@ -1,16 +1,25 @@
 # Commands: 
-Start: 
-npm run bot
+Start v2 bot: 
+	npm run bot
+
+Start v3 bot:
+	n/a (in progress)
+
 
 # Deploy Hardhat tests:
 
 To create arb opportunity:
+	npm run arbSim
+	or
 	npx hardhat run --network localhost test/arbSim.ts
 
 To deploy test contracts on localhost hardhat polygon fork:
 	npx hardhat run --network localhost scripts/deployFlashTest.ts;
 
-
+Testing operations:
+	Start the local Hardhat network with forking enabled.
+	Run the arbSim.ts script to create the arbitrage opportunity.
+	Run this bot on the local network.
 
 
 # Notes:

@@ -18,7 +18,7 @@ export async function getMulti(trade: BoolTrade, calc: AmountConverter): Promise
 			trade.target.tradeSize
 				.mul(trade.loanPool.reserveOut)
 				.div(trade.loanPool.reserveIn.add(trade.target.tradeSize)); // <= This is the amount of tokenOut that tradeSize in tokenOut represents on loanPool.
-		const simple = tradeSizeInTermsOfTokenOutOnLoanPool
+		const simple = await calc.addFee(tradeSizeInTermsOfTokenOutOnLoanPool)
 
 		const repayByGetAmountsOut = await getAmountsOut(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
 			trade.target.tradeSize,

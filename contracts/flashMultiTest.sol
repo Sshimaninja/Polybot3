@@ -145,7 +145,7 @@ contract flashMultiTest is IUniswapV2Callee {
         );
         console.log("amount0In requested: ", amount0In);
         console.log("amount1Out expected: ", amount1Out);
-        console.log("Contract Balance Before Swap: ");
+        console.log("Contract Balance Before Loan Request: ");
         console.log("Token0: ", IERC20(token0ID).balanceOf(address(this)));
         console.log("Token1: ", IERC20(token1ID).balanceOf(address(this)));
         console.log("Pair address: ", address(pair));
@@ -200,11 +200,10 @@ contract flashMultiTest is IUniswapV2Callee {
         IERC20 token0 = IERC20(path[0]);
         IERC20 token1 = IERC20(path[1]);
         console.log(
-            ":::::::::::::::::::New token0 balance (loaned):::::::::::::::::: ",
+            "New token0 balance (loaned):::::::::::::::::: ",
             token0.balanceOf(address(this))
         );
         token0.approve(address(recipientRouter), _amount0);
-
         uint256[] memory amountOut = getAmounts(
             _amount0,
             amount1Repay,
@@ -213,6 +212,8 @@ contract flashMultiTest is IUniswapV2Callee {
             recipientRouter,
             path
         );
+        console.log("::::::Swap Exited into uniswapV2Call::::::");
+        console.log("amountResult: ", amountOut[1]);
         console.log("New balance of token1: ", token1.balanceOf(address(this)));
         token1.transfer(owner, token1.balanceOf(address(this)));
         console.log("Transferred token1 to owner");
@@ -229,39 +230,59 @@ contract flashMultiTest is IUniswapV2Callee {
         IERC20 token0 = IERC20(path[0]);
         IERC20 token1 = IERC20(path[1]);
         uint256 deadline = block.timestamp + 5 minutes;
-        amountOut = new uint256[](2);
-
-        path[0] = IUniswapV2Pair(msg.sender).token1();
-        path[1] = IUniswapV2Pair(msg.sender).token0();
-        uint256 repay = IUniswapV2Router02(loanRouter).getAmountsIn(
-            loanAmount,
-            path
-        )[0];
-        console.log("balance Token0: ", token0.balanceOf(address(this)));
-        console.log("balance Token1: ", token1.balanceOf(address(this)));
+        console.log("Balances pre-swap: ");
+        console.log(
+            "balance Token0::::::::::: ",
+            token0.balanceOf(address(this))
+        );
+        console.log(
+            "balance Token1::::::::::: ",
+            token1.balanceOf(address(this))
+        );
+        console.log("::::::::::::::::::getRepay:::::::::::::::::::::");
+        uint256[] memory repay = getRepay(loanAmount, loanRouter, path);
+        console.log("expected repay in token1: ", amount1Repay);
+        console.log("calculated repay in token1: ", repay[0]);
         console.log("::::::::::::::::::SWAP 1:::::::::::::::::::::");
-        path[0] = IUniswapV2Pair(msg.sender).token1();
-        path[1] = IUniswapV2Pair(msg.sender).token0();
+        amountOut = new uint256[](2);
+        console.log(
+            "Approving token0 to recipientRouter, Token0: ",
+            token0.balanceOf(address(this))
+        );
+        token0.approve(recipientRouter, loanAmount);
+        token1.approve(recipientRouter, amount1Out);
         amountOut = IUniswapV2Router02(address(recipientRouter))
             .swapExactTokensForTokens(
                 loanAmount, //
-                repay, //
+                amount1Out, //
                 path, // path
                 address(this),
                 deadline // deadline
             );
-        console.log("Swap 1 complete");
-        console.log("balance Token0: ", token0.balanceOf(address(this)));
-        console.log("balance Token1: ", token1.balanceOf(address(this)));
-        console.log("Amount out recieved: ", amountOut[1]);
-        console.log("Amount out expected: ", amount1Out);
-        console.log("Repayment expected:: ", amount1Repay);
-        console.log("Amount in contract: ", token1.balanceOf(address(this)));
+        console.log("Swap 1 complete. New Balances:");
+        console.log(
+            "balance Token0::::::::::: ",
+            token0.balanceOf(address(this))
+        );
+        console.log(
+            "balance Token1::::::::::: ",
+            token1.balanceOf(address(this))
+        );
+        console.log("Amount out recieved:::::: ", amountOut[1]);
+        console.log("Amount out expected:::::: ", amount1Out);
+        console.log("Repayment expected::::::: ", amount1Repay);
+        console.log(
+            "Amount in contract::::::: ",
+            token1.balanceOf(address(this))
+        );
         require(
             amountOut[1] >= amount1Repay,
             "Error: amountOut is less than amountRepay"
         );
-        console.log("Profitcalc: ", amountOut[1].sub(amount1Repay));
+        console.log(
+            "Profitcalc:::::::::::::: ",
+            amountOut[1].sub(amount1Repay)
+        );
         token1.approve(address(this), amount1Repay);
         console.log("Approved to trade ", amount1Repay, " of token1");
         token1.transfer(msg.sender, amount1Repay);
@@ -269,6 +290,17 @@ contract flashMultiTest is IUniswapV2Callee {
         console.log("balance Token0: ", token0.balanceOf(address(this)));
         console.log("balance Token1: ", token1.balanceOf(address(this)));
         console.log("Repay complete");
+    }
+
+    function getRepay(
+        uint256 loanAmount,
+        address loanRouter,
+        address[] memory path
+    ) internal view returns (uint256[] memory repay) {
+        // Reverse path and check the amount of token1 needed from swapExactTokensForTokens to repay the loan
+        path[0] = IUniswapV2Pair(msg.sender).token1();
+        path[1] = IUniswapV2Pair(msg.sender).token0();
+        repay = IUniswapV2Router02(loanRouter).getAmountsIn(loanAmount, path);
     }
 }
 
