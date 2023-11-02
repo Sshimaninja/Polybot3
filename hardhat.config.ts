@@ -87,11 +87,15 @@ module.exports = {
 			forking: {
 				url: `https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-`,
 				blockNumber: 48668455,
+			},
+			accounts: {
+				accounts: [process.env.TEST_KEY],
+				initialBaseBalance: "1000000000000000000000000000",  // 1000000000 ETH in wei
 			}
 		},
 		localhost: {
 			url: "http://127.0.0.1:8545/",
-			accounts: [process.env.TEST_KEY],
+			accounts: "remote",
 		},
 		mumbai: {
 			url: process.env.INFURA_MUMBAI,
