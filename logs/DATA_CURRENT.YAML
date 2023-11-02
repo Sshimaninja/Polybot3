@@ -224,3 +224,632 @@ eth_estimateGas
     Approved
 
   Error: VM Exception while processing transaction: reverted with reason string 'UniswapV2: LOCKED'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  71953221029670506803
+    amount1Out expected:  36684498005390322842
+    Contract Balance Before Swap:  0
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    loanFactory:  0x1b02da8cb0d097eb8d57a175b88c7d8b47997506
+    LoanPool address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Target address:  0xc7116c3dd488712eb056ec18870df17d5abae481
+    msg.sender address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Amount0 requested:  71953221029670506803
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+    New token0 balance (loaned)::::::::::::::::::  71953221029670506803
+    Approving recipientRouter to trade token0
+    Approved to trade  71953221029670506803  of token0 on recipientRouter
+    balance Token0:  71953221029670506803
+    balance Token1:  0
+    Swap 1 complete
+    Amount out recieved:  36684498005390322842
+    Amount out expected:  36684498005390322842
+    Repayment expected::  36351465405205830879
+    Amount in contract:   36684498005390322842
+    Profitcalc: amountOut - amount1Repay:  333032600184491963
+    Approved to trade  36351465405205830879  of token1
+    Transfered  36351465405205830879  of token1 to loanPool
+    balance Token0:  72097415861393295
+    balance Token1:  333032600184491963
+    Repay complete
+    New balance of token1:  333032600184491963
+    Transferred token1 to owner
+
+  Error: VM Exception while processing transaction: reverted with reason string 'UniswapV2: K'
+
+
+
+
+  
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  71953221029670506803
+    amount1Out expected:  36684498005390322842
+    Contract Balance Before Swap:  0
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    loanFactory:  0x1b02da8cb0d097eb8d57a175b88c7d8b47997506
+    LoanPool address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Target address:  0xc7116c3dd488712eb056ec18870df17d5abae481
+    msg.sender address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Amount0 requested:  71953221029670506803
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0x8f3cf7ad23cd3cadbd9735aff958023239c6a063
+    New token0 balance (loaned)::::::::::::::::::  71953221029670506803
+    Approving recipientRouter to trade token0
+    Approved to trade  71953221029670506803  of token0 on recipientRouter
+    balance Token0:  71953221029670506803
+    balance Token1:  0
+    Swap 1 complete
+    balance Token0:  72097415861393295
+    balance Token1:  36684498005390322842
+    Amount out recieved:  71881123613809113508
+    Amount out expected:  36684498005390322842
+    Repayment expected::  36351465405205830879
+    Amount in contract:  36684498005390322842
+    Profitcalc: amountOut - amount1Repay:  333032600184491963
+    Approved to trade  36351465405205830879  of token1
+    Transfered  36351465405205830879  of token1 to loanPool
+    balance Token0:  72097415861393295
+    balance Token1:  333032600184491963
+    Repay complete
+    New balance of token1:  333032600184491963
+    Transferred token1 to owner
+
+
+
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  71953221029670506803
+    amount1Out expected:  36684498005390322842
+    Contract Balance Before Swap:
+    Token0:  0
+    Token1:  0
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    loanFactory:  0x1b02da8cb0d097eb8d57a175b88c7d8b47997506
+    LoanPool address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Target address:  0xc7116c3dd488712eb056ec18870df17d5abae481
+    msg.sender address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    :::::::::::::::::::New token0 balance (loaned)::::::::::::::::::  71953221029670506803
+    balance Token0:  71953221029670506803
+    balance Token1:  0
+    Swap 1 complete
+    balance Token0:  72097415861393295
+    balance Token1:  36684498005390322842
+    Amount out recieved:  71881123613809113508
+    Amount out expected:  36684498005390322842
+    Repayment expected::  36351465405205830879
+    Amount in contract:  36684498005390322842
+    Profitcalc: amountOut - amount1Repay:  333032600184491963
+    Approved to trade  36351465405205830879  of token1
+    Transfered  36351465405205830879  of token1 to loanPool
+    balance Token0:  72097415861393295
+    balance Token1:  333032600184491963
+    Repay complete
+    New balance of token1:  333032600184491963
+    Transferred token1 to owner
+
+  Error: VM Exception while processing transaction: reverted with reason string 'UniswapV2: K'
+      at <UnrecognizedContract>.<unknown> (0x8929d3fea77398f64448c85015633c2d6472fb29)
+      at <UnrecognizedContract>.<unknown> (0xc7116c3dd488712eb056ec18870df17d5abae481)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+
+
+
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  71953221029670506803
+    amount1Out expected:  36684498005390322842
+    Contract Balance Before Swap:
+    Token0:  0
+    Token1:  0
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    loanFactory:  0x1b02da8cb0d097eb8d57a175b88c7d8b47997506
+    LoanPool address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Target address:  0xc7116c3dd488712eb056ec18870df17d5abae481
+    msg.sender address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    :::::::::::::::::::New token0 balance (loaned)::::::::::::::::::  71953221029670506803
+    balance Token0:  71953221029670506803
+    balance Token1:  0
+    Swap 1 complete
+    balance Token0:  0
+    balance Token1:  0
+    Amount out recieved:  71953221029670506803
+    Amount out expected:  36684498005390322842
+    Repayment expected::  36351465405205830879
+    Amount in contract:  0
+    Profitcalc: amountOut - amount1Repay:  369806260391469057
+    Approved to trade  36351465405205830879  of token1
+
+  Error: VM Exception while processing transaction: reverted with reason string 'ERC20: transfer amount exceeds balance'
+
+
+
+
+
+  
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  71953221029670506803
+    amount1Out expected:  36684498005390322842
+    Contract Balance Before Swap:
+    Token0:  0
+    Token1:  0
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    loanFactory:  0x1b02da8cb0d097eb8d57a175b88c7d8b47997506
+    LoanPool address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Target address:  0xc7116c3dd488712eb056ec18870df17d5abae481
+    msg.sender address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    :::::::::::::::::::New token0 balance (loaned)::::::::::::::::::  71953221029670506803
+    balance Token0:  71953221029670506803
+    balance Token1:  0
+    ::::::::::::::::::SWAP 1:::::::::::::::::::::
+    Swap 1 complete
+    balance Token0:  725028078439616564
+    balance Token1:  0
+    Amount out recieved:  71228192951230890239
+    Amount out expected:  36684498005390322842
+    Repayment expected::  36351465405205830879
+    Amount in contract:  0
+    Profitcalc: amountOut - amount1Repay:  0
+    Approved to trade  36351465405205830879  of token1
+
+
+
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  71953221029670506803
+    amount1Out expected:  36684498005390322842
+    Contract Balance Before Swap:
+    Token0:  0
+    Token1:  0
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    loanFactory:  0x1b02da8cb0d097eb8d57a175b88c7d8b47997506
+    LoanPool address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Target address:  0xc7116c3dd488712eb056ec18870df17d5abae481
+    msg.sender address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    :::::::::::::::::::New token0 balance (loaned)::::::::::::::::::  71953221029670506803
+    balance Token0:       71953221029670506803
+    balance Token1:  0
+    ::::::::::::::::::SWAP 1:::::::::::::::::::::
+    Swap 1 complete
+    balance Token0:       72097415861393295
+    balance Token1:       36684498005390322842
+    Amount out recieved:  71881123613809113508
+    Amount out expected:  36684498005390322842
+    Repayment expected::  36351465405205830879
+    Amount in contract:   36684498005390322842
+        
+     36684498005390322842
+    -36351465405205830879
+    ---------------------
+    = 333032600184491963
+    Profitcalc: 
+    amountOut-repay:      333032600184491963
+    Approved to trade  36351465405205830879  of token1
+    Transfered  36351465405205830879  of token1 to loanPool
+    balance Token0:       72097415861393295
+    balance Token1:       333032600184491963
+    Repay complete
+    New balance token1:   333032600184491963
+    Transferred token1 to owner
+
+  Error: VM Exception while processing transaction: reverted with reason string 'UniswapV2: K'
+
+
+
+
+  
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  71953221029670506803
+    amount1Out expected:  36684498005390322842
+    Contract Balance Before Swap:
+    Token0:  0
+    Token1:  0
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    loanFactory:  0x1b02da8cb0d097eb8d57a175b88c7d8b47997506
+    LoanPool address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Target address:  0xc7116c3dd488712eb056ec18870df17d5abae481
+    msg.sender address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    :::::::::::::::::::New token0 balance (loaned)::::::::::::::::::  71953221029670506803
+    balance Token0:  71953221029670506803
+    balance Token1:  0
+    ::::::::::::::::::SWAP 1:::::::::::::::::::::
+    Swap 1 complete
+    balance Token0:         72097415861393295
+    balance Token1:         36684498005390322842
+    Amount out recieved:    71881123613809113508
+    Amount out expected:    36684498005390322842
+    Repayment expected::    36351465405205830879
+    Amount in contract:     36684498005390322842
+    Profitcalc:             35529658208603282629
+    Approved to trade  36351465405205830879  of token1
+    Transfered  36351465405205830879  of token1 to loanPool
+    balance Token0:  72097415861393295
+    balance Token1:  333032600184491963
+    Repay complete
+    New balance of token1:  333032600184491963
+    Transferred token1 to owner
+
+  Error: VM Exception while processing transaction: reverted with reason string 'UniswapV2: K'
+
+
+
+  
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  71953221029670506803
+    amount1Out expected:  36684498005390322842
+    Contract Balance Before Swap:
+    Token0:  0
+    Token1:  0
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    loanFactory:  0x1b02da8cb0d097eb8d57a175b88c7d8b47997506
+    LoanPool address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Target address:  0xc7116c3dd488712eb056ec18870df17d5abae481
+    msg.sender address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    :::::::::::::::::::New token0 balance (loaned)::::::::::::::::::  71953221029670506803
+    balance Token0:       71953221029670506803
+    balance Token1:       0
+    ::::::::::::::::::SWAP 1:::::::::::::::::::::
+    Swap 1 complete
+    balance Token0:       725028078439616564
+    balance Token1:       0
+    Amount out recieved:  71228192951230890239
+    Amount out expected:  36684498005390322842
+    Repayment expected::  36351465405205830879
+    Amount in contract:   0
+    Profitcalc: amountOut - amount1Repay:  34876727546025059360
+    balance Token0:       725028078439616564
+    balance Token1:       0
+    Repay complete
+    New balance of token1:  0
+    Transferred token1 to owner
+
+
+
+
+
+{
+  
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  71953221029670506803
+    amount1Out expected:  36684498005390322842
+    Contract Balance Before Swap:
+    Token0:  0
+    Token1:  0
+    Pair address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    loanFactory:  0x1b02da8cb0d097eb8d57a175b88c7d8b47997506
+    LoanPool address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    Target address:  0xc7116c3dd488712eb056ec18870df17d5abae481
+    msg.sender address:  0x8929d3fea77398f64448c85015633c2d6472fb29
+    :::::::::::::::::::New token0 balance (loaned)::::::::::::::::::  71953221029670506803
+    balance Token0:       71953221029670506803
+    balance Token1:       0
+    ::::::::::::::::::SWAP 1:::::::::::::::::::::
+    Swap 1 complete
+    balance Token0:       0
+    balance Token1:       36721271665597299936
+    Amount out recieved:  36721271665597299936
+    Amount out expected:  36684498005390322842
+    Repayment expected::  36351465405205830879
+    Amount in contract:   36721271665597299936
+    Profitcalc:           369806260391469057
+    Approved to trade  36351465405205830879  of token1
+    Transfered  36351465405205830879  of token1 to loanPool
+    balance Token0:       0
+    balance Token1:       369806260391469057
+    Repay complete
+    New balance token1:   369806260391469057
+    Transferred token1 to owner
+
+  Error: VM Exception while processing transaction: reverted with reason string 'UniswapV2: K'
+  
+
+  Notes: using swapExactTokensForTokens keeps things neater with all balance of token0 -> token1.
+  This uses simpleRepay, but I'll test with getAmountsIn repay to see if that eliminates uniswapK error.
+  (Shouldn't require re-deploying contracts since it's only a change on local/typescript side.)
+  
+
+  }
+0xc7116c3dd488712eb056ec18870df17d5abae481
+
+
+
+  Value:                   0 ETH
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  71953221029670506803
+    amount1Out expected:  36684498005390322842
+    Contract Balance Before Swap:
+    Token0:  0
+    Token1:  0
+    Pair address:  0x8929d 3fea77398f64448c85015633c2d6472fb29
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    loanFactory:          0x1b02da8cb0d097eb8d57a175b88c7d8b47997506
+    LoanPool address:     0x8929d3fea77398f64448c85015633c2d6472fb29
+    Target address:       0xc7116c3dd488712eb056ec18870df17d5abae481
+    msg.sender address:   0x8929d3fea77398f64448c85015633c2d6472fb29
+    :::::::::::::::::::New token0 balance (loaned)::::::::::::::::::  71953221029670506803
+    balance Token0:       71953221029670506803
+    balance Token1:       0
+    ::::::::::::::::::SWAP 1:::::::::::::::::::::
+    Swap 1 complete
+    balance Token0:       0
+    balance Token1:       36721271665597299936
+    Amount out recieved:  36721271665597299936
+    Amount out expected:  36684498005390322842
+    Repayment expected::  36349846338273689301
+    Amount in contract:   36721271665597299936
+    Profitcalc:           371425327323610635
+    Approved to trade     36349846338273689301  of token1
+    Transfered  36349846338273689301  of token1 to loanPool
+    balance Token0:       0
+    balance Token1:       371425327323610635
+    Repay complete
+    New balance token1:   371425327323610635
+    Transferred token1 to owner
+
+  Error: VM Exception while processing transaction: reverted with reason string 'UniswapV2: K'  
+
+
+
+
+{
+  id: '0x6e7a5FAFcec6BB1e78bAE2A1F0B612012BF14827',
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'A',
+  tradeSize: '1764.821349427088072761 WMATIC',
+  loanPool: {
+    exchange: 'SUSHI',
+    priceIn: '1.949772772857145064',
+    priceOut: '0.512880',
+    reservesIn: '257984.708061820163815265 WMATIC',
+    reservesOut: '132315.268555 USDC',
+    amountRepay: '896.31353 USDC',
+    repaysObj: {
+      simpleMulti: '901.689214 USDC',
+      getAmountsOut: '896.31353 USDC',
+      getAmountsIn: '901.678895 USDC'
+    }
+  },
+  target: {
+    exchange: 'QUICK',
+    priceIn: '1.976816238924702667',
+    priceOut: '0.505864',
+    reservesIn: '1764821.349427088072760827 WMATIC',
+    reservesOut: '892759.435438 USDC',
+    amountOut: '889.19463 USDC'
+  },
+  result: {
+    uniswapkPreT: '34135315930283008517330881883492075',
+    uniswapkPosT: '34132831183809821634933025099414800',
+    uniswapKPositive: false,
+    profit: '-7.1189 USDC',
+    profperc: '-0.800601%'
+  }
+}
+
+  
+eth_estimateGas
+  Contract call:           flashMultiTest#flashSwap
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0xc7116c3dd488712eb056ec18870df17d5abae481
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  5880483822807503272
+    amount1Out expected:  3004350
+    Contract Balance Before Loan Request:
+    Token0:  0
+    Token1:  0
+    Pair address:  0x55ff76bffc3cdd9d5fdbbc2ece4528ecce45047e
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    loanFactory:  0x1b02da8cb0d097eb8d57a175b88c7d8b47997506
+    LoanPool address:  0x55ff76bffc3cdd9d5fdbbc2ece4528ecce45047e
+    Target address:  0xc7116c3dd488712eb056ec18870df17d5abae481
+    msg.sender address:  0x55ff76bffc3cdd9d5fdbbc2ece4528ecce45047e
+    New token0 balance (loaned)::::::::::::::::::  5880483822807503272
+    Balances pre-swap:
+    balance Token0:::::::::::  5880483822807503272
+    balance Token1:::::::::::  0
+    ::::::::::::::::::getRepay:::::::::::::::::::::
+    expected repay in token1:  3023988
+    ::::::::::::::::::SWAP 1:::::::::::::::::::::
+
+  Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'
+      at <UnrecognizedContract>.<unknown> (0xc0788a3ad43d79aa53b09c2eacc313a787d1d607)
+      at flashMultiTest.getAmounts (contracts/flashMultiTest.sol:248)
+      at flashMultiTest.uniswapV2Call (contracts/flashMultiTest.sol:207)
+      at <UnrecognizedContract>.<unknown> (0x55ff76bffc3cdd9d5fdbbc2ece4528ecce45047e)
+      at flashMultiTest.flashSwap (contracts/flashMultiTest.sol:162)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+
+
+
+
+tract call:           flashMultiTest#flashSwap
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0xc7116c3dd488712eb056ec18870df17d5abae481
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  5880483822807503272
+    amount1Out expected:  3004350
+    Contract Balance Before Loan Request:
+    Token0:  0
+    Token1:  0
+    Pair address:  0x55ff76bffc3cdd9d5fdbbc2ece4528ecce45047e
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    loanFactory:  0x1b02da8cb0d097eb8d57a175b88c7d8b47997506
+    LoanPool address:  0x55ff76bffc3cdd9d5fdbbc2ece4528ecce45047e
+    Target address:  0xc7116c3dd488712eb056ec18870df17d5abae481
+    msg.sender address:  0x55ff76bffc3cdd9d5fdbbc2ece4528ecce45047e
+    New token0 balance (loaned)::::::::::::::::::  5880483822807503272
+    Balances pre-swap:
+    balance Token0:::::::::::  5880483822807503272
+    balance Token1:::::::::::  0
+    ::::::::::::::::::getRepay:::::::::::::::::::::
+    expected repay in token1:  3023988
+    ::::::::::::::::::SWAP 1:::::::::::::::::::::
+    Approving token0 to recipientRouter, Token0:  5880483822807503272
+    Comparing token0 balance to loanAmount:  5880483822807503272  loanAmount:  5880483822807503272
+
+  Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'
+      at <UnrecognizedContract>.<unknown> (0xc0788a3ad43d79aa53b09c2eacc313a787d1d607)
+      at flashMultiTest.getAmounts (contracts/flashMultiTest.sol:258)
+      at flashMultiTest.uniswapV2Call (contracts/flashMultiTest.sol:207)
+      at <UnrecognizedContract>.<unknown> (0x55ff76bffc3cdd9d5fdbbc2ece4528ecce45047e)
+      at flashMultiTest.flashSwap (contracts/flashMultiTest.sol:162)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_call
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0xfeff91c350bb564ca5dc7d6f7dcd12ac092f94ff
+
+eth_call
+  Contract call:           <UnrecognizedContract>
+  From:                    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0xfeff91c350bb564ca5dc7d6f7dcd12ac092f94ff
+
+eth_chainId (4)
+eth_call
+
+
+
+                 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                      0xc7116c3dd488712eb056ec18870df17d5abae481
+  Value:                   0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  5880483822807503272
+    amount1Out expected:  3004350
+    Contract Balance Before Loan Request:
+    Token0:  0
+    Token1:  0
+    Pair address:  0x55ff76bffc3cdd9d5fdbbc2ece4528ecce45047e
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    loanFactory:  0x1b02da8cb0d097eb8d57a175b88c7d8b47997506
+    LoanPool address:  0x55ff76bffc3cdd9d5fdbbc2ece4528ecce45047e
+    Target address:  0xc7116c3dd488712eb056ec18870df17d5abae481
+    msg.sender address:  0x55ff76bffc3cdd9d5fdbbc2ece4528ecce45047e
+    New token0 balance (loaned)::::::::::::::::::  5880483822807503272
+    Balances pre-swap:
+    balance Token0:::::::::::  5880483822807503272
+    balance Token1:::::::::::  0
+    ::::::::::::::::::getRepay:::::::::::::::::::::
+    expected repay in token1:  3023988
+    ::::::::::::::::::SWAP 1:::::::::::::::::::::
+    Approving token0 to recipientRouter, Token0:  5880483822807503272
+    Comparing token0 balance to loanAmount:  5880483822807503272  loanAmount:  5880483822807503272
+
+  Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'
+      at <UnrecognizedContract>.<unknown> (0xc0788a3ad43d79aa53b09c2eacc313a787d1d607)
+      at flashMultiTest.getAmounts (contracts/flashMultiTest.sol:258)
+      at flashMultiTest.uniswapV2Call (contracts/flashMultiTest.sol:207)
+      at <UnrecognizedContract>.<unknown> (0x55ff76bffc3cdd9d5fdbbc2ece4528ecce45047e)
+      at flashMultiTest.flashSwap (contracts/flashMultiTest.sol:162)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+eth_chainId
+eth_call
