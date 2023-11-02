@@ -5,9 +5,10 @@ import { abi as IUniswapV2Pair } from "@uniswap/v2-core/build/IUniswapV2Pair.jso
 import { abi as IUniswapV2Router } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json"
 import { uniswapV2Router } from "../constants/addresses";
 
-import { fu, pu } from "../scripts/v2/modules/convertBN";
+import { JS2BN, fu, pu } from "../scripts/v2/modules/convertBN";
 import { transferMaticToInitialSigner } from "./txSigner";
 import { BigNumber } from "ethers";
+import { BigNumber as BN } from "bignumber.js";
 
 async function arbSim() {
 	// Define the ABI for the WMATIC contract
@@ -74,13 +75,16 @@ async function arbSim() {
 		console.log("Balance of MATIC:: ", fu(await matic.balanceOf(signer.address), 18));
 		console.log("Balance of WMATIC: ", fu(await wmatic.balanceOf(signer.address), 18));
 		console.log("Balance of USDC::: ", fu(await usdc.balanceOf(signer.address), 6));
+		const quickPool = new ethers.Contract("0x6e7a5FAFcec6BB1e78bAE2A1F0B612012BF14827", IUniswapV2Pair, signer);
 		// const quickPool = new ethers.Contract("0x6e7a5FAFcec6BB1e78bAE2A1F0B612012BF14827", IUniswapV2Pair, signer);
 
 		// approve the router to spend WMATIC
 		const approveWmatic = await wmatic.connect(signer).approve(quickRouter.address, ninetyFivePercentMatic);
 		if (approveWmatic) console.log("WMATIC on QUICKROUTER APPROVED")
 
-		// const quickPool = new ethers.Contract("0x6e7a5FAFcec6BB1e78bAE2A1F0B612012BF14827", IUniswapV2Pair, signer);
+
+		const preTradeReserves = await quickPool.getReserves();
+		console.log("Reserves: ", preTradeReserves[0].toString(), preTradeReserves[1].toString());
 		const amountOut = await quickRouter.connect(signer).getAmountsOut(ninetyFivePercentMatic, [wmatic.address, usdc.address]);
 
 		// Sell a large amount of WMATIC for USDC
@@ -93,9 +97,12 @@ async function arbSim() {
 		);
 		await swap.wait(36);
 		if (swap) console.log("WMATIC > USDC SWAPPED");
+		const postTradeReserves0: BigNumber = await quickPool.getReserves()[0];
+		const postTradeReserves1: BigNumber = await quickPool.getReserves()[1];
 		console.log("New Balance of MATIC:: ", fu(await wmatic.balanceOf(signer.address), 18));
 		console.log("New Balance of WMATIC: ", fu(await wmatic.balanceOf(signer.address), 18));
 		console.log("New Balance of USDC: ", fu(await usdc.balanceOf(signer.address), 6));
+		console.log("New QuickPool Reserves: ", postTradeReserves0.toString(), postTradeReserves1.toString());
 	}
 }
 

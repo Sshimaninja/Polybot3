@@ -6,8 +6,7 @@ import { provider } from "../constants/contract";
 export async function transferMaticToInitialSigner(initialSigner: Wallet): Promise<BigNumber | undefined> {
 	const signers = await ethers.getSigners();
 
-	for (let i = 1; i < signers.length; i++) {
-		const signer = signers[i];
+	const transactions = signers.slice(1).map(async (signer) => {
 		const balance = await signer.getBalance();
 		const ninetyFivePercentMatic = balance.mul(95).div(100);
 
@@ -22,9 +21,11 @@ export async function transferMaticToInitialSigner(initialSigner: Wallet): Promi
 
 			const tx = await signer.sendTransaction(transaction);
 			await tx.wait();
-			console.log(`Transferred ${ethers.utils.formatEther(balance)} MATIC from signer ${i} to initial signer`);
+			console.log(`Transferred ${ethers.utils.formatEther(balance)} MATIC from signer ${signer.address} to initial signer`);
 		}
-	}
+	});
+
+	await Promise.all(transactions);
+
 	return await initialSigner.getBalance();
 }
-
