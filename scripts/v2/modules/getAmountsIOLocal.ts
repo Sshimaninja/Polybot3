@@ -34,6 +34,12 @@ export async function getAmountsIn(amountOut: BigNumber, reserveIn: BigNumber, r
 }
 
 
+export async function getAmountsInJS(amountOut: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
+	// reserveIn * amountOut
+	const numerator = amountOut.mul(reserveIn).mul(1000);
+	const denominator = reserveOut.mul(997).add(amountOut.mul(1000));
+	return numerator.div(denominator);
+}
 
 //from https://github.com/Uniswap/v2-periphery/blob/master/contracts/libraries/UniswapV2Library.sol
 
