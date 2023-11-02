@@ -35,6 +35,8 @@ export async function getMulti(trade: BoolTrade, calc: AmountConverter): Promise
 			getAmountsOut: repayByGetAmountsOut,
 			getAmountsIn: repayByGetAmountsIn,
 			//SET YOUR CHOICE HERE:
+			//getAmountsOut is wrong and forces a trade, but it is okay for testing at least.
+			//getAmountsIn is the recommended choice, but it does not yield trades often enough to test.
 			repay: repayByGetAmountsIn,
 		}
 		return repays;
