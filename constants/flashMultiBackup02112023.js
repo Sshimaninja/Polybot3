@@ -140,7 +140,7 @@ contract flashMultiTest is IUniswapV2Callee {
         uint256 amount1Out, // amountOutMin (expected). This should be at least the amount to repay the loan
         uint256 amountToRepay // amount of tokenOut to repay (flashMulti)
     ) external {
-        console.log("Contract flashMultiTest Entered");
+        emit log("Contract flashMultiTest Entered");
         require(
             msg.sender == address(owner),
             "Error: Only owner can call this function"
@@ -148,13 +148,13 @@ contract flashMultiTest is IUniswapV2Callee {
         pair = IUniswapV2Pair(
             IUniswapV2Factory(loanFactory).getPair(token0ID, token1ID)
         );
-        console.log("amount0In requested: ", amount0In);
-        console.log("amount1Out expected: ", amount1Out);
-        console.log(
+        emit logValue("amount0In requested: ", amount0In);
+        emit logValue("amount1Out expected: ", amount1Out);
+        emit logValue(
             "Contract Balance Before Swap: ",
             IERC20(token0ID).balanceOf(address(this))
         );
-        console.log("Pair address: ", address(pair));
+        emit logAddress("Pair address: ", address(pair));
         require(address(pair) != address(0), "Error: Pair does not exist");
         bytes memory data = abi.encode(
             loanFactory,
@@ -163,7 +163,7 @@ contract flashMultiTest is IUniswapV2Callee {
             amount1Out,
             amountToRepay
         );
-        console.log("Data encoded");
+        emit log("Data encoded");
         IERC20(token0ID).approve(address(pair), amount0In);
         pair.swap(
             amount0In, // Requested borrow of token0
@@ -171,19 +171,19 @@ contract flashMultiTest is IUniswapV2Callee {
             address(this), // Address to send swap callback to
             data // Encoded data for callback
         );
-        console.log(
+        emit logValue(
             "New Contract Balance (Token0):",
             IERC20(token0ID).balanceOf(address(this))
         );
-        console.log(
+        emit logValue(
             "New Contract Balance (Token1):",
             IERC20(token1ID).balanceOf(address(this))
         );
-        console.log(
+        emit logValue(
             "New Owner Balance (Token0):",
             IERC20(token0ID).balanceOf(owner)
         );
-        console.log(
+        emit logValue(
             "New Owner Balance (Token1):",
             IERC20(token1ID).balanceOf(owner)
         );
@@ -195,9 +195,9 @@ contract flashMultiTest is IUniswapV2Callee {
         uint256 _amount1,
         bytes calldata _data
     ) external override {
-        console.log("uniswapV2Call Entered");
+        emit log("uniswapV2Call Entered");
         address[] memory path = new address[](2);
-        console.log("Decoding Loan Data");
+        emit log("Decoding Loan Data");
         (
             address loanFactory,
             address loanRouter,
@@ -205,8 +205,8 @@ contract flashMultiTest is IUniswapV2Callee {
             uint256 amount1Out,
             uint256 amount1Repay
         ) = abi.decode(_data, (address, address, address, uint256, uint256));
-        console.log("Loan Data Decoded");
-        console.log("loanFactory: ", loanRouter);
+        emit log("Loan Data Decoded");
+        emit logAddress("loanFactory: ", loanRouter);
         //This only works because we are only requesting then swapping one token
         path[0] = IUniswapV2Pair(msg.sender).token0();
         path[1] = IUniswapV2Pair(msg.sender).token1();
@@ -214,33 +214,29 @@ contract flashMultiTest is IUniswapV2Callee {
             IUniswapV2Factory(loanFactory).getPair(path[0], path[1])
         );
         uint256 prek = getK();
-        console.log("Uniswap K Before Swap: ", prek);
+        emit logValue("Uniswap K Before Swap: ", prek);
 
-        console.log("LoanPool address: ", address(pair));
-        console.log("Target address: ", address(this));
-        console.log("msg.sender address: ", msg.sender);
+        emit logAddress("LoanPool address: ", address(pair));
+        emit logAddress("Target address: ", address(this));
+        emit logAddress("msg.sender address: ", msg.sender);
         require(msg.sender == address(pair), "Error: Unauthorized");
         require(_sender == address(this), "Error: Not sender");
         require(_amount0 == 0 || _amount1 == 0, "Error: Invalid amounts");
         IERC20 token0 = IERC20(path[0]);
         IERC20 token1 = IERC20(path[1]);
-        console.log("Amount0 requested: ", _amount0);
-        console.log("Token0 address: ", path[0]);
-        console.log("Amount1 expected: ", _amount1);
-        console.log("Token1 address: ", path[1]);
-        console.log(
+        emit logValue("Amount0 requested: ", _amount0);
+        emit logAddress("Token0 address: ", path[0]);
+        emit logValue("Amount1 expected: ", _amount1);
+        emit logAddress("Token1 address: ", path[1]);
+        emit logValue(
             "New token0 balance (loaned):::::::::::::::::: ",
             token0.balanceOf(address(this))
         );
-        console.log("Approving recipientRouter to trade token0");
+        emit log("Approving recipientRouter to trade token0");
         token0.approve(address(recipientRouter), _amount0);
-        console.log(
-            "Approved to trade ",
-            _amount0,
-            " of token0 on recipientRouter"
-        );
-        console.log("balance Token0: ", token0.balanceOf(address(this)));
-        console.log("balance Token1: ", token1.balanceOf(address(this)));
+        emit logValue("Approved to trade ", _amount0);
+        emit logValue("balance Token0: ", token0.balanceOf(address(this)));
+        emit logValue("balance Token1: ", token1.balanceOf(address(this)));
         // uint256[] memory amounts = new uint256[](2);
         // amounts[0] = 0;
         // amounts[1] = 0;
@@ -248,27 +244,29 @@ contract flashMultiTest is IUniswapV2Callee {
             _amount0,
             amount1Repay,
             amount1Out,
-            loanRouter,
+            // loanRouter,
             recipientRouter,
             path
         );
-        console.log("New balance of token1: ", token1.balanceOf(address(this)));
+        emit logValue(
+            "New balance of token1: ",
+            token1.balanceOf(address(this))
+        );
         token1.transfer(owner, token1.balanceOf(address(this)));
-        console.log("Transferred token1 to owner");
+        emit log("Transferred token1 to owner");
     }
 
     function getAmounts(
         uint256 loanAmount,
         uint256 amount1Repay,
         uint256 amount1Out,
-        address loanRouter,
+        // address loanRouter,
         address recipientRouter,
         address[] memory path
     ) internal returns (uint256 amountOut) {
         IERC20 token0 = IERC20(path[0]);
         IERC20 token1 = IERC20(path[1]);
         uint256 deadline = block.timestamp + 5 minutes;
-        uint256[] memory repay = getRepay(loanAmount, loanRouter, path);
         amountOut = IUniswapV2Router02(address(recipientRouter))
         // swap exactly loanAmount token0 for minimum amount1Repay token1
             .swapExactTokensForTokens(
@@ -280,31 +278,32 @@ contract flashMultiTest is IUniswapV2Callee {
                 address(this), // HOPING THAT SENDING THIS TO PAIR ADDRESS SIMPLIFIES EVERYTHING.
                 deadline // deadline
             )[1];
+        uint256[] memory repay = getRepay(loanAmount, recipientRouter, path);
 
-        console.log("Swap 1 complete");
-        console.log("Amount out recieved: ", amountOut);
-        console.log("Amount out expected: ", amount1Out);
-        console.log("Repayment expected:: ", amount1Repay);
-        console.log("Repayment calcuated: ", repay[0]);
+        emit log("Swap 1 complete");
+        emit logValue("Amount out recieved: ", amountOut);
+        emit logValue("Amount out expected: ", amount1Out);
+        emit logValue("Repayment expected:: ", amount1Repay);
+        emit logValue("Repayment calcuated: ", repay[0]);
         token1.approve(address(this), amount1Repay);
-        console.log("Approved to trade ", amount1Repay, " of token1");
+        emit logValue("Approved to trade ", amount1Repay);
         token1.transfer(address(pair), amount1Repay);
-        console.log("Transfered ", amount1Repay, " of token1 to loanPool");
-        console.log("balance Token0: ", token0.balanceOf(address(this)));
-        console.log("balance Token1: ", token1.balanceOf(address(this)));
+        emit logValue("Transfered ", amount1Repay);
+        emit logValue("balance Token0: ", token0.balanceOf(address(this)));
+        emit logValue("balance Token1: ", token1.balanceOf(address(this)));
         uint256 kpost = getK();
-        console.log("Uniswap K After Swap: ", kpost);
-        // console.log("Calculating repayment in token1");
+        emit logValue("Uniswap K After Swap: ", kpost);
+        // emit log("Calculating repayment in token1");
         // uint256 repay = IUniswapV2Router02(loanRouter).getAmountsOut(
         // 	amountOut,
         // 	path
         // )[path.length-1];
-        // console.log("Amount repay expected::::: ", amount1Out);
-        // console.log("Amount repay calculated::: ", repay);
-        // console.log("Amount in contract: ", token1.balanceOf(address(this)));
-        // console.log("Approving loanRouter to repay loanPool");
+        // emit log("Amount repay expected::::: ", amount1Out);
+        // emit log("Amount repay calculated::: ", repay);
+        // emit log("Amount in contract: ", token1.balanceOf(address(this)));
+        // emit log("Approving loanRouter to repay loanPool");
         // // token1.approve(address(loanRouter), repay);
-        // console.log("Approved to trade ", repay, " of token1 on loanRouter");
+        // emit log("Approved to trade ", repay, " of token1 on loanRouter");
         //repay loanPool
         // token1.transfer(address(pair), repay);
         // Attempting a second swap is triggering Uniswap: Locked re-entrancy guard.
@@ -318,8 +317,8 @@ contract flashMultiTest is IUniswapV2Callee {
         // 		msg.sender,
         // 		deadline
         // 	)[0];//Could be that this is wrong.
-        console.log("Repay complete");
-        // console.log("Amount repay calculated::: ", repay);
+        emit log("Repay complete");
+        // emit log("Amount repay calculated::: ", repay);
         // amounts[1] = repay;
     }
 

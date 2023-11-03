@@ -928,7 +928,6 @@ eth_estimateGas
     Decoding Loan Data
     Loan Data Decoded
     loanFactory:  0x1b02da8cb0d097eb8d57a175b88c7d8b47997506
-    Uniswap K Before Swap:  254310522796017673225876253968180
     LoanPool address:  0x55ff76bffc3cdd9d5fdbbc2ece4528ecce45047e
     Target address:  0xc7116c3dd488712eb056ec18870df17d5abae481
     msg.sender address:  0x55ff76bffc3cdd9d5fdbbc2ece4528ecce45047e
@@ -950,6 +949,7 @@ eth_estimateGas
     Transfered  3004286  of token1 to loanPool
     balance Token0:  0
     balance Token1:  3077
+    Uniswap K Before Swap: 254310522796017673225876253968180    
     Uniswap K After Swap:  254310522796017673225876253968180
     Repay complete
     New balance of token1:  3077
