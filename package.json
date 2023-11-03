@@ -60,6 +60,7 @@
         "bot": "npx ts-node index",
 		"arbSim": "npx hardhat run --network localhost test/arbSim.ts",
 		"deployTests": "npx hardhat run --network localhost scripts/deployFlashTests.ts",
+		"deployContracts": "npx hardhat run --network polygon scripts/deployFlash.ts",
         "match2": "npx ts-node utils/dexdata/V2/matchPairsCtrl",
         "match3": "npx ts-node utils/dexdata/V3/matchPools",
         "test": "mocha",
