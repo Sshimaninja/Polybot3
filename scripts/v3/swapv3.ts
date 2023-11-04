@@ -36,11 +36,8 @@ export async function control(data: FactoryPair[], gasData: any) {
 		for (const match of pair.matches) {
 			if (!tradePending && match.poolA_id !== pendingID && match.poolB_id !== pendingID) {
 
-				const a = new AmountsCalculator();
 
-
-
-				const t = new Trade(pair, match, p0, p1, amounts[0], amounts[1], gasData);
+				const t = new Trade(pair, match, gasData);
 				const trade = await t.getTrade();
 
 				const dataPromise = tradeLogs(trade);
