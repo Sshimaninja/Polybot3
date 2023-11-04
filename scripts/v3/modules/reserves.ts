@@ -3,7 +3,7 @@ import { BigNumber as BN } from "bignumber.js";
 import { abi as IPool } from '@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json';
 import { abi as IPoolState } from '@uniswap/v3-core/artifacts/contracts/interfaces/pool/IUniswapV3PoolState.sol/IUniswapV3PoolState.json';
 import { wallet } from '../../../constants/contract'
-import { ReservesData, PoolV3 } from "../../../constants/interfaces";
+import { ReservesData, } from "../../../constants/interfaces";
 /**
  * @description
  * This class returns an array of an array of reserves for an array of pairs.
@@ -14,18 +14,58 @@ import { ReservesData, PoolV3 } from "../../../constants/interfaces";
  * @description
  * This class returns an array of an array of reserves for an array of pairs.
  */
+
+//Interfaces:
+export interface V3Matches {
+	exchangeA: string;
+	exchangeB: string;
+	matches: Match3Pools[];
+}
+
+export interface Match3Pools {
+	ticker: string;
+	poolID0: {
+		// exchange: string,
+		// factory: Promise<Contract>,
+		id: string,
+		tickSpacing: number
+		fee: number
+	}
+	poolID1: {
+		// exchange: string,
+		// factory: Promise<Contract>,
+		id: string,
+		tickSpacing: number
+		fee: number
+	}
+	token0: {
+		// contract: Contract,
+		id: string,
+		symbol: string,
+		decimals: number
+	}
+	token1: {
+		// contract: Contract,
+		id: string,
+		symbol: string,
+		decimals: number
+	}
+}
+
+
+
 export class ReservesV3 {
 	static reserves: ReservesData[] = [];
 
-	constructor(match: PoolV3) {
+	constructor(match: Match3Pools) {
 		this.getReserves(match)
 	}
 
-	async getPoolIDs(pair: PoolV3): Promise<string[]> {
+	async getPoolIDs(pair: Match3Pools): Promise<string[]> {
 		const poolIDs: string[] = [];
 		for (const key in pair) {
 			if (key.startsWith("pool")) {
-				const poolID = pair[key as keyof PoolV3];
+				const poolID = pair[key as keyof Match3Pools];
 				if (typeof poolID === "string") {
 					poolIDs.push(poolID);
 				}
@@ -34,7 +74,7 @@ export class ReservesV3 {
 		return poolIDs;
 	}
 
-	async getReserves(match: PoolV3): Promise<ReservesData[]> {
+	async getReserves(match: Match3Pools): Promise<ReservesData[]> {
 		const poolIDs = await this.getPoolIDs(match);
 		const reserves: ReservesData[] = [];
 		for (const poolID of poolIDs) {
@@ -64,49 +104,51 @@ export class ReservesV3 {
 
 export class InRangeLiquidity {
 	static liquidity: BigNumber[] = [];
+	match: Match3Pools;
 
-	constructor(match: PoolV3) {
-		this.getLiquidity(match)
+	constructor(match: Match3Pools) {
+		this.match = match;
 	}
-
-	async getPoolIDs(pool: PoolV3): Promise<string[]> {
-		const poolIDs: string[] = [];
-		for (const key in pool) {
-			if (key.startsWith("pool")) {
-				const poolID = pool[key as keyof PoolV3];
-				if (typeof poolID === "string") {
-					poolIDs.push(poolID);
-				}
-			}
-		}
-		return poolIDs;
-	}
-
 	/*
 	liquidity0 = liquidity * sqrtPriceX96 / 2 ** 96
 	liquidity1 = liquidity * 2 ** 96 / sqrtPriceX96 
 	 */
 
-	async getLiquidity(match: PoolV3): Promise<BigNumber[]> {
-		const poolIDs = await this.getPoolIDs(match);
+	async getLiquidity(): Promise<BigNumber[]> {
 		const liquidityArray: BigNumber[] = [];
-		for (const poolID of poolIDs) {
-			let pool = new ethers.Contract(poolID, IPoolState, wallet);
-			if (pool.address != '0x0000000000000000000000000000000000000000') {
-				const liquidity = await pool.liquidity();
-				const [sqrtPriceX96, , , , , ,] = await pool.slot0();
-				let liquidity0 = liquidity.mul(sqrtPriceX96).div(BigNumber.from(2).pow(96));
-				let liquidity1 = liquidity.mul(BigNumber.from(2).pow(96)).div(sqrtPriceX96);
-				console.log("liquidity0: ", liquidity0.toString());
-				console.log("liquidity1: ", liquidity1.toString());
-				liquidityArray.push(liquidity0, liquidity1);
-				return liquidityArray;
+		for (const pools of [this.match]) {
+			// console.log('enter loop poolID: ', pools.poolID0.id)
+			let poolA = new ethers.Contract(pools.poolID0.id, IPoolState, wallet);
+			let poolB = new ethers.Contract(pools.poolID1.id, IPoolState, wallet);
+
+			if (poolA.address != '0x0000000000000000000000000000000000000000' || poolB.address != '0x0000000000000000000000000000000000000000') {
+				const liquidityA = await poolA.liquidity();
+				const [sqrtPriceX96, , , , , ,] = await poolA.slot0();
+
+				let liquidityA0 = liquidityA.mul(sqrtPriceX96).div(BigNumber.from(2).pow(96));
+				let liquidityA1 = liquidityA.mul(BigNumber.from(2).pow(96)).div(sqrtPriceX96);
+
+				let liquidityB0 = liquidityA.mul(sqrtPriceX96).div(BigNumber.from(2).pow(96));
+				let liquidityB1 = liquidityA.mul(BigNumber.from(2).pow(96)).div(sqrtPriceX96);
+
+				console.log("liquidityA0: ", liquidityA0.toString());
+				console.log("liquidityA1: ", liquidityA1.toString());
+				console.log("liquidityB0: ", liquidityB0.toString());
+				console.log("liquidityB1: ", liquidityB1.toString());
+
+				if (liquidityA0.isZero() || liquidityA1.isZero()) {
+					console.log("Pool for >" + poolA.address + "< no longer exists!")
+				} else {
+					liquidityArray.push(liquidityA0, liquidityA1, liquidityB0, liquidityB1);
+
+					return liquidityArray;
+				}
 			}
+			console.log(liquidityArray);
+			// console.log("Pool for >" + this.match.ticker + "< no longer exists!")
+			// return liquidityArray;
 		}
-		console.log("Pool for >" + match.ticker + "< no longer exists!")
 		return liquidityArray;
 	}
-
 };
-
 
