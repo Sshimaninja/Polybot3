@@ -118,28 +118,36 @@ export interface Valid3Pool {
 	block: number;
 }
 
+export interface V3Matches {
+	exchangeA: string;
+	exchangeB: string;
+	matches: Match3Pools[];
+}
+
 export interface Match3Pools {
 	ticker: string;
 	poolID0: {
-		factory: Contract,
+		// exchange: string,
+		// factory: Promise<Contract>,
 		id: string,
 		tickSpacing: number
 		fee: number
 	}
 	poolID1: {
-		factory: Contract,
+		// exchange: string,
+		// factory: Promise<Contract>,
 		id: string,
 		tickSpacing: number
 		fee: number
 	}
 	token0: {
-		contract: Contract,
+		// contract: Contract,
 		id: string,
 		symbol: string,
 		decimals: number
 	}
 	token1: {
-		contract: Contract,
+		// contract: Contract,
 		id: string,
 		symbol: string,
 		decimals: number

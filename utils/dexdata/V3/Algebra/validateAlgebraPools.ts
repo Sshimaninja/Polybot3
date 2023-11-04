@@ -57,7 +57,7 @@ export async function validateAlgebraPools() {
 			});
 		const validPools = await Promise.all(validated);
 		console.log('validPool', validated)
-		fs.writeFile(`./data/validPairs/v3/${exchangeName}.json`, JSON.stringify(validPools), 'utf8', (err: any) => {
+		fs.writeFile(`./data/validPairs/algebra/${exchangeName}.json`, JSON.stringify(validPools), 'utf8', (err: any) => {
 			if (err) throw err;
 			console.log(`File ${fileName} written successfully.`);
 		});
