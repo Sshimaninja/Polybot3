@@ -3,7 +3,7 @@ import { BoolTrade } from '../../../constants/interfaces'
 import { Profit } from '../../../constants/interfaces'
 import { fetchGasPrice } from './fetchGasPrice';
 import { getProfitInMatic } from './getProfitInMatic';
-import { fu } from './convertBN';
+import { fu } from '../../modules/convertBN';
 require('dotenv').config()
 /**
  * Determines whether the profit is greater than the gas cost.

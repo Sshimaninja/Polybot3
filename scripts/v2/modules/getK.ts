@@ -1,7 +1,7 @@
 import { BigNumber } from "ethers";
 import { K } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter"
-import { BN2JS } from "./convertBN";
+import { BN2JS } from "../../modules/convertBN";
 import { getAmountsInJS } from "./getAmountsIOLocal";
 
 /**

@@ -2,7 +2,7 @@
 import { BigNumber as BN } from "bignumber.js";
 import { BigNumber } from "ethers";
 import { BoolTrade } from "../../../constants/interfaces";
-import { JS2BN, fu } from "./convertBN";
+import { JS2BN, fu } from "../../modules/convertBN";
 /**
  * This doc calculates whether trade will revert due to uniswak K being positive or negative
  * Uni V2 price formula: X * Y = K

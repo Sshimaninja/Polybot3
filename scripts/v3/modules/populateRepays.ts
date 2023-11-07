@@ -1,42 +1,38 @@
 import { BigNumber, BigNumberish } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
-import { Profcalcs, Repays, BoolTrade } from "../../../constants/interfaces";
+import { Profcalcs, V3Repays, BoolTrade, Bool3Trade, Match3Pools, PoolState } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter";
-import { getAmountsIn, getAmountsOut } from "./getAmountsIOLocal";
+import { getAmountOutMax, getAmountInMin } from "./v3Quote";
 import { JS2BN, BN2JS, fu, pu } from "../../modules/convertBN";
 
 
-export async function getMulti(trade: BoolTrade, calc: AmountConverter): Promise<{ repays: Repays, profits: { profit: BigNumber, profitPercent: BN } }> {
+export async function getMulti(match: Match3Pools, trade: Bool3Trade, state: PoolState): Promise<{ repays: Repays, profits: { profit: BigNumber, profitPercent: BN } }> {
 	/*
 	I have to send back only the amount of token1 needed to repay the amount of token0 I was loaned.
 	Thus I need to calculate the exact amount of token1 that tradeSize in tokenOut represents on loanPool, 
 	and subtract it from recipient.amountOut before sending it back
 	*/
 	// const postReserveIn = trade.loanPool.reserveIn.sub(trade.target.tradeSize); // I think this is only relevant for uniswap K calcs				
-	async function getRepay(): Promise<Repays> {
-		const tradeSizeInTermsOfTokenOutOnLoanPool =
-			trade.target.tradeSize
-				.mul(trade.loanPool.reserveOut)
-				.div(trade.loanPool.reserveIn.add(trade.target.tradeSize)); // <= This is the amount of tokenOut that tradeSize in tokenOut represents on loanPool.
-		const simple = await calc.addFee(tradeSizeInTermsOfTokenOutOnLoanPool)
+	async function getRepay(): Promise<V3Repays> {
+		// const tradeSizeInTermsOfTokenOutOnLoanPool =
+		// 	trade.target.tradeSize
+		// 		.mul(trade.loanPool.reserveOut)
+		// 		.div(trade.loanPool.reserveIn.add(trade.target.tradeSize)); // <= This is the amount of tokenOut that tradeSize in tokenOut represents on loanPool.
+		// const simple = await calc.addFee(tradeSizeInTermsOfTokenOutOnLoanPool)
 
-		const repayByGetAmountsOut = await getAmountsOut(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
-			trade.target.tradeSize,
-			trade.loanPool.reserveIn,
-			trade.loanPool.reserveOut // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
+		const repayByGetAmountsOut = await getAmountOutMax(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
+			match,
+			state,
+			trade.target.tradeSize
 		)
-		const repayByGetAmountsIn = await getAmountsIn( //Will output tokenIn.
-			trade.target.tradeSize,
-			trade.loanPool.reserveOut, // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
-			trade.loanPool.reserveIn
+		const repayByGetAmountsIn = await getAmountInMin( //Will output tokenIn.
+			match,
+			state,
+			repayByGetAmountsOut
 		)
-		const repays: Repays = {
-			simpleMulti: simple,
+		const repays: V3Repays = {
 			getAmountsOut: repayByGetAmountsOut,
 			getAmountsIn: repayByGetAmountsIn,
-			//SET YOUR CHOICE HERE:
-			//getAmountsOut is wrong and forces a trade, but it is okay for testing at least.
-			//getAmountsIn is the recommended choice, but it does not yield trades often enough to test.
 			repay: repayByGetAmountsIn,
 		}
 		return repays;
@@ -64,17 +60,15 @@ export async function getMulti(trade: BoolTrade, calc: AmountConverter): Promise
 }
 
 
-export async function getDirect(trade: BoolTrade, calc: AmountConverter): Promise<{ repay: BigNumber, profit: BigNumber, percentProfit: BN }> {
-	const repay = await calc.addFee(trade.target.tradeSize);
-	// const directRepayLoanPoolInTokenOut = await getAmountsOut(
-	// 	trade.target.tradeSize,
-	// 	trade.loanPool.reserveIn, // 
-	// 	trade.loanPool.reserveOut
-	// );
-	const directRepayLoanPoolInTokenOut = await getAmountsIn(
-		trade.target.tradeSize,
-		trade.loanPool.reserveOut, //<== getAmountsIn returns amountIn in terms of token in this position.  
-		trade.loanPool.reserveIn
+export async function getDirect(match: Match3Pools, trade: Bool3Trade, state: PoolState): Promise<{ repay: BigNumber, profit: BigNumber, percentProfit: BN }> {
+
+	const repay = trade.target.tradeSize;//must add fee from pool v3 to this.
+
+	const directRepayLoanPoolInTokenOut = await getAmountInMin(
+		match,
+		state,
+		repay
+
 	);
 	const directRepayLoanPoolInTokenOutWithFee = await calc.addFee(directRepayLoanPoolInTokenOut);
 	const profit = trade.target.amountOut.sub(directRepayLoanPoolInTokenOutWithFee); // profit is remainder of token1 out

@@ -17,8 +17,6 @@ type QuoterMap = { [protocol: string]: string };
 
 export const uniswapQuoter: QuoterMap = {
 	UNI: "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
-	SUSHI: "0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",
-	QUICK: "0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff",
 	QUICKV3: "0xa15F0D7377B2A0C0c10db057f641beD21028FC89",
 };
 
