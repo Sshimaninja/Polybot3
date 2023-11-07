@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { InRangeLiquidity } from '../../../scripts/v3/modules/inRangeLiquidity';
 import { Match3Pools, Valid3Pool as Pool, PoolsV3, V3Matches } from '../../../constants/interfaces';
 import { uniswapV3Factory, algebraFactory } from '../../../constants/addresses';
 import { abi as IERC20 } from '../../../interfaces/IERC20.json';
@@ -38,11 +39,11 @@ export async function matchPools() {
 
 
 
-				for (const poolA of dataA) {
+				outerLoop: for (const poolA of dataA) {
 					for (const poolB of dataB) {
 						if (poolA.token1 !== poolB.token1 && poolA.token0 !== poolB.token0) {
-							console.log("No Match: ", poolA.poolID, poolB.poolID)
-							console.log('Tokens: ' + poolA.token0 + ' ' + poolA.token1 + ' ' + poolB.token0 + ' ' + poolB.token1)
+							// console.log("No Match: ", poolA.poolID, poolB.poolID)
+							// console.log('Tokens: ' + poolA.token0 + ' ' + poolA.token1 + ' ' + poolB.token0 + ' ' + poolB.token1)
 						}
 						if (
 							(poolA.token0 === poolB.token0) &&
@@ -52,23 +53,31 @@ export async function matchPools() {
 							// (poolA.token0 === poolB.token1 &&
 							// 	poolA.token1 === poolB.token0)
 						) {
-							console.log("loop3", poolA.poolID, poolB.poolID)
+							console.log("Match: ", poolA.poolID, poolB.poolID)
 							let PoolA = new Contract(poolA.poolID, IUniswapV3Pool, provider);
-							console.log('poolA initialized', PoolA.address)
 							let PoolB = new Contract(poolB.poolID, IAlgebraPool, provider);
-							console.log('poolB initialized', PoolB.address)
 							let token0 = new Contract(poolA.token0, IERC20, provider);
-							console.log('token0 initialized', token0.address)
 							let token1 = new Contract(poolA.token1, IERC20, provider);
-							console.log('token1 initialized', token1.address)
+
+							const r0 = new InRangeLiquidity(PoolA)
+							const r1 = new InRangeLiquidity(PoolB)
+							const state0 = await r0.getPoolState();
+							const state1 = await r1.getPoolState();
+							if (state0 == undefined && state1 == undefined) {
+								console.log("state0 or state1 undefined. Match Invalidated::: ", poolA.poolID, poolB.poolID)
+								continue outerLoop;
+							};
+
 							let poolMatch: Match3Pools = {
 								ticker: (await token0.symbol()) + '/' + (await token1.symbol()),
-								poolID0: {
+								pool0: {
+									exchange: `${fileAName}`,
 									id: poolA.poolID,
 									tickSpacing: poolA.tickSpacing,
 									fee: poolA.fee
 								},
-								poolID1: {
+								pool1: {
+									exchange: `${fileBName}`,
 									id: poolB.poolID,
 									tickSpacing: poolB.tickSpacing,
 									fee: poolB.fee

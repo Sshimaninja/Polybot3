@@ -1,19 +1,21 @@
 import { BigNumber } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
-import { Amounts, FactoryPair, GasData, Pair, Profcalcs, Repays } from "../../constants/interfaces";
+import { Amounts, FactoryPair, GasData, Match3Pools, Pair, PoolState, Profcalcs, Repays, V3Matches } from "../../constants/interfaces";
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
 import { wallet, flashMulti, flashDirect } from "../../constants/contract";
 import { Contract } from "@ethersproject/contracts";
-import { Prices } from "./modules/prices";
-import { getK } from "./modules/getK";
-import { BoolTrade } from "../../constants/interfaces"
-import { getMulti, getDirect } from "./modules/populateRepays";
-import { getAmountsIn, getAmountsOut } from "./modules/getAmountsIOLocal";
+// import { Prices } from "./modules/prices";
+// import { getK } from "./modules/getK";
+import { Bool3Trade } from "../../constants/interfaces"
+// import { getMulti, getDirect } from "../modules/populateRepays";
+// import { getAmountsIn, getAmountsOut } from "./modules/getAmountsIOLocal";
 import { AmountConverter } from "./modules/amountConverter";
-import { JS2BN, JS2BNS, BN2JS, BN2JSS, fu, pu } from "./modules/convertBN";
+import { getAmountOutMax, getAmountInMin } from "./modules/v3Quote";
+import { JS2BN, JS2BNS, BN2JS, BN2JSS, fu, pu } from "../modules/convertBN";
 import { filterTrade } from "./modules/filterTrade";
+// import { filterTrade } from "./modules/filterTrade";
 /**
  * @description
  * Class to determine trade parameters 
@@ -21,32 +23,35 @@ import { filterTrade } from "./modules/filterTrade";
   * 
 */
 export class Trade {
-	trade: BoolTrade | undefined;
-	pair: FactoryPair;
-	match: Pair;
-	price0: Prices;
-	price1: Prices;
+	trade: Bool3Trade | undefined;
+	match: Match3Pools;
+	pool0: Contract;
+	pool1: Contract;
+	state0: PoolState | undefined;
+	state1: PoolState | undefined;
 	slip: BN;
 	gasData: GasData;
 
-	calc0: AmountConverter;
-	calc1: AmountConverter;
-
-	constructor(pair: FactoryPair, match: Pair, price0: Prices, price1: Prices, slip: BN, gasData: GasData) {
-		this.pair = pair;
-		this.price0 = price0;
-		this.price1 = price1;
+	constructor(match: Match3Pools, pool0: Contract, pool1: Contract, state0: PoolState | undefined, state1: PoolState | undefined, slip: BN, gasData: GasData) {
 		this.match = match;
+		this.pool0 = pool0;
+		this.pool1 = pool1;
+		this.state0 = state0;
+		this.state1 = state1;
 		this.slip = slip;
 		this.gasData = gasData;
 		// Pass in the opposing pool's priceOut as target
-		this.calc0 = new AmountConverter(price0, match, this.price1.priceOutBN, slip);
-		this.calc1 = new AmountConverter(price1, match, this.price0.priceOutBN, slip);
+		// this.calc0 = new AmountConverter(state0, match, this.state1.priceOutBN, slip);
+		// this.calc1 = new AmountConverter(state1, match, this.state0.priceOutBN, slip);
+
 	}
 
 	async direction() {
-		const A = this.price0.priceOutBN
-		const B = this.price1.priceOutBN
+		if (!this.state0 || !this.state1) {
+			throw new Error('state0 and state1 must be defined');
+		}
+		const A = this.state0.priceOutBN
+		const B = this.state1.priceOutBN
 		const diff = A.lt(B) ? B.minus(A) : A.minus(B)
 		const dperc = diff.div(A.gt(B) ? A : B).multipliedBy(100)// 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
 		const dir = A.lt(B) ? "A" : "B"
@@ -58,18 +63,26 @@ export class Trade {
 		// use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
 		const maxIn = await target.getMaxTokenIn();
 		const bestSize = toPrice.lt(maxIn) ? toPrice : maxIn;
-		const safeReserves = loan.reserves.reserveIn.mul(1000).div(800); //Don't use more than 80% of the reserves
+		const safeReserves = loan.state.reserveIn.mul(1000).div(800); //Don't use more than 80% of the reserves
 		const size = bestSize.gt(safeReserves) ? safeReserves : bestSize;
 
 		return size;
 	}
 
 	async getTrade() {
+		if (!this.state0 || !this.state1) {
+			throw new Error('state0 and state1 must be defined');
+		}
+
 		const dir = await this.direction();
 		const A = dir.dir == "A" ? true : false;
 
-		const trade: BoolTrade = {
-			ID: A ? this.match.poolA_id : this.match.poolB_id,
+		const calc0 = new AmountConverter(this.state0, this.match, this.state1.priceOutBN, this.slip);
+		const calc1 = new AmountConverter(this.state1, this.match, this.state0.priceOutBN, this.slip);
+
+
+		const trade: Bool3Trade = {
+			ID: A ? this.match.pool0.id : this.match.pool1.id,
 			direction: dir.dir,
 			type: "error",
 			ticker: this.match.token0.symbol + "/" + this.match.token1.symbol,
@@ -77,16 +90,15 @@ export class Trade {
 			tokenOut: this.match.token1,
 			flash: flashMulti, // This has to be set initially, but must be changed later per type.
 			loanPool: {
-				exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
-				factory: A ? new Contract(this.pair.factoryB_id, IFactory, wallet) : new Contract(this.pair.factoryA_id, IFactory, wallet),
-				router: A ? new Contract(this.pair.routerB_id, IRouter, wallet) : new Contract(this.pair.routerA_id, IRouter, wallet),
-				pool: A ? new Contract(this.match.poolB_id, IPair, wallet) : new Contract(this.match.poolA_id, IPair, wallet),
-				reserveIn: A ? this.price1.reserves.reserveIn : this.price0.reserves.reserveIn,
-				reserveInBN: A ? this.price1.reserves.reserveInBN : this.price0.reserves.reserveInBN,
-				reserveOut: A ? this.price1.reserves.reserveOut : this.price0.reserves.reserveOut,
-				reserveOutBN: A ? this.price1.reserves.reserveOutBN : this.price0.reserves.reserveOutBN,
-				priceIn: A ? this.price1.priceInBN.toFixed(this.match.token0.decimals) : this.price0.priceInBN.toFixed(this.match.token0.decimals),
-				priceOut: A ? this.price1.priceOutBN.toFixed(this.match.token1.decimals) : this.price0.priceOutBN.toFixed(this.match.token1.decimals),
+				exchange: A ? this.match.pool1.exchange : this.match.pool0.exchange,
+				pool: A ? this.pool1 : this.pool0,
+				feeTier: A ? this.match.pool1.fee : this.match.pool0.fee,
+				reserveIn: A ? this.state1.reserveIn : this.state0.reserveIn,
+				reserveInBN: A ? this.state1.reserveInBN : this.state0.reserveInBN,
+				reserveOut: A ? this.state1.reserveOut : this.state0.reserveOut,
+				reserveOutBN: A ? this.state1.reserveOutBN : this.state0.reserveOutBN,
+				priceIn: A ? this.state1.priceInBN.toFixed(this.match.token0.decimals) : this.state0.priceInBN.toFixed(this.match.token0.decimals),
+				priceOut: A ? this.state1.priceOutBN.toFixed(this.match.token1.decimals) : this.state0.priceOutBN.toFixed(this.match.token1.decimals),
 				repays: {
 					simpleMulti: BigNumber.from(0),
 					getAmountsOut: BigNumber.from(0),
@@ -97,18 +109,16 @@ export class Trade {
 
 			},
 			target: {
-				exchange: A ? this.pair.exchangeA : this.pair.exchangeB,
-				factory: A ? new Contract(this.pair.factoryA_id, IFactory, wallet) : new Contract(this.pair.factoryB_id, IFactory, wallet),
-				router: A ? new Contract(this.pair.routerA_id, IRouter, wallet) : new Contract(this.pair.routerB_id, IRouter, wallet),
-				pool: A ? new Contract(this.match.poolA_id, IPair, wallet) : new Contract(this.match.poolB_id, IPair, wallet),
-				reserveIn: A ? this.price0.reserves.reserveIn : this.price1.reserves.reserveIn,
-				reserveInBN: A ? this.price0.reserves.reserveInBN : this.price1.reserves.reserveInBN,
-				reserveOut: A ? this.price0.reserves.reserveOut : this.price1.reserves.reserveOut,
-				reserveOutBN: A ? this.price0.reserves.reserveOutBN : this.price1.reserves.reserveOutBN,
-				priceIn: A ? this.price0.priceInBN.toFixed(this.match.token0.decimals) : this.price1.priceInBN.toFixed(this.match.token0.decimals),
-				priceOut: A ? this.price0.priceOutBN.toFixed(this.match.token1.decimals) : this.price1.priceOutBN.toFixed(this.match.token1.decimals),
-				//TODO: FIX THE CALCS FOR MAXIN() WHICH ARE WRONG.
-				tradeSize: A ? await this.getSize(this.calc1, this.calc0) : await this.getSize(this.calc0, this.calc1),
+				exchange: A ? this.match.pool0.exchange : this.match.pool1.exchange,
+				pool: A ? this.pool0 : this.pool1,
+				feeTier: A ? this.match.pool0.fee : this.match.pool1.fee,
+				reserveIn: A ? this.state0.reserveIn : this.state1.reserveIn,
+				reserveInBN: A ? this.state0.reserveInBN : this.state1.reserveInBN,
+				reserveOut: A ? this.state0.reserveOut : this.state1.reserveOut,
+				reserveOutBN: A ? this.state0.reserveOutBN : this.state1.reserveOutBN,
+				priceIn: A ? this.state0.priceInBN.toFixed(this.match.token0.decimals) : this.state1.priceInBN.toFixed(this.match.token0.decimals),
+				priceOut: A ? this.state0.priceOutBN.toFixed(this.match.token1.decimals) : this.state1.priceOutBN.toFixed(this.match.token1.decimals),
+				tradeSize: A ? await this.getSize(calc1, calc1) : await this.getSize(calc0, calc1),
 				amountOut: BigNumber.from(0),
 			},
 			k: {
@@ -123,11 +133,11 @@ export class Trade {
 			profitPercent: BigNumber.from(0),
 		};
 
-		trade.target.amountOut = await getAmountsOut(
-			trade.target.tradeSize, // token0 in given
-			trade.target.reserveIn, // token0 in 
-			trade.target.reserveOut); // token1 max out
-
+		trade.target.amountOut = await getAmountOutMax(
+			this.match,
+			this.state1,
+			trade.target.tradeSize
+		);
 
 		const filteredTrade = await filterTrade(trade);
 		if (filteredTrade == undefined) {

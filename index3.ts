@@ -1,4 +1,4 @@
-import { control } from './scripts/v3/swapv3';
+import { control } from './scripts/v3/swap';
 import { provider } from './constants/contract'
 import { getGasData } from './scripts/v2/modules/getPolygonGasPrices';
 import fs from 'fs'
