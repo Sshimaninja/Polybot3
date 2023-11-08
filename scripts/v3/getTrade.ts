@@ -15,6 +15,8 @@ import { AmountConverter } from "./modules/amountConverter";
 import { getAmountOutMax, getAmountInMin } from "./modules/v3Quote";
 import { JS2BN, JS2BNS, BN2JS, BN2JSS, fu, pu } from "../modules/convertBN";
 import { filterTrade } from "./modules/filterTrade";
+import { PopulateRepays } from "./modules/populateRepays";
+import { getK } from "./modules/getK";
 // import { filterTrade } from "./modules/filterTrade";
 /**
  * @description
@@ -93,14 +95,8 @@ export class Trade {
 				exchange: A ? this.match.pool1.exchange : this.match.pool0.exchange,
 				pool: A ? this.pool1 : this.pool0,
 				feeTier: A ? this.match.pool1.fee : this.match.pool0.fee,
-				reserveIn: A ? this.state1.reserveIn : this.state0.reserveIn,
-				reserveInBN: A ? this.state1.reserveInBN : this.state0.reserveInBN,
-				reserveOut: A ? this.state1.reserveOut : this.state0.reserveOut,
-				reserveOutBN: A ? this.state1.reserveOutBN : this.state0.reserveOutBN,
-				priceIn: A ? this.state1.priceInBN.toFixed(this.match.token0.decimals) : this.state0.priceInBN.toFixed(this.match.token0.decimals),
-				priceOut: A ? this.state1.priceOutBN.toFixed(this.match.token1.decimals) : this.state0.priceOutBN.toFixed(this.match.token1.decimals),
+				state: A ? this.state1 : this.state0,
 				repays: {
-					simpleMulti: BigNumber.from(0),
 					getAmountsOut: BigNumber.from(0),
 					getAmountsIn: BigNumber.from(0),
 					repay: BigNumber.from(0),
@@ -112,12 +108,7 @@ export class Trade {
 				exchange: A ? this.match.pool0.exchange : this.match.pool1.exchange,
 				pool: A ? this.pool0 : this.pool1,
 				feeTier: A ? this.match.pool0.fee : this.match.pool1.fee,
-				reserveIn: A ? this.state0.reserveIn : this.state1.reserveIn,
-				reserveInBN: A ? this.state0.reserveInBN : this.state1.reserveInBN,
-				reserveOut: A ? this.state0.reserveOut : this.state1.reserveOut,
-				reserveOutBN: A ? this.state0.reserveOutBN : this.state1.reserveOutBN,
-				priceIn: A ? this.state0.priceInBN.toFixed(this.match.token0.decimals) : this.state1.priceInBN.toFixed(this.match.token0.decimals),
-				priceOut: A ? this.state0.priceOutBN.toFixed(this.match.token1.decimals) : this.state1.priceOutBN.toFixed(this.match.token1.decimals),
+				state: A ? this.state0 : this.state1,
 				tradeSize: A ? await this.getSize(calc1, calc1) : await this.getSize(calc0, calc1),
 				amountOut: BigNumber.from(0),
 			},
@@ -134,9 +125,11 @@ export class Trade {
 		};
 
 		trade.target.amountOut = await getAmountOutMax(
-			this.match,
-			this.state1,
-			trade.target.tradeSize
+			trade.tokenIn.id,
+			trade.tokenOut.id,
+			trade.target.feeTier,
+			trade.target.tradeSize,
+			trade.target.state.sqrtPriceX96,
 		);
 
 		const filteredTrade = await filterTrade(trade);
@@ -144,9 +137,11 @@ export class Trade {
 			return trade;
 		}
 
+		const repay = new PopulateRepays(filteredTrade, calc0);
+
 		// Define repay & profit for each trade type: 
-		const multi = await getMulti(trade, this.calc0);
-		const direct = await getDirect(trade, this.calc0);
+		const multi = await repay.getMulti();
+		const direct = await repay.getDirect();
 
 		trade.type = multi.profits.profit.gt(direct.profit) ? "multi" : direct.profit.gt(multi.profits.profit) ? "direct" : "error";
 
@@ -163,12 +158,24 @@ export class Trade {
 			pu((multi.profits.profitPercent.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals) :
 			pu((direct.percentProfit.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals);
 
-		trade.k = await getK(trade.type, trade.target.tradeSize, trade.loanPool.reserveIn, trade.loanPool.reserveOut, this.calc0);
+		trade.k = await getK(trade, this.state0, calc0);
 
 		trade.flash = trade.type === "multi" ? flashMulti : flashDirect;
 
 		// return trade;
 		return trade
 
+		// flashParams for reference (actual variables requried to execute a v3 flash):
+		/*
+		struct FlashParams {
+		address token0;
+		address token1;
+		uint24 fee1;    		//fee1 is the fee of the pool from the initial borrow
+		uint256 amount0;
+		uint256 amount1;
+		uint24 fee2;			//fee2 is the fee of the first pool to arb from
+		uint24 fee3;			//fee3 is the fee of the second pool to arb from
+		}
+		*/
 	}
 }

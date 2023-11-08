@@ -350,25 +350,15 @@ export interface Bool3Trade {
 		exchange: string
 		pool: Contract
 		feeTier: number
-		reserveIn: BigNumber
-		reserveInBN: BN
-		reserveOut: BigNumber
-		reserveOutBN: BN
-		priceIn: string
-		priceOut: string
-		repays: Repays
+		state: PoolState
+		repays: V3Repays
 		amountRepay: BigNumber
 	}
 	target: {
 		exchange: string
 		pool: Contract
 		feeTier: number
-		reserveIn: BigNumber
-		reserveInBN: BN
-		reserveOut: BigNumber
-		reserveOutBN: BN
-		priceIn: string
-		priceOut: string
+		state: PoolState
 		tradeSize: BigNumber
 		amountOut: BigNumber
 	}
