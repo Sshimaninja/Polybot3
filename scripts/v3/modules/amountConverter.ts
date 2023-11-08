@@ -31,7 +31,7 @@ export class AmountConverter {
 	// can be limited by slippageTolerance if uniswap returns 'EXCESSIVE_INPUT_AMOUNT'
 	async tradeToPrice(): Promise<BigNumber> {
 		this.targetPrice = this.state.priceOutBN.plus(this.targetPrice).div(2);// average of two prices
-		const tradeSize = await tradeToPrice(this.state.reserveInBN, this.state.reserveOutBN, this.targetPrice, this.slip);
+		const tradeSize = await tradeToPrice(this.state, this.targetPrice, this.slip);
 		// console.log('tradeSize: ', tradeSize.toFixed(this.token0.decimals));//DEBUG
 		const tradeSizeJS = utils.parseUnits(tradeSize.toFixed(this.token0.decimals), this.token0.decimals);
 		// console.log('tradeSizeJS: ', utils.formatUnits(tradeSizeJS, this.token0.decimals));//DEBUG

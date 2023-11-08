@@ -29,6 +29,7 @@ export async function getK(trade: Bool3Trade, state: PoolState, calc: AmountConv
 	}
 
 	const tradeSizeInTokenOut = await getAmountInMin(
+		tl.exchange,
 		trade.tokenIn.id,
 		trade.tokenOut.id,
 		tl.feeTier,
