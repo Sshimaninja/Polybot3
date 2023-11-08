@@ -1,8 +1,8 @@
 import { BigNumber } from "ethers";
-import { K } from "../../../constants/interfaces";
+import { Bool3Trade, K, PoolState } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter"
 import { BN2JS } from "../../modules/convertBN";
-import { getAmountsInJS } from "./getAmountsIOLocal";
+import { getAmountInMin } from "./v3Quote";
 
 /**
  * This doc calculates whether will revert due to uniswak K being positive or negative
@@ -11,21 +11,30 @@ import { getAmountsInJS } from "./getAmountsIOLocal";
  * @returns Uniswap K before and after  and whether it is positive or negative
  */
 
-export async function getK(type: string, tradeSize: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber, calc: AmountConverter): Promise<K> {
+export async function getK(trade: Bool3Trade, state: PoolState, calc: AmountConverter): Promise<K> {
+
+	const tl = trade.loanPool;
+	const tt = trade.target;
 
 	let kalc = {
 		uniswapKPre: BigNumber.from(0),
 		uniswapKPost: BigNumber.from(0),
 		uniswapKPositive: false,
 	}
-	const tradeSizewithFee = await calc.addFee(tradeSize);
-	const newReserveIn = reserveIn.mul(1000).sub(tradeSize.mul(1000));
+	const tradeSizewithFee = await calc.addFee(tt.tradeSize, tl.feeTier);
+	const newReserveIn = tl.state.reserveIn.mul(1000).sub(tt.tradeSize.mul(1000));
 	// console.log("newReserveIn: ", newReserveIn.toString())
 	if (newReserveIn.lte(0)) {
 		return kalc;
 	}
 
-	const tradeSizeInTokenOut = await getAmountsInJS(tradeSize, reserveOut, reserveIn);
+	const tradeSizeInTokenOut = await getAmountInMin(
+		trade.tokenIn.id,
+		trade.tokenOut.id,
+		tl.feeTier,
+		tradeSizewithFee,
+		state.sqrtPriceX96,
+	);
 
 	// const tokenOutPrice = BN2JS(calc.price.priceOutBN, calc.token1.decimals);
 	// // console.log("TradeSize: " + tradeSize.toString() + " * tokenOutPrice: " + tokenOutPrice.toString() + " = " + tokenOutPrice.mul(tradeSize).toString())
@@ -34,22 +43,22 @@ export async function getK(type: string, tradeSize: BigNumber, reserveIn: BigNum
 	// const tradeSizeInTermsOfTokenOutWithFee = await calc.addFee(tradeSizeInTermsOfTokenOut);
 	// // console.log('tradeSizeInTermsOfTokenOutWithFee: ', tradeSizeInTermsOfTokenOutWithFee.toString())
 
-	kalc = type === "multi" ? {
+	kalc = trade.type === "multi" ? {
 		uniswapKPre:
 			// 1000 * 2000 = 2000000 
-			reserveIn.mul(reserveOut),
+			tl.state.reserveIn.mul(tl.state.reserveOut),
 		uniswapKPost:
 			// 200000 = 1800 * 110
 			//subtract loan: 
-			reserveIn.sub(tradeSize)
+			tl.state.reserveIn.sub(tt.tradeSize)
 				// multiply new reserveIn by new reservesOut by adding tradeSizeInTermsOfTokenOut
-				.mul(reserveOut.add(tradeSizeInTokenOut)),
+				.mul(tl.state.reserveOut.add(tradeSizeInTokenOut)),
 		uniswapKPositive: false,
-	} : type === "direct" ? {
-		uniswapKPre: reserveIn.mul(reserveOut),
+	} : trade.type === "direct" ? {
+		uniswapKPre: tl.state.reserveIn.mul(tl.state.reserveOut),
 		uniswapKPost:
 			// reserveIn + tradeSizewithFee * reserveOut(unchanged)
-			reserveIn.add(tradeSizewithFee).mul(reserveOut),
+			tl.state.reserveIn.add(tradeSizewithFee).mul(tl.state.reserveOut),
 		uniswapKPositive: false,
 	} : {
 		uniswapKPre: BigNumber.from(0),

@@ -12,7 +12,7 @@ import { BoolTrade } from "../../constants/interfaces"
 import { getMulti, getDirect } from "./modules/populateRepays";
 import { getAmountsIn, getAmountsOut } from "./modules/getAmountsIOLocal";
 import { AmountConverter } from "./modules/amountConverter";
-import { JS2BN, JS2BNS, BN2JS, BN2JSS, fu, pu } from "./modules/convertBN";
+import { JS2BN, JS2BNS, BN2JS, BN2JSS, fu, pu } from "../modules/convertBN";
 import { filterTrade } from "./modules/filterTrade";
 /**
  * @description
