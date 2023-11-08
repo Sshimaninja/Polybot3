@@ -5,7 +5,7 @@ import { abi as IUniswapV2Pair } from "@uniswap/v2-core/build/IUniswapV2Pair.jso
 import { abi as IUniswapV2Router } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json"
 import { uniswapV2Router } from "../constants/addresses";
 
-import { JS2BN, fu, pu } from "../scripts/v2/modules/convertBN";
+import { JS2BN, fu, pu } from "../scripts/modules/convertBN";
 import { transferMaticToInitialSigner } from "./txSigner";
 import { BigNumber } from "ethers";
 import { BigNumber as BN } from "bignumber.js";

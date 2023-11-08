@@ -83,6 +83,18 @@ export interface PoolInfo {
 	liquidity: BigNumber
 	tick: number
 }
+
+export interface PoolState {
+	poolID: string;
+	sqrtPriceX96: BigNumber;
+	liquidity: BigNumber;
+	reserveIn: BigNumber;
+	reserveOut: BigNumber;
+	reserveInBN: BN;
+	reserveOutBN: BN;
+	priceInBN: BN;
+	priceOutBN: BN;
+}
 export interface Profit {
 	profit: string;
 	gasEstimate: BigNumber;
@@ -118,28 +130,36 @@ export interface Valid3Pool {
 	block: number;
 }
 
+export interface V3Matches {
+	exchangeA: string;
+	exchangeB: string;
+	matches: Match3Pools[];
+}
+
 export interface Match3Pools {
 	ticker: string;
-	poolID0: {
-		factory: Contract,
+	pool0: {
+		exchange: string,
+		// factory: Promise<Contract>,
 		id: string,
 		tickSpacing: number
 		fee: number
 	}
-	poolID1: {
-		factory: Contract,
+	pool1: {
+		exchange: string,
+		// factory: Promise<Contract>,
 		id: string,
 		tickSpacing: number
 		fee: number
 	}
 	token0: {
-		contract: Contract,
+		// contract: Contract,
 		id: string,
 		symbol: string,
 		decimals: number
 	}
 	token1: {
-		contract: Contract,
+		// contract: Contract,
 		id: string,
 		symbol: string,
 		decimals: number
@@ -183,87 +203,13 @@ export interface Repays {
 	getAmountsIn: BigNumber
 	repay: BigNumber
 }
+export interface V3Repays {
+	// simpleMulti: BigNumber
+	getAmountsOut: BigNumber
+	getAmountsIn: BigNumber
+	repay: BigNumber
+}
 
-export interface BoolTrade {
-	ID: string
-	direction: string
-	type: string
-	ticker: string
-	tokenIn: Token
-	tokenOut: Token
-	flash: Contract
-	loanPool: {
-		exchange: string
-		factory: Contract
-		router: Contract
-		pool: Contract
-		reserveIn: BigNumber
-		reserveInBN: BN
-		reserveOut: BigNumber
-		reserveOutBN: BN
-		priceIn: string
-		priceOut: string
-		repays: Repays
-		amountRepay: BigNumber
-	}
-	target: {
-		exchange: string
-		factory: Contract
-		router: Contract
-		pool: Contract
-		reserveIn: BigNumber
-		reserveInBN: BN
-		reserveOut: BigNumber
-		reserveOutBN: BN
-		priceIn: string
-		priceOut: string
-		tradeSize: BigNumber
-		amountOut: BigNumber
-	}
-	k: K
-	gasData: GasData
-	differenceTokenOut: string
-	differencePercent: string
-	profit: BigNumber
-	profitPercent: BigNumber
-}
-export interface BoolTradeV3 {
-	direction: string
-	type: string
-	ticker: string
-	tokenIn: Token
-	tokenOut: Token
-	flash: Contract
-	loanPool: {
-		exchange: string
-		factory: Contract
-		router: Contract
-		pool: Contract
-		feeTier: number
-		reserveIn: BigNumber
-		reserveOut: BigNumber
-		priceIn: string
-		priceOut: string
-		amountOut: BigNumber
-	}
-	target: {
-		exchange: string
-		factory: Contract
-		router: Contract
-		pool: Contract
-		feeTier: number
-		reserveIn: BigNumber
-		reserveOut: BigNumber
-		priceIn: string
-		priceOut: string
-		tradeSize: BigNumber
-		amountOut: BigNumber
-	}
-	k: K
-	gasData: any
-	amountRepay: BigNumber
-	profit: BigNumber,
-}
 export interface V2POOLS {
 	ticker: string
 	token0symbol: string
@@ -344,4 +290,82 @@ export interface V3FlashParams {
 	uniswapV3Fee2: number;
 	uniswapV3TickLower2: number;
 	uniswapV3TickUpper2: number;
+}
+
+
+export interface BoolTrade {
+	ID: string
+	direction: string
+	type: string
+	ticker: string
+	tokenIn: Token
+	tokenOut: Token
+	flash: Contract
+	loanPool: {
+		exchange: string
+		factory: Contract
+		router: Contract
+		pool: Contract
+		reserveIn: BigNumber
+		reserveInBN: BN
+		reserveOut: BigNumber
+		reserveOutBN: BN
+		priceIn: string
+		priceOut: string
+		repays: Repays
+		amountRepay: BigNumber
+	}
+	target: {
+		exchange: string
+		factory: Contract
+		router: Contract
+		pool: Contract
+		reserveIn: BigNumber
+		reserveInBN: BN
+		reserveOut: BigNumber
+		reserveOutBN: BN
+		priceIn: string
+		priceOut: string
+		tradeSize: BigNumber
+		amountOut: BigNumber
+	}
+	k: K
+	gasData: GasData
+	differenceTokenOut: string
+	differencePercent: string
+	profit: BigNumber
+	profitPercent: BigNumber
+}
+
+
+export interface Bool3Trade {
+	ID: string
+	direction: string
+	type: string
+	ticker: string
+	tokenIn: Token
+	tokenOut: Token
+	flash: Contract
+	loanPool: {
+		exchange: string
+		pool: Contract
+		feeTier: number
+		state: PoolState
+		repays: V3Repays
+		amountRepay: BigNumber
+	}
+	target: {
+		exchange: string
+		pool: Contract
+		feeTier: number
+		state: PoolState
+		tradeSize: BigNumber
+		amountOut: BigNumber
+	}
+	k: K
+	gasData: GasData
+	differenceTokenOut: string
+	differencePercent: string
+	profit: BigNumber
+	profitPercent: BigNumber
 }

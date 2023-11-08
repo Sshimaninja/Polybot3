@@ -2,7 +2,7 @@ import { BigNumber, utils } from "ethers";
 import { provider } from "../../../constants/contract";
 import { BoolTrade, GAS, GasData } from "../../../constants/interfaces";
 import { logger } from "../../../constants/contract";
-import { fu, pu } from "./convertBN";
+import { fu, pu } from "../../modules/convertBN";
 
 /**
  * @param trade 

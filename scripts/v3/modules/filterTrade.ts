@@ -1,4 +1,4 @@
-import { BoolTrade } from '../../../constants/interfaces';
+import { Bool3Trade } from '../../../constants/interfaces';
 import { BigNumber as BN } from 'bignumber.js';
 import { JS2BN } from '../../modules/convertBN';
 
@@ -7,7 +7,7 @@ import { JS2BN } from '../../modules/convertBN';
  * @description
  * This function filters out trades that are not profitable, or have insufficient liquidity.
  */
-export async function filterTrade(trade: BoolTrade): Promise<BoolTrade | undefined> {
+export async function filterTrade(trade: Bool3Trade): Promise<Bool3Trade | undefined> {
 	if (JS2BN(trade.target.tradeSize, trade.tokenOut.decimals).lte(0)) {
 		// console.log('[filteredTrade]: trade.target.tradeSize is less than or equal to 0. No trade.');
 		return undefined;
@@ -16,11 +16,11 @@ export async function filterTrade(trade: BoolTrade): Promise<BoolTrade | undefin
 		// console.log('[filteredTrade]: trade.target.amountOut is less than or equal to 0. No trade.');
 		return undefined;
 	}
-	if ((trade.target.reserveInBN).lte(BN(1)) && trade.target.reserveOutBN.lte(BN(1))) {
+	if ((trade.target.state.reserveInBN).lte(BN(1)) && trade.target.state.reserveOutBN.lte(BN(1))) {
 		// console.log('[filteredTrade]: Insufficient liquidity on target exchange: ', trade.ticker, ' ', trade.target.exchange, ': No trade.');
 		return undefined;
 	}
-	if (trade.loanPool.reserveInBN.lte(BN(1)) && trade.loanPool.reserveOutBN.lte(BN(1))) {
+	if (trade.loanPool.state.reserveInBN.lte(BN(1)) && trade.loanPool.state.reserveOutBN.lte(BN(1))) {
 		// console.log('[filteredTrade]: Insufficient liquidity on loanPool exchange: ', trade.ticker, ' ', trade.loanPool.exchange, ': No trade.');
 		return undefined;
 	} else return trade;

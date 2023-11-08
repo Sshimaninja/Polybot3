@@ -57,7 +57,8 @@
         "node-telegram-bot-api": "^0.63.0"
     },
     "scripts": {
-        "bot": "npx ts-node index",
+        "bot2": "npx ts-node index",
+		"bot3": "npx ts-node index3",
 		"arbSim": "npx hardhat run --network localhost test/arbSim.ts",
 		"deployTests": "npx hardhat run --network localhost scripts/deployFlashTests.ts",
 		"deployContracts": "npx hardhat run --network polygon scripts/deployFlash.ts",
