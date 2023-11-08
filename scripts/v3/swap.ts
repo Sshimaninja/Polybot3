@@ -32,52 +32,52 @@ var pendingID: string | undefined
 export async function control(data: V3Matches, gasData: any) {
 	const promises: any[] = [];
 	const matches: V3Matches = data;
-	// const pools: Match3Pools[] = data.matches;
+	const pools: Match3Pools[] = data.matches;
 	console.log("matches: " + matches.matches.length);
 
 	// Because Uniswap voted to keep v3 proprietary for 2 years, algebra became the first open source AMM to implement v3, meaning most AMM dex's used it rather than Uniswap's v3.
 	const pool0ABI = matches.exchangeA === 'UNI' ? IUni3Pool : IAlgPool
 	const pool1ABI = matches.exchangeB === 'UNI' ? IUni3Pool : IAlgPool
 
-	// for (const pool of pools) {
-	console.log("ExchangeA: " + matches.exchangeA + " ExchangeB: " + matches.exchangeB + " matches: " + matches.matches.length, " gasData: " + gasData.fast.maxFee + " " + gasData.fast.maxPriorityFee);
+	for (const pool of pools) {
+		console.log("ExchangeA: " + matches.exchangeA + " ExchangeB: " + matches.exchangeB + " matches: " + matches.matches.length, " gasData: " + gasData.fast.maxFee + " " + gasData.fast.maxPriorityFee);
 
-	for (const match of matches.matches) {
-		console.log("Getting Reserves and Data for Match: " + match.ticker + " " + match.pool0.id + " " + match.pool1.id)
-		if (!tradePending && match.pool0.id !== pendingID && match.pool1.id !== pendingID) {
+		for (const match of matches.matches) {
+			console.log("Getting Reserves and Data for Match: " + match.ticker + " " + match.pool0.id + " " + match.pool1.id)
+			if (!tradePending && match.pool0.id !== pendingID && match.pool1.id !== pendingID) {
 
-			const pool0 = new Contract(match.pool0.id, pool0ABI, provider);
-			const pool1 = new Contract(match.pool1.id, pool1ABI, provider);
+				const pool0 = new Contract(match.pool0.id, pool0ABI, provider);
+				const pool1 = new Contract(match.pool1.id, pool1ABI, provider);
 
-			const l0 = new InRangeLiquidity(pool0);
-			const l1 = new InRangeLiquidity(pool1);
-			const irl0 = await l0.getPoolState();
-			const irl1 = await l1.getPoolState();
+				const l0 = new InRangeLiquidity(pool0);
+				const l1 = new InRangeLiquidity(pool1);
+				const irl0 = await l0.getPoolState();
+				const irl1 = await l1.getPoolState();
 
-			if (irl0 !== undefined || irl1 !== undefined) {
+				if (irl0 !== undefined || irl1 !== undefined) {
 
-				const data = {
-					ticker: match.ticker,
-					pool0Stata: irl0,
-					pool1State: irl1,
-				}
+					const data = {
+						ticker: match.ticker,
+						pool0Stata: irl0,
+						pool1State: irl1,
+					}
 
-				console.log(data)
+					console.log(data)
 
-				const t = new Trade(match, pool0, pool1, irl0, irl1, slippageTolerance, gasData);
-				const trade = await t.getTrade();
+					const t = new Trade(match, pool0, pool1, irl0, irl1, slippageTolerance, gasData);
+					const trade = await t.getTrade();
 
-				const dataPromise = tradeLogs(trade);
-				console.log(dataPromise)//TESTING
-				// const rollPromise = rollDamage(trade, await dataPromise, warning, tradePending, pendingID);
+					const dataPromise = tradeLogs(trade);
+					console.log(dataPromise)//TESTING
+					// const rollPromise = rollDamage(trade, await dataPromise, warning, tradePending, pendingID);
 
-				promises.push(dataPromise)//, rollPromise);
-			} else return;
+					promises.push(dataPromise)//, rollPromise);
+				} else return;
+			}
 		}
+		await Promise.all(promises).catch((error: any) => {
+			console.log("Error in control.ts: " + error.message);
+			return;
+		});
 	}
-	await Promise.all(promises).catch((error: any) => {
-		console.log("Error in control.ts: " + error.message);
-		return;
-	});
 }
-// }
