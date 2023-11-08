@@ -51,15 +51,10 @@ export class AmountConverter {
 		return maxOut;
 	}
 
-	// Adds Uniswap V2 trade fee to any amount
-	async addFee(amount: BigNumber): Promise<BigNumber> {
-		//ALTERNATVE:
-
-		// const repay = amount.mul(1003009027).div(1000000000);
-		const repay = amount.mul(1003).div(1000); // 0.3% fee (997/1000)
-		// 167 * 1003 / 1000 = 
-		//167 * 997 / 1000 = 166
-		// ex 100000 * 1003009027 / 1000000000 = 100301
+	// Adds Uniswap V3 trade fee to any amount
+	async addFee(amount: BigNumber, fee: number): Promise<BigNumber> {
+		const feeFactor = 1 + fee / 100000; // Convert fee to a factor
+		const repay = amount.mul(feeFactor * 1000).div(1000); // Apply fee
 		return repay; //in token0
 	}
 
