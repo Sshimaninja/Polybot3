@@ -29,6 +29,7 @@ export class PopulateRepays {
 			// const simple = await calc.addFee(this.tradeSizeInTermsOfTokenOutOnLoanPool)
 
 			const repayByGetAmountsOut = await getAmountOutMax(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
+				this.trade.loanPool.exchange,
 				this.trade.tokenIn.id,
 				this.trade.tokenOut.id,
 				this.trade.loanPool.feeTier,
@@ -36,6 +37,7 @@ export class PopulateRepays {
 				this.trade.loanPool.state.sqrtPriceX96,
 			)
 			const repayByGetAmountsIn = await getAmountInMin( //Will output tokenIn.
+				this.trade.loanPool.exchange,
 				this.trade.tokenIn.id,
 				this.trade.tokenOut.id,
 				this.trade.loanPool.feeTier,
@@ -77,6 +79,7 @@ export class PopulateRepays {
 		const repay = this.trade.target.tradeSize;//must add fee from pool v3 to this.
 
 		const directRepayLoanPoolInTokenOut = await getAmountInMin(
+			this.trade.loanPool.exchange,
 			this.trade.tokenIn.id,
 			this.trade.tokenOut.id,
 			this.trade.loanPool.feeTier,

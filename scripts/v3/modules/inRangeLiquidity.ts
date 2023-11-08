@@ -76,7 +76,7 @@ export class InRangeLiquidity {
 
 
 
-	async getPoolState(): Promise<PoolState | undefined> {
+	async getPoolState(): Promise<PoolState> {
 		let slot0;
 		let sqrtPriceX96: BigNumber;
 		try {
@@ -87,49 +87,48 @@ export class InRangeLiquidity {
 			slot0 = await this.pool.globalState();
 			sqrtPriceX96 = slot0.price;
 		}
-		if (this.pool.address != '0x0000000000000000000000000000000000000000' || this.pool.address != '0x0000000000000000000000000000000000000000') {
-			// console.log("Getting Poolstate for ", this.pool.address)
-			const liquidity = await this.pool.liquidity();
+		// if (this.pool.address != '0x0000000000000000000000000000000000000000' || this.pool.address != '0x0000000000000000000000000000000000000000') {
+		// console.log("Getting Poolstate for ", this.pool.address)
+		const liquidity = await this.pool.liquidity();
 
-			let reserves0 = liquidity.mul(sqrtPriceX96).div(BigNumber.from(2).pow(96));
-			let reserves1 = liquidity.mul(BigNumber.from(2).pow(96)).div(sqrtPriceX96);
+		let reserves0 = liquidity.mul(sqrtPriceX96).div(BigNumber.from(2).pow(96));
+		let reserves1 = liquidity.mul(BigNumber.from(2).pow(96)).div(sqrtPriceX96);
 
-			let reserves0BN = BN(fu(reserves0, this.pool.token0.decimals));
-			let reserves1BN = BN(fu(reserves1, this.pool.token1.decimals));
+		let reserves0BN = BN(fu(reserves0, this.pool.token0.decimals));
+		let reserves1BN = BN(fu(reserves1, this.pool.token1.decimals));
 
-			let price0BN = reserves1BN.div(reserves0BN);
-			let price1BN = reserves0BN.div(reserves1BN);
+		let price0BN = reserves1BN.div(reserves0BN);
+		let price1BN = reserves0BN.div(reserves1BN);
 
-			const liquidityData: PoolState = {
-				poolID: this.pool.address,
-				sqrtPriceX96: sqrtPriceX96,
-				liquidity: liquidity,
-				reserveIn: reserves0,
-				reserveOut: reserves1,
-				reserveInBN: reserves0BN,
-				reserveOutBN: reserves1BN,
-				priceInBN: price0BN,
-				priceOutBN: price1BN
-			};
-			if (reserves0.isZero() || reserves1.isZero()) {
-				// console.log("Pool for >" + this.pool.address + "< no longer exists!")
-				return undefined;
-			} else {
-				// const liquiditDataView = {
-				// 	poolID: this.pool.address,
-				// 	liquidity: liquidity.toString(),
-				// 	reserves0: fu(reserves0, this.pool.token0.decimals),
-				// 	reserves1: fu(reserves1, this.pool.token1.decimals),
-				// 	reserves0BN: reserves0BN.toFixed(this.pool.token0.decimals),
-				// 	reserves1BN: reserves1BN.toFixed(this.pool.token1.decimals),
-				// 	price0BN: price0BN.toFixed(this.pool.token0.decimals),
-				// 	price1BN: price1BN.toFixed(this.pool.token1.decimals)
-				// }
-				// console.log(liquiditDataView)
-				// console.log("Poolstate ", this.pool.address, " Complete")
-				return liquidityData;
-			}
-		}
+		const liquidityData: PoolState = {
+			poolID: this.pool.address,
+			sqrtPriceX96: sqrtPriceX96,
+			liquidity: liquidity,
+			reserveIn: reserves0,
+			reserveOut: reserves1,
+			reserveInBN: reserves0BN,
+			reserveOutBN: reserves1BN,
+			priceInBN: price0BN,
+			priceOutBN: price1BN
+		};
+		// if (reserves0.isZero() || reserves1.isZero()) {
+		// 	// console.log("Pool for >" + this.pool.address + "< no longer exists!")
+		// 	return;
+		// } else {
+		// const liquiditDataView = {
+		// 	poolID: this.pool.address,
+		// 	liquidity: liquidity.toString(),
+		// 	reserves0: fu(reserves0, this.pool.token0.decimals),
+		// 	reserves1: fu(reserves1, this.pool.token1.decimals),
+		// 	reserves0BN: reserves0BN.toFixed(this.pool.token0.decimals),
+		// 	reserves1BN: reserves1BN.toFixed(this.pool.token1.decimals),
+		// 	price0BN: price0BN.toFixed(this.pool.token0.decimals),
+		// 	price1BN: price1BN.toFixed(this.pool.token1.decimals)
+		// }
+		// console.log(liquiditDataView)
+		// console.log("Poolstate ", this.pool.address, " Complete")
+		return liquidityData;
 	}
+
 };
 

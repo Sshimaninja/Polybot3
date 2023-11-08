@@ -11,7 +11,7 @@ import { provider, signer } from "../../../constants/contract";
 // 	tradeSize: BigNumber
 // ): Promise<BigNumber> {
 
-const quoter = new Contract(uniswapQuoter.UNI, UniswapV3Quoter, signer);
+
 
 
 
@@ -24,12 +24,16 @@ const quoter = new Contract(uniswapQuoter.UNI, UniswapV3Quoter, signer);
 // 	uint160 sqrtPriceLimitX96
 // ) external returns(uint256 amountOut)
 export async function getAmountOutMax(
+	protocol: string,
 	tokenIn: string,
 	tokenOut: string,
 	feeTier: number,
 	tradeSize: BigNumber,
 	sqrtPriceLimitX96: BigNumber
 ): Promise<BigNumber> {
+	console.log("checking amountOut on ", protocol, "...")
+	const quoter = new ethers.Contract((protocol == 'UNI' ? uniswapQuoter.UNI : uniswapQuoter.QUICKV3), UniswapV3Quoter, signer);//TESTING ONLY
+	// const quoter = new ethers.Contract(uniswapQuoter[protocol], UniswapV3Quoter, signer);
 	const getAmountOutMax = quoter.quoteExactInputSingle(
 		tokenIn,
 		tokenOut,
@@ -50,12 +54,16 @@ export async function getAmountOutMax(
 // 		uint160 sqrtPriceLimitX96
 // 	) external returns(uint256 amountIn)
 export async function getAmountInMin(
+	protocol: string,
 	tokenIn: string,
 	tokenOut: string,
 	feeTier: number,
 	amountOutExpected: BigNumber,
 	sqrtPriceLimitX96: BigNumber,
 ): Promise<BigNumber> {
+	console.log("checking amountIn on ", protocol, "...")
+	const quoter = new ethers.Contract((protocol == 'UNI' ? uniswapQuoter.UNI : uniswapQuoter.QUICKV3), UniswapV3Quoter, signer);//TESTING ONLY
+	// const quoter = new ethers.Contract(uniswapQuoter[protocol], UniswapV3Quoter, signer);
 	const getAmountInMin = quoter.quoteExactOutputSingle(
 		tokenIn,
 		tokenOut,

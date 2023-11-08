@@ -51,18 +51,18 @@ export async function control(data: V3Matches, gasData: any) {
 			const l1 = new InRangeLiquidity(pool1);
 			const irl0 = await l0.getPoolState();
 			const irl1 = await l1.getPoolState();
+			if (irl0.liquidity.isZero() || irl1.liquidity.isZero()) {
+				return;
+			}
 
-			if (irl0 !== undefined || irl1 !== undefined) {
+			const t = new Trade(match, pool0, pool1, irl0, irl1, slippageTolerance, gasData);
+			const trade = await t.getTrade();
 
-				const t = new Trade(match, pool0, pool1, irl0, irl1, slippageTolerance, gasData);
-				const trade = await t.getTrade();
+			const dataPromise = tradeLogs(trade);
+			console.log(dataPromise)//TESTING
+			// const rollPromise = rollDamage(trade, await dataPromise, warning, tradePending, pendingID);
 
-				const dataPromise = tradeLogs(trade);
-				console.log(dataPromise)//TESTING
-				// const rollPromise = rollDamage(trade, await dataPromise, warning, tradePending, pendingID);
-
-				promises.push(dataPromise)//, rollPromise);
-			} else return;
+			promises.push(dataPromise)//, rollPromise);
 		}
 	});
 	await Promise.all(promises).catch((error: any) => {
@@ -70,3 +70,15 @@ export async function control(data: V3Matches, gasData: any) {
 		return;
 	});
 }
+
+
+// const data = {
+// 	irl0: {
+// 		priceOut: irl0.priceOutBN.toFixed(match.token1.decimals),
+// 	},
+// 	irl1: {
+// 		priceOut: irl1.priceOutBN.toFixed(match.token1.decimals),
+// 	},
+// 	match: match,
+// }
+// console.log(data)

@@ -1,4 +1,5 @@
 import { BigNumber as BN } from "bignumber.js";
+import { PoolState } from "../../../constants/interfaces";
 /**
  * 
  * @param reserveIn 
@@ -46,15 +47,15 @@ export async function getMaxTokenOut(reserveOut: BN, slippageTolerance: BN): Pro
 
 
 // THIS APPEARS CORRECT - ERROR IN TRADELOGS IS ELSEWHERE - CHECK MATH
-export async function tradeToPrice(reserveIn: BN, reserveOut: BN, targetPrice: BN, slippageTolerance: BN): Promise<BN> {
+export async function tradeToPrice(state: PoolState, targetPrice: BN, slippageTolerance: BN): Promise<BN> {
 	//targetPrice 0.520670400977951207 + 0.519935327393096545 = 1.040605728371047752 / 2 = 0.520302864185523876
-	const currentPrice = reserveOut.div(reserveIn); // 64133 / 123348 = 0.51993546713363816194830884975841
+	const currentPrice = state.priceOutBN; // 64133 / 123348 = 0.51993546713363816194830884975841
 	const diff = targetPrice.minus(currentPrice); // 0.520302864185523876 - 0.51993546713363816194830884975841 = 0.00036739705188571405169115024159
 	if (targetPrice.lt(currentPrice)) {
 		console.log('[tradeToPrice]: targetPrice must be higher than currentPrice or else tradeSize will be negative');
 		console.log('[tradeToPrice]: currentPrice: ', currentPrice.toFixed(6), 'targetPrice: ', targetPrice.toFixed(6));
 	}
-	const tradeSize = diff.multipliedBy(reserveIn); // 0.00036739705188571405169115024159 * 123348 = 45.285714285714285714285714285714
+	const tradeSize = diff.multipliedBy(state.reserveInBN); // 0.00036739705188571405169115024159 * 123348 = 45.285714285714285714285714285714
 	return tradeSize // 45.285714285714285714285714285714
 }
 

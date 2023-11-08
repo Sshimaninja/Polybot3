@@ -1,6 +1,6 @@
 {
     "exchangeA": "UNI",
-    "exchangeB": "QUICK",
+    "exchangeB": "QUICKV3",
     "matches": [
         {
             "ticker": "WMATIC/PYR",
@@ -11,7 +11,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x51BCAa89DdB84C4c077c8ba72303BF4C5CB991F4",
                 "tickSpacing": 60,
                 "fee": 2271
@@ -36,7 +36,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xD385ac9c9BCC8b345080365bf9d3345f20F97dB6",
                 "tickSpacing": 60,
                 "fee": 273
@@ -61,7 +61,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xbD3982969bb094311578032d345F13650A31DF9c",
                 "tickSpacing": 60,
                 "fee": 1
@@ -86,7 +86,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xD385ac9c9BCC8b345080365bf9d3345f20F97dB6",
                 "tickSpacing": 60,
                 "fee": 273
@@ -111,7 +111,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4f3391090A9c6F2F6C259d47642c64CC4F3BE01b",
                 "tickSpacing": 60,
                 "fee": 11
@@ -136,7 +136,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xFB38333215a8be46A2691d5A2bca491a5974f8ba",
                 "tickSpacing": 60,
                 "fee": 1102
@@ -161,7 +161,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x9500335E4f8003ef0beF6c71Ae2D5737c0284E64",
                 "tickSpacing": 60,
                 "fee": 0
@@ -186,7 +186,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x00A6177C6455A29B8dAa7144B2bEfc9F2147BB7E",
                 "tickSpacing": 60,
                 "fee": 18686
@@ -211,7 +211,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5A3811E1387702a5585eb67dB2ca0DDeF07fDFcB",
                 "tickSpacing": 60,
                 "fee": 764
@@ -236,7 +236,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xFB38333215a8be46A2691d5A2bca491a5974f8ba",
                 "tickSpacing": 60,
                 "fee": 1102
@@ -261,7 +261,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x7ce77C761f1486Ca926382C92FC438500f29344d",
                 "tickSpacing": 60,
                 "fee": 73
@@ -286,7 +286,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xC0b0311E6f0533ca1206913b6317D12ab8Fe83c0",
                 "tickSpacing": 60,
                 "fee": 14
@@ -311,7 +311,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4e5f8442eC0eD95C6cC64302f7DeDAFf3931e105",
                 "tickSpacing": 60,
                 "fee": 3507
@@ -336,7 +336,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x61258EcB2dFb47E100e7d035a09acf28F73a3989",
                 "tickSpacing": 60,
                 "fee": 1665
@@ -361,7 +361,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4e5f8442eC0eD95C6cC64302f7DeDAFf3931e105",
                 "tickSpacing": 60,
                 "fee": 3507
@@ -386,7 +386,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xa56796f13566c515471A2fBBAB731F88cE5DE428",
                 "tickSpacing": 60,
                 "fee": 51885
@@ -411,7 +411,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xcB929842c99FfA6D202Cf83AB8477eD143285C6E",
                 "tickSpacing": 60,
                 "fee": 698
@@ -436,7 +436,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xA5CD8351Cbf30B531C7b11B0D9d3Ff38eA2E280f",
                 "tickSpacing": 60,
                 "fee": 29462
@@ -461,7 +461,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x7212D38AA05d4D76C9Af19721fDa00C21b7f8B28",
                 "tickSpacing": 60,
                 "fee": 22837
@@ -486,7 +486,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x12cf34B54E4C7b7ecE499e09997F677CfF806041",
                 "tickSpacing": 60,
                 "fee": 7
@@ -511,7 +511,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x941E3167898930Ff030A49296FdBD67D9b8118D2",
                 "tickSpacing": 60,
                 "fee": 19
@@ -536,7 +536,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x80DeeCE4befd9F27D2df88064cf75f080d3ce1b2",
                 "tickSpacing": 60,
                 "fee": 30584
@@ -561,7 +561,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xe3703608393727C6B3761471d13e064c77c8d836",
                 "tickSpacing": 60,
                 "fee": 31128
@@ -586,7 +586,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xA491D5624D49ee6F36155822CD63ce06c6Acc43D",
                 "tickSpacing": 60,
                 "fee": 1
@@ -611,7 +611,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x2bDdF4325B1820926e1F4263671fd3eF7BaA7c2f",
                 "tickSpacing": 60,
                 "fee": 44
@@ -636,7 +636,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xa8c97F7690187cA2Efa83c1cBC30a1E06229A89B",
                 "tickSpacing": 60,
                 "fee": 132
@@ -661,7 +661,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xB068a46A4633caC1c234Ac40d36256379689Dd70",
                 "tickSpacing": 60,
                 "fee": 50
@@ -686,7 +686,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xA8B8620229d4cf0E82CeD4D998d221dCaD44b2f6",
                 "tickSpacing": 60,
                 "fee": 4
@@ -711,7 +711,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xA8B8620229d4cf0E82CeD4D998d221dCaD44b2f6",
                 "tickSpacing": 60,
                 "fee": 4
@@ -736,7 +736,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xAC4494e30a85369e332BDB5230d6d694d4259DbC",
                 "tickSpacing": 60,
                 "fee": 8869
@@ -761,7 +761,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x16C8dFaEAeA6A7FfAe72D301E525fEf5e5e35235",
                 "tickSpacing": 60,
                 "fee": 1
@@ -786,7 +786,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x65d2aa5404E629ADB952284239cD8E3cAD4385e1",
                 "tickSpacing": 60,
                 "fee": 33
@@ -811,7 +811,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x54404AD17AEf3fAD4F5ADDAa52229968126A8eFC",
                 "tickSpacing": 60,
                 "fee": 1
@@ -836,7 +836,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xd46aCE367B90089F129ED64c5fa873BdAb7B2578",
                 "tickSpacing": 60,
                 "fee": 10
@@ -861,7 +861,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xF3987331aCEC53D112572ee2Aa1A18d35adfdc7e",
                 "tickSpacing": 60,
                 "fee": 26
@@ -886,7 +886,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x409fff7300c5122b96cCBaA94804D533C1D4C7b7",
                 "tickSpacing": 60,
                 "fee": 1
@@ -911,7 +911,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3F5B6e87408a8104716015d98255C887e12b3f1b",
                 "tickSpacing": 60,
                 "fee": 4
@@ -936,7 +936,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x982ABca0Fa01D62f4aa938F3eE575f6eB18d4E8e",
                 "tickSpacing": 60,
                 "fee": 24
@@ -961,7 +961,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x99f5A6E10227968bd4986AAAC4Af6f329Ba0a3ab",
                 "tickSpacing": 60,
                 "fee": 13
@@ -986,7 +986,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5A3811E1387702a5585eb67dB2ca0DDeF07fDFcB",
                 "tickSpacing": 60,
                 "fee": 764
@@ -1011,7 +1011,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x89dDcc3FADa3635e1aF72881186b39A153C54733",
                 "tickSpacing": 60,
                 "fee": 1
@@ -1036,7 +1036,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xa4aA08dC0154F80241be34FA03283Fde8a5844F2",
                 "tickSpacing": 60,
                 "fee": 571
@@ -1061,7 +1061,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5d94e9c51e01c5F7732654F5e7730709F9c756c2",
                 "tickSpacing": 60,
                 "fee": 7806
@@ -1086,7 +1086,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x531b29C3084a7Ca75B44f2524cCEA00ab4976B54",
                 "tickSpacing": 60,
                 "fee": 58
@@ -1111,7 +1111,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xAB95303085BAb920413313D85C7B34d5B037a491",
                 "tickSpacing": 60,
                 "fee": 6
@@ -1136,7 +1136,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xA9bfa20660d6a2170268dF766b81aAe2488dec8E",
                 "tickSpacing": 60,
                 "fee": 133
@@ -1161,7 +1161,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x769B7675CaB14D318055Df62aBa3bc2483627a6d",
                 "tickSpacing": 60,
                 "fee": 13
@@ -1186,7 +1186,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x95988a42d8A8d1Ada1A0364ddfE290C96A8778DA",
                 "tickSpacing": 60,
                 "fee": 1
@@ -1211,7 +1211,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5bF44Bb003Efe05f711A14A189C0902d6626E919",
                 "tickSpacing": 60,
                 "fee": 14892
@@ -1236,7 +1236,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x71BC8cc930F3d47e568d16B88149c63d8ab88764",
                 "tickSpacing": 60,
                 "fee": 85
@@ -1261,7 +1261,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x48d6329D945a3038205F0B36BC54Ae137dFDD59C",
                 "tickSpacing": 60,
                 "fee": 30
@@ -1286,7 +1286,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x48d6329D945a3038205F0B36BC54Ae137dFDD59C",
                 "tickSpacing": 60,
                 "fee": 30
@@ -1311,7 +1311,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1A8A985dfe1E55Ff91BffE38695CC4b070aFa8c3",
                 "tickSpacing": 60,
                 "fee": 101
@@ -1336,7 +1336,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4574E078dA18DC3EA814E58847A5806A5FE3a697",
                 "tickSpacing": 60,
                 "fee": 10
@@ -1361,7 +1361,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x33bc9A6a200752ddd44F41dD978977E0699cC00d",
                 "tickSpacing": 60,
                 "fee": 10071
@@ -1386,7 +1386,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xfD4A1B947cE19936286161806a856Ba59fD8d924",
                 "tickSpacing": 60,
                 "fee": 19
@@ -1411,7 +1411,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x753F1e4949231B18f30DDcdfF9a2C63db4c545Aa",
                 "tickSpacing": 60,
                 "fee": 20
@@ -1436,7 +1436,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x31a8282eE8C1A83374A0429f58CC1Dfbf7E3E407",
                 "tickSpacing": 60,
                 "fee": 32
@@ -1461,7 +1461,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x64C01d2b748e5debA661CE58393E6ee0E151a1eE",
                 "tickSpacing": 60,
                 "fee": 43620
@@ -1486,7 +1486,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4183DB4a5A1A3612B17459BA4e072aa59F302E89",
                 "tickSpacing": 60,
                 "fee": 27093
@@ -1511,7 +1511,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x9Aca6B70110254c5e0f5B9D27257568d625Bd770",
                 "tickSpacing": 60,
                 "fee": 23
@@ -1536,7 +1536,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x00A6177C6455A29B8dAa7144B2bEfc9F2147BB7E",
                 "tickSpacing": 60,
                 "fee": 18686
@@ -1561,7 +1561,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1a9B220F41f561Ebd22A1eCEbCfc3AF47805fc62",
                 "tickSpacing": 60,
                 "fee": 26
@@ -1586,7 +1586,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x03D1987532B3Ab3F569c8345557C8a1232F03d99",
                 "tickSpacing": 60,
                 "fee": 6
@@ -1611,7 +1611,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3084D321dC1B40064C15394Dca4b997FA339fE5e",
                 "tickSpacing": 60,
                 "fee": 2
@@ -1636,7 +1636,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xe07B0c582c096d2fC824E257457Fe9985d551721",
                 "tickSpacing": 60,
                 "fee": 45
@@ -1661,7 +1661,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6105b8b7e89D61Dc0c2f3275517cdE4526e9e80B",
                 "tickSpacing": 60,
                 "fee": 0
@@ -1686,7 +1686,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xe7E0eB9F6bCcCfe847fDf62a3628319a092F11a2",
                 "tickSpacing": 60,
                 "fee": 15213
@@ -1711,7 +1711,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6c2008720cb74d80b40129D1A9313D996E3B50BA",
                 "tickSpacing": 60,
                 "fee": 88
@@ -1736,7 +1736,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x479e1B71A702a595e19b6d5932CD5c863ab57ee0",
                 "tickSpacing": 60,
                 "fee": 17966
@@ -1761,7 +1761,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x7B925e617aefd7FB3a93Abe3a701135D7a1Ba710",
                 "tickSpacing": 60,
                 "fee": 54338
@@ -1786,7 +1786,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x94d47616f45F98e1ac688326FFdAb7bf3A6be440",
                 "tickSpacing": 60,
                 "fee": 48860
@@ -1811,7 +1811,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x55CAaBB0d2b704FD0eF8192A7E35D8837e678207",
                 "tickSpacing": 60,
                 "fee": 51368
@@ -1836,7 +1836,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xAC4494e30a85369e332BDB5230d6d694d4259DbC",
                 "tickSpacing": 60,
                 "fee": 8869
@@ -1861,7 +1861,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xAE81FAc689A1b4b1e06e7ef4a2ab4CD8aC0A087D",
                 "tickSpacing": 60,
                 "fee": 22656
@@ -1886,7 +1886,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x9CEff2F5138fC59eB925d270b8A7A9C02a1810f2",
                 "tickSpacing": 60,
                 "fee": 27800
@@ -1911,7 +1911,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xd525641c26f426d35C39fE204071049F1C8e28A0",
                 "tickSpacing": 60,
                 "fee": 133
@@ -1936,7 +1936,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xA5CD8351Cbf30B531C7b11B0D9d3Ff38eA2E280f",
                 "tickSpacing": 60,
                 "fee": 29462
@@ -1961,7 +1961,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xefFA9E5e63ba18160Ee26BdA56b42F3368719615",
                 "tickSpacing": 60,
                 "fee": 28132
@@ -1986,7 +1986,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xA2938008e3D7C678Ad273301794CDB77E52A5912",
                 "tickSpacing": 60,
                 "fee": 332
@@ -2011,7 +2011,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5b41EEDCfC8e0AE47493d4945Aa1AE4fe05430ff",
                 "tickSpacing": 60,
                 "fee": 27662
@@ -2036,7 +2036,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6BaEad5Db7FeE6D5c9F0Ca07Bb5038C4cD279F5c",
                 "tickSpacing": 60,
                 "fee": 31150
@@ -2061,7 +2061,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xF10C5d3bAD214402C9a59b1170BE00A9752317af",
                 "tickSpacing": 60,
                 "fee": 458
@@ -2086,7 +2086,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xc96eA5A78052C50c89670E7fa8a577d461C4f903",
                 "tickSpacing": 60,
                 "fee": 0
@@ -2111,7 +2111,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1a9B220F41f561Ebd22A1eCEbCfc3AF47805fc62",
                 "tickSpacing": 60,
                 "fee": 26
@@ -2136,7 +2136,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x85022A7a6d11e7f7d2Dec6a9E52f90e82b116d0E",
                 "tickSpacing": 60,
                 "fee": 12031
@@ -2161,7 +2161,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3E31Cff73585a82C61a36625CBfDB850E2F9AD45",
                 "tickSpacing": 60,
                 "fee": 7670
@@ -2186,7 +2186,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xdC3fA7393290ED6C95b6c18308e1127F0A97aE1c",
                 "tickSpacing": 60,
                 "fee": 3499
@@ -2211,7 +2211,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x63b2e3ec1e085967325D13069E0494596DcD4d65",
                 "tickSpacing": 60,
                 "fee": 2418
@@ -2236,7 +2236,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x64C01d2b748e5debA661CE58393E6ee0E151a1eE",
                 "tickSpacing": 60,
                 "fee": 43620
@@ -2261,7 +2261,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1d7F2E4295981aF5cC005d936Ac437588B353596",
                 "tickSpacing": 60,
                 "fee": 29606
@@ -2286,7 +2286,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xF81fEfa2d0e1781dC05B89ECBE47421644AaDEa0",
                 "tickSpacing": 60,
                 "fee": 204
@@ -2311,7 +2311,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1d7F2E4295981aF5cC005d936Ac437588B353596",
                 "tickSpacing": 60,
                 "fee": 29606
@@ -2336,7 +2336,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x813524355e740A7273be08755A03540C045c79aa",
                 "tickSpacing": 60,
                 "fee": 181
@@ -2361,7 +2361,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x9F1A8cAF3C8e94e43aa64922d67dFf4dc3e88A42",
                 "tickSpacing": 60,
                 "fee": 35276
@@ -2386,7 +2386,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xe69e0100A7607c10c8B313b2E757dFA301F29bd3",
                 "tickSpacing": 60,
                 "fee": 716
@@ -2411,7 +2411,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x982ABca0Fa01D62f4aa938F3eE575f6eB18d4E8e",
                 "tickSpacing": 60,
                 "fee": 24
@@ -2436,7 +2436,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x17Df1289255C0482C972D977e517964065622F0a",
                 "tickSpacing": 60,
                 "fee": 5
@@ -2461,7 +2461,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1D555298e34285C9A70612CDa9E87d44C3eaAF10",
                 "tickSpacing": 60,
                 "fee": 20
@@ -2486,7 +2486,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6aD5a9FFA62149F2C75D4517A65cB76e1B983D75",
                 "tickSpacing": 60,
                 "fee": 1876
@@ -2511,7 +2511,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xE59a676C8501DBEd6A2bc8D3e197f18f16487413",
                 "tickSpacing": 60,
                 "fee": 50
@@ -2536,7 +2536,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x7Db5c1cc87EacA6fBe7004beFea9B7c2dAF989D4",
                 "tickSpacing": 60,
                 "fee": 11947
@@ -2561,7 +2561,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x96A8Bc11bEF929DC49337dAa79496457e87Fa5a8",
                 "tickSpacing": 60,
                 "fee": 50
@@ -2586,7 +2586,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xf45F1C4DD64bD713f3f26F1D00795423c93e300a",
                 "tickSpacing": 60,
                 "fee": 720
@@ -2611,7 +2611,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xa8f79D27EE8F54084E1DB2bCeF57506edC6eD3F3",
                 "tickSpacing": 60,
                 "fee": 87
@@ -2636,7 +2636,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xDb903AE8374aCD0f76D12EC9Ad453156810DB82d",
                 "tickSpacing": 60,
                 "fee": 405
@@ -2661,7 +2661,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xD85A25332b57cc447a791100E7317e534d553761",
                 "tickSpacing": 60,
                 "fee": 46283
@@ -2686,7 +2686,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x64C01d2b748e5debA661CE58393E6ee0E151a1eE",
                 "tickSpacing": 60,
                 "fee": 43620
@@ -2711,7 +2711,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5B1fD9Fa139353C5D9eaf459E4BD2f7A6B4812Bb",
                 "tickSpacing": 60,
                 "fee": 5744
@@ -2736,7 +2736,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xDda290e9dbbB68a4f4980C6dEdC5cb935b2F5A5F",
                 "tickSpacing": 60,
                 "fee": 16
@@ -2761,7 +2761,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x750875156b9425B98a7052eae3a78352f89eEA28",
                 "tickSpacing": 60,
                 "fee": 39
@@ -2786,7 +2786,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x7FEAdB5714EbE66d155205a8e545f33406Fb8923",
                 "tickSpacing": 60,
                 "fee": 41552
@@ -2811,7 +2811,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4B8DB017F09f911F5D4387dd602Ba40f7bc32b90",
                 "tickSpacing": 60,
                 "fee": 2777
@@ -2836,7 +2836,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x9791a677fC6385369368b6F554A6E4C34E84D7aE",
                 "tickSpacing": 60,
                 "fee": 50
@@ -2861,7 +2861,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x865b3342f2E8711eb94bE6B894aae6E7Bc7d6fac",
                 "tickSpacing": 60,
                 "fee": 35
@@ -2886,7 +2886,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x9F1A8cAF3C8e94e43aa64922d67dFf4dc3e88A42",
                 "tickSpacing": 60,
                 "fee": 35276
@@ -2911,7 +2911,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5F33ab9e29771E972d8Ba167e0326D36FB82D742",
                 "tickSpacing": 60,
                 "fee": 2159
@@ -2936,7 +2936,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x33bc9A6a200752ddd44F41dD978977E0699cC00d",
                 "tickSpacing": 60,
                 "fee": 10071
@@ -2961,7 +2961,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x2F2dD65339226dF7441097a710ABa0f493879579",
                 "tickSpacing": 60,
                 "fee": 2278
@@ -2986,7 +2986,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x64C01d2b748e5debA661CE58393E6ee0E151a1eE",
                 "tickSpacing": 60,
                 "fee": 43620
@@ -3011,7 +3011,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xA1CaADa74C78c894cF4f61bC7Bf483c822d430F9",
                 "tickSpacing": 60,
                 "fee": 12
@@ -3036,7 +3036,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x0beF3882798219Eeaf40A8B63563A3d3AB6092Ab",
                 "tickSpacing": 60,
                 "fee": 25877
@@ -3061,7 +3061,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xc128edD9cb64858d256cfc70e942F92d1f94f86B",
                 "tickSpacing": 60,
                 "fee": 30
@@ -3086,7 +3086,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x7d27aC45eD8D99b19b7Ad9DE010d507715d9a54D",
                 "tickSpacing": 60,
                 "fee": 26
@@ -3111,7 +3111,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xeBA6D9638c02fdAbD708F2C0d778238127cC6A4F",
                 "tickSpacing": 60,
                 "fee": 736
@@ -3136,7 +3136,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xE6cdde5EdCcd96F47ce504167AD7499fA310734a",
                 "tickSpacing": 60,
                 "fee": 131
@@ -3161,7 +3161,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x617b5c9d90DdAe5139077baecf412d287Da076f7",
                 "tickSpacing": 60,
                 "fee": 23
@@ -3186,7 +3186,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xC23348C0C626E2fe9946307683Ff46AB35aBCDb4",
                 "tickSpacing": 60,
                 "fee": 552
@@ -3211,7 +3211,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6c2008720cb74d80b40129D1A9313D996E3B50BA",
                 "tickSpacing": 60,
                 "fee": 88
@@ -3236,7 +3236,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x9583c1BAA297ceE6560467e13c3044BcA69f15de",
                 "tickSpacing": 60,
                 "fee": 271
@@ -3261,7 +3261,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x0E4FBF25E302D2143878986116afe0C9e4217aee",
                 "tickSpacing": 60,
                 "fee": 7
@@ -3286,7 +3286,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xC26Ff2E40d75F78C203Fbf5B2C9227e6159c518a",
                 "tickSpacing": 60,
                 "fee": 27
@@ -3311,7 +3311,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xa8f79D27EE8F54084E1DB2bCeF57506edC6eD3F3",
                 "tickSpacing": 60,
                 "fee": 87
@@ -3336,7 +3336,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xEFdC563F99310A5Dd189eaaA91A1bf28034dA94C",
                 "tickSpacing": 60,
                 "fee": 1354
@@ -3361,7 +3361,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x355b479bE01e4fd85c6fdf41C0Bafb6f69aAa16c",
                 "tickSpacing": 60,
                 "fee": 1048
@@ -3386,7 +3386,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x355b479bE01e4fd85c6fdf41C0Bafb6f69aAa16c",
                 "tickSpacing": 60,
                 "fee": 1048
@@ -3411,7 +3411,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x7212D38AA05d4D76C9Af19721fDa00C21b7f8B28",
                 "tickSpacing": 60,
                 "fee": 22837
@@ -3436,7 +3436,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xf45F1C4DD64bD713f3f26F1D00795423c93e300a",
                 "tickSpacing": 60,
                 "fee": 720
@@ -3461,7 +3461,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xF10C5d3bAD214402C9a59b1170BE00A9752317af",
                 "tickSpacing": 60,
                 "fee": 458
@@ -3486,7 +3486,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x14a24CfDE55a0306Eb98A6B903E9909822302512",
                 "tickSpacing": 60,
                 "fee": 1
@@ -3511,7 +3511,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x44720A6f572649526Ac9073caE9200755cc78e0A",
                 "tickSpacing": 60,
                 "fee": 3747
@@ -3536,7 +3536,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xe00365eF06Cc267C9A2f4336172A57352ec71f90",
                 "tickSpacing": 60,
                 "fee": 4
@@ -3561,7 +3561,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xC79d3fB351b5C64C3A69e9BFbAb1e26b78E058A1",
                 "tickSpacing": 60,
                 "fee": 44
@@ -3586,7 +3586,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1D259A13BDAA0036FC3B95692eF200Ce43DcbC33",
                 "tickSpacing": 60,
                 "fee": 646
@@ -3611,7 +3611,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6814C2A1D0084B686CEE55f8FA785dFCC9Ea207D",
                 "tickSpacing": 60,
                 "fee": 11
@@ -3636,7 +3636,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x8a199bDa53cA241294c06A6678578EE68433C2fC",
                 "tickSpacing": 60,
                 "fee": 1
@@ -3661,7 +3661,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x76e5E217d7286Aa06Ae38a1328F0d687f52A8A8a",
                 "tickSpacing": 60,
                 "fee": 1
@@ -3686,7 +3686,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x39AAa834aCAB99C8089DBc5BA25F5cE7FDe4deA2",
                 "tickSpacing": 60,
                 "fee": 0
@@ -3711,7 +3711,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xF7eDc5d4Fe78390ef7659a350E609CCd9F50f6F4",
                 "tickSpacing": 60,
                 "fee": 0
@@ -3736,7 +3736,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x75E6a3985298CF615B7c15E4C492e34D956E640B",
                 "tickSpacing": 60,
                 "fee": 83
@@ -3761,7 +3761,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xf2706Ce9aA7bd94a1C66706D0763a865fc4411F7",
                 "tickSpacing": 60,
                 "fee": 2
@@ -3786,7 +3786,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5aDBce1BA52FD38F38a8cA67ff9eF1F8cc1d1E4D",
                 "tickSpacing": 60,
                 "fee": 4
@@ -3811,7 +3811,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x935Ffb2907edF782f88fC5362C41A9B9FA9d0CdC",
                 "tickSpacing": 60,
                 "fee": 1
@@ -3836,7 +3836,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4332b9d7188C3cbD4450423ded4403ec0F897263",
                 "tickSpacing": 60,
                 "fee": 20
@@ -3861,7 +3861,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xfBeED53B9a213Cc5Ad4B4605Ea907e698E84B684",
                 "tickSpacing": 60,
                 "fee": 2
@@ -3886,7 +3886,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xAB58ba7A34151a9fd106d72dc954660Fb6CeAdA2",
                 "tickSpacing": 60,
                 "fee": 3
@@ -3911,7 +3911,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xEFdC563F99310A5Dd189eaaA91A1bf28034dA94C",
                 "tickSpacing": 60,
                 "fee": 1354
@@ -3936,7 +3936,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xDF7f0a9C17dE28365617070da54D45cC0Ab7ED03",
                 "tickSpacing": 60,
                 "fee": 750
@@ -3961,7 +3961,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xAfecf029079cB27f64E4bB372c41934F94C61369",
                 "tickSpacing": 60,
                 "fee": 108
@@ -3986,7 +3986,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x05BFE97Bf794a4DB69d3059091F064eA0a5E538E",
                 "tickSpacing": 60,
                 "fee": 49422
@@ -4011,7 +4011,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x71C60DD1051b137F858ff5A4E778839AB4F95520",
                 "tickSpacing": 60,
                 "fee": 209
@@ -4036,7 +4036,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3fCb7EE2c859ED8d66119Fae76FD6DB2A292E914",
                 "tickSpacing": 60,
                 "fee": 7084
@@ -4061,7 +4061,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xDF7f0a9C17dE28365617070da54D45cC0Ab7ED03",
                 "tickSpacing": 60,
                 "fee": 750
@@ -4086,7 +4086,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xF5233d0fb91940DB071f9027c4B99c9db49d736a",
                 "tickSpacing": 60,
                 "fee": 21
@@ -4111,7 +4111,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3051fe24be28Dc26478a525bc31D6e17584ADc7d",
                 "tickSpacing": 60,
                 "fee": 915
@@ -4136,7 +4136,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x05BFE97Bf794a4DB69d3059091F064eA0a5E538E",
                 "tickSpacing": 60,
                 "fee": 49422
@@ -4161,7 +4161,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1d7F2E4295981aF5cC005d936Ac437588B353596",
                 "tickSpacing": 60,
                 "fee": 29606
@@ -4186,7 +4186,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3EE237e7dc25e46490BC2408F0bE1B77AE9D5F70",
                 "tickSpacing": 60,
                 "fee": 45
@@ -4211,7 +4211,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x0d8DC93577196aFF7d674A4E08b74EDC04999BcC",
                 "tickSpacing": 60,
                 "fee": 27433
@@ -4236,7 +4236,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x813524355e740A7273be08755A03540C045c79aa",
                 "tickSpacing": 60,
                 "fee": 181
@@ -4261,7 +4261,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x022df0b3341B3A0157EEA97dD024A93f7496D631",
                 "tickSpacing": 60,
                 "fee": 25927
@@ -4286,7 +4286,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x654d1D941Bbc000f3Bf3fa6Fd84E402edA24c37c",
                 "tickSpacing": 60,
                 "fee": 1520
@@ -4311,7 +4311,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x654d1D941Bbc000f3Bf3fa6Fd84E402edA24c37c",
                 "tickSpacing": 60,
                 "fee": 1520
@@ -4336,7 +4336,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x946E3563a0DBf262A22b25F3DfFBC0211665D328",
                 "tickSpacing": 60,
                 "fee": 7
@@ -4361,7 +4361,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xC8FB98E06B79192FaE77cABbd72c4103E654f4a7",
                 "tickSpacing": 60,
                 "fee": 51
@@ -4386,7 +4386,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6c49b1605216abE95040C6A834A771E45aa97c62",
                 "tickSpacing": 60,
                 "fee": 2371
@@ -4411,7 +4411,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x27b623586653D32079FfE83b63F5e61ceb16cfd1",
                 "tickSpacing": 60,
                 "fee": 3398
@@ -4436,7 +4436,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x63b2e3ec1e085967325D13069E0494596DcD4d65",
                 "tickSpacing": 60,
                 "fee": 2418
@@ -4461,7 +4461,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5d94e9c51e01c5F7732654F5e7730709F9c756c2",
                 "tickSpacing": 60,
                 "fee": 7806
@@ -4486,7 +4486,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xfFB65E53Cd6EB99EBa93a5812a4647e67CDFd607",
                 "tickSpacing": 60,
                 "fee": 469
@@ -4511,7 +4511,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xfFB65E53Cd6EB99EBa93a5812a4647e67CDFd607",
                 "tickSpacing": 60,
                 "fee": 469
@@ -4536,7 +4536,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4B6998B0Cc8825898708564040cBd302257b531b",
                 "tickSpacing": 60,
                 "fee": 41281
@@ -4561,7 +4561,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1f97c0260C6a18B26a9C2681F0fAa93aC2182dbC",
                 "tickSpacing": 60,
                 "fee": 64587
@@ -4586,7 +4586,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4f3391090A9c6F2F6C259d47642c64CC4F3BE01b",
                 "tickSpacing": 60,
                 "fee": 11
@@ -4611,7 +4611,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4B6998B0Cc8825898708564040cBd302257b531b",
                 "tickSpacing": 60,
                 "fee": 41281
@@ -4636,7 +4636,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x022df0b3341B3A0157EEA97dD024A93f7496D631",
                 "tickSpacing": 60,
                 "fee": 25927
@@ -4661,7 +4661,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6927e5574E1E100eF3e180e03a34e0bdc50ee18a",
                 "tickSpacing": 60,
                 "fee": 424
@@ -4686,7 +4686,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x384d2094D0Df788192043a1CBd200308DD60b068",
                 "tickSpacing": 60,
                 "fee": 61745
@@ -4711,7 +4711,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xeB37421322583595A4D106D33AE05A791FDe337c",
                 "tickSpacing": 60,
                 "fee": 18
@@ -4736,7 +4736,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xeB37421322583595A4D106D33AE05A791FDe337c",
                 "tickSpacing": 60,
                 "fee": 18
@@ -4761,7 +4761,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x194257104FabFd9f48bD01bd71A719637B4bbfA9",
                 "tickSpacing": 60,
                 "fee": 22130
@@ -4786,7 +4786,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x194257104FabFd9f48bD01bd71A719637B4bbfA9",
                 "tickSpacing": 60,
                 "fee": 22130
@@ -4811,7 +4811,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xcE2858cf40A8F54eAf91eA822EDd092d2DFa74d7",
                 "tickSpacing": 60,
                 "fee": 1
@@ -4836,7 +4836,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x75f65A62379F6A718B6B5dcFE8aCfE7b14418d2c",
                 "tickSpacing": 60,
                 "fee": 46
@@ -4861,7 +4861,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xFF6f84cE610A8f4fe6F05c32cECbf3959e5119f2",
                 "tickSpacing": 60,
                 "fee": 1
@@ -4886,7 +4886,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x7d27aC45eD8D99b19b7Ad9DE010d507715d9a54D",
                 "tickSpacing": 60,
                 "fee": 26
@@ -4911,7 +4911,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x91A2Bb2b3A129c6a2dbbD18dc0F142368059c1eC",
                 "tickSpacing": 60,
                 "fee": 43
@@ -4936,7 +4936,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x17Df1289255C0482C972D977e517964065622F0a",
                 "tickSpacing": 60,
                 "fee": 5
@@ -4961,7 +4961,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xCBe62443D8581f18Ec95cF437a8316c98a7c6Af5",
                 "tickSpacing": 60,
                 "fee": 109
@@ -4986,7 +4986,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xFbCb122C7260ce334F04610463B82544324fFa86",
                 "tickSpacing": 60,
                 "fee": 12477
@@ -5011,7 +5011,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xEE32ca35d93A20bD966371fD35fcE34b1b14a22f",
                 "tickSpacing": 60,
                 "fee": 11
@@ -5036,7 +5036,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xFbCb122C7260ce334F04610463B82544324fFa86",
                 "tickSpacing": 60,
                 "fee": 12477
@@ -5061,7 +5061,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1F28d21F4aa76223Bb7c6b24E5083185D77C8AE2",
                 "tickSpacing": 60,
                 "fee": 1
@@ -5086,7 +5086,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x9eB01E96A7F81D220A84dD14fFccF07BD914e1e7",
                 "tickSpacing": 60,
                 "fee": 59
@@ -5111,7 +5111,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xC9DA2FBd0D9b324619097F09F4cDb73f0bBaC5c7",
                 "tickSpacing": 60,
                 "fee": 4
@@ -5136,7 +5136,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5fAbdfF2358fB71eCd2c273f0af6D5AAB3125658",
                 "tickSpacing": 60,
                 "fee": 2
@@ -5161,7 +5161,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xE28Baa751d780e9a8ed2D65133A9CCe859520Da1",
                 "tickSpacing": 60,
                 "fee": 0
@@ -5186,7 +5186,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xF97C0DdE26236D23E8D6c89dAedA37d083d64f26",
                 "tickSpacing": 60,
                 "fee": 5
@@ -5211,7 +5211,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x022df0b3341B3A0157EEA97dD024A93f7496D631",
                 "tickSpacing": 60,
                 "fee": 25927
@@ -5236,7 +5236,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xb3CDb1Aca78438FBFDCa116a1AcDefdc4a5cD776",
                 "tickSpacing": 60,
                 "fee": 29
@@ -5261,7 +5261,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x747299b8E6eF3C1F55985e6154f614F99617331e",
                 "tickSpacing": 60,
                 "fee": 176
@@ -5286,7 +5286,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x0d8DC93577196aFF7d674A4E08b74EDC04999BcC",
                 "tickSpacing": 60,
                 "fee": 27433
@@ -5311,7 +5311,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4ea142675b0E209e4b451cdEcA6a55F30459E6f2",
                 "tickSpacing": 60,
                 "fee": 66
@@ -5336,7 +5336,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3fCb7EE2c859ED8d66119Fae76FD6DB2A292E914",
                 "tickSpacing": 60,
                 "fee": 7084
@@ -5361,7 +5361,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x0CA3020f6b51Ba5bde64a2F64Fa2587c7212Cf28",
                 "tickSpacing": 60,
                 "fee": 143
@@ -5386,7 +5386,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x194257104FabFd9f48bD01bd71A719637B4bbfA9",
                 "tickSpacing": 60,
                 "fee": 22130
@@ -5411,7 +5411,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5350646C29172BF3746D8073A79e30ecc391d257",
                 "tickSpacing": 60,
                 "fee": 14
@@ -5436,7 +5436,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xaB53b84D5929191208cb2c5ea591Dd7bdc1C72F7",
                 "tickSpacing": 60,
                 "fee": 41
@@ -5461,7 +5461,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xfA78BF8546cd20651296Bd6225C8c99478B3a495",
                 "tickSpacing": 60,
                 "fee": 115
@@ -5486,7 +5486,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xEAeb7D5a0f002D890db736Ea08e6F91BEb04EADd",
                 "tickSpacing": 60,
                 "fee": 0
@@ -5511,7 +5511,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x98500E07dE8bd0b5BF6EDd021b44F7178DBB6B4A",
                 "tickSpacing": 60,
                 "fee": 0
@@ -5536,7 +5536,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5D0aCfa39A0FCA603147f1c14e53f46BE76984BC",
                 "tickSpacing": 60,
                 "fee": 34903
@@ -5561,7 +5561,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xcb76fFB37e49F67DCbace1Be5c4A581181B69b90",
                 "tickSpacing": 60,
                 "fee": 1753
@@ -5586,7 +5586,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xc0E064fF3Ea600e04b3948Ba6758f4f96a8e36F7",
                 "tickSpacing": 60,
                 "fee": 117
@@ -5611,7 +5611,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x0299fdb23d60BBd5E450CdA77C84Ac050E6d762f",
                 "tickSpacing": 60,
                 "fee": 243
@@ -5636,7 +5636,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xB8633414BF5D7E02f3629e4443c0F9C73C7C62E3",
                 "tickSpacing": 60,
                 "fee": 5
@@ -5661,7 +5661,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5fAbdfF2358fB71eCd2c273f0af6D5AAB3125658",
                 "tickSpacing": 60,
                 "fee": 2
@@ -5686,7 +5686,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x56Bf91D5de634961D5d3AeEAB2584B72bF91544C",
                 "tickSpacing": 60,
                 "fee": 2
@@ -5711,7 +5711,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xfF5402D15Cb7Cc45914E8e841384B94C48A4CEfa",
                 "tickSpacing": 60,
                 "fee": 3
@@ -5736,7 +5736,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x59b8a835E587C7a41E0fea786109d6c0E2eFBD37",
                 "tickSpacing": 60,
                 "fee": 14
@@ -5761,7 +5761,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x69Fc9E63678546385613297269EE33c468AB6634",
                 "tickSpacing": 60,
                 "fee": 0
@@ -5786,7 +5786,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x80DeeCE4befd9F27D2df88064cf75f080d3ce1b2",
                 "tickSpacing": 60,
                 "fee": 30584
@@ -5811,7 +5811,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3c0188ae3D2934eE74CCc0E495e79ea05b75bC4A",
                 "tickSpacing": 60,
                 "fee": 3
@@ -5836,7 +5836,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x707B55B2e9982De120D8e976877503723Ac315f6",
                 "tickSpacing": 60,
                 "fee": 79
@@ -5861,7 +5861,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x420889Ca30fD209838F447c975A570DC7340F52c",
                 "tickSpacing": 60,
                 "fee": 3
@@ -5886,7 +5886,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x420889Ca30fD209838F447c975A570DC7340F52c",
                 "tickSpacing": 60,
                 "fee": 3
@@ -5911,7 +5911,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x03f3D7eb495098c403904B77246a56b56fd5faD0",
                 "tickSpacing": 60,
                 "fee": 1
@@ -5936,7 +5936,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x0f3599A716A0d7664505E36e4c1da06dFE52c667",
                 "tickSpacing": 60,
                 "fee": 3
@@ -5961,7 +5961,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xa59d7e41C4E773012A0a65714aaac6957e9A2dA5",
                 "tickSpacing": 60,
                 "fee": 10
@@ -5986,7 +5986,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x59b8a835E587C7a41E0fea786109d6c0E2eFBD37",
                 "tickSpacing": 60,
                 "fee": 14
@@ -6011,7 +6011,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4332b9d7188C3cbD4450423ded4403ec0F897263",
                 "tickSpacing": 60,
                 "fee": 20
@@ -6036,7 +6036,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3f3A3AC751561BC7B52c8B8A924BDDabBb6b167c",
                 "tickSpacing": 60,
                 "fee": 1
@@ -6061,7 +6061,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x89f6D498b0A48E8C1877Cd336338506634210133",
                 "tickSpacing": 60,
                 "fee": 24
@@ -6086,7 +6086,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x7212D38AA05d4D76C9Af19721fDa00C21b7f8B28",
                 "tickSpacing": 60,
                 "fee": 22837
@@ -6111,7 +6111,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x24566dC295b5740d2D26fceE8928a633908e75f4",
                 "tickSpacing": 60,
                 "fee": 1
@@ -6136,7 +6136,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x933Ddf3Cb0e60EE9E857367c55967dF61197124F",
                 "tickSpacing": 60,
                 "fee": 0
@@ -6161,7 +6161,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xa6c38609996Be5f8F5b392b1851caDB908e3132f",
                 "tickSpacing": 60,
                 "fee": 0
@@ -6186,7 +6186,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xeaF5395Eb02E542C917e3b8277915FA9e6e78461",
                 "tickSpacing": 60,
                 "fee": 0
@@ -6211,7 +6211,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4a516E6cff09320e2EeD7Aac25D920c2fB6d8AD0",
                 "tickSpacing": 60,
                 "fee": 0
@@ -6236,7 +6236,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x7A56a41CBE43DaEa9ECa3353c03b15b0F2a01FB2",
                 "tickSpacing": 60,
                 "fee": 1
@@ -6261,7 +6261,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x61258EcB2dFb47E100e7d035a09acf28F73a3989",
                 "tickSpacing": 60,
                 "fee": 1665
@@ -6286,7 +6286,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xc4d2834013ab93C5b6Aa9237f4e8FE49Ce4CC80a",
                 "tickSpacing": 60,
                 "fee": 8
@@ -6311,7 +6311,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x524077f593A9bACD4566440a3CCd0912Bd27701d",
                 "tickSpacing": 60,
                 "fee": 1
@@ -6336,7 +6336,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xAbC4e57884ed65fAc085af747e8349c3867B9C3F",
                 "tickSpacing": 60,
                 "fee": 3
@@ -6361,7 +6361,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x69f8649dAfD8463dEdf19d052292AB8C49348aCF",
                 "tickSpacing": 60,
                 "fee": 1
@@ -6386,7 +6386,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x798aA33971f3753Fc76fAe4B5955B4bb2495908E",
                 "tickSpacing": 60,
                 "fee": 0
@@ -6411,7 +6411,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x384d2094D0Df788192043a1CBd200308DD60b068",
                 "tickSpacing": 60,
                 "fee": 61745
@@ -6436,7 +6436,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x961d24e06A8d235fCa977bB3B1cC7C05FaC3c7BA",
                 "tickSpacing": 60,
                 "fee": 291
@@ -6461,7 +6461,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xa0e88eA586E47715bD88326fd05F31Fc9eb32C33",
                 "tickSpacing": 60,
                 "fee": 28
@@ -6486,7 +6486,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xA9bfa20660d6a2170268dF766b81aAe2488dec8E",
                 "tickSpacing": 60,
                 "fee": 133
@@ -6511,7 +6511,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1774CE56077a37FDb6D8b1FDcE4c1AFD6aFE16bB",
                 "tickSpacing": 60,
                 "fee": 32
@@ -6536,7 +6536,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xb8AC841512Af2b01b22a964876477B5D7C6672eb",
                 "tickSpacing": 60,
                 "fee": 0
@@ -6561,7 +6561,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x539405Cc10C0dcc501f33BEDaD6A094e3407031e",
                 "tickSpacing": 60,
                 "fee": 0
@@ -6586,7 +6586,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xC4206A5f9C7914Ff32958D0e1BE8b6EA7914b2E9",
                 "tickSpacing": 60,
                 "fee": 0
@@ -6611,7 +6611,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xE2251eD72b413Fb5F260711766c5498dFD537Ed6",
                 "tickSpacing": 60,
                 "fee": 32
@@ -6636,7 +6636,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xe1bdc49Ef6414337FF89Faf6D5849eB3f586192a",
                 "tickSpacing": 60,
                 "fee": 15
@@ -6661,7 +6661,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4B8DB017F09f911F5D4387dd602Ba40f7bc32b90",
                 "tickSpacing": 60,
                 "fee": 2777
@@ -6686,7 +6686,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xFE914a648242d5F91b92797D9d84f6D65e0Bf1f7",
                 "tickSpacing": 60,
                 "fee": 9
@@ -6711,7 +6711,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xe05Fa1DF37A435bd3b2917391B3b8bDf095E9dd2",
                 "tickSpacing": 60,
                 "fee": 19
@@ -6736,7 +6736,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x65c30F39B880BDD9616280450C4b41cC74B438b7",
                 "tickSpacing": 60,
                 "fee": 10821
@@ -6761,7 +6761,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x42678c6e7Bc9834E74CAee4aDC14cc0503A3Ff9c",
                 "tickSpacing": 60,
                 "fee": 4
@@ -6786,7 +6786,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x243691e2885046EB3b83D02e281E0FEEEa7d0805",
                 "tickSpacing": 60,
                 "fee": 0
@@ -6811,7 +6811,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xa649040D1A13376ac0c4bcCCb587963Fb7961095",
                 "tickSpacing": 60,
                 "fee": 6993
@@ -6836,7 +6836,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x71E263c6a102D44Eb8Dc273726245847814C2f5c",
                 "tickSpacing": 60,
                 "fee": 1
@@ -6861,7 +6861,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6BeC0B2995d5EFaFf8Df4b8aCcfA53f408bb7f82",
                 "tickSpacing": 60,
                 "fee": 7
@@ -6886,7 +6886,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xB377Ce4feb3AcE96631aa8B764EfF75e33EAC07A",
                 "tickSpacing": 60,
                 "fee": 1
@@ -6911,7 +6911,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xE72285EA68e5628bDFb53Be80EE8F737d8C647a7",
                 "tickSpacing": 60,
                 "fee": 0
@@ -6936,7 +6936,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6B5dA2B760767489ED699a528C399876D4429732",
                 "tickSpacing": 60,
                 "fee": 0
@@ -6961,7 +6961,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x0C33963dE5Af0401a0FfB538B277DBfDfDc50a01",
                 "tickSpacing": 60,
                 "fee": 0
@@ -6986,7 +6986,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6556379339af888ff325FC17309C9EBf24B1e9E2",
                 "tickSpacing": 60,
                 "fee": 0
@@ -7011,7 +7011,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x073A220302c849E96d985B4933D9EEa537e67F28",
                 "tickSpacing": 60,
                 "fee": 0
@@ -7036,7 +7036,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xD446F0Aed8BDa20274ac2E017503eF7772B46015",
                 "tickSpacing": 60,
                 "fee": 0
@@ -7061,7 +7061,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x74c9C49715D42c77958EE83939bFd6892747dFB0",
                 "tickSpacing": 60,
                 "fee": 0
@@ -7086,7 +7086,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xC3872154c675fE07782EDbAf12634D685C50e05A",
                 "tickSpacing": 60,
                 "fee": 5
@@ -7111,7 +7111,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3ebFCA11B760717A7B389871ec8753c9b6881F18",
                 "tickSpacing": 60,
                 "fee": 11
@@ -7136,7 +7136,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xd43400329BdfbE7E3aBb9c4d24E9587735D81415",
                 "tickSpacing": 60,
                 "fee": 1
@@ -7161,7 +7161,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xFB38333215a8be46A2691d5A2bca491a5974f8ba",
                 "tickSpacing": 60,
                 "fee": 1102
@@ -7186,7 +7186,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3b7cbE5a39eB561E314Dcf7582a641BBE89e93A4",
                 "tickSpacing": 60,
                 "fee": 6
@@ -7211,7 +7211,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3b7cbE5a39eB561E314Dcf7582a641BBE89e93A4",
                 "tickSpacing": 60,
                 "fee": 6
@@ -7236,7 +7236,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xb3CDb1Aca78438FBFDCa116a1AcDefdc4a5cD776",
                 "tickSpacing": 60,
                 "fee": 29
@@ -7261,7 +7261,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x68406028dc0b6870eBf5D7a0C51dc7bc362307Ce",
                 "tickSpacing": 60,
                 "fee": 62
@@ -7286,7 +7286,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xFae010a14dC2D7E70792D18D2c248901Ce4aCdbc",
                 "tickSpacing": 60,
                 "fee": 1
@@ -7311,7 +7311,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xe0bA5663d72C91dDA29743c4A119816A67283DA9",
                 "tickSpacing": 60,
                 "fee": 3
@@ -7336,7 +7336,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x25A3A9CB9E87CeE0170Eb767F363118cdBCB6dF2",
                 "tickSpacing": 60,
                 "fee": 5
@@ -7361,7 +7361,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x2cc8EE3C2142fbEA589E4D0112908578F682300A",
                 "tickSpacing": 60,
                 "fee": 4
@@ -7386,7 +7386,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x9F44415b3BE34C8424713999b76943DB6d1cE0aE",
                 "tickSpacing": 60,
                 "fee": 1057
@@ -7411,7 +7411,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6472aE37f1D7c9446fA8799fbCfB7e46481319c9",
                 "tickSpacing": 60,
                 "fee": 10
@@ -7436,7 +7436,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x951BaC83BA520108E6aB6E7D9F84bE7ccF8F7CDa",
                 "tickSpacing": 60,
                 "fee": 0
@@ -7461,7 +7461,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x29293a0429296EFE87d7Ba39C662029407E38f46",
                 "tickSpacing": 60,
                 "fee": 27861
@@ -7486,7 +7486,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xEBbc62eE66a1aeE229C1CaD26ad121Db79F37568",
                 "tickSpacing": 60,
                 "fee": 6736
@@ -7511,7 +7511,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x8a65264e1aC0b11fc4859669D7B0Fdd05cC2380E",
                 "tickSpacing": 60,
                 "fee": 1
@@ -7536,7 +7536,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x44720A6f572649526Ac9073caE9200755cc78e0A",
                 "tickSpacing": 60,
                 "fee": 3747
@@ -7561,7 +7561,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1293B290e98BeF7e8280c38c01dF3C13349c5187",
                 "tickSpacing": 60,
                 "fee": 4
@@ -7586,7 +7586,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xDd5dD6Ae17D3D8915e70e462E9113e0728489182",
                 "tickSpacing": 60,
                 "fee": 6
@@ -7611,7 +7611,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xd923756dbfA73B5AE37EE4Df9a988A955f27803e",
                 "tickSpacing": 60,
                 "fee": 2
@@ -7636,7 +7636,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xb52c78BB08b84658B4CaCecF2f2c1535eA9506A8",
                 "tickSpacing": 60,
                 "fee": 64
@@ -7661,7 +7661,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xF346762Cc3619Bb279D9731c7FeB7F4947D6a7b7",
                 "tickSpacing": 60,
                 "fee": 2
@@ -7686,7 +7686,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x2A30548625226cc2Fcec1dc0Ca2695D156f7ef72",
                 "tickSpacing": 60,
                 "fee": 0
@@ -7711,7 +7711,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4B6998B0Cc8825898708564040cBd302257b531b",
                 "tickSpacing": 60,
                 "fee": 41281
@@ -7736,7 +7736,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4B6998B0Cc8825898708564040cBd302257b531b",
                 "tickSpacing": 60,
                 "fee": 41281
@@ -7761,7 +7761,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xbeb9742FDEcF059CFC2283083b8DA1db6dEEF9BB",
                 "tickSpacing": 60,
                 "fee": 80
@@ -7786,7 +7786,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x69908dE596549a30dcA69EE3e338cB27B46D6546",
                 "tickSpacing": 60,
                 "fee": 14
@@ -7811,7 +7811,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x59911BDE7EC940e8338888d9Ce6E34Adfbe110Ba",
                 "tickSpacing": 60,
                 "fee": 1
@@ -7836,7 +7836,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xc0D835F6279021E0f8D271c3e51F25780Cb0C3ff",
                 "tickSpacing": 60,
                 "fee": 138
@@ -7861,7 +7861,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xFfb11612fbfa38C0963bA29559317686671084D2",
                 "tickSpacing": 60,
                 "fee": 3
@@ -7886,7 +7886,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xd09da7Bd5cd36Ed036846bB19117B0c7eb75DF9b",
                 "tickSpacing": 60,
                 "fee": 1
@@ -7911,7 +7911,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xd09da7Bd5cd36Ed036846bB19117B0c7eb75DF9b",
                 "tickSpacing": 60,
                 "fee": 1
@@ -7936,7 +7936,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xE04d2bBE0057F260765946de21b0a42D11E6453E",
                 "tickSpacing": 60,
                 "fee": 9
@@ -7961,7 +7961,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x0cF4a76355AA72baA368926078FeF4252a90331b",
                 "tickSpacing": 60,
                 "fee": 0
@@ -7986,7 +7986,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xB377Ce4feb3AcE96631aa8B764EfF75e33EAC07A",
                 "tickSpacing": 60,
                 "fee": 1
@@ -8011,7 +8011,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xD028CE6b917d64dbf82Bff8338A50083bEC8D05F",
                 "tickSpacing": 60,
                 "fee": 55
@@ -8036,7 +8036,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x10cF27Fc54d20FFFD4263A3AA1505d8Da363569A",
                 "tickSpacing": 60,
                 "fee": 23
@@ -8061,7 +8061,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x766F79921e1E15FeE5EE53b4D95337c4D5C34a31",
                 "tickSpacing": 60,
                 "fee": 3
@@ -8086,7 +8086,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x8dc118d2Caa29F5B8e00eAAE966110f23cC6f885",
                 "tickSpacing": 60,
                 "fee": 2
@@ -8111,7 +8111,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x0C6C9223123693322996Ad6e3a6D30dDbC437Dac",
                 "tickSpacing": 60,
                 "fee": 14
@@ -8136,7 +8136,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5C0749524a6EC12C927426b7da116749c42526Fe",
                 "tickSpacing": 60,
                 "fee": 27
@@ -8161,7 +8161,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x49161a2328B2e43C73bdbb7fA52B790737B19Fa3",
                 "tickSpacing": 60,
                 "fee": 383
@@ -8186,7 +8186,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xf8B4743971084740E2b5fdD2e23d0b25d28d6006",
                 "tickSpacing": 60,
                 "fee": 0
@@ -8211,7 +8211,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x25BfB8b81b95a7C28Afded0BB2a56dacf07824E8",
                 "tickSpacing": 60,
                 "fee": 0
@@ -8236,7 +8236,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x95DC4e9D08C33097d5dA858651a3d531fD8D2Bd4",
                 "tickSpacing": 60,
                 "fee": 4
@@ -8261,7 +8261,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xDfDa2ed032873171B1C29f7b3a5D3927A36d6319",
                 "tickSpacing": 60,
                 "fee": 13
@@ -8286,7 +8286,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4b9Bce8888bEE8b252a7D599AA534C2faB9a07A5",
                 "tickSpacing": 60,
                 "fee": 15537
@@ -8311,7 +8311,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x34947b45F5A28DF77Ad64dF2C4026D170f789628",
                 "tickSpacing": 60,
                 "fee": 0
@@ -8336,7 +8336,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xf07060CDCeD83CB3321637e956854bbA8d9535ce",
                 "tickSpacing": 60,
                 "fee": 0
@@ -8361,7 +8361,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x0807d216952560E7B4BbC50dD0910DE3b77E47f1",
                 "tickSpacing": 60,
                 "fee": 0
@@ -8386,7 +8386,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x620d258671cBE1B4e0c69147050E023f02515779",
                 "tickSpacing": 60,
                 "fee": 0
@@ -8411,7 +8411,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x9753E4c0cF335590CD1748B4Bd8D4f7245CadAbF",
                 "tickSpacing": 60,
                 "fee": 0
@@ -8436,7 +8436,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4705D543767a7f0f2b87d48e11e08beE5f13D230",
                 "tickSpacing": 60,
                 "fee": 0
@@ -8461,7 +8461,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5297d32Be7f3FcfCB84DA630F97C2a49a5551106",
                 "tickSpacing": 60,
                 "fee": 0
@@ -8486,7 +8486,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1A9Af4b9574ea40de75C6792fB81BaA8f62b842a",
                 "tickSpacing": 60,
                 "fee": 0
@@ -8511,7 +8511,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xCc22e17009a13a0b1231d865B9A1D9f01500fBd6",
                 "tickSpacing": 60,
                 "fee": 0
@@ -8536,7 +8536,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6151ca8B9747A723DdD94E32c9065167D7F83F21",
                 "tickSpacing": 60,
                 "fee": 0
@@ -8561,7 +8561,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xa10F7803282309dcD7Fe1Fcc52303aFb1a157002",
                 "tickSpacing": 60,
                 "fee": 6
@@ -8586,7 +8586,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x74BE4a6B9eC59da2D7999be3d14dA523dABCE365",
                 "tickSpacing": 60,
                 "fee": 2
@@ -8611,7 +8611,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xB5497d025060eB0386A1f685C186fc83deEAa1e7",
                 "tickSpacing": 60,
                 "fee": 5
@@ -8636,7 +8636,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xA2938008e3D7C678Ad273301794CDB77E52A5912",
                 "tickSpacing": 60,
                 "fee": 332
@@ -8661,7 +8661,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x45F282D9EE46A0C3BBB8723799436eEEcB9b542F",
                 "tickSpacing": 60,
                 "fee": 8
@@ -8686,7 +8686,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xEa5c5234514Fd3a5280353a70811DaB439b6D9Eb",
                 "tickSpacing": 60,
                 "fee": 0
@@ -8711,7 +8711,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xddfEfbBE18E947207385deBe0EE9F47eeffF4A4a",
                 "tickSpacing": 60,
                 "fee": 1
@@ -8736,7 +8736,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x8390948D6264433493aaC63A1C052bA73Bf1E2E4",
                 "tickSpacing": 60,
                 "fee": 0
@@ -8761,7 +8761,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4449078C22b23Ab2261604D85AAEA7242a3f5f18",
                 "tickSpacing": 60,
                 "fee": 0
@@ -8786,7 +8786,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x7F2700f4F08dd91218132d030f656e523653119b",
                 "tickSpacing": 60,
                 "fee": 18
@@ -8811,7 +8811,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x45Ee5Da00Fe3D4eC92636fC8ABD5630668Aa5EC4",
                 "tickSpacing": 60,
                 "fee": 127
@@ -8836,7 +8836,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x0777178F68E926efEC98056CfE0a81f009fF4C70",
                 "tickSpacing": 60,
                 "fee": 566
@@ -8861,7 +8861,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xc9465292073c3a32793d5A192571b689CbAD773C",
                 "tickSpacing": 60,
                 "fee": 0
@@ -8886,7 +8886,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xfb0bc232CD11dBe804B489860c470B7f9cc80D9F",
                 "tickSpacing": 60,
                 "fee": 4511
@@ -8911,7 +8911,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xfb0bc232CD11dBe804B489860c470B7f9cc80D9F",
                 "tickSpacing": 60,
                 "fee": 4511
@@ -8936,7 +8936,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x13df6dAd8f71D7302312d23264618C2Ccd4DbEd5",
                 "tickSpacing": 60,
                 "fee": 2
@@ -8961,7 +8961,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xb8D00C66acCDC01e78Fd7957BF24050162916aE2",
                 "tickSpacing": 60,
                 "fee": 11605
@@ -8986,7 +8986,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3E1687F36163e32dbFA71ECA9ba6b5a78e67b725",
                 "tickSpacing": 60,
                 "fee": 6528
@@ -9011,7 +9011,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xcAA4bab5B7CdEa8DA4fB504057d101820f613727",
                 "tickSpacing": 60,
                 "fee": 1
@@ -9036,7 +9036,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5Cd94eAD61FEA43886FEEC3C95B1e9D7284FdeF3",
                 "tickSpacing": 60,
                 "fee": 1279
@@ -9061,7 +9061,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4ea142675b0E209e4b451cdEcA6a55F30459E6f2",
                 "tickSpacing": 60,
                 "fee": 66
@@ -9086,7 +9086,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xdad61fFBA55bB83A18b41C58405983Be457171D8",
                 "tickSpacing": 60,
                 "fee": 0
@@ -9111,7 +9111,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xeE0407Da8219e797e3eb7d546BE674d20C481d6b",
                 "tickSpacing": 60,
                 "fee": 8
@@ -9136,7 +9136,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6aF315D2f648761694236Fb5A7ce1d88BA2Ea41E",
                 "tickSpacing": 60,
                 "fee": 5
@@ -9161,7 +9161,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xAc3b123374dFc69a23ae9448af108551aFf6658A",
                 "tickSpacing": 60,
                 "fee": 104
@@ -9186,7 +9186,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5D2b38a5eA7534A3C65D3F3A7a97651Cf8D15428",
                 "tickSpacing": 60,
                 "fee": 4
@@ -9211,7 +9211,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5D2b38a5eA7534A3C65D3F3A7a97651Cf8D15428",
                 "tickSpacing": 60,
                 "fee": 4
@@ -9236,7 +9236,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5D2b38a5eA7534A3C65D3F3A7a97651Cf8D15428",
                 "tickSpacing": 60,
                 "fee": 4
@@ -9261,7 +9261,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xB924BFeD5608187284d0990b27716323923C3aD7",
                 "tickSpacing": 60,
                 "fee": 3424
@@ -9286,7 +9286,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xC7059Da7AaDb3EDBF24B886C42c1C17848Dd7657",
                 "tickSpacing": 60,
                 "fee": 8
@@ -9311,7 +9311,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xb8D00C66acCDC01e78Fd7957BF24050162916aE2",
                 "tickSpacing": 60,
                 "fee": 11605
@@ -9336,7 +9336,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x65c30F39B880BDD9616280450C4b41cC74B438b7",
                 "tickSpacing": 60,
                 "fee": 10821
@@ -9361,7 +9361,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xd923756dbfA73B5AE37EE4Df9a988A955f27803e",
                 "tickSpacing": 60,
                 "fee": 2
@@ -9386,7 +9386,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xE0F9946b81203667C844E2774dB58971117D1131",
                 "tickSpacing": 60,
                 "fee": 76
@@ -9411,7 +9411,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xCDc53Af784b5f8D05F9874E4117048036b9aaDCE",
                 "tickSpacing": 60,
                 "fee": 687
@@ -9436,7 +9436,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x79D0eEA6A276d8e099d193D91B6AD51e37723652",
                 "tickSpacing": 60,
                 "fee": 4
@@ -9461,7 +9461,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x8C471a38E6d4c9a430Ee3685797F380f5859e769",
                 "tickSpacing": 60,
                 "fee": 1
@@ -9486,7 +9486,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x2dB606B729e1F8D064348c94c19c548C643CbBbd",
                 "tickSpacing": 60,
                 "fee": 210
@@ -9511,7 +9511,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x93C7011231f2a340a2989aA7596dc321407C7abb",
                 "tickSpacing": 60,
                 "fee": 9
@@ -9536,7 +9536,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1841D99F965CC99FB46Ac8d963ADd037E93C954B",
                 "tickSpacing": 60,
                 "fee": 13
@@ -9561,7 +9561,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xA0742332dB4594c148A489741d322AfEE2734171",
                 "tickSpacing": 60,
                 "fee": 19
@@ -9586,7 +9586,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5baAFFA2CB0f71aF28A1BD9dCfbb98c95b52fB20",
                 "tickSpacing": 60,
                 "fee": 2650
@@ -9611,7 +9611,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x9A17b8308eb2202152918882002aA2C8c0CaD3C6",
                 "tickSpacing": 60,
                 "fee": 40
@@ -9636,7 +9636,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6C4069b479B6Ed9fDacBe256c6CC4493EE4b801e",
                 "tickSpacing": 60,
                 "fee": 1
@@ -9661,7 +9661,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x25a2901e4993721140B06E9338F701f19520f47C",
                 "tickSpacing": 60,
                 "fee": 25
@@ -9686,7 +9686,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x9396897D732F4085bE74A9C357cAe58732B92c75",
                 "tickSpacing": 60,
                 "fee": 7233
@@ -9711,7 +9711,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xBa8530BD294Ae1842D7998D3C3163e66AD2FAd34",
                 "tickSpacing": 60,
                 "fee": 11
@@ -9736,7 +9736,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x32Fd8a7a996f4C8E45c5D49740a3fD7DBb1F31F1",
                 "tickSpacing": 60,
                 "fee": 13
@@ -9761,7 +9761,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x44Bf27c84A6042De66DC93a132E0e1608A4D97b4",
                 "tickSpacing": 60,
                 "fee": 2
@@ -9786,7 +9786,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xBf3036C5c55bdb36ae505f96F4C40c92E782E9f6",
                 "tickSpacing": 60,
                 "fee": 20814
@@ -9811,7 +9811,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x60F1ef8DcA61Aa4ceedd8dfe34B4A82fd9E7f9e8",
                 "tickSpacing": 60,
                 "fee": 3277
@@ -9836,7 +9836,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x60F1ef8DcA61Aa4ceedd8dfe34B4A82fd9E7f9e8",
                 "tickSpacing": 60,
                 "fee": 3277
@@ -9861,7 +9861,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x9F43f49dCfE18091Ecf79111cd10b018DF06Efe3",
                 "tickSpacing": 60,
                 "fee": 50
@@ -9886,7 +9886,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xacd7c9e7622aCff4e6EB35db35Fdf1a7ad8234b4",
                 "tickSpacing": 60,
                 "fee": 3
@@ -9911,7 +9911,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6c2008720cb74d80b40129D1A9313D996E3B50BA",
                 "tickSpacing": 60,
                 "fee": 88
@@ -9936,7 +9936,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1B8aCa7Dd8a0Cfb3b6de9465201313af509c8CA5",
                 "tickSpacing": 60,
                 "fee": 1376
@@ -9961,7 +9961,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x07E71d0E0e6411b223b7ddeD8f2547e3869DA5b0",
                 "tickSpacing": 60,
                 "fee": 2
@@ -9986,7 +9986,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1224d755FE1927BC3893a727173E4086B8DeE073",
                 "tickSpacing": 60,
                 "fee": 29
@@ -10011,7 +10011,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xc808376dBF5d89a873E39aA909c0BCb4Baa66caa",
                 "tickSpacing": 60,
                 "fee": 91
@@ -10036,7 +10036,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xb4a56561D0aF5807E11AeC67c5A3555911094EDe",
                 "tickSpacing": 60,
                 "fee": 0
@@ -10061,7 +10061,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x627616C1a6EDE5fF18E5D899E3875A5Fb2F2413c",
                 "tickSpacing": 60,
                 "fee": 1
@@ -10086,7 +10086,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x81977daeE60da06BDA244F423512A4dbc51D974F",
                 "tickSpacing": 60,
                 "fee": 53
@@ -10111,7 +10111,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x262bf3812ba3B95BdEBF8fE6099ADb0FdEF591e9",
                 "tickSpacing": 60,
                 "fee": 5
@@ -10136,7 +10136,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x9791a677fC6385369368b6F554A6E4C34E84D7aE",
                 "tickSpacing": 60,
                 "fee": 50
@@ -10161,7 +10161,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xA1CaADa74C78c894cF4f61bC7Bf483c822d430F9",
                 "tickSpacing": 60,
                 "fee": 12
@@ -10186,7 +10186,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x7212D38AA05d4D76C9Af19721fDa00C21b7f8B28",
                 "tickSpacing": 60,
                 "fee": 22837
@@ -10211,7 +10211,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x627616C1a6EDE5fF18E5D899E3875A5Fb2F2413c",
                 "tickSpacing": 60,
                 "fee": 1
@@ -10236,7 +10236,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xDa3f525B475107d9D2F6C5E7dEbc3018F0DB7404",
                 "tickSpacing": 60,
                 "fee": 91
@@ -10261,7 +10261,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x40f3B6ebE58B2bD151397fb315C159da8070AC0D",
                 "tickSpacing": 60,
                 "fee": 66
@@ -10286,7 +10286,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4BDE7B7373411542591EceE6B29D8982EC6119d3",
                 "tickSpacing": 60,
                 "fee": 1799
@@ -10311,7 +10311,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x2f13B12b43b6F2Fe23FE10aB2011cbc00b804FfE",
                 "tickSpacing": 60,
                 "fee": 0
@@ -10336,7 +10336,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xE358237Ba4969AF4975bE6F38413eaFA99b4f2F1",
                 "tickSpacing": 60,
                 "fee": 96
@@ -10361,7 +10361,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x370404A2A57eDfbEaF16Dc8ef8E2d1B0a2A9da15",
                 "tickSpacing": 60,
                 "fee": 3805
@@ -10386,7 +10386,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xE5699Ae2245f205A15653614E5b7E2D9F7f843D3",
                 "tickSpacing": 60,
                 "fee": 19
@@ -10411,7 +10411,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6B9AcB419007e5bC0B546D49769A74ebf4c1B308",
                 "tickSpacing": 60,
                 "fee": 17
@@ -10436,7 +10436,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xA498C645988dF1914739e1067D997357B3E771c8",
                 "tickSpacing": 60,
                 "fee": 66
@@ -10461,7 +10461,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xb732DA8ed212745cA9267f9cd6295B513B9e21c8",
                 "tickSpacing": 60,
                 "fee": 3
@@ -10486,7 +10486,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6dC111d820b81c5669BA2bDb7074B8A937c923C0",
                 "tickSpacing": 60,
                 "fee": 1
@@ -10511,7 +10511,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x370404A2A57eDfbEaF16Dc8ef8E2d1B0a2A9da15",
                 "tickSpacing": 60,
                 "fee": 3805
@@ -10536,7 +10536,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x93C7011231f2a340a2989aA7596dc321407C7abb",
                 "tickSpacing": 60,
                 "fee": 9
@@ -10561,7 +10561,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xD028CE6b917d64dbf82Bff8338A50083bEC8D05F",
                 "tickSpacing": 60,
                 "fee": 55
@@ -10586,7 +10586,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xEABBe2510A1997f4eaA1916c27C2aD982D52f795",
                 "tickSpacing": 60,
                 "fee": 3
@@ -10611,7 +10611,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x14A78F7e0A1D6E1f7Fc8cee2DeA2186Fe8929879",
                 "tickSpacing": 60,
                 "fee": 14
@@ -10636,7 +10636,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3F5B6e87408a8104716015d98255C887e12b3f1b",
                 "tickSpacing": 60,
                 "fee": 4
@@ -10661,7 +10661,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x33bc9A6a200752ddd44F41dD978977E0699cC00d",
                 "tickSpacing": 60,
                 "fee": 10071
@@ -10686,7 +10686,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x7E6dF02ED51d565F410751A17F0E1488FAcC75FE",
                 "tickSpacing": 60,
                 "fee": 7
@@ -10711,7 +10711,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x72fA1bAddC02783C10a05CfB2aB146db68E99B84",
                 "tickSpacing": 60,
                 "fee": 15
@@ -10736,7 +10736,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x0Cf5DeeaB38cce10B15EAC4c830b5D3Fa41Dbc55",
                 "tickSpacing": 60,
                 "fee": 3
@@ -10761,7 +10761,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x37FE7513A062d67AEdc436E029d0871bb0B48959",
                 "tickSpacing": 60,
                 "fee": 15
@@ -10786,7 +10786,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xbdb9aa1010C9D6Af30eE819b6732Ad064C73e69b",
                 "tickSpacing": 60,
                 "fee": 1853
@@ -10811,7 +10811,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xf2DDE9ac2166Ee29a23A502e640B728460FeFe7F",
                 "tickSpacing": 60,
                 "fee": 18
@@ -10836,7 +10836,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x17774014C70A4BF58D547788E10e4E844e8CdcF3",
                 "tickSpacing": 60,
                 "fee": 928
@@ -10861,7 +10861,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xF5E76C5A1f3dAA0e648b82D776842EFECCC36f25",
                 "tickSpacing": 60,
                 "fee": 2
@@ -10886,7 +10886,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xf45F1C4DD64bD713f3f26F1D00795423c93e300a",
                 "tickSpacing": 60,
                 "fee": 720
@@ -10911,7 +10911,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x2EA443185500c6A30d133a1E556c164b22B13886",
                 "tickSpacing": 60,
                 "fee": 1
@@ -10936,7 +10936,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x50844d69164E1268eCb00462bCF196c33bb4C77f",
                 "tickSpacing": 60,
                 "fee": 3
@@ -10961,7 +10961,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6758B47bA3bb39BBd246F7BC68a29FF3737BB491",
                 "tickSpacing": 60,
                 "fee": 503
@@ -10986,7 +10986,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5d3e0126dFC6e4Fa38Df26a3B3Fb43Cecb957fdE",
                 "tickSpacing": 60,
                 "fee": 0
@@ -11011,7 +11011,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xf0e36ede3f68bbaDA2C2A5689925AE10a129594A",
                 "tickSpacing": 60,
                 "fee": 11983
@@ -11036,7 +11036,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5700596262C2A94AC914caa383FF27eD258AF58b",
                 "tickSpacing": 60,
                 "fee": 250
@@ -11061,7 +11061,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x07E71d0E0e6411b223b7ddeD8f2547e3869DA5b0",
                 "tickSpacing": 60,
                 "fee": 2
@@ -11086,7 +11086,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xED3fc66971C9246f91a156E03422758ACd19F2A1",
                 "tickSpacing": 60,
                 "fee": 1
@@ -11111,7 +11111,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6758B47bA3bb39BBd246F7BC68a29FF3737BB491",
                 "tickSpacing": 60,
                 "fee": 503
@@ -11136,7 +11136,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x81F90936D384e4Bff648F4E55bBe2f2Fd7980f28",
                 "tickSpacing": 60,
                 "fee": 2
@@ -11161,7 +11161,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xDa3f525B475107d9D2F6C5E7dEbc3018F0DB7404",
                 "tickSpacing": 60,
                 "fee": 91
@@ -11186,7 +11186,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x605ec66C7dbAeaa0eaa060d451500E12D932d61f",
                 "tickSpacing": 60,
                 "fee": 4
@@ -11211,7 +11211,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x7c271c37e16D5935AEeC6537C464b632eC9d64E1",
                 "tickSpacing": 60,
                 "fee": 4
@@ -11236,7 +11236,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5eC85E321a1D00285c903aA90bFFE6539e660DeA",
                 "tickSpacing": 60,
                 "fee": 210
@@ -11261,7 +11261,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1E633e67C0270a8F38397f479A4f8f4097CC65Fa",
                 "tickSpacing": 60,
                 "fee": 0
@@ -11286,7 +11286,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x820D6E041232605c05CD426D340888a3e738637B",
                 "tickSpacing": 60,
                 "fee": 3
@@ -11311,7 +11311,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x709024d45dddA8B400373478CbF5a1990D86147c",
                 "tickSpacing": 60,
                 "fee": 111
@@ -11336,7 +11336,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xc71E9F5419782f385681FA674caB29D20BE6af2d",
                 "tickSpacing": 60,
                 "fee": 1
@@ -11361,7 +11361,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5Fe84b85bA7dEA0FBc8C4571491Aca80d97F5e01",
                 "tickSpacing": 60,
                 "fee": 4618
@@ -11386,7 +11386,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xe90478a8DFFD603715F97C643F13eBE116532721",
                 "tickSpacing": 60,
                 "fee": 21
@@ -11411,7 +11411,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x70F817A887ad59381BE25c9853f77F4C1fc0331f",
                 "tickSpacing": 60,
                 "fee": 16
@@ -11436,7 +11436,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xB0E9E2fD1B6C5625cFd54e05e936e68ad12DFBFc",
                 "tickSpacing": 60,
                 "fee": 42
@@ -11461,7 +11461,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xfb0bc232CD11dBe804B489860c470B7f9cc80D9F",
                 "tickSpacing": 60,
                 "fee": 4511
@@ -11486,7 +11486,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x400542159417bA21109143a438441A54f7A496E9",
                 "tickSpacing": 60,
                 "fee": 1
@@ -11511,7 +11511,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x0F31D36d053855420514A1197AEd0278Fa2540ac",
                 "tickSpacing": 60,
                 "fee": 9
@@ -11536,7 +11536,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x872de68BaC225B91df707fd52cb7B22d96ffc4B9",
                 "tickSpacing": 60,
                 "fee": 615
@@ -11561,7 +11561,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xFbFA9707324a56d5c853029D35E385512770f941",
                 "tickSpacing": 60,
                 "fee": 18
@@ -11586,7 +11586,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x66F1827A3a14e6AF75B3D0A1AdD08965e5B8C92b",
                 "tickSpacing": 60,
                 "fee": 10
@@ -11611,7 +11611,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xB7Bc63F93647d5ff68400638905BD789A4Dbd869",
                 "tickSpacing": 60,
                 "fee": 3
@@ -11636,7 +11636,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x12387C679d2BB1a7E782c08B26c2c994C0d362B7",
                 "tickSpacing": 60,
                 "fee": 4
@@ -11661,7 +11661,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x333c1d3c79572e04F982C737c6438e7dFf54f9E9",
                 "tickSpacing": 60,
                 "fee": 58
@@ -11686,7 +11686,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xE55bF152aeF1Afc2Aca485624287f001f83986c9",
                 "tickSpacing": 60,
                 "fee": 7
@@ -11711,7 +11711,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3F8edF2c23d3b95Ae66F9FBA35506275573dc208",
                 "tickSpacing": 60,
                 "fee": 2
@@ -11736,7 +11736,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x72002278331057911712d6194fe9cff9fA3126c3",
                 "tickSpacing": 60,
                 "fee": 0
@@ -11761,7 +11761,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x736b265717bA2ABb303CD0468f6F5748962C7C4c",
                 "tickSpacing": 60,
                 "fee": 14
@@ -11786,7 +11786,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x91A2Bb2b3A129c6a2dbbD18dc0F142368059c1eC",
                 "tickSpacing": 60,
                 "fee": 43
@@ -11811,7 +11811,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4f51bEE05EBE87C0337445A7836D521E00ef4b54",
                 "tickSpacing": 60,
                 "fee": 2
@@ -11836,7 +11836,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xA9bfa20660d6a2170268dF766b81aAe2488dec8E",
                 "tickSpacing": 60,
                 "fee": 133
@@ -11861,7 +11861,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x240b83E5611350644a9f90F7dafefcDAe6958B7F",
                 "tickSpacing": 60,
                 "fee": 527
@@ -11886,7 +11886,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xf8642Eb8b1A4967671E77CD21c98112a3A8fc0A4",
                 "tickSpacing": 60,
                 "fee": 311
@@ -11911,7 +11911,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x5fb5363825cbBcDaB9b0326E0Be6e05DaE8737E6",
                 "tickSpacing": 60,
                 "fee": 200
@@ -11936,7 +11936,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xc49F2692F4934Db41F4109a60C13409B5DeC0C12",
                 "tickSpacing": 60,
                 "fee": 59
@@ -11961,7 +11961,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xc69447C98fEa2468a5da2e5676d3565266390222",
                 "tickSpacing": 60,
                 "fee": 11
@@ -11986,7 +11986,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3EE237e7dc25e46490BC2408F0bE1B77AE9D5F70",
                 "tickSpacing": 60,
                 "fee": 45
@@ -12011,7 +12011,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xE55bF152aeF1Afc2Aca485624287f001f83986c9",
                 "tickSpacing": 60,
                 "fee": 7
@@ -12036,7 +12036,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xfFB65E53Cd6EB99EBa93a5812a4647e67CDFd607",
                 "tickSpacing": 60,
                 "fee": 469
@@ -12061,7 +12061,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x7181D77195bbd4F0325B455322c92131ee61F508",
                 "tickSpacing": 60,
                 "fee": 517
@@ -12086,7 +12086,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x0f0209f17d7C6aD1F2f7b02A3BE45064a533Ab17",
                 "tickSpacing": 60,
                 "fee": 1
@@ -12111,7 +12111,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x7963a55a5E37E1c8443B62e92e5455E672a1F37e",
                 "tickSpacing": 60,
                 "fee": 24401
@@ -12136,7 +12136,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1017Cd4F980A51B9b21928Ed663239018616B539",
                 "tickSpacing": 60,
                 "fee": 2
@@ -12161,7 +12161,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xD9cea1b19AA4bAfF2EC4195ABe3415E70CF46da3",
                 "tickSpacing": 60,
                 "fee": 8
@@ -12186,7 +12186,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x44adf2ac2E44c971ac1fF80F0Cc81545112659BC",
                 "tickSpacing": 60,
                 "fee": 3
@@ -12211,7 +12211,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xF260Df587bEa9c024E6B69171da0D5Bb9b1651d6",
                 "tickSpacing": 60,
                 "fee": 10
@@ -12236,7 +12236,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1Db4886C1D6B19E9398415bF404a6e64c5f375A3",
                 "tickSpacing": 60,
                 "fee": 76
@@ -12261,7 +12261,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1Db4886C1D6B19E9398415bF404a6e64c5f375A3",
                 "tickSpacing": 60,
                 "fee": 76
@@ -12286,7 +12286,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xB75b1cb61D38D35e20cA80112D1437Dd00b6288b",
                 "tickSpacing": 60,
                 "fee": 126
@@ -12311,7 +12311,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x33cD169DC631f5520b9a686aF310DF7b0AAD2E7d",
                 "tickSpacing": 60,
                 "fee": 118
@@ -12336,7 +12336,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1f97c0260C6a18B26a9C2681F0fAa93aC2182dbC",
                 "tickSpacing": 60,
                 "fee": 64587
@@ -12361,7 +12361,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x25582e4042Cf80A6C287F29250f4Aab8Fb48273A",
                 "tickSpacing": 60,
                 "fee": 1
@@ -12386,7 +12386,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xA8b026f77b50FAF003f8F3182Adc76D3B7cdB88F",
                 "tickSpacing": 60,
                 "fee": 905
@@ -12411,7 +12411,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xC162B5e996FF17c05832790df54Ce32829CA8534",
                 "tickSpacing": 60,
                 "fee": 68
@@ -12436,7 +12436,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x317082A5B8bd58a58d39f635A88D963f1F095dC3",
                 "tickSpacing": 60,
                 "fee": 2751
@@ -12461,7 +12461,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xB3F337b30b03c0D0ED6A0D3C06690ED2C21ACCD6",
                 "tickSpacing": 60,
                 "fee": 5
@@ -12486,7 +12486,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xAf16D97DF951bb8b7D876AE93367eC835c4C11b0",
                 "tickSpacing": 60,
                 "fee": 5529
@@ -12511,7 +12511,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x488D1b74D4b36dA3C8909Ca88Df64e4196b0497a",
                 "tickSpacing": 60,
                 "fee": 1525
@@ -12536,7 +12536,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x049E37180F6CC04aC8A3497d2FcFF1Bc9F762209",
                 "tickSpacing": 60,
                 "fee": 4
@@ -12561,7 +12561,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x750C226507ff3aC0afD4d284d4f5336D790D02d2",
                 "tickSpacing": 60,
                 "fee": 3477
@@ -12586,7 +12586,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x32E0F5Dbb75D157099a095238Df13Cc37A245666",
                 "tickSpacing": 60,
                 "fee": 3
@@ -12611,7 +12611,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x9791a677fC6385369368b6F554A6E4C34E84D7aE",
                 "tickSpacing": 60,
                 "fee": 50
@@ -12636,7 +12636,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xB992d626ac8515e8a0A525a08708268D7846f60E",
                 "tickSpacing": 60,
                 "fee": 457
@@ -12661,7 +12661,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x67b4619eEF16f2b8D618b39B69e54773b4733548",
                 "tickSpacing": 60,
                 "fee": 620
@@ -12686,7 +12686,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x7ce77C761f1486Ca926382C92FC438500f29344d",
                 "tickSpacing": 60,
                 "fee": 73
@@ -12711,7 +12711,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x252a2Eec4DacE9379Da1c851C4Ed86ecB848Ab03",
                 "tickSpacing": 60,
                 "fee": 13
@@ -12736,7 +12736,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xd46aCE367B90089F129ED64c5fa873BdAb7B2578",
                 "tickSpacing": 60,
                 "fee": 10
@@ -12761,7 +12761,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x7ce77C761f1486Ca926382C92FC438500f29344d",
                 "tickSpacing": 60,
                 "fee": 73
@@ -12786,7 +12786,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xFbFA9707324a56d5c853029D35E385512770f941",
                 "tickSpacing": 60,
                 "fee": 18
@@ -12811,7 +12811,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x52864860c31A0436Fa49365f106131826403AF7D",
                 "tickSpacing": 60,
                 "fee": 47
@@ -12836,7 +12836,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xA601F6aD8694061e763BC7111c2bC3D53974a356",
                 "tickSpacing": 60,
                 "fee": 8
@@ -12861,7 +12861,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3F8d2a661a8827EfEc65031962D314dd119cA3a7",
                 "tickSpacing": 60,
                 "fee": 454
@@ -12886,7 +12886,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x971aB96e316b71C67bE8D87D2A784aCD3Be6207f",
                 "tickSpacing": 60,
                 "fee": 2
@@ -12911,7 +12911,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6Db899005Fb609e6fEdd16B75825c0F322c4e80E",
                 "tickSpacing": 60,
                 "fee": 0
@@ -12936,7 +12936,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xdc95a749833F003442c05234aEf06a84bbce4407",
                 "tickSpacing": 60,
                 "fee": 6
@@ -12961,7 +12961,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x80DeeCE4befd9F27D2df88064cf75f080d3ce1b2",
                 "tickSpacing": 60,
                 "fee": 30584
@@ -12986,7 +12986,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x75E6a3985298CF615B7c15E4C492e34D956E640B",
                 "tickSpacing": 60,
                 "fee": 83
@@ -13011,7 +13011,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x944180a2DAc71286A7BBD70D18e690D6d278fe66",
                 "tickSpacing": 60,
                 "fee": 274
@@ -13036,7 +13036,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xb9736130eE54B19364a62a04d75e6a64c0ece73A",
                 "tickSpacing": 60,
                 "fee": 30
@@ -13061,7 +13061,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xF8F81dD302057D5760C622Bb1b84Bc134b8B664f",
                 "tickSpacing": 60,
                 "fee": 9
@@ -13086,7 +13086,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xF8F81dD302057D5760C622Bb1b84Bc134b8B664f",
                 "tickSpacing": 60,
                 "fee": 9
@@ -13111,7 +13111,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x243691e2885046EB3b83D02e281E0FEEEa7d0805",
                 "tickSpacing": 60,
                 "fee": 0
@@ -13136,7 +13136,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xF8F81dD302057D5760C622Bb1b84Bc134b8B664f",
                 "tickSpacing": 60,
                 "fee": 9
@@ -13161,7 +13161,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x15b89edC8fc92892052d775aaA077aa509599763",
                 "tickSpacing": 60,
                 "fee": 3
@@ -13186,7 +13186,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xF8F81dD302057D5760C622Bb1b84Bc134b8B664f",
                 "tickSpacing": 60,
                 "fee": 9
@@ -13211,7 +13211,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xB0E9E2fD1B6C5625cFd54e05e936e68ad12DFBFc",
                 "tickSpacing": 60,
                 "fee": 42
@@ -13236,7 +13236,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xB0E9E2fD1B6C5625cFd54e05e936e68ad12DFBFc",
                 "tickSpacing": 60,
                 "fee": 42
@@ -13261,7 +13261,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4370D09A8271F4721ee1B3126BD673dEA96DF40b",
                 "tickSpacing": 60,
                 "fee": 8
@@ -13286,7 +13286,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xD385ac9c9BCC8b345080365bf9d3345f20F97dB6",
                 "tickSpacing": 60,
                 "fee": 273
@@ -13311,7 +13311,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x9B88fA040B2FFB174b9eF08269570b1B02DccA3D",
                 "tickSpacing": 60,
                 "fee": 1
@@ -13336,7 +13336,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3c0d7A043622793e26Ef49D73625530643832650",
                 "tickSpacing": 60,
                 "fee": 1
@@ -13361,7 +13361,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1E1f6Eb42a572f9311bDa1eF73d39e256EAACf60",
                 "tickSpacing": 60,
                 "fee": 15
@@ -13386,7 +13386,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x872de68BaC225B91df707fd52cb7B22d96ffc4B9",
                 "tickSpacing": 60,
                 "fee": 615
@@ -13411,7 +13411,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x25a2901e4993721140B06E9338F701f19520f47C",
                 "tickSpacing": 60,
                 "fee": 25
@@ -13436,7 +13436,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x232515A09720D7d77AA27758efE9B9ce209eBec4",
                 "tickSpacing": 60,
                 "fee": 3
@@ -13461,7 +13461,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x1152d554d3Bd81Bf12a9Cf7505E0F72a93620781",
                 "tickSpacing": 60,
                 "fee": 0
@@ -13486,7 +13486,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x68de40F07d17daB362885803c12610541180e14C",
                 "tickSpacing": 60,
                 "fee": 3
@@ -13511,7 +13511,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xdE2E3acD32F2c3A334045B19f47698fDF2C9E040",
                 "tickSpacing": 60,
                 "fee": 3
@@ -13536,7 +13536,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x46cc8Fc76919E64d8BDF588F7Ed3d3918A168072",
                 "tickSpacing": 60,
                 "fee": 33
@@ -13561,7 +13561,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x9d5E127c65Cb53ee0F703AD0Ab754e477b751D13",
                 "tickSpacing": 60,
                 "fee": 11
@@ -13586,7 +13586,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x747299b8E6eF3C1F55985e6154f614F99617331e",
                 "tickSpacing": 60,
                 "fee": 176
@@ -13611,7 +13611,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x8bBA49EE9282Ab936d42101277cDDdfFb642e155",
                 "tickSpacing": 60,
                 "fee": 6
@@ -13636,7 +13636,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xbF214ade65826da61189aD6761d6A91d930267CC",
                 "tickSpacing": 60,
                 "fee": 2
@@ -13661,7 +13661,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x0ef1d467D23664C92575033d2e490a3c91Af764c",
                 "tickSpacing": 60,
                 "fee": 7
@@ -13686,7 +13686,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x00841185Ce96c3f0523063674975E846C99A33CE",
                 "tickSpacing": 60,
                 "fee": 755
@@ -13711,7 +13711,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x9e5d9e7B6E78f8D6D5F23129aE20e8bD165dBFED",
                 "tickSpacing": 60,
                 "fee": 177
@@ -13736,7 +13736,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x612CA9C240daeB982A2c63a3b5eE12f1555ca52D",
                 "tickSpacing": 60,
                 "fee": 433
@@ -13761,7 +13761,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x73e3A2db789dc28555F1080F3135bEe03a9A2fAE",
                 "tickSpacing": 60,
                 "fee": 1
@@ -13786,7 +13786,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xB1e1B6cc7d91Ebc25dFe6c60b5c22d976eEE3165",
                 "tickSpacing": 60,
                 "fee": 30
@@ -13811,7 +13811,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xeb05473D45f7d4f8970461382C200d7fDC9F4F4e",
                 "tickSpacing": 60,
                 "fee": 145
@@ -13836,7 +13836,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3Ee2c6499b4b36E4539aD54f58118C5750cD4eb4",
                 "tickSpacing": 60,
                 "fee": 0
@@ -13861,7 +13861,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x60b3A3b711ae2668F05C8144a07dA36A68eec00B",
                 "tickSpacing": 60,
                 "fee": 100
@@ -13886,7 +13886,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xb2b58741a90bccE5DAA64D4eF092b3F0a0101bC6",
                 "tickSpacing": 60,
                 "fee": 158
@@ -13911,7 +13911,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x15Fc7Efb986E08369152F72e5dD5d2219917AC88",
                 "tickSpacing": 60,
                 "fee": 48
@@ -13936,7 +13936,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x0f81280a26889CAe3fa3eEff7a7Bf7E0997B8D43",
                 "tickSpacing": 60,
                 "fee": 11
@@ -13961,7 +13961,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x15Fc7Efb986E08369152F72e5dD5d2219917AC88",
                 "tickSpacing": 60,
                 "fee": 48
@@ -13986,7 +13986,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x15Fc7Efb986E08369152F72e5dD5d2219917AC88",
                 "tickSpacing": 60,
                 "fee": 48
@@ -14011,7 +14011,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x15Fc7Efb986E08369152F72e5dD5d2219917AC88",
                 "tickSpacing": 60,
                 "fee": 48
@@ -14036,7 +14036,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x397B664C282c9677E28D82a10768E8f112462387",
                 "tickSpacing": 60,
                 "fee": 1489
@@ -14061,7 +14061,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xf0e36ede3f68bbaDA2C2A5689925AE10a129594A",
                 "tickSpacing": 60,
                 "fee": 11983
@@ -14086,7 +14086,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xCBe62443D8581f18Ec95cF437a8316c98a7c6Af5",
                 "tickSpacing": 60,
                 "fee": 109
@@ -14111,7 +14111,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x07E71d0E0e6411b223b7ddeD8f2547e3869DA5b0",
                 "tickSpacing": 60,
                 "fee": 2
@@ -14136,7 +14136,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x31EbFB6D0375fb8219dE4D48b57198F641448FB7",
                 "tickSpacing": 60,
                 "fee": 6
@@ -14161,7 +14161,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x2F5685f66F6b410714BE7FC6EfaA1c284802DB3A",
                 "tickSpacing": 60,
                 "fee": 3
@@ -14186,7 +14186,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6DeF4d44c3b5F7515dcB70f73a9EA096bAccF70d",
                 "tickSpacing": 60,
                 "fee": 41
@@ -14211,7 +14211,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x52a4Ca60acbDBdB6F294Bdc372B3B2f2612FF11B",
                 "tickSpacing": 60,
                 "fee": 93
@@ -14236,7 +14236,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xc2bcC6Cec98E5104A3d77Eeff1e7dd4e90E15984",
                 "tickSpacing": 60,
                 "fee": 100
@@ -14261,7 +14261,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x205e5f7B554d9b33D6C90F3Bf65D8D9E112AD2b8",
                 "tickSpacing": 60,
                 "fee": 10
@@ -14286,7 +14286,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x220461EA4786c99cA49bA86A13CCe5Fae28438fc",
                 "tickSpacing": 60,
                 "fee": 23
@@ -14311,7 +14311,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x95285B05F557e343bA891ca81B3a7BD29F8DC97C",
                 "tickSpacing": 60,
                 "fee": 3
@@ -14336,7 +14336,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6246336aA3d4eE3f666cB55b86c51C1f9D4F877a",
                 "tickSpacing": 60,
                 "fee": 6
@@ -14361,7 +14361,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xe54C6A88249Eb85455d8914eB82d20FAE76A4170",
                 "tickSpacing": 60,
                 "fee": 1
@@ -14386,7 +14386,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xc98c9434DFb18300bE98907A6C627468dbd69604",
                 "tickSpacing": 60,
                 "fee": 3782
@@ -14411,7 +14411,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x83161471832dFC6515AdA478E5E72a5cDa62E437",
                 "tickSpacing": 60,
                 "fee": 265
@@ -14436,7 +14436,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xfc142B42dE998c8707D69a404b6BA29beE177418",
                 "tickSpacing": 60,
                 "fee": 5
@@ -14461,7 +14461,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xc5Af932f8350AaFf46ec35CB03439BF6fE235950",
                 "tickSpacing": 60,
                 "fee": 2
@@ -14486,7 +14486,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x4171A09E8bAd5D992a87eB0446F2B81251590c29",
                 "tickSpacing": 60,
                 "fee": 414
@@ -14511,7 +14511,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x222CDf181aC2D811eDc428a6D92ac6C8e25dFbe2",
                 "tickSpacing": 60,
                 "fee": 1005
@@ -14536,7 +14536,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x691b3FB7f6ec9C3ceF8Cd602eD4CD88082bf3f23",
                 "tickSpacing": 60,
                 "fee": 44
@@ -14561,7 +14561,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xFB5FaDd730A9ECf9eC99e48a1d22E505d4fA23E2",
                 "tickSpacing": 60,
                 "fee": 0
@@ -14586,7 +14586,7 @@
                 "fee": 500
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xFB5FaDd730A9ECf9eC99e48a1d22E505d4fA23E2",
                 "tickSpacing": 60,
                 "fee": 0
@@ -14611,7 +14611,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0xfA78BF8546cd20651296Bd6225C8c99478B3a495",
                 "tickSpacing": 60,
                 "fee": 115
@@ -14636,7 +14636,7 @@
                 "fee": 3000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x32FDFa2Bd598249AD689B2d0a90a47d6Da3F5128",
                 "tickSpacing": 60,
                 "fee": 2
@@ -14661,7 +14661,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3EdEA41fE8Dc9027D91621e2DAcB4253e06EB2F4",
                 "tickSpacing": 60,
                 "fee": 287
@@ -14686,7 +14686,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x03b6353989A8A50dAcaAB4a69BAC829F08C21013",
                 "tickSpacing": 60,
                 "fee": 377
@@ -14711,7 +14711,7 @@
                 "fee": 10000
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x44d745cE1312eaAf1881d75883C039C11F371412",
                 "tickSpacing": 60,
                 "fee": 232
@@ -14736,7 +14736,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x6d26433F469B756951b1533f3708DC9Bee812545",
                 "tickSpacing": 60,
                 "fee": 4
@@ -14761,7 +14761,7 @@
                 "fee": 100
             },
             "pool1": {
-                "exchange": "QUICK",
+                "exchange": "QUICKV3",
                 "id": "0x3654E293a599953044Ac5f6e1e1a45Ee749d0D0F",
                 "tickSpacing": 60,
                 "fee": 9329

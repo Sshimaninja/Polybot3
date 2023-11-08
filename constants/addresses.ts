@@ -47,11 +47,11 @@ export const uniswapV3Factory: FactoryMap = {
 //LINKS TO MORE ALGEBRA FACTORY ADDRESSES
 //https://docs.algebra.finance/en/docs/contracts/partners/introduction
 export const algebraFactory: FactoryMap = {
-	QUICK: "0x411b0fAcC3489691f28ad58c47006AF5E3Ab3A28",
+	QUICKV3: "0x411b0fAcC3489691f28ad58c47006AF5E3Ab3A28",
 };
 
 export const algebraPoolDeployer: FactoryMap = {
-	QUICK: "0x2D98E2FA9da15aa6dC9581AB097Ced7af697CB92"
+	QUICKV3: "0x2D98E2FA9da15aa6dC9581AB097Ced7af697CB92"
 };
 
 
