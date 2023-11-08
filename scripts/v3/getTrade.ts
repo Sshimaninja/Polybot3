@@ -57,6 +57,18 @@ export class Trade {
 		const diff = A.lt(B) ? B.minus(A) : A.minus(B)
 		const dperc = diff.div(A.gt(B) ? A : B).multipliedBy(100)// 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
 		const dir = A.lt(B) ? "A" : "B"
+
+		const prices = {
+			A: A,
+			B: B,
+			diff: diff,
+			dperc: dperc,
+			dir: dir,
+
+		}
+		console.log("Price Check: ")
+		console.log(prices)
+
 		return { dir, diff, dperc }
 	}
 
@@ -81,7 +93,6 @@ export class Trade {
 
 		const calc0 = new AmountConverter(this.state0, this.match, this.state1.priceOutBN, this.slip);
 		const calc1 = new AmountConverter(this.state1, this.match, this.state0.priceOutBN, this.slip);
-
 
 		const trade: Bool3Trade = {
 			ID: A ? this.match.pool0.id : this.match.pool1.id,

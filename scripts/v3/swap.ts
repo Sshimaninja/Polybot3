@@ -54,13 +54,13 @@ export async function control(data: V3Matches, gasData: any) {
 
 			if (irl0 !== undefined || irl1 !== undefined) {
 
-				const data = {
-					ticker: match.ticker,
-					pool0Stata: irl0,
-					pool1State: irl1,
-				}
+				// const data = {
+				// 	ticker: match.ticker,
+				// 	pool0State: irl0,
+				// 	pool1State: irl1,
+				// }
 
-				console.log(data)
+				// console.log(data)
 
 				const t = new Trade(match, pool0, pool1, irl0, irl1, slippageTolerance, gasData);
 				const trade = await t.getTrade();
