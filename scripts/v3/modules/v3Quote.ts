@@ -3,7 +3,7 @@ import { BigNumber as BN } from "bignumber.js";
 import { abi as UniswapV3Quoter } from '@uniswap/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json';
 import { uniswapQuoter } from "../../../constants/addresses";
 import { Bool3Trade, Match3Pools, PoolState } from "../../../constants/interfaces";
-import { provider } from "../../../constants/contract";
+import { provider, signer } from "../../../constants/contract";
 
 // export async function getV3Quote(
 // 	match: Match3Pools,
@@ -11,7 +11,7 @@ import { provider } from "../../../constants/contract";
 // 	tradeSize: BigNumber
 // ): Promise<BigNumber> {
 
-const quoter = new Contract(uniswapQuoter.UNI, UniswapV3Quoter, provider);
+const quoter = new Contract(uniswapQuoter.UNI, UniswapV3Quoter, signer);
 
 
 
