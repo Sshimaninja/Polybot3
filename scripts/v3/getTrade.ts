@@ -6,18 +6,16 @@ import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.j
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
 import { wallet, flashMulti, flashDirect } from "../../constants/contract";
 import { Contract } from "@ethersproject/contracts";
-// import { Prices } from "./modules/prices";
-// import { getK } from "./modules/getK";
+
 import { Bool3Trade } from "../../constants/interfaces"
-// import { getMulti, getDirect } from "../modules/populateRepays";
-// import { getAmountsIn, getAmountsOut } from "./modules/getAmountsIOLocal";
+
 import { AmountConverter } from "./modules/amountConverter";
 import { getAmountOutMax, getAmountInMin } from "./modules/v3Quote";
 import { JS2BN, JS2BNS, BN2JS, BN2JSS, fu, pu } from "../modules/convertBN";
 import { filterTrade } from "./modules/filterTrade";
 import { PopulateRepays } from "./modules/populateRepays";
 import { getK } from "./modules/getK";
-// import { filterTrade } from "./modules/filterTrade";
+
 /**
  * @description
  * Class to determine trade parameters 
@@ -59,16 +57,15 @@ export class Trade {
 		const dir = A.lt(B) ? "A" : "B"
 
 		const prices = {
-			A: A,
-			B: B,
-			diff: diff,
-			dperc: dperc,
+			A: A.toFixed(this.match.token1.decimals) + " " + this.match.token1.symbol,
+			B: B.toFixed(this.match.token1.decimals) + " " + this.match.token1.symbol,
+			diff: diff.toFixed(this.match.token1.decimals) + " " + this.match.token1.symbol,
+			dperc: dperc.toFixed(this.match.token1.decimals) + "%",
 			dir: dir,
 
 		}
 		console.log("Price Check: ")
 		console.log(prices)
-
 		return { dir, diff, dperc }
 	}
 
@@ -84,6 +81,10 @@ export class Trade {
 	}
 
 	async getTrade() {
+		console.log("state0: ")
+		console.log(this.state0)
+		console.log("state1: ")
+		console.log(this.state1)
 		if (!this.state0 || !this.state1) {
 			throw new Error('state0 and state1 must be defined');
 		}
@@ -91,8 +92,8 @@ export class Trade {
 		const dir = await this.direction();
 		const A = dir.dir == "A" ? true : false;
 
-		const calc0 = new AmountConverter(this.state0, this.match, this.state1.priceOutBN, this.slip);
-		const calc1 = new AmountConverter(this.state1, this.match, this.state0.priceOutBN, this.slip);
+		const calc0 = new AmountConverter(A ? this.state0 : this.state1, this.match, A ? this.state1.priceOutBN : this.state0.priceOutBN, this.slip);
+		const calc1 = new AmountConverter(A ? this.state1 : this.state0, this.match, A ? this.state0.priceOutBN : this.state1.priceOutBN, this.slip)
 
 		const trade: Bool3Trade = {
 			ID: A ? this.match.pool0.id : this.match.pool1.id,
