@@ -2,7 +2,7 @@ import { BigNumber } from "ethers";
 import { Bool3Trade, K, PoolState } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter"
 import { BN2JS } from "../../modules/convertBN";
-import { getAmountInMin } from "./v3Quote";
+import { V3Quote } from "./v3Quote";
 
 /**
  * This doc calculates whether will revert due to uniswak K being positive or negative
@@ -11,7 +11,7 @@ import { getAmountInMin } from "./v3Quote";
  * @returns Uniswap K before and after  and whether it is positive or negative
  */
 
-export async function getK(trade: Bool3Trade, state: PoolState, calc: AmountConverter): Promise<K> {
+export async function getK(trade: Bool3Trade, state: PoolState, calc: AmountConverter, q: V3Quote): Promise<K> {
 
 	const tl = trade.loanPool;
 	const tt = trade.target;
@@ -21,17 +21,15 @@ export async function getK(trade: Bool3Trade, state: PoolState, calc: AmountConv
 		uniswapKPost: BigNumber.from(0),
 		uniswapKPositive: false,
 	}
-	const tradeSizewithFee = await calc.addFee(tt.tradeSize, tl.feeTier);
+	const tradeSizewithFee = await calc.addFee(tt.tradeSize);
 	const newReserveIn = tl.state.reserveIn.mul(1000).sub(tt.tradeSize.mul(1000));
 	// console.log("newReserveIn: ", newReserveIn.toString())
 	if (newReserveIn.lte(0)) {
 		return kalc;
 	}
 
-	const tradeSizeInTokenOut = await getAmountInMin(
+	const tradeSizeInTokenOut = await q.getAmountInMin(
 		tl.exchange,
-		trade.tokenIn.id,
-		trade.tokenOut.id,
 		tl.feeTier,
 		tradeSizewithFee,
 		state.sqrtPriceX96,

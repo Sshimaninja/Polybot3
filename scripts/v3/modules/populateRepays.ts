@@ -2,16 +2,18 @@ import { BigNumber, BigNumberish } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { Profcalcs, V3Repays, Bool3Trade } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter";
-import { getAmountOutMax, getAmountInMin } from "./v3Quote";
+import { V3Quote } from "./v3Quote";
 import { JS2BN, BN2JS, fu, pu } from "../../modules/convertBN";
 
 
 export class PopulateRepays {
 	trade: Bool3Trade;
 	calc: AmountConverter;
-	constructor(trade: Bool3Trade, calc: AmountConverter) {
+	q: V3Quote;
+	constructor(trade: Bool3Trade, calc: AmountConverter, quote: V3Quote) {
 		this.trade = trade;
 		this.calc = calc;
+		this.q = quote
 	}
 
 	async getMulti(): Promise<{ repays: V3Repays, profits: { profit: BigNumber, profitPercent: BN } }> {
@@ -28,18 +30,14 @@ export class PopulateRepays {
 			// 		.div(this.trade.loanPool.reserveIn.add(this.trade.target.this.tradeSize)); // <= This is the amount of tokenOut that this.tradeSize in tokenOut represents on loanPool.
 			// const simple = await calc.addFee(this.tradeSizeInTermsOfTokenOutOnLoanPool)
 
-			const repayByGetAmountsOut = await getAmountOutMax(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
+			const repayByGetAmountsOut = await this.q.getAmountOutMax(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
 				this.trade.loanPool.exchange,
-				this.trade.tokenIn.id,
-				this.trade.tokenOut.id,
 				this.trade.loanPool.feeTier,
 				this.trade.target.tradeSize,
 				this.trade.loanPool.state.sqrtPriceX96,
 			)
-			const repayByGetAmountsIn = await getAmountInMin( //Will output tokenIn.
+			const repayByGetAmountsIn = await this.q.getAmountInMin( //Will output tokenIn.
 				this.trade.loanPool.exchange,
-				this.trade.tokenIn.id,
-				this.trade.tokenOut.id,
 				this.trade.loanPool.feeTier,
 				this.trade.target.tradeSize,
 				this.trade.loanPool.state.sqrtPriceX96,
@@ -78,15 +76,13 @@ export class PopulateRepays {
 
 		const repay = this.trade.target.tradeSize;//must add fee from pool v3 to this.
 
-		const directRepayLoanPoolInTokenOut = await getAmountInMin(
+		const directRepayLoanPoolInTokenOut = await this.q.getAmountInMin(
 			this.trade.loanPool.exchange,
-			this.trade.tokenIn.id,
-			this.trade.tokenOut.id,
 			this.trade.loanPool.feeTier,
 			repay,
 			this.trade.loanPool.state.sqrtPriceX96,
 		);
-		const directRepayLoanPoolInTokenOutWithFee = await this.calc.addFee(directRepayLoanPoolInTokenOut, this.trade.loanPool.feeTier);
+		const directRepayLoanPoolInTokenOutWithFee = await this.calc.addFee(directRepayLoanPoolInTokenOut);
 		const profit = this.trade.target.amountOut.sub(directRepayLoanPoolInTokenOutWithFee); // profit is remainder of token1 out
 		const profitBN = JS2BN(profit, this.trade.tokenOut.decimals);
 		const percentProfit = this.trade.target.amountOut.gt(0) ? profitBN.dividedBy(fu(this.trade.target.amountOut, this.trade.tokenOut.decimals)).multipliedBy(100) : BN(0);

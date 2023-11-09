@@ -10,7 +10,7 @@ import { Contract } from "@ethersproject/contracts";
 import { Bool3Trade } from "../../constants/interfaces"
 
 import { AmountConverter } from "./modules/amountConverter";
-import { getAmountOutMax, getAmountInMin } from "./modules/v3Quote";
+import { V3Quote } from "./modules/v3Quote";
 import { JS2BN, JS2BNS, BN2JS, BN2JSS, fu, pu } from "../modules/convertBN";
 import { filterTrade } from "./modules/filterTrade";
 import { PopulateRepays } from "./modules/populateRepays";
@@ -82,8 +82,8 @@ export class Trade {
 		const dir = await this.direction();
 		const A = dir.dir == "A" ? true : false;
 
-		const calcA = new AmountConverter(this.state0, this.match, this.state1.priceOutBN, this.slip);
-		const calcB = new AmountConverter(this.state1, this.match, this.state0.priceOutBN, this.slip)
+		const calcA = new AmountConverter(this.match, this.state0, this.state1.priceOutBN, this.match.pool0.fee, this.slip);
+		const calcB = new AmountConverter(this.match, this.state1, this.state0.priceOutBN, this.match.pool1.fee, this.slip)
 
 
 		const trade: Bool3Trade = {
@@ -129,24 +129,22 @@ export class Trade {
 			profitPercent: BigNumber.from(0),
 		};
 
-
-
-
-		trade.target.amountOut = await getAmountOutMax(
-			trade.target.exchange,
-			trade.tokenIn.id,
-			trade.tokenOut.id,
-			trade.target.feeTier,
-			trade.target.tradeSize,
-			trade.target.state.sqrtPriceX96,
-		);
-
+		// Make sure there are no breaking variables in the trade: before passing it to the next function.
 		const filteredTrade = await filterTrade(trade);
 		if (filteredTrade == undefined) {
 			return trade;
 		}
 
-		const repay = new PopulateRepays(filteredTrade, trade.loanPool.calc);
+		const q = new V3Quote(this.match, (A ? this.state1 : this.state0), trade.target.tradeSize);
+
+		trade.target.amountOut = await q.getAmountOutMax(
+			trade.target.exchange,
+			trade.target.feeTier,
+			trade.target.tradeSize,
+			await trade.loanPool.calc.addFee(trade.target.state.sqrtPriceX96),
+		);
+
+		const repay = new PopulateRepays(filteredTrade, trade.loanPool.calc, q);
 
 		// Define repay & profit for each trade type: 
 		const multi = await repay.getMulti();
@@ -167,7 +165,7 @@ export class Trade {
 			pu((multi.profits.profitPercent.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals) :
 			pu((direct.percentProfit.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals);
 
-		trade.k = await getK(trade, this.state0, trade.loanPool.calc);
+		trade.k = await getK(trade, this.state0, trade.loanPool.calc, q);
 
 		trade.flash = trade.type === "multi" ? flashMulti : flashDirect;
 

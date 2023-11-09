@@ -1,4 +1,4 @@
-import { BigNumber, utils } from "ethers";
+import { BigNumber, Contract, utils } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { getMaxTokenIn, getMaxTokenOut, tradeToPrice } from './tradeMath';
 import { Match3Pools, Pair, PoolState } from "../../../constants/interfaces";
@@ -10,18 +10,18 @@ import { Token } from "../../../constants/interfaces";
  * Target price is re-intitialized as the average of two prices.
  */
 export class AmountConverter {
-	token0: Token;
-	token1: Token;
+	match: Match3Pools;
 	state: PoolState;
 	targetPrice: BN;
 	slip: BN;
-
-	constructor(state: PoolState, pair: Match3Pools, targetPrice: BN, slippageTolerance: BN) {
+	fee: number;
+	constructor(match: Match3Pools, state: PoolState, targetPrice: BN, fee: number, slippageTolerance: BN) {
+		this.match = match;
 		this.state = state
 		this.targetPrice = targetPrice;
-		this.slip = slippageTolerance
-		this.token0 = pair.token0;
-		this.token1 = pair.token1;
+		this.slip = slippageTolerance;
+		this.fee = fee;
+
 	}
 
 	/**
@@ -32,31 +32,38 @@ export class AmountConverter {
 	async tradeToPrice(): Promise<BigNumber> {
 		this.targetPrice = this.state.priceOutBN.plus(this.targetPrice).div(2);// average of two prices
 		const tradeSize = await tradeToPrice(this.state, this.targetPrice, this.slip);
-		// console.log('tradeSize: ', tradeSize.toFixed(this.token0.decimals));//DEBUG
-		const tradeSizeJS = utils.parseUnits(tradeSize.toFixed(this.token0.decimals), this.token0.decimals);
-		// console.log('tradeSizeJS: ', utils.formatUnits(tradeSizeJS, this.token0.decimals));//DEBUG
+		// console.log('tradeSize: ', tradeSize.toFixed(this.match.token0.decimals));//DEBUG
+		const tradeSizeJS = utils.parseUnits(tradeSize.toFixed(this.match.token0.decimals), this.match.token0.decimals);
+		// console.log('tradeSizeJS: ', utils.formatUnits(tradeSizeJS, this.match.token0.decimals));//DEBUG
 		return tradeSizeJS;
 	}
 
 	async getMaxTokenIn(): Promise<BigNumber> {
 		const maxTokenIn = await getMaxTokenIn(this.state.reserveInBN, this.slip);
-		// console.log('maxTokenIn: ', maxTokenIn.toFixed(this.token0.decimals));//DEBUG
-		const maxIn = utils.parseUnits(maxTokenIn.toFixed(this.token0.decimals), this.token0.decimals!);
+		// console.log('maxTokenIn: ', maxTokenIn.toFixed(this.match.token0.decimals));//DEBUG
+		const maxIn = utils.parseUnits(maxTokenIn.toFixed(this.match.token0.decimals), this.match.token0.decimals!);
 		return maxIn;
 	}
 
 	async getMaxTokenOut(): Promise<BigNumber> {
 		const maxTokenOut = await getMaxTokenOut(this.state.reserveOutBN, this.slip);
-		const maxOut = utils.parseUnits(maxTokenOut.toFixed(this.token1.decimals), this.token1.decimals!);
+		const maxOut = utils.parseUnits(maxTokenOut.toFixed(this.match.token1.decimals), this.match.token1.decimals!);
 		return maxOut;
 	}
 
 	// Adds Uniswap V3 trade fee to any amount
-	async addFee(amount: BigNumber, fee: number): Promise<BigNumber> {
-		const feeFactor = 1 + fee / 100000; // Convert fee to a factor
-		const repay = amount.mul(feeFactor * 1000).div(1000); // Apply fee
+	async addFee(amount: BigNumber): Promise<BigNumber> {
+		const feeFactor = BigNumber.from(1).add(this.fee).div(100000); // Convert fee to a factor
+		const repay = amount.mul(feeFactor.mul(1000)).div(1000); // Apply fee
 		return repay; //in token0
 	}
+
+	// // Adds slippage to any amount
+	// async addSlippage(amount: BigNumber): Promise<BigNumber> {
+	// 	const slippageFactor = BigNumber.from(1).add(this.slip).div(100000); // Convert slippage to a factor
+	// 	const amountWithSlippage = amount.mul(slippageFactor.mul(1000)).div(1000); // Apply slippage
+	// 	return amountWithSlippage; //in token0
+	// }
 
 	async getAmounts() {
 		const maxIn = await this.getMaxTokenIn();
