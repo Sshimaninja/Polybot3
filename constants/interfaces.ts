@@ -77,13 +77,13 @@ export interface Token {
 	decimals: number;
 }
 export interface PoolInfo {
-	token0: string
-	token1: string
+	exchange: string
+	protocol: string
+	id: string
+	token0: { id: string, symbol: string, decimals: number }
+	token1: { id: string, symbol: string, decimals: number }
 	fee: number
 	tickSpacing: number
-	sqrtPriceX96: BigNumber
-	liquidity: BigNumber
-	tick: number
 }
 
 export interface PoolState {
@@ -94,8 +94,10 @@ export interface PoolState {
 	reserveOut: BigNumber;
 	reserveInBN: BN;
 	reserveOutBN: BN;
-	priceInBN: BN;
-	priceOutBN: BN;
+	priceInJS: string;
+	priceOutJS: string;
+	// priceInBN: BN;
+	// priceOutBN: BN;
 }
 export interface Profit {
 	profit: string;
@@ -140,20 +142,8 @@ export interface V3Matches {
 
 export interface Match3Pools {
 	ticker: string;
-	pool0: {
-		exchange: string,
-		// factory: Promise<Contract>,
-		id: string,
-		tickSpacing: number
-		fee: number
-	}
-	pool1: {
-		exchange: string,
-		// factory: Promise<Contract>,
-		id: string,
-		tickSpacing: number
-		fee: number
-	}
+	pool0: PoolInfo
+	pool1: PoolInfo
 	token0: {
 		// contract: Contract,
 		id: string,

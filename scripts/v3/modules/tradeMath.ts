@@ -13,49 +13,37 @@ import { PoolState } from "../../../constants/interfaces";
 /*
 
 */
-export async function getMaxTokenIn(reserveIn: BN, slippageTolerance: BN): Promise<BN> {
-	const maxTokenIn = reserveIn.multipliedBy(BN(1).plus(slippageTolerance)).minus(reserveIn);
-	//1000 * 1.002 = 1002 - 1000 = 2
-	return maxTokenIn
+export async function getMaxTokenIn(targetPrice: BN, sqrtp_cur: BN, liq: BN): Promise<BN> {
+	const q96 = BN(2).pow(96);
+	const price_next = targetPrice.sqrt().multipliedBy(q96);
+	const price_diff = price_next.minus(sqrtp_cur);
+	const maxTokenIn = price_diff.multipliedBy(liq).dividedBy(q96);
+	return maxTokenIn;
 }
 
-/*
-- getMaxToken1Out:
-- ex: this pool's reserveIn/reserveOut: 1000 / 1580000 = 1/1580
-- currentPrice = 1580
-- slippage = 0.002 = 0.2%
-- slippageNum = currentPrice * slippage = 1580 * 0.002 = 3.16
-- lowestPrice = currentPrice - slippageNum = 1580 - 3.16 = 1576.84
-- targetReserves = reserveIn * lowestPrice = 1000 * 1576.84 = 1576840
-- maxToken1Out = reserveOut - targetReserves = 1580000 - 1576840 = 3160
-*/
-
-export async function getMaxTokenOut(reserveOut: BN, slippageTolerance: BN): Promise<BN> {
-	const maxTokenOut = reserveOut.multipliedBy(BN(1).minus(slippageTolerance)).minus(reserveOut);
-	return maxTokenOut
+export async function getMaxTokenOut(targetPrice: BN, sqrtp_cur: BN, liq: BN): Promise<BN> {
+	const q96 = BN(2).pow(96);
+	const price_next = targetPrice.sqrt().multipliedBy(q96);
+	const price_diff = sqrtp_cur.minus(price_next);
+	const maxTokenOut = price_diff.multipliedBy(liq).dividedBy(q96);
+	return maxTokenOut;
 }
 
-/*
-- tradeToPrice Equation: 
-- ex: this pool's reserveIn/reserveOut: 1000 / 1580000 = 1/1580
-- targetPrice = 1 / 1659 (must be higher than currentPrice)
-- currentPrice = 1 / 1580
-- difference = 1659 - 1580 = 79
-- liquidity needed = difference * reserveIn = tradeSize = 79 * 1000 = 79000
-- checkMath = 1580000 + 79000 = 1659000
- */
+// A sort of reference: https://uniswapv3book.com/docs/milestone_1/first-swap/#first-swap
+// amount_in = 42 * eth
+// price_diff = (amount_in * q96) // liq
+// price_next = sqrtp_cur + price_diff
+// print("New price:", (price_next / q96) ** 2)
+// print("New sqrtP:", price_next)
+// print("New tick:", price_to_tick((price_next / q96) ** 2))
+// # New price: 5003.913912782393
+// # New sqrtP: 5604469350942327889444743441197
+// # New tick: 85184
 
-
-// THIS APPEARS CORRECT - ERROR IN TRADELOGS IS ELSEWHERE - CHECK MATH
-export async function tradeToPrice(state: PoolState, targetPrice: BN, slippageTolerance: BN): Promise<BN> {
-	//targetPrice 0.520670400977951207 + 0.519935327393096545 = 1.040605728371047752 / 2 = 0.520302864185523876
-	const currentPrice = state.priceOutBN; // 64133 / 123348 = 0.51993546713363816194830884975841
-	const diff = targetPrice.minus(currentPrice); // 0.520302864185523876 - 0.51993546713363816194830884975841 = 0.00036739705188571405169115024159
-	if (targetPrice.lt(currentPrice)) {
-		console.log('[tradeToPrice]: targetPrice must be higher than currentPrice or else tradeSize will be negative');
-		console.log('[tradeToPrice]: currentPrice: ', currentPrice.toFixed(6), 'targetPrice: ', targetPrice.toFixed(6));
-	}
-	const tradeSize = diff.multipliedBy(state.reserveInBN); // 0.00036739705188571405169115024159 * 123348 = 45.285714285714285714285714285714
-	return tradeSize // 45.285714285714285714285714285714
+export async function tradeToPrice(targetPrice: BN, sqrtp_cur: BN, liq: BN): Promise<BN> {
+	const q96 = BN(2).pow(96);
+	const price_next = targetPrice.sqrt().multipliedBy(q96);
+	const price_diff = price_next.minus(sqrtp_cur);
+	const amount_in = price_diff.multipliedBy(liq).dividedBy(q96);
+	return amount_in;
 }
-
