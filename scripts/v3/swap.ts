@@ -47,8 +47,9 @@ export async function control(data: V3Matches, gasData: any) {
 			const pool0 = new Contract(match.pool0.id, pool0ABI, provider);
 			const pool1 = new Contract(match.pool1.id, pool1ABI, provider);
 
-			const l0 = new InRangeLiquidity(data.exchangeA, pool0);
-			const l1 = new InRangeLiquidity(data.exchangeB, pool1);
+
+			const l0 = new InRangeLiquidity(match.pool0, pool0);
+			const l1 = new InRangeLiquidity(match.pool1, pool1);
 			const irl0 = await l0.getPoolState();
 			const irl1 = await l1.getPoolState();
 			if (irl0.liquidity.isZero() || irl1.liquidity.isZero()) {
