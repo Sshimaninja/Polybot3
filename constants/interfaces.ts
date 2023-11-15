@@ -110,7 +110,12 @@ export interface Amounts {
 	maxOut: BigNumber;
 	toPrice: BigNumber;
 }
-
+export interface Slot0 {
+	sqrtPriceX96: string;
+	tick: string;
+	fee: string;
+	unlocked: boolean;
+}
 
 export interface DeployedPools {
 	poolID: string;
@@ -139,22 +144,17 @@ export interface V3Matches {
 	matches: Match3Pools[];
 }
 
+export interface ERC20token {
+	id: string;
+	symbol: string;
+	decimals: number;
+}
 export interface Match3Pools {
 	ticker: string;
 	pool0: PoolInfo
 	pool1: PoolInfo
-	token0: {
-		// contract: Contract,
-		id: string,
-		symbol: string,
-		decimals: number
-	}
-	token1: {
-		// contract: Contract,
-		id: string,
-		symbol: string,
-		decimals: number
-	}
+	token0: ERC20token
+	token1: ERC20token
 }
 
 export interface ReservesData {
