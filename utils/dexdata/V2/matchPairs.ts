@@ -18,7 +18,6 @@ export class PoolMatcher {
 	async matchPairs() {
 		const files = fs.readdirSync(this.dataDir);
 		const jsonFiles = files.filter((file) => path.extname(file) === '.json');
-		const factoryPairs: FactoryPair[] = [];
 		for (let i = 0; i < jsonFiles.length; i++) {
 			const fileA = jsonFiles[i];
 			const dataA = require(path.join(this.dataDir, fileA));
@@ -51,9 +50,7 @@ export class PoolMatcher {
 					}
 				};
 				if (matchingPairs.length > 0) {
-					console.log(`Found ${matchingPairs.length} matching pairs between ${factoryPoolA.exchange} and ${factoryPoolB.exchange}`);
-					const outputFile = path.join(this.matchesDir, `${fileA.split('.')[0]}${fileB.split('.')[0]}.json`);
-					factoryPairs.push({
+					const factoryPairs: FactoryPair[] = [{
 						exchangeA: factoryPoolA.exchange,
 						factoryA_id: factoryPoolA.factoryID,
 						routerA_id: factoryPoolA.routerID,
@@ -61,7 +58,8 @@ export class PoolMatcher {
 						factoryB_id: factoryPoolB.factoryID,
 						routerB_id: factoryPoolB.routerID,
 						matches: matchingPairs,
-					});
+					}];
+					const outputFile = path.join(this.matchesDir, `${fileA.split('.')[0]}${fileB.split('.')[0]}.json`);
 					fs.writeFile(outputFile, JSON.stringify(factoryPairs, null, 2), function (err) {
 						if (err) return console.log(err);
 						console.log(`Matching pairs written to ${outputFile}`);

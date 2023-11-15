@@ -3,23 +3,10 @@
     "exchangeA": "APE",
     "factoryA_id": "0xCf083Be4164828f00cAE704EC15a36D711491284",
     "routerA_id": "0xC0788A3aD43d79aa53B09c2EaCc313A787d1d607",
-    "exchangeB": "QUICK",
-    "factoryB_id": "0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32",
-    "routerB_id": "0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff",
+    "exchangeB": "MMF",
+    "factoryB_id": "0x7cFB780010e9C861e03bCbC7AC12E013137D47A5",
+    "routerB_id": "0x51aba405de2b25e5506dea32a6697f450ceb1a17",
     "matches": [
-      {
-        "ticker": "WMATIC/DAI",
-        "token0": {
-          "symbol": "WMATIC",
-          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-          "decimals": 18
-        },
-        "token1": {
-          "symbol": "DAI",
-          "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
-          "decimals": 18
-        }
-      },
       {
         "ticker": "WMATIC/USDT",
         "token0": {
@@ -47,19 +34,6 @@
         }
       },
       {
-        "ticker": "WMATIC/WETH",
-        "token0": {
-          "symbol": "WMATIC",
-          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-          "decimals": 18
-        },
-        "token1": {
-          "symbol": "WETH",
-          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-          "decimals": 18
-        }
-      },
-      {
         "ticker": "USDC/USDT",
         "token0": {
           "symbol": "USDC",
@@ -73,15 +47,15 @@
         }
       },
       {
-        "ticker": "USDC/DAI",
+        "ticker": "USDC/BANANA",
         "token0": {
           "symbol": "USDC",
           "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
           "decimals": 6
         },
         "token1": {
-          "symbol": "DAI",
-          "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
           "decimals": 18
         }
       },
@@ -99,10 +73,10 @@
         }
       },
       {
-        "ticker": "DAI/USDT",
+        "ticker": "WETH/USDT",
         "token0": {
-          "symbol": "DAI",
-          "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
           "decimals": 18
         },
         "token1": {
@@ -112,28 +86,41 @@
         }
       },
       {
-        "ticker": "WMATIC/QUICK",
+        "ticker": "WBTC/USDC",
+        "token0": {
+          "symbol": "WBTC",
+          "id": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+          "decimals": 8
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "USDC/BTCBR",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "BTCBR",
+          "id": "0xB355f4F4CC84a9429a59d5c2B98d77016f7EC482",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/SCHI",
         "token0": {
           "symbol": "WMATIC",
           "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
           "decimals": 18
         },
         "token1": {
-          "symbol": "QUICK",
-          "id": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
-          "decimals": 18
-        }
-      },
-      {
-        "ticker": "WETH/DAI",
-        "token0": {
-          "symbol": "WETH",
-          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-          "decimals": 18
-        },
-        "token1": {
-          "symbol": "DAI",
-          "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+          "symbol": "SCHI",
+          "id": "0x9707723A2fCF6E8353CbaeBCFB9fE258a15055B9",
           "decimals": 18
         }
       }
