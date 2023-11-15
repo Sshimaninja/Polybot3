@@ -1,7 +1,7 @@
 import { BigNumber, utils } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { getMaxTokenIn, getMaxTokenOut, tradeToPrice } from './tradeMath';
-import { Pair, ReservesData } from "../../../constants/interfaces";
+import { Pair, ReservesData, TradePair } from "../../../constants/interfaces";
 import { Prices } from "./prices";
 import { Token, Amounts } from "../../../constants/interfaces";
 import { getAmountsOut, getAmountsIn } from './getAmountsIOLocal';
@@ -20,7 +20,7 @@ export class AmountConverter {
 	targetPrice: BN;
 	slip: BN;
 
-	constructor(price: Prices, pair: Pair, targetPrice: BN, slippageTolerance: BN) {
+	constructor(price: Prices, pair: TradePair, targetPrice: BN, slippageTolerance: BN) {
 		this.reserves = price.reserves;
 		this.price = price
 		this.targetPrice = targetPrice;
