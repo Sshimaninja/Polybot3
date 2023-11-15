@@ -2,9 +2,9 @@ import { ethers, utils, BigNumber } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { logger } from '../../../constants/contract'
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
-import { abi as IPool } from '@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json';
+// import { abi as IPool } from '@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json';
 import { wallet } from '../../../constants/contract'
-import { ReservesData, Pair } from "../../../constants/interfaces";
+import { ReservesData, Pair, TradePair } from "../../../constants/interfaces";
 /**
  * @description
  * This class returns an array of an array of reserves for an array of pairs.
@@ -12,15 +12,15 @@ import { ReservesData, Pair } from "../../../constants/interfaces";
 export class Reserves {
 	static reserves: ReservesData[] = [];
 
-	constructor(match: Pair) {
+	constructor(match: TradePair) {
 		this.getReserves(match)
 	}
 
-	async getPoolIDs(pair: Pair): Promise<string[]> {
+	async getPoolIDs(pair: TradePair): Promise<string[]> {
 		const poolIDs: string[] = [];
 		for (const key in pair) {
 			if (key.startsWith("pool")) {
-				const poolID = pair[key as keyof Pair];
+				const poolID = pair[key as keyof TradePair];
 				if (typeof poolID === "string") {
 					poolIDs.push(poolID);
 				}
@@ -29,7 +29,7 @@ export class Reserves {
 		return poolIDs;
 	}
 
-	async getReserves(match: Pair): Promise<ReservesData[]> {
+	async getReserves(match: TradePair): Promise<ReservesData[]> {
 		const poolIDs = await this.getPoolIDs(match);
 		const reserves: ReservesData[] = [];
 		for (const poolID of poolIDs) {

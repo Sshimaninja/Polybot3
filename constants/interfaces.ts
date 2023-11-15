@@ -52,12 +52,12 @@ export interface FactoryPair {
 	exchangeB: string;
 	factoryB_id: string;
 	routerB_id: string;
-	matches: Pair[];
+	matches: TradePair[];
 }
+
 export interface Pair {
 	ticker: string;
-	poolA_id: string;
-	poolB_id: string;
+	poolID: string;
 	token0: {
 		symbol: string;
 		id: string;
@@ -70,6 +70,21 @@ export interface Pair {
 	};
 };
 
+export interface TradePair {
+	ticker: string;
+	poolAID: string;
+	poolBID: string;  // Changed from poolA_id and poolB_id
+	token0: {
+		symbol: string;
+		id: string;
+		decimals: number;
+	};
+	token1: {
+		symbol: string;
+		id: string;
+		decimals: number;
+	};
+};
 
 export interface Token {
 	symbol: string;

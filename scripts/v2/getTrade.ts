@@ -1,6 +1,6 @@
 import { BigNumber } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
-import { Amounts, FactoryPair, GasData, Pair, Profcalcs, Repays } from "../../constants/interfaces";
+import { Amounts, FactoryPair, GasData, Pair, Profcalcs, Repays, TradePair } from "../../constants/interfaces";
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
@@ -23,7 +23,7 @@ import { filterTrade } from "./modules/filterTrade";
 export class Trade {
 	trade: BoolTrade | undefined;
 	pair: FactoryPair;
-	match: Pair;
+	match: TradePair;
 	price0: Prices;
 	price1: Prices;
 	slip: BN;
@@ -32,7 +32,7 @@ export class Trade {
 	calc0: AmountConverter;
 	calc1: AmountConverter;
 
-	constructor(pair: FactoryPair, match: Pair, price0: Prices, price1: Prices, slip: BN, gasData: GasData) {
+	constructor(pair: FactoryPair, match: TradePair, price0: Prices, price1: Prices, slip: BN, gasData: GasData) {
 		this.pair = pair;
 		this.price0 = price0;
 		this.price1 = price1;
@@ -69,7 +69,7 @@ export class Trade {
 		const A = dir.dir == "A" ? true : false;
 
 		const trade: BoolTrade = {
-			ID: A ? this.match.poolA_id : this.match.poolB_id,
+			ID: A ? this.match.poolAID : this.match.poolBID,
 			direction: dir.dir,
 			type: "error",
 			ticker: this.match.token0.symbol + "/" + this.match.token1.symbol,
@@ -80,7 +80,7 @@ export class Trade {
 				exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
 				factory: A ? new Contract(this.pair.factoryB_id, IFactory, wallet) : new Contract(this.pair.factoryA_id, IFactory, wallet),
 				router: A ? new Contract(this.pair.routerB_id, IRouter, wallet) : new Contract(this.pair.routerA_id, IRouter, wallet),
-				pool: A ? new Contract(this.match.poolB_id, IPair, wallet) : new Contract(this.match.poolA_id, IPair, wallet),
+				pool: A ? new Contract(this.match.poolBID, IPair, wallet) : new Contract(this.match.poolAID, IPair, wallet),
 				reserveIn: A ? this.price1.reserves.reserveIn : this.price0.reserves.reserveIn,
 				reserveInBN: A ? this.price1.reserves.reserveInBN : this.price0.reserves.reserveInBN,
 				reserveOut: A ? this.price1.reserves.reserveOut : this.price0.reserves.reserveOut,
@@ -100,7 +100,7 @@ export class Trade {
 				exchange: A ? this.pair.exchangeA : this.pair.exchangeB,
 				factory: A ? new Contract(this.pair.factoryA_id, IFactory, wallet) : new Contract(this.pair.factoryB_id, IFactory, wallet),
 				router: A ? new Contract(this.pair.routerA_id, IRouter, wallet) : new Contract(this.pair.routerB_id, IRouter, wallet),
-				pool: A ? new Contract(this.match.poolA_id, IPair, wallet) : new Contract(this.match.poolB_id, IPair, wallet),
+				pool: A ? new Contract(this.match.poolAID, IPair, wallet) : new Contract(this.match.poolBID, IPair, wallet),
 				reserveIn: A ? this.price0.reserves.reserveIn : this.price1.reserves.reserveIn,
 				reserveInBN: A ? this.price0.reserves.reserveInBN : this.price1.reserves.reserveInBN,
 				reserveOut: A ? this.price0.reserves.reserveOut : this.price1.reserves.reserveOut,
