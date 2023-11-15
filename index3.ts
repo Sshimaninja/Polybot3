@@ -21,6 +21,7 @@ async function main() {
 	}));
 
 	provider.on('block', async () => {
+		console.log("New block received: Block # " + provider.blockNumber);
 		const gasData = await getGasData();
 		await Promise.all(pairList.map(pair => control(pair, gasData)));
 	});
