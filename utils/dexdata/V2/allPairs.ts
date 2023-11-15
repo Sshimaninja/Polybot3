@@ -6,6 +6,7 @@ import { FactoryMap, RouterMap, uniswapV2Factory, uniswapV3Factory } from "../..
 import { wallet } from "../../../constants/contract";
 import { provider } from "../../../constants/contract";
 import fs from "fs";
+import path from 'path';
 
 /* 
 
@@ -26,7 +27,9 @@ export class AllV2Pairs {
 	}
 
 	async getPairs(): Promise<any> {
-		Object.keys(this.factoryMap).forEach(async (protocol) => {
+		// Object.keys(this.factoryMap).forEach(async (protocol) => {
+		for (const protocol of Object.keys(this.factoryMap)) {
+
 			console.log('Starting');
 			const factoryID = this.factoryMap[protocol];
 			const routerID = this.routerMap[protocol]
@@ -40,7 +43,7 @@ export class AllV2Pairs {
 
 			async function getAllPairs(factory: Contract) {
 				const allPairsLen = await factory.allPairsLength();
-				console.log('AllPairsLength: ' + allPairsLen);
+				console.log('AllPairsLength: ' + protocol + `: ` + allPairsLen);
 				const pairs: string[] = [];
 				await Promise.all(
 					Array.from({ length: allPairsLen.toNumber() }, (_, i) => i).map(async (index) => {
@@ -54,27 +57,29 @@ export class AllV2Pairs {
 
 				async function validatePairs() {
 					const pairsFile = `./data/validPairs/V2/${protocol}.json`;
+					fs.mkdirSync(path.dirname(pairsFile), { recursive: true })
 					for (const pair of pairs) {
+
 						const pairContract = new Contract(pair, IPair, wallet);
 						// console.log('PairContract: ' + pairContract.address);
+						try {
+							const reserves = await pairContract.getReserves();
+							// console.log(reserves);
+							const blockTimeStampLast = reserves[2]
+							const currentBlockNumber = await provider.getBlockNumber();
+							const currentBlock = await provider.getBlock(currentBlockNumber);
+							const currentBlockTimestamp = currentBlock.timestamp
+							const block = currentBlockTimestamp;
+							// console.log('Block: ' + block);
 
-						const reserves = await pairContract.getReserves();
-						// console.log(reserves);
-						const blockTimeStampLast = reserves[2]
-						const currentBlockNumber = await provider.getBlockNumber();
-						const currentBlock = await provider.getBlock(currentBlockNumber);
-						const currentBlockTimestamp = currentBlock.timestamp
-						const block = currentBlockTimestamp;
-						// console.log('Block: ' + block);
+							if (reserves[0].gt(BigNumber.from(1)) && reserves[1].gt(BigNumber.from(1)) && blockTimeStampLast > (block - 40000 * 12)) {
+								const token0id = await pairContract.token0();
+								const token0 = new Contract(token0id, IERC20, wallet)
 
-						if (reserves[0].gt(BigNumber.from(1)) && reserves[1].gt(BigNumber.from(1)) && blockTimeStampLast > (block - 40000 * 12)) {
-							const token0id = await pairContract.token0();
-							const token0 = new Contract(token0id, IERC20, wallet)
+								const token1id = await pairContract.token1();
+								const token1 = new Contract(token1id, IERC20, wallet)
 
-							const token1id = await pairContract.token1();
-							const token1 = new Contract(token1id, IERC20, wallet)
 
-							try {
 								const token0Symbol = await token0.symbol();
 								const token0Decimals = await token0.decimals();
 								const token1Symbol = await token1.symbol();
@@ -103,25 +108,25 @@ export class AllV2Pairs {
 									},
 								};
 								validPairs.push(tokenData);
-							} catch (e) {
-								console.log(`Error getting token data for pair ${pair}: ${e}\n skipping...`);
 							}
+						} catch (e: any) {
+							console.log(`Error getting token data for pair ${pair}: ${e}\n skipping...`);
 						}
+						const factoryPair = [{
+							exchange: protocol,
+							factoryID: factoryID,
+							routerID: routerID,
+							pairs: validPairs,
+						}]
+						fs.writeFileSync(pairsFile, JSON.stringify(factoryPair, null, 2) + '\n');
+						console.log(`Valid pairs: ${validPairs.length}`);
+						console.log(`Valid pairs written to ${pairsFile}`);
 					}
-					const factoryPair = [{
-						exchange: protocol,
-						factoryID: factoryID,
-						routerID: routerID,
-						pairs: validPairs,
-					}]
-					fs.writeFileSync(pairsFile, JSON.stringify(factoryPair, null, 2) + '\n');
-					console.log(`Valid pairs: ${validPairs.length}`);
-					console.log(`Valid pairs written to ${pairsFile}`);
+					await validatePairs();
 				}
-				await validatePairs();
+				await getAllPairs(factory);
+				// });
 			}
-			await getAllPairs(factory);
-		});
-
+		}
 	}
 }

@@ -13,11 +13,9 @@ export const deployedMap: deployedContracts = {
 	//flashi(old addresses): 0x3fe5a13902b174C28cB7B2841EF8F35fC8F68150
 	// flashTest: "0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd"
 };
-type QuoterMap = { [protocol: string]: string };
 
-export const uniswapQuoter: QuoterMap = {
-	UNIV3: "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
-};
+
+// UNISWAP V2:
 
 export type RouterMap = { [protocol: string]: string };
 
@@ -28,7 +26,7 @@ export const uniswapV2Router: RouterMap = {
 	APE: "0xC0788A3aD43d79aa53B09c2EaCc313A787d1d607",
 	JET: "0x5C6EC38fb0e2609672BDf628B1fD605A523E5923",
 	POLYDEX: "0xBd13225f0a45BEad8510267B4D6a7c78146Be459",
-	FRAX: "0xE52D0337904D4D0519EF7487e707268E1DB6495F",
+	// FRAX: "0xE52D0337904D4D0519EF7487e707268E1DB6495F", // FRAX decided to get fancy so I can't use their contracts unless I give them special TLC.
 	MMF: "0x51aba405de2b25e5506dea32a6697f450ceb1a17",
 	CAT: "0x94930a328162957FF1dd48900aF67B5439336cBD",
 
@@ -43,14 +41,27 @@ export const uniswapV2Factory: FactoryMap = {
 	APE: "0xCf083Be4164828f00cAE704EC15a36D711491284",
 	JET: "0x668ad0ed2622C62E24f0d5ab6B6Ac1b9D2cD4AC7",
 	POLYDEX: "0x5BdD1CD910e3307582F213b33699e676E61deaD9",
-	FRAX: "0x54F454D747e037Da288dB568D4121117EAb34e79",
+	// FRAX: "0x54F454D747e037Da288dB568D4121117EAb34e79", // FRAX decided to get fancy so I can't use their contracts unless I give them special TLC.
 	MMF: "0x7cFB780010e9C861e03bCbC7AC12E013137D47A5",
 	CAT: "0x477Ce834Ae6b7aB003cCe4BC4d8697763FF456FA",
 };
 
+
+// UNISWAP V3:
+
 export const uniswapV3Factory: FactoryMap = {
-	UNI: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+	UNIV3: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+	SUSHIV3: "0xaa26771d497814E81D305c511Efbb3ceD90BF5bd"
 };
+
+type QuoterMap = { [protocol: string]: string };
+
+export const uniswapQuoter: QuoterMap = {
+	UNIV3: "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
+	SUSHIV3: "0xb1E835Dc2785b52265711e17fCCb0fd018226a6e",
+};
+
+// ALGEBRA: 
 
 //LINKS TO MORE ALGEBRA FACTORY ADDRESSES
 //https://docs.algebra.finance/en/docs/contracts/partners/introduction
@@ -67,11 +78,17 @@ export const algebraPoolDeployer: FactoryMap = {
 };
 
 
+// CHAIN IDS:
+
 type ChainIDs = { [chainID: string]: number };
 
 export const chainID: ChainIDs = {
 	POLYGON: 137,
 }
+
+
+
+// GAS TOKENS:
 
 export type GasToken = { [gasToken: string]: string };
 
