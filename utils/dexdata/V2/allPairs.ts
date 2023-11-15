@@ -6,6 +6,7 @@ import { FactoryMap, RouterMap, uniswapV2Factory, uniswapV3Factory } from "../..
 import { wallet } from "../../../constants/contract";
 import { provider } from "../../../constants/contract";
 import fs from "fs";
+import path from 'path';
 
 /* 
 
@@ -26,7 +27,9 @@ export class AllV2Pairs {
 	}
 
 	async getPairs(): Promise<any> {
-		Object.keys(this.factoryMap).forEach(async (protocol) => {
+		// Object.keys(this.factoryMap).forEach(async (protocol) => {
+		for (const protocol of Object.keys(this.factoryMap)) {
+
 			console.log('Starting');
 			const factoryID = this.factoryMap[protocol];
 			const routerID = this.routerMap[protocol]
@@ -40,7 +43,7 @@ export class AllV2Pairs {
 
 			async function getAllPairs(factory: Contract) {
 				const allPairsLen = await factory.allPairsLength();
-				console.log('AllPairsLength: ' + allPairsLen);
+				console.log('AllPairsLength: ' + protocol + `: ` + allPairsLen);
 				const pairs: string[] = [];
 				await Promise.all(
 					Array.from({ length: allPairsLen.toNumber() }, (_, i) => i).map(async (index) => {
@@ -48,16 +51,20 @@ export class AllV2Pairs {
 						pairs.push(allPairs);
 					})
 				);
-				// const subsetPairs = pairs.flat().slice(0, 30);//TESTING
-				// console.log('Pairs: ' + pairs);
-				const validPairs: any[] = [];
+				return pairs;
+			}
+			// const subsetPairs = pairs.flat().slice(0, 30);//TESTING
+			// console.log('Pairs: ' + pairs);
+			const validPairs: any[] = [];
 
-				async function validatePairs() {
-					const pairsFile = `./data/validPairs/V2/${protocol}.json`;
-					for (const pair of pairs) {
-						const pairContract = new Contract(pair, IPair, wallet);
-						// console.log('PairContract: ' + pairContract.address);
-
+			async function validatePairs() {
+				const pairsFile = `./data/validPairs/V2/${protocol}.json`;
+				fs.mkdirSync(path.dirname(pairsFile), { recursive: true })
+				const pairs = await getAllPairs(factory);
+				for (const pair of pairs) {
+					const pairContract = new Contract(pair, IPair, wallet);
+					// console.log('PairContract: ' + pairContract.address);
+					try {
 						const reserves = await pairContract.getReserves();
 						// console.log(reserves);
 						const blockTimeStampLast = reserves[2]
@@ -74,39 +81,38 @@ export class AllV2Pairs {
 							const token1id = await pairContract.token1();
 							const token1 = new Contract(token1id, IERC20, wallet)
 
-							try {
-								const token0Symbol = await token0.symbol();
-								const token0Decimals = await token0.decimals();
-								const token1Symbol = await token1.symbol();
-								const token1Decimals = await token1.decimals();
-								const ticker = `${token0Symbol}/${token1Symbol}`;
-								console.log('Pair: ' + pair);
-								console.log('Last: ' + blockTimeStampLast)
-								console.log('Current: ' + currentBlockTimestamp)
-								console.log('Symbol: ' + ticker)
-								console.log('Token0: ' + token0id);
-								console.log('reserves0: ' + utils.formatUnits(reserves[0], token0Decimals))
-								console.log('Token1: ' + token1id);
-								console.log('reserves1: ' + utils.formatUnits(reserves[1], token1Decimals))
-								const tokenData = {
-									ticker: ticker,
-									poolID: pair,
-									token0: {
-										symbol: token0Symbol,
-										id: token0.address,
-										decimals: token0Decimals,
-									},
-									token1: {
-										symbol: token1Symbol,
-										id: token1.address,
-										decimals: token1Decimals,
-									},
-								};
-								validPairs.push(tokenData);
-							} catch (e) {
-								console.log(`Error getting token data for pair ${pair}: ${e}\n skipping...`);
-							}
+
+							const token0Symbol = await token0.symbol();
+							const token0Decimals = await token0.decimals();
+							const token1Symbol = await token1.symbol();
+							const token1Decimals = await token1.decimals();
+							const ticker = `${token0Symbol}/${token1Symbol}`;
+							console.log('Pair: ' + pair);
+							console.log('Last: ' + blockTimeStampLast)
+							console.log('Current: ' + currentBlockTimestamp)
+							console.log('Symbol: ' + ticker)
+							console.log('Token0: ' + token0id);
+							console.log('reserves0: ' + utils.formatUnits(reserves[0], token0Decimals))
+							console.log('Token1: ' + token1id);
+							console.log('reserves1: ' + utils.formatUnits(reserves[1], token1Decimals))
+							const tokenData = {
+								ticker: ticker,
+								poolID: pair,
+								token0: {
+									symbol: token0Symbol,
+									id: token0.address,
+									decimals: token0Decimals,
+								},
+								token1: {
+									symbol: token1Symbol,
+									id: token1.address,
+									decimals: token1Decimals,
+								},
+							};
+							validPairs.push(tokenData);
 						}
+					} catch (e) {
+						console.log(`Error getting token data for pair ${pair}: ${e}\n skipping...`);
 					}
 					const factoryPair = [{
 						exchange: protocol,
@@ -118,10 +124,8 @@ export class AllV2Pairs {
 					console.log(`Valid pairs: ${validPairs.length}`);
 					console.log(`Valid pairs written to ${pairsFile}`);
 				}
-				await validatePairs();
 			}
-			await getAllPairs(factory);
-		});
-
+			await validatePairs();
+		};
 	}
 }
