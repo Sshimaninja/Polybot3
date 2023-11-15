@@ -2,7 +2,7 @@ require('dotenv').config()
 require('colors')
 import { BigNumber as BN } from "bignumber.js";
 import { Prices } from './modules/prices';
-import { FactoryPair, Pair } from '../../constants/interfaces';
+import { FactoryPair, TradePair } from '../../constants/interfaces';
 import { AmountConverter } from './modules/amountConverter'
 import { Trade } from './getTrade';
 import { gasVprofit } from './modules/gasVprofit';
@@ -28,7 +28,7 @@ export async function control(data: FactoryPair[], gasData: any) {
 	const promises: any[] = [];
 
 	for (const pair of data) {
-		console.log("ExchangeA: " + pair.exchangeA + " ExchangeB: " + pair.exchangeB + " matches: " + pair.matches.length, " gasData: " + gasData.fast.maxFee + " " + gasData.fast.maxPriorityFee);
+
 
 		for (const match of pair.matches) {
 
@@ -36,8 +36,9 @@ export async function control(data: FactoryPair[], gasData: any) {
 			const reserves = await r.getReserves(match);
 
 			if (reserves[0] !== undefined || reserves[1] !== undefined) {
-				const p0 = new Prices(match.poolA_id, reserves[0]);
-				const p1 = new Prices(match.poolB_id, reserves[1]);
+				console.log("ExchangeA: " + pair.exchangeA + " ExchangeB: " + pair.exchangeB + " matches: " + pair.matches.length, " gasData: " + gasData.fast.maxFee + " " + gasData.fast.maxPriorityFee);
+				const p0 = new Prices(match.poolAID, reserves[0]);
+				const p1 = new Prices(match.poolBID, reserves[1]);
 
 				const t = new Trade(pair, match, p0, p1, slippageTolerance, gasData);
 				const trade = await t.getTrade();
@@ -46,6 +47,8 @@ export async function control(data: FactoryPair[], gasData: any) {
 				const rollPromise = rollDamage(trade);
 
 				promises.push(dataPromise, rollPromise);
+			} else {
+				console.log("Reserves not found for " + match.poolAID + " and " + match.poolBID) + " reserves: " + reserves;
 			}
 		}
 	}

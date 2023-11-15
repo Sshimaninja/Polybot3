@@ -81,7 +81,7 @@
 //                 amountOut: BigNumber.from(0),
 //             },
 //             target: {
-//                 exchange: A ? this.pair.exchangeA : this.pair.exchangeB,
+//                 exchange: A ? this.pair.0u655 : this.pair.exchangeB,
 //                 factory: A ? new Contract(this.pair.factoryA_id, IFactory, wallet) : new Contract(this.pair.factoryB_id, IFactory, wallet),
 //                 router: A ? new Contract(this.pair.routerA_id, IRouter, wallet) : new Contract(this.pair.routerB_id, IRouter, wallet),
 //                 pool: A ? new Contract(this.match.poolA_id, IPair, wallet) : new Contract(this.match.poolB_id, IPair, wallet),
