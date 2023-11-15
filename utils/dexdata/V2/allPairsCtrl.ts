@@ -1,4 +1,4 @@
-import { AllV2Pairs } from './allv2Pairs';
+import { AllV2Pairs } from './allPairs';
 import { uniswapV2Factory, uniswapV2Router } from '../../../constants/addresses';
 import fs from 'fs';
 
