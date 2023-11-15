@@ -3,6 +3,7 @@ require('colors')
 import { BigNumber as BN } from "bignumber.js";
 import { abi as IUni3Pool } from '@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json';
 import { abi as IAlgPool } from '@cryptoalgebra/core/artifacts/contracts/AlgebraPool.sol/AlgebraPool.json';
+import { abi as IERC20 } from '@uniswap/v2-periphery/build/IERC20.json';
 import { FactoryPair, Pair, Match3Pools, V3Matches } from '../../constants/interfaces';
 import { Trade } from './getTrade';
 import { tradeLogs } from './modules/tradeLog';
@@ -34,8 +35,6 @@ export async function control(data: V3Matches, gasData: any) {
 	console.log("matches: " + data.matches.length);
 
 	// Because Uniswap voted to keep v3 proprietary for 2 years, algebra became the first open source AMM to implement v3, meaning most AMM dex's used it rather than Uniswap's v3.
-	const pool0ABI = data.exchangeA === 'UNI' ? IUni3Pool : IAlgPool
-	const pool1ABI = data.exchangeB === 'UNI' ? IUni3Pool : IAlgPool
 
 	console.log("ExchangeA: " + data.exchangeA + " ExchangeB: " + data.exchangeB + " matches: " + data.matches.length, " gasData: " + gasData.fast.maxFee + " " + gasData.fast.maxPriorityFee);
 
@@ -44,25 +43,29 @@ export async function control(data: V3Matches, gasData: any) {
 
 		if (!tradePending && match.pool0.id !== pendingID && match.pool1.id !== pendingID) {
 
+			const pool0ABI = match.pool0.protocol === 'UNIV3' ? IUni3Pool : "ALG" ? IAlgPool : "ERROR"
+			const pool1ABI = match.pool1.protocol === 'UNIv3' ? IUni3Pool : "ALG" ? IAlgPool : "ERROR"
+
 			const pool0 = new Contract(match.pool0.id, pool0ABI, provider);
 			const pool1 = new Contract(match.pool1.id, pool1ABI, provider);
 
-			const l0 = new InRangeLiquidity(pool0);
-			const l1 = new InRangeLiquidity(pool1);
+
+			const l0 = new InRangeLiquidity(match.pool0, pool0, match.token0, match.token1);
+			const l1 = new InRangeLiquidity(match.pool1, pool1, match.token0, match.token1);
 			const irl0 = await l0.getPoolState();
 			const irl1 = await l1.getPoolState();
+			if (irl0.liquidity.isZero() || irl1.liquidity.isZero()) {
+				return;
+			}
+			return
+			const t = new Trade(match, pool0, pool1, irl0, irl1, slippageTolerance, gasData);
+			const trade = await t.getTrade();
 
-			if (irl0 !== undefined || irl1 !== undefined) {
+			const dataPromise = tradeLogs(trade);
+			console.log(dataPromise)//TESTING
+			// const rollPromise = rollDamage(trade, await dataPromise, warning, tradePending, pendingID);
 
-				const t = new Trade(match, pool0, pool1, irl0, irl1, slippageTolerance, gasData);
-				const trade = await t.getTrade();
-
-				const dataPromise = tradeLogs(trade);
-				console.log(dataPromise)//TESTING
-				// const rollPromise = rollDamage(trade, await dataPromise, warning, tradePending, pendingID);
-
-				promises.push(dataPromise)//, rollPromise);
-			} else return;
+			promises.push(dataPromise)//, rollPromise);
 		}
 	});
 	await Promise.all(promises).catch((error: any) => {
@@ -70,3 +73,15 @@ export async function control(data: V3Matches, gasData: any) {
 		return;
 	});
 }
+
+
+// const data = {
+// 	irl0: {
+// 		priceOut: irl0.priceOutBN.toFixed(match.token1.decimals),
+// 	},
+// 	irl1: {
+// 		priceOut: irl1.priceOutBN.toFixed(match.token1.decimals),
+// 	},
+// 	match: match,
+// }
+// console.log(data)

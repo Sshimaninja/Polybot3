@@ -45,7 +45,6 @@ export async function getMaxTokenOut(reserveOut: BN, slippageTolerance: BN): Pro
  */
 
 
-// THIS APPEARS CORRECT - ERROR IN TRADELOGS IS ELSEWHERE - CHECK MATH
 export async function tradeToPrice(reserveIn: BN, reserveOut: BN, targetPrice: BN, slippageTolerance: BN): Promise<BN> {
 	//targetPrice 0.520670400977951207 + 0.519935327393096545 = 1.040605728371047752 / 2 = 0.520302864185523876
 	const currentPrice = reserveOut.div(reserveIn); // 64133 / 123348 = 0.51993546713363816194830884975841

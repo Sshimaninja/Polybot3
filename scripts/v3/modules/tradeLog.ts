@@ -22,8 +22,8 @@ export async function tradeLogs(trade: Bool3Trade): Promise<any> {
 				exchange: trade.loanPool.exchange,
 				priceIn: trade.loanPool.state.priceInBN.toFixed(trade.tokenIn.decimals),
 				priceOut: trade.loanPool.state.priceOutBN.toFixed(trade.tokenOut.decimals),
-				reservesIn: fu(trade.loanPool.state.reserveIn, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
-				reservesOut: fu(trade.loanPool.state.reserveOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
+				reservesIn: trade.loanPool.state.reserveInBN.toFixed(trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
+				reservesOut: trade.loanPool.state.reserveOutBN.toFixed(trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
 				amountRepay: trade.type === "multi" ? fu(trade.loanPool.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol : trade.type === "direct" ? fu(trade.loanPool.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol : "error",
 
 				repaysObj:
@@ -36,8 +36,8 @@ export async function tradeLogs(trade: Bool3Trade): Promise<any> {
 				exchange: trade.target.exchange,
 				priceIn: trade.target.state.priceInBN.toFixed(trade.tokenIn.decimals),
 				priceOut: trade.target.state.priceOutBN.toFixed(trade.tokenOut.decimals),
-				reservesIn: fu(trade.target.state.reserveIn, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
-				reservesOut: fu(trade.target.state.reserveOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
+				reservesIn: trade.target.state.reserveInBN.toFixed(trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
+				reservesOut: trade.target.state.reserveOutBN.toFixed(trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
 				amountOut: fu(trade.target.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
 			},
 			result: {
