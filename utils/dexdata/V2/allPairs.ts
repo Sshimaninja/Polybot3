@@ -51,82 +51,81 @@ export class AllV2Pairs {
 						pairs.push(allPairs);
 					})
 				);
-				// const subsetPairs = pairs.flat().slice(0, 30);//TESTING
-				// console.log('Pairs: ' + pairs);
-				const validPairs: any[] = [];
-
-				async function validatePairs() {
-					const pairsFile = `./data/validPairs/V2/${protocol}.json`;
-					fs.mkdirSync(path.dirname(pairsFile), { recursive: true })
-					for (const pair of pairs) {
-
-						const pairContract = new Contract(pair, IPair, wallet);
-						// console.log('PairContract: ' + pairContract.address);
-						try {
-							const reserves = await pairContract.getReserves();
-							// console.log(reserves);
-							const blockTimeStampLast = reserves[2]
-							const currentBlockNumber = await provider.getBlockNumber();
-							const currentBlock = await provider.getBlock(currentBlockNumber);
-							const currentBlockTimestamp = currentBlock.timestamp
-							const block = currentBlockTimestamp;
-							// console.log('Block: ' + block);
-
-							if (reserves[0].gt(BigNumber.from(1)) && reserves[1].gt(BigNumber.from(1)) && blockTimeStampLast > (block - 40000 * 12)) {
-								const token0id = await pairContract.token0();
-								const token0 = new Contract(token0id, IERC20, wallet)
-
-								const token1id = await pairContract.token1();
-								const token1 = new Contract(token1id, IERC20, wallet)
-
-
-								const token0Symbol = await token0.symbol();
-								const token0Decimals = await token0.decimals();
-								const token1Symbol = await token1.symbol();
-								const token1Decimals = await token1.decimals();
-								const ticker = `${token0Symbol}/${token1Symbol}`;
-								console.log('Pair: ' + pair);
-								console.log('Last: ' + blockTimeStampLast)
-								console.log('Current: ' + currentBlockTimestamp)
-								console.log('Symbol: ' + ticker)
-								console.log('Token0: ' + token0id);
-								console.log('reserves0: ' + utils.formatUnits(reserves[0], token0Decimals))
-								console.log('Token1: ' + token1id);
-								console.log('reserves1: ' + utils.formatUnits(reserves[1], token1Decimals))
-								const tokenData = {
-									ticker: ticker,
-									poolID: pair,
-									token0: {
-										symbol: token0Symbol,
-										id: token0.address,
-										decimals: token0Decimals,
-									},
-									token1: {
-										symbol: token1Symbol,
-										id: token1.address,
-										decimals: token1Decimals,
-									},
-								};
-								validPairs.push(tokenData);
-							}
-						} catch (e: any) {
-							console.log(`Error getting token data for pair ${pair}: ${e}\n skipping...`);
-						}
-						const factoryPair = [{
-							exchange: protocol,
-							factoryID: factoryID,
-							routerID: routerID,
-							pairs: validPairs,
-						}]
-						fs.writeFileSync(pairsFile, JSON.stringify(factoryPair, null, 2) + '\n');
-						console.log(`Valid pairs: ${validPairs.length}`);
-						console.log(`Valid pairs written to ${pairsFile}`);
-					}
-					await validatePairs();
-				}
-				await getAllPairs(factory);
-				// });
+				return pairs;
 			}
-		}
+			// const subsetPairs = pairs.flat().slice(0, 30);//TESTING
+			// console.log('Pairs: ' + pairs);
+			const validPairs: any[] = [];
+
+			async function validatePairs() {
+				const pairsFile = `./data/validPairs/V2/${protocol}.json`;
+				fs.mkdirSync(path.dirname(pairsFile), { recursive: true })
+				const pairs = await getAllPairs(factory);
+				for (const pair of pairs) {
+					const pairContract = new Contract(pair, IPair, wallet);
+					// console.log('PairContract: ' + pairContract.address);
+					try {
+						const reserves = await pairContract.getReserves();
+						// console.log(reserves);
+						const blockTimeStampLast = reserves[2]
+						const currentBlockNumber = await provider.getBlockNumber();
+						const currentBlock = await provider.getBlock(currentBlockNumber);
+						const currentBlockTimestamp = currentBlock.timestamp
+						const block = currentBlockTimestamp;
+						// console.log('Block: ' + block);
+
+						if (reserves[0].gt(BigNumber.from(1)) && reserves[1].gt(BigNumber.from(1)) && blockTimeStampLast > (block - 40000 * 12)) {
+							const token0id = await pairContract.token0();
+							const token0 = new Contract(token0id, IERC20, wallet)
+
+							const token1id = await pairContract.token1();
+							const token1 = new Contract(token1id, IERC20, wallet)
+
+
+							const token0Symbol = await token0.symbol();
+							const token0Decimals = await token0.decimals();
+							const token1Symbol = await token1.symbol();
+							const token1Decimals = await token1.decimals();
+							const ticker = `${token0Symbol}/${token1Symbol}`;
+							console.log('Pair: ' + pair);
+							console.log('Last: ' + blockTimeStampLast)
+							console.log('Current: ' + currentBlockTimestamp)
+							console.log('Symbol: ' + ticker)
+							console.log('Token0: ' + token0id);
+							console.log('reserves0: ' + utils.formatUnits(reserves[0], token0Decimals))
+							console.log('Token1: ' + token1id);
+							console.log('reserves1: ' + utils.formatUnits(reserves[1], token1Decimals))
+							const tokenData = {
+								ticker: ticker,
+								poolID: pair,
+								token0: {
+									symbol: token0Symbol,
+									id: token0.address,
+									decimals: token0Decimals,
+								},
+								token1: {
+									symbol: token1Symbol,
+									id: token1.address,
+									decimals: token1Decimals,
+								},
+							};
+							validPairs.push(tokenData);
+						}
+					} catch (e) {
+						console.log(`Error getting token data for pair ${pair}: ${e}\n skipping...`);
+					}
+					const factoryPair = [{
+						exchange: protocol,
+						factoryID: factoryID,
+						routerID: routerID,
+						pairs: validPairs,
+					}]
+					fs.writeFileSync(pairsFile, JSON.stringify(factoryPair, null, 2) + '\n');
+					console.log(`Valid pairs: ${validPairs.length}`);
+					console.log(`Valid pairs written to ${pairsFile}`);
+				}
+			}
+			await validatePairs();
+		};
 	}
 }
