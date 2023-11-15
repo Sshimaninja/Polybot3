@@ -31,7 +31,7 @@ async function main() {
 
 
 	provider.on('block', async (blockNumber: any) => {
-		logger.info("New block received: Block # " + blockNumber);
+		console.log("New block received: Block # " + blockNumber);
 		try {
 			const gasData = await getGasData();
 			await Promise.all(pairList.map(async (pairList: any) => {
