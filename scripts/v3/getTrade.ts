@@ -69,11 +69,9 @@ export class Trade {
 	async getSize(loan: AmountConverter, target: AmountConverter): Promise<BigNumber> {
 		const toPrice = await target.tradeToPrice()
 		// use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
-		const maxIn = await target.getMaxTokenIn();
-		const bestSize = toPrice.lt(maxIn) ? toPrice : maxIn;
+		const bestSize = toPrice;
 		const safeReserves = loan.state.reserveIn.mul(1000).div(800); //Don't use more than 80% of the reserves
 		const size = bestSize.gt(safeReserves) ? safeReserves : bestSize;
-
 		return size;
 	}
 

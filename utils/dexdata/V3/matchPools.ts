@@ -63,8 +63,6 @@ export async function matchPools() {
 								exchange: `${fileAName}`,
 								protocol: fileAName === 'UNI' ? 'UNIV3' : 'ALG',
 								id: poolA.poolID,
-								token0: { id: poolA.token0.id, symbol: poolA.token0.symbol, decimals: poolA.token0.decimals },
-								token1: { id: poolA.token1.id, symbol: poolA.token1.symbol, decimals: poolA.token1.decimals },
 								fee: poolA.fee,
 								tickSpacing: poolA.tickSpacing,
 							}
@@ -72,8 +70,6 @@ export async function matchPools() {
 								exchange: `${fileBName}`,
 								protocol: fileBName === 'UNI' ? 'UNIV3' : 'ALG',
 								id: poolB.poolID,
-								token0: { id: poolB.token0.id, symbol: poolB.token0.symbol, decimals: poolB.token0.decimals },
-								token1: { id: poolB.token1.id, symbol: poolB.token1.symbol, decimals: poolB.token1.decimals },
 								fee: poolB.fee,
 								tickSpacing: poolB.tickSpacing,
 							}

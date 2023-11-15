@@ -63,7 +63,12 @@ import { fu, pu } from "../../modules/convertBN";
 // 		return reserves;
 // 	}
 // }
-
+export interface Slot0 {
+	sqrtPriceX96: string;
+	tick: string;
+	fee: string;
+	unlocked: boolean;
+}
 export class InRangeLiquidity {
 	static liquidity: BigNumber[] = [];
 	poolInfo: PoolInfo;
@@ -136,16 +141,48 @@ export class InRangeLiquidity {
 		const s0 = this.poolInfo.protocol === 'UNIV3' ? await this.pool.slot0() : await this.pool.globalState();
 		const slot0 = this.poolInfo.protocol === 'UNIV3' ? {
 			sqrtPriceX96: s0.sqrtPriceX96,
+			sqrtPriceX96BN: BN(s0.sqrtPriceX96.toString()),
 			tick: s0.tick,
 			fee: s0.fee,
 			locked: s0.unlocked
 		} : {
 			sqrtPriceX96: s0.sqrtPriceX96,
+			sqrtPriceX96BN: BN(s0.sqrtPriceX96.toString()),
 			tick: s0.tick,
 			// fee0Z: s0.feeOtZ,
 			fee: s0.feeZtO, //simplified for uniformity, as both Algebra changes fee per direction, but this bot currently only trades in one direction.
 			locked: s0.unlocked
 		}
+		/* 
+		if you want to calculate the actual price from sqrtPriceX96, you need to square it and then scale it down by 2^96. 
+		This will give you the price of token1 in terms of token0 as a fixed-point number with 18 decimal places, regardless of the actual decimal places of the tokens:
+		
+		const price: BigNumber = (s0.sqrtPriceX96.toString()).pow(2).div(new BigNumber(2).pow(192));
+
+		token0Price = sqrtPriceX96^2 / 2^96
+		token1Price = 2^96 / sqrtPriceX96^2
+		
+		*/
+
+
+		// Calculate the price of token1 in terms of token0
+		const priceBN = s0.sqrtPriceX96.pow(2).div(new BN(2).pow(192));
+
+		// Convert the price to token0's decimal places
+		const priceInToken0Decimals = priceBN.times(new BN(10).pow(18 - this.pool.token0.decimals));
+
+		// Convert the price to token1's decimal places
+		const priceInToken1Decimals = priceBN.times(new BN(10).pow(this.pool.token1.decimals));
+
+		const prices = {
+			priceTokenIn: ((slot0.sqrtPriceX96.div(2).pow(96)).pow(2)).div(BigNumber.from(10).pow(this.pool.token1.decimals).div(10).pow(this.pool.token0.decimals)),
+			priceTokenOut: (BigNumber.from(1).div(((slot0.sqrtPriceX96.div(2).pow(96)).pow(2)).div(BigNumber.from(10).pow(this.pool.token1.decimals).div(10).pow(this.pool.token0.decimals)))),
+			priceTokenInBN: s0.sqrtPriceX96BN.pow(2).div(BN(2).pow(96)).times(BN(10).pow(18 - this.pool.token0.decimals)),
+			priceTokenOutBN: BN(1).div(s0.sqrtPriceX96BN.pow(2).div(BN(2).pow(96)).times(BN(10).pow(this.pool.token1.decimals)))
+		}
+
+		console.log('[InRangeLiquidity]: slot0: ' + slot0)
+		console.log('[InRangeLiquidity]: prices: ' + prices)
 		// if (this.pool.address != '0x0000000000000000000000000000000000000000' || this.pool.address != '0x0000000000000000000000000000000000000000') {
 		// console.log("Getting Poolstate for ", this.pool.address)
 		const liquidity = await this.pool.liquidity();
@@ -153,10 +190,9 @@ export class InRangeLiquidity {
 		const { reserves0, reserves1 } = await this.getReservesInRange();
 		const { reserves0BN, reserves1BN } = { reserves0BN: BN(utils.formatUnits(reserves0, this.pool.token0.decimals)), reserves1BN: BN(utils.formatUnits(reserves1, this.pool.token1.decimals)) };
 
-		const priceTokenIn = ((slot0.sqrtPriceX96.div(2).pow(96)).pow(2)).div(BigNumber.from(10).pow(this.pool.token1.decimals).div(10).pow(this.pool.token0.decimals))//.toFixed(Decimal1);
-		const priceTokenInHR = fu(priceTokenIn, this.pool.token0.decimals);
-		const priceTokenOut = (BigNumber.from(1).div(priceTokenIn))//.toFixed(Decimal0);
-		const priceTokenOutHR = fu(priceTokenOut, this.pool.token1.decimals);
+
+
+		// const priceInBN =
 
 		// const priceInBN = (())
 
@@ -165,14 +201,15 @@ export class InRangeLiquidity {
 			poolID: this.pool.address,
 			sqrtPriceX96: slot0.sqrtPriceX96,
 			liquidity: liquidity,
+			liquidityBN: BN(liquidity.toString()),
 			reserveIn: reserves0,
 			reserveOut: reserves1,
 			reserveInBN: reserves0BN,
 			reserveOutBN: reserves1BN,
-			priceInJS: priceTokenInHR,
-			priceOutJS: priceTokenOutHR,
-			// priceInBN: price0BN,
-			// priceOutBN: price1BN
+			priceIn: prices.priceTokenIn,
+			priceOut: prices.priceTokenOut,
+			priceInBN: prices.priceTokenInBN,
+			priceOutBN: prices.priceTokenOutBN
 		};
 		const liquiditDataView = {
 			poolID: this.pool.address,
@@ -181,10 +218,10 @@ export class InRangeLiquidity {
 			reserves1: fu(reserves1, this.pool.token1.decimals),
 			reserves0BN: reserves0BN.toFixed(this.pool.token0.decimals),
 			reserves1BN: reserves1BN.toFixed(this.pool.token1.decimals),
-			priceIn: fu(liquidityData.priceInJS, this.pool.token0.decimals),
-			priceOut: fu(liquidityData.priceOutJS, this.pool.token1.decimals),
-			// priceInBN: price0BN.toFixed(this.pool.token0.decimals),
-			// priceOutBN: price1BN.toFixed(this.pool.token1.decimals)
+			priceIn: fu(liquidityData.priceIn, this.pool.token0.decimals),
+			priceOut: fu(liquidityData.priceOut, this.pool.token1.decimals),
+			priceInBN: prices.priceTokenInBN.toFixed(this.pool.token0.decimals),
+			priceOutBN: prices.priceTokenOutBN.toFixed(this.pool.token1.decimals)
 		}
 		console.log(liquiditDataView)
 		console.log("Poolstate ", this.pool.address, " Complete")

@@ -80,8 +80,6 @@ export interface PoolInfo {
 	exchange: string
 	protocol: string
 	id: string
-	token0: { id: string, symbol: string, decimals: number }
-	token1: { id: string, symbol: string, decimals: number }
 	fee: number
 	tickSpacing: number
 }
@@ -90,14 +88,15 @@ export interface PoolState {
 	poolID: string;
 	sqrtPriceX96: BigNumber;
 	liquidity: BigNumber;
+	liquidityBN: BN;
 	reserveIn: BigNumber;
 	reserveOut: BigNumber;
 	reserveInBN: BN;
 	reserveOutBN: BN;
-	priceInJS: string;
-	priceOutJS: string;
-	// priceInBN: BN;
-	// priceOutBN: BN;
+	priceIn: BigNumber;
+	priceOut: BigNumber;
+	priceInBN: BN;
+	priceOutBN: BN;
 }
 export interface Profit {
 	profit: string;
