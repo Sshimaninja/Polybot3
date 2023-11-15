@@ -27,27 +27,27 @@ export class AllV2Pairs {
 	}
 
 	async getPairs(): Promise<any> {
-		// Object.keys(this.factoryMap).forEach(async (protocol) => {
-		for (const protocol of Object.keys(this.factoryMap)) {
+		// Object.keys(this.factoryMap).forEach(async (factory) => {
+		for (const factory of Object.keys(this.factoryMap)) {
 
 			console.log('Starting');
-			const factoryID = this.factoryMap[protocol];
-			const routerID = this.routerMap[protocol]
+			const factoryID = this.factoryMap[factory];
+			const routerID = this.routerMap[factory]
 			console.log('FactoryID: ' + factoryID);
-			const factory = new Contract(factoryID, IFactory, wallet);
-			if (factory.address != undefined) {
-				console.log('FactoryContract Initialised: ' + factory.address);
+			const factoryContract = new Contract(factoryID, IFactory, wallet);
+			if (factoryContract.address != undefined) {
+				console.log('FactoryContract Initialised: ' + factoryContract.address);
 			} else {
 				console.log('FactoryContract not initialised');
 			}
 
-			async function getAllPairs(factory: Contract) {
-				const allPairsLen = await factory.allPairsLength();
-				console.log('AllPairsLength: ' + protocol + `: ` + allPairsLen);
+			async function getAllPairs(factoryContract: Contract) {
+				const allPairsLen = await factoryContract.allPairsLength();
+				console.log('AllPairsLength: ' + factory + `: ` + allPairsLen);
 				const pairs: string[] = [];
 				await Promise.all(
 					Array.from({ length: allPairsLen.toNumber() }, (_, i) => i).map(async (index) => {
-						const allPairs = await factory.allPairs(index);
+						const allPairs = await factoryContract.allPairs(index);
 						pairs.push(allPairs);
 					})
 				);
@@ -58,9 +58,9 @@ export class AllV2Pairs {
 			const validPairs: any[] = [];
 
 			async function validatePairs() {
-				const pairsFile = `./data/validPairs/V2/${protocol}.json`;
+				const pairsFile = `./data/validPairs/V2/${factory}.json`;
 				fs.mkdirSync(path.dirname(pairsFile), { recursive: true })
-				const pairs = await getAllPairs(factory);
+				const pairs = await getAllPairs(factoryContract);
 				for (const pair of pairs) {
 					const pairContract = new Contract(pair, IPair, wallet);
 					// console.log('PairContract: ' + pairContract.address);
@@ -115,7 +115,7 @@ export class AllV2Pairs {
 						console.log(`Error getting token data for pair ${pair}: ${e}\n skipping...`);
 					}
 					const factoryPair = [{
-						exchange: protocol,
+						exchange: factory,
 						factoryID: factoryID,
 						routerID: routerID,
 						pairs: validPairs,
