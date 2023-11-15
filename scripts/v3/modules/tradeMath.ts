@@ -12,22 +12,22 @@ import { PoolState } from "../../../constants/interfaces";
 
 /*
 
-*/
-export async function getMaxTokenIn(targetPrice: BN, sqrtp_cur: BN, liq: BN): Promise<BN> {
-	const q96 = BN(2).pow(96);
-	const price_next = targetPrice.sqrt().multipliedBy(q96);
-	const price_diff = price_next.minus(sqrtp_cur);
-	const maxTokenIn = price_diff.multipliedBy(liq).dividedBy(q96);
-	return maxTokenIn;
-}
+// */
+// export async function getMaxTokenIn(targetPrice: BN, sqrtp_cur: BN, liq: BN): Promise<BN> {
+// 	const q96 = BN(2).pow(96);
+// 	const price_next = targetPrice.sqrt().multipliedBy(q96);
+// 	const price_diff = price_next.minus(sqrtp_cur);
+// 	const maxTokenIn = price_diff.multipliedBy(liq).dividedBy(q96);
+// 	return maxTokenIn;
+// }
 
-export async function getMaxTokenOut(targetPrice: BN, sqrtp_cur: BN, liq: BN): Promise<BN> {
-	const q96 = BN(2).pow(96);
-	const price_next = targetPrice.sqrt().multipliedBy(q96);
-	const price_diff = sqrtp_cur.minus(price_next);
-	const maxTokenOut = price_diff.multipliedBy(liq).dividedBy(q96);
-	return maxTokenOut;
-}
+// export async function getMaxTokenOut(targetPrice: BN, sqrtp_cur: BN, liq: BN): Promise<BN> {
+// 	const q96 = BN(2).pow(96);
+// 	const price_next = targetPrice.sqrt().multipliedBy(q96);
+// 	const price_diff = sqrtp_cur.minus(price_next);
+// 	const maxTokenOut = price_diff.multipliedBy(liq).dividedBy(q96);
+// 	return maxTokenOut;
+// }
 
 // A sort of reference: https://uniswapv3book.com/docs/milestone_1/first-swap/#first-swap
 // amount_in = 42 * eth

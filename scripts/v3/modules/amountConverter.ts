@@ -1,6 +1,6 @@
 import { BigNumber, Contract, utils } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
-import { getMaxTokenIn, getMaxTokenOut, tradeToPrice } from './tradeMath';
+import { tradeToPrice } from './tradeMath';
 import { Match3Pools, Pair, PoolState } from "../../../constants/interfaces";
 import { Token } from "../../../constants/interfaces";
 
@@ -31,24 +31,11 @@ export class AmountConverter {
 	// can be limited by slippageTolerance if uniswap returns 'EXCESSIVE_INPUT_AMOUNT'
 	async tradeToPrice(): Promise<BigNumber> {
 		this.targetPrice = this.state.priceOutBN.plus(this.targetPrice).div(2);// average of two prices
-		const tradeSize = await tradeToPrice(this.state, this.targetPrice, this.slip);
+		const tradeSize = await tradeToPrice(this.targetPrice, BN(this.state.sqrtPriceX96.toString()), this.state.liquidityBN);
 		// console.log('tradeSize: ', tradeSize.toFixed(this.match.token0.decimals));//DEBUG
 		const tradeSizeJS = utils.parseUnits(tradeSize.toFixed(this.match.token0.decimals), this.match.token0.decimals);
 		// console.log('tradeSizeJS: ', utils.formatUnits(tradeSizeJS, this.match.token0.decimals));//DEBUG
 		return tradeSizeJS;
-	}
-
-	async getMaxTokenIn(): Promise<BigNumber> {
-		const maxTokenIn = await getMaxTokenIn(this.state.reserveInBN, this.slip);
-		// console.log('maxTokenIn: ', maxTokenIn.toFixed(this.match.token0.decimals));//DEBUG
-		const maxIn = utils.parseUnits(maxTokenIn.toFixed(this.match.token0.decimals), this.match.token0.decimals!);
-		return maxIn;
-	}
-
-	async getMaxTokenOut(): Promise<BigNumber> {
-		const maxTokenOut = await getMaxTokenOut(this.state.reserveOutBN, this.slip);
-		const maxOut = utils.parseUnits(maxTokenOut.toFixed(this.match.token1.decimals), this.match.token1.decimals!);
-		return maxOut;
 	}
 
 	// Adds Uniswap V3 trade fee to any amount
@@ -65,9 +52,4 @@ export class AmountConverter {
 	// 	return amountWithSlippage; //in token0
 	// }
 
-	async getAmounts() {
-		const maxIn = await this.getMaxTokenIn();
-		const maxOut = await this.getMaxTokenOut();
-		return { maxIn, maxOut };
-	}
 }

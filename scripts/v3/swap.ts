@@ -34,8 +34,6 @@ export async function control(data: V3Matches, gasData: any) {
 	console.log("matches: " + data.matches.length);
 
 	// Because Uniswap voted to keep v3 proprietary for 2 years, algebra became the first open source AMM to implement v3, meaning most AMM dex's used it rather than Uniswap's v3.
-	const pool0ABI = data.exchangeA === 'UNI' ? IUni3Pool : IAlgPool
-	const pool1ABI = data.exchangeB === 'UNI' ? IUni3Pool : IAlgPool
 
 	console.log("ExchangeA: " + data.exchangeA + " ExchangeB: " + data.exchangeB + " matches: " + data.matches.length, " gasData: " + gasData.fast.maxFee + " " + gasData.fast.maxPriorityFee);
 
@@ -43,6 +41,9 @@ export async function control(data: V3Matches, gasData: any) {
 	matches.forEach(async (match: Match3Pools) => {
 
 		if (!tradePending && match.pool0.id !== pendingID && match.pool1.id !== pendingID) {
+
+			const pool0ABI = match.pool0.protocol === 'UNIV3' ? IUni3Pool : "ALG" ? IAlgPool : "ERROR"
+			const pool1ABI = match.pool1.protocol === 'UNIv3' ? IUni3Pool : "ALG" ? IAlgPool : "ERROR"
 
 			const pool0 = new Contract(match.pool0.id, pool0ABI, provider);
 			const pool1 = new Contract(match.pool1.id, pool1ABI, provider);
