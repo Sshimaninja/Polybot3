@@ -10,11 +10,12 @@ import { Contract } from "@ethersproject/contracts";
 import { Bool3Trade } from "../../constants/interfaces"
 
 import { AmountConverter } from "./modules/amountConverter";
-import { getAmountOutMax, getAmountInMin } from "./modules/v3Quote";
+import { V3Quote } from "./modules/v3Quote";
 import { JS2BN, JS2BNS, BN2JS, BN2JSS, fu, pu } from "../modules/convertBN";
 import { filterTrade } from "./modules/filterTrade";
 import { PopulateRepays } from "./modules/populateRepays";
 import { getK } from "./modules/getK";
+import { uniswapQuoter } from "../../constants/addresses";
 
 /**
  * @description
@@ -27,12 +28,12 @@ export class Trade {
 	match: Match3Pools;
 	pool0: Contract;
 	pool1: Contract;
-	state0: PoolState | undefined;
-	state1: PoolState | undefined;
+	state0: PoolState;
+	state1: PoolState;
 	slip: BN;
 	gasData: GasData;
 
-	constructor(match: Match3Pools, pool0: Contract, pool1: Contract, state0: PoolState | undefined, state1: PoolState | undefined, slip: BN, gasData: GasData) {
+	constructor(match: Match3Pools, pool0: Contract, pool1: Contract, state0: PoolState, state1: PoolState, slip: BN, gasData: GasData) {
 		this.match = match;
 		this.pool0 = pool0;
 		this.pool1 = pool1;
@@ -47,53 +48,41 @@ export class Trade {
 	}
 
 	async direction() {
-		if (!this.state0 || !this.state1) {
-			throw new Error('state0 and state1 must be defined');
-		}
 		const A = this.state0.priceOutBN
 		const B = this.state1.priceOutBN
 		const diff = A.lt(B) ? B.minus(A) : A.minus(B)
 		const dperc = diff.div(A.gt(B) ? A : B).multipliedBy(100)// 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
 		const dir = A.lt(B) ? "A" : "B"
 
-		const prices = {
-			A: A.toFixed(this.match.token1.decimals) + " " + this.match.token1.symbol,
-			B: B.toFixed(this.match.token1.decimals) + " " + this.match.token1.symbol,
-			diff: diff.toFixed(this.match.token1.decimals) + " " + this.match.token1.symbol,
-			dperc: dperc.toFixed(this.match.token1.decimals) + "%",
-			dir: dir,
-
-		}
-		console.log("Price Check: ")
-		console.log(prices)
+		// const prices = {
+		// 	A: A.toFixed(this.match.token0.decimals) + " " + this.match.token0.symbol,
+		// 	B: B.toFixed(this.match.token1.decimals) + " " + this.match.token1.symbol,
+		// 	diff: diff.toFixed(A ? this.match.token1.decimals : this.match.token0.decimals) + " " + A ? this.match.token1.symbol : this.match.token0.symbol,
+		// 	dperc: dperc.toFixed(this.match.token1.decimals) + "%",
+		// 	dir: dir,
+		// }
+		// console.log("Price Check: ")
+		// console.log(prices)
 		return { dir, diff, dperc }
 	}
 
 	async getSize(loan: AmountConverter, target: AmountConverter): Promise<BigNumber> {
 		const toPrice = await target.tradeToPrice()
 		// use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
-		const maxIn = await target.getMaxTokenIn();
-		const bestSize = toPrice.lt(maxIn) ? toPrice : maxIn;
+		const bestSize = toPrice;
 		const safeReserves = loan.state.reserveIn.mul(1000).div(800); //Don't use more than 80% of the reserves
 		const size = bestSize.gt(safeReserves) ? safeReserves : bestSize;
-
 		return size;
 	}
 
 	async getTrade() {
-		console.log("state0: ")
-		console.log(this.state0)
-		console.log("state1: ")
-		console.log(this.state1)
-		if (!this.state0 || !this.state1) {
-			throw new Error('state0 and state1 must be defined');
-		}
 
 		const dir = await this.direction();
 		const A = dir.dir == "A" ? true : false;
 
-		const calc0 = new AmountConverter(A ? this.state0 : this.state1, this.match, A ? this.state1.priceOutBN : this.state0.priceOutBN, this.slip);
-		const calc1 = new AmountConverter(A ? this.state1 : this.state0, this.match, A ? this.state0.priceOutBN : this.state1.priceOutBN, this.slip)
+		const calcA = new AmountConverter(this.match, this.state0, this.state1.priceOutBN, this.match.pool0.fee, this.slip);
+		const calcB = new AmountConverter(this.match, this.state1, this.state0.priceOutBN, this.match.pool1.fee, this.slip)
+
 
 		const trade: Bool3Trade = {
 			ID: A ? this.match.pool0.id : this.match.pool1.id,
@@ -108,6 +97,7 @@ export class Trade {
 				pool: A ? this.pool1 : this.pool0,
 				feeTier: A ? this.match.pool1.fee : this.match.pool0.fee,
 				state: A ? this.state1 : this.state0,
+				calc: A ? calcA : calcB,
 				repays: {
 					getAmountsOut: BigNumber.from(0),
 					getAmountsIn: BigNumber.from(0),
@@ -121,7 +111,8 @@ export class Trade {
 				pool: A ? this.pool0 : this.pool1,
 				feeTier: A ? this.match.pool0.fee : this.match.pool1.fee,
 				state: A ? this.state0 : this.state1,
-				tradeSize: A ? await this.getSize(calc1, calc1) : await this.getSize(calc0, calc1),
+				calc: A ? calcA : calcB,
+				tradeSize: A ? await this.getSize(calcB, calcA) : await this.getSize(calcA, calcB),
 				amountOut: BigNumber.from(0),
 			},
 			k: {
@@ -136,20 +127,22 @@ export class Trade {
 			profitPercent: BigNumber.from(0),
 		};
 
-		trade.target.amountOut = await getAmountOutMax(
-			trade.tokenIn.id,
-			trade.tokenOut.id,
-			trade.target.feeTier,
-			trade.target.tradeSize,
-			trade.target.state.sqrtPriceX96,
-		);
-
+		// Make sure there are no breaking variables in the trade: before passing it to the next function.
 		const filteredTrade = await filterTrade(trade);
 		if (filteredTrade == undefined) {
 			return trade;
 		}
 
-		const repay = new PopulateRepays(filteredTrade, calc0);
+		const q = new V3Quote(this.match, (A ? this.state1 : this.state0), trade.target.tradeSize);
+
+		trade.target.amountOut = await q.getAmountOutMax(
+			trade.target.exchange,
+			trade.target.feeTier,
+			trade.target.tradeSize,
+			await trade.loanPool.calc.addFee(trade.target.state.sqrtPriceX96),
+		);
+
+		const repay = new PopulateRepays(filteredTrade, trade.loanPool.calc, q);
 
 		// Define repay & profit for each trade type: 
 		const multi = await repay.getMulti();
@@ -170,7 +163,7 @@ export class Trade {
 			pu((multi.profits.profitPercent.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals) :
 			pu((direct.percentProfit.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals);
 
-		trade.k = await getK(trade, this.state0, calc0);
+		trade.k = await getK(trade, this.state0, trade.loanPool.calc, q);
 
 		trade.flash = trade.type === "multi" ? flashMulti : flashDirect;
 

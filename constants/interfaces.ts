@@ -1,6 +1,8 @@
 import { BigNumber, Contract, ethers } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { Token as V3Token } from "@uniswap/sdk-core";
+import { AmountConverter as CalcV3 } from "../scripts/v3/modules/amountConverter";
+import { AmountConverter as CalcV2 } from "../scripts/v2/modules/amountConverter";
 export interface K {
 	uniswapKPre: BigNumber,
 	uniswapKPost: BigNumber
@@ -75,23 +77,24 @@ export interface Token {
 	decimals: number;
 }
 export interface PoolInfo {
-	token0: string
-	token1: string
+	exchange: string
+	protocol: string
+	id: string
 	fee: number
 	tickSpacing: number
-	sqrtPriceX96: BigNumber
-	liquidity: BigNumber
-	tick: number
 }
 
 export interface PoolState {
 	poolID: string;
 	sqrtPriceX96: BigNumber;
 	liquidity: BigNumber;
+	liquidityBN: BN;
 	reserveIn: BigNumber;
 	reserveOut: BigNumber;
 	reserveInBN: BN;
 	reserveOutBN: BN;
+	priceIn: BigNumber;
+	priceOut: BigNumber;
 	priceInBN: BN;
 	priceOutBN: BN;
 }
@@ -107,7 +110,12 @@ export interface Amounts {
 	maxOut: BigNumber;
 	toPrice: BigNumber;
 }
-
+export interface Slot0 {
+	sqrtPriceX96: string;
+	tick: string;
+	fee: string;
+	unlocked: boolean;
+}
 
 export interface DeployedPools {
 	poolID: string;
@@ -136,34 +144,17 @@ export interface V3Matches {
 	matches: Match3Pools[];
 }
 
+export interface ERC20token {
+	id: string;
+	symbol: string;
+	decimals: number;
+}
 export interface Match3Pools {
 	ticker: string;
-	pool0: {
-		exchange: string,
-		// factory: Promise<Contract>,
-		id: string,
-		tickSpacing: number
-		fee: number
-	}
-	pool1: {
-		exchange: string,
-		// factory: Promise<Contract>,
-		id: string,
-		tickSpacing: number
-		fee: number
-	}
-	token0: {
-		// contract: Contract,
-		id: string,
-		symbol: string,
-		decimals: number
-	}
-	token1: {
-		// contract: Contract,
-		id: string,
-		symbol: string,
-		decimals: number
-	}
+	pool0: PoolInfo
+	pool1: PoolInfo
+	token0: ERC20token
+	token1: ERC20token
 }
 
 export interface ReservesData {
@@ -351,6 +342,7 @@ export interface Bool3Trade {
 		pool: Contract
 		feeTier: number
 		state: PoolState
+		calc: CalcV3
 		repays: V3Repays
 		amountRepay: BigNumber
 	}
@@ -359,6 +351,7 @@ export interface Bool3Trade {
 		pool: Contract
 		feeTier: number
 		state: PoolState
+		calc: CalcV3
 		tradeSize: BigNumber
 		amountOut: BigNumber
 	}
