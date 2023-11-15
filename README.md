@@ -1,9 +1,23 @@
 # Commands: 
 Start v2 bot: 
-	npm run bot
+	npm run bot2
 
 Start v3 bot:
-	n/a (in progress)
+	npm run bot3
+
+The following operation may be time consuming:
+	Get new pairs for v2 :
+		npm run get2
+
+	Get new pairs for v3:
+		npm run get3
+
+	Match v2 pairs
+		npm run match2
+	
+	Match v3 paris
+		npm run match3
+
 
 
 # Deploy Hardhat tests:
