@@ -16,8 +16,7 @@ export const deployedMap: deployedContracts = {
 type QuoterMap = { [protocol: string]: string };
 
 export const uniswapQuoter: QuoterMap = {
-	UNI: "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
-	QUICKV3: "0xa15F0D7377B2A0C0c10db057f641beD21028FC89",
+	UNIV3: "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
 };
 
 export type RouterMap = { [protocol: string]: string };
@@ -28,6 +27,11 @@ export const uniswapV2Router: RouterMap = {
 	QUICK: "0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff",
 	APE: "0xC0788A3aD43d79aa53B09c2EaCc313A787d1d607",
 	JET: "0x5C6EC38fb0e2609672BDf628B1fD605A523E5923",
+	POLYDEX: "0xBd13225f0a45BEad8510267B4D6a7c78146Be459",
+	FRAX: "0xE52D0337904D4D0519EF7487e707268E1DB6495F",
+	MMF: "0x51aba405de2b25e5506dea32a6697f450ceb1a17",
+	CAT: "0x94930a328162957FF1dd48900aF67B5439336cBD",
+
 	// POLYGON_UNISWAP_V3: "0xE592427A0AEce92De3Edee1F18E0157C05861564",
 };
 
@@ -38,6 +42,10 @@ export const uniswapV2Factory: FactoryMap = {
 	SUSHI: "0xc35DADB65012eC5796536bD9864eD8773aBc74C4",
 	APE: "0xCf083Be4164828f00cAE704EC15a36D711491284",
 	JET: "0x668ad0ed2622C62E24f0d5ab6B6Ac1b9D2cD4AC7",
+	POLYDEX: "0x5BdD1CD910e3307582F213b33699e676E61deaD9",
+	FRAX: "0x54F454D747e037Da288dB568D4121117EAb34e79",
+	MMF: "0x7cFB780010e9C861e03bCbC7AC12E013137D47A5",
+	CAT: "0x477Ce834Ae6b7aB003cCe4BC4d8697763FF456FA",
 };
 
 export const uniswapV3Factory: FactoryMap = {
@@ -49,6 +57,10 @@ export const uniswapV3Factory: FactoryMap = {
 export const algebraFactory: FactoryMap = {
 	QUICKV3: "0x411b0fAcC3489691f28ad58c47006AF5E3Ab3A28",
 };
+
+export const algebraQuoter: QuoterMap = {
+	QUICKV3: "0xa15F0D7377B2A0C0c10db057f641beD21028FC89",
+}
 
 export const algebraPoolDeployer: FactoryMap = {
 	QUICKV3: "0x2D98E2FA9da15aa6dC9581AB097Ced7af697CB92"
