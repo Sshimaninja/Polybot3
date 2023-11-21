@@ -3,15 +3,9 @@ type deployedContracts = { [contract: string]: string };
 export const deployedMap: deployedContracts = {
 	flashDirect: "0x737c5e8d9f4dF9617bac012e892Cb7CcbF25701d",//owner: 0x3018FB91d635D85bFc7590c611dE012db163e8a3
 	flashMulti: "0xa754bCc82fea403189b0b3f369100519019f8990",//owner: 0x3018FB91d635D85bFc7590c611dE012db163e8a3
-	flashDirectTest: "0x119D963FF798E1A29249182ea9b5C9057Ef24547",
-	flashMultiTest: "0xC7116c3dD488712Eb056Ec18870df17D5aBAe481",
+	flashMultiTest: "0xefBa1032bB5f9bEC79e022f52D89C2cc9090D1B8",
+	flashDirectTest: "0x86C33a2aF71644c69d1321bcC53AD19b7ab86CcB",
 	flashV3: "DEPLOY_ME",
-	// flashB: "DEPLOY_ME",
-	// flashOne: "0xf4059341491E0Ec3FE6003708d2F6F9dB0fC7c4a",
-	// flashOne: "0x285aD7932ABCAfBDC622e6D0b5AfB3B15176Cca3",
-	// flashit: "0xbd069c51f511c79f43206456c30177759d7bb070",
-	//flashi(old addresses): 0x3fe5a13902b174C28cB7B2841EF8F35fC8F68150
-	// flashTest: "0x65e001b67f1ad28ff337c4f6e1ca52f31f5eb9fd"
 };
 
 

@@ -5,6 +5,7 @@ import { execute } from "./execute";
 import { BigNumber as BN } from "bignumber.js";
 import { tradeLogs } from "./tradeLog";
 import { logger } from "../../../constants/contract";
+import { fu } from "../../modules/convertBN";
 /**
  * Executes profitable trades
  * @param trade 
@@ -41,14 +42,12 @@ export async function rollDamage(trade: BoolTrade) {
 
 	// console.log(await tradeLogs(trade))//debug
 
-	if (
-		profpercBN.gt(BN(0)) &&
+	if (profpercBN.gt(BN(0)) &&
 		trade.k.uniswapKPositive && (
 			trade.loanPool.reserveInBN &&
 			trade.loanPool.reserveOutBN &&
 			trade.target.reserveInBN &&
-			trade.target.reserveOutBN).gt(BN(1))
-	) {
+			trade.target.reserveOutBN).gt(BN(1))) {
 		const log = await tradeLogs(trade)
 		console.log(log)
 		// compare profit vs gas cost
@@ -84,8 +83,8 @@ export async function rollDamage(trade: BoolTrade) {
 		// If profit is less than 0, return
 	} else if (profpercBN.lte(0) /*&& profpercBN.gt(-0.6)*/) { // TESTING
 		const log = await tradeLogs(trade)
-		// console.log(log)
-		console.log("<<<<<<<<<<<<No Trade: " + trade.ticker + " [ profit < 0.3% | " + profpercBN.toFixed(trade.tokenOut.decimals) + " ] >>>>>>>>>>>>")
+		console.log(log)
+		console.log("<<<<<<<<<<<<No Trade: " + trade.ticker + " : tradeSize: " + fu(trade.target.tradeSize, trade.tokenIn.decimals) + " : " + trade.loanPool.exchange + trade.target.exchange + " | " + profpercBN.toFixed(trade.tokenOut.decimals) + " ] >>>>>>>>>>>>")
 		return
 	}
 }
