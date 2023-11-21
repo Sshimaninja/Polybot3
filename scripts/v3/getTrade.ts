@@ -104,7 +104,6 @@ export class Trade {
 					repay: BigNumber.from(0),
 				},
 				amountRepay: BigNumber.from(0),
-
 			},
 			target: {
 				exchange: A ? this.match.pool0.exchange : this.match.pool1.exchange,

@@ -204,6 +204,8 @@ export interface PoolsV3 {
 };
 
 export interface Repays {
+	direct: BigNumber
+	directInTokenOut: BigNumber
 	simpleMulti: BigNumber
 	getAmountsOut: BigNumber
 	getAmountsIn: BigNumber
@@ -320,6 +322,8 @@ export interface BoolTrade {
 		priceOut: string
 		repays: Repays
 		amountRepay: BigNumber
+		amountOut: BigNumber
+		amountOutToken0for1: BigNumber
 	}
 	target: {
 		exchange: string
@@ -334,6 +338,7 @@ export interface BoolTrade {
 		priceOut: string
 		tradeSize: BigNumber
 		amountOut: BigNumber
+		amountOutToken0for1: BigNumber
 	}
 	k: K
 	gasData: GasData

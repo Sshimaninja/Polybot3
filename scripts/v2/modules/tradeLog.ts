@@ -24,14 +24,17 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
 				priceOut: trade.loanPool.priceOut,
 				reservesIn: fu(trade.loanPool.reserveIn, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
 				reservesOut: fu(trade.loanPool.reserveOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
-				amountRepay: trade.type === "multi" ? fu(trade.loanPool.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol : trade.type === "direct" ? fu(trade.loanPool.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol : "error",
-
 				repaysObj:
 				{
+					direct: fu(trade.loanPool.repays.direct, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
+					directInTokenOut: fu(trade.loanPool.repays.directInTokenOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
 					simpleMulti: fu(trade.loanPool.repays.simpleMulti, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
 					getAmountsOut: fu(trade.loanPool.repays.getAmountsOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
 					getAmountsIn: fu(trade.loanPool.repays.getAmountsIn, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
-				}
+				},
+				amountOut: fu(trade.loanPool.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
+				amountOutToken0for1: fu(trade.loanPool.amountOutToken0for1, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
+				amountRepay: trade.type === "multi" ? fu(trade.loanPool.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol : trade.type === "direct" ? fu(trade.loanPool.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol : "error",
 			},
 			target: {
 				exchange: trade.target.exchange,
@@ -39,6 +42,7 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
 				priceOut: trade.target.priceOut,
 				reservesIn: fu(trade.target.reserveIn, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
 				reservesOut: fu(trade.target.reserveOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
+				amountOutToken0for1: fu(trade.target.amountOutToken0for1, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
 				amountOut: fu(trade.target.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
 			},
 			result: {

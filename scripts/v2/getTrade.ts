@@ -9,11 +9,12 @@ import { Contract } from "@ethersproject/contracts";
 import { Prices } from "./modules/prices";
 import { getK } from "./modules/getK";
 import { BoolTrade } from "../../constants/interfaces"
-import { getMulti, getDirect } from "./modules/populateRepays";
+import { PopulateRepays } from "./modules/populateRepays";
 import { getAmountsIn, getAmountsOut } from "./modules/getAmountsIOLocal";
 import { AmountConverter } from "./modules/amountConverter";
 import { JS2BN, JS2BNS, BN2JS, BN2JSS, fu, pu } from "../modules/convertBN";
 import { filterTrade } from "./modules/filterTrade";
+import { ProfitCalculator } from "./modules/ProfitCalcs";
 /**
  * @description
  * Class to determine trade parameters 
@@ -60,14 +61,18 @@ export class Trade {
 		const bestSize = toPrice.lt(maxIn) ? toPrice : maxIn;
 		const safeReserves = loan.reserves.reserveIn.mul(1000).div(800);
 		const size = bestSize.gt(safeReserves) ? safeReserves : bestSize;
-
-		return size;
+		// const msg = size.eq(safeReserves) ? "[getSize]: using safeReserves" : "[getSize]: using bestSize";
+		// console.log(msg);
+		return maxIn;
 	}
 
 	async getTrade() {
 		const dir = await this.direction();
 		const A = dir.dir == "A" ? true : false;
 
+		const size = A ? await this.getSize(this.calc1, this.calc0) : await this.getSize(this.calc0, this.calc1)
+		//TODO: Add Balancer, Aave, Compound, Dydx, etc. here.
+		//TODO: Add complexity: use greater reserves for loanPool, lesser reserves for target.
 		const trade: BoolTrade = {
 			ID: A ? this.match.poolAID : this.match.poolBID,
 			direction: dir.dir,
@@ -88,13 +93,16 @@ export class Trade {
 				priceIn: A ? this.price1.priceInBN.toFixed(this.match.token0.decimals) : this.price0.priceInBN.toFixed(this.match.token0.decimals),
 				priceOut: A ? this.price1.priceOutBN.toFixed(this.match.token1.decimals) : this.price0.priceOutBN.toFixed(this.match.token1.decimals),
 				repays: {
+					direct: BigNumber.from(0),
+					directInTokenOut: BigNumber.from(0),
 					simpleMulti: BigNumber.from(0),
 					getAmountsOut: BigNumber.from(0),
 					getAmountsIn: BigNumber.from(0),
 					repay: BigNumber.from(0),
 				},
 				amountRepay: BigNumber.from(0),
-
+				amountOutToken0for1: BigNumber.from(0),
+				amountOut: BigNumber.from(0),
 			},
 			target: {
 				exchange: A ? this.pair.exchangeA : this.pair.exchangeB,
@@ -108,7 +116,8 @@ export class Trade {
 				priceIn: A ? this.price0.priceInBN.toFixed(this.match.token0.decimals) : this.price1.priceInBN.toFixed(this.match.token0.decimals),
 				priceOut: A ? this.price0.priceOutBN.toFixed(this.match.token1.decimals) : this.price1.priceOutBN.toFixed(this.match.token1.decimals),
 				//TODO: FIX THE CALCS FOR MAXIN() WHICH ARE WRONG.
-				tradeSize: A ? await this.getSize(this.calc1, this.calc0) : await this.getSize(this.calc0, this.calc1),
+				tradeSize: size,
+				amountOutToken0for1: BigNumber.from(0),
 				amountOut: BigNumber.from(0),
 			},
 			k: {
@@ -128,30 +137,42 @@ export class Trade {
 			trade.target.reserveIn, // token0 in 
 			trade.target.reserveOut); // token1 max out
 
-
 		const filteredTrade = await filterTrade(trade);
 		if (filteredTrade == undefined) {
 			return trade;
 		}
 
 		// Define repay & profit for each trade type: 
-		const multi = await getMulti(trade, this.calc0);
-		const direct = await getDirect(trade, this.calc0);
+		const r = new PopulateRepays(trade, this.calc0);
+		const repays = await r.getRepays();
+		const p = new ProfitCalculator(trade, this.calc0, repays);
+		const multi = await p.getMultiProfit();
+		const direct = await p.getDirectProfit();
+		// const multi = await getMulti(trade, this.calc0);
+		// const direct = await getDirect(trade, this.calc0);
+		// const balancer = await getBalancer(trade, this.calc0);
+		// const aave = await getAave(trade, this.calc0);
+		// const compound = await getCompound(trade, this.calc0);
+		// const dydx = await getDydx(trade, this.calc0);
 
-		trade.type = multi.profits.profit.gt(direct.profit) ? "multi" : direct.profit.gt(multi.profits.profit) ? "direct" : "error";
+
+		trade.type = multi.profit.gt(direct.profit) ? "multi" : direct.profit.gt(multi.profit) ? "direct" : "error: multi: " + fu(multi.profit, trade.tokenOut.decimals) + " direct: " + fu(direct.profit, trade.tokenOut.decimals);
 
 		// subtract the result from amountOut to get profit
 		// The below will be either in token0 or token1, depending on the trade type.
 		// Set repayCalculation here for testing, until you find the correct answer (of which there is only 1):
-		trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.repay : direct.repay;
+		trade.loanPool.amountOut = await getAmountsOut(trade.target.tradeSize, trade.loanPool.reserveIn, trade.loanPool.reserveOut);
+		trade.loanPool.amountOutToken0for1 = await getAmountsOut(trade.target.amountOut, trade.loanPool.reserveOut, trade.loanPool.reserveIn);
+		trade.loanPool.amountRepay = trade.type === "multi" ? repays.repay : repays.direct;
+		trade.loanPool.repays = repays;
 
-		trade.loanPool.repays = multi.repays;
+		trade.target.amountOutToken0for1 = await getAmountsOut(trade.target.amountOut, trade.target.reserveOut, trade.target.reserveIn);
 
-		trade.profit = trade.type === "multi" ? multi.profits.profit : direct.profit;
+		trade.profit = trade.type === "multi" ? multi.profit : direct.profit;
 
 		trade.profitPercent = trade.type == "multi" ?
-			pu((multi.profits.profitPercent.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals) :
-			pu((direct.percentProfit.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals);
+			pu((multi.profitPercent.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals) :
+			pu((direct.profitPercent.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals);
 
 		trade.k = await getK(trade.type, trade.target.tradeSize, trade.loanPool.reserveIn, trade.loanPool.reserveOut, this.calc0);
 

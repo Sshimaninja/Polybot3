@@ -21,7 +21,7 @@ TODO:
  * It prevents multiple flash swaps from being executed at the same time, on the same pool, if the profit is too low, or the gas cost too high.
  */
 
-const slippageTolerance = BN(0.001)
+const slippageTolerance = BN(0.01) // 1% slippage tolerance
 
 
 export async function control(data: FactoryPair[], gasData: any) {
@@ -35,8 +35,11 @@ export async function control(data: FactoryPair[], gasData: any) {
 			const r = new Reserves(match);
 			const reserves = await r.getReserves(match);
 
+			//TODO: Arrange tokenIn/tokenOut so that the pool with higher reserves is loanPool and pool with lower reserves is target.
+			//This will allow for more profitable trades, as the loanPool will have more liquidity to move the target price without requiring excess repayment.
+			//Reversing the trade requires changing the token0/token1 assignment to token1/token0 in the Reserves class.
 			if (reserves[0] !== undefined || reserves[1] !== undefined) {
-				console.log("ExchangeA: " + pair.exchangeA + " ExchangeB: " + pair.exchangeB + " matches: " + pair.matches.length, " gasData: " + gasData.fast.maxFee + " " + gasData.fast.maxPriorityFee);
+				// console.log("ExchangeA: " + pair.exchangeA + " ExchangeB: " + pair.exchangeB + " matches: " + pair.matches.length, " gasData: " + gasData.fast.maxFee + " " + gasData.fast.maxPriorityFee);
 				const p0 = new Prices(match.poolAID, reserves[0]);
 				const p1 = new Prices(match.poolBID, reserves[1]);
 
@@ -47,6 +50,7 @@ export async function control(data: FactoryPair[], gasData: any) {
 				const rollPromise = rollDamage(trade);
 
 				promises.push(dataPromise, rollPromise);
+
 			} else {
 				console.log("Reserves not found for " + match.poolAID + " and " + match.poolBID) + " reserves: " + reserves;
 			}

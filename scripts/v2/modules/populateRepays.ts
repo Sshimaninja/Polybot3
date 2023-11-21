@@ -6,31 +6,72 @@ import { getAmountsIn, getAmountsOut } from "./getAmountsIOLocal";
 import { JS2BN, BN2JS, fu, pu } from "../../modules/convertBN";
 
 
-export async function getMulti(trade: BoolTrade, calc: AmountConverter): Promise<{ repays: Repays, profits: { profit: BigNumber, profitPercent: BN } }> {
+export class PopulateRepays {
+	trade: BoolTrade;
+	calc: AmountConverter;
+	repays: Repays;
+
+	constructor(trade: BoolTrade, calc: AmountConverter) {
+		this.trade = trade;
+		this.calc = calc;
+		this.repays = {
+			direct: BigNumber.from(0),
+			directInTokenOut: BigNumber.from(0),
+			simpleMulti: BigNumber.from(0),
+			getAmountsOut: BigNumber.from(0),
+			getAmountsIn: BigNumber.from(0),
+			repay: BigNumber.from(0),
+		};
+	}
+
+
 	/*
 	I have to send back only the amount of token1 needed to repay the amount of token0 I was loaned.
 	Thus I need to calculate the exact amount of token1 that tradeSize in tokenOut represents on loanPool, 
 	and subtract it from recipient.amountOut before sending it back
 	*/
-	// const postReserveIn = trade.loanPool.reserveIn.sub(trade.target.tradeSize); // I think this is only relevant for uniswap K calcs				
-	async function getRepay(): Promise<Repays> {
-		const tradeSizeInTermsOfTokenOutOnLoanPool =
-			trade.target.tradeSize
-				.mul(trade.loanPool.reserveOut)
-				.div(trade.loanPool.reserveIn.add(trade.target.tradeSize)); // <= This is the amount of tokenOut that tradeSize in tokenOut represents on loanPool.
-		const simple = await calc.addFee(tradeSizeInTermsOfTokenOutOnLoanPool)
+	// const postReserveIn = this.trade.loanPool.reserveIn.sub(this.trade.target.tradeSize); // I think this is only relevant for uniswap K calcs				
+	async getRepays(): Promise<Repays> {
+
+		const repayDirect = await this.calc.addFee(this.trade.target.tradeSize);
+		// const directRepayLoanPoolInTokenOut = await getAmountsOut(
+		// 	this.trade.target.tradeSize,
+		// 	this.trade.loanPool.reserveIn, // 
+		// 	this.trade.loanPool.reserveOut
+		// );
+
+		//get loanPool conversion of tradeSize in terms of tokenOut
+		const repayDirectBN = JS2BN(repayDirect, this.trade.tokenIn.decimals);
+		const directRepayLoanPoolInTokenOutBN = repayDirectBN.multipliedBy(BN(this.trade.loanPool.priceOut));
+		const directRepayLoanPoolInTokenOut = BN2JS(directRepayLoanPoolInTokenOutBN, this.trade.tokenOut.decimals);
+		// const directRepayLoanPoolInTokenOutWithFee = await this.calc.addFee(directRepayLoanPoolInTokenOut);
+
+
+		const ts = JS2BN(this.trade.target.tradeSize, this.trade.tokenIn.decimals)
+		const tradeSizeInTermsOfTokenOutOnLoanPool = ts.multipliedBy(BN(this.trade.loanPool.priceOut))
+
+		const simpleBN = tradeSizeInTermsOfTokenOutOnLoanPool.multipliedBy(1.003) // 0.3% fee
+		const simple = BN2JS(simpleBN, this.trade.tokenOut.decimals)
+
+		// this.trade.target.tradeSize
+		// 	.mul(this.trade.loanPool.reserveOut.div(this.trade.loanPool.reserveIn))// will never work with ethers.js BigNumber because of rounding down.
+		// const simple = await calc.addFee(tradeSizeInTermsOfTokenOutOnLoanPool)
 
 		const repayByGetAmountsOut = await getAmountsOut(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
-			trade.target.tradeSize,
-			trade.loanPool.reserveIn,
-			trade.loanPool.reserveOut // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
+			this.trade.target.tradeSize,
+			this.trade.loanPool.reserveIn,
+			this.trade.loanPool.reserveOut // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
 		)
+
 		const repayByGetAmountsIn = await getAmountsIn( //Will output tokenIn.
-			trade.target.tradeSize,
-			trade.loanPool.reserveOut, // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
-			trade.loanPool.reserveIn
+			this.trade.target.tradeSize,
+			this.trade.loanPool.reserveOut, // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
+			this.trade.loanPool.reserveIn
 		)
+
 		const repays: Repays = {
+			direct: repayDirect,
+			directInTokenOut: directRepayLoanPoolInTokenOut,
 			simpleMulti: simple,
 			getAmountsOut: repayByGetAmountsOut,
 			getAmountsIn: repayByGetAmountsIn,
@@ -42,44 +83,4 @@ export async function getMulti(trade: BoolTrade, calc: AmountConverter): Promise
 		return repays;
 	}
 
-	const repays = await getRepay();
-
-	async function getProfit(): Promise<Profcalcs> {
-		let repay = repays.repay;
-		// this must be re-assigned to be accurate, if you re-assign trade.loanPool.amountRepay below. The correct amountRepay should be decided upon and this message should be removed.
-		// if (repay.lt(trade.target.amountOut)) {
-		let profit: Profcalcs = { profit: BigNumber.from(0), profitPercent: BN(0) };
-		profit.profit = trade.target.amountOut.sub(repay);
-		const profitBN = JS2BN(profit.profit, trade.tokenOut.decimals);
-		profit.profitPercent = trade.target.amountOut.gt(0) ? profitBN.dividedBy(fu(trade.target.amountOut, trade.tokenOut.decimals)).multipliedBy(100) : BN(0);
-		return profit;
-		// } else {
-		// 	return { profit: BigNumber.from(0), profitPercent: BN(0) };
-		// }
-	}
-
-	const profits = await getProfit();
-	// const postReserveOut = trade.loanPool.reserveOut.add(tradeSizeInTermsOfTokenOutWithFee);				
-	return { repays, profits };
 }
-
-
-export async function getDirect(trade: BoolTrade, calc: AmountConverter): Promise<{ repay: BigNumber, profit: BigNumber, percentProfit: BN }> {
-	const repay = await calc.addFee(trade.target.tradeSize);
-	// const directRepayLoanPoolInTokenOut = await getAmountsOut(
-	// 	trade.target.tradeSize,
-	// 	trade.loanPool.reserveIn, // 
-	// 	trade.loanPool.reserveOut
-	// );
-	const directRepayLoanPoolInTokenOut = await getAmountsIn(
-		trade.target.tradeSize,
-		trade.loanPool.reserveOut, //<== getAmountsIn returns amountIn in terms of token in this position.  
-		trade.loanPool.reserveIn
-	);
-	const directRepayLoanPoolInTokenOutWithFee = await calc.addFee(directRepayLoanPoolInTokenOut);
-	const profit = trade.target.amountOut.sub(directRepayLoanPoolInTokenOutWithFee); // profit is remainder of token1 out
-	const profitBN = JS2BN(profit, trade.tokenOut.decimals);
-	const percentProfit = trade.target.amountOut.gt(0) ? profitBN.dividedBy(fu(trade.target.amountOut, trade.tokenOut.decimals)).multipliedBy(100) : BN(0);
-	return { repay, profit, percentProfit };
-}
-
