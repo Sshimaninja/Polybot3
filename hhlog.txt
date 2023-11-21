@@ -1,0 +1,55 @@
+Script started on 2023-11-17 17:34:41+00:00 [TERM="screen.xterm-256color" TTY="/dev/pts/9" COLUMNS="174" LINES="88"]
+[?2004h(base) [01;32mprophecy@DESKTOP-ODVLU60[00m:[01;34m/mnt/d/code[00m$ v3bot
+[?2004l
+[?2004h(base) [01;32mprophecy@DESKTOP-ODVLU60[00m:[01;34m/mnt/d/code/arbitrage/polybot-live/polybotv3[00m$ npm[Kx hardhat node
+[?2004l
+[31m[1mError[22m[39m [31m[1mHH604:[22m[39m Error running JSON-RPC server: 
+
+HardhatError: HH604: Error running JSON-RPC server: 
+    at SimpleTaskDefinition.action (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/builtin-tasks/node.ts:368:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Environment._runTaskDefinition (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/core/runtime-environment.ts:333:14)
+    at async Environment.run (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/core/runtime-environment.ts:166:14)
+    at async main (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/cli/cli.ts:280:7)
+
+    Caused by: AggregateError
+        at internalConnectMultiple (node:net:1111:18)
+        at internalConnectMultiple (node:net:1174:5)
+        at Timeout.internalConnectMultipleTimeout (node:net:1683:3)
+        at listOnTimeout (node:internal/timers:575:11)
+        at processTimers (node:internal/timers:514:7)
+[?2004h(base) [01;32mprophecy@DESKTOP-ODVLU60[00m:[01;34m/mnt/d/code/arbitrage/polybot-live/polybotv3[00m$ npx hardhat node
+[?2004l
+[31m[1mError[22m[39m [31m[1mHH604:[22m[39m Error running JSON-RPC server: 
+
+HardhatError: HH604: Error running JSON-RPC server: 
+    at SimpleTaskDefinition.action (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/builtin-tasks/node.ts:368:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Environment._runTaskDefinition (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/core/runtime-environment.ts:333:14)
+    at async Environment.run (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/core/runtime-environment.ts:166:14)
+    at async main (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/cli/cli.ts:280:7)
+
+    Caused by: AggregateError
+        at internalConnectMultiple (node:net:1111:18)
+        at internalConnectMultiple (node:net:1174:5)
+        at Timeout.internalConnectMultipleTimeout (node:net:1683:3)
+        at listOnTimeout (node:internal/timers:575:11)
+        at processTimers (node:internal/timers:514:7)
+[?2004h(base) [01;32mprophecy@DESKTOP-ODVLU60[00m:[01;34m/mnt/d/code/arbitrage/polybot-live/polybotv3[00m$ l0[K[Ks[Klsof -8545[1P8545[8545i8545 8545:8545[1P[1@-
+[?2004l
+[?2004h(base) [01;32mprophecy@DESKTOP-ODVLU60[00m:[01;34m/mnt/d/code/arbitrage/polybot-live/polybotv3[00m$ lsof -i :8545[K6
+[?2004l
+[?2004h(base) [01;32mprophecy@DESKTOP-ODVLU60[00m:[01;34m/mnt/d/code/arbitrage/polybot-live/polybotv3[00m$ lsof -i :8546[K5
+[?2004l
+[?2004h(base) [01;32mprophecy@DESKTOP-ODVLU60[00m:[01;34m/mnt/d/code/arbitrage/polybot-live/polybotv3[00m$ GitHub Copilot: The error message `HH604: Error running JSON-RPC server` typically indicates a p 
+roblem with the Hardhat network setup. This could be due to a variety of reasons such as:
+[?2004l
+ Another instance of Hardhat network is already running on the same port.
+2. There's a network issue preventing the server from starting.
+3. There's an issue with your Hardhat configuration.
+
+Here are a few things you can try to resolve this issue:
+
+- Make sure there's no other instance of Hardhat network running on the same port. You can check this by running `lsof -i :8545` in your terminal (replace `8545` with your actual port if it's different). If there's another process running, you can kill it using `kill -9 <PID>` where `<PID>` is the process ID.
+
+- Check your Hardhat configur
