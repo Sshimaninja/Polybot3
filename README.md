@@ -35,6 +35,9 @@ Testing operations:
 	Run the arbSim.ts script to create the arbitrage opportunity.
 	Run this bot on the local network.
 
+# Deploy live to Polygon
+	npx hardhat run --network localhost scripts/deployFlash.ts
+	
 
 # Notes:
 I've moved smart contracts to a new repo because neither VSCode, nor Hardhat can handle multiple different versions of solidity docs and compilers, resulting in insane amounts of wasted time.

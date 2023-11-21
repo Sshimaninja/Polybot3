@@ -2,8 +2,8 @@ import { ethers, run, network } from "hardhat";
 require('dotenv').config();
 import { signer, flashwallet } from '../constants/contract'
 
-// npx hardhat run --network localhost scripts/deployFlashMultiTest.ts
-// npx hardhat run --network localhost scripts/deployFlashDirectTestTest.ts; npx hardhat run--network localhost scripts/deployFlashMultiTest.ts
+// npx hardhat run --network localhost scripts/deployFlashTests.ts
+
 async function main() {
 	try {
 		const deployer = signer;
