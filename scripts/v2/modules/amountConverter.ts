@@ -6,6 +6,7 @@ import { Prices } from "./prices";
 import { Token, Amounts } from "../../../constants/interfaces";
 import { getAmountsOut, getAmountsIn } from './getAmountsIOLocal';
 import { HiLo, Difference } from "../../../constants/interfaces";
+import { JS2BN, pu } from "../../modules/convertBN";
 
 /**
  * @description
@@ -38,7 +39,7 @@ export class AmountConverter {
 		// this.targetPrice = this.price.priceOutBN.plus(this.targetPrice).div(2);// average of two prices
 		const tradeSize = await tradeToPrice(this.reserves.reserveInBN, this.reserves.reserveOutBN, this.targetPrice, this.slip);
 		// console.log('tradeSize: ', tradeSize.toFixed(this.token0.decimals));//DEBUG
-		const tradeSizeJS = utils.parseUnits(tradeSize.toFixed(this.token0.decimals), this.token0.decimals);
+		const tradeSizeJS = pu(tradeSize.toFixed(this.token0.decimals), this.token0.decimals);
 		// console.log('tradeSizeJS: ', utils.formatUnits(tradeSizeJS, this.token0.decimals));//DEBUG
 		return tradeSizeJS;
 	}
@@ -46,14 +47,22 @@ export class AmountConverter {
 	async getMaxTokenIn(): Promise<BigNumber> {
 		const maxTokenIn = await getMaxTokenIn(this.reserves.reserveInBN, this.slip);
 		// console.log('maxTokenIn: ', maxTokenIn.toFixed(this.token0.decimals));//DEBUG
-		const maxIn = utils.parseUnits(maxTokenIn.toFixed(this.token0.decimals), this.token0.decimals!);
+		const maxIn = pu(maxTokenIn.toFixed(this.token0.decimals), this.token0.decimals!);
 		return maxIn;
 	}
 
 	async getMaxTokenOut(): Promise<BigNumber> {
 		const maxTokenOut = await getMaxTokenOut(this.reserves.reserveOutBN, this.slip);
-		const maxOut = utils.parseUnits(maxTokenOut.toFixed(this.token1.decimals), this.token1.decimals!);
+		const maxOut = pu(maxTokenOut.toFixed(this.token1.decimals), this.token1.decimals!);
 		return maxOut;
+	}
+
+	async subSlippage(amountOut: BigNumber, decimals: number): Promise<BigNumber> {
+		const amount = JS2BN(amountOut, decimals);
+		const slippage = amount.times(this.slip);
+		const adjAmountBN = amount.minus(slippage);
+		const adjAmountJS = pu(adjAmountBN.toFixed(decimals), decimals);
+		return adjAmountJS;
 	}
 
 	// Adds Uniswap V2 trade fee to any amount
@@ -68,9 +77,4 @@ export class AmountConverter {
 		return repay; //in token0
 	}
 
-	async getAmounts() {
-		const maxIn = await this.getMaxTokenIn();
-		const maxOut = await this.getMaxTokenOut();
-		return { maxIn, maxOut };
-	}
 }

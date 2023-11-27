@@ -23,11 +23,9 @@ TODO:
  * It prevents multiple flash swaps from being executed at the same time, on the same pool, if the profit is too low, or the gas cost too high.
  */
 const tradePending = false;
-const slippageTolerance = BN(0.0006) // 0.065%
+const slippageTolerance = BN(0.006) // 0.65%
 // var virtualReserveFactor = 1.1
 var pendingID: string | undefined
-
-
 
 export async function control(data: V3Matches, gasData: any) {
 	const promises: any[] = [];
@@ -44,25 +42,35 @@ export async function control(data: V3Matches, gasData: any) {
 		if (!tradePending && match.pool0.id !== pendingID && match.pool1.id !== pendingID) {
 
 			const pool0ABI = match.pool0.protocol === 'UNIV3' ? IUni3Pool : "ALG" ? IAlgPool : "ERROR"
-			const pool1ABI = match.pool1.protocol === 'UNIv3' ? IUni3Pool : "ALG" ? IAlgPool : "ERROR"
+			const pool1ABI = match.pool1.protocol === 'UNIV3' ? IUni3Pool : "ALG" ? IAlgPool : "ERROR"
+
+			// console.log("pool0ABI: " + match.pool0.protocol + " pool1ABI: " + match.pool1.protocol)
 
 			const pool0 = new Contract(match.pool0.id, pool0ABI, provider);
 			const pool1 = new Contract(match.pool1.id, pool1ABI, provider);
 
+			// console.log("pool0: " + pool0.address + " pool1: " + pool1.address)
 
 			const l0 = new InRangeLiquidity(match.pool0, pool0, match.token0, match.token1);
 			const l1 = new InRangeLiquidity(match.pool1, pool1, match.token0, match.token1);
 			const irl0 = await l0.getPoolState();
 			const irl1 = await l1.getPoolState();
+
+			// console.log("irl0 priceOut: " + irl0.priceOut + " irl1 priceOut: " + irl1.liquidity.toString())
+
 			if (irl0.liquidity.isZero() || irl1.liquidity.isZero()) {
+				console.log("Liquidity is zero for ", match.ticker, " on ", match.pool0.exchange, match.pool1.exchange, ". Skipping...")
 				return;
 			}
-			return
+
+			// return	
+
 			const t = new Trade(match, pool0, pool1, irl0, irl1, slippageTolerance, gasData);
 			const trade = await t.getTrade();
+			// console.log("Trade: ", trade.ticker, " ", trade.loanPool.exchange, trade.target.exchange, " " + trade.target.amountOut.toString() + " " + trade.tokenOut.symbol, " " + trade.loanPool.amountRepay.toString() + " " + trade.tokenOut.symbol, " " + trade.profit.toString() + " " + trade.tokenOut.symbol, " " + trade.profitPercent.toString() + "%")
 
-			const dataPromise = tradeLogs(trade);
-			console.log(dataPromise)//TESTING
+			const dataPromise = await tradeLogs(trade);
+			// console.log(dataPromise)//TESTING
 			// const rollPromise = rollDamage(trade, await dataPromise, warning, tradePending, pendingID);
 
 			promises.push(dataPromise)//, rollPromise);
@@ -72,16 +80,4 @@ export async function control(data: V3Matches, gasData: any) {
 		console.log("Error in control.ts: " + error.message);
 		return;
 	});
-}
-
-
-// const data = {
-// 	irl0: {
-// 		priceOut: irl0.priceOutBN.toFixed(match.token1.decimals),
-// 	},
-// 	irl1: {
-// 		priceOut: irl1.priceOutBN.toFixed(match.token1.decimals),
-// 	},
-// 	match: match,
-// }
-// console.log(data)
+};

@@ -41,28 +41,20 @@ export class Trade {
 		this.state1 = state1;
 		this.slip = slip;
 		this.gasData = gasData;
-		// Pass in the opposing pool's priceOut as target
-		// this.calc0 = new AmountConverter(state0, match, this.state1.priceOutBN, slip);
-		// this.calc1 = new AmountConverter(state1, match, this.state0.priceOutBN, slip);
-
 	}
 
 	async direction() {
 		const A = this.state0.priceOutBN
+		console.log("A: ", A.toFixed(this.match.token1.decimals))
 		const B = this.state1.priceOutBN
+		console.log("B: ", B.toFixed(this.match.token1.decimals))
 		const diff = A.lt(B) ? B.minus(A) : A.minus(B)
+		console.log("diff: ", diff.toFixed(this.match.token1.decimals))
 		const dperc = diff.div(A.gt(B) ? A : B).multipliedBy(100)// 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
-		const dir = A.lt(B) ? "A" : "B"
-
-		// const prices = {
-		// 	A: A.toFixed(this.match.token0.decimals) + " " + this.match.token0.symbol,
-		// 	B: B.toFixed(this.match.token1.decimals) + " " + this.match.token1.symbol,
-		// 	diff: diff.toFixed(A ? this.match.token1.decimals : this.match.token0.decimals) + " " + A ? this.match.token1.symbol : this.match.token0.symbol,
-		// 	dperc: dperc.toFixed(this.match.token1.decimals) + "%",
-		// 	dir: dir,
-		// }
-		// console.log("Price Check: ")
-		// console.log(prices)
+		console.log("diffPerc: ", dperc.toFixed(this.match.token1.decimals) + "%")
+		//It would seem like you want to 'buy' the cheaper token, but you actually want to 'sell' the more expensive token.
+		const dir = A.lt(B) ? "B" : "A"
+		console.log("dir: ", dir)
 		return { dir, diff, dperc }
 	}
 
@@ -81,8 +73,7 @@ export class Trade {
 		const A = dir.dir == "A" ? true : false;
 
 		const calcA = new AmountConverter(this.match, this.state0, this.state1.priceOutBN, this.match.pool0.fee, this.slip);
-		const calcB = new AmountConverter(this.match, this.state1, this.state0.priceOutBN, this.match.pool1.fee, this.slip)
-
+		const calcB = new AmountConverter(this.match, this.state1, this.state0.priceOutBN, this.match.pool1.fee, this.slip);
 
 		const trade: Bool3Trade = {
 			ID: A ? this.match.pool0.id : this.match.pool1.id,
@@ -93,6 +84,7 @@ export class Trade {
 			tokenOut: this.match.token1,
 			flash: flashMulti, // This has to be set initially, but must be changed later per type.
 			loanPool: {
+				protocol: A ? this.match.pool1.protocol : this.match.pool0.protocol,
 				exchange: A ? this.match.pool1.exchange : this.match.pool0.exchange,
 				pool: A ? this.pool1 : this.pool0,
 				feeTier: A ? this.match.pool1.fee : this.match.pool0.fee,
@@ -106,6 +98,7 @@ export class Trade {
 				amountRepay: BigNumber.from(0),
 			},
 			target: {
+				protocol: A ? this.match.pool0.protocol : this.match.pool1.protocol,
 				exchange: A ? this.match.pool0.exchange : this.match.pool1.exchange,
 				pool: A ? this.pool0 : this.pool1,
 				feeTier: A ? this.match.pool0.fee : this.match.pool1.fee,
@@ -126,20 +119,24 @@ export class Trade {
 			profitPercent: BigNumber.from(0),
 		};
 
-		// Make sure there are no breaking variables in the trade: before passing it to the next function.
-		const filteredTrade = await filterTrade(trade);
-		if (filteredTrade == undefined) {
-			return trade;
-		}
-
 		const q = new V3Quote(this.match, (A ? this.state1 : this.state0), trade.target.tradeSize);
 
 		trade.target.amountOut = await q.getAmountOutMax(
+			trade.target.protocol,
 			trade.target.exchange,
 			trade.target.feeTier,
 			trade.target.tradeSize,
-			await trade.loanPool.calc.addFee(trade.target.state.sqrtPriceX96),
+			trade.target.state.sqrtPriceX96,
 		);
+		// console.log("trade.target.amountOut: ", fu(trade.target.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol)
+
+		// Make sure there are no breaking variables in the trade: before passing it to the next function.
+		const filteredTrade = await filterTrade(trade);
+		if (filteredTrade == undefined) {
+			// console.log("filteredTrade: ", trade.ticker, " ", trade.loanPool.exchange, trade.target.exchange, " " + trade.target.tradeSize.toString() + " " + trade.tokenOut.symbol)
+			return trade;
+		}
+
 
 		const repay = new PopulateRepays(filteredTrade, trade.loanPool.calc, q);
 
@@ -169,17 +166,5 @@ export class Trade {
 		// return trade;
 		return trade
 
-		// flashParams for reference (actual variables requried to execute a v3 flash):
-		/*
-		struct FlashParams {
-		address token0;
-		address token1;
-		uint24 fee1;    		//fee1 is the fee of the pool from the initial borrow
-		uint256 amount0;
-		uint256 amount1;
-		uint24 fee2;			//fee2 is the fee of the first pool to arb from
-		uint24 fee3;			//fee3 is the fee of the second pool to arb from
-		}
-		*/
 	}
 }

@@ -108,8 +108,8 @@ export interface PoolState {
 	reserveOut: BigNumber;
 	reserveInBN: BN;
 	reserveOutBN: BN;
-	priceIn: BigNumber;
-	priceOut: BigNumber;
+	priceIn: string;
+	priceOut: string;
 	priceInBN: BN;
 	priceOutBN: BN;
 }
@@ -126,12 +126,12 @@ export interface Amounts {
 	toPrice: BigNumber;
 }
 export interface Slot0 {
-	sqrtPriceX96: string;
-	tick: string;
-	fee: string;
+	sqrtPriceX96: BigNumber;
+	sqrtPriceX96BN: BN;
+	tick: number;
+	fee: number;
 	unlocked: boolean;
 }
-
 export interface DeployedPools {
 	poolID: string;
 	token0: string;
@@ -358,6 +358,7 @@ export interface Bool3Trade {
 	tokenOut: Token
 	flash: Contract
 	loanPool: {
+		protocol: string
 		exchange: string
 		pool: Contract
 		feeTier: number
@@ -367,6 +368,7 @@ export interface Bool3Trade {
 		amountRepay: BigNumber
 	}
 	target: {
+		protocol: string
 		exchange: string
 		pool: Contract
 		feeTier: number

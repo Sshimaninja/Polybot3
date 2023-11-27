@@ -96,3 +96,41 @@ if
 # General article on matrix/graph Arbitrage:
 https://github.com/ccyanxyz/uniswap-arbitrage-analysis
 Note: According to the 'Optimal arbitrage in Uniswap' article, this is completely pointless, as on any robust market like Uniswap, the fees destroy the marginal profits arbitrage is constrained to.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###### NOTES FROM UNISWAP DISCORD / CRYPTO RACHEL:
+
+Price Impact Math:
+
+##Based on 10,000 sell token0
+
+orgTotalToken0 = 2000000
+orgTotalToken1 = 1000
+
+tokenAmount0selling = 10000
+
+ConstantProduct = orgTotalToken0 * orgTotalToken1
+
+orgPrice = orgTotalToken0/orgTotalToken1
+
+token1change = (orgTotalToken1 - (ConstantProduct / (tokenAmount0selling + orgTotalToken0)))
+
+PricePaidPerToken1 = tokenAmount0selling / token1change
+
+priceDifference = PricePaidPerToken1 - orgPrice
+
+intImpact = priceDifference / orgPrice
+
+PercentImpact = intImpact * 100

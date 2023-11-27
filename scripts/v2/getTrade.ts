@@ -50,7 +50,18 @@ export class Trade {
 		const B = this.price1.priceOutBN
 		const diff = A.lt(B) ? B.minus(A) : A.minus(B)
 		const dperc = diff.div(A.gt(B) ? A : B).multipliedBy(100)// 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
-		const dir = A.lt(B) ? "A" : "B"
+
+		//It would seem like you want to 'buy' the cheaper token, but you actually want to 'sell' the more expensive token.
+
+		/*
+		ex:
+		A: eth/usd = 1/3000 = on uniswap
+		B: eth/usd = 1/3100 = on sushiswap
+		borrow eth on uniswap, sell on sushiswap for 3100 = $100 profit minus fees.
+		*/
+
+		const dir = A.gt(B) ? "A" : "B"
+		//borrow from the pool with the higher priceOut, sell on the pool with the lower priceOut
 		return { dir, diff, dperc }
 	}
 
@@ -136,6 +147,9 @@ export class Trade {
 			trade.target.tradeSize, // token0 in given
 			trade.target.reserveIn, // token0 in 
 			trade.target.reserveOut); // token1 max out
+
+		trade.target.amountOut = await this.calc0.subSlippage(trade.target.amountOut, trade.tokenOut.decimals);
+
 
 		const filteredTrade = await filterTrade(trade);
 		if (filteredTrade == undefined) {

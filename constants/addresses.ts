@@ -45,14 +45,14 @@ export const uniswapV2Factory: FactoryMap = {
 
 export const uniswapV3Factory: FactoryMap = {
 	UNIV3: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
-	SUSHIV3: "0xaa26771d497814E81D305c511Efbb3ceD90BF5bd"
+	// SUSHIV3: "0xaa26771d497814E81D305c511Efbb3ceD90BF5bd"
 };
 
 type QuoterMap = { [protocol: string]: string };
 
 export const uniswapQuoter: QuoterMap = {
 	UNIV3: "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
-	SUSHIV3: "0xb1E835Dc2785b52265711e17fCCb0fd018226a6e",
+	// SUSHIV3: "0xb1E835Dc2785b52265711e17fCCb0fd018226a6e",
 };
 
 // ALGEBRA: 
