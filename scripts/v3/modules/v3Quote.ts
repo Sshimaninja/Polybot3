@@ -2,7 +2,7 @@ import { BigNumber, ethers, Contract } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { abi as IUniswapV3Quoter } from '@uniswap/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json';
 import { abi as AlgebraQuoter } from '@cryptoalgebra/periphery/artifacts/contracts/interfaces/IQuoter.sol/IQuoter.json';
-import { uniswapQuoter } from "../../../constants/addresses";
+import { algebraQuoter, uniswapQuoter } from "../../../constants/addresses";
 import { Bool3Trade, Match3Pools, PoolState } from "../../../constants/interfaces";
 import { provider, signer } from "../../../constants/contract";
 import { fu } from "../../modules/convertBN";
@@ -12,9 +12,6 @@ import { fu } from "../../modules/convertBN";
 // 	state: PoolState,
 // 	tradeSize: BigNumber
 // ): Promise<BigNumber> {
-
-
-
 
 
 //Returns the amount out received for a given exact input but for a swap of a single pool	
@@ -38,25 +35,30 @@ export class V3Quote {
 	}
 
 	async getAmountOutMax(
+		exchange: string,
 		protocol: string,
 		feeTier: number,
 		tradeSize: BigNumber,
 		sqrtPriceLimitX96: BigNumber
 	): Promise<BigNumber> {
-		console.log("checking amountOut on ", protocol, " for amountIn : ", fu(tradeSize, this.pool.token0.decimals))
+		console.log("v3Quote: ", uniswapQuoter[exchange])
+		// console.log("checking amountOut on ", protocol, " for tradeSize : ", fu(tradeSize, this.pool.token0.decimals))
 		// const quoter = new ethers.Contract((protocol == 'UNI' ? uniswapQuoter.UNI : uniswapQuoter.QUICKV3), UniswapV3Quoter, signer);//TESTING ONLY
-		if (protocol === "UNI") {
-			const quoter = new ethers.Contract(uniswapQuoter.UNI, IUniswapV3Quoter, signer);
+		if (protocol === "UNIV3") {
+
+			const quoter = new ethers.Contract(uniswapQuoter[exchange], IUniswapV3Quoter, signer);
 			const getAmountOutMax = quoter.quoteExactInputSingle(
 				this.pool.token0,
 				this.pool.token1,
 				feeTier,
 				this.tradeSize,
-				this.state.sqrtPriceX96,
+				0,// this.state.sqrtPriceX96,
 			);
 			return getAmountOutMax;
-		} else {
-			const quoter = new ethers.Contract(uniswapQuoter[protocol], AlgebraQuoter, signer);
+		}
+		if (protocol === "ALG") {
+			console.log("v3Quote: ", uniswapQuoter[exchange])
+			const quoter = new ethers.Contract(algebraQuoter[exchange], AlgebraQuoter, signer);
 			const getAmountOutMax = quoter.quoteExactInputSingle(
 				this.pool.token0,
 				this.pool.token1,
@@ -64,6 +66,9 @@ export class V3Quote {
 				0,
 			);
 			return getAmountOutMax;
+		} else {
+			console.log("No protocol specified in V3Quote")
+			return BigNumber.from(0);
 		}
 	};
 
@@ -79,15 +84,16 @@ export class V3Quote {
 	// 		uint160 sqrtPriceLimitX96
 	// 	) external returns(uint256 amountIn)
 	async getAmountInMin(
+		exchange: string,
 		protocol: string,
 		feeTier: number,
 		amountOutExpected: BigNumber,
 		sqrtPriceLimitX96: BigNumber
 	): Promise<BigNumber> {
-		console.log("checking amountIn on ", protocol, "...")
+		console.log("v3Quote: ", uniswapQuoter[exchange])
 		// const quoter = new ethers.Contract((protocol == 'UNI' ? uniswapQuoter.UNI : uniswapQuoter.QUICKV3), UniswapV3Quoter, signer);//TESTING ONLY
-		if (protocol === "UNI") {
-			const quoter = new ethers.Contract(uniswapQuoter.UNI, IUniswapV3Quoter, signer);
+		if (protocol === "UNIV3") {
+			const quoter = new ethers.Contract(uniswapQuoter[exchange], IUniswapV3Quoter, signer);
 			const getAmountInMin = quoter.quoteExactOutputSingle(
 				this.pool.token0,
 				this.pool.token1,
@@ -96,15 +102,19 @@ export class V3Quote {
 				this.state.sqrtPriceX96,
 			);
 			return getAmountInMin;
-		} else {
-			const quoter = new ethers.Contract(uniswapQuoter[protocol], AlgebraQuoter, signer);
+		}
+		if (protocol === "ALG") {
+			const quoter = new ethers.Contract(algebraQuoter[protocol], AlgebraQuoter, signer);
 			const getAmountInMin = quoter.quoteExactOutputSingle(
 				this.pool.token0,
 				this.pool.pool1,
 				amountOutExpected,
 				0,
-			);
+			)
 			return getAmountInMin;
+		} else {
+			console.log("No protocol specified in V3Quote")
+			return BigNumber.from(0);
 		}
 	}
 }
