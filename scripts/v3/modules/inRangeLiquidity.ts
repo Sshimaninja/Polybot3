@@ -2,67 +2,14 @@ import { ethers, utils, BigNumber, Contract } from "ethers";
 
 import { BigNumber as BN } from "bignumber.js";
 import { wallet } from '../../../constants/contract'
-import { ReservesData, PoolState, PoolInfo, ERC20token } from "../../../constants/interfaces";
+import { ReservesData, PoolState, PoolInfo, ERC20token, Slot0 } from "../../../constants/interfaces";
 import { fu, pu } from "../../modules/convertBN";
 // import { getPrice } from "./uniswapV3Primer";
 /**
  * @description
- * This class returns an array of an array of reserves for an array of pairs.
- * For V3 this also returns liquidity in range.
+ * For V3 this returns liquidity in range as well as pool 'state'.
+ * 
  */
-
-/**
- * @description
- * This class returns an array of an array of reserves for an array of pairs.
- */
-
-// export class ReservesV3 {
-// 	static reserves: ReservesData[] = [];
-
-// 	constructor(pool: Contract) {
-// 		this.getReserves(pool)
-// 	}
-
-// 	async getPoolIDs(pair: Contract): Promise<string[]> {
-// 		const poolIDs: string[] = [];
-// 		for (const key in pair) {
-// 			if (key.startsWith("pool")) {
-// 				const poolID = pair[key as keyof Contract];
-// 				if (typeof poolID === "string") {
-// 					poolIDs.push(poolID);
-// 				}
-// 			}
-// 		}
-// 		return poolIDs;
-// 	}
-
-// 	async getReserves(pool: Contract): Promise<ReservesData[]> {
-// 		const poolIDs = await this.getPoolIDs(pool);
-// 		const reserves: ReservesData[] = [];
-// 		for (const poolID of poolIDs) {
-// 			let pool = new ethers.Contract(poolID, IPool, wallet)
-// 			if (pool.address != '0x0000000000000000000000000000000000000000') {
-// 				const slot0Data = await pool.slot0();
-// 				const [sqrtPriceX96, tick, , , , ,] = slot0Data;
-// 				const reserveIn: BigNumber = tick > 0 ? sqrtPriceX96.mul(sqrtPriceX96).div(BigNumber.from(2).pow(192)) : sqrtPriceX96.mul(BigNumber.from(2).pow(96)).div(BigNumber.from(2).pow(192));
-// 				const reserveOut: BigNumber = tick < 0 ? sqrtPriceX96.mul(sqrtPriceX96).div(BigNumber.from(2).pow(192)) : sqrtPriceX96.mul(BigNumber.from(2).pow(96)).div(BigNumber.from(2).pow(192));
-// 				const reserveInBN = BN(utils.formatUnits(reserveIn, pool.token0.decimals));
-// 				const reserveOutBN = BN(utils.formatUnits(reserveOut, pool.token1.decimals));
-// 				const reserveData: ReservesData = {
-// 					reserveIn,
-// 					reserveOut,
-// 					reserveInBN,
-// 					reserveOutBN,
-// 					blockTimestampLast: 0
-// 				};
-// 				reserves.push(reserveData);
-// 			} else {
-// 				console.log("Pool " + poolID + " no longer exists!")
-// 			}
-// 		}
-// 		return reserves;
-// 	}
-// }
 
 export class InRangeLiquidity {
 	static liquidity: BigNumber[] = [];
@@ -78,8 +25,47 @@ export class InRangeLiquidity {
 		this.token1 = token1;
 	}
 
+	async getSlot0(): Promise<Slot0> {
+		let s0: Slot0 = {
+			sqrtPriceX96: BigNumber.from(0),
+			sqrtPriceX96BN: BN(0),
+			tick: 0,
+			fee: 0,
+			unlocked: false,
+		};
+		try {
+			if (this.poolInfo.protocol === 'UNIV3') {
+				const slot0 = await this.pool.slot0();
+				s0 = {
+					sqrtPriceX96: slot0.sqrtPriceX96,
+					sqrtPriceX96BN: BN(slot0.sqrtPriceX96.toString()),
+					tick: slot0.tick,
+					fee: this.pool.fee(),
+					unlocked: slot0.unlocked,
+				}
+				// console.log("Slot0: UNIV3", slot0)
+				return s0;
+			} else if (this.poolInfo.protocol === 'ALG') {
+				const slot0 = await this.pool.globalState();
+				s0 = {
+					sqrtPriceX96: slot0.price,
+					sqrtPriceX96BN: BN(slot0.price.toString()),
+					tick: slot0.tick,
+					fee: slot0.fee,
+					unlocked: slot0.unlocked,
+				}
+				// console.log("Slot0: ALG", s0)
+				return s0;
+			}
+		} catch (error: any) {
+			console.log("Error in " + this.poolInfo.protocol + " getPoolState: " + error.message)
+			return s0;
+		}
+		return s0;
+	};
+
 	async getReservesInRange(): Promise<{ reserves0: BigNumber, reserves1: BigNumber }> {
-		const slot0 = await this.pool.slot0()
+		const slot0 = await this.getSlot0();
 
 		let liq = await this.pool.liquidity();
 		const reserves0 = liq.mul(slot0.sqrtPriceX96).div(BigNumber.from(2).pow(96));
@@ -88,7 +74,9 @@ export class InRangeLiquidity {
 		return { reserves0, reserves1 };
 	}
 
+	// Using 'cumulative' data from slot0, calculate all reserves across all ticks
 	async getTotalReserves(): Promise<{ reserves0: BigNumber, reserves1: BigNumber }> {
+
 		// Get the current state of the pool
 		const [secondsAgo, tickCumulatives, liquidityCumulatives] = await this.pool.observe([0]);
 		console.log("Seconds Ago: ", secondsAgo[0].toString())
@@ -112,17 +100,16 @@ export class InRangeLiquidity {
 
 	async getPriceBN(sqrtPriceX96: BN, decimal0: number, decimal1: number): Promise<{ priceInBN: BN, priceOutBN: BN, priceIn: string, priceOut: string }> {
 
-		// const buyOneOfToken0 = ((sqrtPriceX96 / 2 ** 96) ** 2) 
-		const price: BN = BN((sqrtPriceX96.div(BN(2).toExponential(96))).toExponential(2))
-		// const price = sqrtPrice.toExponential(2)
+		// Calculate the price as (sqrtPriceX96 / 2^96)^2
+		const price: BN = sqrtPriceX96.dividedBy(new BN(2).pow(96)).pow(2);
 
-		//const price0 = price / (10 ** decimal1 / 10 ** decimal0).toFixed(decimal1);
-		const priceIn: BN = price.dividedBy(BN(10).toExponential(decimal1)).dividedBy(BN(10).toExponential(decimal0));
-		const priceInString: string = priceIn.toFixed(decimal1);
+		// Adjust for token decimals
+		const priceIn: BN = price.times(new BN(10).pow(decimal0)).dividedBy(new BN(10).pow(decimal1));
+		const priceOut: BN = new BN(1).div(priceIn);
 
-		const priceOut: BN = (BN(1).div(priceIn));
-		const priceOutString: string = priceOut.toFixed(decimal0);
-
+		// Convert to string with appropriate number of decimals
+		const priceInString: string = priceIn.toFixed(decimal0);
+		const priceOutString: string = priceOut.toFixed(decimal1);
 		// const buyOneOfToken1 = (1 / buyOneOfToken0).toFixed(decimal0);
 
 		const prices = {
@@ -134,60 +121,22 @@ export class InRangeLiquidity {
 		return prices
 	}
 
-	async getPriceJS(sqrtPriceX96: BigNumber, decimal0: number, decimal1: number): Promise<{ priceInJS: BigNumber, priceOutJS: BigNumber, priceIn: string, priceOut: string }> {
-		const price: BigNumber = sqrtPriceX96.div(BigNumber.from(2).pow(96)).pow(2);
-
-		const priceIn: BigNumber = price.div(BigNumber.from(10).pow(decimal1)).div(BigNumber.from(10).pow(decimal0));
-		const priceInString: string = fu(priceIn, decimal1);
-		console.log(priceIn)
-		console.log("PriceInString: ", priceInString)
-
-		const priceOut: BigNumber = (BigNumber.from(1).div(priceIn));
-		const priceOutString: string = fu(priceOut, decimal0);
-
-		const prices = {
-			priceInJS: priceIn,
-			priceOutJS: priceOut,
-			priceIn: priceInString,
-			priceOut: priceOutString
-		}
-		return prices
-	}
-
-
 	async getPoolState(): Promise<PoolState> {
-		const s0 = this.poolInfo.protocol === 'UNIV3' ? await this.pool.slot0() : await this.pool.globalState();
-		const slot0 = this.poolInfo.protocol === 'UNIV3' ? {
+
+		let s0 = await this.getSlot0();
+		const slot0: Slot0 = {
 			sqrtPriceX96: s0.sqrtPriceX96,
-			sqrtPriceX96BN: BN(s0.sqrtPriceX96.toString()),
+			sqrtPriceX96BN: s0.sqrtPriceX96BN,
 			tick: s0.tick,
 			fee: s0.fee,
-			locked: s0.unlocked
-		} : {
-			sqrtPriceX96: s0.sqrtPriceX96,
-			sqrtPriceX96BN: BN(s0.sqrtPriceX96.toString()),
-			tick: s0.tick,
-			// fee0Z: s0.feeOtZ,
-			fee: s0.feeZtO, //simplified for uniformity, as both Algebra changes fee per direction, but this bot currently only trades in one direction.
-			locked: s0.unlocked
-		}
+			unlocked: s0.unlocked
+		};
 
 		const pBN = await this.getPriceBN(slot0.sqrtPriceX96BN, this.token0.decimals, this.token1.decimals)
-		const pJS = await this.getPriceJS(slot0.sqrtPriceX96, this.token0.decimals, this.token1.decimals)
-		console.log("[getPoolState]: >>>>>>>>>>>>>>>Formatted Prices: ")
 		const prices = {
-			JS: pJS,
+			// JS: pJS,
 			BN: pBN,
 		}
-		// prices.priceTokenInBN = BN(fu(prices.priceTokenIn, this.token0.decimals));
-		// prices.priceTokenOutBN = BN(fu(prices.priceTokenOut, this.token1.decimals));
-
-		console.log('[InRangeLiquidity]: slot0: ')
-		console.log(slot0)
-		console.log('[InRangeLiquidity]: prices: ')
-		console.log(prices)
-		// if (this.pool.address != '0x0000000000000000000000000000000000000000' || this.pool.address != '0x0000000000000000000000000000000000000000') {
-		// console.log("Getting Poolstate for ", this.pool.address)
 		const liquidity = await this.pool.liquidity();
 
 		const { reserves0, reserves1 } = await this.getReservesInRange();
@@ -203,25 +152,25 @@ export class InRangeLiquidity {
 			reserveOut: reserves1,
 			reserveInBN: reserves0BN,
 			reserveOutBN: reserves1BN,
-			priceIn: prices.JS.priceInJS,
-			priceOut: prices.JS.priceOutJS,
+			priceIn: prices.BN.priceIn,
+			priceOut: prices.BN.priceOut,
 			priceInBN: prices.BN.priceInBN,
 			priceOutBN: prices.BN.priceOutBN
 		};
 		const liquiditDataView = {
 			poolID: this.pool.address,
 			liquidity: liquidity.toString(),
-			reserves0: fu(reserves0, this.token0.decimals),
-			reserves1: fu(reserves1, this.token1.decimals),
-			reserves0BN: reserves0BN.toFixed(this.token0.decimals),
-			reserves1BN: reserves1BN.toFixed(this.token1.decimals),
-			priceIn: prices.JS.priceIn,
-			priceOut: prices.JS.priceOut,
-			priceInBN: prices.BN.priceIn,
-			priceOutBN: prices.BN.priceOutBN,
+			reserves0: fu(reserves0, this.token1.decimals),
+			reserves1: fu(reserves1, this.token0.decimals),
+			// reserves0BN: reserves0BN.toFixed(this.token0.decimals),
+			// reserves1BN: reserves1BN.toFixed(this.token1.decimals),
+			priceIn: prices.BN.priceIn,
+			priceOut: prices.BN.priceOut,
+			// priceInBN: prices.BN.priceInBN,
+			// priceOutBN: prices.BN.priceOutBN,
 		}
-		console.log(liquiditDataView)
-		console.log("Poolstate ", this.pool.address, " Complete")
+		// console.log(liquiditDataView)
+		// console.log("Poolstate ", this.pool.address, " : ", this.poolInfo.protocol, " Complete")
 		return liquidityData;
 	}
 

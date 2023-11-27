@@ -14,7 +14,7 @@ export async function tradeLogs(trade: Bool3Trade): Promise<any> {
 	try {
 		const data = {
 			id: trade.ID,
-			trade: trade.type,
+			// trade: trade.type,
 			ticker: trade.ticker,
 			direction: trade.direction,
 			tradeSize: fu(trade.target.tradeSize, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
@@ -24,13 +24,13 @@ export async function tradeLogs(trade: Bool3Trade): Promise<any> {
 				priceOut: trade.loanPool.state.priceOutBN.toFixed(trade.tokenOut.decimals),
 				reservesIn: trade.loanPool.state.reserveInBN.toFixed(trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
 				reservesOut: trade.loanPool.state.reserveOutBN.toFixed(trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
-				amountRepay: trade.type === "multi" ? fu(trade.loanPool.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol : trade.type === "direct" ? fu(trade.loanPool.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol : "error",
-
 				repaysObj:
 				{
 					getAmountsOut: fu(trade.loanPool.repays.getAmountsOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
 					getAmountsIn: fu(trade.loanPool.repays.getAmountsIn, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
-				}
+				},
+				// amountRepay: trade.type === "multi" ? fu(trade.loanPool.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol : trade.type === "direct" ? fu(trade.loanPool.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol : "error",
+				amountRepay: fu(trade.loanPool.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol
 			},
 			target: {
 				exchange: trade.target.exchange,

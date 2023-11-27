@@ -49,16 +49,18 @@ export async function tradeToPrice(reserveIn: BN, reserveOut: BN, targetPrice: B
 	//targetPrice 0.520670400977951207 + 0.519935327393096545 = 1.040605728371047752 / 2 = 0.520302864185523876
 	const currentPrice = reserveOut.div(reserveIn); // 64133 / 123348 = 0.51993546713363816194830884975841
 	const diff = targetPrice.minus(currentPrice); // 0.520302864185523876 - 0.51993546713363816194830884975841 = 0.00036739705188571405169115024159
-	if (targetPrice.lt(currentPrice)) {
-		console.log('[tradeToPrice]: targetPrice must be higher than currentPrice or else tradeSize will be negative');
+	if (targetPrice.gt(currentPrice)) {
+		console.log('[tradeToPrice]: targetPrice must be lower than currentPrice or else tradeSize will be negative');
 		console.log('[tradeToPrice]: currentPrice: ', currentPrice.toFixed(6), 'targetPrice: ', targetPrice.toFixed(6));
 	}
 	// Calculate the maximum trade size that would result in a slippage equal to slippageTolerance
 	let tradeSize = diff.multipliedBy(reserveIn); // 0.00036739705188571405169115024159 * 123348 = 45.285714285714285714285714285714
 	const maxTradeSize = await getMaxTokenIn(reserveOut, slippageTolerance); // 123348 * 0.002 = 246.696
 	if (tradeSize.gt(maxTradeSize)) {
-		tradeSize = maxTradeSize;
+		return tradeSize // 45.285714285714285714285714285714
+	} else {
+		return maxTradeSize // 246.696
 	}
-	return tradeSize // 45.285714285714285714285714285714
+
 }
 

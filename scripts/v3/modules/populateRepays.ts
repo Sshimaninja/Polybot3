@@ -31,22 +31,28 @@ export class PopulateRepays {
 			// const simple = await calc.addFee(this.tradeSizeInTermsOfTokenOutOnLoanPool)
 
 			const repayByGetAmountsOut = await this.q.getAmountOutMax(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
+				this.trade.loanPool.protocol,
 				this.trade.loanPool.exchange,
 				this.trade.loanPool.feeTier,
 				this.trade.target.tradeSize,
 				this.trade.loanPool.state.sqrtPriceX96,
 			)
 			const repayByGetAmountsIn = await this.q.getAmountInMin( //Will output tokenIn.
+				this.trade.loanPool.protocol,
 				this.trade.loanPool.exchange,
 				this.trade.loanPool.feeTier,
 				this.trade.target.tradeSize,
 				this.trade.loanPool.state.sqrtPriceX96,
 			)
+
 			const repays: V3Repays = {
 				getAmountsOut: repayByGetAmountsOut,
 				getAmountsIn: repayByGetAmountsIn,
 				repay: repayByGetAmountsIn,
 			}
+
+			console.log("[populateRepays] repays: ", repays)
+
 			return repays;
 		}
 
@@ -77,6 +83,7 @@ export class PopulateRepays {
 		const repay = this.trade.target.tradeSize;//must add fee from pool v3 to this.
 
 		const directRepayLoanPoolInTokenOut = await this.q.getAmountInMin(
+			this.trade.loanPool.protocol,
 			this.trade.loanPool.exchange,
 			this.trade.loanPool.feeTier,
 			repay,
