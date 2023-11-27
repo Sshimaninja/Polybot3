@@ -74,7 +74,7 @@ export class Trade {
 		const size = bestSize.gt(safeReserves) ? safeReserves : bestSize;
 		// const msg = size.eq(safeReserves) ? "[getSize]: using safeReserves" : "[getSize]: using bestSize";
 		// console.log(msg);
-		return maxIn;
+		return size;
 	}
 
 	async getTrade() {
