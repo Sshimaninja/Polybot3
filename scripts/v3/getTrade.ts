@@ -45,16 +45,26 @@ export class Trade {
 
 	async direction() {
 		const A = this.state0.priceOutBN
-		console.log("A: ", A.toFixed(this.match.token1.decimals))
 		const B = this.state1.priceOutBN
-		console.log("B: ", B.toFixed(this.match.token1.decimals))
 		const diff = A.lt(B) ? B.minus(A) : A.minus(B)
-		console.log("diff: ", diff.toFixed(this.match.token1.decimals))
 		const dperc = diff.div(A.gt(B) ? A : B).multipliedBy(100)// 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
-		console.log("diffPerc: ", dperc.toFixed(this.match.token1.decimals) + "%")
 		//It would seem like you want to 'buy' the cheaper token, but you actually want to 'sell' the more expensive token.
-		const dir = A.lt(B) ? "B" : "A"
-		console.log("dir: ", dir)
+
+		/*
+		ex:
+		A: eth/usd = 1/3000 = on uniswap
+		B: eth/usd = 1/3100 = on sushiswap
+		borrow eth on uniswap, sell on sushiswap for 3100 = $100 profit minus fees.
+		*/
+
+		const dir = A.gt(B) ? "A" : "B"
+		// console.log(">>>>>>>>>>>>>>>>>Direction")
+		// console.log("A: ", A.toFixed(this.match.token1.decimals))
+		// console.log("B: ", B.toFixed(this.match.token1.decimals))
+		// console.log("diff: ", diff.toFixed(this.match.token1.decimals))
+		// console.log("diffPerc: ", dperc.toFixed(this.match.token1.decimals) + "%")
+		// console.log("dir: ", dir)
+		// console.log(">>>>>>>>>>>>>End Direction")
 		return { dir, diff, dperc }
 	}
 
@@ -119,24 +129,27 @@ export class Trade {
 			profitPercent: BigNumber.from(0),
 		};
 
-		const q = new V3Quote(this.match, (A ? this.state1 : this.state0), trade.target.tradeSize);
+		const q = new V3Quote(this.match);
+		let v3Quote: BigNumber[] = [];
 
-		trade.target.amountOut = await q.getAmountOutMax(
-			trade.target.protocol,
+		const quote = await q.getAmountOutMax(
 			trade.target.exchange,
+			trade.target.protocol,
 			trade.target.feeTier,
 			trade.target.tradeSize,
 			trade.target.state.sqrtPriceX96,
 		);
-		// console.log("trade.target.amountOut: ", fu(trade.target.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol)
+
+		v3Quote.push(quote);
+		trade.target.amountOut = v3Quote[0];
+		trade.target.feeTier = A ? trade.target.feeTier : Number(v3Quote[1]);
+		// console.log("Quote: trade.target.amountOut: ", fu(trade.target.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol)
 
 		// Make sure there are no breaking variables in the trade: before passing it to the next function.
 		const filteredTrade = await filterTrade(trade);
 		if (filteredTrade == undefined) {
-			// console.log("filteredTrade: ", trade.ticker, " ", trade.loanPool.exchange, trade.target.exchange, " " + trade.target.tradeSize.toString() + " " + trade.tokenOut.symbol)
 			return trade;
 		}
-
 
 		const repay = new PopulateRepays(filteredTrade, trade.loanPool.calc, q);
 

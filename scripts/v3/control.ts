@@ -22,8 +22,8 @@ TODO:
  * It loops through all pairs, and all matches, and executes the flash swaps.
  * It prevents multiple flash swaps from being executed at the same time, on the same pool, if the profit is too low, or the gas cost too high.
  */
-const tradePending = false;
-const slippageTolerance = BN(0.006) // 0.65%
+export const tradePending = false;
+export const slippageTolerance = BN(0.006) // 0.65%
 // var virtualReserveFactor = 1.1
 var pendingID: string | undefined
 
@@ -34,7 +34,7 @@ export async function control(data: V3Matches, gasData: any) {
 
 	// Because Uniswap voted to keep v3 proprietary for 2 years, algebra became the first open source AMM to implement v3, meaning most AMM dex's used it rather than Uniswap's v3.
 
-	console.log("ExchangeA: " + data.exchangeA + " ExchangeB: " + data.exchangeB + " matches: " + data.matches.length, " gasData: " + gasData.fast.maxFee + " " + gasData.fast.maxPriorityFee);
+	// console.log("ExchangeA: " + data.exchangeA + " ExchangeB: " + data.exchangeB + " matches: " + data.matches.length, " gasData: " + gasData.fast.maxFee + " " + gasData.fast.maxPriorityFee);
 
 	// for (const match of matches) {
 	matches.forEach(async (match: Match3Pools) => {
@@ -59,7 +59,7 @@ export async function control(data: V3Matches, gasData: any) {
 			// console.log("irl0 priceOut: " + irl0.priceOut + " irl1 priceOut: " + irl1.liquidity.toString())
 
 			if (irl0.liquidity.isZero() || irl1.liquidity.isZero()) {
-				console.log("Liquidity is zero for ", match.ticker, " on ", match.pool0.exchange, match.pool1.exchange, ". Skipping...")
+				// console.log("Liquidity is zero for ", match.ticker, " on ", match.pool0.exchange, match.pool1.exchange, ". Skipping...")
 				return;
 			}
 
