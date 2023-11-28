@@ -94,8 +94,8 @@ export class Trade {
 			tokenOut: this.match.token1,
 			flash: flashMulti, // This has to be set initially, but must be changed later per type.
 			loanPool: {
-				protocol: A ? this.match.pool1.protocol : this.match.pool0.protocol,
 				exchange: A ? this.match.pool1.exchange : this.match.pool0.exchange,
+				protocol: A ? this.match.pool1.protocol : this.match.pool0.protocol,
 				pool: A ? this.pool1 : this.pool0,
 				feeTier: A ? this.match.pool1.fee : this.match.pool0.fee,
 				state: A ? this.state1 : this.state0,
@@ -108,8 +108,8 @@ export class Trade {
 				amountRepay: BigNumber.from(0),
 			},
 			target: {
-				protocol: A ? this.match.pool0.protocol : this.match.pool1.protocol,
 				exchange: A ? this.match.pool0.exchange : this.match.pool1.exchange,
+				protocol: A ? this.match.pool0.protocol : this.match.pool1.protocol,
 				pool: A ? this.pool0 : this.pool1,
 				feeTier: A ? this.match.pool0.fee : this.match.pool1.fee,
 				state: A ? this.state0 : this.state1,
@@ -130,9 +130,7 @@ export class Trade {
 		};
 
 		const q = new V3Quote(this.match);
-		let v3Quote: BigNumber[] = [];
-
-		const quote = await q.getAmountOutMax(
+		trade.target.amountOut = await q.getAmountOutMax(
 			trade.target.exchange,
 			trade.target.protocol,
 			trade.target.feeTier,
@@ -140,9 +138,6 @@ export class Trade {
 			trade.target.state.sqrtPriceX96,
 		);
 
-		v3Quote.push(quote);
-		trade.target.amountOut = v3Quote[0];
-		trade.target.feeTier = A ? trade.target.feeTier : Number(v3Quote[1]);
 		// console.log("Quote: trade.target.amountOut: ", fu(trade.target.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol)
 
 		// Make sure there are no breaking variables in the trade: before passing it to the next function.
