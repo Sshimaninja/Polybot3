@@ -160,6 +160,7 @@ export class Trade {
 		const r = new PopulateRepays(trade, this.calc0);
 		const repays = await r.getRepays();
 		const p = new ProfitCalculator(trade, this.calc0, repays);
+
 		const multi = await p.getMultiProfit();
 		const direct = await p.getDirectProfit();
 		// const multi = await getMulti(trade, this.calc0);
