@@ -220,6 +220,9 @@ contract flashMulti is IUniswapV2Callee {
         uint256 deadline = block.timestamp + 5 minutes;
         token0.approve(recipientRouter, loanAmount);
         uint256[] memory repay = getRepay(loanAmount, loanRouter, path);
+        emit logValue("loanAmount", loanAmount);
+        emit logValue("token0 balance", token0.balanceOf(address(this)));
+        emit logValue("repay", repay[0]);
         amountOut = IUniswapV2Router02(address(recipientRouter))
         // swap exactly loanAmount token0 for minimum amount1Repay token1
             .swapExactTokensForTokens(
@@ -231,8 +234,11 @@ contract flashMulti is IUniswapV2Callee {
                 address(this), // HOPING THAT SENDING THIS TO PAIR ADDRESS SIMPLIFIES EVERYTHING.
                 deadline // deadline
             )[1];
-        token1.approve(address(this), repay[0]);
-        token1.transfer(msg.sender, repay[0]);
+        emit logValue("amountOut", amountOut);
+        emit logValue("token1 balance", token1.balanceOf(address(this)));
+        token1.approve(msg.sender, repay[0]);
+        token1.transferFrom(address(this), msg.sender, repay[0]);
+        emit logValue("token1 balance", token1.balanceOf(address(this)));
     }
 
     function getRepay(

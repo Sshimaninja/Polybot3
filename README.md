@@ -36,7 +36,7 @@ Testing operations:
 	Run this bot on the local network.
 
 # Deploy live to Polygon
-	npx hardhat run --network localhost scripts/deployFlash.ts
+	npx hardhat run --network [network] scripts/deployFlash.ts
 	
 
 # Notes:

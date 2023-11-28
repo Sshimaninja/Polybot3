@@ -30,6 +30,14 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 		console.log('EstimatingGas for trade: ' + trade.ticker + '...');
 		let gasEstimate: BigNumber;
 		try {
+			const isBig =
+			{
+				tradeSize: trade.target.tradeSize,
+				amountOut: trade.target.amountOut,
+				repay: trade.loanPool.amountRepay
+			};
+			console.log('isBig?: ', isBig);
+			console.log(trade.flash.functions)
 			gasEstimate = await trade.flash.estimateGas.flashSwap(
 				trade.loanPool.factory.address,
 				trade.loanPool.router.address,
