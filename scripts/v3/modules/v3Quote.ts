@@ -1,11 +1,12 @@
 import { BigNumber, ethers, Contract } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { abi as IUniswapV3Quoter } from '@uniswap/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json';
-import { abi as AlgebraQuoter } from '@cryptoalgebra/periphery/artifacts/contracts/interfaces/IQuoter.sol/IQuoter.json';
+import { abi as IAlgebraQuoter } from '@cryptoalgebra/periphery/artifacts/contracts/interfaces/IQuoter.sol/IQuoter.json';
 import { algebraQuoter, uniswapQuoter } from "../../../constants/addresses";
 import { Bool3Trade, Match3Pools, PoolState } from "../../../constants/interfaces";
 import { provider, signer } from "../../../constants/contract";
-import { fu } from "../../modules/convertBN";
+import { slippageTolerance } from "../control";
+import { BN2JS, fu, pu } from "../../modules/convertBN";
 
 // export async function getV3Quote(
 // 	match: Match3Pools,
@@ -25,13 +26,10 @@ import { fu } from "../../modules/convertBN";
 
 export class V3Quote {
 	pool: Match3Pools;
-	state: PoolState;
-	tradeSize: BigNumber;
 
-	constructor(pool: Match3Pools, state: PoolState, tradeSize: BigNumber) {
+
+	constructor(pool: Match3Pools, /*state: PoolState,*/) {
 		this.pool = pool;
-		this.state = state;
-		this.tradeSize = tradeSize;
 	}
 
 	async getAmountOutMax(
@@ -39,35 +37,44 @@ export class V3Quote {
 		protocol: string,
 		feeTier: number,
 		tradeSize: BigNumber,
-		sqrtPriceLimitX96: BigNumber
+		sqrtPriceX96: BigNumber
 	): Promise<BigNumber> {
-		console.log("v3Quote: ", uniswapQuoter[exchange])
-		// console.log("checking amountOut on ", protocol, " for tradeSize : ", fu(tradeSize, this.pool.token0.decimals))
-		// const quoter = new ethers.Contract((protocol == 'UNI' ? uniswapQuoter.UNI : uniswapQuoter.QUICKV3), UniswapV3Quoter, signer);//TESTING ONLY
-		if (protocol === "UNIV3") {
-
-			const quoter = new ethers.Contract(uniswapQuoter[exchange], IUniswapV3Quoter, signer);
-			const getAmountOutMax = quoter.quoteExactInputSingle(
-				this.pool.token0,
-				this.pool.token1,
-				feeTier,
-				this.tradeSize,
-				0,// this.state.sqrtPriceX96,
-			);
-			return getAmountOutMax;
-		}
-		if (protocol === "ALG") {
-			console.log("v3Quote: ", uniswapQuoter[exchange])
-			const quoter = new ethers.Contract(algebraQuoter[exchange], AlgebraQuoter, signer);
-			const getAmountOutMax = quoter.quoteExactInputSingle(
-				this.pool.token0,
-				this.pool.token1,
-				tradeSize,
-				0,
-			);
-			return getAmountOutMax;
-		} else {
-			console.log("No protocol specified in V3Quote")
+		// console.log("Params: ", "Exchange: ", exchange, ' Protocol: ', protocol, ' ', feeTier, ' tradeSize: ', fu(tradeSize, this.pool.token0.decimals))
+		try {
+			if (protocol === "UNIV3") {
+				const quoter = new ethers.Contract(uniswapQuoter[exchange], IUniswapV3Quoter, signer);
+				console.log("Getting quote for UniV3: ", exchange, protocol, feeTier, fu(tradeSize, this.pool.token0.decimals))
+				const getAmountOutMax = await quoter.callStatic.quoteExactInputSingle(
+					this.pool.token0.id,
+					this.pool.token1.id,
+					feeTier,
+					tradeSize,
+					0
+				);
+				// console.log("getAmountOutMax: ", protocol, " ", getAmountOutMax)
+				return getAmountOutMax;
+			}
+			if (protocol === "ALG") {
+				const quoter = new ethers.Contract(algebraQuoter[exchange], IAlgebraQuoter, signer);
+				// console.log("Getting quote for Algebra: ", exchange, protocol, feeTier, fu(tradeSize, this.pool.token0.decimals))
+				const getAmountOutMax = await quoter.callStatic.quoteExactInputSingle(
+					this.pool.token0.id,
+					this.pool.token1.id,
+					tradeSize,
+					0
+				);
+				console.log("getAmountOutMax: ", protocol, " ", getAmountOutMax[0])
+				return getAmountOutMax;
+			} else {
+				console.log("No protocol specified in quoteExactInputSingle. Protocol: ", protocol)
+				return BigNumber.from(0);
+			}
+		} catch (error: any) {
+			if (error.reason === 'AS') {
+				console.log("AS error: ", error.message)
+				return BigNumber.from(0);
+			}
+			console.log("Error in getAmountOutMax: ", error.message)
 			return BigNumber.from(0);
 		}
 	};
@@ -90,30 +97,40 @@ export class V3Quote {
 		amountOutExpected: BigNumber,
 		sqrtPriceLimitX96: BigNumber
 	): Promise<BigNumber> {
-		console.log("v3Quote: ", uniswapQuoter[exchange])
+		console.log("Params: ", exchange, protocol, feeTier, fu(amountOutExpected, this.pool.token0.decimals))
 		// const quoter = new ethers.Contract((protocol == 'UNI' ? uniswapQuoter.UNI : uniswapQuoter.QUICKV3), UniswapV3Quoter, signer);//TESTING ONLY
-		if (protocol === "UNIV3") {
-			const quoter = new ethers.Contract(uniswapQuoter[exchange], IUniswapV3Quoter, signer);
-			const getAmountInMin = quoter.quoteExactOutputSingle(
-				this.pool.token0,
-				this.pool.token1,
-				feeTier,
-				amountOutExpected,
-				this.state.sqrtPriceX96,
-			);
-			return getAmountInMin;
-		}
-		if (protocol === "ALG") {
-			const quoter = new ethers.Contract(algebraQuoter[protocol], AlgebraQuoter, signer);
-			const getAmountInMin = quoter.quoteExactOutputSingle(
-				this.pool.token0,
-				this.pool.pool1,
-				amountOutExpected,
-				0,
-			)
-			return getAmountInMin;
-		} else {
-			console.log("No protocol specified in V3Quote")
+		try {
+			if (protocol === "UNIV3") {
+				const quoter = new ethers.Contract(uniswapQuoter[exchange], IUniswapV3Quoter, signer);
+				const getAmountInMin = await quoter.callStatic.quoteExactOutputSingle(
+					this.pool.token0.id,
+					this.pool.token1.id,
+					feeTier,
+					amountOutExpected,
+					0//sqrtPriceLimitX96,//this.state.sqrtPriceX	96,
+				);
+				return getAmountInMin;
+			}
+			if (protocol === "ALG") {
+				const quoter = new ethers.Contract(algebraQuoter[exchange], IAlgebraQuoter, signer);
+				const getAmountInMin = await quoter.callStatic.quoteExactOutputSingle(
+					this.pool.token0.id,
+					this.pool.token1.id,
+					// feeTier,
+					amountOutExpected,
+					0//sqrtPriceLimitX96,
+				)
+				return getAmountInMin;
+			} else {
+				console.log("No protocol specified in quoteExactOutputSingle. Protocol: ", protocol)
+				return BigNumber.from(0);
+			}
+		} catch (error: any) {
+			if (error.reason === 'AS') {
+				console.log("AS error: ", error.message)
+				return BigNumber.from(0);
+			}
+			console.log("Error in getAmountInMin: ", error.message)
 			return BigNumber.from(0);
 		}
 	}
