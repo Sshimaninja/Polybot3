@@ -358,8 +358,8 @@ export interface Bool3Trade {
 	tokenOut: Token
 	flash: Contract
 	loanPool: {
-		protocol: string
 		exchange: string
+		protocol: string
 		pool: Contract
 		feeTier: number
 		state: PoolState
@@ -368,8 +368,8 @@ export interface Bool3Trade {
 		amountRepay: BigNumber
 	}
 	target: {
-		protocol: string
 		exchange: string
+		protocol: string
 		pool: Contract
 		feeTier: number
 		state: PoolState

@@ -29,8 +29,8 @@ export async function getK(trade: Bool3Trade, state: PoolState, calc: AmountConv
 	}
 
 	const tradeSizeInTokenOut = await q.getAmountInMin(
-		tl.protocol,
 		tl.exchange,
+		tl.protocol,
 		tl.feeTier,
 		tradeSizewithFee,
 		state.sqrtPriceX96,

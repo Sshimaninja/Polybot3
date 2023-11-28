@@ -70,7 +70,7 @@ export async function control(data: V3Matches, gasData: any) {
 			// console.log("Trade: ", trade.ticker, " ", trade.loanPool.exchange, trade.target.exchange, " " + trade.target.amountOut.toString() + " " + trade.tokenOut.symbol, " " + trade.loanPool.amountRepay.toString() + " " + trade.tokenOut.symbol, " " + trade.profit.toString() + " " + trade.tokenOut.symbol, " " + trade.profitPercent.toString() + "%")
 
 			const dataPromise = await tradeLogs(trade);
-			// console.log(dataPromise)//TESTING
+			console.log(dataPromise)//TESTING
 			// const rollPromise = rollDamage(trade, await dataPromise, warning, tradePending, pendingID);
 
 			promises.push(dataPromise)//, rollPromise);
