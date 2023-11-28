@@ -83,8 +83,8 @@ export class PopulateRepays {
 		const repay = this.trade.target.tradeSize;//must add fee from pool v3 to this.
 
 		const directRepayLoanPoolInTokenOut = await this.q.getAmountInMin(
-			this.trade.loanPool.protocol,
 			this.trade.loanPool.exchange,
+			this.trade.loanPool.protocol,
 			this.trade.loanPool.feeTier,
 			repay,
 			this.trade.loanPool.state.sqrtPriceX96,
