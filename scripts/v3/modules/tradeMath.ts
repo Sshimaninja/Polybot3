@@ -11,7 +11,7 @@ export async function tradeToPrice(targetPrice: BN, currentPrice: BN, liq: BN): 
 	const price_diff = targetPrice.minus(currentPrice);
 	const amount_in = price_diff.multipliedBy(liq);
 	if (targetPrice.lte(currentPrice)) {
-		console.log("targetPrice is less than currentPrice, returning 0")
+		console.log("targetPrice lt currentPrice, returning 0")
 		return new BN(0);
 	} else {
 		return amount_in;
