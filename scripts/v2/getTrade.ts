@@ -14,6 +14,7 @@ import { getAmountsIn, getAmountsOut } from "./modules/getAmountsIOLocal";
 import { AmountConverter } from "./modules/amountConverter";
 import { JS2BN, JS2BNS, BN2JS, BN2JSS, fu, pu } from "../modules/convertBN";
 import { filterTrade } from "./modules/filterTrade";
+import { logger } from "../../constants/contract";
 import { ProfitCalculator } from "./modules/ProfitCalcs";
 /**
  * @description
@@ -78,6 +79,7 @@ export class Trade {
 	}
 
 	async getTrade() {
+
 		const dir = await this.direction();
 		const A = dir.dir == "A" ? true : false;
 
@@ -142,7 +144,6 @@ export class Trade {
 			profit: BigNumber.from(0),
 			profitPercent: BigNumber.from(0),
 		};
-
 		trade.target.amountOut = await getAmountsOut(
 			trade.target.tradeSize, // token0 in given
 			trade.target.reserveIn, // token0 in 
@@ -160,17 +161,11 @@ export class Trade {
 		const r = new PopulateRepays(trade, this.calc0);
 		const repays = await r.getRepays();
 		const p = new ProfitCalculator(trade, this.calc0, repays);
+
 		const multi = await p.getMultiProfit();
 		const direct = await p.getDirectProfit();
-		// const multi = await getMulti(trade, this.calc0);
-		// const direct = await getDirect(trade, this.calc0);
-		// const balancer = await getBalancer(trade, this.calc0);
-		// const aave = await getAave(trade, this.calc0);
-		// const compound = await getCompound(trade, this.calc0);
-		// const dydx = await getDydx(trade, this.calc0);
 
-
-		trade.type = multi.profit.gt(direct.profit) ? "multi" : direct.profit.gt(multi.profit) ? "direct" : "error: multi: " + fu(multi.profit, trade.tokenOut.decimals) + " direct: " + fu(direct.profit, trade.tokenOut.decimals);
+		trade.type = multi.profit.gt(direct.profit) ? "multi" : direct.profit.gt(multi.profit) ? "direct" : "No Profit (Error in profitCalcs)"
 
 		// subtract the result from amountOut to get profit
 		// The below will be either in token0 or token1, depending on the trade type.

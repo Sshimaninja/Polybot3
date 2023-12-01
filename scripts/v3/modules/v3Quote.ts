@@ -52,7 +52,7 @@ export class V3Quote {
 						tradeSize,
 						0
 					);
-					console.log("getAmountOutMax: ", protocol, " ", getAmountOutMax)
+					// console.log("getAmountOutMax: ", protocol, " ", getAmountOutMax)
 					return getAmountOutMax;
 				}
 				if (protocol === "ALG") {
@@ -64,7 +64,7 @@ export class V3Quote {
 						tradeSize,
 						0
 					);
-					console.log("getAmountOutMax: ", protocol, " ", getAmountOutMax[0])
+					// console.log("getAmountOutMax: ", protocol, " ", getAmountOutMax[0])
 					return getAmountOutMax[0];
 				} else {
 					console.log("No protocol specified in quoteExactInputSingle. Protocol: ", protocol)
@@ -72,6 +72,7 @@ export class V3Quote {
 				}
 			} catch (error: any) {
 				console.log(error.reason)
+				console.trace('getAmountOutMax: ')
 				return BigNumber.from(0);
 			}
 		} return BigNumber.from(0);
@@ -95,7 +96,7 @@ export class V3Quote {
 		amountOutExpected: BigNumber,
 		sqrtPriceLimitX96: BigNumber
 	): Promise<BigNumber> {
-		console.log("Params: ", "Exchange: ", exchange, "Protocol: ", protocol, feeTier, fu(amountOutExpected, this.pool.token0.decimals))
+		// console.log("Params: ", "Exchange: ", exchange, "Protocol: ", protocol, feeTier, fu(amountOutExpected, this.pool.token0.decimals))
 		// const quoter = new ethers.Contract((protocol == 'UNI' ? uniswapQuoter.UNI : uniswapQuoter.QUICKV3), UniswapV3Quoter, signer);//TESTING ONLY
 		if (amountOutExpected.gt(0)) {
 			try {
@@ -125,6 +126,7 @@ export class V3Quote {
 				}
 			} catch (error: any) {
 				console.log(error.reason)
+				console.trace('getAmountIn: ')
 				return BigNumber.from(0);
 			}
 		} return BigNumber.from(0);

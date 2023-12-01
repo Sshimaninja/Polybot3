@@ -39,21 +39,21 @@ export async function filterTrade(trade: BoolTrade): Promise<BoolTrade | undefin
 		}
 	}
 	if (trade.tokenIn.symbol !== "WBTC") {
-		if (trade.loanPool.reserveInBN.lt(BN(5))) {
+		if (trade.loanPool.reserveInBN.lt(BN(0.5))) {
 			console.log('[filteredTrade]: Insufficient liquidity on loanPool exchange: ', trade.ticker, ' ', trade.loanPool.exchange, ': No trade.');
 			return undefined;
 		}
-		if (trade.target.reserveInBN.lt(BN(5))) {
+		if (trade.target.reserveInBN.lt(BN(0.5))) {
 			console.log('[filteredTrade]: Insufficient liquidity on target exchange: ', trade.ticker, ' ', trade.target.exchange, ': No trade.');
 			return undefined;
 		}
 	}
 	if (trade.tokenOut.symbol !== "WBTC") {
-		if (trade.loanPool.reserveOutBN.lt(BN(5))) {
+		if (trade.loanPool.reserveOutBN.lt(BN(0.5))) {
 			console.log('[filteredTrade]: Insufficient liquidity on loanPool exchange: ', trade.ticker, ' ', trade.loanPool.exchange, ': No trade.');
 			return undefined;
 		}
-		if (trade.target.reserveOutBN.lt(BN(5))) {
+		if (trade.target.reserveOutBN.lt(BN(0.5))) {
 			console.log('[filteredTrade]: Insufficient liquidity on target exchange: ', trade.ticker, ' ', trade.target.exchange, ': No trade.');
 			return undefined;
 		}
