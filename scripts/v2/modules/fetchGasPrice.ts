@@ -32,6 +32,11 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 		try {
 			const isBig =
 			{
+				loanFactory: trade.loanPool.factory.address,
+				loanRouter: trade.loanPool.router.address,
+				targetRouter: trade.target.router.address,
+				tokenIn: trade.tokenIn.id,
+				tokenOut: trade.tokenOut.id,
 				tradeSize: trade.target.tradeSize,
 				amountOut: trade.target.amountOut,
 				repay: trade.loanPool.amountRepay
@@ -56,6 +61,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 			console.log(`>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END TRADE DATA: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`);
 			console.log(`>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ERROR DATA: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`);
 			console.log(error);
+			logger.trace(error);
 			console.log(`>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`);
 			console.log(`>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`);
 			gasEstimate = pu('300000', 18)
