@@ -20,10 +20,10 @@ export async function tradeLogs(trade: Bool3Trade): Promise<any> {
 			tradeSize: fu(trade.target.tradeSize, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
 			loanPool: {
 				exchange: trade.loanPool.exchange,
-				priceIn: trade.loanPool.state.priceInBN.toFixed(trade.tokenIn.decimals),
-				priceOut: trade.loanPool.state.priceOutBN.toFixed(trade.tokenOut.decimals),
-				reservesIn: trade.loanPool.state.reserveInBN.toFixed(trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
-				reservesOut: trade.loanPool.state.reserveOutBN.toFixed(trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
+				priceIn: trade.loanPool.state.priceIn,
+				priceOut: trade.loanPool.state.priceOut,
+				reservesIn: fu(trade.loanPool.state.reserveIn, trade.tokenOut.decimals),//.toFixed(trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
+				reservesOut: fu(trade.loanPool.state.reserveOut, trade.tokenIn.decimals),//BN.toFixed(trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
 				repaysObj:
 				{
 					getAmountsOut: fu(trade.loanPool.repays.getAmountsOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
@@ -36,8 +36,8 @@ export async function tradeLogs(trade: Bool3Trade): Promise<any> {
 				exchange: trade.target.exchange,
 				priceIn: trade.target.state.priceInBN.toFixed(trade.tokenIn.decimals),
 				priceOut: trade.target.state.priceOutBN.toFixed(trade.tokenOut.decimals),
-				reservesIn: trade.target.state.reserveInBN.toFixed(trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
-				reservesOut: trade.target.state.reserveOutBN.toFixed(trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
+				reservesIn: fu(trade.target.state.reserveIn, trade.tokenOut.decimals),//.toFixed(trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
+				reservesOut: fu(trade.target.state.reserveOut, trade.tokenIn.decimals),//.toFixed(trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
 				amountOut: fu(trade.target.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
 			},
 			result: {
