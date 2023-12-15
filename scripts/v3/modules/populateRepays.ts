@@ -24,25 +24,18 @@ export class PopulateRepays {
 		*/
 		// const postReserveIn = this.trade.loanPool.reserveIn.sub(this.trade.target.this.tradeSize); // I think this is only relevant for uniswap K calcs				
 		const getRepay = async (): Promise<V3Repays> => {
-			// const this.tradeSizeInTermsOfTokenOutOnLoanPool =
-			// 	this.trade.target.this.tradeSize
-			// 		.mul(this.trade.loanPool.reserveOut)
-			// 		.div(this.trade.loanPool.reserveIn.add(this.trade.target.this.tradeSize)); // <= This is the amount of tokenOut that this.tradeSize in tokenOut represents on loanPool.
-			// const simple = await calc.addFee(this.tradeSizeInTermsOfTokenOutOnLoanPool)
 
 			const repayByGetAmountsOut = await this.q.getAmountOutMax(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
 				this.trade.loanPool.exchange,
 				this.trade.loanPool.protocol,
 				this.trade.loanPool.feeTier,
 				this.trade.target.tradeSize,
-				this.trade.loanPool.state.sqrtPriceX96,
 			)
 			const repayByGetAmountsIn = await this.q.getAmountInMin( //Will output tokenIn.
 				this.trade.loanPool.exchange,
 				this.trade.loanPool.protocol,
 				this.trade.loanPool.feeTier,
 				this.trade.target.tradeSize,
-				this.trade.loanPool.state.sqrtPriceX96,
 			)
 
 			const repays: V3Repays = {
@@ -51,7 +44,6 @@ export class PopulateRepays {
 				repay: repayByGetAmountsIn,
 			}
 
-			// console.log("[populateRepays] repays: ", repays)
 
 			return repays;
 		}
@@ -87,7 +79,6 @@ export class PopulateRepays {
 			this.trade.loanPool.protocol,
 			this.trade.loanPool.feeTier,
 			repay,
-			this.trade.loanPool.state.sqrtPriceX96,
 		);
 		const directRepayLoanPoolInTokenOutWithFee = await this.calc.addFee(directRepayLoanPoolInTokenOut);
 		const profit = this.trade.target.amountOut.sub(directRepayLoanPoolInTokenOutWithFee); // profit is remainder of token1 out

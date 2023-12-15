@@ -3,7 +3,8 @@ import { ethers, utils, BigNumber, Contract } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { wallet } from '../../../constants/contract'
 import { ReservesData, PoolState, PoolInfo, ERC20token, Slot0 } from "../../../constants/interfaces";
-import { fu, pu } from "../../modules/convertBN";
+import { sqrt } from "./tradeMath";
+import { BN2JS, fu, pu } from "../../modules/convertBN";
 // import { getPrice } from "./uniswapV3Primer";
 /**
  * @description
@@ -68,10 +69,52 @@ export class InRangeLiquidity {
 		const slot0 = await this.getSlot0();
 
 		let liq = await this.pool.liquidity();
-		const reserves0 = liq.mul(slot0.sqrtPriceX96).div(BigNumber.from(2).pow(96));
-		const reserves1 = liq.mul(BigNumber.from(2).pow(96)).div(slot0.sqrtPriceX96);
+
+		const reserves0 = liq.div(slot0.sqrtPriceX96)
+		console.log("Reserves0: ", fu(reserves0, this.token0.decimals))
+		const reserves1 = liq.mul(slot0.sqrtPriceX96)
+		console.log("Reserves1: ", fu(reserves1, this.token1.decimals))
+
+		// const reserves0 = liq.mul(slot0.sqrtPriceX96).div(BigNumber.from(2).pow(96));
+		// const reserves1 = liq.mul(BigNumber.from(2).pow(96)).div(slot0.sqrtPriceX96);
 
 		return { reserves0, reserves1 };
+	}
+
+	async getReservesInRangeBN(): Promise<{ r0BN: BN, r1BN: BN }> {
+		const slot0 = await this.getSlot0();
+
+		let liq = await this.pool.liquidity();
+		liq = BN(liq.toString())
+
+		// Convert sqrtPriceX96 to price
+		const price = slot0.sqrtPriceX96BN.div(BN(2).pow(96));
+
+		// Calculate reserves
+		let r0BN = liq.div(price);
+		let r1BN = liq.times(price);
+		// let r0BN = liq.div(slot0.sqrtPriceX96BN)
+		// // console.log("Reserves0: ", r0BN.toFixed(this.token0.decimals))
+		// let r1BN = liq.times(slot0.sqrtPriceX96BN)
+		// console.log("Reserves1: ", r1BN.toFixed(this.token1.decimals))
+
+		// const reserves0 = liq.mul(slot0.sqrtPriceX96).div(BigNumber.from(2).pow(96));
+		// const reserves1 = liq.mul(BigNumber.from(2).pow(96)).div(slot0.sqrtPriceX96);
+
+		return { r0BN, r1BN };
+	}
+
+
+
+	async getReservesInRange2(tickLower: number, tickUpper: number): Promise<BigNumber> {
+		let totalLiquidity = BigNumber.from(0);
+
+		for (let tick = tickLower; tick <= tickUpper; tick++) {
+			const tickData = await this.pool.ticks(tick);
+			totalLiquidity = totalLiquidity.add(tickData.liquidityNet);
+		}
+
+		return totalLiquidity;
 	}
 
 	// Using 'cumulative' data from slot0, calculate all reserves across all ticks
@@ -139,7 +182,11 @@ export class InRangeLiquidity {
 		}
 		const liquidity = await this.pool.liquidity();
 
-		const { reserves0, reserves1 } = await this.getReservesInRange();
+		let r = await this.getReservesInRangeBN();
+
+		let reserves0 = BN2JS(r.r0BN, this.token0.decimals)
+		let reserves1 = BN2JS(r.r1BN, this.token1.decimals)
+
 		const { reserves0BN, reserves1BN } = { reserves0BN: BN(utils.formatUnits(reserves0, this.token0.decimals)), reserves1BN: BN(utils.formatUnits(reserves1, this.token1.decimals)) };
 
 
@@ -157,11 +204,12 @@ export class InRangeLiquidity {
 			priceInBN: prices.BN.priceInBN,
 			priceOutBN: prices.BN.priceOutBN
 		};
-		const liquiditDataView = {
+		const liquidityDataView = {
+			ticker: this.token0.symbol + "/" + this.token1.symbol,
 			poolID: this.pool.address,
 			liquidity: liquidity.toString(),
-			reserves0: fu(reserves0, this.token1.decimals),
-			reserves1: fu(reserves1, this.token0.decimals),
+			reserves0: fu(reserves0, this.token0.decimals),
+			reserves1: fu(reserves1, this.token1.decimals),
 			// reserves0BN: reserves0BN.toFixed(this.token0.decimals),
 			// reserves1BN: reserves1BN.toFixed(this.token1.decimals),
 			priceIn: prices.BN.priceIn,
@@ -169,7 +217,8 @@ export class InRangeLiquidity {
 			// priceInBN: prices.BN.priceInBN,
 			// priceOutBN: prices.BN.priceOutBN,
 		}
-		// console.log(liquiditDataView)
+		// console.log('liquiditydataview: ')
+		// console.log(liquidityDataView)
 		// console.log("Poolstate ", this.pool.address, " : ", this.poolInfo.protocol, " Complete")
 		return liquidityData;
 	}
