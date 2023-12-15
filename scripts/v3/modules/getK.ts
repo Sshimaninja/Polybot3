@@ -33,7 +33,6 @@ export async function getK(trade: Bool3Trade, state: PoolState, calc: AmountConv
 		tl.protocol,
 		tl.feeTier,
 		tradeSizewithFee,
-		state.sqrtPriceX96,
 	);
 
 	// const tokenOutPrice = BN2JS(calc.price.priceOutBN, calc.token1.decimals);

@@ -68,12 +68,18 @@ export class Trade {
 		return { dir, diff, dperc }
 	}
 
+
+
+
 	async getSize(loan: AmountConverter, target: AmountConverter): Promise<BigNumber> {
+
 		const toPrice = await target.tradeToPrice()
 		// use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
 		const bestSize = toPrice;
-		const safeReserves = loan.state.reserveIn.mul(1000).div(800); //Don't use more than 80% of the reserves
+		const safeReserves = loan.state.reserveIn.mul(800).div(1000); //Don't use more than 80% of the reserves
+		// console.log("safeReserves: ", safeReserves)
 		const size = bestSize.gt(safeReserves) ? safeReserves : bestSize;
+		// console.log(">>>>>>>>>>>>>>>>>getSize")
 		return size;
 	}
 
@@ -99,7 +105,7 @@ export class Trade {
 				pool: A ? this.pool1 : this.pool0,
 				feeTier: A ? this.match.pool1.fee : this.match.pool0.fee,
 				state: A ? this.state1 : this.state0,
-				calc: A ? calcA : calcB,
+				calc: A ? calcB : calcA,
 				repays: {
 					getAmountsOut: BigNumber.from(0),
 					getAmountsIn: BigNumber.from(0),
@@ -130,23 +136,17 @@ export class Trade {
 		};
 
 		const q = new V3Quote(this.match);
+
 		trade.target.amountOut = await q.getAmountOutMax(
 			trade.target.exchange,
 			trade.target.protocol,
 			trade.target.feeTier,
 			trade.target.tradeSize,
-			trade.target.state.sqrtPriceX96,
 		);
 
 		// console.log("Quote: trade.target.amountOut: ", fu(trade.target.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol)
 
-		// Make sure there are no breaking variables in the trade: before passing it to the next function.
-		const filteredTrade = await filterTrade(trade);
-		if (filteredTrade == undefined) {
-			return trade;
-		}
-
-		const repay = new PopulateRepays(filteredTrade, trade.loanPool.calc, q);
+		const repay = new PopulateRepays(trade, trade.loanPool.calc, q);
 
 		// Define repay & profit for each trade type: 
 		const multi = await repay.getMulti();
@@ -167,10 +167,16 @@ export class Trade {
 			pu((multi.profits.profitPercent.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals) :
 			pu((direct.percentProfit.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals);
 
+
 		trade.k = await getK(trade, this.state0, trade.loanPool.calc, q);
 
 		trade.flash = trade.type === "multi" ? flashMulti : flashDirect;
 
+		// Make sure there are no breaking variables in the trade: before passing it to the next function.
+		const filteredTrade = await filterTrade(trade);
+		if (filteredTrade == undefined) {
+			return trade;
+		}
 		// return trade;
 		return trade
 

@@ -212,7 +212,6 @@ export interface Repays {
 	repay: BigNumber
 }
 export interface V3Repays {
-	// simpleMulti: BigNumber
 	getAmountsOut: BigNumber
 	getAmountsIn: BigNumber
 	repay: BigNumber
