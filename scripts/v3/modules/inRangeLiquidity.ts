@@ -70,10 +70,10 @@ export class InRangeLiquidity {
 
 		let liq = await this.pool.liquidity();
 
-		const reserves0 = liq.div(slot0.sqrtPriceX96)
-		console.log("Reserves0: ", fu(reserves0, this.token0.decimals))
-		const reserves1 = liq.mul(slot0.sqrtPriceX96)
-		console.log("Reserves1: ", fu(reserves1, this.token1.decimals))
+		const reserves0 = liq.div(slot0.sqrtPriceX96).div(BigNumber.from(10).pow(this.token0.decimals));
+		console.log("Reserves0: ", reserves0.toString());
+		const reserves1 = liq.mul(slot0.sqrtPriceX96).div(BigNumber.from(10).pow(this.token1.decimals));
+		console.log("Reserves1: ", reserves1.toString());
 
 		// const reserves0 = liq.mul(slot0.sqrtPriceX96).div(BigNumber.from(2).pow(96));
 		// const reserves1 = liq.mul(BigNumber.from(2).pow(96)).div(slot0.sqrtPriceX96);
