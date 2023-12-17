@@ -1,21 +1,17 @@
 import { BigNumber } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
-import { Amounts, FactoryPair, GasData, Match3Pools, Pair, PoolState, Profcalcs, Repays, V3Matches } from "../../constants/interfaces";
-import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
-import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
-import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
-import { wallet, flashMulti, flashDirect } from "../../constants/contract";
+import { GasData, Match3Pools, PoolState, } from "../../constants/interfaces";
+import { flashMulti, flashDirect } from "../../constants/contract";
 import { Contract } from "@ethersproject/contracts";
 
 import { Bool3Trade } from "../../constants/interfaces"
 
 import { AmountConverter } from "./modules/amountConverter";
-import { V3Quote } from "./modules/v3Quote";
+import { V3Quote } from "./modules/V3Quote2";
 import { JS2BN, JS2BNS, BN2JS, BN2JSS, fu, pu } from "../modules/convertBN";
 import { filterTrade } from "./modules/filterTrade";
 import { PopulateRepays } from "./modules/populateRepays";
 import { getK } from "./modules/getK";
-import { uniswapQuoter } from "../../constants/addresses";
 
 /**
  * @description
@@ -75,11 +71,15 @@ export class Trade {
 
 		const toPrice = await target.tradeToPrice()
 		// use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
-		const bestSize = toPrice;
-		const safeReserves = loan.state.reserveIn.mul(800).div(1000); //Don't use more than 80% of the reserves
+		// const safeReserves = loan.state.reservesIn.mul(800).div(1000); //Don't use more than 80% of the reserves
+		const safeReserves = loan.state.reservesIn
 		// console.log("safeReserves: ", safeReserves)
-		const size = bestSize.gt(safeReserves) ? safeReserves : bestSize;
+		const size = toPrice.gt(safeReserves) ? safeReserves : toPrice;
+		// const size = pu("10", this.match.token0.decimals)
+		// const size = toPrice
 		// console.log(">>>>>>>>>>>>>>>>>getSize")
+		console.log("SIZE: ", toPrice.gt(safeReserves) ? "safeReserves" : "toPrice")
+		console.log(fu(size, this.match.token0.decimals) + " " + this.match.token0.symbol)
 		return size;
 	}
 
@@ -135,12 +135,9 @@ export class Trade {
 			profitPercent: BigNumber.from(0),
 		};
 
-		const q = new V3Quote(this.match);
+		const q = new V3Quote(trade.loanPool.pool, trade.loanPool.exchange, trade.loanPool.feeTier);
 
-		trade.target.amountOut = await q.getAmountOutMax(
-			trade.target.exchange,
-			trade.target.protocol,
-			trade.target.feeTier,
+		trade.target.amountOut = await q.maxOut(
 			trade.target.tradeSize,
 		);
 
