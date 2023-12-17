@@ -99,15 +99,28 @@ export interface PoolInfo {
 	tickSpacing: number
 }
 
+export interface Reserves3 {
+	balance0: BigNumber;
+	balance1: BigNumber;
+	reserves0: BigNumber;
+	reserves1: BigNumber;
+	reserves0BN: BN;
+	reserves1BN: BN;
+	reserves0String: string;
+	reserves1String: string;
+}
+
 export interface PoolState {
 	poolID: string;
 	sqrtPriceX96: BigNumber;
 	liquidity: BigNumber;
 	liquidityBN: BN;
-	reserveIn: BigNumber;
-	reserveOut: BigNumber;
-	reserveInBN: BN;
-	reserveOutBN: BN;
+	// balance0: BigNumber;
+	// balance1: BigNumber;
+	reservesIn: BigNumber;
+	reservesOut: BigNumber;
+	reservesInBN: BN;
+	reservesOutBN: BN;
 	priceIn: string;
 	priceOut: string;
 	priceInBN: BN;

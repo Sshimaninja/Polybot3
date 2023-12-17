@@ -43,6 +43,7 @@
     },
     "dependencies": {
         "@cryptoalgebra/core": "^3.0.0",
+        "@cryptoalgebra/integral-sdk": "^0.10.2",
         "@cryptoalgebra/periphery": "^2.0.1",
         "@ethersproject/experimental": "^5.7.0",
         "@openzeppelin/contracts": "^5.0.0",
@@ -50,6 +51,7 @@
         "@uniswap/v3-sdk": "^3.10.0",
         "alchemy-sdk": "^2.4.3",
         "big-number": "^2.0.0",
+        "ethers-multicall": "^0.2.3",
         "etherscan": "^0.2.2",
         "firebase-admin": "^11.10.1",
         "hardhat-etherscan": "^1.0.1",

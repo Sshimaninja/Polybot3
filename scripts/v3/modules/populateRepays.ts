@@ -2,7 +2,7 @@ import { BigNumber, BigNumberish } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { Profcalcs, V3Repays, Bool3Trade } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter";
-import { V3Quote } from "./v3Quote";
+import { V3Quote } from "./V3Quote2";
 import { JS2BN, BN2JS, fu, pu } from "../../modules/convertBN";
 
 
@@ -22,19 +22,13 @@ export class PopulateRepays {
 		Thus I need to calculate the exact amount of token1 that this.tradeSize in tokenOut represents on loanPool, 
 		and subtract it from recipient.amountOut before sending it back
 		*/
-		// const postReserveIn = this.trade.loanPool.reserveIn.sub(this.trade.target.this.tradeSize); // I think this is only relevant for uniswap K calcs				
+		// const postReserveIn = this.trade.loanPool.reservesIn.sub(this.trade.target.this.tradeSize); // I think this is only relevant for uniswap K calcs				
 		const getRepay = async (): Promise<V3Repays> => {
 
-			const repayByGetAmountsOut = await this.q.getAmountOutMax(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
-				this.trade.loanPool.exchange,
-				this.trade.loanPool.protocol,
-				this.trade.loanPool.feeTier,
+			const repayByGetAmountsOut = await this.q.maxOut(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
 				this.trade.target.tradeSize,
 			)
-			const repayByGetAmountsIn = await this.q.getAmountInMin( //Will output tokenIn.
-				this.trade.loanPool.exchange,
-				this.trade.loanPool.protocol,
-				this.trade.loanPool.feeTier,
+			const repayByGetAmountsIn = await this.q.minIn( //Will output tokenIn.
 				this.trade.target.tradeSize,
 			)
 
@@ -74,10 +68,7 @@ export class PopulateRepays {
 
 		const repay = this.trade.target.tradeSize;//must add fee from pool v3 to this.
 
-		const directRepayLoanPoolInTokenOut = await this.q.getAmountInMin(
-			this.trade.loanPool.exchange,
-			this.trade.loanPool.protocol,
-			this.trade.loanPool.feeTier,
+		const directRepayLoanPoolInTokenOut = await this.q.minIn(
 			repay,
 		);
 		const directRepayLoanPoolInTokenOutWithFee = await this.calc.addFee(directRepayLoanPoolInTokenOut);
