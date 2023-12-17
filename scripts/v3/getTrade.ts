@@ -44,23 +44,8 @@ export class Trade {
 		const B = this.state1.priceOutBN
 		const diff = A.lt(B) ? B.minus(A) : A.minus(B)
 		const dperc = diff.div(A.gt(B) ? A : B).multipliedBy(100)// 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
-		//It would seem like you want to 'buy' the cheaper token, but you actually want to 'sell' the more expensive token.
-
-		/*
-		ex:
-		A: eth/usd = 1/3000 = on uniswap
-		B: eth/usd = 1/3100 = on sushiswap
-		borrow eth on uniswap, sell on sushiswap for 3100 = $100 profit minus fees.
-		*/
-
 		const dir = A.gt(B) ? "A" : "B"
-		// console.log(">>>>>>>>>>>>>>>>>Direction")
-		// console.log("A: ", A.toFixed(this.match.token1.decimals))
-		// console.log("B: ", B.toFixed(this.match.token1.decimals))
-		// console.log("diff: ", diff.toFixed(this.match.token1.decimals))
-		// console.log("diffPerc: ", dperc.toFixed(this.match.token1.decimals) + "%")
-		// console.log("dir: ", dir)
-		// console.log(">>>>>>>>>>>>>End Direction")
+
 		return { dir, diff, dperc }
 	}
 
@@ -151,9 +136,6 @@ export class Trade {
 
 		trade.type = multi.profits.profit.gt(direct.profit) ? "multi" : direct.profit.gt(multi.profits.profit) ? "direct" : "error";
 
-		// subtract the result from amountOut to get profit
-		// The below will be either in token0 or token1, depending on the trade type.
-		// Set repayCalculation here for testing, until you find the correct answer (of which there is only 1):
 		trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.repay : direct.repay;
 
 		trade.loanPool.repays = multi.repays;

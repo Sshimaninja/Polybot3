@@ -18,23 +18,23 @@ export class V3Quote {
 	}
 
 	async maxOut(tradeSize: BigNumber) {
-		const uni = this.protocol == 'UNIV3' ? true : false;
+		const uni3 = this.protocol == 'UNIV3' ? true : false;
 		// console.log("Params: ", "Exchange: ", exchange, ' Protocol: ', protocol, ' ', feeTier, ' tradeSize: ', fu(tradeSize, this.pool.token0.decimals))
 		let e = {
 			'tokenIn': await this.pool.token0(),
 			'tokenOut': await this.pool.token1(),
 			'amountIn': tradeSize.toString(),
-			'fee': this.fee,
+			'fee': uni3 ? await this.pool.fee() : this.fee,
 			'sqrtPriceLimitX96': '0'
 		}
 		try {
-			let maxOut = this.protocol == 'UNIV3' ? await this.quoter.callStatic.quoteExactInputSingle(e) :
-				this.protocol == 'ALG' ? await this.quoter.callStatic.quoteExactInputSingle(
+			let maxOut = uni3 ? await this.quoter.callStatic.quoteExactInputSingle(e) :
+				await this.quoter.callStatic.quoteExactInputSingle(
 					e.tokenIn,
 					e.tokenOut,
 					e.amountIn,
 					e.sqrtPriceLimitX96
-				) : console.log("Exchange or protocol not supported: " + this.exchange + " " + this.protocol);
+				)
 			// console.log(maxOut)
 			return maxOut.amountOut;
 		} catch (error: any) {
@@ -46,21 +46,23 @@ export class V3Quote {
 	}
 
 	async minIn(amountOutExpected: BigNumber) {
+		const uni3 = this.protocol == 'UNIV3' ? true : false;
 		if (amountOutExpected.gt(0)) {
 			let e = {
 				'tokenIn': await this.pool.token0(),
 				'tokenOut': await this.pool.token1(),
 				'amount': amountOutExpected.toString(),
-				'fee': this.fee,
+				'fee': uni3 ? await this.pool.fee() : this.fee,
 				'sqrtPriceLimitX96': '0'
 			}
 			try {
-				let minIn = await this.quoter.callStatic.quoteExactOutputSingle(
-					e.tokenIn,
-					e.tokenOut,
-					e.amount,
-					e.sqrtPriceLimitX96
-				)
+				let minIn = uni3 ? await this.quoter.callStatic.quoteExactOutputSingle(e) :
+					await this.quoter.callStatic.quoteExactOutputSingle(
+						e.tokenIn,
+						e.tokenOut,
+						e.amount,
+						e.sqrtPriceLimitX96
+					)
 				// console.log(minIn)
 				return minIn.amountIn;
 			} catch (error: any) {
