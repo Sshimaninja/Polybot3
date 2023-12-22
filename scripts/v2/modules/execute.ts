@@ -80,7 +80,8 @@ export async function execute(
 
 				const logs = await logEmits(trade, req);
 
-				logger.info("Transaction logs: \n" + logs)
+				logger.info(":::::::::::::::::::::::::::::::::::Transaction logs::::::::::::::::::::::::: ")
+				logger.info(logs)
 
 				//Print balances after trade
 				await checkBal(trade.tokenIn.id, trade.tokenIn.decimals, trade.tokenOut.id, trade.tokenOut.decimals)

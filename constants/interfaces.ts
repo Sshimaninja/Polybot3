@@ -317,6 +317,7 @@ export interface V3FlashParams {
 
 export interface BoolTrade {
 	ID: string
+	block: number
 	direction: string
 	type: string
 	ticker: string

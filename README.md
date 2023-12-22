@@ -35,6 +35,14 @@ Testing operations:
 	Run the arbSim.ts script to create the arbitrage opportunity.
 	Run this bot on the local network.
 
+# Output results to file:
+
+run script to record hardhat output: 
+	script -c "npx hardhat node" | grep -v "term-to-exclude" > output.txt
+	
+ex: exclude empty eth calls from hh results:
+	script -c "npx hardhat node" | grep -vP "eth_call\s+Contract call:\s+<UnrecognizedContract>\s+From:\s+0x[a-fA-F0-9]{40}\s+To:\s+0x[a-fA-F0-9]{40}" > output.txt
+
 # Deploy live to Polygon
 	npx hardhat run --network [network] scripts/deployFlash.ts
 	

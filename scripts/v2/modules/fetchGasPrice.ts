@@ -72,6 +72,8 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 		}
 		console.log(gasLogs);
 		const gasPrice = gasEstimate.mul(maxFee.add(maxPriorityFee));
+		console.log(gasLogs);
+		console.log(fu(gasPrice, 18))
 		return { gasEstimate, tested: true, gasPrice, maxFee: maxFee, maxPriorityFee: maxPriorityFee }
 	} else {
 		console.log(`>>>>>>>>>>>>>>>>>>>>> (fetchGasPrice) Trade direction undefined: ${trade.ticker} `, ` <<<<<<<<<<<<<<<<<<<<<<<<<< `);

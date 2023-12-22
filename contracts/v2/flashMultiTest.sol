@@ -275,7 +275,7 @@ contract flashMultiTest is IUniswapV2Callee {
                 // amount1Out, // loanAmount
                 // amount1Repay, // repayment (expected). Remainder is profit (results in insufficient output amount error)
                 loanAmount, // best amountOut (expected). Remainder is profit (This can be interchanged with amount1Repay, for a safer but less potentially less profitable swap)
-                amount1Out, // minimum amountOut (expected)
+                amount1Repay, // minimum amountOut (expected)
                 path, // path
                 address(this), // HOPING THAT SENDING THIS TO PAIR ADDRESS SIMPLIFIES EVERYTHING.
                 deadline // deadline
@@ -286,13 +286,19 @@ contract flashMultiTest is IUniswapV2Callee {
         console.log("Amount out expected: ", amount1Out);
         console.log("Repayment expected:: ", amount1Repay);
         console.log("Repayment calcuated: ", repay[0]);
+
         token1.approve(msg.sender, amount1Repay);
+
         console.log("Approved to trade ", amount1Repay, " of token1");
+
         token1.transferFrom(address(this), msg.sender, repay[0]);
+
         console.log("Transfered ", amount1Repay, " of token1 to loanPool");
         console.log("balance Token0: ", token0.balanceOf(address(this)));
         console.log("balance Token1: ", token1.balanceOf(address(this)));
+
         uint256 kpost = getK();
+
         console.log("Uniswap K After Swap: ", kpost);
         // console.log("Calculating repayment in token1");
         // uint256 repay = IUniswapV2Router02(loanRouter).getAmountsOut(
