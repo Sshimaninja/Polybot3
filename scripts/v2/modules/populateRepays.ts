@@ -78,7 +78,7 @@ export class PopulateRepays {
 			//SET YOUR CHOICE HERE:
 			//getAmountsOut is wrong and forces a trade, but it is okay for testing at least.
 			//getAmountsIn is the recommended choice, but it does not yield trades often enough to test.
-			repay: repayByGetAmountsIn,
+			repay: repayByGetAmountsOut,
 		}
 		return repays;
 	}
