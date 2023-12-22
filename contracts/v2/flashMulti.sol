@@ -227,7 +227,7 @@ contract flashMulti is IUniswapV2Callee {
         // swap exactly loanAmount token0 for minimum amount1Repay token1
             .swapExactTokensForTokens(
                 loanAmount,
-                amount1Out, // minimum amountOut (expected)
+                amount1Repay, // minimum amountOut (expected)
                 path,
                 address(this), // HOPING THAT SENDING THIS TO PAIR ADDRESS SIMPLIFIES EVERYTHING.
                 deadline // deadline
