@@ -1,21 +1,17 @@
 import { BigNumber } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
-import { Amounts, FactoryPair, GasData, Match3Pools, Pair, PoolState, Profcalcs, Repays, V3Matches } from "../../constants/interfaces";
-import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
-import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
-import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
-import { wallet, flashMulti, flashDirect } from "../../constants/contract";
+import { GasData, Match3Pools, PoolState, } from "../../constants/interfaces";
+import { flashMulti, flashDirect } from "../../constants/contract";
 import { Contract } from "@ethersproject/contracts";
 
 import { Bool3Trade } from "../../constants/interfaces"
 
 import { AmountConverter } from "./modules/amountConverter";
-import { V3Quote } from "./modules/v3Quote";
+import { V3Quote } from "./modules/V3Quote2";
 import { JS2BN, JS2BNS, BN2JS, BN2JSS, fu, pu } from "../modules/convertBN";
 import { filterTrade } from "./modules/filterTrade";
 import { PopulateRepays } from "./modules/populateRepays";
 import { getK } from "./modules/getK";
-import { uniswapQuoter } from "../../constants/addresses";
 
 /**
  * @description
@@ -48,32 +44,27 @@ export class Trade {
 		const B = this.state1.priceOutBN
 		const diff = A.lt(B) ? B.minus(A) : A.minus(B)
 		const dperc = diff.div(A.gt(B) ? A : B).multipliedBy(100)// 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
-		//It would seem like you want to 'buy' the cheaper token, but you actually want to 'sell' the more expensive token.
-
-		/*
-		ex:
-		A: eth/usd = 1/3000 = on uniswap
-		B: eth/usd = 1/3100 = on sushiswap
-		borrow eth on uniswap, sell on sushiswap for 3100 = $100 profit minus fees.
-		*/
-
 		const dir = A.gt(B) ? "A" : "B"
-		// console.log(">>>>>>>>>>>>>>>>>Direction")
-		// console.log("A: ", A.toFixed(this.match.token1.decimals))
-		// console.log("B: ", B.toFixed(this.match.token1.decimals))
-		// console.log("diff: ", diff.toFixed(this.match.token1.decimals))
-		// console.log("diffPerc: ", dperc.toFixed(this.match.token1.decimals) + "%")
-		// console.log("dir: ", dir)
-		// console.log(">>>>>>>>>>>>>End Direction")
+
 		return { dir, diff, dperc }
 	}
 
+
+
+
 	async getSize(loan: AmountConverter, target: AmountConverter): Promise<BigNumber> {
+
 		const toPrice = await target.tradeToPrice()
 		// use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
-		const bestSize = toPrice;
-		const safeReserves = loan.state.reserveIn.mul(1000).div(800); //Don't use more than 80% of the reserves
-		const size = bestSize.gt(safeReserves) ? safeReserves : bestSize;
+		// const safeReserves = loan.state.reservesIn.mul(800).div(1000); //Don't use more than 80% of the reserves
+		const safeReserves = loan.state.reservesIn
+		// console.log("safeReserves: ", safeReserves)
+		const size = toPrice.gt(safeReserves) ? safeReserves : toPrice;
+		// const size = pu("10", this.match.token0.decimals)
+		// const size = toPrice
+		// console.log(">>>>>>>>>>>>>>>>>getSize")
+		console.log("SIZE: ", toPrice.gt(safeReserves) ? "safeReserves" : "toPrice")
+		console.log(fu(size, this.match.token0.decimals) + " " + this.match.token0.symbol)
 		return size;
 	}
 
@@ -99,7 +90,7 @@ export class Trade {
 				pool: A ? this.pool1 : this.pool0,
 				feeTier: A ? this.match.pool1.fee : this.match.pool0.fee,
 				state: A ? this.state1 : this.state0,
-				calc: A ? calcA : calcB,
+				calc: A ? calcB : calcA,
 				repays: {
 					getAmountsOut: BigNumber.from(0),
 					getAmountsIn: BigNumber.from(0),
@@ -129,24 +120,15 @@ export class Trade {
 			profitPercent: BigNumber.from(0),
 		};
 
-		const q = new V3Quote(this.match);
-		trade.target.amountOut = await q.getAmountOutMax(
-			trade.target.exchange,
-			trade.target.protocol,
-			trade.target.feeTier,
+		const q = new V3Quote(trade.loanPool.pool, trade.loanPool.exchange, trade.loanPool.feeTier);
+
+		trade.target.amountOut = await q.maxOut(
 			trade.target.tradeSize,
-			trade.target.state.sqrtPriceX96,
 		);
 
 		// console.log("Quote: trade.target.amountOut: ", fu(trade.target.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol)
 
-		// Make sure there are no breaking variables in the trade: before passing it to the next function.
-		const filteredTrade = await filterTrade(trade);
-		if (filteredTrade == undefined) {
-			return trade;
-		}
-
-		const repay = new PopulateRepays(filteredTrade, trade.loanPool.calc, q);
+		const repay = new PopulateRepays(trade, trade.loanPool.calc, q);
 
 		// Define repay & profit for each trade type: 
 		const multi = await repay.getMulti();
@@ -154,9 +136,6 @@ export class Trade {
 
 		trade.type = multi.profits.profit.gt(direct.profit) ? "multi" : direct.profit.gt(multi.profits.profit) ? "direct" : "error";
 
-		// subtract the result from amountOut to get profit
-		// The below will be either in token0 or token1, depending on the trade type.
-		// Set repayCalculation here for testing, until you find the correct answer (of which there is only 1):
 		trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.repay : direct.repay;
 
 		trade.loanPool.repays = multi.repays;
@@ -167,10 +146,16 @@ export class Trade {
 			pu((multi.profits.profitPercent.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals) :
 			pu((direct.percentProfit.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals);
 
+
 		trade.k = await getK(trade, this.state0, trade.loanPool.calc, q);
 
 		trade.flash = trade.type === "multi" ? flashMulti : flashDirect;
 
+		// Make sure there are no breaking variables in the trade: before passing it to the next function.
+		const filteredTrade = await filterTrade(trade);
+		if (filteredTrade == undefined) {
+			return trade;
+		}
 		// return trade;
 		return trade
 

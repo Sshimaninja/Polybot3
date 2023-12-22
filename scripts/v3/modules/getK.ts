@@ -2,7 +2,7 @@ import { BigNumber } from "ethers";
 import { Bool3Trade, K, PoolState } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter"
 import { BN2JS } from "../../modules/convertBN";
-import { V3Quote } from "./v3Quote";
+import { V3Quote } from "./V3Quote2";
 
 /**
  * This doc calculates whether will revert due to uniswak K being positive or negative
@@ -22,18 +22,14 @@ export async function getK(trade: Bool3Trade, state: PoolState, calc: AmountConv
 		uniswapKPositive: false,
 	}
 	const tradeSizewithFee = await calc.addFee(tt.tradeSize);
-	const newReserveIn = tl.state.reserveIn.mul(1000).sub(tt.tradeSize.mul(1000));
-	// console.log("newReserveIn: ", newReserveIn.toString())
-	if (newReserveIn.lte(0)) {
+	const newreservesIn = tl.state.reservesIn.mul(1000).sub(tt.tradeSize.mul(1000));
+	// console.log("newreservesIn: ", newreservesIn.toString())
+	if (newreservesIn.lte(0)) {
 		return kalc;
 	}
 
-	const tradeSizeInTokenOut = await q.getAmountInMin(
-		tl.exchange,
-		tl.protocol,
-		tl.feeTier,
+	const tradeSizeInTokenOut = await q.minIn(
 		tradeSizewithFee,
-		state.sqrtPriceX96,
 	);
 
 	// const tokenOutPrice = BN2JS(calc.price.priceOutBN, calc.token1.decimals);
@@ -46,19 +42,19 @@ export async function getK(trade: Bool3Trade, state: PoolState, calc: AmountConv
 	kalc = trade.type === "multi" ? {
 		uniswapKPre:
 			// 1000 * 2000 = 2000000 
-			tl.state.reserveIn.mul(tl.state.reserveOut),
+			tl.state.reservesIn.mul(tl.state.reservesOut),
 		uniswapKPost:
 			// 200000 = 1800 * 110
 			//subtract loan: 
-			tl.state.reserveIn.sub(tt.tradeSize)
-				// multiply new reserveIn by new reservesOut by adding tradeSizeInTermsOfTokenOut
-				.mul(tl.state.reserveOut.add(tradeSizeInTokenOut)),
+			tl.state.reservesIn.sub(tt.tradeSize)
+				// multiply new reservesIn by new reservesOut by adding tradeSizeInTermsOfTokenOut
+				.mul(tl.state.reservesOut.add(tradeSizeInTokenOut)),
 		uniswapKPositive: false,
 	} : trade.type === "direct" ? {
-		uniswapKPre: tl.state.reserveIn.mul(tl.state.reserveOut),
+		uniswapKPre: tl.state.reservesIn.mul(tl.state.reservesOut),
 		uniswapKPost:
-			// reserveIn + tradeSizewithFee * reserveOut(unchanged)
-			tl.state.reserveIn.add(tradeSizewithFee).mul(tl.state.reserveOut),
+			// reservesIn + tradeSizewithFee * reservesOut(unchanged)
+			tl.state.reservesIn.add(tradeSizewithFee).mul(tl.state.reservesOut),
 		uniswapKPositive: false,
 	} : {
 		uniswapKPre: BigNumber.from(0),
