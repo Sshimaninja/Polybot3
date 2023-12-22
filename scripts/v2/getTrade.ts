@@ -42,8 +42,8 @@ export class Trade {
 		this.slip = slip;
 		this.gasData = gasData;
 		// Pass in the opposing pool's priceOut as target
-		this.calc0 = new AmountConverter(price0, match, this.price1.priceOutBN, slip);
-		this.calc1 = new AmountConverter(price1, match, this.price0.priceOutBN, slip);
+		this.calc0 = new AmountConverter(price0, match, this.price1.priceOutBN);
+		this.calc1 = new AmountConverter(price1, match, this.price0.priceOutBN);
 	}
 
 	async direction() {
@@ -88,6 +88,7 @@ export class Trade {
 		//TODO: Add complexity: use greater reserves for loanPool, lesser reserves for target.
 		const trade: BoolTrade = {
 			ID: A ? this.match.poolAID : this.match.poolBID,
+			block: await wallet.provider.getBlockNumber(),
 			direction: dir.dir,
 			type: "error",
 			ticker: this.match.token0.symbol + "/" + this.match.token1.symbol,
@@ -144,12 +145,13 @@ export class Trade {
 			profit: BigNumber.from(0),
 			profitPercent: BigNumber.from(0),
 		};
-		trade.target.amountOut = await getAmountsOut(
+		const amountOut = await getAmountsOut(
 			trade.target.tradeSize, // token0 in given
 			trade.target.reserveIn, // token0 in 
 			trade.target.reserveOut); // token1 max out
 
-		trade.target.amountOut = await this.calc0.subSlippage(trade.target.amountOut, trade.tokenOut.decimals);
+
+		trade.target.amountOut = await this.calc0.subSlippage(amountOut, trade.tokenOut.decimals);
 
 
 		const filteredTrade = await filterTrade(trade);

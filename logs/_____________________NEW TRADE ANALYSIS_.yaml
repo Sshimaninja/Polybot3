@@ -1,3 +1,54 @@
+   
+   
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xefba1032bb5f9bec79e022f52d89c2cc9090d1b8
+  Value:               0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    amount0In requested:  70286472624346570
+    amount1Out expected:  49596245626680643795
+    Contract Balance Before Swap:  0
+    Pair address:  0x1adb57769b5e5d88675b9c40c5b938742336a74f
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    loanFactory:  0x94930a328162957ff1dd48900af67b5439336cbd
+    Uniswap K Before Swap:  9303130863741413782642874225373339305651964
+    LoanPool address:  0x1adb57769b5e5d88675b9c40c5b938742336a74f
+    Target address:  0xefba1032bb5f9bec79e022f52d89c2cc9090d1b8
+    msg.sender address:  0x1adb57769b5e5d88675b9c40c5b938742336a74f
+    Amount0 requested:  70286472624346570
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0x8df26a1bd9bd98e2ec506fc9d8009954716a05dc
+    New token0 balance (loaned)::::::::::::::::::  70286472624346570
+    Approving recipientRouter to trade token0
+    Approved to trade  70286472624346570  of token0 on recipientRouter
+    balance Token0:  70286472624346570
+    balance Token1:  0
+
+  Error: VM Exception while processing transaction: reverted with reason string 'JetswapRouter: INSUFFICIENT_OUTPUT_AMOUNT'
+      at <UnrecognizedContract>.<unknown> (0x5c6ec38fb0e2609672bdf628b1fd605a523e5923)
+      at flashMultiTest.getAmounts (contracts/v2/flashMultiTest.sol:272)
+      at flashMultiTest.uniswapV2Call (contracts/v2/flashMultiTest.sol:247)
+      at <UnrecognizedContract>.<unknown> (0x1adb57769b5e5d88675b9c40c5b938742336a74f)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:168)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:431:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:144:22)
+      at async HardhatNetworkProvider.request (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:121:18)
+      at async JsonRpcHandler._handleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:52:21)
+
+   
+   
+   >>>>>Typscript:
+
    uniswapkPreT: '429938238035498442303912421892762979491046995',
     uniswapkPosT: '429939380066668682398313713321500752691412585',
     uniswapKPositive: true,
