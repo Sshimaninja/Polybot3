@@ -1,6 +1,12 @@
 import { ethers, run, network } from "hardhat";
-require('dotenv').config();
+import { config as dotEnvConfig } from "dotenv";
 import { signer, flashwallet } from '../constants/contract'
+
+
+if (process.env.NODE_ENV === 'test') {
+	dotEnvConfig({ path: '.env.test' });
+} else { dotEnvConfig({ path: '.env.live' }) };
+
 
 // npx hardhat run --network localhost scripts/deployFlashTests.ts
 

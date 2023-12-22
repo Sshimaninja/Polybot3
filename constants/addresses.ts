@@ -55,6 +55,13 @@ export const uniswapQuoter: QuoterV2Map = {
 	// SUSHIV3: "0xb1E835Dc2785b52265711e17fCCb0fd018226a6e",
 };
 
+export type NFTMap = { [protocol: string]: string };
+
+export const uniV3NFTManager: NFTMap = {
+	UNIV3: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+	// SUSHIV3: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+};
+
 // ALGEBRA: 
 
 //LINKS TO MORE ALGEBRA FACTORY ADDRESSES

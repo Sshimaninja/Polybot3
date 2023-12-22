@@ -121,6 +121,8 @@ export interface PoolState {
 	reservesOut: BigNumber;
 	reservesInBN: BN;
 	reservesOutBN: BN;
+	inRangeReserves0: string;
+	inRangeReserves1: string;
 	priceIn: string;
 	priceOut: string;
 	priceInBN: BN;

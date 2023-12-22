@@ -56,15 +56,15 @@ export class Trade {
 
 		const toPrice = await target.tradeToPrice()
 		// use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
-		// const safeReserves = loan.state.reservesIn.mul(800).div(1000); //Don't use more than 80% of the reserves
-		const safeReserves = loan.state.reservesIn
+		const safeReserves = loan.state.reservesIn.mul(800).div(1000); //Don't use more than 80% of the reserves
+		// const safeReserves = loan.state.reservesIn
 		// console.log("safeReserves: ", safeReserves)
 		const size = toPrice.gt(safeReserves) ? safeReserves : toPrice;
 		// const size = pu("10", this.match.token0.decimals)
 		// const size = toPrice
 		// console.log(">>>>>>>>>>>>>>>>>getSize")
-		console.log("SIZE: ", toPrice.gt(safeReserves) ? "safeReserves" : "toPrice")
-		console.log(fu(size, this.match.token0.decimals) + " " + this.match.token0.symbol)
+		// console.log("SIZE: ", toPrice.gt(safeReserves) ? "safeReserves" : "toPrice")
+		// console.log(fu(size, this.match.token0.decimals) + " " + this.match.token0.symbol)
 		return size;
 	}
 
