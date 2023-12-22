@@ -134,9 +134,9 @@ contract flashMulti is IUniswapV2Callee {
         address recipientRouter,
         address token0ID,
         address token1ID,
-        uint256 amount0In, // amount of token0 to borrow
-        uint256 amount1Out, // amountOutMin (expected). This should be at least the amount to repay the loan
-        uint256 amountToRepay // amount of tokenOut to repay (flashMulti)
+        uint256 amount0In,
+        uint256 amount1Out,
+        uint256 amountToRepay
     ) external {
         require(
             msg.sender == address(owner),
@@ -226,11 +226,9 @@ contract flashMulti is IUniswapV2Callee {
         amountOut = IUniswapV2Router02(address(recipientRouter))
         // swap exactly loanAmount token0 for minimum amount1Repay token1
             .swapExactTokensForTokens(
-                // amount1Out, // loanAmount
-                // amount1Repay, // repayment (expected). Remainder is profit (results in insufficient output amount error)
-                loanAmount, // best amountOut (expected). Remainder is profit (This can be interchanged with amount1Repay, for a safer but less potentially less profitable swap)
+                loanAmount,
                 amount1Out, // minimum amountOut (expected)
-                path, // path
+                path,
                 address(this), // HOPING THAT SENDING THIS TO PAIR ADDRESS SIMPLIFIES EVERYTHING.
                 deadline // deadline
             )[1];

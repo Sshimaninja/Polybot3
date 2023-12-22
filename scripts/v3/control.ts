@@ -11,6 +11,7 @@ import { InRangeLiquidity } from './modules/inRangeLiquidity';
 import { TickProvider } from "./modules/TickProvider";
 import { Contract } from "ethers";
 import { provider } from "../../constants/contract";
+import { chainID } from "../../constants/addresses";
 /*
 TODO:
 */
@@ -44,26 +45,27 @@ export async function control(data: V3Matches, gasData: any) {
 			const pool0ABI = match.pool0.protocol === 'UNIV3' ? IUni3Pool : "ALG" ? IAlgPool : "ERROR"
 			const pool1ABI = match.pool1.protocol === 'UNIV3' ? IUni3Pool : "ALG" ? IAlgPool : "ERROR"
 
+
 			// console.log("pool0ABI: " + match.pool0.protocol + " pool1ABI: " + match.pool1.protocol)
 
 			const pool0 = new Contract(match.pool0.id, pool0ABI, provider);
 			const pool1 = new Contract(match.pool1.id, pool1ABI, provider);
 
 			// console.log("pool0: " + pool0.address + " pool1: " + pool1.address)
+			const liq0 = await pool0.liquidity();
+			const liq1 = await pool1.liquidity();
+			if (liq0.isZero() || liq1.isZero()) {
+				// console.log("Liquidity is zero for ", match.ticker, " on ", match.pool0.exchange, match.pool1.exchange, ". Skipping...")
+				return;
+			}
+
 
 			const l0 = new InRangeLiquidity(match.pool0, pool0, match.token0, match.token1);
 			const l1 = new InRangeLiquidity(match.pool1, pool1, match.token0, match.token1);
 			const irl0 = await l0.getPoolState();
 			const irl1 = await l1.getPoolState();
 
-			// console.log("irl0 priceOut: " + irl0.priceOut + " irl1 priceOut: " + irl1.liquidity.toString())
-
-			if (irl0.liquidity.isZero() || irl1.liquidity.isZero()) {
-				// console.log("Liquidity is zero for ", match.ticker, " on ", match.pool0.exchange, match.pool1.exchange, ". Skipping...")
-				return;
-			}
-
-			// return	
+			// return
 
 			const t = new Trade(match, pool0, pool1, irl0, irl1, slippageTolerance, gasData);
 			const trade = await t.getTrade();

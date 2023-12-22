@@ -16,53 +16,56 @@ async function main() {
 		const flashMulti = await ethers.getContractFactory(
 			'flashMulti'
 		);
-		const flashDirect = await ethers.getContractFactory(
-			'flashDirect'
-		);
+		// const flashDirect = await ethers.getContractFactory(
+		// 	'flashDirect'
+		// );
 		console.log('Deploying flashMulti to ' + network.name + '...')
 		const flashmulti = await flashMulti.deploy(owner);
-		console.log('Deploying flashDirect to ' + network.name + '...')
-		const flashdirect = await flashDirect.deploy(owner);
+		// console.log('Deploying flashDirect to ' + network.name + '...')
+		// const flashdirect = await flashDirect.deploy(owner);
 		console.log("awaiting flashMulti.deployed()...")
 		await flashmulti.deployed();
-		console.log("awaiting flashDirect.deployed()...")
-		await flashdirect.deployed();
+		// console.log("awaiting flashDirect.deployed()...")
+		// await flashdirect.deployed();
 		console.log("Contract 'flashMulti' deployed: " + flashmulti.address);
-		console.log("Contract 'flashDirect' deployed: " + flashdirect.address);
+		// console.log("Contract 'flashDirect' deployed: " + flashdirect.address);
 
 
-		// if ((network.config.chainId === 137 && process.env.POLYGONSCAN_APIKEY) || (network.config.chainId === 80001 && process.env.MUMBAISCAN_API_KEY)) {
-		// 	await flashmulti.deployTransaction.wait(12);
-		// 	// verify(flashmulti.address, [owner]);
+		if (network.config.chainId === 137 && process.env.POLYGONSCAN_APIKEY) {
+			await flashmulti.deployTransaction.wait(32);
+			await verify(flashmulti.address, [owner]);
 
-		// } else if (network.config.chainId === 31337) {
-		// 	console.log("Verification failed: Network is Hardhat");
-		// } else {
+		} else if (network.config.chainId === 31337) {
+			console.log("Not verified: Network is Hardhat");
+		}
 		const checkOwnerMulti = await flashmulti.checkOwner();
 		console.log(checkOwnerMulti)
-		const checkOwnerDirect = await flashdirect.checkOwner();
-		console.log(checkOwnerDirect)
-		// }
-		// async function verify(contractAddress: any, args: any) {
-		// 	console.log("Verifying contract: " + contractAddress + "./Please wait...");
-		// 	try {
-		// 		await run("verify:verify", {
-		// 			address: contractAddress,
-		// 			constructorArguments: args,
-		// 		})
-		// 	} catch (error: any) {
-		// 		if (error.message.includes("already verified")) {
-		// 			console.log("Contract already verified");
-		// 		} else {
-		// 			console.log("Error: " + error.message);
-		// 		}
-		// 	};
-		// }
+		// const checkOwnerDirect = await flashdirect.checkOwner();
+		// console.log(checkOwnerDirect)
+
+		async function verify(contractAddress: any, args: any) {
+			console.log("Verifying contract: " + contractAddress + " with args: " + JSON.stringify(args) + ". Please wait...");
+			try {
+				await run("verify:verify", {
+					address: contractAddress,
+					constructorArguments: args,
+				})
+			} catch (error: any) {
+				if (error.message.includes("already verified")) {
+					console.log("Contract already verified");
+				} else {
+					console.log("Error: " + error.message);
+				}
+			};
+		}
+
 	} catch (error: any) {
 		console.log(error.message);
 	}
+
+
 }
 main().catch((error) => {
 	console.error(error);
 	process.exitCode = 1;
-})
+});

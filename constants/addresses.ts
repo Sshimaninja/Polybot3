@@ -1,8 +1,8 @@
-type deployedContracts = { [contract: string]: string };
+export type deployedContracts = { [contract: string]: string };
 
 export const deployedMap: deployedContracts = {
-	flashMulti: "0x7161519279D71B6b94E3925052417E975047adD0",//owner: 0x3018FB91d635D85bFc7590c611dE012db163e8a3
-	flashDirect: "0x10cD577b062F17B418bfB7931FAfdAc6A10d9cEB",//owner: 0x3018FB91d635D85bFc7590c611dE012db163e8a3
+	flashMulti: "0x633fd34554fd3179305f04A1F88e0Eb2619eBfCb",//owner: 0x3018FB91d635D85bFc7590c611dE012db163e8a3
+	flashDirect: "0xD57e8EA7309a93dE1De47c4FeAE3A78135859589",//owner: 0x3018FB91d635D85bFc7590c611dE012db163e8a3
 	flashMultiTest: "0xefBa1032bB5f9bEC79e022f52D89C2cc9090D1B8",
 	flashDirectTest: "0x86C33a2aF71644c69d1321bcC53AD19b7ab86CcB",
 	flashV3: "DEPLOY_ME",
@@ -48,10 +48,10 @@ export const uniswapV3Factory: FactoryMap = {
 	// SUSHIV3: "0xaa26771d497814E81D305c511Efbb3ceD90BF5bd"
 };
 
-type QuoterMap = { [protocol: string]: string };
+export type QuoterV2Map = { [protocol: string]: string };
 
-export const uniswapQuoter: QuoterMap = {
-	UNIV3: "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
+export const uniswapQuoter: QuoterV2Map = {
+	UNIV3: "0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
 	// SUSHIV3: "0xb1E835Dc2785b52265711e17fCCb0fd018226a6e",
 };
 
@@ -63,7 +63,7 @@ export const algebraFactory: FactoryMap = {
 	QUICKV3: "0x411b0fAcC3489691f28ad58c47006AF5E3Ab3A28",
 };
 
-export const algebraQuoter: QuoterMap = {
+export const algebraQuoter: QuoterV2Map = {
 	QUICKV3: "0xa15F0D7377B2A0C0c10db057f641beD21028FC89",
 }
 
@@ -74,7 +74,7 @@ export const algebraPoolDeployer: FactoryMap = {
 
 // CHAIN IDS:
 
-type ChainIDs = { [chainID: string]: number };
+export type ChainIDs = { [chainID: string]: number };
 
 export const chainID: ChainIDs = {
 	POLYGON: 137,
@@ -95,3 +95,5 @@ export const gasTokens: GasToken = {
 	DAI: "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
 	WBTC: "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
 }
+
+

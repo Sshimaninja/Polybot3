@@ -30,10 +30,11 @@ export class AmountConverter {
 	// tradeToPrice gets a mid-level between price of pool and target price, and returns the amount of token0 needed to reach that price
 	// can be limited by slippageTolerance if uniswap returns 'EXCESSIVE_INPUT_AMOUNT'
 	async tradeToPrice(): Promise<BigNumber> {
-		// this.targetPrice = this.state.priceOutBN.plus(this.targetPrice).div(2);// average of two prices
-		const tradeSize = await tradeToPrice(this.state.priceOutBN, this.targetPrice, this.state.liquidityBN);
+		const avgPrice = this.state.priceOutBN.plus(this.targetPrice).div(2);// average of two prices
+		const tradeSize = await tradeToPrice(this.state.priceOutBN, avgPrice, this.state.liquidityBN);
+		const maxSize = tradeSize.times(this.slip)
 		// console.log('tradeSize: ', tradeSize.toFixed(this.match.token0.decimals));//DEBUG
-		const tradeSizeJS = utils.parseUnits(tradeSize.toFixed(this.match.token0.decimals), this.match.token0.decimals);
+		const tradeSizeJS = utils.parseUnits(maxSize.toFixed(this.match.token0.decimals), this.match.token0.decimals);
 		// console.log('tradeSizeJS: ', utils.formatUnits(tradeSizeJS, this.match.token0.decimals));//DEBUG
 		return tradeSizeJS;
 	}

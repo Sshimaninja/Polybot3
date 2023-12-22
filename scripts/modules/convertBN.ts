@@ -9,18 +9,38 @@ export const fu = u.formatUnits
 export const pu = u.parseUnits
 
 export function JS2BN(bn: BigNumber, decimals: number): BN {
-	return BN(fu(bn, decimals))
+	try {
+		return BN(fu(bn, decimals))
+	} catch (error: any) {
+		console.log('convertBN: JS2BN: bn is undefined')
+		return BN(0)
+	}
 }
 
 export function JS2BNS(bn: BigNumber, decimals: number): string {
-	return BN(fu(bn, decimals)).toFixed(decimals)
+	try {
+		return BN(fu(bn, decimals)).toFixed(decimals)
+	} catch (error: any) {
+		console.log('convertBN: JS2BN: bn is undefined')
+		return BN(0).toString()
+	}
 }
 
 export function BN2JS(bn: BN, decimals: number): BigNumber {
-	return pu(bn.toFixed(decimals), decimals)
+	try {
+		return pu(bn.toFixed(decimals), decimals)
+	} catch (error: any) {
+		console.log('convertBN: JS2BN: bn is undefined')
+		return BigNumber.from(0)
+	}
 }
 
 export function BN2JSS(bn: BN, decimals: number): string {
-	return fu(bn.toFixed(decimals), decimals)
+	try {
+		return fu(bn.toFixed(decimals), decimals)
+	} catch (error: any) {
+		console.log('convertBN: JS2BN: bn is undefined')
+		return BN(0).toString()
+	}
 }
 

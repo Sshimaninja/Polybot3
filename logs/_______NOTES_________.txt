@@ -107,3 +107,67 @@ Block: 44737814 No trade executed. Skipping to next asset...
 2023-07-08T00:24:03.766 INFO Attempting Gas Token Address:  0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270 Pairing to Profit Token:  [Function (anonymous)]
 EstimatingGas for trade: USDT/IXT...
 EstimatingGas for trade: WBTC/WETH...
+
+
+
+
+
+	// async getReserves(): Promise<{ reserves0: BigNumber, reserves1: BigNumber }> {
+	// 	// Get the current tick
+	// 	const s0 = await this.pool.slot0();
+
+
+	// 	// Get the tick range that the current tick falls in
+	// 	const tickSpacing = await this.pool.tickSpacing();
+	// 	const tickLower = Math.floor(s0.tick / tickSpacing) * tickSpacing;
+	// 	const tickUpper = tickLower + tickSpacing;
+	// 	const sqrtPriceX96 = s0.sqrtPriceX96;
+	// 	// Get the liquidity in the current tick range
+	// 	// const { liquidity } = await this.pool.ticks(tickLower);
+	// 	const liquidity = await this.pool.liquidity();
+
+	// 	console.log("tick: ", s0.tick);
+	// 	console.log("liquidity: ", liquidity);
+	// 	console.log("tickUpper: ", tickUpper);
+	// 	console.log("tickLower: ", tickLower);
+	// 	console.log("sqrtPriceX96: ", sqrtPriceX96);
+
+	// 	// Convert to BN and calculate the reserves
+	// 	const tickBN = BN(s0.tick);
+	// 	const liquidityBN = new BN(liquidity.toString());
+	// 	const tickUpperBN = BN(tickUpper);
+	// 	const tickLowerBN = BN(tickLower);
+	// 	const sqrtPriceX96BN = BN(sqrtPriceX96.toString());
+	// 	const price = BN(Math.exp(tickBN.toNumber() * Math.log(1.0001)));
+	// 	const reserves = liquidityBN.times(tickUpperBN.minus(tickLowerBN)).div(sqrt(price));
+
+	// 	const token0Reserve = liquidityBN.times(sqrtPriceX96BN).div(new BN(2).pow(96));
+	// 	const token1Reserve = liquidityBN.div(sqrtPriceX96BN).div(new BN(2).pow(96));
+
+	// 	console.log("tickBN: ", tickBN.toString());
+	// 	console.log("liquidityBN: ", liquidityBN.toString());
+	// 	console.log("tickUpperBN: ", tickUpperBN.toString());
+	// 	console.log("tickLowerBN: ", tickLowerBN.toString());
+	// 	console.log("token0Reserve: ", token0Reserve.toFixed(this.token0.decimals));
+	// 	console.log("token1Reserve: ", token1Reserve.toFixed(this.token1.decimals));
+
+	// 	console.log("price: ", price.toFixed(this.token1.decimals));
+	// 	console.log("sqrt(price): ", sqrt(price).toFixed(this.token1.decimals));
+
+	// 	// Determine reserves0 and reserves1 based on the price
+	// 	let reserves0, reserves1;
+	// 	if (price.lt(BN(1))) {
+	// 		reserves0 = reserves;
+	// 		reserves1 = reserves.times(price);
+	// 	} else {
+	// 		reserves0 = reserves.div(price);
+	// 		reserves1 = reserves;
+	// 	}
+
+	// 	console.log("BN Reserves: ", reserves0.toFixed(this.token0.decimals), reserves1.toFixed(this.token1.decimals))
+	// 	// Convert back to ethers.js BigNumber
+	// 	return {
+	// 		reserves0: pu(reserves0.toFixed(this.token0.decimals), this.token0.decimals),
+	// 		reserves1: pu(reserves1.toFixed(this.token1.decimals), this.token1.decimals)
+	// 	};
+	// };

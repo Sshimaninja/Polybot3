@@ -57,6 +57,20 @@ re: tradeSize
 
 
 JETSWAP: Removing Jetswap for now as all trades seem to exit prematurely out of contract without reason.
+
+
+
+It would seem like you want to 'buy' the cheaper token, but you actually want to 'sell' the more expensive token.
+
+
+ex:
+A: eth/usd = 1/3000 = on uniswap
+B: eth/usd = 1/3100 = on sushiswap
+borrow eth on uniswap, sell on sushiswap for 3100 = $100 profit minus fees.
+
+
+
+
 # TODO: Make Univ2 clone contracts, but change name to Jetswap, so I can arb them.
 
 
