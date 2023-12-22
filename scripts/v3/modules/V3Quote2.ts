@@ -18,31 +18,34 @@ export class V3Quote {
 	}
 
 	async maxOut(tradeSize: BigNumber) {
-		const uni3 = this.protocol == 'UNIV3' ? true : false;
-		// console.log("Params: ", "Exchange: ", exchange, ' Protocol: ', protocol, ' ', feeTier, ' tradeSize: ', fu(tradeSize, this.pool.token0.decimals))
-		let e = {
-			'tokenIn': await this.pool.token0(),
-			'tokenOut': await this.pool.token1(),
-			'amountIn': tradeSize.toString(),
-			'fee': uni3 ? await this.pool.fee() : this.fee,
-			'sqrtPriceLimitX96': '0'
-		}
-		try {
-			let maxOut = uni3 ? await this.quoter.callStatic.quoteExactInputSingle(e) :
-				await this.quoter.callStatic.quoteExactInputSingle(
-					e.tokenIn,
-					e.tokenOut,
-					e.amountIn,
-					e.sqrtPriceLimitX96
-				)
-			// console.log(maxOut)
-			return maxOut.amountOut;
-		} catch (error: any) {
-			console.log(error.reason)
-			console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN maxOut : ', this.exchange, this.protocol)
-			return BigNumber.from(0);
-		}
+		if (tradeSize.gt(0)) {
+			const uni3 = this.protocol == 'UNIV3' ? true : false;
+			// console.log("Params: ", "Exchange: ", exchange, ' Protocol: ', protocol, ' ', feeTier, ' tradeSize: ', fu(tradeSize, this.pool.token0.decimals))
+			let e = {
+				'tokenIn': await this.pool.token0(),
+				'tokenOut': await this.pool.token1(),
+				'amountIn': tradeSize.toString(),
+				'fee': uni3 ? await this.pool.fee() : this.fee,
+				'sqrtPriceLimitX96': '0'
+			}
+			try {
+				let maxOut = uni3 ? await this.quoter.callStatic.quoteExactInputSingle(e) :
+					await this.quoter.callStatic.quoteExactInputSingle(
+						e.tokenIn,
+						e.tokenOut,
+						e.amountIn,
+						e.sqrtPriceLimitX96
+					)
+				// console.log(maxOut)
+				return maxOut.amountOut;
+			} catch (error: any) {
+				console.log(error.reason)
+				console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN maxOut : ', this.exchange, this.protocol)
+				return BigNumber.from(0);
+			}
 
+		} else (console.log("getAmountOut: Amount in is zero, so amount out is zero: ", this.exchange, this.protocol))
+		return BigNumber.from(0);
 	}
 
 	async minIn(amountOutExpected: BigNumber) {
@@ -67,7 +70,7 @@ export class V3Quote {
 				return minIn.amountIn;
 			} catch (error: any) {
 				console.log(error)
-				console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN minIn : ', this.exchange, this.protocol)
+				console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN minIn : ', e.tokenIn, e.tokenOut, this.exchange, this.protocol)
 				return BigNumber.from(0);
 			}
 		}

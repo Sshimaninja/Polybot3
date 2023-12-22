@@ -1,7 +1,7 @@
 import { HardhatUserConfig, task } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import { config as dotEnvConfig } from "dotenv";
-dotEnvConfig();
+
 
 import "@nomiclabs/hardhat-ethers";
 import "@nomiclabs/hardhat-etherscan";
@@ -9,6 +9,11 @@ import '@typechain/hardhat'
 import '@nomiclabs/hardhat-ethers'
 import "@nomicfoundation/hardhat-chai-matchers";
 import "@nomiclabs/hardhat-ethers";
+
+if (process.env.NODE_ENV === 'test') {
+	dotEnvConfig({ path: '.env.test' });
+} else { dotEnvConfig({ path: '.env.live' }) };
+
 
 
 module.exports = {
@@ -75,26 +80,21 @@ module.exports = {
 	networks: {
 		hardhat: {
 			mining: {
-				auto: false,
-				interval: 5000
+				auto: true,
+				interval: 2000
 			},
 			forking: {
 				url: `https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-`,
 				blockNumber: 50060748,
 			},
 			accounts: {
-				accounts: [process.env.TEST_KEY],
+				accounts: [process.env.PRIVATE_KEY],
 				initialBaseBalance: "1000000000000000000000000000",  // 1000000000 ETH in wei
 			}
 		},
 		localhost: {
 			url: "http://127.0.0.1:8545/",
 			accounts: "remote",
-		},
-		mumbai: {
-			url: process.env.INFURA_MUMBAI,
-			accounts: [process.env.PRIVATE_KEY],
-			chainId: 80001,
 		},
 		polygon: {
 			// url: `https://rpc.ankr.com/polygon`,
@@ -106,7 +106,7 @@ module.exports = {
 	},
 	etherscan: {
 		apiKey: {
-			polygon: process.env.POLYGONSCAN_APIKEY,
+			polygon: process.env.polygonScanAPI,
 			polygonMumbai: process.env.MUMBAISCAN_API_KEY,
 		}
 	}

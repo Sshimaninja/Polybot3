@@ -65,7 +65,7 @@ export async function control(data: V3Matches, gasData: any) {
 			const irl0 = await l0.getPoolState();
 			const irl1 = await l1.getPoolState();
 
-			// return
+			return
 
 			const t = new Trade(match, pool0, pool1, irl0, irl1, slippageTolerance, gasData);
 			const trade = await t.getTrade();
