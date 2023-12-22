@@ -11,7 +11,7 @@ export async function send(trade: BoolTrade, gasObj: TxGas): Promise<TxData> {
 		trade.tokenIn.id,
 		trade.tokenOut.id,
 		trade.target.tradeSize,
-		trade.loanPool.amountRepay,
+		trade.target.amountOut,
 		trade.loanPool.amountRepay,
 		gasObj
 	);

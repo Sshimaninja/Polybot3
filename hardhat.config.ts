@@ -85,7 +85,7 @@ module.exports = {
 			},
 			forking: {
 				url: `https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-`,
-				blockNumber: 50060748,
+				blockNumber: 51426433,
 			},
 			accounts: {
 				accounts: [process.env.PRIVATE_KEY],
