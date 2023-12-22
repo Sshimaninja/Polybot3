@@ -7,6 +7,7 @@ import { Token, Amounts } from "../../../constants/interfaces";
 import { getAmountsOut, getAmountsIn } from './getAmountsIOLocal';
 import { HiLo, Difference } from "../../../constants/interfaces";
 import { JS2BN, pu } from "../../modules/convertBN";
+import { slippageTolerance } from "../../v3/control";
 
 /**
  * @description
@@ -21,7 +22,7 @@ export class AmountConverter {
 	targetPrice: BN;
 	slip: BN;
 
-	constructor(price: Prices, pair: TradePair, targetPrice: BN, slippageTolerance: BN) {
+	constructor(price: Prices, pair: TradePair, targetPrice: BN) {
 		this.reserves = price.reserves;
 		this.price = price
 		this.targetPrice = targetPrice;
