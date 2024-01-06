@@ -18,7 +18,7 @@ The following operation may be time consuming:
 	Match v3 paris
 		npm run match3
 
-
+script -c "npx hardhat node" | tee output.txt
 
 # Deploy Hardhat tests:
 

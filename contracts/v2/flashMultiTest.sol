@@ -141,6 +141,15 @@ contract flashMultiTest is IUniswapV2Callee {
         uint256 amountToRepay // amount of tokenOut to repay (flashMulti)
     ) external {
         console.log("Contract flashMultiTest Entered");
+        console.log("Owner: ", owner);
+        console.log("Loan Factory: ", loanFactory);
+        console.log("Loan Router: ", loanRouter);
+        console.log("Recipient Router: ", recipientRouter);
+        console.log("Token0: ", token0ID);
+        console.log("Token1: ", token1ID);
+        console.log("Amount0In: ", amount0In);
+        console.log("Amount1Out: ", amount1Out);
+        console.log("AmountToRepay: ", amountToRepay);
         require(
             msg.sender == address(owner),
             "Error: Only owner can call this function"
@@ -165,6 +174,10 @@ contract flashMultiTest is IUniswapV2Callee {
         );
         console.log("Data encoded");
         IERC20(token0ID).approve(address(pair), amount0In);
+        require(
+            amount0In > 0,
+            "Error: Invalid amount0In: amount0In must be greater than 0"
+        );
         pair.swap(
             amount0In, // Requested borrow of token0
             0, // Borrow of token1
@@ -252,6 +265,7 @@ contract flashMultiTest is IUniswapV2Callee {
             recipientRouter,
             path
         );
+        console.log("Amount out after repayment: ", amountOut);
         console.log("New balance of token1: ", token1.balanceOf(address(this)));
         token1.transfer(owner, token1.balanceOf(address(this)));
         console.log("Transferred token1 to owner");
@@ -264,11 +278,16 @@ contract flashMultiTest is IUniswapV2Callee {
         address loanRouter,
         address recipientRouter,
         address[] memory path
-    ) internal returns (uint256 amountOut) {
+    ) public returns (uint256 amountOut) {
+        console.log("getAmounts Entered");
         IERC20 token0 = IERC20(path[0]);
         IERC20 token1 = IERC20(path[1]);
-        uint256 deadline = block.timestamp + 5 minutes;
+        uint256 deadline = block.number + 5 minutes;
         uint256[] memory repay = getRepay(loanAmount, loanRouter, path);
+        console.log("Repayment calculated: ", repay[0]);
+        console.log("Repayment expected: ", amount1Repay);
+        console.log("Swapping ", loanAmount, " token0 for token1");
+        console.log("MINIMUM Amount1 expected: ", amount1Repay);
         amountOut = IUniswapV2Router02(address(recipientRouter))
         // swap exactly loanAmount token0 for minimum amount1Repay token1
             .swapExactTokensForTokens(
@@ -280,7 +299,6 @@ contract flashMultiTest is IUniswapV2Callee {
                 address(this), // HOPING THAT SENDING THIS TO PAIR ADDRESS SIMPLIFIES EVERYTHING.
                 deadline // deadline
             )[1];
-
         console.log("Swap 1 complete");
         console.log("Amount out recieved: ", amountOut);
         console.log("Amount out expected: ", amount1Out);
