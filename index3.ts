@@ -20,8 +20,8 @@ async function main() {
 		return JSON.parse(data);
 	}));
 
-	provider.on('block', async () => {
-		console.log("New block received: Block # " + provider.blockNumber);
+	provider.on('block', async (blockNumber: any) => {
+		console.log("New block received: Block # " + blockNumber);
 		const gasData = await getGasData();
 		await Promise.all(pairList.map(pair => control(pair, gasData)));
 	});

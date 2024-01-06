@@ -272,7 +272,7 @@ contract flashDirect is IUniswapV2Callee {
         address loanRouter,
         address targetRouter
     ) internal returns (uint256[] memory swap, uint256[] memory repay) {
-        uint256 deadline = block.timestamp + 5 minutes;
+        uint256 deadline = block.number + 5 minutes;
         // Define tokens
         IERC20 token0 = IERC20(path[0]);
         IERC20 token1 = IERC20(path[1]);
@@ -291,7 +291,7 @@ contract flashDirect is IUniswapV2Callee {
         //https://docs.uniswap.org/contracts/v2/reference/smart-contracts/router-02
         swap = IUniswapV2Router02(targetRouter).swapExactTokensForTokens(
             _amount0, //amountIn
-            amountOut, //amountOutMin
+            amountRepay, //amountOutMin
             path, //token0, token1
             address(this),
             deadline
@@ -313,6 +313,7 @@ contract flashDirect is IUniswapV2Callee {
         ); // TOKEN1
         emit logValue("getRepay0 (token1Required): ", getRepay[0]);
         emit logValue("getRepay1 (token0Output)::: ", getRepay[1]);
+        emit logValue("amountOut expected: ", amountOut);
         emit logValue("calc'd amountRepay: ", amountRepay);
 
         emit log("___________swapTokensForExactTokens__________");

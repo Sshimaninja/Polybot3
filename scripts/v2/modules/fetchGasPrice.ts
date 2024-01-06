@@ -26,11 +26,34 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 	const maxPriorityFee = utils.parseUnits(utils.formatUnits(maxPriorityFeeString, 18), 18);
 	// console.log('maxPriorityFee: ', maxPriorityFee)
 
+	// Calculate the function selector
+	const swapFunctionSignature = 'swap(uint256,uint256,address,bytes)';
+	const swapFunctionSelector = utils.id(swapFunctionSignature).substring(0, 10);
+
+	// Get the contract ABI
+	const loanContractABI = trade.loanPool.pool.interface.functions
+	const targetContactABI = trade.target.pool.interface.functions
+
+
+	const loanContractAddress = trade.loanPool.pool.address;
+	const targetContractAddress = trade.target.pool.address;
+	console.log('loanContractABI Length: ', loanContractABI.length)
+	console.log('loanContractID: ', loanContractAddress)
+	console.log('targetContractABI: ', targetContactABI.length)
+	console.log('targetContractID: ', targetContractAddress)
+	// Check if the swap function exists in the contract ABI
+	// const swapFunctionExists = pairContractABI.some(
+	// 	(func) => ethers.utils.id(func.name + '(' + func.inputs.map(i => i.type).join(',') + ')').substring(0, 10) === swapFunctionSelector
+	// );
+
+	// console.log('Swap function exists:', swapFunctionExists);
+
+
+
 	if (trade.direction != undefined) {
 		console.log('EstimatingGas for trade: ' + trade.ticker + '...');
 		let gasEstimate: BigNumber;
 		try {
-			console.log(trade.flash.functions.flashSwap)
 			//'override' error possibly too many args sent to contract? Or somethind to do with estimateGas not being able to properly create BigNumbers object.
 			gasEstimate = await trade.flash.estimateGas.flashSwap(
 				trade.loanPool.factory.address,
@@ -62,16 +85,17 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 		// Helpful for figuring out how to determine and display gas prices:		
 		const gasLogs = {
 			gasEstimate: gasEstimate.toString(),
-			gasPrice: fu(maxFee.add(maxPriorityFee), 18),
+			gasPrice: fu(maxFee.add(maxPriorityFee).mul(BigNumber.from(10)), 18),
 			maxFee: fu(maxFee.toString(), 18),
 			maxPriorityFee: fu(maxPriorityFee.toString(), 18),
 			gasLimit: fu(gasEstimate.toString(), 18),
 			gasEstimateTimesMaxFee: fu(gasEstimate.mul(maxFee).toString()),
 			gasEstimateTimesMaxPriorityFee: fu(gasEstimate.mul(maxPriorityFee).toString(), 18),
-			gasEstimateTimesMaxFeePlusMaxPriorityFee: fu(gasEstimate.mul(maxFee.add(maxPriorityFee)).toString(), 18)
+			gasEstimateTimesMaxFeePlusMaxPriorityFee: fu(gasEstimate.mul(maxFee.add(maxPriorityFee)).toString(), 18),
+			gasEstimateTimesMaxFeePlusMaxPriorityFeeTimes10: fu((gasEstimate.mul(maxFee.add(maxPriorityFee)).add(maxFee)).mul(BigNumber.from(10)).toString(), 18)
 		}
 		console.log(gasLogs);
-		const gasPrice = gasEstimate.mul(maxFee.add(maxPriorityFee));
+		const gasPrice = (gasEstimate.mul(maxFee.add(maxPriorityFee)).add(maxFee)).mul(BigNumber.from(10));
 		console.log(gasLogs);
 		console.log(fu(gasPrice, 18))
 		return { gasEstimate, tested: true, gasPrice, maxFee: maxFee, maxPriorityFee: maxPriorityFee }

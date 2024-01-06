@@ -90,7 +90,7 @@ export class Trade {
 			ID: A ? this.match.poolAID : this.match.poolBID,
 			block: await wallet.provider.getBlockNumber(),
 			direction: dir.dir,
-			type: "error",
+			type: 'filtered',
 			ticker: this.match.token0.symbol + "/" + this.match.token1.symbol,
 			tokenIn: this.match.token0,
 			tokenOut: this.match.token1,
@@ -165,16 +165,22 @@ export class Trade {
 		const p = new ProfitCalculator(trade, this.calc0, repays);
 
 		const multi = await p.getMultiProfit();
+		// console.log('multi: ')
+		// console.log(multi)
 		const direct = await p.getDirectProfit();
-
-		trade.type = multi.profit.gt(direct.profit) ? "multi" : direct.profit.gt(multi.profit) ? "direct" : "No Profit (Error in profitCalcs)"
+		// console.log('direct: ')
+		// console.log(direct)
 
 		// subtract the result from amountOut to get profit
 		// The below will be either in token0 or token1, depending on the trade type.
 		// Set repayCalculation here for testing, until you find the correct answer (of which there is only 1):
 		trade.loanPool.amountOut = await getAmountsOut(trade.target.tradeSize, trade.loanPool.reserveIn, trade.loanPool.reserveOut);
 		trade.loanPool.amountOutToken0for1 = await getAmountsOut(trade.target.amountOut, trade.loanPool.reserveOut, trade.loanPool.reserveIn);
+
+		trade.type = multi.profit.gt(direct.profit) ? "multi" : direct.profit.gt(multi.profit) ? "direct" : "No Profit (Error in profitCalcs)"
+
 		trade.loanPool.amountRepay = trade.type === "multi" ? repays.repay : repays.direct;
+
 		trade.loanPool.repays = repays;
 
 		trade.target.amountOutToken0for1 = await getAmountsOut(trade.target.amountOut, trade.target.reserveOut, trade.target.reserveIn);

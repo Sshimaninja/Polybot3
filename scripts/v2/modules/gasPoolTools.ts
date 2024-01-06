@@ -25,23 +25,23 @@ export async function getgasPoolForTrade(trade: BoolTrade): Promise<{ gasPool: C
 
 			if (gasTokenSymbol) {
 
-				let gasPoolID = await trade.target.factory.getPair(trade.tokenOut.id, address).catch(async (error: any) => {
-					logger.error("Error in getgasPoolForTrade: ", gasPoolID, "\n", error);
-				})
+				let gasPoolonLoanPool = await trade.loanPool.factory.getPair(trade.tokenOut.id, address)
+				let gasPoolonTarget = await trade.target.factory.getPair(trade.tokenOut.id, address)
 
-				if (gasPoolID !== BigNumber.from(0).toString()) {
-					console.log("GasPool found for: ", trade.tokenOut.symbol, " ", gasTokenSymbol)
+				let gasPoolID = gasPoolonLoanPool == "0x0000000000000000000000000000000000000000" ? gasPoolonTarget : gasPoolonLoanPool;
+
+				if (gasPoolID == "0x0000000000000000000000000000000000000000") {
+					console.log("GasPool not found for: ", trade.tokenOut.symbol, " ", gasTokenSymbol)
+				} else {
+					console.log("GasPool found for: ", trade.tokenOut.symbol, gasTokenSymbol)
 					const gasPool = new ethers.Contract(gasPoolID, IPair, wallet);
 					return {
 						gasPool, gasTokenSymbol
 					};
 				}
 
-				gasPoolID = await trade.loanPool.factory.getPair(trade.tokenOut.id, address).catch(async (error: any) => {
-					logger.error("Error in getgasPoolForTrade: ", gasPoolID, "\n", error);
-				})
 
-				if (gasPoolID !== BigNumber.from(0).toString()) {
+				if (gasPoolID !== "0x0000000000000000000000000000000000000000") {
 					console.log("GasPool found for: ", trade.tokenOut.symbol, " ", gasTokenSymbol)
 					const gasPool = new ethers.Contract(gasPoolID, IPair, wallet);
 					return {
@@ -50,7 +50,6 @@ export async function getgasPoolForTrade(trade: BoolTrade): Promise<{ gasPool: C
 				} else {
 					logger.info("No gasPool Found for ", trade.tokenOut.symbol, " ", gasTokenSymbol, ". Attempting another intermediary gasToken: ", gasTokenSymbol, "...");
 				}
-
 			}
 
 		} catch (error) {
