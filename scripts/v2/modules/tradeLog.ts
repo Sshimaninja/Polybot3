@@ -14,6 +14,7 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
 	try {
 		const data = {
 			id: trade.ID,
+			block: trade.block,
 			trade: trade.type,
 			ticker: trade.ticker,
 			direction: trade.direction,
