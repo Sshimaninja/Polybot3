@@ -204,6 +204,7 @@ contract flashMulti is IUniswapV2Callee {
             recipientRouter,
             path
         );
+        emit logValue("total received after payment: ", amountOut);
         token1.transfer(owner, token1.balanceOf(address(this)));
     }
 
@@ -232,7 +233,8 @@ contract flashMulti is IUniswapV2Callee {
                 address(this), // HOPING THAT SENDING THIS TO PAIR ADDRESS SIMPLIFIES EVERYTHING.
                 deadline // deadline
             )[1];
-        emit logValue("amountOut", amountOut);
+        emit logValue("expected amountOut", amount1Out);
+        emit logValue("actual amountOut", amountOut);
         emit logValue("token1 balance", token1.balanceOf(address(this)));
         token1.approve(msg.sender, repay[0]);
         token1.transferFrom(address(this), msg.sender, repay[0]);

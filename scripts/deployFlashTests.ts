@@ -35,6 +35,9 @@ async function main() {
 		await flashdirecttest.deployed();
 		console.log("Contract 'flashMultiTest' deployed: " + flashmultitest.address);
 		console.log("Contract 'flashDirectTest' deployed: " + flashdirecttest.address);
+		if (flashmultitest.address !== process.env.flashMulti || flashdirecttest.address !== process.env.flashDirect) {
+			console.log("Contract address does not match .env file. Please update .env file with new contract address.")
+		}
 
 
 		// if ((network.config.chainId === 137 && process.env.POLYGONSCAN_APIKEY) || (network.config.chainId === 80001 && process.env.MUMBAISCAN_API_KEY)) {
