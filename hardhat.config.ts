@@ -99,7 +99,6 @@ module.exports = {
 			accounts: "remote",
 		},
 		polygon: {
-			// url: `https://rpc.ankr.com/polygon`,
 			url: "https://polygon-mainnet.infura.io/v3/d4003610616e45549765c2945a2f335b",
 			// url: `wss://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-`,
 			accounts: [process.env.PRIVATE_KEY],

@@ -1,0 +1,1032 @@
+[2024-01-15T23:16:54.348] [ERROR] default - TELEGRAM ERROR: Telegram bot token not found in environment variables
+[2024-01-15T23:16:55.466] [INFO] default - New block received: Block # 52369712
+[2024-01-15T23:16:59.176] [INFO] default - New block received: Block # 52369713
+[2024-01-15T23:16:59.180] [INFO] default - New block received: Block # 52369714
+[2024-01-15T23:17:02.992] [INFO] default - New block received: Block # 52369715
+[2024-01-15T23:17:02.996] [INFO] default - New block received: Block # 52369716
+[2024-01-15T23:17:06.627] [INFO] default - New block received: Block # 52369717
+[2024-01-15T23:17:06.630] [INFO] default - New block received: Block # 52369718
+[2024-01-15T23:17:12.332] [INFO] default - New block received: Block # 52369719
+[2024-01-15T23:17:12.340] [INFO] default - New block received: Block # 52369720
+[2024-01-15T23:17:12.344] [INFO] default - New block received: Block # 52369721
+[2024-01-15T23:17:25.274] [INFO] default - New block received: Block # 52369722
+[2024-01-15T23:17:25.279] [INFO] default - New block received: Block # 52369723
+[2024-01-15T23:17:25.282] [INFO] default - New block received: Block # 52369724
+[2024-01-15T23:17:25.285] [INFO] default - New block received: Block # 52369725
+[2024-01-15T23:17:25.289] [INFO] default - New block received: Block # 52369726
+[2024-01-15T23:17:25.293] [INFO] default - New block received: Block # 52369727
+[2024-01-15T23:21:52.097] [ERROR] default - TELEGRAM ERROR: Telegram bot token not found in environment variables
+[2024-01-15T23:21:52.170] [INFO] default - New block received: Block # 51501118
+[2024-01-15T23:21:58.909] [INFO] default - New block received: Block # 51501119
+[2024-01-15T23:22:07.393] [INFO] default - New block received: Block # 51501120
+[2024-01-15T23:22:15.089] [INFO] default - New block received: Block # 51501121
+[2024-01-15T23:22:24.018] [INFO] default - New block received: Block # 51501122
+[2024-01-15T23:22:24.031] [ERROR] default - Error (getReserves(0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":743,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:22:24.032] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":743,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":743,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635","data":"0x0902f1ac"},"latest"],"id":743,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:22:24.165] [ERROR] default - Error (getReserves(0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":742,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:22:24.166] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":742,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":742,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635","data":"0x0902f1ac"},"latest"],"id":742,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:22:24.182] [ERROR] default - Error (getReserves(0x8C26252B14F9b071585B81b240C4ae2176E8cD3C)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x8C26252B14F9b071585B81b240C4ae2176E8cD3C","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":741,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:22:24.182] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x8C26252B14F9b071585B81b240C4ae2176E8cD3C","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":741,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0x8C26252B14F9b071585B81b240C4ae2176E8cD3C',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":741,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c","data":"0x0902f1ac"},"latest"],"id":741,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:22:24.187] [ERROR] default - Error (getReserves(0x8C26252B14F9b071585B81b240C4ae2176E8cD3C)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x8C26252B14F9b071585B81b240C4ae2176E8cD3C","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":740,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:22:24.187] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x8C26252B14F9b071585B81b240C4ae2176E8cD3C","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":740,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0x8C26252B14F9b071585B81b240C4ae2176E8cD3C',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":740,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c","data":"0x0902f1ac"},"latest"],"id":740,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:22:24.191] [ERROR] default - Error (getReserves(0xFEFF91C350bB564cA5Dc7D6F7DcD12ac092F94FF)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0xFEFF91C350bB564cA5Dc7D6F7DcD12ac092F94FF","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xfeff91c350bb564ca5dc7d6f7dcd12ac092f94ff\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":739,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:22:24.191] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0xFEFF91C350bB564cA5Dc7D6F7DcD12ac092F94FF","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xfeff91c350bb564ca5dc7d6f7dcd12ac092f94ff\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":739,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0xFEFF91C350bB564cA5Dc7D6F7DcD12ac092F94FF',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xfeff91c350bb564ca5dc7d6f7dcd12ac092f94ff\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":739,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0xfeff91c350bb564ca5dc7d6f7dcd12ac092f94ff","data":"0x0902f1ac"},"latest"],"id":739,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:22:24.195] [ERROR] default - Error (getReserves(0xFEFF91C350bB564cA5Dc7D6F7DcD12ac092F94FF)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0xFEFF91C350bB564cA5Dc7D6F7DcD12ac092F94FF","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xfeff91c350bb564ca5dc7d6f7dcd12ac092f94ff\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":738,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:22:24.195] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0xFEFF91C350bB564cA5Dc7D6F7DcD12ac092F94FF","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xfeff91c350bb564ca5dc7d6f7dcd12ac092f94ff\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":738,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0xFEFF91C350bB564cA5Dc7D6F7DcD12ac092F94FF',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xfeff91c350bb564ca5dc7d6f7dcd12ac092f94ff\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":738,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0xfeff91c350bb564ca5dc7d6f7dcd12ac092f94ff","data":"0x0902f1ac"},"latest"],"id":738,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:22:24.200] [ERROR] default - Error (getReserves(0x8C26252B14F9b071585B81b240C4ae2176E8cD3C)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x8C26252B14F9b071585B81b240C4ae2176E8cD3C","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":737,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:22:24.201] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x8C26252B14F9b071585B81b240C4ae2176E8cD3C","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":737,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0x8C26252B14F9b071585B81b240C4ae2176E8cD3C',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":737,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c","data":"0x0902f1ac"},"latest"],"id":737,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:22:24.205] [ERROR] default - Error (getReserves(0x8C26252B14F9b071585B81b240C4ae2176E8cD3C)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x8C26252B14F9b071585B81b240C4ae2176E8cD3C","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":736,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:22:24.205] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x8C26252B14F9b071585B81b240C4ae2176E8cD3C","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":736,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0x8C26252B14F9b071585B81b240C4ae2176E8cD3C',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":736,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c","data":"0x0902f1ac"},"latest"],"id":736,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:22:24.208] [ERROR] default - Error (getReserves(0x8C26252B14F9b071585B81b240C4ae2176E8cD3C)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x8C26252B14F9b071585B81b240C4ae2176E8cD3C","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":735,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:22:24.208] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x8C26252B14F9b071585B81b240C4ae2176E8cD3C","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":735,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0x8C26252B14F9b071585B81b240C4ae2176E8cD3C',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":735,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c","data":"0x0902f1ac"},"latest"],"id":735,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:22:24.212] [ERROR] default - Error (getReserves(0x8C26252B14F9b071585B81b240C4ae2176E8cD3C)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x8C26252B14F9b071585B81b240C4ae2176E8cD3C","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":734,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:22:24.213] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x8C26252B14F9b071585B81b240C4ae2176E8cD3C","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":734,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0x8C26252B14F9b071585B81b240C4ae2176E8cD3C',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":734,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0x8c26252b14f9b071585b81b240c4ae2176e8cd3c","data":"0x0902f1ac"},"latest"],"id":734,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:22:24.216] [ERROR] default - Error (getReserves(0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":733,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:22:24.216] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":733,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":733,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635","data":"0x0902f1ac"},"latest"],"id":733,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:22:24.220] [ERROR] default - Error (getReserves(0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":732,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:22:24.221] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":732,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":732,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635","data":"0x0902f1ac"},"latest"],"id":732,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:22:24.224] [ERROR] default - Error (getReserves(0xFEFF91C350bB564cA5Dc7D6F7DcD12ac092F94FF)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0xFEFF91C350bB564cA5Dc7D6F7DcD12ac092F94FF","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xfeff91c350bb564ca5dc7d6f7dcd12ac092f94ff\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":731,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:22:24.224] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0xFEFF91C350bB564cA5Dc7D6F7DcD12ac092F94FF","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xfeff91c350bb564ca5dc7d6f7dcd12ac092f94ff\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":731,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0xFEFF91C350bB564cA5Dc7D6F7DcD12ac092F94FF',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xfeff91c350bb564ca5dc7d6f7dcd12ac092f94ff\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":731,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0xfeff91c350bb564ca5dc7d6f7dcd12ac092f94ff","data":"0x0902f1ac"},"latest"],"id":731,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:22:24.231] [ERROR] default - Error (getReserves(0xFEFF91C350bB564cA5Dc7D6F7DcD12ac092F94FF)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0xFEFF91C350bB564cA5Dc7D6F7DcD12ac092F94FF","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xfeff91c350bb564ca5dc7d6f7dcd12ac092f94ff\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":730,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:22:24.231] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0xFEFF91C350bB564cA5Dc7D6F7DcD12ac092F94FF","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xfeff91c350bb564ca5dc7d6f7dcd12ac092f94ff\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":730,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0xFEFF91C350bB564cA5Dc7D6F7DcD12ac092F94FF',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xfeff91c350bb564ca5dc7d6f7dcd12ac092f94ff\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":730,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0xfeff91c350bb564ca5dc7d6f7dcd12ac092f94ff","data":"0x0902f1ac"},"latest"],"id":730,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:22:30.645] [ERROR] default - PROVIDER ERROR: Error: Reserves is undefined
+    at new Prices (/mnt/c/code/polybotv3/scripts/v2/modules/prices.ts:18:10)
+    at control (/mnt/c/code/polybotv3/scripts/v2/control.ts:44:16)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /mnt/c/code/polybotv3/index.ts:44:5
+    at async Promise.all (index 19)
+    at async JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/index.ts:43:4)
+[2024-01-15T23:22:30.915] [INFO] default - New block received: Block # 51501123
+[2024-01-15T23:22:35.468] [INFO] default - New block received: Block # 51501124
+[2024-01-15T23:22:35.471] [INFO] default - New block received: Block # 51501125
+[2024-01-15T23:22:42.049] [INFO] default - New block received: Block # 51501126
+[2024-01-15T23:23:49.274] [INFO] default - New block received: Block # 51501127
+[2024-01-15T23:23:50.769] [ERROR] default - Error (getReserves(0x2d18f8b79C1703298B0dff74e3BcCFdA8a2e4711)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x2d18f8b79C1703298B0dff74e3BcCFdA8a2e4711","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x2d18f8b79c1703298b0dff74e3bccfda8a2e4711\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2080,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:23:50.770] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x2d18f8b79C1703298B0dff74e3BcCFdA8a2e4711","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x2d18f8b79c1703298b0dff74e3bccfda8a2e4711\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2080,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0x2d18f8b79C1703298B0dff74e3BcCFdA8a2e4711',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x2d18f8b79c1703298b0dff74e3bccfda8a2e4711\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2080,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0x2d18f8b79c1703298b0dff74e3bccfda8a2e4711","data":"0x0902f1ac"},"latest"],"id":2080,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:23:50.782] [ERROR] default - Error (getReserves(0x2d18f8b79C1703298B0dff74e3BcCFdA8a2e4711)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x2d18f8b79C1703298B0dff74e3BcCFdA8a2e4711","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x2d18f8b79c1703298b0dff74e3bccfda8a2e4711\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2079,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:23:50.782] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x2d18f8b79C1703298B0dff74e3BcCFdA8a2e4711","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x2d18f8b79c1703298b0dff74e3bccfda8a2e4711\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2079,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0x2d18f8b79C1703298B0dff74e3BcCFdA8a2e4711',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x2d18f8b79c1703298b0dff74e3bccfda8a2e4711\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2079,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0x2d18f8b79c1703298b0dff74e3bccfda8a2e4711","data":"0x0902f1ac"},"latest"],"id":2079,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:23:50.788] [ERROR] default - Error (getReserves(0x951E38875a93df95bbd24fe31f409b7933B35BED)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x951E38875a93df95bbd24fe31f409b7933B35BED","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x951e38875a93df95bbd24fe31f409b7933b35bed\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2078,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:23:50.788] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x951E38875a93df95bbd24fe31f409b7933B35BED","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x951e38875a93df95bbd24fe31f409b7933b35bed\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2078,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0x951E38875a93df95bbd24fe31f409b7933B35BED',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x951e38875a93df95bbd24fe31f409b7933b35bed\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2078,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0x951e38875a93df95bbd24fe31f409b7933b35bed","data":"0x0902f1ac"},"latest"],"id":2078,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:23:50.794] [ERROR] default - Error (getReserves(0x951E38875a93df95bbd24fe31f409b7933B35BED)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x951E38875a93df95bbd24fe31f409b7933B35BED","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x951e38875a93df95bbd24fe31f409b7933b35bed\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2077,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:23:50.794] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x951E38875a93df95bbd24fe31f409b7933B35BED","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x951e38875a93df95bbd24fe31f409b7933b35bed\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2077,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0x951E38875a93df95bbd24fe31f409b7933B35BED',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x951e38875a93df95bbd24fe31f409b7933b35bed\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2077,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0x951e38875a93df95bbd24fe31f409b7933b35bed","data":"0x0902f1ac"},"latest"],"id":2077,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:23:52.344] [INFO] default - New block received: Block # 51501128
+[2024-01-15T23:24:04.156] [INFO] default - New block received: Block # 51501129
+[2024-01-15T23:24:09.639] [ERROR] default - PROVIDER ERROR: Error: Reserves is undefined
+    at new Prices (/mnt/c/code/polybotv3/scripts/v2/modules/prices.ts:18:10)
+    at control (/mnt/c/code/polybotv3/scripts/v2/control.ts:44:16)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /mnt/c/code/polybotv3/index.ts:44:5
+    at async Promise.all (index 14)
+    at async JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/index.ts:43:4)
+[2024-01-15T23:24:09.683] [INFO] default - New block received: Block # 51501130
+[2024-01-15T23:24:12.472] [ERROR] default - Error (getReserves(0x019011032a7ac3A87eE885B6c08467AC46ad11CD)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x019011032a7ac3A87eE885B6c08467AC46ad11CD","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x019011032a7ac3a87ee885b6c08467ac46ad11cd\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":3000,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:24:12.472] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x019011032a7ac3A87eE885B6c08467AC46ad11CD","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x019011032a7ac3a87ee885b6c08467ac46ad11cd\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":3000,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0x019011032a7ac3A87eE885B6c08467AC46ad11CD',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x019011032a7ac3a87ee885b6c08467ac46ad11cd\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":3000,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0x019011032a7ac3a87ee885b6c08467ac46ad11cd","data":"0x0902f1ac"},"latest"],"id":3000,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:24:12.477] [ERROR] default - Error (getReserves(0x019011032a7ac3A87eE885B6c08467AC46ad11CD)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x019011032a7ac3A87eE885B6c08467AC46ad11CD","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x019011032a7ac3a87ee885b6c08467ac46ad11cd\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2999,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:24:12.478] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x019011032a7ac3A87eE885B6c08467AC46ad11CD","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x019011032a7ac3a87ee885b6c08467ac46ad11cd\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2999,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0x019011032a7ac3A87eE885B6c08467AC46ad11CD',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x019011032a7ac3a87ee885b6c08467ac46ad11cd\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2999,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0x019011032a7ac3a87ee885b6c08467ac46ad11cd","data":"0x0902f1ac"},"latest"],"id":2999,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:24:12.482] [ERROR] default - Error (getReserves(0x604229c960e5CACF2aaEAc8Be68Ac07BA9dF81c3)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x604229c960e5CACF2aaEAc8Be68Ac07BA9dF81c3","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x604229c960e5cacf2aaeac8be68ac07ba9df81c3\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2998,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:24:12.483] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x604229c960e5CACF2aaEAc8Be68Ac07BA9dF81c3","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x604229c960e5cacf2aaeac8be68ac07ba9df81c3\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2998,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0x604229c960e5CACF2aaEAc8Be68Ac07BA9dF81c3',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x604229c960e5cacf2aaeac8be68ac07ba9df81c3\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2998,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0x604229c960e5cacf2aaeac8be68ac07ba9df81c3","data":"0x0902f1ac"},"latest"],"id":2998,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:24:13.985] [INFO] default - New block received: Block # 51501131
+[2024-01-15T23:24:18.423] [ERROR] default - Error (getReserves(0xd32f3139A214034A0f9777c87eE0a064c1FF6AE2)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0xd32f3139A214034A0f9777c87eE0a064c1FF6AE2","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xd32f3139a214034a0f9777c87ee0a064c1ff6ae2\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":3320,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"code":"ECONNRESET"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:46:35.783] [ERROR] default - TELEGRAM ERROR: Telegram bot token not found in environment variables
+[2024-01-15T23:46:35.887] [INFO] default - New block received: Block # 51500460
+[2024-01-15T23:46:40.733] [INFO] default - New block received: Block # 51500461
+[2024-01-15T23:46:45.768] [INFO] default - New block received: Block # 51500462
+[2024-01-15T23:46:45.770] [INFO] default - New block received: Block # 51500463
+[2024-01-15T23:46:49.407] [INFO] default - New block received: Block # 51500464
+[2024-01-15T23:46:49.414] [INFO] default - New block received: Block # 51500465
+[2024-01-15T23:46:56.640] [INFO] default - New block received: Block # 51500466
+[2024-01-15T23:47:00.259] [ERROR] default - Error (getReserves(0x65D43B64E3B31965Cd5EA367D4c2b94c03084797)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x65D43B64E3B31965Cd5EA367D4c2b94c03084797","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x65d43b64e3b31965cd5ea367d4c2b94c03084797\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1088,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:47:00.263] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x65D43B64E3B31965Cd5EA367D4c2b94c03084797","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x65d43b64e3b31965cd5ea367d4c2b94c03084797\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1088,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0x65D43B64E3B31965Cd5EA367D4c2b94c03084797',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x65d43b64e3b31965cd5ea367d4c2b94c03084797\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1088,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0x65d43b64e3b31965cd5ea367d4c2b94c03084797","data":"0x0902f1ac"},"latest"],"id":1088,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:47:00.440] [ERROR] default - Error (getReserves(0x65D43B64E3B31965Cd5EA367D4c2b94c03084797)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x65D43B64E3B31965Cd5EA367D4c2b94c03084797","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x65d43b64e3b31965cd5ea367d4c2b94c03084797\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1087,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:47:00.441] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x65D43B64E3B31965Cd5EA367D4c2b94c03084797","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x65d43b64e3b31965cd5ea367d4c2b94c03084797\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1087,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0x65D43B64E3B31965Cd5EA367D4c2b94c03084797',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x65d43b64e3b31965cd5ea367d4c2b94c03084797\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1087,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0x65d43b64e3b31965cd5ea367d4c2b94c03084797","data":"0x0902f1ac"},"latest"],"id":1087,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:47:00.452] [ERROR] default - Error (getReserves(0x019011032a7ac3A87eE885B6c08467AC46ad11CD)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x019011032a7ac3A87eE885B6c08467AC46ad11CD","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x019011032a7ac3a87ee885b6c08467ac46ad11cd\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1086,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-15T23:47:00.453] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x019011032a7ac3A87eE885B6c08467AC46ad11CD","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x019011032a7ac3a87ee885b6c08467ac46ad11cd\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1086,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"errno":-104,"code":"ECONNRESET","syscall":"read"},"url":"http://localhost:8545"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    to: '0x019011032a7ac3A87eE885B6c08467AC46ad11CD',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0x019011032a7ac3a87ee885b6c08467ac46ad11cd\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1086,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"errno":-104,"code":"ECONNRESET","syscall":"read"}, url="http://localhost:8545", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266","to":"0x019011032a7ac3a87ee885b6c08467ac46ad11cd","data":"0x0902f1ac"},"latest"],"id":1086,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+      errno: -104,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    },
+    url: 'http://localhost:8545'
+  }
+}
+[2024-01-15T23:47:01.189] [INFO] default - New block received: Block # 51500467
+[2024-01-15T23:47:03.666] [ERROR] default - PROVIDER ERROR: Error: Reserves is undefined
+    at new Prices (/mnt/c/code/polybotv3/scripts/v2/modules/prices.ts:18:10)
+    at control (/mnt/c/code/polybotv3/scripts/v2/control.ts:44:16)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /mnt/c/code/polybotv3/index.ts:44:5
+    at async Promise.all (index 0)
+    at async JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/index.ts:43:4)
+[2024-01-15T23:47:04.180] [INFO] default - New block received: Block # 51500468
+[2024-01-15T23:47:10.078] [ERROR] default - PROVIDER ERROR: Error: Reserves is undefined
+    at new Prices (/mnt/c/code/polybotv3/scripts/v2/modules/prices.ts:18:10)
+    at control (/mnt/c/code/polybotv3/scripts/v2/control.ts:44:16)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /mnt/c/code/polybotv3/index.ts:44:5
+    at async Promise.all (index 2)
+    at async JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/index.ts:43:4)
+[2024-01-15T23:47:13.475] [INFO] default - New block received: Block # 51500469

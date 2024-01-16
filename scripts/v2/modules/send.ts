@@ -2,8 +2,14 @@ import { wallet, provider } from "../../../constants/contract";
 import { BoolTrade, TxData, V2Tx, TxGas } from "../../../constants/interfaces";
 import { BigNumber } from "ethers";
 import { sendTx } from "./sendTx"
-
+import { pu, fu, BN2JS } from "../../modules/convertBN" 
+import { slippageTolerance } from "../../v3/control";
 export async function send(trade: BoolTrade, gasObj: TxGas): Promise<TxData> {
+	let slippageJS = BN2JS(slippageTolerance, 18)
+	let amountOut = (trade.target.amountOut.sub(trade.target.amountOut.mul(slippageJS)));
+	// POSSIBLE REVERT CONDITIONS: 
+	// amountOut too high (calculated without slippageTolerance)
+	// amountRepay too low (calculated without subtracting extra for slippageTolerance)
 	let tx: V2Tx = await trade.flash.flashSwap(
 		trade.loanPool.factory.address,
 		trade.loanPool.router.address,
@@ -11,7 +17,7 @@ export async function send(trade: BoolTrade, gasObj: TxGas): Promise<TxData> {
 		trade.tokenIn.id,
 		trade.tokenOut.id,
 		trade.target.tradeSize,
-		trade.target.amountOut,
+		amountOut, 
 		trade.loanPool.amountRepay,
 		gasObj
 	);
