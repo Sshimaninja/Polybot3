@@ -294,7 +294,7 @@ contract flashMultiTest is IUniswapV2Callee {
                 // amount1Out, // loanAmount
                 // amount1Repay, // repayment (expected). Remainder is profit (results in insufficient output amount error)
                 loanAmount, // best amountOut (expected). Remainder is profit (This can be interchanged with amount1Repay, for a safer but less potentially less profitable swap)
-                amount1Repay, // minimum amountOut (expected)
+                amount1Out, // minimum amountOut (expected)
                 path, // path
                 address(this), // HOPING THAT SENDING THIS TO PAIR ADDRESS SIMPLIFIES EVERYTHING.
                 deadline // deadline

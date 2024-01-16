@@ -1,5 +1,5 @@
 import { BigNumber, ethers, utils, Contract, Wallet, Transaction, } from "ethers";
-import { provider, signer, wallet, logger } from "../../../constants/contract";
+import { provider, signer, logger } from "../../../constants/contract";
 import { BoolTrade, Profit, TxData, V2Params, V2Tx, TxGas } from "../../../constants/interfaces";
 import { checkBal, checkGasBal } from "./checkBal";
 import { logEmits } from "./emits";

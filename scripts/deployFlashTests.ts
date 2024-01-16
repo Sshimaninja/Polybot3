@@ -1,6 +1,6 @@
 import { ethers, run, network } from "hardhat";
 import { config as dotEnvConfig } from "dotenv";
-import { signer, flashwallet } from '../constants/contract'
+import { signer, wallet } from '../constants/contract'
 
 
 if (process.env.NODE_ENV === 'test') {
@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'test') {
 async function main() {
 	try {
 		const deployer = signer;
-		const owner = flashwallet;
+		const owner = wallet.address;
 
 		console.log("Deploying contracts with the account: " + deployer.address);
 
@@ -35,7 +35,7 @@ async function main() {
 		await flashdirecttest.deployed();
 		console.log("Contract 'flashMultiTest' deployed: " + flashmultitest.address);
 		console.log("Contract 'flashDirectTest' deployed: " + flashdirecttest.address);
-		if (flashmultitest.address !== process.env.flashMulti || flashdirecttest.address !== process.env.flashDirect) {
+		if (flashmultitest.address !== process.env.FLASH_MULTI || flashdirecttest.address !== process.env.FLASH_DIRECT) {
 			console.log("Contract address does not match .env file. Please update .env file with new contract address.")
 		}
 

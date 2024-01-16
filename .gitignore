@@ -9,11 +9,8 @@ typechain-types
 
 #Hardhat files
 cache
-artifacts
-
 bin
 NOTES
-/constants/contract.ts
 flashit.log
 DATASAMPLE*
 pairs.json
