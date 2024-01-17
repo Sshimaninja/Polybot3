@@ -1,5 +1,5 @@
 import {  Contract } from "ethers";
-import { getQuoter, getProtocol } from "../../modules/getContract";
+import { getQuoterV2, getProtocol } from "../../modules/getContract";
 
 export class V3Quote {
 	exchange: string
@@ -14,11 +14,11 @@ export class V3Quote {
 		this.protocol = getProtocol(exchange);
 		this.pool = pool;
 		this.fee = fee
-		this.quoter = getQuoter(exchange);
+		this.quoter = getQuoterV2(exchange);
 	}
 
 	async maxOut(tradeSize: bigint) {
-		if (tradeSize.gt(0)) {
+		if (tradeSize > (0)) {
 			const uni3 = this.protocol == 'UNIV3' ? true : false;
 			// console.log("Params: ", "Exchange: ", exchange, ' Protocol: ', protocol, ' ', feeTier, ' tradeSize: ', fu(tradeSize, this.pool.token0.decimals))
 			let e = {
@@ -29,8 +29,8 @@ export class V3Quote {
 				'sqrtPriceLimitX96': '0'
 			}
 			try {
-				let maxOut = uni3 ? await this.quoter.callStatic.wquoteExactInputSingle(e) :
-					await this.quoter.callStatic.quoteExactInputSingle(
+				let maxOut = uni3 ? await this.quoter.getFunction('quoteExactInputSingle').staticCall(e) :
+					await this.quoter.getFunction('quoteExactInputSingle').staticCall(
 						e.tokenIn,
 						e.tokenOut,
 						e.amountIn,
@@ -50,7 +50,7 @@ export class V3Quote {
 
 	async minIn(amountOutExpected: bigint) {
 		const uni3 = this.protocol == 'UNIV3' ? true : false;
-		if (amountOutExpected.gt(0)) {
+		if (amountOutExpected >(0)) {
 			let e = {
 				'tokenIn': await this.pool.token0(),
 				'tokenOut': await this.pool.token1(),
@@ -59,8 +59,8 @@ export class V3Quote {
 				'sqrtPriceLimitX96': '0'
 			}
 			try {
-				let minIn = uni3 ? await this.quoter.callStatic.quoteExactOutputSingle(e) :
-					await this.quoter.callStatic.quoteExactOutputSingle(
+				let minIn = uni3 ? await this.quoter.getFunction('quoteExactOutputSingle').staticCall(e) :
+					await this.quoter.getFunction('quoteExactOutputSingle').staticCall(
 						e.tokenIn,
 						e.tokenOut,
 						e.amount,

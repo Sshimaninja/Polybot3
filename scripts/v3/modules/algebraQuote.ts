@@ -9,7 +9,7 @@ async function univ3Quote(poolID: string, tradeSize: bigint) {
 	const quoter = getQuoter("QUICKV3")
 	const pool = new Contract(poolID, IAlgPool, signer)
 	try {
-		let maxOut = await quoter.callStatic.quoteExactInputSingle(
+		let maxOut = await quoter.getFunction('quoteExactInputSingle').staticCall(
 			await pool.token0(),
 			await pool.token1(),
 			tradeSize.toString(),

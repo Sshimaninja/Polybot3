@@ -1,5 +1,4 @@
 
-import { BigNumber as BN } from "bignumber.js";
 import { Bool3Trade, BoolTrade } from "../../../constants/interfaces";
 import { BigInt2BN, fu } from "../../modules/convertBN";
 /**

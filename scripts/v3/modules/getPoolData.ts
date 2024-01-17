@@ -4,7 +4,7 @@ import { fitFee } from './fitFee';
 import { chainID } from '../../../constants/addresses'
 import { abi as IERC20 } from '../../../interfaces/IERC20.json';
 import { abi as IUniswapV3PoolABI } from '@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json'
-import { ethers, utils, BigInt, Contract } from "ethers";
+import { ethers, Contract } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { wallet, provider } from '../../../constants/contract'
 import { ReservesData, PoolState, PoolInfo, ERC20token, Slot0 } from "../../../constants/interfaces";
@@ -46,20 +46,20 @@ export class PoolData {
 				const ethersResponse = results[i]
 				const tick = new Tick({
 					index,
-					liquidityGross: JSBI.BigInt(ethersResponse.liquidityGross.toString()),
-					liquidityNet: JSBI.BigInt(ethersResponse.liquidityNet.toString()),
+					liquidityGross: ethersResponse.liquidityGross.toString(),
+					liquidityNet: ethersResponse.liquidityNet.toString(),
 				})
 				allTicks.push(tick)
 			}
 
 			const V3Pool = new Pool(
-				new Token(chainID.POLYGON, this.pool.token0(), this.token0.decimals, this.token0.symbol),
-				new Token(chainID.POLYGON, this.pool.token1(), this.token1.decimals, this.token1.symbol),
+				new Token(chainID.POLYGON, await this.pool.token0(), this.token0.decimals, this.token0.symbol),
+				new Token(chainID.POLYGON, await this.pool.token1(), this.token1.decimals, this.token1.symbol),
 				this.poolInfo.fee, // replace with your pool's fee amount
 				slot0.sqrtPriceX96,
 				await this.pool.liquidity(),
 				tick,
-				this.pool.ticks(),
+				await this.pool.ticks(),
 			);
 
 			// Now you can make off-chain queries to the reserves
