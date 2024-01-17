@@ -1,4 +1,4 @@
-import { ethers, utils, BigInt, Contract } from "ethers";
+import { ethers,  Contract } from "ethers";
 import { PoolData } from "./getPoolData";
 import { BigNumber as BN } from "bignumber.js";
 import { wallet } from '../../../constants/contract'
@@ -52,7 +52,7 @@ export class InRangeLiquidity {
 					sqrtPriceX96: slot0.sqrtPriceX96,
 					sqrtPriceX96BN: BN(slot0.sqrtPriceX96.toString()),
 					tick: slot0.tick,
-					fee: this.pool.fee(),
+					fee: await this.pool.fee(),
 					unlocked: slot0.unlocked,
 				}
 				// console.log("Slot0: UNIV3", slot0)
@@ -80,7 +80,7 @@ export class InRangeLiquidity {
 
 		const s0 = await this.getSlot0();
 		// Calculate the price as (sqrtPriceX96 / 2^96)^2
-		const price: BN = s0.sqrtPriceX96BN.dividedBy(BN(2).pow(96)).pow(2);
+		const price: BN = s0.sqrtPriceX96BN.div(BN(2).pow(96)).pow(2);
 
 		// Adjust for token decimals
 		//price0 = price * (10 ** this.token0.decimals) / (10 ** this.token1.decimals);
@@ -111,16 +111,16 @@ export class InRangeLiquidity {
 		} else {
 			const slot0 = await this.getSlot0();
 			const sqrtPriceX96 = slot0.sqrtPriceX96;
-			const Q96 = ethers.BigInt(2).pow(96);
-			const sqrtPrice = Number(sqrtPriceX96.mul(Q96).div(Q96));
+			const Q96 = BigInt(2) ** (96n);
+			const sqrtPrice = Number(sqrtPriceX96 * (Q96) / (Q96));
 			// const sqrtPriceBN = BigInt2BN(sqrtPrice, 18);
 			// const liquidityBN = BigInt2BN(liquidity, 18);
 
 			let currentTick = slot0.tick;
 			let tickspacing = this.poolInfo.tickSpacing;
 
-			// let price: bigint = slot0.sqrtPriceX96BN.div(Q96).pow(2);
-			// let priceRange = price.mul(slippageTolerance.toNumber());
+			// let price: bigint = slot0.sqrtPriceX96BN / (Q96).pow(2);
+			// let priceRange = price * (slippageTolerance.toNumber());
 			// let tickRange = Math.log(priceRange) / Math.log(1.0001);
 			// let ticksForRange = Math.round(tickRange / tickspacing) * tickspacing;
 
@@ -159,18 +159,18 @@ export class InRangeLiquidity {
 			// let amount1wei = BN(0);
 
 			// if (currentTick < tickLow) {
-			// 	amount0wei = liquidityBN.times(sqrtRatioB.minus(sqrtRatioA)).div(sqrtRatioA.times(sqrtRatioB)).integerValue(BN.ROUND_DOWN);
+			// 	amount0wei = liquidityBN.times(sqrtRatioB.minus(sqrtRatioA)) / (sqrtRatioA.times(sqrtRatioB)).integerValue(BN.ROUND_DOWN);
 			// }
 			// if (currentTick >= tickHigh) {
 			// 	amount1wei = liquidityBN.times(sqrtRatioB.minus(sqrtRatioA)).integerValue(BN.ROUND_DOWN);
 			// }
 			// if (currentTick >= tickLow && currentTick < tickHigh) {
-			// 	amount0wei = liquidityBN.times(sqrtRatioB.minus(sqrtPriceBN)).div(sqrtPriceBN.times(sqrtRatioB)).integerValue(BN.ROUND_DOWN);
+			// 	amount0wei = liquidityBN.times(sqrtRatioB.minus(sqrtPriceBN)) / (sqrtPriceBN.times(sqrtRatioB)).integerValue(BN.ROUND_DOWN);
 			// 	amount1wei = liquidityBN.times(sqrtPriceBN.minus(sqrtRatioA)).integerValue(BN.ROUND_DOWN);
 			// }
 
-			// let amount0Human = amount0wei.div(BN(10).pow(this.token0.decimals)).toFixed(this.token0.decimals);
-			// let amount1Human = amount1wei.div(BN(10).pow(this.token1.decimals)).toFixed(this.token1.decimals);
+			// let amount0Human = amount0wei / (BN(10).pow(this.token0.decimals)).toFixed(this.token0.decimals);
+			// let amount1Human = amount1wei / (BN(10).pow(this.token1.decimals)).toFixed(this.token1.decimals);
 			console.log("sqrtRatioA: " + sqrtRatioA);
 			console.log("sqrtRatioB: " + sqrtRatioB);
 			console.log("sqrtPrice: " + sqrtPrice);
@@ -219,7 +219,7 @@ export class InRangeLiquidity {
 		let a = await this.getTokenAmounts();
 
 		const liquidityData: PoolState = {
-			poolID: this.pool.getAddress(),
+			poolID: await this.pool.getAddress(),
 			sqrtPriceX96: slot0.sqrtPriceX96,
 			liquidity: liquidity,
 			liquidityBN: BN(liquidity.toString()),
@@ -242,7 +242,7 @@ export class InRangeLiquidity {
 	async viewData(l: PoolState) {
 		const liquidityDataView = {
 			ticker: this.token0.symbol + "/" + this.token1.symbol,
-			poolID: this.pool.getAddress(),
+			poolID: this.pool.address,
 			liquidity: l.liquidity.toString(),
 			reserves0String: fu(l.reservesIn, this.token0.decimals),
 			reserves1String: fu(l.reservesOut, this.token1.decimals),

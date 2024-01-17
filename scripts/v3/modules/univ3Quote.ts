@@ -17,7 +17,7 @@ async function univ3Quote(poolID: string, tradeSize: bigint) {
 		'sqrtPriceLimitX96': '0'
 	}
 	try {
-		let maxOut = await quoter.callStatic.quoteExactInputSingle(encoded)
+		let maxOut = await quoter.getFunction('quoteExactInputSingle').staticCall(encoded)
 		console.log("maxOut: ")
 		console.log(maxOut)
 		return maxOut.amountOut;

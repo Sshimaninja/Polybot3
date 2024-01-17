@@ -2,13 +2,13 @@
 import { BigNumber as BN } from "bignumber.js";
 import { GasData, Match3Pools, PoolState, } from "../../constants/interfaces";
 import { flashMulti, flashDirect } from "../../constants/contract";
-import { Contract } from "@ethersproject/contracts";
+import { Contract } from "ethers";
 
 import { Bool3Trade } from "../../constants/interfaces"
 
 import { AmountConverter } from "./modules/amountConverter";
 import { V3Quote } from "./modules/V3Quote2";
-import { BigInt2BN, BigInt2BNS, BN2BigInt, BN2BigIntS, fu, pu } from "../modules/convertBN";
+import { BigInt2BN, BigInt2String, BN2BigInt, fu, pu } from "../modules/convertBN";
 import { filterTrade } from "./modules/filterTrade";
 import { PopulateRepays } from "./modules/populateRepays";
 import { getK } from "./modules/getK";
@@ -44,7 +44,7 @@ export class Trade {
 		const B = this.state1.priceOutBN
 		const diff = A.lt(B) ? B.minus(A) : A.minus(B)
 		const dperc = diff.div(A.gt(B) ? A : B).multipliedBy(100)// 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
-		const dir = A.gt(B) ? "A" : "B"
+		const dir = A > (B) ? "A" : "B"
 
 		return { dir, diff, dperc }
 	}
@@ -56,14 +56,14 @@ export class Trade {
 
 		const toPrice = await target.tradeToPrice()
 		// use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
-		const safeReserves = loan.state.reservesIn.mul(800).div(1000); //Don't use more than 80% of the reserves
+		const safeReserves = loan.state.reservesIn * (800n)/ (1000n); //Don't use more than 80% of the reserves
 		// const safeReserves = loan.state.reservesIn
 		// console.log("safeReserves: ", safeReserves)
-		const size = toPrice.gt(safeReserves) ? safeReserves : toPrice;
+		const size = toPrice > (safeReserves) ? safeReserves : toPrice;
 		// const size = pu("10", this.match.token0.decimals)
 		// const size = toPrice
 		// console.log(">>>>>>>>>>>>>>>>>getSize")
-		// console.log("SIZE: ", toPrice.gt(safeReserves) ? "safeReserves" : "toPrice")
+		// console.log("SIZE: ", toPrice > (safeReserves) ? "safeReserves" : "toPrice")
 		// console.log(fu(size, this.match.token0.decimals) + " " + this.match.token0.symbol)
 		return size;
 	}
@@ -134,7 +134,7 @@ export class Trade {
 		const multi = await repay.getMulti();
 		const direct = await repay.getDirect();
 
-		trade.type = multi.profits.profit.gt(direct.profit) ? "multi" : direct.profit.gt(multi.profits.profit) ? "direct" : "error";
+		trade.type = multi.profits.profit > (direct.profit) ? "multi" : direct.profit > (multi.profits.profit) ? "direct" : "error";
 
 		trade.loanPool.amountRepay = trade.type === "multi" ? multi.repays.repay : direct.repay;
 

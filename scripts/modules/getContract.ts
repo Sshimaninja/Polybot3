@@ -41,7 +41,7 @@ export function getFactory(exchange: string): Contract {
 	}
 }
 
-export function getQuoter(exchange: string): Contract {
+export function getQuoterV2(exchange: string): Contract {
 	if (uniswapQuoter[exchange]) {
 		return new Contract(uniswapQuoter[exchange], IUniswapV3QuoterV2, signer)
 	}

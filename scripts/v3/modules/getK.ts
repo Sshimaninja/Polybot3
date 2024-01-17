@@ -22,9 +22,9 @@ export async function getK(trade: Bool3Trade, state: PoolState, calc: AmountConv
 		uniswapKPositive: false,
 	}
 	const tradeSizewithFee = await calc.addFee(tt.tradeSize);
-	const newreservesIn = tl.state.reservesIn.mul(1000).sub(tt.tradeSize.mul(1000));
+	const newreservesIn = tl.state.reservesIn * (1000n) - (tt.tradeSize * (1000n));
 	// console.log("newreservesIn: ", newreservesIn.toString())
-	if (newreservesIn.lte(0)) {
+	if (newreservesIn < (0)) {
 		return kalc;
 	}
 
@@ -33,8 +33,8 @@ export async function getK(trade: Bool3Trade, state: PoolState, calc: AmountConv
 	);
 
 	// const tokenOutPrice = BN2BigInt(calc.price.priceOutBN, calc.token1.decimals);
-	// // console.log("TradeSize: " + tradeSize.toString() + " * tokenOutPrice: " + tokenOutPrice.toString() + " = " + tokenOutPrice.mul(tradeSize).toString())
-	// const tradeSizeInTermsOfTokenOut = tradeSize.mul(tokenOutPrice);
+	// // console.log("TradeSize: " + tradeSize.toString() + " * tokenOutPrice: " + tokenOutPrice.toString() + " = " + tokenOutPrice * (tradeSize).toString())
+	// const tradeSizeInTermsOfTokenOut = tradeSize * (tokenOutPrice);
 	// // console.log('tradeSizeInTermsOfTokenOut: ', tradeSizeInTermsOfTokenOut.toString())
 	// const tradeSizeInTermsOfTokenOutWithFee = await calc.addFee(tradeSizeInTermsOfTokenOut);
 	// // console.log('tradeSizeInTermsOfTokenOutWithFee: ', tradeSizeInTermsOfTokenOutWithFee.toString())
@@ -42,19 +42,19 @@ export async function getK(trade: Bool3Trade, state: PoolState, calc: AmountConv
 	kalc = trade.type === "multi" ? {
 		uniswapKPre:
 			// 1000 * 2000 = 2000000 
-			tl.state.reservesIn.mul(tl.state.reservesOut),
+			tl.state.reservesIn * (tl.state.reservesOut),
 		uniswapKPost:
 			// 200000 = 1800 * 110
 			//subtract loan: 
-			tl.state.reservesIn.sub(tt.tradeSize)
+			tl.state.reservesIn - (tt.tradeSize)
 				// multiply new reservesIn by new reservesOut by adding tradeSizeInTermsOfTokenOut
-				.mul(tl.state.reservesOut.add(tradeSizeInTokenOut)),
+				 * (tl.state.reservesOut + (tradeSizeInTokenOut)),
 		uniswapKPositive: false,
 	} : trade.type === "direct" ? {
-		uniswapKPre: tl.state.reservesIn.mul(tl.state.reservesOut),
+		uniswapKPre: tl.state.reservesIn * (tl.state.reservesOut),
 		uniswapKPost:
 			// reservesIn + tradeSizewithFee * reservesOut(unchanged)
-			tl.state.reservesIn.add(tradeSizewithFee).mul(tl.state.reservesOut),
+			tl.state.reservesIn + (tradeSizewithFee) * (tl.state.reservesOut),
 		uniswapKPositive: false,
 	} : {
 		uniswapKPre: 0n,
@@ -62,7 +62,7 @@ export async function getK(trade: Bool3Trade, state: PoolState, calc: AmountConv
 		uniswapKPositive: false,
 	}
 
-	kalc.uniswapKPositive = kalc.uniswapKPre.lt(kalc.uniswapKPost) ? true : false;
+	kalc.uniswapKPositive = kalc.uniswapKPre < (kalc.uniswapKPost) ? true : false;
 	return kalc;
 
 }
