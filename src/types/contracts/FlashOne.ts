@@ -3,8 +3,8 @@
 /* eslint-disable */
 import type {
   BaseContract,
-  BigNumber,
-  BigNumberish,
+  BigInt,
+  BigIntish,
   BytesLike,
   CallOverrides,
   ContractTransaction,
@@ -40,16 +40,16 @@ export interface FlashOneInterface extends utils.Interface {
       PromiseOrValue<string>,
       PromiseOrValue<string>,
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>
     ]
   ): string;
   encodeFunctionData(
     functionFragment: "uniswapV2Call",
     values: [
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<BytesLike>
     ]
   ): string;
@@ -95,15 +95,15 @@ export interface FlashOne extends BaseContract {
       recipientRouter: PromiseOrValue<string>,
       token0ID: PromiseOrValue<string>,
       token1ID: PromiseOrValue<string>,
-      amount0In: PromiseOrValue<BigNumberish>,
-      amount1Out: PromiseOrValue<BigNumberish>,
+      amount0In: PromiseOrValue<BigIntish>,
+      amount1Out: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
     uniswapV2Call(
       _sender: PromiseOrValue<string>,
-      _amount0: PromiseOrValue<BigNumberish>,
-      _amount1: PromiseOrValue<BigNumberish>,
+      _amount0: PromiseOrValue<BigIntish>,
+      _amount1: PromiseOrValue<BigIntish>,
       _data: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
@@ -114,15 +114,15 @@ export interface FlashOne extends BaseContract {
     recipientRouter: PromiseOrValue<string>,
     token0ID: PromiseOrValue<string>,
     token1ID: PromiseOrValue<string>,
-    amount0In: PromiseOrValue<BigNumberish>,
-    amount1Out: PromiseOrValue<BigNumberish>,
+    amount0In: PromiseOrValue<BigIntish>,
+    amount1Out: PromiseOrValue<BigIntish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   uniswapV2Call(
     _sender: PromiseOrValue<string>,
-    _amount0: PromiseOrValue<BigNumberish>,
-    _amount1: PromiseOrValue<BigNumberish>,
+    _amount0: PromiseOrValue<BigIntish>,
+    _amount1: PromiseOrValue<BigIntish>,
     _data: PromiseOrValue<BytesLike>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
@@ -133,15 +133,15 @@ export interface FlashOne extends BaseContract {
       recipientRouter: PromiseOrValue<string>,
       token0ID: PromiseOrValue<string>,
       token1ID: PromiseOrValue<string>,
-      amount0In: PromiseOrValue<BigNumberish>,
-      amount1Out: PromiseOrValue<BigNumberish>,
+      amount0In: PromiseOrValue<BigIntish>,
+      amount1Out: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<void>;
 
     uniswapV2Call(
       _sender: PromiseOrValue<string>,
-      _amount0: PromiseOrValue<BigNumberish>,
-      _amount1: PromiseOrValue<BigNumberish>,
+      _amount0: PromiseOrValue<BigIntish>,
+      _amount1: PromiseOrValue<BigIntish>,
       _data: PromiseOrValue<BytesLike>,
       overrides?: CallOverrides
     ): Promise<void>;
@@ -155,18 +155,18 @@ export interface FlashOne extends BaseContract {
       recipientRouter: PromiseOrValue<string>,
       token0ID: PromiseOrValue<string>,
       token1ID: PromiseOrValue<string>,
-      amount0In: PromiseOrValue<BigNumberish>,
-      amount1Out: PromiseOrValue<BigNumberish>,
+      amount0In: PromiseOrValue<BigIntish>,
+      amount1Out: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     uniswapV2Call(
       _sender: PromiseOrValue<string>,
-      _amount0: PromiseOrValue<BigNumberish>,
-      _amount1: PromiseOrValue<BigNumberish>,
+      _amount0: PromiseOrValue<BigIntish>,
+      _amount1: PromiseOrValue<BigIntish>,
       _data: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
   };
 
   populateTransaction: {
@@ -175,15 +175,15 @@ export interface FlashOne extends BaseContract {
       recipientRouter: PromiseOrValue<string>,
       token0ID: PromiseOrValue<string>,
       token1ID: PromiseOrValue<string>,
-      amount0In: PromiseOrValue<BigNumberish>,
-      amount1Out: PromiseOrValue<BigNumberish>,
+      amount0In: PromiseOrValue<BigIntish>,
+      amount1Out: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
     uniswapV2Call(
       _sender: PromiseOrValue<string>,
-      _amount0: PromiseOrValue<BigNumberish>,
-      _amount1: PromiseOrValue<BigNumberish>,
+      _amount0: PromiseOrValue<BigIntish>,
+      _amount1: PromiseOrValue<BigIntish>,
       _data: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;

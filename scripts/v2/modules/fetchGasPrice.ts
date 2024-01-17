@@ -1,4 +1,4 @@
-import { BigNumber, utils } from "ethers";
+import {  utils } from "ethers";
 import { provider } from "../../../constants/contract";
 import { BoolTrade, GAS, GasData } from "../../../constants/interfaces";
 import { tradeLogs } from "./tradeLog";
@@ -9,7 +9,7 @@ import { fu, pu } from "../../modules/convertBN";
  * @param trade 
  * @returns gas estimate and gas price for a given trade.
  * If the gasEstimate fails, it will return a default gas estimate of 300000.
- * @returns gasData: { gasEstimate: BigNumber, gasPrice: BigNumber, maxFee: number, maxPriorityFee: number }
+ * @returns gasData: { gasEstimate: bigint, gasPrice: bigint, maxFee: number, maxPriorityFee: number }
  */
 export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 	// Commented out for now to elimiate from testing & debugging:
@@ -31,8 +31,8 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 	const swapFunctionSelector = utils.id(swapFunctionSignature).substring(0, 10);
 
 	// Get the contract ABI
-	const loanContractABI = trade.loanPool.pool.interface.functions
-	const targetContactABI = trade.target.pool.interface.functions
+	const loanContractABI = trade.loanPool.pool.getFunction( 'swap');	
+	const targetContactABI = trade.target.pool.getFunction('swap')
 
 
 	const loanContractAddress = trade.loanPool.pool.address;
@@ -52,9 +52,9 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 
 	if (trade.direction != undefined) {
 		console.log('EstimatingGas for trade: ' + trade.ticker + '...');
-		let gasEstimate: BigNumber;
+		let gasEstimate: bigint;
 		try {
-			//'override' error possibly too many args sent to contract? Or somethind to do with estimateGas not being able to properly create BigNumbers object.
+			//'override' error possibly too many args sent to contract? Or somethind to do with estimateGas not being able to properly create BigInts object.
 			gasEstimate = await trade.flash.estimateGas.flashSwap(
 				trade.loanPool.factory.address,
 				trade.loanPool.router.address,
@@ -80,27 +80,34 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 			logger.error(`>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`);
 			gasEstimate = pu('300000', 18)
 			logger.info(error.reason);
-			return { gasEstimate, tested: false, gasPrice: BigNumber.from(150 + 60 * 300000), maxFee, maxPriorityFee };
+			return { gasEstimate, tested: false, gasPrice: bigint.from(150 + 60 * 300000), maxFee, maxPriorityFee };
 		}
 		// Helpful for figuring out how to determine and display gas prices:		
 		const gasLogs = {
 			gasEstimate: gasEstimate.toString(),
-			gasPrice: fu(maxFee.add(maxPriorityFee).mul(BigNumber.from(10)), 18),
+			gasPrice: fu(maxFee.add(maxPriorityFee).mul(BigInt.from(10)), 18),
 			maxFee: fu(maxFee.toString(), 18),
 			maxPriorityFee: fu(maxPriorityFee.toString(), 18),
 			gasLimit: fu(gasEstimate.toString(), 18),
 			gasEstimateTimesMaxFee: fu(gasEstimate.mul(maxFee).toString()),
 			gasEstimateTimesMaxPriorityFee: fu(gasEstimate.mul(maxPriorityFee).toString(), 18),
 			gasEstimateTimesMaxFeePlusMaxPriorityFee: fu(gasEstimate.mul(maxFee.add(maxPriorityFee)).toString(), 18),
-			gasEstimateTimesMaxFeePlusMaxPriorityFeeTimes10: fu((gasEstimate.mul(maxFee.add(maxPriorityFee)).add(maxFee)).mul(BigNumber.from(10)).toString(), 18)
+			gasEstimateTimesMaxFeePlusMaxPriorityFeeTimes10: fu((gasEstimate.mul(maxFee.add(maxPriorityFee)).add(maxFee)).mul(BigInt.from(10)).toString(), 18)
 		}
 		console.log(gasLogs);
-		const gasPrice = (gasEstimate.mul(maxFee.add(maxPriorityFee)).add(maxFee)).mul(BigNumber.from(10));
+		const gasPrice = (gasEstimate.mul(maxFee.add(maxPriorityFee)).add(maxFee)).mul(BigInt.from(10));
 		console.log(gasLogs);
 		console.log(fu(gasPrice, 18))
 		return { gasEstimate, tested: true, gasPrice, maxFee: maxFee, maxPriorityFee: maxPriorityFee }
 	} else {
 		console.log(`>>>>>>>>>>>>>>>>>>>>> (fetchGasPrice) Trade direction undefined: ${trade.ticker} `, ` <<<<<<<<<<<<<<<<<<<<<<<<<< `);
-		return { gasEstimate: BigNumber.from(300000), tested: false, gasPrice: BigNumber.from(150 + 60 * 300000), maxFee: maxFee, maxPriorityFee: maxPriorityFee };
+		return { gasEstimate: bigint.from(300000), tested: false, gasPrice: bigint.from(150 + 60 * 300000), maxFee: maxFee, maxPriorityFee: maxPriorityFee };
 	}
 }
+
+/*
+	GAS EXAMPLE FROM ETHERS.JS ^6.0.0:
+	lastBaseFeePerGas = block.baseFeePerGas;
+	maxPriorityFeePerGas = BigInt.from("1500000000");
+	maxFeePerGas = block.baseFeePerGas.mul(2).add(maxPriorityFeePerGas);
+*/

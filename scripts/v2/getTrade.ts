@@ -1,18 +1,17 @@
-import { BigNumber } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
+import {ethers, Contract, Provider, Signer} from "ethers"; 
 import { Amounts, FactoryPair, GasData, Pair, Profcalcs, Repays, TradePair } from "../../constants/interfaces";
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
-import { wallet, flashMulti, flashDirect } from "../../constants/contract";
-import { Contract } from "@ethersproject/contracts";
+import { wallet, provider, signer, flashMulti, flashDirect } from "../../constants/contract";
 import { Prices } from "./modules/prices";
 import { getK } from "./modules/getK";
 import { BoolTrade } from "../../constants/interfaces"
 import { PopulateRepays } from "./modules/populateRepays";
 import { getAmountsIn, getAmountsOut } from "./modules/getAmountsIOLocal";
 import { AmountConverter } from "./modules/amountConverter";
-import { JS2BN, JS2BNS, BN2JS, BN2JSS, fu, pu } from "../modules/convertBN";
+import { BigInt2BN, BigInt2String, BN2BigInt, fu, pu } from "../modules/convertBN";
 import { filterTrade } from "./modules/filterTrade";
 import { logger } from "../../constants/contract";
 import { ProfitCalculator } from "./modules/ProfitCalcs";
@@ -66,17 +65,17 @@ export class Trade {
 		return { dir, diff, dperc }
 	}
 
-	async getSize(loan: AmountConverter, target: AmountConverter): Promise<BigNumber> {
+	async getSize(loan: AmountConverter, target: AmountConverter): Promise<bigint> {
 		const toPrice = await target.tradeToPrice()
 		// use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
 		const maxIn = await target.getMaxTokenIn();
-		const bestSize = toPrice.lt(maxIn) ? toPrice : maxIn;
-		const safeReserves = loan.reserves.reserveIn.mul(1000).div(800);
-		const size = bestSize.gt(safeReserves) ? safeReserves : bestSize;
+		const bestSize = toPrice<(maxIn) ? toPrice : maxIn;
+		const safeReserves = loan.reserves.reserveIn * (1000n) / (800n);
+		const size = bestSize > BigInt(safeReserves) ? safeReserves : bestSize;
 		// const msg = size.eq(safeReserves) ? "[getSize]: using safeReserves" : "[getSize]: using bestSize";
 		// console.log(msg);
 		return size;
-	}
+	} 
 
 	async getTrade() {
 
@@ -88,7 +87,7 @@ export class Trade {
 		//TODO: Add complexity: use greater reserves for loanPool, lesser reserves for target.
 		const trade: BoolTrade = {
 			ID: A ? this.match.poolAID : this.match.poolBID,
-			block: await wallet.provider.getBlockNumber(),
+			block: await provider.getBlockNumber(),
 			direction: dir.dir,
 			type: 'filtered',
 			ticker: this.match.token0.symbol + "/" + this.match.token1.symbol,
@@ -97,9 +96,9 @@ export class Trade {
 			flash: flashMulti, // This has to be set initially, but must be changed later per type.
 			loanPool: {
 				exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
-				factory: A ? new Contract(this.pair.factoryB_id, IFactory, wallet) : new Contract(this.pair.factoryA_id, IFactory, wallet),
-				router: A ? new Contract(this.pair.routerB_id, IRouter, wallet) : new Contract(this.pair.routerA_id, IRouter, wallet),
-				pool: A ? new Contract(this.match.poolBID, IPair, wallet) : new Contract(this.match.poolAID, IPair, wallet),
+				factory: A ? new Contract(this.pair.factoryB_id, IFactory, provider) : new Contract(this.pair.factoryA_id, IFactory, provider),
+				router: A ? new Contract(this.pair.routerB_id, IRouter, provider) : new Contract(this.pair.routerA_id, IRouter, provider),
+				pool: A ? new Contract(this.match.poolBID, IPair, provider) : new Contract(this.match.poolAID, IPair, provider),
 				reserveIn: A ? this.price1.reserves.reserveIn : this.price0.reserves.reserveIn,
 				reserveInBN: A ? this.price1.reserves.reserveInBN : this.price0.reserves.reserveInBN,
 				reserveOut: A ? this.price1.reserves.reserveOut : this.price0.reserves.reserveOut,
@@ -107,22 +106,22 @@ export class Trade {
 				priceIn: A ? this.price1.priceInBN.toFixed(this.match.token0.decimals) : this.price0.priceInBN.toFixed(this.match.token0.decimals),
 				priceOut: A ? this.price1.priceOutBN.toFixed(this.match.token1.decimals) : this.price0.priceOutBN.toFixed(this.match.token1.decimals),
 				repays: {
-					direct: BigNumber.from(0),
-					directInTokenOut: BigNumber.from(0),
-					simpleMulti: BigNumber.from(0),
-					getAmountsOut: BigNumber.from(0),
-					getAmountsIn: BigNumber.from(0),
-					repay: BigNumber.from(0),
+					direct: 0n,
+					directInTokenOut: 0n,
+					simpleMulti: 0n,
+					getAmountsOut: 0n,
+					getAmountsIn: 0n,
+					repay: 0n,
 				},
-				amountRepay: BigNumber.from(0),
-				amountOutToken0for1: BigNumber.from(0),
-				amountOut: BigNumber.from(0),
+				amountRepay: 0n,
+				amountOutToken0for1: 0n,
+				amountOut: 0n,
 			},
 			target: {
 				exchange: A ? this.pair.exchangeA : this.pair.exchangeB,
-				factory: A ? new Contract(this.pair.factoryA_id, IFactory, wallet) : new Contract(this.pair.factoryB_id, IFactory, wallet),
-				router: A ? new Contract(this.pair.routerA_id, IRouter, wallet) : new Contract(this.pair.routerB_id, IRouter, wallet),
-				pool: A ? new Contract(this.match.poolAID, IPair, wallet) : new Contract(this.match.poolBID, IPair, wallet),
+				factory: A ? new Contract(this.pair.factoryA_id, IFactory, provider) : new Contract(this.pair.factoryB_id, IFactory, wallet),
+				router: A ? new Contract(this.pair.routerA_id, IRouter, provider) : new Contract(this.pair.routerB_id, IRouter, wallet),
+				pool: A ? new Contract(this.match.poolAID, IPair, provider) : new Contract(this.match.poolBID, IPair, wallet),
 				reserveIn: A ? this.price0.reserves.reserveIn : this.price1.reserves.reserveIn,
 				reserveInBN: A ? this.price0.reserves.reserveInBN : this.price1.reserves.reserveInBN,
 				reserveOut: A ? this.price0.reserves.reserveOut : this.price1.reserves.reserveOut,
@@ -131,19 +130,19 @@ export class Trade {
 				priceOut: A ? this.price0.priceOutBN.toFixed(this.match.token1.decimals) : this.price1.priceOutBN.toFixed(this.match.token1.decimals),
 				//TODO: FIX THE CALCS FOR MAXIN() WHICH ARE WRONG.
 				tradeSize: size,
-				amountOutToken0for1: BigNumber.from(0),
-				amountOut: BigNumber.from(0),
+				amountOutToken0for1: 0n,
+				amountOut: 0n,
 			},
 			k: {
-				uniswapKPre: BigNumber.from(0),
-				uniswapKPost: BigNumber.from(0),
+				uniswapKPre: 0n,
+				uniswapKPost: 0n,
 				uniswapKPositive: false,
 			},
 			gasData: this.gasData,
 			differenceTokenOut: dir.diff.toFixed(this.match.token1.decimals) + " " + this.match.token1.symbol,
 			differencePercent: dir.dperc.toFixed(this.match.token1.decimals) + "%",
-			profit: BigNumber.from(0),
-			profitPercent: BigNumber.from(0),
+			profit: 0n,
+			profitPercent: 0n,
 		};
 		const amountOut = await getAmountsOut(
 			trade.target.tradeSize, // token0 in given
@@ -177,7 +176,7 @@ export class Trade {
 		trade.loanPool.amountOut = await getAmountsOut(trade.target.tradeSize, trade.loanPool.reserveIn, trade.loanPool.reserveOut);
 		trade.loanPool.amountOutToken0for1 = await getAmountsOut(trade.target.amountOut, trade.loanPool.reserveOut, trade.loanPool.reserveIn);
 
-		trade.type = multi.profit.gt(direct.profit) ? "multi" : direct.profit.gt(multi.profit) ? "direct" : "No Profit (Error in profitCalcs)"
+		trade.type = multi.profit > (direct.profit) ? "multi" : direct.profit > (multi.profit) ? "direct" : "No Profit (Error in profitCalcs)"
 
 		trade.loanPool.amountRepay = trade.type === "multi" ? repays.repay : repays.direct;
 

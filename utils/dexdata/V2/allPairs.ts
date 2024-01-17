@@ -1,7 +1,7 @@
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 import { abi as IERC20 } from '@uniswap/v2-core/build/IERC20.json';
-import { Contract, utils, BigNumber } from "ethers";
+import { Contract, utils, BigInt } from "ethers";
 import { FactoryMap, RouterMap, uniswapV2Factory, uniswapV3Factory } from "../../../constants/addresses";
 import { wallet } from "../../../constants/contract";
 import { provider } from "../../../constants/contract";
@@ -74,7 +74,7 @@ export class AllV2Pairs {
 						const block = currentBlockTimestamp;
 						// console.log('Block: ' + block);
 
-						if (reserves[0].gt(BigNumber.from(1)) && reserves[1].gt(BigNumber.from(1)) && blockTimeStampLast > (block - 40000 * 12)) {
+						if (reserves[0].gt(BigInt.from(1)) && reserves[1].gt(BigInt.from(1)) && blockTimeStampLast > (block - 40000 * 12)) {
 							const token0id = await pairContract.token0();
 							const token0 = new Contract(token0id, IERC20, wallet)
 

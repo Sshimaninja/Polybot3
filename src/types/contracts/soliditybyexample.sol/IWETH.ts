@@ -3,8 +3,8 @@
 /* eslint-disable */
 import type {
   BaseContract,
-  BigNumber,
-  BigNumberish,
+  BigInt,
+  BigIntish,
   BytesLike,
   CallOverrides,
   ContractTransaction,
@@ -58,7 +58,7 @@ export interface IWETHInterface extends utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "approve",
-    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
+    values: [PromiseOrValue<string>, PromiseOrValue<BigIntish>]
   ): string;
   encodeFunctionData(
     functionFragment: "balanceOf",
@@ -71,19 +71,19 @@ export interface IWETHInterface extends utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "transfer",
-    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
+    values: [PromiseOrValue<string>, PromiseOrValue<BigIntish>]
   ): string;
   encodeFunctionData(
     functionFragment: "transferFrom",
     values: [
       PromiseOrValue<string>,
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>
+      PromiseOrValue<BigIntish>
     ]
   ): string;
   encodeFunctionData(
     functionFragment: "withdraw",
-    values: [PromiseOrValue<BigNumberish>]
+    values: [PromiseOrValue<BigIntish>]
   ): string;
 
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
@@ -113,10 +113,10 @@ export interface IWETHInterface extends utils.Interface {
 export interface ApprovalEventObject {
   owner: string;
   spender: string;
-  value: BigNumber;
+  value: bigint;
 }
 export type ApprovalEvent = TypedEvent<
-  [string, string, BigNumber],
+  [string, string, BigInt],
   ApprovalEventObject
 >;
 
@@ -125,10 +125,10 @@ export type ApprovalEventFilter = TypedEventFilter<ApprovalEvent>;
 export interface TransferEventObject {
   from: string;
   to: string;
-  value: BigNumber;
+  value: bigint;
 }
 export type TransferEvent = TypedEvent<
-  [string, string, BigNumber],
+  [string, string, BigInt],
   TransferEventObject
 >;
 
@@ -165,40 +165,40 @@ export interface IWETH extends BaseContract {
       owner: PromiseOrValue<string>,
       spender: PromiseOrValue<string>,
       overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    ): Promise<[BigInt]>;
 
     approve(
       spender: PromiseOrValue<string>,
-      amount: PromiseOrValue<BigNumberish>,
+      amount: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
     balanceOf(
       account: PromiseOrValue<string>,
       overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    ): Promise<[BigInt]>;
 
     deposit(
       overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
-    totalSupply(overrides?: CallOverrides): Promise<[BigNumber]>;
+    totalSupply(overrides?: CallOverrides): Promise<[BigInt]>;
 
     transfer(
       recipient: PromiseOrValue<string>,
-      amount: PromiseOrValue<BigNumberish>,
+      amount: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
     transferFrom(
       sender: PromiseOrValue<string>,
       recipient: PromiseOrValue<string>,
-      amount: PromiseOrValue<BigNumberish>,
+      amount: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
     withdraw(
-      amount: PromiseOrValue<BigNumberish>,
+      amount: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
   };
@@ -207,40 +207,40 @@ export interface IWETH extends BaseContract {
     owner: PromiseOrValue<string>,
     spender: PromiseOrValue<string>,
     overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  ): Promise<BigInt>;
 
   approve(
     spender: PromiseOrValue<string>,
-    amount: PromiseOrValue<BigNumberish>,
+    amount: PromiseOrValue<BigIntish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   balanceOf(
     account: PromiseOrValue<string>,
     overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  ): Promise<BigInt>;
 
   deposit(
     overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
-  totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
+  totalSupply(overrides?: CallOverrides): Promise<BigInt>;
 
   transfer(
     recipient: PromiseOrValue<string>,
-    amount: PromiseOrValue<BigNumberish>,
+    amount: PromiseOrValue<BigIntish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   transferFrom(
     sender: PromiseOrValue<string>,
     recipient: PromiseOrValue<string>,
-    amount: PromiseOrValue<BigNumberish>,
+    amount: PromiseOrValue<BigIntish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   withdraw(
-    amount: PromiseOrValue<BigNumberish>,
+    amount: PromiseOrValue<BigIntish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
@@ -249,38 +249,38 @@ export interface IWETH extends BaseContract {
       owner: PromiseOrValue<string>,
       spender: PromiseOrValue<string>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     approve(
       spender: PromiseOrValue<string>,
-      amount: PromiseOrValue<BigNumberish>,
+      amount: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<boolean>;
 
     balanceOf(
       account: PromiseOrValue<string>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     deposit(overrides?: CallOverrides): Promise<void>;
 
-    totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
+    totalSupply(overrides?: CallOverrides): Promise<BigInt>;
 
     transfer(
       recipient: PromiseOrValue<string>,
-      amount: PromiseOrValue<BigNumberish>,
+      amount: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<boolean>;
 
     transferFrom(
       sender: PromiseOrValue<string>,
       recipient: PromiseOrValue<string>,
-      amount: PromiseOrValue<BigNumberish>,
+      amount: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<boolean>;
 
     withdraw(
-      amount: PromiseOrValue<BigNumberish>,
+      amount: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<void>;
   };
@@ -314,42 +314,42 @@ export interface IWETH extends BaseContract {
       owner: PromiseOrValue<string>,
       spender: PromiseOrValue<string>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     approve(
       spender: PromiseOrValue<string>,
-      amount: PromiseOrValue<BigNumberish>,
+      amount: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     balanceOf(
       account: PromiseOrValue<string>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     deposit(
       overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
-    totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
+    totalSupply(overrides?: CallOverrides): Promise<BigInt>;
 
     transfer(
       recipient: PromiseOrValue<string>,
-      amount: PromiseOrValue<BigNumberish>,
+      amount: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     transferFrom(
       sender: PromiseOrValue<string>,
       recipient: PromiseOrValue<string>,
-      amount: PromiseOrValue<BigNumberish>,
+      amount: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     withdraw(
-      amount: PromiseOrValue<BigNumberish>,
+      amount: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
   };
 
   populateTransaction: {
@@ -361,7 +361,7 @@ export interface IWETH extends BaseContract {
 
     approve(
       spender: PromiseOrValue<string>,
-      amount: PromiseOrValue<BigNumberish>,
+      amount: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
@@ -378,19 +378,19 @@ export interface IWETH extends BaseContract {
 
     transfer(
       recipient: PromiseOrValue<string>,
-      amount: PromiseOrValue<BigNumberish>,
+      amount: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
     transferFrom(
       sender: PromiseOrValue<string>,
       recipient: PromiseOrValue<string>,
-      amount: PromiseOrValue<BigNumberish>,
+      amount: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
     withdraw(
-      amount: PromiseOrValue<BigNumberish>,
+      amount: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
   };

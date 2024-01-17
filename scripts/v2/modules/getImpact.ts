@@ -1,11 +1,11 @@
-// import { BigNumber as BigNumber } from 'bignumber.js';
-import { BigNumber } from "ethers";
+// import { BigInt as BigInt } from 'bignumber.js';
+import { BigInt } from "ethers";
 interface Impact {
-	priceImpact: BigNumber;
-	newPrice: BigNumber;
+	priceImpact: bigint;
+	newPrice: bigint;
 }
 // get priceImpact for each. 
-export async function getImpact(reservesIn: BigNumber, reservesOut: BigNumber, amountIn: BigNumber, amountOut: BigNumber): Promise<Impact> {
+export async function getImpact(reservesIn: bigint, reservesOut: bigint, amountIn: bigint, amountOut: bigint): Promise<Impact> {
 	const reserveIn = reservesIn;
 	const reserveOut = reservesOut;
 
@@ -18,7 +18,7 @@ export async function getImpact(reservesIn: BigNumber, reservesOut: BigNumber, a
 
 	// Calculate the price impact of the trade
 	const marketPrice = reserveOut.div(reserveIn);
-	const priceImpact = marketPrice.sub(newPrice).div(marketPrice).mul(BigNumber.from(100));
+	const priceImpact = marketPrice.sub(newPrice).div(marketPrice).mul(BigInt.from(100));
 
 	const impact = { priceImpact, newPrice };
 

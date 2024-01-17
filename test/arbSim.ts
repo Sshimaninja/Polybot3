@@ -5,10 +5,8 @@ import { abi as IUniswapV2Pair } from "@uniswap/v2-core/build/IUniswapV2Pair.jso
 import { abi as IUniswapV2Router } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json"
 import { uniswapV2Router } from "../constants/addresses";
 
-import { JS2BN, fu, pu } from "../scripts/modules/convertBN";
+import { BigInt2BN, fu, pu } from "../scripts/modules/convertBN";
 import { transferMaticToInitialSigner } from "./txSigner";
-import { BigNumber } from "ethers";
-import { BigNumber as BN } from "bignumber.js";
 
 async function arbSim() {
 	// Define the ABI for the WMATIC contract
@@ -18,7 +16,7 @@ async function arbSim() {
 		"function withdraw(uint wad) public",
 		"function balanceOf(address account) external view returns (uint256)",
 	];
-	const provider = new ethers.providers.JsonRpcProvider("http://localhost:8545")
+	const provider = new ethers.JsonRpcProvider("http://localhost:8545")
 
 	const signer = new ethers.Wallet("0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80", provider)
 
@@ -38,14 +36,14 @@ async function arbSim() {
 
 	const quickRouter = new ethers.Contract(uniswapV2Router.QUICK, IUniswapV2Router, signer);
 
-	const gasLimit = await provider.getBlock("latest").then((block) => block.gasLimit.toString());
+	const gasLimit = await provider.getBlock("latest").then((block) => block?.gasLimit.toString());
 	console.log("Gas Limit: ", gasLimit);
 	// Convert half of MATIC to WMATIC
 	const gasBal = await matic.balanceOf(signer.address);
 	// console.log("Balance of MATIC:: ", fu(gasBal, 18));
 	const wmaticBal = await wmatic.balanceOf(signer.address);
 
-	async function getWMATIC(): Promise<BigNumber | undefined> {
+	async function getWMATIC(): Promise<BigInt | undefined> {
 		if (wmaticBal.eq(0)) {
 			console.log("Balance of WMATIC is 0!: ", fu(wmaticBal, 18));
 			const ninetyFivePercentMatic = gasBal.mul(95).div(100);
@@ -97,8 +95,8 @@ async function arbSim() {
 		);
 		await swap.wait(36);
 		if (swap) console.log("WMATIC > USDC SWAPPED");
-		const postTradeReserves0: BigNumber = await quickPool.getReserves()[0];
-		const postTradeReserves1: BigNumber = await quickPool.getReserves()[1];
+		const postTradeReserves0: bigint = await quickPool.getReserves()[0];
+		const postTradeReserves1: bigint = await quickPool.getReserves()[1];
 		console.log("New Balance of MATIC:: ", fu(await wmatic.balanceOf(signer.address), 18));
 		console.log("New Balance of WMATIC: ", fu(await wmatic.balanceOf(signer.address), 18));
 		console.log("New Balance of USDC: ", fu(await usdc.balanceOf(signer.address), 6));

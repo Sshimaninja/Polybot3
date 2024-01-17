@@ -1,6 +1,6 @@
 import { wallet, provider } from "../../../constants/contract";
 import { BoolTrade, TxData, V2Tx, TxGas } from "../../../constants/interfaces";
-import { BigNumber } from "ethers";
+import { BigInt } from "ethers";
 import { sendTx } from "./sendTx"
 import { pu, fu, BN2JS } from "../../modules/convertBN" 
 import { slippageTolerance } from "../../v3/control";
@@ -42,7 +42,7 @@ export async function send(trade: BoolTrade, gasObj: TxGas): Promise<TxData> {
 		// 		type: 2,
 		// 		maxFeePerGas: gasObj.maxFeePerGas + 10,
 		// 		maxPriorityFeePerGas: gasObj.maxPriorityFeePerGas + 10,
-		// 		gasLimit: gasObj.gasLimit.add(BigNumber.from(10000)),
+		// 		gasLimit: gasObj.gasLimit.add(BigInt.from(10000)),
 		// 	}
 		// 	const newTx = await sendTx(tx)
 		// 	console.log("Retrying transaction with new gas price: " + gasObj.maxFeePerGas)

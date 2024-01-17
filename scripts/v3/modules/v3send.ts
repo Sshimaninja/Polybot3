@@ -1,4 +1,4 @@
-// import { BigNumber, ethers } from 'ethers';
+// import {  ethers } from 'ethers';
 // import { provider, wallet, flashV3 } from '../../../constants/contract';
 // import { abi as IERC20 } from '@uniswap/v3-core/artifacts/contracts/interfaces/IERC20Minimal.sol/IERC20Minimal.json';
 // // import { V3FlashParams } from '../../../constants/interfaces';
@@ -6,14 +6,14 @@
 // interface V3FlashParams {
 //     token0: string;
 //     token1: string;
-//     amount0: BigNumber;
-//     amount1: BigNumber;
+//     amount0: bigint;
+//     amount1: bigint;
 //     fee: number;
 //     target: string;
 //     deadline: number;
-//     sqrtPriceLimitX96: BigNumber;
-//     maxFlashSwapFee: BigNumber;
-//     flashFee: BigNumber;
+//     sqrtPriceLimitX96: bigint;
+//     maxFlashSwapFee: bigint;
+//     flashFee: bigint;
 //     uniswapV3Pool1: string;
 //     uniswapV3PoolKey1: string;
 //     uniswapV3Fee1: number;

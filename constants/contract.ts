@@ -1,5 +1,4 @@
-import { ethers } from "ethers";
-import { BigNumber } from "ethers";
+import { Provider, ethers } from "ethers";
 import { config as dotEnvConfig } from "dotenv";
 // import { abi as IflashMulti} from '../artifacts/contracts/v2/flashMulti.sol/flashMulti.json';
 // import { abi as IflashDirect} from '../artifacts/contracts/v2/flashDirect.sol/flashDirect.json';
@@ -48,23 +47,27 @@ const flashMultiID = process.env.FLASH_MULTI;
 const flashDirectID = process.env.FLASH_DIRECT; 
 
 if (flashMultiID === undefined || flashDirectID === undefined) {
-	throw new Error("No contract address set in .env file");
+  throw new Error("No contract address set in .env file");
 }
 
 // Provider and Signer: (Can be changed to node when that is installed)
 
+export const network = new ethers.Network('polygon', 137);
 
-export const provider = new ethers.providers.JsonRpcProvider(process.env.RPC);
-
-
+export const provider = new ethers.JsonRpcProvider(process.env.RPC, network, {
+  staticNetwork: true,
+});
 
 if (process.env.PRIVATE_KEY === undefined) {
-	throw new Error("No private key set in .env file");
+  throw new Error("No private key set in .env file");
 }
 
 export const flashwallet = process.env.FLASH_WALLET;
+
+
+
 export const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
-export const wallet = signer.connect(provider);
+export const wallet: ethers.Signer = signer.connect(provider);
 
 // Contracts:
 

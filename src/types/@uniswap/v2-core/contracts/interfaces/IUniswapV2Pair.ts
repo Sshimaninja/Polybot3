@@ -3,8 +3,8 @@
 /* eslint-disable */
 import type {
   BaseContract,
-  BigNumber,
-  BigNumberish,
+  BigInt,
+  BigIntish,
   BytesLike,
   CallOverrides,
   ContractTransaction,
@@ -107,7 +107,7 @@ export interface IUniswapV2PairInterface extends utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "approve",
-    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
+    values: [PromiseOrValue<string>, PromiseOrValue<BigIntish>]
   ): string;
   encodeFunctionData(
     functionFragment: "balanceOf",
@@ -142,9 +142,9 @@ export interface IUniswapV2PairInterface extends utils.Interface {
     values: [
       PromiseOrValue<string>,
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<BytesLike>,
       PromiseOrValue<BytesLike>
     ]
@@ -164,8 +164,8 @@ export interface IUniswapV2PairInterface extends utils.Interface {
   encodeFunctionData(
     functionFragment: "swap",
     values: [
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<string>,
       PromiseOrValue<BytesLike>
     ]
@@ -180,14 +180,14 @@ export interface IUniswapV2PairInterface extends utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "transfer",
-    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
+    values: [PromiseOrValue<string>, PromiseOrValue<BigIntish>]
   ): string;
   encodeFunctionData(
     functionFragment: "transferFrom",
     values: [
       PromiseOrValue<string>,
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>
+      PromiseOrValue<BigIntish>
     ]
   ): string;
 
@@ -263,10 +263,10 @@ export interface IUniswapV2PairInterface extends utils.Interface {
 export interface ApprovalEventObject {
   owner: string;
   spender: string;
-  value: BigNumber;
+  value: bigint;
 }
 export type ApprovalEvent = TypedEvent<
-  [string, string, BigNumber],
+  [string, string, BigInt],
   ApprovalEventObject
 >;
 
@@ -274,12 +274,12 @@ export type ApprovalEventFilter = TypedEventFilter<ApprovalEvent>;
 
 export interface BurnEventObject {
   sender: string;
-  amount0: BigNumber;
-  amount1: BigNumber;
+  amount0: bigint;
+  amount1: bigint;
   to: string;
 }
 export type BurnEvent = TypedEvent<
-  [string, BigNumber, BigNumber, string],
+  [string, BigInt, BigInt, string],
   BurnEventObject
 >;
 
@@ -287,11 +287,11 @@ export type BurnEventFilter = TypedEventFilter<BurnEvent>;
 
 export interface MintEventObject {
   sender: string;
-  amount0: BigNumber;
-  amount1: BigNumber;
+  amount0: bigint;
+  amount1: bigint;
 }
 export type MintEvent = TypedEvent<
-  [string, BigNumber, BigNumber],
+  [string, BigInt, BigInt],
   MintEventObject
 >;
 
@@ -299,34 +299,34 @@ export type MintEventFilter = TypedEventFilter<MintEvent>;
 
 export interface SwapEventObject {
   sender: string;
-  amount0In: BigNumber;
-  amount1In: BigNumber;
-  amount0Out: BigNumber;
-  amount1Out: BigNumber;
+  amount0In: bigint;
+  amount1In: bigint;
+  amount0Out: bigint;
+  amount1Out: bigint;
   to: string;
 }
 export type SwapEvent = TypedEvent<
-  [string, BigNumber, BigNumber, BigNumber, BigNumber, string],
+  [string, BigInt, BigInt, BigInt, BigInt, string],
   SwapEventObject
 >;
 
 export type SwapEventFilter = TypedEventFilter<SwapEvent>;
 
 export interface SyncEventObject {
-  reserve0: BigNumber;
-  reserve1: BigNumber;
+  reserve0: bigint;
+  reserve1: bigint;
 }
-export type SyncEvent = TypedEvent<[BigNumber, BigNumber], SyncEventObject>;
+export type SyncEvent = TypedEvent<[BigInt, BigInt], SyncEventObject>;
 
 export type SyncEventFilter = TypedEventFilter<SyncEvent>;
 
 export interface TransferEventObject {
   from: string;
   to: string;
-  value: BigNumber;
+  value: bigint;
 }
 export type TransferEvent = TypedEvent<
-  [string, string, BigNumber],
+  [string, string, BigInt],
   TransferEventObject
 >;
 
@@ -361,7 +361,7 @@ export interface IUniswapV2Pair extends BaseContract {
   functions: {
     DOMAIN_SEPARATOR(overrides?: CallOverrides): Promise<[string]>;
 
-    MINIMUM_LIQUIDITY(overrides?: CallOverrides): Promise<[BigNumber]>;
+    MINIMUM_LIQUIDITY(overrides?: CallOverrides): Promise<[BigInt]>;
 
     PERMIT_TYPEHASH(overrides?: CallOverrides): Promise<[string]>;
 
@@ -369,18 +369,18 @@ export interface IUniswapV2Pair extends BaseContract {
       owner: PromiseOrValue<string>,
       spender: PromiseOrValue<string>,
       overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    ): Promise<[BigInt]>;
 
     approve(
       spender: PromiseOrValue<string>,
-      value: PromiseOrValue<BigNumberish>,
+      value: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
     balanceOf(
       owner: PromiseOrValue<string>,
       overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    ): Promise<[BigInt]>;
 
     burn(
       to: PromiseOrValue<string>,
@@ -394,9 +394,9 @@ export interface IUniswapV2Pair extends BaseContract {
     getReserves(
       overrides?: CallOverrides
     ): Promise<
-      [BigNumber, BigNumber, number] & {
-        reserve0: BigNumber;
-        reserve1: BigNumber;
+      [BigInt, BigInt, number] & {
+        reserve0: bigint;
+        reserve1: bigint;
         blockTimestampLast: number;
       }
     >;
@@ -407,7 +407,7 @@ export interface IUniswapV2Pair extends BaseContract {
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
-    kLast(overrides?: CallOverrides): Promise<[BigNumber]>;
+    kLast(overrides?: CallOverrides): Promise<[BigInt]>;
 
     mint(
       to: PromiseOrValue<string>,
@@ -419,22 +419,22 @@ export interface IUniswapV2Pair extends BaseContract {
     nonces(
       owner: PromiseOrValue<string>,
       overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    ): Promise<[BigInt]>;
 
     permit(
       owner: PromiseOrValue<string>,
       spender: PromiseOrValue<string>,
-      value: PromiseOrValue<BigNumberish>,
-      deadline: PromiseOrValue<BigNumberish>,
-      v: PromiseOrValue<BigNumberish>,
+      value: PromiseOrValue<BigIntish>,
+      deadline: PromiseOrValue<BigIntish>,
+      v: PromiseOrValue<BigIntish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
-    price0CumulativeLast(overrides?: CallOverrides): Promise<[BigNumber]>;
+    price0CumulativeLast(overrides?: CallOverrides): Promise<[BigInt]>;
 
-    price1CumulativeLast(overrides?: CallOverrides): Promise<[BigNumber]>;
+    price1CumulativeLast(overrides?: CallOverrides): Promise<[BigInt]>;
 
     skim(
       to: PromiseOrValue<string>,
@@ -442,8 +442,8 @@ export interface IUniswapV2Pair extends BaseContract {
     ): Promise<ContractTransaction>;
 
     swap(
-      amount0Out: PromiseOrValue<BigNumberish>,
-      amount1Out: PromiseOrValue<BigNumberish>,
+      amount0Out: PromiseOrValue<BigIntish>,
+      amount1Out: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
       data: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -459,25 +459,25 @@ export interface IUniswapV2Pair extends BaseContract {
 
     token1(overrides?: CallOverrides): Promise<[string]>;
 
-    totalSupply(overrides?: CallOverrides): Promise<[BigNumber]>;
+    totalSupply(overrides?: CallOverrides): Promise<[BigInt]>;
 
     transfer(
       to: PromiseOrValue<string>,
-      value: PromiseOrValue<BigNumberish>,
+      value: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
     transferFrom(
       from: PromiseOrValue<string>,
       to: PromiseOrValue<string>,
-      value: PromiseOrValue<BigNumberish>,
+      value: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
   };
 
   DOMAIN_SEPARATOR(overrides?: CallOverrides): Promise<string>;
 
-  MINIMUM_LIQUIDITY(overrides?: CallOverrides): Promise<BigNumber>;
+  MINIMUM_LIQUIDITY(overrides?: CallOverrides): Promise<BigInt>;
 
   PERMIT_TYPEHASH(overrides?: CallOverrides): Promise<string>;
 
@@ -485,18 +485,18 @@ export interface IUniswapV2Pair extends BaseContract {
     owner: PromiseOrValue<string>,
     spender: PromiseOrValue<string>,
     overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  ): Promise<BigInt>;
 
   approve(
     spender: PromiseOrValue<string>,
-    value: PromiseOrValue<BigNumberish>,
+    value: PromiseOrValue<BigIntish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   balanceOf(
     owner: PromiseOrValue<string>,
     overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  ): Promise<BigInt>;
 
   burn(
     to: PromiseOrValue<string>,
@@ -510,9 +510,9 @@ export interface IUniswapV2Pair extends BaseContract {
   getReserves(
     overrides?: CallOverrides
   ): Promise<
-    [BigNumber, BigNumber, number] & {
-      reserve0: BigNumber;
-      reserve1: BigNumber;
+    [BigInt, BigInt, number] & {
+      reserve0: bigint;
+      reserve1: bigint;
       blockTimestampLast: number;
     }
   >;
@@ -523,7 +523,7 @@ export interface IUniswapV2Pair extends BaseContract {
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
-  kLast(overrides?: CallOverrides): Promise<BigNumber>;
+  kLast(overrides?: CallOverrides): Promise<BigInt>;
 
   mint(
     to: PromiseOrValue<string>,
@@ -535,22 +535,22 @@ export interface IUniswapV2Pair extends BaseContract {
   nonces(
     owner: PromiseOrValue<string>,
     overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  ): Promise<BigInt>;
 
   permit(
     owner: PromiseOrValue<string>,
     spender: PromiseOrValue<string>,
-    value: PromiseOrValue<BigNumberish>,
-    deadline: PromiseOrValue<BigNumberish>,
-    v: PromiseOrValue<BigNumberish>,
+    value: PromiseOrValue<BigIntish>,
+    deadline: PromiseOrValue<BigIntish>,
+    v: PromiseOrValue<BigIntish>,
     r: PromiseOrValue<BytesLike>,
     s: PromiseOrValue<BytesLike>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
-  price0CumulativeLast(overrides?: CallOverrides): Promise<BigNumber>;
+  price0CumulativeLast(overrides?: CallOverrides): Promise<BigInt>;
 
-  price1CumulativeLast(overrides?: CallOverrides): Promise<BigNumber>;
+  price1CumulativeLast(overrides?: CallOverrides): Promise<BigInt>;
 
   skim(
     to: PromiseOrValue<string>,
@@ -558,8 +558,8 @@ export interface IUniswapV2Pair extends BaseContract {
   ): Promise<ContractTransaction>;
 
   swap(
-    amount0Out: PromiseOrValue<BigNumberish>,
-    amount1Out: PromiseOrValue<BigNumberish>,
+    amount0Out: PromiseOrValue<BigIntish>,
+    amount1Out: PromiseOrValue<BigIntish>,
     to: PromiseOrValue<string>,
     data: PromiseOrValue<BytesLike>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -575,25 +575,25 @@ export interface IUniswapV2Pair extends BaseContract {
 
   token1(overrides?: CallOverrides): Promise<string>;
 
-  totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
+  totalSupply(overrides?: CallOverrides): Promise<BigInt>;
 
   transfer(
     to: PromiseOrValue<string>,
-    value: PromiseOrValue<BigNumberish>,
+    value: PromiseOrValue<BigIntish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   transferFrom(
     from: PromiseOrValue<string>,
     to: PromiseOrValue<string>,
-    value: PromiseOrValue<BigNumberish>,
+    value: PromiseOrValue<BigIntish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   callStatic: {
     DOMAIN_SEPARATOR(overrides?: CallOverrides): Promise<string>;
 
-    MINIMUM_LIQUIDITY(overrides?: CallOverrides): Promise<BigNumber>;
+    MINIMUM_LIQUIDITY(overrides?: CallOverrides): Promise<BigInt>;
 
     PERMIT_TYPEHASH(overrides?: CallOverrides): Promise<string>;
 
@@ -601,24 +601,24 @@ export interface IUniswapV2Pair extends BaseContract {
       owner: PromiseOrValue<string>,
       spender: PromiseOrValue<string>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     approve(
       spender: PromiseOrValue<string>,
-      value: PromiseOrValue<BigNumberish>,
+      value: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<boolean>;
 
     balanceOf(
       owner: PromiseOrValue<string>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     burn(
       to: PromiseOrValue<string>,
       overrides?: CallOverrides
     ): Promise<
-      [BigNumber, BigNumber] & { amount0: BigNumber; amount1: BigNumber }
+      [BigInt, BigInt] & { amount0: bigint; amount1: bigint }
     >;
 
     decimals(overrides?: CallOverrides): Promise<number>;
@@ -628,9 +628,9 @@ export interface IUniswapV2Pair extends BaseContract {
     getReserves(
       overrides?: CallOverrides
     ): Promise<
-      [BigNumber, BigNumber, number] & {
-        reserve0: BigNumber;
-        reserve1: BigNumber;
+      [BigInt, BigInt, number] & {
+        reserve0: bigint;
+        reserve1: bigint;
         blockTimestampLast: number;
       }
     >;
@@ -641,40 +641,40 @@ export interface IUniswapV2Pair extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
-    kLast(overrides?: CallOverrides): Promise<BigNumber>;
+    kLast(overrides?: CallOverrides): Promise<BigInt>;
 
     mint(
       to: PromiseOrValue<string>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     name(overrides?: CallOverrides): Promise<string>;
 
     nonces(
       owner: PromiseOrValue<string>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     permit(
       owner: PromiseOrValue<string>,
       spender: PromiseOrValue<string>,
-      value: PromiseOrValue<BigNumberish>,
-      deadline: PromiseOrValue<BigNumberish>,
-      v: PromiseOrValue<BigNumberish>,
+      value: PromiseOrValue<BigIntish>,
+      deadline: PromiseOrValue<BigIntish>,
+      v: PromiseOrValue<BigIntish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
       overrides?: CallOverrides
     ): Promise<void>;
 
-    price0CumulativeLast(overrides?: CallOverrides): Promise<BigNumber>;
+    price0CumulativeLast(overrides?: CallOverrides): Promise<BigInt>;
 
-    price1CumulativeLast(overrides?: CallOverrides): Promise<BigNumber>;
+    price1CumulativeLast(overrides?: CallOverrides): Promise<BigInt>;
 
     skim(to: PromiseOrValue<string>, overrides?: CallOverrides): Promise<void>;
 
     swap(
-      amount0Out: PromiseOrValue<BigNumberish>,
-      amount1Out: PromiseOrValue<BigNumberish>,
+      amount0Out: PromiseOrValue<BigIntish>,
+      amount1Out: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
       data: PromiseOrValue<BytesLike>,
       overrides?: CallOverrides
@@ -688,18 +688,18 @@ export interface IUniswapV2Pair extends BaseContract {
 
     token1(overrides?: CallOverrides): Promise<string>;
 
-    totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
+    totalSupply(overrides?: CallOverrides): Promise<BigInt>;
 
     transfer(
       to: PromiseOrValue<string>,
-      value: PromiseOrValue<BigNumberish>,
+      value: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<boolean>;
 
     transferFrom(
       from: PromiseOrValue<string>,
       to: PromiseOrValue<string>,
-      value: PromiseOrValue<BigNumberish>,
+      value: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<boolean>;
   };
@@ -773,112 +773,112 @@ export interface IUniswapV2Pair extends BaseContract {
   };
 
   estimateGas: {
-    DOMAIN_SEPARATOR(overrides?: CallOverrides): Promise<BigNumber>;
+    DOMAIN_SEPARATOR(overrides?: CallOverrides): Promise<BigInt>;
 
-    MINIMUM_LIQUIDITY(overrides?: CallOverrides): Promise<BigNumber>;
+    MINIMUM_LIQUIDITY(overrides?: CallOverrides): Promise<BigInt>;
 
-    PERMIT_TYPEHASH(overrides?: CallOverrides): Promise<BigNumber>;
+    PERMIT_TYPEHASH(overrides?: CallOverrides): Promise<BigInt>;
 
     allowance(
       owner: PromiseOrValue<string>,
       spender: PromiseOrValue<string>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     approve(
       spender: PromiseOrValue<string>,
-      value: PromiseOrValue<BigNumberish>,
+      value: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     balanceOf(
       owner: PromiseOrValue<string>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     burn(
       to: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
-    decimals(overrides?: CallOverrides): Promise<BigNumber>;
+    decimals(overrides?: CallOverrides): Promise<BigInt>;
 
-    factory(overrides?: CallOverrides): Promise<BigNumber>;
+    factory(overrides?: CallOverrides): Promise<BigInt>;
 
-    getReserves(overrides?: CallOverrides): Promise<BigNumber>;
+    getReserves(overrides?: CallOverrides): Promise<BigInt>;
 
     initialize(
       arg0: PromiseOrValue<string>,
       arg1: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
-    kLast(overrides?: CallOverrides): Promise<BigNumber>;
+    kLast(overrides?: CallOverrides): Promise<BigInt>;
 
     mint(
       to: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
-    name(overrides?: CallOverrides): Promise<BigNumber>;
+    name(overrides?: CallOverrides): Promise<BigInt>;
 
     nonces(
       owner: PromiseOrValue<string>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     permit(
       owner: PromiseOrValue<string>,
       spender: PromiseOrValue<string>,
-      value: PromiseOrValue<BigNumberish>,
-      deadline: PromiseOrValue<BigNumberish>,
-      v: PromiseOrValue<BigNumberish>,
+      value: PromiseOrValue<BigIntish>,
+      deadline: PromiseOrValue<BigIntish>,
+      v: PromiseOrValue<BigIntish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
-    price0CumulativeLast(overrides?: CallOverrides): Promise<BigNumber>;
+    price0CumulativeLast(overrides?: CallOverrides): Promise<BigInt>;
 
-    price1CumulativeLast(overrides?: CallOverrides): Promise<BigNumber>;
+    price1CumulativeLast(overrides?: CallOverrides): Promise<BigInt>;
 
     skim(
       to: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     swap(
-      amount0Out: PromiseOrValue<BigNumberish>,
-      amount1Out: PromiseOrValue<BigNumberish>,
+      amount0Out: PromiseOrValue<BigIntish>,
+      amount1Out: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
       data: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
-    symbol(overrides?: CallOverrides): Promise<BigNumber>;
+    symbol(overrides?: CallOverrides): Promise<BigInt>;
 
     sync(
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
-    token0(overrides?: CallOverrides): Promise<BigNumber>;
+    token0(overrides?: CallOverrides): Promise<BigInt>;
 
-    token1(overrides?: CallOverrides): Promise<BigNumber>;
+    token1(overrides?: CallOverrides): Promise<BigInt>;
 
-    totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
+    totalSupply(overrides?: CallOverrides): Promise<BigInt>;
 
     transfer(
       to: PromiseOrValue<string>,
-      value: PromiseOrValue<BigNumberish>,
+      value: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     transferFrom(
       from: PromiseOrValue<string>,
       to: PromiseOrValue<string>,
-      value: PromiseOrValue<BigNumberish>,
+      value: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
   };
 
   populateTransaction: {
@@ -896,7 +896,7 @@ export interface IUniswapV2Pair extends BaseContract {
 
     approve(
       spender: PromiseOrValue<string>,
-      value: PromiseOrValue<BigNumberish>,
+      value: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
@@ -939,9 +939,9 @@ export interface IUniswapV2Pair extends BaseContract {
     permit(
       owner: PromiseOrValue<string>,
       spender: PromiseOrValue<string>,
-      value: PromiseOrValue<BigNumberish>,
-      deadline: PromiseOrValue<BigNumberish>,
-      v: PromiseOrValue<BigNumberish>,
+      value: PromiseOrValue<BigIntish>,
+      deadline: PromiseOrValue<BigIntish>,
+      v: PromiseOrValue<BigIntish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -961,8 +961,8 @@ export interface IUniswapV2Pair extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     swap(
-      amount0Out: PromiseOrValue<BigNumberish>,
-      amount1Out: PromiseOrValue<BigNumberish>,
+      amount0Out: PromiseOrValue<BigIntish>,
+      amount1Out: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
       data: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -982,14 +982,14 @@ export interface IUniswapV2Pair extends BaseContract {
 
     transfer(
       to: PromiseOrValue<string>,
-      value: PromiseOrValue<BigNumberish>,
+      value: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
     transferFrom(
       from: PromiseOrValue<string>,
       to: PromiseOrValue<string>,
-      value: PromiseOrValue<BigNumberish>,
+      value: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
   };

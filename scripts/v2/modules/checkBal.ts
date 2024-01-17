@@ -1,4 +1,4 @@
-import { BigNumber, Contract, ethers } from 'ethers'
+import {  Contract, ethers } from 'ethers'
 import { provider, flashwallet } from '../../../constants/contract'
 import { deployedMap, gasTokens, uniswapV2Factory } from '../../../constants/addresses'
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
@@ -35,7 +35,7 @@ export async function checkBal(token0: string, token0dec: number, token1: string
 }
 // checkBal("0x2791bca1f2de4661ed88a30c99a7a9449aa84174", 6, "0x67eb41a14c0fe5cd701fc9d5a3d6597a72f641a6", 18);
 
-export async function checkGasBal(): Promise<BigNumber> {
+export async function checkGasBal(): Promise<BigInt> {
 	const wmatictoken = new ethers.Contract("0x0000000000000000000000000000000000001010", IERC20, provider)
 	const walletbalanceMatic = await wmatictoken.balanceOf(flashwallet)
 	// console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(walletbalanceMatic, 18) + " " + "MATIC")

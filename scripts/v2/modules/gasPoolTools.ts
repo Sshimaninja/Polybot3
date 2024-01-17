@@ -1,4 +1,4 @@
-import { BigNumber, ethers, Contract } from "ethers";
+import {  ethers, Contract } from "ethers";
 import { wallet } from "../../../constants/contract";
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
 import { logger } from "../../../constants/contract";

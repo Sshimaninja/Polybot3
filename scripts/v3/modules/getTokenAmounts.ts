@@ -1,4 +1,4 @@
-// import { ethers, utils, BigNumber, Contract } from "ethers";
+// import { ethers, utils, BigInt, Contract } from "ethers";
 // import { PoolData } from "./getPoolData";
 // import { BigNumber as BN } from "bignumber.js";
 // import { wallet } from '../../../constants/contract'
@@ -7,7 +7,7 @@
 
 
 // export class Liquidity {
-// 	static liquidity: BigNumber[] = [];
+// 	static liquidity: bigint[] = [];
 // 	poolInfo: PoolInfo;
 // 	pool: Contract;
 // 	token0: ERC20token;
@@ -27,7 +27,7 @@
 
 // 		// const slot0 = await this.pool.slot0();
 // 		// const sqrtPriceX96 = slot0.sqrtPriceX96;
-// 		// const Q96 = ethers.BigNumber.from(2).pow(96);
+// 		// const Q96 = ethers.BigInt.from(2).pow(96);
 // 		// const sqrtPrice = sqrtPriceX96.mul(Q96).div(Q96);
 
 // 		// let currentTick = slot0.tick;

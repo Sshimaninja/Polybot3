@@ -1,8 +1,9 @@
-import { BigNumber, Contract, utils } from "ethers";
+import {  Contract } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { tradeToPrice } from './tradeMath';
 import { Match3Pools, Pair, PoolState } from "../../../constants/interfaces";
 import { Token } from "../../../constants/interfaces";
+import { pu } from "../../modules/convertBN";
 
 /**
  * @description
@@ -29,26 +30,26 @@ export class AmountConverter {
 	 */
 	// tradeToPrice gets a mid-level between price of pool and target price, and returns the amount of token0 needed to reach that price
 	// can be limited by slippageTolerance if uniswap returns 'EXCESSIVE_INPUT_AMOUNT'
-	async tradeToPrice(): Promise<BigNumber> {
+	async tradeToPrice(): Promise<BigInt> {
 		const avgPrice = this.state.priceOutBN.plus(this.targetPrice).div(2);// average of two prices
 		const tradeSize = await tradeToPrice(this.state.priceOutBN, avgPrice, this.state.liquidityBN);
 		const maxSize = tradeSize.times(this.slip)
 		// console.log('tradeSize: ', tradeSize.toFixed(this.match.token0.decimals));//DEBUG
-		const tradeSizeJS = utils.parseUnits(maxSize.toFixed(this.match.token0.decimals), this.match.token0.decimals);
+		const tradeSizeJS = pu(maxSize.toFixed(this.match.token0.decimals), this.match.token0.decimals);
 		// console.log('tradeSizeJS: ', utils.formatUnits(tradeSizeJS, this.match.token0.decimals));//DEBUG
 		return tradeSizeJS;
 	}
 
 	// Adds Uniswap V3 trade fee to any amount
-	async addFee(amount: BigNumber): Promise<BigNumber> {
-		const feeFactor = BigNumber.from(1).add(this.fee).div(100000); // Convert fee to a factor
-		const repay = amount.mul(feeFactor.mul(1000)).div(1000); // Apply fee
+	async addFee(amount: bigint): Promise<BigInt> {
+		const feeFactor = 1n + BigInt(this.fee) / (100000n); // Convert fee to a factor
+		const repay = amount * (feeFactor * (1000n))/(1000n); // Apply fee
 		return repay; //in token0
 	}
 
 	// // Adds slippage to any amount
-	// async addSlippage(amount: BigNumber): Promise<BigNumber> {
-	// 	const slippageFactor = BigNumber.from(1).add(this.slip).div(100000); // Convert slippage to a factor
+	// async addSlippage(amount: bigint): Promise<BigInt> {
+	// 	const slippageFactor = BigInt.from(1).add(this.slip).div(100000); // Convert slippage to a factor
 	// 	const amountWithSlippage = amount.mul(slippageFactor.mul(1000)).div(1000); // Apply slippage
 	// 	return amountWithSlippage; //in token0
 	// }

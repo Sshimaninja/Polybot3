@@ -1,15 +1,14 @@
-# TODO: Update Dependencies:
+# TODO: Update to ES2020 BigInt
 
-npm WARN deprecated request-promise-native@1.0.9: request-promise-native has been deprecated because it extends the now deprecated request package, see https://github.com/request/request/issues/3142
-npm WARN deprecated har-validator@5.1.5: this library is no longer supported
-npm WARN deprecated request-promise@4.2.6: request-promise has been deprecated because it extends the now deprecated request package, see https://github.com/request/request/issues/3142
-npm WARN deprecated argv@0.0.2: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
-npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
-npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
-npm WARN deprecated @uniswap/v3-staker@1.0.0: Please upgrade to 1.0.1
-npm WARN deprecated codecov@3.8.3: https://about.codecov.io/blog/codecov-uploader-deprecation-plan/
-npm WARN deprecated @openzeppelin/platform-deploy-client@0.8.0: @openzeppelin/platform-deploy-client is deprecated. Please use @openzeppelin/defender-sdk-deploy-client
-npm WARN deprecated @nomiclabs/hardhat-etherscan@3.1.8: The @nomiclabs/hardhat-etherscan package is deprecated, please use @nomicfoundation/hardhat-verify instead
+## ethers.utils.parseUnits() example in BigInt:
+
+	const baseValue = BigInt(10) ** BigInt(18);
+	const humanReadableNumber = BigInt("10000");
+
+	const result = humanReadableNumber * baseValue;
+
+	console.log(result.toString()); // Print the result as a string
+
 
 
 # Commands: 

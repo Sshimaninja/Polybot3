@@ -4,7 +4,7 @@ import { fitFee } from './fitFee';
 import { chainID } from '../../../constants/addresses'
 import { abi as IERC20 } from '../../../interfaces/IERC20.json';
 import { abi as IUniswapV3PoolABI } from '@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json'
-import { ethers, utils, BigNumber, Contract } from "ethers";
+import { ethers, utils, BigInt, Contract } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { wallet, provider } from '../../../constants/contract'
 import { ReservesData, PoolState, PoolInfo, ERC20token, Slot0 } from "../../../constants/interfaces";
@@ -17,7 +17,7 @@ import { BN2JS, fu, pu } from "../../modules/convertBN";
 import { Pool, TickMath, TickListDataProvider, SwapMath, TickDataProvider, Position, Tick } from '@uniswap/v3-sdk';
 
 export class PoolData {
-	static liquidity: BigNumber[] = [];
+	static liquidity: bigint[] = [];
 	poolInfo: PoolInfo;
 	pool: Contract;
 	token0: ERC20token;

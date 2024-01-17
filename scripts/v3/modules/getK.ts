@@ -1,4 +1,4 @@
-import { BigNumber } from "ethers";
+import { BigInt } from "ethers";
 import { Bool3Trade, K, PoolState } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter"
 import { BN2JS } from "../../modules/convertBN";
@@ -17,8 +17,8 @@ export async function getK(trade: Bool3Trade, state: PoolState, calc: AmountConv
 	const tt = trade.target;
 
 	let kalc = {
-		uniswapKPre: BigNumber.from(0),
-		uniswapKPost: BigNumber.from(0),
+		uniswapKPre: 0n,
+		uniswapKPost: 0n,
 		uniswapKPositive: false,
 	}
 	const tradeSizewithFee = await calc.addFee(tt.tradeSize);
@@ -57,8 +57,8 @@ export async function getK(trade: Bool3Trade, state: PoolState, calc: AmountConv
 			tl.state.reservesIn.add(tradeSizewithFee).mul(tl.state.reservesOut),
 		uniswapKPositive: false,
 	} : {
-		uniswapKPre: BigNumber.from(0),
-		uniswapKPost: BigNumber.from(0),
+		uniswapKPre: 0n,
+		uniswapKPost: 0n,
 		uniswapKPositive: false,
 	}
 

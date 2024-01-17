@@ -3,8 +3,8 @@
 /* eslint-disable */
 import type {
   BaseContract,
-  BigNumber,
-  BigNumberish,
+  BigInt,
+  BigIntish,
   BytesLike,
   CallOverrides,
   ContractTransaction,
@@ -33,8 +33,8 @@ export interface IUniswapV2PairInterface extends utils.Interface {
   encodeFunctionData(
     functionFragment: "swap",
     values: [
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<string>,
       PromiseOrValue<BytesLike>
     ]
@@ -73,8 +73,8 @@ export interface IUniswapV2Pair extends BaseContract {
 
   functions: {
     swap(
-      amount0Out: PromiseOrValue<BigNumberish>,
-      amount1Out: PromiseOrValue<BigNumberish>,
+      amount0Out: PromiseOrValue<BigIntish>,
+      amount1Out: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
       data: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -82,8 +82,8 @@ export interface IUniswapV2Pair extends BaseContract {
   };
 
   swap(
-    amount0Out: PromiseOrValue<BigNumberish>,
-    amount1Out: PromiseOrValue<BigNumberish>,
+    amount0Out: PromiseOrValue<BigIntish>,
+    amount1Out: PromiseOrValue<BigIntish>,
     to: PromiseOrValue<string>,
     data: PromiseOrValue<BytesLike>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -91,8 +91,8 @@ export interface IUniswapV2Pair extends BaseContract {
 
   callStatic: {
     swap(
-      amount0Out: PromiseOrValue<BigNumberish>,
-      amount1Out: PromiseOrValue<BigNumberish>,
+      amount0Out: PromiseOrValue<BigIntish>,
+      amount1Out: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
       data: PromiseOrValue<BytesLike>,
       overrides?: CallOverrides
@@ -103,18 +103,18 @@ export interface IUniswapV2Pair extends BaseContract {
 
   estimateGas: {
     swap(
-      amount0Out: PromiseOrValue<BigNumberish>,
-      amount1Out: PromiseOrValue<BigNumberish>,
+      amount0Out: PromiseOrValue<BigIntish>,
+      amount1Out: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
       data: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
   };
 
   populateTransaction: {
     swap(
-      amount0Out: PromiseOrValue<BigNumberish>,
-      amount1Out: PromiseOrValue<BigNumberish>,
+      amount0Out: PromiseOrValue<BigIntish>,
+      amount1Out: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
       data: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }

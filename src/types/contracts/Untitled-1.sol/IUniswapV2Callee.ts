@@ -3,8 +3,8 @@
 /* eslint-disable */
 import type {
   BaseContract,
-  BigNumber,
-  BigNumberish,
+  BigInt,
+  BigIntish,
   BytesLike,
   CallOverrides,
   ContractTransaction,
@@ -34,8 +34,8 @@ export interface IUniswapV2CalleeInterface extends utils.Interface {
     functionFragment: "uniswapV2Call",
     values: [
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<BytesLike>
     ]
   ): string;
@@ -77,8 +77,8 @@ export interface IUniswapV2Callee extends BaseContract {
   functions: {
     uniswapV2Call(
       sender: PromiseOrValue<string>,
-      amount0: PromiseOrValue<BigNumberish>,
-      amount1: PromiseOrValue<BigNumberish>,
+      amount0: PromiseOrValue<BigIntish>,
+      amount1: PromiseOrValue<BigIntish>,
       data: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
@@ -86,8 +86,8 @@ export interface IUniswapV2Callee extends BaseContract {
 
   uniswapV2Call(
     sender: PromiseOrValue<string>,
-    amount0: PromiseOrValue<BigNumberish>,
-    amount1: PromiseOrValue<BigNumberish>,
+    amount0: PromiseOrValue<BigIntish>,
+    amount1: PromiseOrValue<BigIntish>,
     data: PromiseOrValue<BytesLike>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
@@ -95,8 +95,8 @@ export interface IUniswapV2Callee extends BaseContract {
   callStatic: {
     uniswapV2Call(
       sender: PromiseOrValue<string>,
-      amount0: PromiseOrValue<BigNumberish>,
-      amount1: PromiseOrValue<BigNumberish>,
+      amount0: PromiseOrValue<BigIntish>,
+      amount1: PromiseOrValue<BigIntish>,
       data: PromiseOrValue<BytesLike>,
       overrides?: CallOverrides
     ): Promise<void>;
@@ -107,18 +107,18 @@ export interface IUniswapV2Callee extends BaseContract {
   estimateGas: {
     uniswapV2Call(
       sender: PromiseOrValue<string>,
-      amount0: PromiseOrValue<BigNumberish>,
-      amount1: PromiseOrValue<BigNumberish>,
+      amount0: PromiseOrValue<BigIntish>,
+      amount1: PromiseOrValue<BigIntish>,
       data: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
   };
 
   populateTransaction: {
     uniswapV2Call(
       sender: PromiseOrValue<string>,
-      amount0: PromiseOrValue<BigNumberish>,
-      amount1: PromiseOrValue<BigNumberish>,
+      amount0: PromiseOrValue<BigIntish>,
+      amount1: PromiseOrValue<BigIntish>,
       data: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;

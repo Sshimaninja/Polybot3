@@ -1,9 +1,8 @@
-import { BigNumber, BigNumberish } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { Profcalcs, V3Repays, Bool3Trade } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter";
 import { V3Quote } from "./V3Quote2";
-import { JS2BN, BN2JS, fu, pu } from "../../modules/convertBN";
+import { BigInt2BN, BN2BigInt, fu, pu } from "../../modules/convertBN";
 
 
 export class PopulateRepays {
@@ -16,7 +15,7 @@ export class PopulateRepays {
 		this.q = quote
 	}
 
-	async getMulti(): Promise<{ repays: V3Repays, profits: { profit: BigNumber, profitPercent: BN } }> {
+	async getMulti(): Promise<{ repays: V3Repays, profits: { profit: bigint, profitPercent: BN } }> {
 		/*
 		I have to send back only the amount of token1 needed to repay the amount of token0 I was loaned.
 		Thus I need to calculate the exact amount of token1 that this.tradeSize in tokenOut represents on loanPool, 
@@ -48,13 +47,13 @@ export class PopulateRepays {
 			let repay = repays.repay;
 			// this must be re-assigned to be accurate, if you re-assign this.trade.loanPool.amountRepay below. The correct amountRepay should be decided upon and this message should be removed.
 			// if (repay.lt(this.trade.target.amountOut)) {
-			let profit: Profcalcs = { profit: BigNumber.from(0), profitPercent: BN(0) };
-			profit.profit = this.trade.target.amountOut.sub(repay);
-			const profitBN = JS2BN(profit.profit, this.trade.tokenOut.decimals);
-			profit.profitPercent = this.trade.target.amountOut.gt(0) ? profitBN.dividedBy(fu(this.trade.target.amountOut, this.trade.tokenOut.decimals)).multipliedBy(100) : BN(0);
+			let profit: Profcalcs = { profit: 0n, profitPercent: BN(0) };
+			profit.profit = this.trade.target.amountOut - (repay);
+			const profitBN = BigInt2BN(profit.profit, this.trade.tokenOut.decimals);
+			profit.profitPercent = this.trade.target.amountOut> (0) ? profitBN.dividedBy(fu(this.trade.target.amountOut, this.trade.tokenOut.decimals)).multipliedBy(100) : BN(0);
 			return profit;
 			// } else {
-			// 	return { profit: BigNumber.from(0), profitPercent: BN(0) };
+			// 	return { profit: 0n, profitPercent: BN(0) };
 			// }
 		}
 
@@ -64,7 +63,7 @@ export class PopulateRepays {
 	}
 
 
-	async getDirect(): Promise<{ repay: BigNumber, profit: BigNumber, percentProfit: BN }> {
+	async getDirect(): Promise<{ repay: bigint, profit: bigint, percentProfit: BN }> {
 
 		const repay = this.trade.target.tradeSize;//must add fee from pool v3 to this.
 
@@ -72,9 +71,9 @@ export class PopulateRepays {
 			repay,
 		);
 		const directRepayLoanPoolInTokenOutWithFee = await this.calc.addFee(directRepayLoanPoolInTokenOut);
-		const profit = this.trade.target.amountOut.sub(directRepayLoanPoolInTokenOutWithFee); // profit is remainder of token1 out
-		const profitBN = JS2BN(profit, this.trade.tokenOut.decimals);
-		const percentProfit = this.trade.target.amountOut.gt(0) ? profitBN.dividedBy(fu(this.trade.target.amountOut, this.trade.tokenOut.decimals)).multipliedBy(100) : BN(0);
+		const profit = this.trade.target.amountOut -(directRepayLoanPoolInTokenOutWithFee); // profit is remainder of token1 out
+		const profitBN = BigInt2BN(profit, this.trade.tokenOut.decimals);
+		const percentProfit = this.trade.target.amountOut > (0) ? profitBN.dividedBy(fu(this.trade.target.amountOut, this.trade.tokenOut.decimals)).multipliedBy(100) : BN(0);
 		return { repay, profit, percentProfit };
 	}
 

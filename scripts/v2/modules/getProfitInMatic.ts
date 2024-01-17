@@ -1,4 +1,4 @@
-import { BigNumber, ethers, Contract } from "ethers";
+import {  ethers, Contract } from "ethers";
 import { BoolTrade } from "../../../constants/interfaces";
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
 import { getAmountsOut } from "./getAmountsIOLocal";
@@ -10,10 +10,10 @@ require("dotenv").config();
  * @description
  * This function returns the profit in Matic for a given trade.
  * @param trade
- * @returns MaticProfit{profitInMatic: BigNumber, gasPool: Contract}
+ * @returns MaticProfit{profitInMatic: bigint, gasPool: Contract}
  */
 interface MaticProfit {
-	profitInMatic: BigNumber,
+	profitInMatic: bigint,
 	gasPool: Contract
 }
 
@@ -41,7 +41,7 @@ export async function getProfitInMatic(trade: BoolTrade): Promise<MaticProfit> {
 	let g = await getgasPoolForTrade(trade)
 
 	if (g == undefined) {
-		let maticProfit = { profitInMatic: BigNumber.from(0), gasPool: new Contract(trade.target.pool.address, IPair, wallet) };
+		let maticProfit = { profitInMatic: 0n, gasPool: new Contract(trade.target.pool.address, IPair, wallet) };
 		return maticProfit
 	}
 
@@ -106,5 +106,5 @@ export async function getProfitInMatic(trade: BoolTrade): Promise<MaticProfit> {
 		}
 	}
 	// If none of the conditions are met, return a default MaticProfit object
-	return { profitInMatic: BigNumber.from(0), gasPool: new Contract(trade.target.pool.address, IPair, wallet) };
+	return { profitInMatic: 0n, gasPool: new Contract(trade.target.pool.address, IPair, wallet) };
 }

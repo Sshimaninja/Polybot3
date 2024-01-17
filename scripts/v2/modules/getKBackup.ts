@@ -1,4 +1,4 @@
-import { BigNumber } from "ethers";
+import { BigInt } from "ethers";
 import { K } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter"
 
@@ -9,10 +9,10 @@ import { AmountConverter } from "./amountConverter"
  * @returns Uniswap K before and after  and whether it is positive or negative
  */
 
-export async function getK(type: string, tradeSize: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber, calc: AmountConverter): Promise<K> {
+export async function getK(type: string, tradeSize: bigint, reserveIn: bigint, reserveOut: bigint, calc: AmountConverter): Promise<K> {
 	let kalc = {
-		uniswapKPre: BigNumber.from(0),
-		uniswapKPost: BigNumber.from(0),
+		uniswapKPre: 0n,
+		uniswapKPost: 0n,
 		uniswapKPositive: false,
 	}
 	const tradeSizewithFee = await calc.addFee(tradeSize);
@@ -50,8 +50,8 @@ export async function getK(type: string, tradeSize: BigNumber, reserveIn: BigNum
 		}
 	} else {
 		kalc = {
-			uniswapKPre: BigNumber.from(0),
-			uniswapKPost: BigNumber.from(0),
+			uniswapKPre: 0n,
+			uniswapKPost: 0n,
 			uniswapKPositive: false,
 		}
 	}
