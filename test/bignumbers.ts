@@ -1,5 +1,5 @@
 import { provider } from '../constants/contract';
-import { BigNumber, FixedNumber, utils, Contract } from 'ethers';
+import {  FixedNumber, utils, Contract } from 'ethers';
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
 import { BigNumber as BN } from "bignumber.js";
 
@@ -19,7 +19,7 @@ async function main() {
     console.log("token0dec: " + token0dec + "\ntoken0Dec: " + token1dec)
     const PRECISION = token0dec < token1dec ? token0dec : token1dec;
     //Exchange A pricing and reserves
-    // Using bignumber.js to format reserves and price instead of ethers.js BigNumber implementation:
+    // Using bignumber.js to format reserves and price instead of ethers.js BigInt implementation:
     const aReserve0 = aReserves[0]
     const aReserve1 = aReserves[1]
     var aReserve0Formatted = Number(utils.formatUnits(aReserve0, token0dec))

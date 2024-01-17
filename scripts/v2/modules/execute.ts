@@ -1,4 +1,4 @@
-import { BigNumber, ethers, utils, Contract, Wallet, Transaction, } from "ethers";
+import {  ethers, utils, Contract, Wallet, Transaction, } from "ethers";
 import { provider, signer, logger } from "../../../constants/contract";
 import { BoolTrade, Profit, TxData, V2Params, V2Tx, TxGas } from "../../../constants/interfaces";
 import { checkBal, checkGasBal } from "./checkBal";
@@ -64,6 +64,7 @@ export async function execute(
 				let gasEstimate = await fetchGasPrice(trade);
 				let gasObj: TxGas = {
 					type: 2,
+					gasPrice: profit.gas.gasPrice,
 					maxFeePerGas: Number(profit.gas.maxFee.mul('2')),
 					maxPriorityFeePerGas: Number(profit.gas.maxPriorityFee.mul('2')),
 					gasLimit: gasEstimate.gasEstimate.mul('10'),

@@ -3,8 +3,8 @@
 /* eslint-disable */
 import type {
   BaseContract,
-  BigNumber,
-  BigNumberish,
+  BigInt,
+  BigIntish,
   BytesLike,
   CallOverrides,
   PopulatedTransaction,
@@ -33,10 +33,10 @@ export interface UtilsInterface extends utils.Interface {
   encodeFunctionData(
     functionFragment: "computeProfitMaximizingTrade",
     values: [
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>
     ]
   ): string;
 
@@ -76,50 +76,50 @@ export interface Utils extends BaseContract {
 
   functions: {
     computeProfitMaximizingTrade(
-      truePriceTokenA: PromiseOrValue<BigNumberish>,
-      truePriceTokenB: PromiseOrValue<BigNumberish>,
-      reserveA: PromiseOrValue<BigNumberish>,
-      reserveB: PromiseOrValue<BigNumberish>,
+      truePriceTokenA: PromiseOrValue<BigIntish>,
+      truePriceTokenB: PromiseOrValue<BigIntish>,
+      reserveA: PromiseOrValue<BigIntish>,
+      reserveB: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
-    ): Promise<[boolean, BigNumber] & { aToB: boolean; amountIn: BigNumber }>;
+    ): Promise<[boolean, BigInt] & { aToB: boolean; amountIn: bigint }>;
   };
 
   computeProfitMaximizingTrade(
-    truePriceTokenA: PromiseOrValue<BigNumberish>,
-    truePriceTokenB: PromiseOrValue<BigNumberish>,
-    reserveA: PromiseOrValue<BigNumberish>,
-    reserveB: PromiseOrValue<BigNumberish>,
+    truePriceTokenA: PromiseOrValue<BigIntish>,
+    truePriceTokenB: PromiseOrValue<BigIntish>,
+    reserveA: PromiseOrValue<BigIntish>,
+    reserveB: PromiseOrValue<BigIntish>,
     overrides?: CallOverrides
-  ): Promise<[boolean, BigNumber] & { aToB: boolean; amountIn: BigNumber }>;
+  ): Promise<[boolean, BigInt] & { aToB: boolean; amountIn: bigint }>;
 
   callStatic: {
     computeProfitMaximizingTrade(
-      truePriceTokenA: PromiseOrValue<BigNumberish>,
-      truePriceTokenB: PromiseOrValue<BigNumberish>,
-      reserveA: PromiseOrValue<BigNumberish>,
-      reserveB: PromiseOrValue<BigNumberish>,
+      truePriceTokenA: PromiseOrValue<BigIntish>,
+      truePriceTokenB: PromiseOrValue<BigIntish>,
+      reserveA: PromiseOrValue<BigIntish>,
+      reserveB: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
-    ): Promise<[boolean, BigNumber] & { aToB: boolean; amountIn: BigNumber }>;
+    ): Promise<[boolean, BigInt] & { aToB: boolean; amountIn: bigint }>;
   };
 
   filters: {};
 
   estimateGas: {
     computeProfitMaximizingTrade(
-      truePriceTokenA: PromiseOrValue<BigNumberish>,
-      truePriceTokenB: PromiseOrValue<BigNumberish>,
-      reserveA: PromiseOrValue<BigNumberish>,
-      reserveB: PromiseOrValue<BigNumberish>,
+      truePriceTokenA: PromiseOrValue<BigIntish>,
+      truePriceTokenB: PromiseOrValue<BigIntish>,
+      reserveA: PromiseOrValue<BigIntish>,
+      reserveB: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
   };
 
   populateTransaction: {
     computeProfitMaximizingTrade(
-      truePriceTokenA: PromiseOrValue<BigNumberish>,
-      truePriceTokenB: PromiseOrValue<BigNumberish>,
-      reserveA: PromiseOrValue<BigNumberish>,
-      reserveB: PromiseOrValue<BigNumberish>,
+      truePriceTokenA: PromiseOrValue<BigIntish>,
+      truePriceTokenB: PromiseOrValue<BigIntish>,
+      reserveA: PromiseOrValue<BigIntish>,
+      reserveB: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
   };

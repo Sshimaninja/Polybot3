@@ -1,11 +1,11 @@
-import { BigNumber, Contract } from "ethers";
+import {  Contract } from "ethers";
 import { getQuoter, getProtocol } from "../../modules/getContract";
 import { abi as IAlgPool } from '@cryptoalgebra/core/artifacts/contracts/AlgebraPool.sol/AlgebraPool.json';
 import { signer } from "../../../constants/contract";
 import { pu } from "../../modules/convertBN";
 
 
-async function univ3Quote(poolID: string, tradeSize: BigNumber) {
+async function univ3Quote(poolID: string, tradeSize: bigint) {
 	const quoter = getQuoter("QUICKV3")
 	const pool = new Contract(poolID, IAlgPool, signer)
 	try {
@@ -21,7 +21,7 @@ async function univ3Quote(poolID: string, tradeSize: BigNumber) {
 	} catch (error: any) {
 		console.log(error)
 		console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN maxOut : ')
-		return BigNumber.from(0);
+		return 0n;
 	}
 }
 univ3Quote(

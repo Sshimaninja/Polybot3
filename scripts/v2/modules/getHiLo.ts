@@ -1,4 +1,4 @@
-import { BigNumber as BN } from 'bignumber.js'
+import { BigInt as BN } from 'bignumber.js'
 
 export async function getHiLo(a1: BN, b1: BN) {
     let higher = BN.max((a1), (b1))

@@ -2,13 +2,10 @@ import { HardhatUserConfig, task } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import { config as dotEnvConfig } from "dotenv";
 
-
-import "@nomiclabs/hardhat-ethers";
-import "@nomiclabs/hardhat-etherscan";
 import '@typechain/hardhat'
-import '@nomiclabs/hardhat-ethers'
-import "@nomicfoundation/hardhat-chai-matchers";
-import "@nomiclabs/hardhat-ethers";
+import '@nomicfoundation/hardhat-ethers'
+import '@nomicfoundation/hardhat-chai-matchers'
+import "@nomicfoundation/hardhat-verify";
 
 if (process.env.NODE_ENV === 'test') {
 	dotEnvConfig({ path: '.env.test' });

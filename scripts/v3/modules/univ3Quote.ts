@@ -1,11 +1,11 @@
-import { BigNumber, Contract } from "ethers";
+import {  Contract } from "ethers";
 import { getQuoterV2, getProtocol } from "../../modules/getContract";
 import { abi as IUni3Pool } from '@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json';
 import { signer } from "../../../constants/contract";
 import { pu } from "../../modules/convertBN";
 
 
-async function univ3Quote(poolID: string, tradeSize: BigNumber) {
+async function univ3Quote(poolID: string, tradeSize: bigint) {
 	const quoter = getQuoterV2("UNIV3")
 	const pool = new Contract(poolID, IUni3Pool, signer)
 
@@ -24,7 +24,7 @@ async function univ3Quote(poolID: string, tradeSize: BigNumber) {
 	} catch (error: any) {
 		console.log(error)
 		console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN maxOut : ')
-		return BigNumber.from(0);
+		return 0n;
 	}
 }
 univ3Quote(

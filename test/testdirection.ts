@@ -1,6 +1,6 @@
 import { V2V2SORT } from "../utils/dexdata/v2/comparev2";
 import { V2Quote, V2Input } from '../utils/price/uniswap/getPrice';
-import { BigNumber } from 'ethers';
+import { BigInt } from 'ethers';
 
 export async function testDirection() {
 	let arrayV2V2 = await V2V2SORT() as any;
@@ -12,28 +12,28 @@ export async function testDirection() {
 		let token1address = pool.direction.token1;
 		let loanRouterAddress = pool.direction.loanRouter;
 		let recipientRouterAddress = pool.direction.recipientRouter;
-		let amountIn = BigNumber.from(1000);
+		let amountIn = BigInt.from(1000);
 		const route = [token0address, token1address];
 
 		let newDirection = direction;
 		while (newDirection === direction) {
-			const amountOutA: BigNumber = await V2Quote(route[0], route[1], amountIn, loanRouterAddress).catch(
+			const amountOutA: bigint = await V2Quote(route[0], route[1], amountIn, loanRouterAddress).catch(
 				(error: any) => {
 					console.log(error);
 				}
 			);
-			const amountOutB: BigNumber = await V2Quote(route[0], route[1], amountIn, recipientRouterAddress).catch(
+			const amountOutB: bigint = await V2Quote(route[0], route[1], amountIn, recipientRouterAddress).catch(
 				(error: any) => {
 					console.log(error);
 				}
 			);
 
-			const repayAmountInA: BigNumber = await V2Input(route[0], route[1], amountOutA, loanRouterAddress).catch(
+			const repayAmountInA: bigint = await V2Input(route[0], route[1], amountOutA, loanRouterAddress).catch(
 				(error: any) => {
 					console.log(error);
 				}
 			);
-			const repayAmountInB: BigNumber = await V2Input(route[0], route[1], amountOutB, recipientRouterAddress).catch(
+			const repayAmountInB: bigint = await V2Input(route[0], route[1], amountOutB, recipientRouterAddress).catch(
 				(error: any) => {
 					console.log(error);
 				}

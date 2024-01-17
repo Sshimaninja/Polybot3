@@ -1,4 +1,4 @@
-import { BigNumber } from 'ethers';
+import { BigInt } from 'ethers';
 /**
  * Local calculation of amounts in/out 
  * @param amountIn 
@@ -6,7 +6,7 @@ import { BigNumber } from 'ethers';
  * @param reserveOut 
  * @returns amountOut from amountIn
  */
-export async function getAmountsOut(amountIn: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
+export async function getAmountsOut(amountIn: bigint, reserveIn: bigint, reserveOut: bigint): Promise<BigInt> {
 	// amountIn * 997
 	const amountInWithFee = amountIn.mul(997);
 	// (amountInwithFee) * reserveOut
@@ -26,7 +26,7 @@ export async function getAmountsOut(amountIn: BigNumber, reserveIn: BigNumber, r
  */
 //amountIn = amountOut * reserveIn / reserveOut - amountOut
 // 
-export async function getAmountsIn(amountOut: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
+export async function getAmountsIn(amountOut: bigint, reserveIn: bigint, reserveOut: bigint): Promise<BigInt> {
 	// reserveIn * amountOut
 	const numerator = amountOut.mul(reserveIn).mul(1000);
 	const denominator = reserveOut.mul(997).add(amountOut.mul(1000));
@@ -34,7 +34,7 @@ export async function getAmountsIn(amountOut: BigNumber, reserveIn: BigNumber, r
 }
 
 
-export async function getAmountsInJS(amountOut: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
+export async function getAmountsInJS(amountOut: bigint, reserveIn: bigint, reserveOut: bigint): Promise<BigInt> {
 	// reserveIn * amountOut
 	const numerator = amountOut.mul(reserveIn).mul(1000);
 	const denominator = reserveOut.mul(997).add(amountOut.mul(1000));

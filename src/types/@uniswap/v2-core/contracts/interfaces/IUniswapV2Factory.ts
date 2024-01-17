@@ -3,8 +3,8 @@
 /* eslint-disable */
 import type {
   BaseContract,
-  BigNumber,
-  BigNumberish,
+  BigInt,
+  BigIntish,
   BytesLike,
   CallOverrides,
   ContractTransaction,
@@ -53,7 +53,7 @@ export interface IUniswapV2FactoryInterface extends utils.Interface {
 
   encodeFunctionData(
     functionFragment: "allPairs",
-    values: [PromiseOrValue<BigNumberish>]
+    values: [PromiseOrValue<BigIntish>]
   ): string;
   encodeFunctionData(
     functionFragment: "allPairsLength",
@@ -110,10 +110,10 @@ export interface PairCreatedEventObject {
   token0: string;
   token1: string;
   pair: string;
-  arg3: BigNumber;
+  arg3: bigint;
 }
 export type PairCreatedEvent = TypedEvent<
-  [string, string, string, BigNumber],
+  [string, string, string, BigInt],
   PairCreatedEventObject
 >;
 
@@ -147,11 +147,11 @@ export interface IUniswapV2Factory extends BaseContract {
 
   functions: {
     allPairs(
-      arg0: PromiseOrValue<BigNumberish>,
+      arg0: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<[string] & { pair: string }>;
 
-    allPairsLength(overrides?: CallOverrides): Promise<[BigNumber]>;
+    allPairsLength(overrides?: CallOverrides): Promise<[BigInt]>;
 
     createPair(
       tokenA: PromiseOrValue<string>,
@@ -181,11 +181,11 @@ export interface IUniswapV2Factory extends BaseContract {
   };
 
   allPairs(
-    arg0: PromiseOrValue<BigNumberish>,
+    arg0: PromiseOrValue<BigIntish>,
     overrides?: CallOverrides
   ): Promise<string>;
 
-  allPairsLength(overrides?: CallOverrides): Promise<BigNumber>;
+  allPairsLength(overrides?: CallOverrides): Promise<BigInt>;
 
   createPair(
     tokenA: PromiseOrValue<string>,
@@ -215,11 +215,11 @@ export interface IUniswapV2Factory extends BaseContract {
 
   callStatic: {
     allPairs(
-      arg0: PromiseOrValue<BigNumberish>,
+      arg0: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<string>;
 
-    allPairsLength(overrides?: CallOverrides): Promise<BigNumber>;
+    allPairsLength(overrides?: CallOverrides): Promise<BigInt>;
 
     createPair(
       tokenA: PromiseOrValue<string>,
@@ -265,42 +265,42 @@ export interface IUniswapV2Factory extends BaseContract {
 
   estimateGas: {
     allPairs(
-      arg0: PromiseOrValue<BigNumberish>,
+      arg0: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
-    allPairsLength(overrides?: CallOverrides): Promise<BigNumber>;
+    allPairsLength(overrides?: CallOverrides): Promise<BigInt>;
 
     createPair(
       tokenA: PromiseOrValue<string>,
       tokenB: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
-    feeTo(overrides?: CallOverrides): Promise<BigNumber>;
+    feeTo(overrides?: CallOverrides): Promise<BigInt>;
 
-    feeToSetter(overrides?: CallOverrides): Promise<BigNumber>;
+    feeToSetter(overrides?: CallOverrides): Promise<BigInt>;
 
     getPair(
       tokenA: PromiseOrValue<string>,
       tokenB: PromiseOrValue<string>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     setFeeTo(
       arg0: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     setFeeToSetter(
       arg0: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
   };
 
   populateTransaction: {
     allPairs(
-      arg0: PromiseOrValue<BigNumberish>,
+      arg0: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 

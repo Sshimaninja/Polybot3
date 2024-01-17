@@ -1,9 +1,9 @@
-import { BigNumber, BigNumberish } from "ethers";
+import {  BigIntish } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { Profcalcs, Repays, BoolTrade } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter";
 import { getAmountsIn, getAmountsOut } from "./getAmountsIOLocal";
-import { JS2BN, BN2JS, fu, pu } from "../../modules/convertBN";
+import { BigInt2BN, BN2JS, fu, pu } from "../../modules/convertBN";
 
 
 export class PopulateRepays {
@@ -15,12 +15,12 @@ export class PopulateRepays {
 		this.trade = trade;
 		this.calc = calc;
 		this.repays = {
-			direct: BigNumber.from(0),
-			directInTokenOut: BigNumber.from(0),
-			simpleMulti: BigNumber.from(0),
-			getAmountsOut: BigNumber.from(0),
-			getAmountsIn: BigNumber.from(0),
-			repay: BigNumber.from(0),
+			direct: 0n,
+			directInTokenOut: 0n,
+			simpleMulti: 0n,
+			getAmountsOut: 0n,
+			getAmountsIn: 0n,
+			repay: 0n,
 		};
 	}
 
@@ -41,20 +41,20 @@ export class PopulateRepays {
 		// );
 
 		//get loanPool conversion of tradeSize in terms of tokenOut
-		const repayDirectBN = JS2BN(repayDirect, this.trade.tokenIn.decimals);
+		const repayDirectBN = BigInt2BN(repayDirect, this.trade.tokenIn.decimals);
 		const directRepayLoanPoolInTokenOutBN = repayDirectBN.multipliedBy(BN(this.trade.loanPool.priceOut));
 		const directRepayLoanPoolInTokenOut = BN2JS(directRepayLoanPoolInTokenOutBN, this.trade.tokenOut.decimals);
 		// const directRepayLoanPoolInTokenOutWithFee = await this.calc.addFee(directRepayLoanPoolInTokenOut);
 
 
-		const ts = JS2BN(this.trade.target.tradeSize, this.trade.tokenIn.decimals)
+		const ts = BigInt2BN(this.trade.target.tradeSize, this.trade.tokenIn.decimals)
 		const tradeSizeInTermsOfTokenOutOnLoanPool = ts.multipliedBy(BN(this.trade.loanPool.priceOut))
 
 		const simpleBN = tradeSizeInTermsOfTokenOutOnLoanPool.multipliedBy(1.003) // 0.3% fee
 		const simple = BN2JS(simpleBN, this.trade.tokenOut.decimals)
 
 		// this.trade.target.tradeSize
-		// 	.mul(this.trade.loanPool.reserveOut.div(this.trade.loanPool.reserveIn))// will never work with ethers.js BigNumber because of rounding down.
+		// 	.mul(this.trade.loanPool.reserveOut.div(this.trade.loanPool.reserveIn))// will never work with ethers.js BigInt because of rounding down.
 		// const simple = await calc.addFee(tradeSizeInTermsOfTokenOutOnLoanPool)
 
 		const repayByGetAmountsOut = await getAmountsOut(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.

@@ -1,11 +1,11 @@
-import { ethers, utils, BigNumber, Contract } from "ethers";
+import { ethers, utils, BigInt, Contract } from "ethers";
 import { PoolData } from "./getPoolData";
 import { BigNumber as BN } from "bignumber.js";
 import { wallet } from '../../../constants/contract'
 import { ReservesData, PoolState, PoolInfo, ERC20token, Slot0, Reserves3 } from "../../../constants/interfaces";
 import { abi as IERC20 } from "../../../interfaces/IERC20.json";
 import { sqrt } from "./tradeMath";
-import { BN2JS, JS2BN, fu, pu } from "../../modules/convertBN";
+import { BN2JS, BigInt2BN, fu, pu } from "../../modules/convertBN";
 import { chainID } from "../../../constants/addresses";
 import { TickMath, Position } from "@uniswap/v3-sdk";
 import { TickMath as TickMathAlg } from "@cryptoalgebra/integral-sdk";
@@ -21,7 +21,7 @@ import { log } from "console";
  */
 
 export class InRangeLiquidity {
-	static liquidity: BigNumber[] = [];
+	static liquidity: bigint[] = [];
 	poolInfo: PoolInfo;
 	pool: Contract;
 	token0: ERC20token;
@@ -39,7 +39,7 @@ export class InRangeLiquidity {
 
 	async getSlot0(): Promise<Slot0> {
 		let s0: Slot0 = {
-			sqrtPriceX96: BigNumber.from(0),
+			sqrtPriceX96: 0n,
 			sqrtPriceX96BN: BN(0),
 			tick: 0,
 			fee: 0,
@@ -111,15 +111,15 @@ export class InRangeLiquidity {
 		} else {
 			const slot0 = await this.getSlot0();
 			const sqrtPriceX96 = slot0.sqrtPriceX96;
-			const Q96 = ethers.BigNumber.from(2).pow(96);
+			const Q96 = ethers.BigInt.from(2).pow(96);
 			const sqrtPrice = Number(sqrtPriceX96.mul(Q96).div(Q96));
-			// const sqrtPriceBN = JS2BN(sqrtPrice, 18);
-			// const liquidityBN = JS2BN(liquidity, 18);
+			// const sqrtPriceBN = BigInt2BN(sqrtPrice, 18);
+			// const liquidityBN = BigInt2BN(liquidity, 18);
 
 			let currentTick = slot0.tick;
 			let tickspacing = this.poolInfo.tickSpacing;
 
-			// let price: BigNumber = slot0.sqrtPriceX96BN.div(Q96).pow(2);
+			// let price: bigint = slot0.sqrtPriceX96BN.div(Q96).pow(2);
 			// let priceRange = price.mul(slippageTolerance.toNumber());
 			// let tickRange = Math.log(priceRange) / Math.log(1.0001);
 			// let ticksForRange = Math.round(tickRange / tickspacing) * tickspacing;
@@ -194,7 +194,7 @@ export class InRangeLiquidity {
 
 
 
-	async getReserves(): Promise<{ reserves0: BigNumber, reserves1: BigNumber }> {
+	async getReserves(): Promise<{ reserves0: bigint, reserves1: bigint }> {
 		const reserves0 = await this.token0Contract.balanceOf(this.poolInfo.id);
 		const reserves1 = await this.token1Contract.balanceOf(this.poolInfo.id);
 		return { reserves0, reserves1 }

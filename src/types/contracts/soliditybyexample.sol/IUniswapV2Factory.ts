@@ -3,7 +3,7 @@
 /* eslint-disable */
 import type {
   BaseContract,
-  BigNumber,
+  BigInt,
   BytesLike,
   CallOverrides,
   PopulatedTransaction,
@@ -92,7 +92,7 @@ export interface IUniswapV2Factory extends BaseContract {
       tokenA: PromiseOrValue<string>,
       tokenB: PromiseOrValue<string>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
   };
 
   populateTransaction: {

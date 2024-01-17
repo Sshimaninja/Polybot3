@@ -1,6 +1,5 @@
-// import { BigNumber } from 'ethers';
+// import { BigInt } from 'ethers';
 import { BigNumber as BN } from "bignumber.js";
-import { utils, BigNumber } from "ethers";
 /**
  * bignumber.js handles decimals; ethers.js can't
  * @param amountIn 

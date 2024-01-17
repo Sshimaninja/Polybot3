@@ -1,4 +1,4 @@
-import { BigNumber, Contract } from "ethers";
+import {  Contract } from "ethers";
 import { getQuoter, getProtocol } from "../../modules/getContract";
 
 export class V3Quote {
@@ -17,7 +17,7 @@ export class V3Quote {
 		this.quoter = getQuoter(exchange);
 	}
 
-	async maxOut(tradeSize: BigNumber) {
+	async maxOut(tradeSize: bigint) {
 		if (tradeSize.gt(0)) {
 			const uni3 = this.protocol == 'UNIV3' ? true : false;
 			// console.log("Params: ", "Exchange: ", exchange, ' Protocol: ', protocol, ' ', feeTier, ' tradeSize: ', fu(tradeSize, this.pool.token0.decimals))
@@ -29,7 +29,7 @@ export class V3Quote {
 				'sqrtPriceLimitX96': '0'
 			}
 			try {
-				let maxOut = uni3 ? await this.quoter.callStatic.quoteExactInputSingle(e) :
+				let maxOut = uni3 ? await this.quoter.callStatic.wquoteExactInputSingle(e) :
 					await this.quoter.callStatic.quoteExactInputSingle(
 						e.tokenIn,
 						e.tokenOut,
@@ -41,14 +41,14 @@ export class V3Quote {
 			} catch (error: any) {
 				console.log(error.reason)
 				console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN maxOut : ', this.exchange, this.protocol)
-				return BigNumber.from(0);
+				return 0n;
 			}
 
 		} else (console.log("getAmountOut: Amount in is zero, so amount out is zero: ", this.exchange, this.protocol))
-		return BigNumber.from(0);
+		return 0n;
 	}
 
-	async minIn(amountOutExpected: BigNumber) {
+	async minIn(amountOutExpected: bigint) {
 		const uni3 = this.protocol == 'UNIV3' ? true : false;
 		if (amountOutExpected.gt(0)) {
 			let e = {
@@ -71,11 +71,11 @@ export class V3Quote {
 			} catch (error: any) {
 				console.log(error)
 				console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN minIn : ', e.tokenIn, e.tokenOut, this.exchange, this.protocol)
-				return BigNumber.from(0);
+				return 0n;
 			}
 		}
 		console.log("getAmountIn: Amount out is zero, so amount in is zero: ", this.exchange, this.protocol)
-		return BigNumber.from(0);
+		return 0n;
 	}
 
 }

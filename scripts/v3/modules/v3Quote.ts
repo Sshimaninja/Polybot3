@@ -1,4 +1,4 @@
-// import { BigNumber, ethers, Contract } from "ethers";
+// import {  ethers, Contract } from "ethers";
 // import { BigNumber as BN } from "bignumber.js";
 // import { abi as IUniswapV3Quoter } from '@uniswap/v3-periphery/artifacts/contracts/lens/QuoterV2.sol/QuoterV2.json';
 // import { abi as IAlgebraQuoter } from '@cryptoalgebra/periphery/artifacts/contracts/interfaces/IQuoterV2.sol/IQuoterV2.json';
@@ -10,8 +10,8 @@
 // // export async function getV3Quote(
 // // 	match: Match3Pools,
 // // 	state: PoolState,
-// // 	tradeSize: BigNumber
-// // ): Promise<BigNumber> {
+// // 	tradeSize: bigint
+// // ): Promise<BigInt> {
 
 
 // //Returns the amount out received for a given exact input but for a swap of a single pool
@@ -37,7 +37,7 @@
 // 		this.QuoterV2 = new ethers.Contract(getQuoter(exchange)[exchange], IUniswapV3Quoter, signer);
 // 	}
 
-// 	async maxOut(tradeSize: BigNumber): Promise<BigNumber> {
+// 	async maxOut(tradeSize: bigint): Promise<BigInt> {
 // 		// console.log("Params: ", "Exchange: ", exchange, ' Protocol: ', protocol, ' ', feeTier, ' tradeSize: ', fu(tradeSize, this.pool.token0.decimals))
 // 		try {
 // 			const maxOut = this.protocol === "UNIV3" ? await this.QuoterV2.callStatic.quoteExactInputSingle(
@@ -56,11 +56,11 @@
 // 		} catch (error: any) {
 // 			console.log(error.reason)
 // 			console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN getAmountOut : ', this.exchange, this.protocol)
-// 			return BigNumber.from(0);
+// 			return 0n;
 // 		}
 // 	}
 
-// 	async minIn(amountOutExpected: BigNumber): Promise<BigNumber> {
+// 	async minIn(amountOutExpected: bigint): Promise<BigInt> {
 // 		if (amountOutExpected.gt(0)) {
 // 			try {
 // 				const minIn = this.protocol = "UNIV3" ? await this.QuoterV2.callStatic.quoteExactOutputSingle(
@@ -79,15 +79,15 @@
 // 			} catch (error: any) {
 // 				console.log(error)
 // 				console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN getAmountIn : ', this.exchange, this.protocol)
-// 				return BigNumber.from(0);
+// 				return 0n;
 // 			}
 // 		}
 // 		console.log("getAmountIn: Amount out is zero, so amount in is zero: ", this.exchange, this.protocol)
-// 		return BigNumber.from(0);
+// 		return 0n;
 // 	}
 
 // 	async QuoteExactInSingleQuoterV2(
-// 		tradeSize: BigNumber
+// 		tradeSize: bigint
 // 	) {
 // 		let encoded = { 'tokenIn': this.pool.token0.id, 'tokenOut': this.pool.token1.id, 'fee': this.pool.fee(), 'amountIn': tradeSize.toString(), 'sqrtPriceLimitX96': '0' };
 // 		let myData2 = await this.QuoterV2.callStatic.quoteExactInputSingle(encoded)

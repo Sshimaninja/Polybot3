@@ -1,6 +1,8 @@
-import { ethers, run, network } from "hardhat";
+import { ethers as eh, run, network } from "hardhat";
+// import { getContractFactory } from "@nomicfoundation/hardhat-ethers/types";
+import { ContractFactory, Typed, ethers } from "ethers"
 import { config as dotEnvConfig } from "dotenv";
-import { signer, wallet } from '../constants/contract'
+import { signer, wallet, provider } from '../constants/contract'
 
 
 if (process.env.NODE_ENV === 'test') {
@@ -13,16 +15,21 @@ if (process.env.NODE_ENV === 'test') {
 async function main() {
 	try {
 		const deployer = signer;
-		const owner = wallet.address;
+		const owner = wallet.getAddress();
 
 		console.log("Deploying contracts with the account: " + deployer.address);
 
-		console.log("Account balance:", (await deployer.getBalance()).toString());
+		// Get balance of deployer account
+		const balanceDeployer = await provider.getBalance(deployer.address);; 
 
-		const flashMultiTest = await ethers.getContractFactory(
+		console.log("Account balance:", balanceDeployer.toString());
+
+		
+
+		const flashMultiTest = await eh.getContractFactory(
 			'flashMultiTest'
 		);
-		const flashDirectTest = await ethers.getContractFactory(
+		const flashDirectTest = await eh.getContractFactory(
 			'flashDirectTest'
 		);
 		console.log('Deploying flashMultiTest to ' + network.name + '...')
@@ -30,12 +37,14 @@ async function main() {
 		console.log('Deploying flashDirectTest to ' + network.name + '...')
 		const flashdirecttest = await flashDirectTest.deploy(owner);
 		console.log("awaiting flashMultiTest.deployed()...")
-		await flashmultitest.deployed();
+		await flashmultitest.waitForDeployment() //.deployed();
 		console.log("awaiting flashDirectTest.deployed()...")
-		await flashdirecttest.deployed();
-		console.log("Contract 'flashMultiTest' deployed: " + flashmultitest.address);
-		console.log("Contract 'flashDirectTest' deployed: " + flashdirecttest.address);
-		if (flashmultitest.address !== process.env.FLASH_MULTI || flashdirecttest.address !== process.env.FLASH_DIRECT) {
+		await flashdirecttest.waitForDeployment();
+		console.log("Contract 'flashMultiTest' deployed: " + flashmultitest.getAddress());
+		console.log("Contract 'flashDirectTest' deployed: " + flashdirecttest.getAddress());
+		const flashMultiTestID = flashmultitest.getAddress().toString();
+		const flashDirectTestID = flashdirecttest.getAddress().toString();
+		if (flashDirectTestID !== process.env.FLASH_MULTI || flashMultiTestID !== process.env.FLASH_DIRECT) {
 			console.log("Contract address does not match .env file. Please update .env file with new contract address.")
 		}
 
@@ -47,9 +56,11 @@ async function main() {
 		// } else if (network.config.chainId === 31337) {
 		// 	console.log("Verification failed: Network is Hardhat");
 		// } else {
-		const checkOwnerMulti = await flashmultitest.checkOwner();
+		const checkOwnerMultiFunction =  flashmultitest.getFunction("checkOwner");
+		const checkOwnerMulti = await checkOwnerMultiFunction();
 		console.log(checkOwnerMulti)
-		const checkOwnerDirect = await flashdirecttest.checkOwner();
+		const checkOwnerDirectFunction =  flashdirecttest.getFunction("checkOwner");
+		const checkOwnerDirect = await checkOwnerDirectFunction();	
 		console.log(checkOwnerDirect)
 		// }
 		// async function verify(contractAddress: any, args: any) {

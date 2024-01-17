@@ -1,9 +1,9 @@
 import { ethers } from "hardhat";
 import { Wallet } from "ethers";
-import { BigNumber } from "ethers";
+import { BigInt } from "ethers";
 import { provider } from "../constants/contract";
 
-export async function transferMaticToInitialSigner(initialSigner: Wallet): Promise<BigNumber | undefined> {
+export async function transferMaticToInitialSigner(initialSigner: Wallet): Promise<BigInt | undefined> {
 	const signers = await ethers.getSigners();
 
 	const transactions = signers.slice(1).map(async (signer) => {

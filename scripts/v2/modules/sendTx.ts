@@ -5,7 +5,7 @@ export async function sendTx(tx: any): Promise<ethers.providers.TransactionRespo
 	try {
 		// return undefined
 		let signedTx = await wallet.signTransaction(tx);
-		let txResponse = await provider.sendTransaction(signedTx);
+		let txResponse = await provider.broadcastTransaction(signedTx);
 		await txResponse.wait(30);
 		console.log("Tx sent. txHash: " + txResponse.hash + " Awaiting confirmation. Confirmations: " + txResponse.confirmations)
 		if (txResponse.blockHash != null) {

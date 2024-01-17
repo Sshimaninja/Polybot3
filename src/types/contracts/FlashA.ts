@@ -3,8 +3,8 @@
 /* eslint-disable */
 import type {
   BaseContract,
-  BigNumber,
-  BigNumberish,
+  BigInt,
+  BigIntish,
   BytesLike,
   CallOverrides,
   ContractTransaction,
@@ -39,8 +39,8 @@ export interface FlashAInterface extends utils.Interface {
     values: [
       PromiseOrValue<string>,
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>
     ]
   ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
@@ -48,8 +48,8 @@ export interface FlashAInterface extends utils.Interface {
     functionFragment: "uniswapV2Call",
     values: [
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<BytesLike>
     ]
   ): string;
@@ -94,8 +94,8 @@ export interface FlashA extends BaseContract {
     flashSwap(
       token0ID: PromiseOrValue<string>,
       token1ID: PromiseOrValue<string>,
-      amount0In: PromiseOrValue<BigNumberish>,
-      amount1Out: PromiseOrValue<BigNumberish>,
+      amount0In: PromiseOrValue<BigIntish>,
+      amount1Out: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
@@ -103,8 +103,8 @@ export interface FlashA extends BaseContract {
 
     uniswapV2Call(
       _sender: PromiseOrValue<string>,
-      _amount0: PromiseOrValue<BigNumberish>,
-      _amount1: PromiseOrValue<BigNumberish>,
+      _amount0: PromiseOrValue<BigIntish>,
+      _amount1: PromiseOrValue<BigIntish>,
       _data: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
@@ -113,8 +113,8 @@ export interface FlashA extends BaseContract {
   flashSwap(
     token0ID: PromiseOrValue<string>,
     token1ID: PromiseOrValue<string>,
-    amount0In: PromiseOrValue<BigNumberish>,
-    amount1Out: PromiseOrValue<BigNumberish>,
+    amount0In: PromiseOrValue<BigIntish>,
+    amount1Out: PromiseOrValue<BigIntish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
@@ -122,8 +122,8 @@ export interface FlashA extends BaseContract {
 
   uniswapV2Call(
     _sender: PromiseOrValue<string>,
-    _amount0: PromiseOrValue<BigNumberish>,
-    _amount1: PromiseOrValue<BigNumberish>,
+    _amount0: PromiseOrValue<BigIntish>,
+    _amount1: PromiseOrValue<BigIntish>,
     _data: PromiseOrValue<BytesLike>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
@@ -132,8 +132,8 @@ export interface FlashA extends BaseContract {
     flashSwap(
       token0ID: PromiseOrValue<string>,
       token1ID: PromiseOrValue<string>,
-      amount0In: PromiseOrValue<BigNumberish>,
-      amount1Out: PromiseOrValue<BigNumberish>,
+      amount0In: PromiseOrValue<BigIntish>,
+      amount1Out: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -141,8 +141,8 @@ export interface FlashA extends BaseContract {
 
     uniswapV2Call(
       _sender: PromiseOrValue<string>,
-      _amount0: PromiseOrValue<BigNumberish>,
-      _amount1: PromiseOrValue<BigNumberish>,
+      _amount0: PromiseOrValue<BigIntish>,
+      _amount1: PromiseOrValue<BigIntish>,
       _data: PromiseOrValue<BytesLike>,
       overrides?: CallOverrides
     ): Promise<void>;
@@ -154,28 +154,28 @@ export interface FlashA extends BaseContract {
     flashSwap(
       token0ID: PromiseOrValue<string>,
       token1ID: PromiseOrValue<string>,
-      amount0In: PromiseOrValue<BigNumberish>,
-      amount1Out: PromiseOrValue<BigNumberish>,
+      amount0In: PromiseOrValue<BigIntish>,
+      amount1Out: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
-    owner(overrides?: CallOverrides): Promise<BigNumber>;
+    owner(overrides?: CallOverrides): Promise<BigInt>;
 
     uniswapV2Call(
       _sender: PromiseOrValue<string>,
-      _amount0: PromiseOrValue<BigNumberish>,
-      _amount1: PromiseOrValue<BigNumberish>,
+      _amount0: PromiseOrValue<BigIntish>,
+      _amount1: PromiseOrValue<BigIntish>,
       _data: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
   };
 
   populateTransaction: {
     flashSwap(
       token0ID: PromiseOrValue<string>,
       token1ID: PromiseOrValue<string>,
-      amount0In: PromiseOrValue<BigNumberish>,
-      amount1Out: PromiseOrValue<BigNumberish>,
+      amount0In: PromiseOrValue<BigIntish>,
+      amount1Out: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
@@ -183,8 +183,8 @@ export interface FlashA extends BaseContract {
 
     uniswapV2Call(
       _sender: PromiseOrValue<string>,
-      _amount0: PromiseOrValue<BigNumberish>,
-      _amount1: PromiseOrValue<BigNumberish>,
+      _amount0: PromiseOrValue<BigIntish>,
+      _amount1: PromiseOrValue<BigIntish>,
       _data: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;

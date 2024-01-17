@@ -1,6 +1,6 @@
 import { BoolTrade } from '../../../constants/interfaces';
-import { BigNumber as BN } from 'bignumber.js';
-import { JS2BN } from '../../modules/convertBN';
+import { BigInt as BN } from 'bignumber.js';
+import { BigInt2BN } from '../../modules/convertBN';
 
 /**
  * @param trade
@@ -8,8 +8,8 @@ import { JS2BN } from '../../modules/convertBN';
  * This function filters out trades that are not profitable, or have insufficient liquidity.
  */
 export async function filterTrade(trade: BoolTrade): Promise<BoolTrade | undefined> {
-	const tradeSize = JS2BN(trade.target.tradeSize, trade.tokenOut.decimals)
-	const amountOut = JS2BN(trade.target.amountOut, trade.tokenOut.decimals)
+	const tradeSize = BigInt2BN(trade.target.tradeSize, trade.tokenOut.decimals)
+	const amountOut = BigInt2BN(trade.target.amountOut, trade.tokenOut.decimals)
 	if (tradeSize.lte(0)) {
 		console.log('[filteredTrade]: trade.target.tradeSize is less than or equal to 0. No trade. TradeSize: ', tradeSize.toFixed(trade.tokenIn.decimals));
 		return undefined;

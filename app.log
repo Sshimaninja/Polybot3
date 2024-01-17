@@ -1030,3 +1030,474 @@
     at async Promise.all (index 2)
     at async JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/index.ts:43:4)
 [2024-01-15T23:47:13.475] [INFO] default - New block received: Block # 51500469
+[2024-01-16T22:38:37.299] [ERROR] default - TELEGRAM ERROR: Telegram bot token not found in environment variables
+[2024-01-16T22:38:38.086] [INFO] default - New block received: Block # 52408808
+[2024-01-16T22:38:45.437] [INFO] default - New block received: Block # 52408809
+[2024-01-16T22:38:45.443] [INFO] default - New block received: Block # 52408810
+[2024-01-16T22:38:45.446] [INFO] default - New block received: Block # 52408811
+[2024-01-16T22:38:45.450] [INFO] default - New block received: Block # 52408812
+[2024-01-16T22:38:56.871] [INFO] default - New block received: Block # 52408813
+[2024-01-16T22:38:56.885] [INFO] default - New block received: Block # 52408814
+[2024-01-16T22:38:56.899] [INFO] default - New block received: Block # 52408815
+[2024-01-16T22:38:56.915] [INFO] default - New block received: Block # 52408816
+[2024-01-16T22:38:57.942] [INFO] default - New block received: Block # 52408817
+[2024-01-16T22:39:09.206] [INFO] default - New block received: Block # 52408818
+[2024-01-16T22:39:09.211] [INFO] default - New block received: Block # 52408819
+[2024-01-16T22:39:15.842] [INFO] default - New block received: Block # 52408820
+[2024-01-16T22:39:15.847] [INFO] default - New block received: Block # 52408821
+[2024-01-16T22:39:21.794] [INFO] default - New block received: Block # 52408822
+[2024-01-16T22:39:21.797] [INFO] default - New block received: Block # 52408823
+[2024-01-16T22:39:25.542] [INFO] default - New block received: Block # 52408824
+[2024-01-16T22:39:29.405] [INFO] default - New block received: Block # 52408825
+[2024-01-16T22:39:34.927] [ERROR] default - Error (getReserves(0x65D43B64E3B31965Cd5EA367D4c2b94c03084797)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0x65D43B64E3B31965Cd5EA367D4c2b94c03084797","data":"0x0902f1ac","accessList":null}, error={"reason":"failed response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0x65d43b64e3b31965cd5ea367d4c2b94c03084797\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1811,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-16T22:39:34.928] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0x65D43B64E3B31965Cd5EA367D4c2b94c03084797","data":"0x0902f1ac","accessList":null}, error={"reason":"failed response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0x65d43b64e3b31965cd5ea367d4c2b94c03084797\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1811,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at runNextTicks (node:internal/process/task_queues:60:5)
+    at processTimers (node:internal/timers:511:9) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0x3018FB91d635D85bFc7590c611dE012db163e8a3',
+    to: '0x65D43B64E3B31965Cd5EA367D4c2b94c03084797',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: failed response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0x65d43b64e3b31965cd5ea367d4c2b94c03084797\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1811,\"jsonrpc\":\"2.0\"}", requestMethod="POST", url="https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:358:23
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.next (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at fulfilled (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:5:58)
+      at runNextTicks (node:internal/process/task_queues:60:5)
+      at processTimers (node:internal/timers:511:9) {
+    reason: 'failed response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0x3018fb91d635d85bfc7590c611de012db163e8a3","to":"0x65d43b64e3b31965cd5ea367d4c2b94c03084797","data":"0x0902f1ac"},"latest"],"id":1811,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    url: 'https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-'
+  }
+}
+[2024-01-16T22:39:42.153] [INFO] default - New block received: Block # 52408826
+[2024-01-16T22:39:42.156] [INFO] default - New block received: Block # 52408827
+[2024-01-16T22:39:42.159] [INFO] default - New block received: Block # 52408828
+[2024-01-16T22:39:50.704] [INFO] default - New block received: Block # 52408829
+[2024-01-16T22:39:50.719] [INFO] default - New block received: Block # 52408830
+[2024-01-16T22:39:51.538] [ERROR] default - Error (getReserves(0xd32f3139A214034A0f9777c87eE0a064c1FF6AE2)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0xd32f3139A214034A0f9777c87eE0a064c1FF6AE2","data":"0x0902f1ac","accessList":null}, error={"reason":"failed response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xd32f3139a214034a0f9777c87ee0a064c1ff6ae2\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1238,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-16T22:39:51.538] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0xd32f3139A214034A0f9777c87eE0a064c1FF6AE2","data":"0x0902f1ac","accessList":null}, error={"reason":"failed response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xd32f3139a214034a0f9777c87ee0a064c1ff6ae2\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1238,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0x3018FB91d635D85bFc7590c611dE012db163e8a3',
+    to: '0xd32f3139A214034A0f9777c87eE0a064c1FF6AE2',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: failed response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xd32f3139a214034a0f9777c87ee0a064c1ff6ae2\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1238,\"jsonrpc\":\"2.0\"}", requestMethod="POST", url="https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:358:23
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.next (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at fulfilled (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:5:58) {
+    reason: 'failed response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0x3018fb91d635d85bfc7590c611de012db163e8a3","to":"0xd32f3139a214034a0f9777c87ee0a064c1ff6ae2","data":"0x0902f1ac"},"latest"],"id":1238,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    url: 'https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-'
+  }
+}
+[2024-01-16T22:39:58.052] [INFO] default - New block received: Block # 52408831
+[2024-01-16T22:39:58.056] [INFO] default - New block received: Block # 52408832
+[2024-01-16T22:39:59.410] [INFO] default - New block received: Block # 52408833
+[2024-01-16T22:40:04.958] [INFO] default - New block received: Block # 52408834
+[2024-01-16T22:40:04.961] [INFO] default - New block received: Block # 52408835
+[2024-01-16T22:40:07.859] [ERROR] default - Error (getReserves(0xcd353F79d9FADe311fC3119B841e1f456b54e858)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0xcd353F79d9FADe311fC3119B841e1f456b54e858","data":"0x0902f1ac","accessList":null}, error={"reason":"failed response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xcd353f79d9fade311fc3119b841e1f456b54e858\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":739,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-16T22:40:07.859] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0xcd353F79d9FADe311fC3119B841e1f456b54e858","data":"0x0902f1ac","accessList":null}, error={"reason":"failed response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xcd353f79d9fade311fc3119b841e1f456b54e858\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":739,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0x3018FB91d635D85bFc7590c611dE012db163e8a3',
+    to: '0xcd353F79d9FADe311fC3119B841e1f456b54e858',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: failed response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xcd353f79d9fade311fc3119b841e1f456b54e858\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":739,\"jsonrpc\":\"2.0\"}", requestMethod="POST", url="https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:358:23
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.next (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at fulfilled (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:5:58) {
+    reason: 'failed response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0x3018fb91d635d85bfc7590c611de012db163e8a3","to":"0xcd353f79d9fade311fc3119b841e1f456b54e858","data":"0x0902f1ac"},"latest"],"id":739,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    url: 'https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-'
+  }
+}
+[2024-01-16T22:40:07.862] [ERROR] default - PROVIDER ERROR: Error: Reserves is undefined
+    at new Prices (/mnt/c/code/polybotv3/scripts/v2/modules/prices.ts:18:10)
+    at control (/mnt/c/code/polybotv3/scripts/v2/control.ts:44:16)
+    at async /mnt/c/code/polybotv3/index.ts:44:5
+    at async Promise.all (index 17)
+    at async JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/index.ts:43:4)
+[2024-01-16T22:40:09.890] [INFO] default - New block received: Block # 52408836
+[2024-01-16T22:40:09.891] [INFO] default - New block received: Block # 52408837
+[2024-01-16T22:40:19.187] [ERROR] default - Error (getReserves(0x101640e107C4a72DeC79826768C239F1eB48cc85)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0x101640e107C4a72DeC79826768C239F1eB48cc85","data":"0x0902f1ac","accessList":null}, error={"reason":"failed response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0x101640e107c4a72dec79826768c239f1eb48cc85\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1298,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-16T22:40:19.187] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0x101640e107C4a72DeC79826768C239F1eB48cc85","data":"0x0902f1ac","accessList":null}, error={"reason":"failed response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0x101640e107c4a72dec79826768c239f1eb48cc85\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1298,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0x3018FB91d635D85bFc7590c611dE012db163e8a3',
+    to: '0x101640e107C4a72DeC79826768C239F1eB48cc85',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: failed response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0x101640e107c4a72dec79826768c239f1eb48cc85\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1298,\"jsonrpc\":\"2.0\"}", requestMethod="POST", url="https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:358:23
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.next (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at fulfilled (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:5:58) {
+    reason: 'failed response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0x3018fb91d635d85bfc7590c611de012db163e8a3","to":"0x101640e107c4a72dec79826768c239f1eb48cc85","data":"0x0902f1ac"},"latest"],"id":1298,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    url: 'https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-'
+  }
+}
+[2024-01-16T22:40:19.212] [ERROR] default - Error (getReserves(0xC8174d091c288FF78De98303c2973140Cbcf3B23)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0xC8174d091c288FF78De98303c2973140Cbcf3B23","data":"0x0902f1ac","accessList":null}, error={"reason":"failed response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xc8174d091c288ff78de98303c2973140cbcf3b23\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2308,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-16T22:40:19.213] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0xC8174d091c288FF78De98303c2973140Cbcf3B23","data":"0x0902f1ac","accessList":null}, error={"reason":"failed response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xc8174d091c288ff78de98303c2973140cbcf3b23\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2308,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0x3018FB91d635D85bFc7590c611dE012db163e8a3',
+    to: '0xC8174d091c288FF78De98303c2973140Cbcf3B23',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: failed response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xc8174d091c288ff78de98303c2973140cbcf3b23\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":2308,\"jsonrpc\":\"2.0\"}", requestMethod="POST", url="https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:358:23
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.next (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at fulfilled (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:5:58) {
+    reason: 'failed response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0x3018fb91d635d85bfc7590c611de012db163e8a3","to":"0xc8174d091c288ff78de98303c2973140cbcf3b23","data":"0x0902f1ac"},"latest"],"id":2308,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    url: 'https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-'
+  }
+}
+[2024-01-16T22:40:19.481] [ERROR] default - PROVIDER ERROR: Error: Reserves is undefined
+    at new Prices (/mnt/c/code/polybotv3/scripts/v2/modules/prices.ts:18:10)
+    at control (/mnt/c/code/polybotv3/scripts/v2/control.ts:44:16)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /mnt/c/code/polybotv3/index.ts:44:5
+    at async Promise.all (index 9)
+    at async JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/index.ts:43:4)
+[2024-01-16T22:40:20.512] [ERROR] default - Error (getReserves(0x8929D3FEa77398F64448c85015633c2d6472fB29)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0x8929D3FEa77398F64448c85015633c2d6472fB29","data":"0x0902f1ac","accessList":null}, error={"reason":"failed response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0x8929d3fea77398f64448c85015633c2d6472fb29\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":823,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-16T22:40:20.512] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0x8929D3FEa77398F64448c85015633c2d6472fB29","data":"0x0902f1ac","accessList":null}, error={"reason":"failed response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0x8929d3fea77398f64448c85015633c2d6472fb29\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":823,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0x3018FB91d635D85bFc7590c611dE012db163e8a3',
+    to: '0x8929D3FEa77398F64448c85015633c2d6472fB29',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: failed response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0x8929d3fea77398f64448c85015633c2d6472fb29\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":823,\"jsonrpc\":\"2.0\"}", requestMethod="POST", url="https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:358:23
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.next (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at fulfilled (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:5:58) {
+    reason: 'failed response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0x3018fb91d635d85bfc7590c611de012db163e8a3","to":"0x8929d3fea77398f64448c85015633c2d6472fb29","data":"0x0902f1ac"},"latest"],"id":823,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    url: 'https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-'
+  }
+}
+[2024-01-16T22:40:21.343] [ERROR] default - Error (getReserves(0xd32f3139A214034A0f9777c87eE0a064c1FF6AE2)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0xd32f3139A214034A0f9777c87eE0a064c1FF6AE2","data":"0x0902f1ac","accessList":null}, error={"reason":"failed response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xd32f3139a214034a0f9777c87ee0a064c1ff6ae2\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1393,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-16T22:40:21.343] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0xd32f3139A214034A0f9777c87eE0a064c1FF6AE2","data":"0x0902f1ac","accessList":null}, error={"reason":"failed response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xd32f3139a214034a0f9777c87ee0a064c1ff6ae2\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1393,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0x3018FB91d635D85bFc7590c611dE012db163e8a3',
+    to: '0xd32f3139A214034A0f9777c87eE0a064c1FF6AE2',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: failed response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xd32f3139a214034a0f9777c87ee0a064c1ff6ae2\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1393,\"jsonrpc\":\"2.0\"}", requestMethod="POST", url="https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:358:23
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.next (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at fulfilled (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:5:58) {
+    reason: 'failed response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0x3018fb91d635d85bfc7590c611de012db163e8a3","to":"0xd32f3139a214034a0f9777c87ee0a064c1ff6ae2","data":"0x0902f1ac"},"latest"],"id":1393,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    url: 'https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-'
+  }
+}
+[2024-01-16T22:40:22.286] [ERROR] default - Error (getReserves(0xA2937659873ef52Da71a399e4079EBb2a7e5fFF6)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0xA2937659873ef52Da71a399e4079EBb2a7e5fFF6","data":"0x0902f1ac","accessList":null}, error={"reason":"failed response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xa2937659873ef52da71a399e4079ebb2a7e5fff6\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1315,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-16T22:40:22.287] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0xA2937659873ef52Da71a399e4079EBb2a7e5fFF6","data":"0x0902f1ac","accessList":null}, error={"reason":"failed response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xa2937659873ef52da71a399e4079ebb2a7e5fff6\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1315,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at runNextTicks (node:internal/process/task_queues:60:5)
+    at processTimers (node:internal/timers:511:9) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0x3018FB91d635D85bFc7590c611dE012db163e8a3',
+    to: '0xA2937659873ef52Da71a399e4079EBb2a7e5fFF6',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: failed response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xa2937659873ef52da71a399e4079ebb2a7e5fff6\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":1315,\"jsonrpc\":\"2.0\"}", requestMethod="POST", url="https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:358:23
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.next (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at fulfilled (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:5:58)
+      at runNextTicks (node:internal/process/task_queues:60:5)
+      at processTimers (node:internal/timers:511:9) {
+    reason: 'failed response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0x3018fb91d635d85bfc7590c611de012db163e8a3","to":"0xa2937659873ef52da71a399e4079ebb2a7e5fff6","data":"0x0902f1ac"},"latest"],"id":1315,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    url: 'https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-'
+  }
+}
+[2024-01-16T22:40:23.443] [INFO] default - New block received: Block # 52408838
+[2024-01-16T22:40:23.447] [INFO] default - New block received: Block # 52408839
+[2024-01-16T22:40:23.460] [INFO] default - New block received: Block # 52408840
+[2024-01-16T22:40:23.464] [INFO] default - New block received: Block # 52408841
+[2024-01-16T22:40:23.477] [INFO] default - New block received: Block # 52408842
+[2024-01-16T22:40:23.492] [INFO] default - New block received: Block # 52408843
+[2024-01-16T22:40:23.588] [ERROR] default - PROVIDER ERROR: Error: Reserves is undefined
+    at new Prices (/mnt/c/code/polybotv3/scripts/v2/modules/prices.ts:18:10)
+    at control (/mnt/c/code/polybotv3/scripts/v2/control.ts:44:16)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /mnt/c/code/polybotv3/index.ts:44:5
+    at async Promise.all (index 4)
+    at async JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/index.ts:43:4)
+[2024-01-16T22:40:24.743] [ERROR] default - PROVIDER ERROR: Error: Reserves is undefined
+    at new Prices (/mnt/c/code/polybotv3/scripts/v2/modules/prices.ts:18:10)
+    at control (/mnt/c/code/polybotv3/scripts/v2/control.ts:44:16)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /mnt/c/code/polybotv3/index.ts:44:5
+    at async Promise.all (index 20)
+    at async JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/index.ts:43:4)
+[2024-01-16T22:40:25.796] [INFO] default - New block received: Block # 52408844
+[2024-01-16T22:40:25.798] [INFO] default - New block received: Block # 52408845
+[2024-01-16T22:40:25.799] [INFO] default - New block received: Block # 52408846
+[2024-01-16T22:40:35.066] [INFO] default - New block received: Block # 52408847
+[2024-01-16T22:40:35.131] [ERROR] default - Error (getReserves(0xcd353F79d9FADe311fC3119B841e1f456b54e858)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0xcd353F79d9FADe311fC3119B841e1f456b54e858","data":"0x0902f1ac","accessList":null}, error={"reason":"failed response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xcd353f79d9fade311fc3119b841e1f456b54e858\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":727,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-16T22:40:35.131] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0xcd353F79d9FADe311fC3119B841e1f456b54e858","data":"0x0902f1ac","accessList":null}, error={"reason":"failed response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xcd353f79d9fade311fc3119b841e1f456b54e858\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":727,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at runNextTicks (node:internal/process/task_queues:60:5)
+    at processTimers (node:internal/timers:511:9) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0x3018FB91d635D85bFc7590c611dE012db163e8a3',
+    to: '0xcd353F79d9FADe311fC3119B841e1f456b54e858',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: failed response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xcd353f79d9fade311fc3119b841e1f456b54e858\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":727,\"jsonrpc\":\"2.0\"}", requestMethod="POST", url="https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:358:23
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.next (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at fulfilled (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:5:58)
+      at runNextTicks (node:internal/process/task_queues:60:5)
+      at processTimers (node:internal/timers:511:9) {
+    reason: 'failed response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0x3018fb91d635d85bfc7590c611de012db163e8a3","to":"0xcd353f79d9fade311fc3119b841e1f456b54e858","data":"0x0902f1ac"},"latest"],"id":727,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    url: 'https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-'
+  }
+}
+[2024-01-16T22:40:35.144] [ERROR] default - PROVIDER ERROR: Error: Reserves is undefined
+    at new Prices (/mnt/c/code/polybotv3/scripts/v2/modules/prices.ts:18:10)
+    at control (/mnt/c/code/polybotv3/scripts/v2/control.ts:44:16)
+    at runNextTicks (node:internal/process/task_queues:60:5)
+    at processTimers (node:internal/timers:511:9)
+    at async /mnt/c/code/polybotv3/index.ts:44:5
+    at async Promise.all (index 18)
+    at async JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/index.ts:43:4)
+[2024-01-16T22:40:35.176] [ERROR] default - Error (getReserves(0x019011032a7ac3A87eE885B6c08467AC46ad11CD)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0x019011032a7ac3A87eE885B6c08467AC46ad11CD","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0x019011032a7ac3a87ee885b6c08467ac46ad11cd\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":7139,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"code":"ETIMEDOUT"},"url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-16T22:40:35.177] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0x019011032a7ac3A87eE885B6c08467AC46ad11CD","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0x019011032a7ac3a87ee885b6c08467ac46ad11cd\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":7139,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"code":"ETIMEDOUT"},"url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runNextTicks (node:internal/process/task_queues:64:3)
+    at listOnTimeout (node:internal/timers:540:9)
+    at processTimers (node:internal/timers:514:7) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0x3018FB91d635D85bFc7590c611dE012db163e8a3',
+    to: '0x019011032a7ac3A87eE885B6c08467AC46ad11CD',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0x019011032a7ac3a87ee885b6c08467ac46ad11cd\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":7139,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"code":"ETIMEDOUT"}, url="https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at runNextTicks (node:internal/process/task_queues:64:3)
+      at listOnTimeout (node:internal/timers:540:9)
+      at processTimers (node:internal/timers:514:7) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0x3018fb91d635d85bfc7590c611de012db163e8a3","to":"0x019011032a7ac3a87ee885b6c08467ac46ad11cd","data":"0x0902f1ac"},"latest"],"id":7139,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: AggregateError
+        at internalConnectMultiple (node:net:1116:18)
+        at internalConnectMultiple (node:net:1184:5)
+        at Timeout.internalConnectMultipleTimeout (node:net:1707:5)
+        at listOnTimeout (node:internal/timers:575:11)
+        at processTimers (node:internal/timers:514:7) {
+      code: 'ETIMEDOUT',
+      [errors]: [Array]
+    },
+    url: 'https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-'
+  }
+}
+[2024-01-16T22:40:35.193] [ERROR] default - Error (getReserves(0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":7146,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"code":"ETIMEDOUT"},"url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+[2024-01-16T22:40:35.194] [ERROR] default - Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635","data":"0x0902f1ac","accessList":null}, error={"reason":"missing response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":7146,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","serverError":{"code":"ETIMEDOUT"},"url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)
+    at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:66:16)
+    at JsonRpcProvider.<anonymous> (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'missing revert data in call exception; Transaction reverted without a reason string',
+  code: 'CALL_EXCEPTION',
+  data: '0x',
+  transaction: {
+    from: '0x3018FB91d635D85bFc7590c611dE012db163e8a3',
+    to: '0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635',
+    data: '0x0902f1ac',
+    accessList: null
+  },
+  error: Error: missing response (requestBody="{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":7146,\"jsonrpc\":\"2.0\"}", requestMethod="POST", serverError={"code":"ETIMEDOUT"}, url="https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-", code=SERVER_ERROR, version=web/5.7.1)
+      at Logger.makeError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+      at Logger.throwError (/mnt/c/code/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+      at /mnt/c/code/polybotv3/node_modules/@ethersproject/web/src.ts/index.ts:292:28
+      at step (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:33:23)
+      at Object.throw (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:14:53)
+      at rejected (/mnt/c/code/polybotv3/node_modules/@ethersproject/web/lib/index.js:6:65)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    reason: 'missing response',
+    code: 'SERVER_ERROR',
+    requestBody: '{"method":"eth_call","params":[{"from":"0x3018fb91d635d85bfc7590c611de012db163e8a3","to":"0xac5d1a011afd5c33dcb3fdc8b2ae5f4091080635","data":"0x0902f1ac"},"latest"],"id":7146,"jsonrpc":"2.0"}',
+    requestMethod: 'POST',
+    serverError: AggregateError
+        at internalConnectMultiple (node:net:1116:18)
+        at internalConnectMultiple (node:net:1184:5)
+        at Timeout.internalConnectMultipleTimeout (node:net:1707:5)
+        at listOnTimeout (node:internal/timers:575:11)
+        at processTimers (node:internal/timers:514:7) {
+      code: 'ETIMEDOUT',
+      [errors]: [Array]
+    },
+    url: 'https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-'
+  }
+}
+[2024-01-16T22:40:39.793] [INFO] default - New block received: Block # 52408848
+[2024-01-16T22:40:39.795] [INFO] default - New block received: Block # 52408849
+[2024-01-16T22:40:39.935] [ERROR] default - Error (getReserves(0xb965c131f1C48d89B1760860b782D2aCDF87273b)): Error: missing revert data in call exception; Transaction reverted without a reason string [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (data="0x", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0xb965c131f1C48d89B1760860b782D2aCDF87273b","data":"0x0902f1ac","accessList":null}, error={"reason":"failed response","code":"SERVER_ERROR","requestBody":"{\"method\":\"eth_call\",\"params\":[{\"from\":\"0x3018fb91d635d85bfc7590c611de012db163e8a3\",\"to\":\"0xb965c131f1c48d89b1760860b782d2acdf87273b\",\"data\":\"0x0902f1ac\"},\"latest\"],\"id\":4118,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-"}, code=CALL_EXCEPTION, version=providers/5.7.2)

@@ -7,7 +7,7 @@ import { abi as IERC20 } from '../../../interfaces/IERC20.json';
 import { abi as IAlgebraPool } from '@cryptoalgebra/core/artifacts/contracts/AlgebraPool.sol/AlgebraPool.json';
 import { abi as IUniswapV3Pool } from '@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Pool.sol/IUniswapV3Pool.json';
 import { provider } from '../../../constants/contract';
-import { BigNumber, Contract } from 'ethers';
+import {  Contract } from 'ethers';
 /**
  */
 
@@ -81,7 +81,7 @@ export async function matchPools() {
 							// const state1 = await r1.getPoolState();
 							const liqA = await PoolA.liquidity();
 							const liqB = await PoolB.liquidity();
-							if (liqA.lte(BigNumber.from(0)) || liqB.lte(BigNumber.from(0))) {
+							if (liqA.lte(0n) || liqB.lte(0n)) {
 								console.log("liquidity 0. Match Invalidated::: ", poolA.poolID, poolB.poolID)
 								continue outerLoop;
 							};

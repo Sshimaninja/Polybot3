@@ -1,4 +1,4 @@
-import { BigNumber } from "ethers";
+import { BigInt } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { GasData, Match3Pools, PoolState, } from "../../constants/interfaces";
 import { flashMulti, flashDirect } from "../../constants/contract";
@@ -8,7 +8,7 @@ import { Bool3Trade } from "../../constants/interfaces"
 
 import { AmountConverter } from "./modules/amountConverter";
 import { V3Quote } from "./modules/V3Quote2";
-import { JS2BN, JS2BNS, BN2JS, BN2JSS, fu, pu } from "../modules/convertBN";
+import { BigInt2BN, BigInt2BNS, BN2JS, BN2JSS, fu, pu } from "../modules/convertBN";
 import { filterTrade } from "./modules/filterTrade";
 import { PopulateRepays } from "./modules/populateRepays";
 import { getK } from "./modules/getK";
@@ -52,7 +52,7 @@ export class Trade {
 
 
 
-	async getSize(loan: AmountConverter, target: AmountConverter): Promise<BigNumber> {
+	async getSize(loan: AmountConverter, target: AmountConverter): Promise<BigInt> {
 
 		const toPrice = await target.tradeToPrice()
 		// use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
@@ -92,11 +92,11 @@ export class Trade {
 				state: A ? this.state1 : this.state0,
 				calc: A ? calcB : calcA,
 				repays: {
-					getAmountsOut: BigNumber.from(0),
-					getAmountsIn: BigNumber.from(0),
-					repay: BigNumber.from(0),
+					getAmountsOut: 0n,
+					getAmountsIn: 0n,
+					repay: 0n,
 				},
-				amountRepay: BigNumber.from(0),
+				amountRepay: 0n,
 			},
 			target: {
 				exchange: A ? this.match.pool0.exchange : this.match.pool1.exchange,
@@ -106,18 +106,18 @@ export class Trade {
 				state: A ? this.state0 : this.state1,
 				calc: A ? calcA : calcB,
 				tradeSize: A ? await this.getSize(calcB, calcA) : await this.getSize(calcA, calcB),
-				amountOut: BigNumber.from(0),
+				amountOut: 0n,
 			},
 			k: {
-				uniswapKPre: BigNumber.from(0),
-				uniswapKPost: BigNumber.from(0),
+				uniswapKPre: 0n,
+				uniswapKPost: 0n,
 				uniswapKPositive: false,
 			},
 			gasData: this.gasData,
 			differenceTokenOut: dir.diff.toFixed(this.match.token1.decimals) + " " + this.match.token1.symbol,
 			differencePercent: dir.dperc.toFixed(this.match.token1.decimals) + "%",
-			profit: BigNumber.from(0),
-			profitPercent: BigNumber.from(0),
+			profit: 0n,
+			profitPercent: 0n,
 		};
 
 		const q = new V3Quote(trade.loanPool.pool, trade.loanPool.exchange, trade.loanPool.feeTier);

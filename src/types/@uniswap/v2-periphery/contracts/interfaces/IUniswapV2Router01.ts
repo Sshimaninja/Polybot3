@@ -3,8 +3,8 @@
 /* eslint-disable */
 import type {
   BaseContract,
-  BigNumber,
-  BigNumberish,
+  BigInt,
+  BigIntish,
   BytesLike,
   CallOverrides,
   ContractTransaction,
@@ -76,56 +76,56 @@ export interface IUniswapV2Router01Interface extends utils.Interface {
     values: [
       PromiseOrValue<string>,
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>
+      PromiseOrValue<BigIntish>
     ]
   ): string;
   encodeFunctionData(
     functionFragment: "addLiquidityETH",
     values: [
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>
+      PromiseOrValue<BigIntish>
     ]
   ): string;
   encodeFunctionData(functionFragment: "factory", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "getAmountIn",
     values: [
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>
     ]
   ): string;
   encodeFunctionData(
     functionFragment: "getAmountOut",
     values: [
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>
     ]
   ): string;
   encodeFunctionData(
     functionFragment: "getAmountsIn",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<string>[]]
+    values: [PromiseOrValue<BigIntish>, PromiseOrValue<string>[]]
   ): string;
   encodeFunctionData(
     functionFragment: "getAmountsOut",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<string>[]]
+    values: [PromiseOrValue<BigIntish>, PromiseOrValue<string>[]]
   ): string;
   encodeFunctionData(
     functionFragment: "quote",
     values: [
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>
     ]
   ): string;
   encodeFunctionData(
@@ -133,35 +133,35 @@ export interface IUniswapV2Router01Interface extends utils.Interface {
     values: [
       PromiseOrValue<string>,
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>
+      PromiseOrValue<BigIntish>
     ]
   ): string;
   encodeFunctionData(
     functionFragment: "removeLiquidityETH",
     values: [
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>
+      PromiseOrValue<BigIntish>
     ]
   ): string;
   encodeFunctionData(
     functionFragment: "removeLiquidityETHWithPermit",
     values: [
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<boolean>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<BytesLike>,
       PromiseOrValue<BytesLike>
     ]
@@ -171,13 +171,13 @@ export interface IUniswapV2Router01Interface extends utils.Interface {
     values: [
       PromiseOrValue<string>,
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<boolean>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<BytesLike>,
       PromiseOrValue<BytesLike>
     ]
@@ -185,59 +185,59 @@ export interface IUniswapV2Router01Interface extends utils.Interface {
   encodeFunctionData(
     functionFragment: "swapETHForExactTokens",
     values: [
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<string>[],
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>
+      PromiseOrValue<BigIntish>
     ]
   ): string;
   encodeFunctionData(
     functionFragment: "swapExactETHForTokens",
     values: [
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<string>[],
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>
+      PromiseOrValue<BigIntish>
     ]
   ): string;
   encodeFunctionData(
     functionFragment: "swapExactTokensForETH",
     values: [
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<string>[],
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>
+      PromiseOrValue<BigIntish>
     ]
   ): string;
   encodeFunctionData(
     functionFragment: "swapExactTokensForTokens",
     values: [
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<string>[],
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>
+      PromiseOrValue<BigIntish>
     ]
   ): string;
   encodeFunctionData(
     functionFragment: "swapTokensForExactETH",
     values: [
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<string>[],
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>
+      PromiseOrValue<BigIntish>
     ]
   ): string;
   encodeFunctionData(
     functionFragment: "swapTokensForExactTokens",
     values: [
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigIntish>,
+      PromiseOrValue<BigIntish>,
       PromiseOrValue<string>[],
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>
+      PromiseOrValue<BigIntish>
     ]
   ): string;
 
@@ -344,90 +344,90 @@ export interface IUniswapV2Router01 extends BaseContract {
     addLiquidity(
       tokenA: PromiseOrValue<string>,
       tokenB: PromiseOrValue<string>,
-      amountADesired: PromiseOrValue<BigNumberish>,
-      amountBDesired: PromiseOrValue<BigNumberish>,
-      amountAMin: PromiseOrValue<BigNumberish>,
-      amountBMin: PromiseOrValue<BigNumberish>,
+      amountADesired: PromiseOrValue<BigIntish>,
+      amountBDesired: PromiseOrValue<BigIntish>,
+      amountAMin: PromiseOrValue<BigIntish>,
+      amountBMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
     addLiquidityETH(
       token: PromiseOrValue<string>,
-      amountTokenDesired: PromiseOrValue<BigNumberish>,
-      amountTokenMin: PromiseOrValue<BigNumberish>,
-      amountETHMin: PromiseOrValue<BigNumberish>,
+      amountTokenDesired: PromiseOrValue<BigIntish>,
+      amountTokenMin: PromiseOrValue<BigIntish>,
+      amountETHMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
     factory(overrides?: CallOverrides): Promise<[string]>;
 
     getAmountIn(
-      amountOut: PromiseOrValue<BigNumberish>,
-      reserveIn: PromiseOrValue<BigNumberish>,
-      reserveOut: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
+      reserveIn: PromiseOrValue<BigIntish>,
+      reserveOut: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
-    ): Promise<[BigNumber] & { amountIn: BigNumber }>;
+    ): Promise<[BigInt] & { amountIn: bigint }>;
 
     getAmountOut(
-      amountIn: PromiseOrValue<BigNumberish>,
-      reserveIn: PromiseOrValue<BigNumberish>,
-      reserveOut: PromiseOrValue<BigNumberish>,
+      amountIn: PromiseOrValue<BigIntish>,
+      reserveIn: PromiseOrValue<BigIntish>,
+      reserveOut: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
-    ): Promise<[BigNumber] & { amountOut: BigNumber }>;
+    ): Promise<[BigInt] & { amountOut: bigint }>;
 
     getAmountsIn(
-      amountOut: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       overrides?: CallOverrides
-    ): Promise<[BigNumber[]] & { amounts: BigNumber[] }>;
+    ): Promise<[BigInt[]] & { amounts: bigint[] }>;
 
     getAmountsOut(
-      amountIn: PromiseOrValue<BigNumberish>,
+      amountIn: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       overrides?: CallOverrides
-    ): Promise<[BigNumber[]] & { amounts: BigNumber[] }>;
+    ): Promise<[BigInt[]] & { amounts: bigint[] }>;
 
     quote(
-      amountA: PromiseOrValue<BigNumberish>,
-      reserveA: PromiseOrValue<BigNumberish>,
-      reserveB: PromiseOrValue<BigNumberish>,
+      amountA: PromiseOrValue<BigIntish>,
+      reserveA: PromiseOrValue<BigIntish>,
+      reserveB: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
-    ): Promise<[BigNumber] & { amountB: BigNumber }>;
+    ): Promise<[BigInt] & { amountB: bigint }>;
 
     removeLiquidity(
       tokenA: PromiseOrValue<string>,
       tokenB: PromiseOrValue<string>,
-      liquidity: PromiseOrValue<BigNumberish>,
-      amountAMin: PromiseOrValue<BigNumberish>,
-      amountBMin: PromiseOrValue<BigNumberish>,
+      liquidity: PromiseOrValue<BigIntish>,
+      amountAMin: PromiseOrValue<BigIntish>,
+      amountBMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
     removeLiquidityETH(
       token: PromiseOrValue<string>,
-      liquidity: PromiseOrValue<BigNumberish>,
-      amountTokenMin: PromiseOrValue<BigNumberish>,
-      amountETHMin: PromiseOrValue<BigNumberish>,
+      liquidity: PromiseOrValue<BigIntish>,
+      amountTokenMin: PromiseOrValue<BigIntish>,
+      amountETHMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
     removeLiquidityETHWithPermit(
       token: PromiseOrValue<string>,
-      liquidity: PromiseOrValue<BigNumberish>,
-      amountTokenMin: PromiseOrValue<BigNumberish>,
-      amountETHMin: PromiseOrValue<BigNumberish>,
+      liquidity: PromiseOrValue<BigIntish>,
+      amountTokenMin: PromiseOrValue<BigIntish>,
+      amountETHMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       approveMax: PromiseOrValue<boolean>,
-      v: PromiseOrValue<BigNumberish>,
+      v: PromiseOrValue<BigIntish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -436,67 +436,67 @@ export interface IUniswapV2Router01 extends BaseContract {
     removeLiquidityWithPermit(
       tokenA: PromiseOrValue<string>,
       tokenB: PromiseOrValue<string>,
-      liquidity: PromiseOrValue<BigNumberish>,
-      amountAMin: PromiseOrValue<BigNumberish>,
-      amountBMin: PromiseOrValue<BigNumberish>,
+      liquidity: PromiseOrValue<BigIntish>,
+      amountAMin: PromiseOrValue<BigIntish>,
+      amountBMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       approveMax: PromiseOrValue<boolean>,
-      v: PromiseOrValue<BigNumberish>,
+      v: PromiseOrValue<BigIntish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
     swapETHForExactTokens(
-      amountOut: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
     swapExactETHForTokens(
-      amountOutMin: PromiseOrValue<BigNumberish>,
+      amountOutMin: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
     swapExactTokensForETH(
-      amountIn: PromiseOrValue<BigNumberish>,
-      amountOutMin: PromiseOrValue<BigNumberish>,
+      amountIn: PromiseOrValue<BigIntish>,
+      amountOutMin: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
     swapExactTokensForTokens(
-      amountIn: PromiseOrValue<BigNumberish>,
-      amountOutMin: PromiseOrValue<BigNumberish>,
+      amountIn: PromiseOrValue<BigIntish>,
+      amountOutMin: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
     swapTokensForExactETH(
-      amountOut: PromiseOrValue<BigNumberish>,
-      amountInMax: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
+      amountInMax: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
     swapTokensForExactTokens(
-      amountOut: PromiseOrValue<BigNumberish>,
-      amountInMax: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
+      amountInMax: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
   };
@@ -506,90 +506,90 @@ export interface IUniswapV2Router01 extends BaseContract {
   addLiquidity(
     tokenA: PromiseOrValue<string>,
     tokenB: PromiseOrValue<string>,
-    amountADesired: PromiseOrValue<BigNumberish>,
-    amountBDesired: PromiseOrValue<BigNumberish>,
-    amountAMin: PromiseOrValue<BigNumberish>,
-    amountBMin: PromiseOrValue<BigNumberish>,
+    amountADesired: PromiseOrValue<BigIntish>,
+    amountBDesired: PromiseOrValue<BigIntish>,
+    amountAMin: PromiseOrValue<BigIntish>,
+    amountBMin: PromiseOrValue<BigIntish>,
     to: PromiseOrValue<string>,
-    deadline: PromiseOrValue<BigNumberish>,
+    deadline: PromiseOrValue<BigIntish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   addLiquidityETH(
     token: PromiseOrValue<string>,
-    amountTokenDesired: PromiseOrValue<BigNumberish>,
-    amountTokenMin: PromiseOrValue<BigNumberish>,
-    amountETHMin: PromiseOrValue<BigNumberish>,
+    amountTokenDesired: PromiseOrValue<BigIntish>,
+    amountTokenMin: PromiseOrValue<BigIntish>,
+    amountETHMin: PromiseOrValue<BigIntish>,
     to: PromiseOrValue<string>,
-    deadline: PromiseOrValue<BigNumberish>,
+    deadline: PromiseOrValue<BigIntish>,
     overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   factory(overrides?: CallOverrides): Promise<string>;
 
   getAmountIn(
-    amountOut: PromiseOrValue<BigNumberish>,
-    reserveIn: PromiseOrValue<BigNumberish>,
-    reserveOut: PromiseOrValue<BigNumberish>,
+    amountOut: PromiseOrValue<BigIntish>,
+    reserveIn: PromiseOrValue<BigIntish>,
+    reserveOut: PromiseOrValue<BigIntish>,
     overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  ): Promise<BigInt>;
 
   getAmountOut(
-    amountIn: PromiseOrValue<BigNumberish>,
-    reserveIn: PromiseOrValue<BigNumberish>,
-    reserveOut: PromiseOrValue<BigNumberish>,
+    amountIn: PromiseOrValue<BigIntish>,
+    reserveIn: PromiseOrValue<BigIntish>,
+    reserveOut: PromiseOrValue<BigIntish>,
     overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  ): Promise<BigInt>;
 
   getAmountsIn(
-    amountOut: PromiseOrValue<BigNumberish>,
+    amountOut: PromiseOrValue<BigIntish>,
     path: PromiseOrValue<string>[],
     overrides?: CallOverrides
-  ): Promise<BigNumber[]>;
+  ): Promise<BigInt[]>;
 
   getAmountsOut(
-    amountIn: PromiseOrValue<BigNumberish>,
+    amountIn: PromiseOrValue<BigIntish>,
     path: PromiseOrValue<string>[],
     overrides?: CallOverrides
-  ): Promise<BigNumber[]>;
+  ): Promise<BigInt[]>;
 
   quote(
-    amountA: PromiseOrValue<BigNumberish>,
-    reserveA: PromiseOrValue<BigNumberish>,
-    reserveB: PromiseOrValue<BigNumberish>,
+    amountA: PromiseOrValue<BigIntish>,
+    reserveA: PromiseOrValue<BigIntish>,
+    reserveB: PromiseOrValue<BigIntish>,
     overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  ): Promise<BigInt>;
 
   removeLiquidity(
     tokenA: PromiseOrValue<string>,
     tokenB: PromiseOrValue<string>,
-    liquidity: PromiseOrValue<BigNumberish>,
-    amountAMin: PromiseOrValue<BigNumberish>,
-    amountBMin: PromiseOrValue<BigNumberish>,
+    liquidity: PromiseOrValue<BigIntish>,
+    amountAMin: PromiseOrValue<BigIntish>,
+    amountBMin: PromiseOrValue<BigIntish>,
     to: PromiseOrValue<string>,
-    deadline: PromiseOrValue<BigNumberish>,
+    deadline: PromiseOrValue<BigIntish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   removeLiquidityETH(
     token: PromiseOrValue<string>,
-    liquidity: PromiseOrValue<BigNumberish>,
-    amountTokenMin: PromiseOrValue<BigNumberish>,
-    amountETHMin: PromiseOrValue<BigNumberish>,
+    liquidity: PromiseOrValue<BigIntish>,
+    amountTokenMin: PromiseOrValue<BigIntish>,
+    amountETHMin: PromiseOrValue<BigIntish>,
     to: PromiseOrValue<string>,
-    deadline: PromiseOrValue<BigNumberish>,
+    deadline: PromiseOrValue<BigIntish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   removeLiquidityETHWithPermit(
     token: PromiseOrValue<string>,
-    liquidity: PromiseOrValue<BigNumberish>,
-    amountTokenMin: PromiseOrValue<BigNumberish>,
-    amountETHMin: PromiseOrValue<BigNumberish>,
+    liquidity: PromiseOrValue<BigIntish>,
+    amountTokenMin: PromiseOrValue<BigIntish>,
+    amountETHMin: PromiseOrValue<BigIntish>,
     to: PromiseOrValue<string>,
-    deadline: PromiseOrValue<BigNumberish>,
+    deadline: PromiseOrValue<BigIntish>,
     approveMax: PromiseOrValue<boolean>,
-    v: PromiseOrValue<BigNumberish>,
+    v: PromiseOrValue<BigIntish>,
     r: PromiseOrValue<BytesLike>,
     s: PromiseOrValue<BytesLike>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -598,67 +598,67 @@ export interface IUniswapV2Router01 extends BaseContract {
   removeLiquidityWithPermit(
     tokenA: PromiseOrValue<string>,
     tokenB: PromiseOrValue<string>,
-    liquidity: PromiseOrValue<BigNumberish>,
-    amountAMin: PromiseOrValue<BigNumberish>,
-    amountBMin: PromiseOrValue<BigNumberish>,
+    liquidity: PromiseOrValue<BigIntish>,
+    amountAMin: PromiseOrValue<BigIntish>,
+    amountBMin: PromiseOrValue<BigIntish>,
     to: PromiseOrValue<string>,
-    deadline: PromiseOrValue<BigNumberish>,
+    deadline: PromiseOrValue<BigIntish>,
     approveMax: PromiseOrValue<boolean>,
-    v: PromiseOrValue<BigNumberish>,
+    v: PromiseOrValue<BigIntish>,
     r: PromiseOrValue<BytesLike>,
     s: PromiseOrValue<BytesLike>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   swapETHForExactTokens(
-    amountOut: PromiseOrValue<BigNumberish>,
+    amountOut: PromiseOrValue<BigIntish>,
     path: PromiseOrValue<string>[],
     to: PromiseOrValue<string>,
-    deadline: PromiseOrValue<BigNumberish>,
+    deadline: PromiseOrValue<BigIntish>,
     overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   swapExactETHForTokens(
-    amountOutMin: PromiseOrValue<BigNumberish>,
+    amountOutMin: PromiseOrValue<BigIntish>,
     path: PromiseOrValue<string>[],
     to: PromiseOrValue<string>,
-    deadline: PromiseOrValue<BigNumberish>,
+    deadline: PromiseOrValue<BigIntish>,
     overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   swapExactTokensForETH(
-    amountIn: PromiseOrValue<BigNumberish>,
-    amountOutMin: PromiseOrValue<BigNumberish>,
+    amountIn: PromiseOrValue<BigIntish>,
+    amountOutMin: PromiseOrValue<BigIntish>,
     path: PromiseOrValue<string>[],
     to: PromiseOrValue<string>,
-    deadline: PromiseOrValue<BigNumberish>,
+    deadline: PromiseOrValue<BigIntish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   swapExactTokensForTokens(
-    amountIn: PromiseOrValue<BigNumberish>,
-    amountOutMin: PromiseOrValue<BigNumberish>,
+    amountIn: PromiseOrValue<BigIntish>,
+    amountOutMin: PromiseOrValue<BigIntish>,
     path: PromiseOrValue<string>[],
     to: PromiseOrValue<string>,
-    deadline: PromiseOrValue<BigNumberish>,
+    deadline: PromiseOrValue<BigIntish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   swapTokensForExactETH(
-    amountOut: PromiseOrValue<BigNumberish>,
-    amountInMax: PromiseOrValue<BigNumberish>,
+    amountOut: PromiseOrValue<BigIntish>,
+    amountInMax: PromiseOrValue<BigIntish>,
     path: PromiseOrValue<string>[],
     to: PromiseOrValue<string>,
-    deadline: PromiseOrValue<BigNumberish>,
+    deadline: PromiseOrValue<BigIntish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   swapTokensForExactTokens(
-    amountOut: PromiseOrValue<BigNumberish>,
-    amountInMax: PromiseOrValue<BigNumberish>,
+    amountOut: PromiseOrValue<BigIntish>,
+    amountInMax: PromiseOrValue<BigIntish>,
     path: PromiseOrValue<string>[],
     to: PromiseOrValue<string>,
-    deadline: PromiseOrValue<BigNumberish>,
+    deadline: PromiseOrValue<BigIntish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
@@ -668,346 +668,346 @@ export interface IUniswapV2Router01 extends BaseContract {
     addLiquidity(
       tokenA: PromiseOrValue<string>,
       tokenB: PromiseOrValue<string>,
-      amountADesired: PromiseOrValue<BigNumberish>,
-      amountBDesired: PromiseOrValue<BigNumberish>,
-      amountAMin: PromiseOrValue<BigNumberish>,
-      amountBMin: PromiseOrValue<BigNumberish>,
+      amountADesired: PromiseOrValue<BigIntish>,
+      amountBDesired: PromiseOrValue<BigIntish>,
+      amountAMin: PromiseOrValue<BigIntish>,
+      amountBMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<
-      [BigNumber, BigNumber, BigNumber] & {
-        amountA: BigNumber;
-        amountB: BigNumber;
-        liquidity: BigNumber;
+      [BigInt, BigInt, BigInt] & {
+        amountA: bigint;
+        amountB: bigint;
+        liquidity: bigint;
       }
     >;
 
     addLiquidityETH(
       token: PromiseOrValue<string>,
-      amountTokenDesired: PromiseOrValue<BigNumberish>,
-      amountTokenMin: PromiseOrValue<BigNumberish>,
-      amountETHMin: PromiseOrValue<BigNumberish>,
+      amountTokenDesired: PromiseOrValue<BigIntish>,
+      amountTokenMin: PromiseOrValue<BigIntish>,
+      amountETHMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<
-      [BigNumber, BigNumber, BigNumber] & {
-        amountToken: BigNumber;
-        amountETH: BigNumber;
-        liquidity: BigNumber;
+      [BigInt, BigInt, BigInt] & {
+        amountToken: bigint;
+        amountETH: bigint;
+        liquidity: bigint;
       }
     >;
 
     factory(overrides?: CallOverrides): Promise<string>;
 
     getAmountIn(
-      amountOut: PromiseOrValue<BigNumberish>,
-      reserveIn: PromiseOrValue<BigNumberish>,
-      reserveOut: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
+      reserveIn: PromiseOrValue<BigIntish>,
+      reserveOut: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     getAmountOut(
-      amountIn: PromiseOrValue<BigNumberish>,
-      reserveIn: PromiseOrValue<BigNumberish>,
-      reserveOut: PromiseOrValue<BigNumberish>,
+      amountIn: PromiseOrValue<BigIntish>,
+      reserveIn: PromiseOrValue<BigIntish>,
+      reserveOut: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     getAmountsIn(
-      amountOut: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       overrides?: CallOverrides
-    ): Promise<BigNumber[]>;
+    ): Promise<BigInt[]>;
 
     getAmountsOut(
-      amountIn: PromiseOrValue<BigNumberish>,
+      amountIn: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       overrides?: CallOverrides
-    ): Promise<BigNumber[]>;
+    ): Promise<BigInt[]>;
 
     quote(
-      amountA: PromiseOrValue<BigNumberish>,
-      reserveA: PromiseOrValue<BigNumberish>,
-      reserveB: PromiseOrValue<BigNumberish>,
+      amountA: PromiseOrValue<BigIntish>,
+      reserveA: PromiseOrValue<BigIntish>,
+      reserveB: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     removeLiquidity(
       tokenA: PromiseOrValue<string>,
       tokenB: PromiseOrValue<string>,
-      liquidity: PromiseOrValue<BigNumberish>,
-      amountAMin: PromiseOrValue<BigNumberish>,
-      amountBMin: PromiseOrValue<BigNumberish>,
+      liquidity: PromiseOrValue<BigIntish>,
+      amountAMin: PromiseOrValue<BigIntish>,
+      amountBMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<
-      [BigNumber, BigNumber] & { amountA: BigNumber; amountB: BigNumber }
+      [BigInt, BigInt] & { amountA: bigint; amountB: bigint }
     >;
 
     removeLiquidityETH(
       token: PromiseOrValue<string>,
-      liquidity: PromiseOrValue<BigNumberish>,
-      amountTokenMin: PromiseOrValue<BigNumberish>,
-      amountETHMin: PromiseOrValue<BigNumberish>,
+      liquidity: PromiseOrValue<BigIntish>,
+      amountTokenMin: PromiseOrValue<BigIntish>,
+      amountETHMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<
-      [BigNumber, BigNumber] & { amountToken: BigNumber; amountETH: BigNumber }
+      [BigInt, BigInt] & { amountToken: bigint; amountETH: bigint }
     >;
 
     removeLiquidityETHWithPermit(
       token: PromiseOrValue<string>,
-      liquidity: PromiseOrValue<BigNumberish>,
-      amountTokenMin: PromiseOrValue<BigNumberish>,
-      amountETHMin: PromiseOrValue<BigNumberish>,
+      liquidity: PromiseOrValue<BigIntish>,
+      amountTokenMin: PromiseOrValue<BigIntish>,
+      amountETHMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       approveMax: PromiseOrValue<boolean>,
-      v: PromiseOrValue<BigNumberish>,
+      v: PromiseOrValue<BigIntish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
       overrides?: CallOverrides
     ): Promise<
-      [BigNumber, BigNumber] & { amountToken: BigNumber; amountETH: BigNumber }
+      [BigInt, BigInt] & { amountToken: bigint; amountETH: bigint }
     >;
 
     removeLiquidityWithPermit(
       tokenA: PromiseOrValue<string>,
       tokenB: PromiseOrValue<string>,
-      liquidity: PromiseOrValue<BigNumberish>,
-      amountAMin: PromiseOrValue<BigNumberish>,
-      amountBMin: PromiseOrValue<BigNumberish>,
+      liquidity: PromiseOrValue<BigIntish>,
+      amountAMin: PromiseOrValue<BigIntish>,
+      amountBMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       approveMax: PromiseOrValue<boolean>,
-      v: PromiseOrValue<BigNumberish>,
+      v: PromiseOrValue<BigIntish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
       overrides?: CallOverrides
     ): Promise<
-      [BigNumber, BigNumber] & { amountA: BigNumber; amountB: BigNumber }
+      [BigInt, BigInt] & { amountA: bigint; amountB: bigint }
     >;
 
     swapETHForExactTokens(
-      amountOut: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
-    ): Promise<BigNumber[]>;
+    ): Promise<BigInt[]>;
 
     swapExactETHForTokens(
-      amountOutMin: PromiseOrValue<BigNumberish>,
+      amountOutMin: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
-    ): Promise<BigNumber[]>;
+    ): Promise<BigInt[]>;
 
     swapExactTokensForETH(
-      amountIn: PromiseOrValue<BigNumberish>,
-      amountOutMin: PromiseOrValue<BigNumberish>,
+      amountIn: PromiseOrValue<BigIntish>,
+      amountOutMin: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
-    ): Promise<BigNumber[]>;
+    ): Promise<BigInt[]>;
 
     swapExactTokensForTokens(
-      amountIn: PromiseOrValue<BigNumberish>,
-      amountOutMin: PromiseOrValue<BigNumberish>,
+      amountIn: PromiseOrValue<BigIntish>,
+      amountOutMin: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
-    ): Promise<BigNumber[]>;
+    ): Promise<BigInt[]>;
 
     swapTokensForExactETH(
-      amountOut: PromiseOrValue<BigNumberish>,
-      amountInMax: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
+      amountInMax: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
-    ): Promise<BigNumber[]>;
+    ): Promise<BigInt[]>;
 
     swapTokensForExactTokens(
-      amountOut: PromiseOrValue<BigNumberish>,
-      amountInMax: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
+      amountInMax: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
-    ): Promise<BigNumber[]>;
+    ): Promise<BigInt[]>;
   };
 
   filters: {};
 
   estimateGas: {
-    WETH(overrides?: CallOverrides): Promise<BigNumber>;
+    WETH(overrides?: CallOverrides): Promise<BigInt>;
 
     addLiquidity(
       tokenA: PromiseOrValue<string>,
       tokenB: PromiseOrValue<string>,
-      amountADesired: PromiseOrValue<BigNumberish>,
-      amountBDesired: PromiseOrValue<BigNumberish>,
-      amountAMin: PromiseOrValue<BigNumberish>,
-      amountBMin: PromiseOrValue<BigNumberish>,
+      amountADesired: PromiseOrValue<BigIntish>,
+      amountBDesired: PromiseOrValue<BigIntish>,
+      amountAMin: PromiseOrValue<BigIntish>,
+      amountBMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     addLiquidityETH(
       token: PromiseOrValue<string>,
-      amountTokenDesired: PromiseOrValue<BigNumberish>,
-      amountTokenMin: PromiseOrValue<BigNumberish>,
-      amountETHMin: PromiseOrValue<BigNumberish>,
+      amountTokenDesired: PromiseOrValue<BigIntish>,
+      amountTokenMin: PromiseOrValue<BigIntish>,
+      amountETHMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
-    factory(overrides?: CallOverrides): Promise<BigNumber>;
+    factory(overrides?: CallOverrides): Promise<BigInt>;
 
     getAmountIn(
-      amountOut: PromiseOrValue<BigNumberish>,
-      reserveIn: PromiseOrValue<BigNumberish>,
-      reserveOut: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
+      reserveIn: PromiseOrValue<BigIntish>,
+      reserveOut: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     getAmountOut(
-      amountIn: PromiseOrValue<BigNumberish>,
-      reserveIn: PromiseOrValue<BigNumberish>,
-      reserveOut: PromiseOrValue<BigNumberish>,
+      amountIn: PromiseOrValue<BigIntish>,
+      reserveIn: PromiseOrValue<BigIntish>,
+      reserveOut: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     getAmountsIn(
-      amountOut: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     getAmountsOut(
-      amountIn: PromiseOrValue<BigNumberish>,
+      amountIn: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     quote(
-      amountA: PromiseOrValue<BigNumberish>,
-      reserveA: PromiseOrValue<BigNumberish>,
-      reserveB: PromiseOrValue<BigNumberish>,
+      amountA: PromiseOrValue<BigIntish>,
+      reserveA: PromiseOrValue<BigIntish>,
+      reserveB: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     removeLiquidity(
       tokenA: PromiseOrValue<string>,
       tokenB: PromiseOrValue<string>,
-      liquidity: PromiseOrValue<BigNumberish>,
-      amountAMin: PromiseOrValue<BigNumberish>,
-      amountBMin: PromiseOrValue<BigNumberish>,
+      liquidity: PromiseOrValue<BigIntish>,
+      amountAMin: PromiseOrValue<BigIntish>,
+      amountBMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     removeLiquidityETH(
       token: PromiseOrValue<string>,
-      liquidity: PromiseOrValue<BigNumberish>,
-      amountTokenMin: PromiseOrValue<BigNumberish>,
-      amountETHMin: PromiseOrValue<BigNumberish>,
+      liquidity: PromiseOrValue<BigIntish>,
+      amountTokenMin: PromiseOrValue<BigIntish>,
+      amountETHMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     removeLiquidityETHWithPermit(
       token: PromiseOrValue<string>,
-      liquidity: PromiseOrValue<BigNumberish>,
-      amountTokenMin: PromiseOrValue<BigNumberish>,
-      amountETHMin: PromiseOrValue<BigNumberish>,
+      liquidity: PromiseOrValue<BigIntish>,
+      amountTokenMin: PromiseOrValue<BigIntish>,
+      amountETHMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       approveMax: PromiseOrValue<boolean>,
-      v: PromiseOrValue<BigNumberish>,
+      v: PromiseOrValue<BigIntish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     removeLiquidityWithPermit(
       tokenA: PromiseOrValue<string>,
       tokenB: PromiseOrValue<string>,
-      liquidity: PromiseOrValue<BigNumberish>,
-      amountAMin: PromiseOrValue<BigNumberish>,
-      amountBMin: PromiseOrValue<BigNumberish>,
+      liquidity: PromiseOrValue<BigIntish>,
+      amountAMin: PromiseOrValue<BigIntish>,
+      amountBMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       approveMax: PromiseOrValue<boolean>,
-      v: PromiseOrValue<BigNumberish>,
+      v: PromiseOrValue<BigIntish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     swapETHForExactTokens(
-      amountOut: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     swapExactETHForTokens(
-      amountOutMin: PromiseOrValue<BigNumberish>,
+      amountOutMin: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     swapExactTokensForETH(
-      amountIn: PromiseOrValue<BigNumberish>,
-      amountOutMin: PromiseOrValue<BigNumberish>,
+      amountIn: PromiseOrValue<BigIntish>,
+      amountOutMin: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     swapExactTokensForTokens(
-      amountIn: PromiseOrValue<BigNumberish>,
-      amountOutMin: PromiseOrValue<BigNumberish>,
+      amountIn: PromiseOrValue<BigIntish>,
+      amountOutMin: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     swapTokensForExactETH(
-      amountOut: PromiseOrValue<BigNumberish>,
-      amountInMax: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
+      amountInMax: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
 
     swapTokensForExactTokens(
-      amountOut: PromiseOrValue<BigNumberish>,
-      amountInMax: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
+      amountInMax: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    ): Promise<BigInt>;
   };
 
   populateTransaction: {
@@ -1016,90 +1016,90 @@ export interface IUniswapV2Router01 extends BaseContract {
     addLiquidity(
       tokenA: PromiseOrValue<string>,
       tokenB: PromiseOrValue<string>,
-      amountADesired: PromiseOrValue<BigNumberish>,
-      amountBDesired: PromiseOrValue<BigNumberish>,
-      amountAMin: PromiseOrValue<BigNumberish>,
-      amountBMin: PromiseOrValue<BigNumberish>,
+      amountADesired: PromiseOrValue<BigIntish>,
+      amountBDesired: PromiseOrValue<BigIntish>,
+      amountAMin: PromiseOrValue<BigIntish>,
+      amountBMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
     addLiquidityETH(
       token: PromiseOrValue<string>,
-      amountTokenDesired: PromiseOrValue<BigNumberish>,
-      amountTokenMin: PromiseOrValue<BigNumberish>,
-      amountETHMin: PromiseOrValue<BigNumberish>,
+      amountTokenDesired: PromiseOrValue<BigIntish>,
+      amountTokenMin: PromiseOrValue<BigIntish>,
+      amountETHMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
     factory(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     getAmountIn(
-      amountOut: PromiseOrValue<BigNumberish>,
-      reserveIn: PromiseOrValue<BigNumberish>,
-      reserveOut: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
+      reserveIn: PromiseOrValue<BigIntish>,
+      reserveOut: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getAmountOut(
-      amountIn: PromiseOrValue<BigNumberish>,
-      reserveIn: PromiseOrValue<BigNumberish>,
-      reserveOut: PromiseOrValue<BigNumberish>,
+      amountIn: PromiseOrValue<BigIntish>,
+      reserveIn: PromiseOrValue<BigIntish>,
+      reserveOut: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getAmountsIn(
-      amountOut: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getAmountsOut(
-      amountIn: PromiseOrValue<BigNumberish>,
+      amountIn: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     quote(
-      amountA: PromiseOrValue<BigNumberish>,
-      reserveA: PromiseOrValue<BigNumberish>,
-      reserveB: PromiseOrValue<BigNumberish>,
+      amountA: PromiseOrValue<BigIntish>,
+      reserveA: PromiseOrValue<BigIntish>,
+      reserveB: PromiseOrValue<BigIntish>,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     removeLiquidity(
       tokenA: PromiseOrValue<string>,
       tokenB: PromiseOrValue<string>,
-      liquidity: PromiseOrValue<BigNumberish>,
-      amountAMin: PromiseOrValue<BigNumberish>,
-      amountBMin: PromiseOrValue<BigNumberish>,
+      liquidity: PromiseOrValue<BigIntish>,
+      amountAMin: PromiseOrValue<BigIntish>,
+      amountBMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
     removeLiquidityETH(
       token: PromiseOrValue<string>,
-      liquidity: PromiseOrValue<BigNumberish>,
-      amountTokenMin: PromiseOrValue<BigNumberish>,
-      amountETHMin: PromiseOrValue<BigNumberish>,
+      liquidity: PromiseOrValue<BigIntish>,
+      amountTokenMin: PromiseOrValue<BigIntish>,
+      amountETHMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
     removeLiquidityETHWithPermit(
       token: PromiseOrValue<string>,
-      liquidity: PromiseOrValue<BigNumberish>,
-      amountTokenMin: PromiseOrValue<BigNumberish>,
-      amountETHMin: PromiseOrValue<BigNumberish>,
+      liquidity: PromiseOrValue<BigIntish>,
+      amountTokenMin: PromiseOrValue<BigIntish>,
+      amountETHMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       approveMax: PromiseOrValue<boolean>,
-      v: PromiseOrValue<BigNumberish>,
+      v: PromiseOrValue<BigIntish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -1108,67 +1108,67 @@ export interface IUniswapV2Router01 extends BaseContract {
     removeLiquidityWithPermit(
       tokenA: PromiseOrValue<string>,
       tokenB: PromiseOrValue<string>,
-      liquidity: PromiseOrValue<BigNumberish>,
-      amountAMin: PromiseOrValue<BigNumberish>,
-      amountBMin: PromiseOrValue<BigNumberish>,
+      liquidity: PromiseOrValue<BigIntish>,
+      amountAMin: PromiseOrValue<BigIntish>,
+      amountBMin: PromiseOrValue<BigIntish>,
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       approveMax: PromiseOrValue<boolean>,
-      v: PromiseOrValue<BigNumberish>,
+      v: PromiseOrValue<BigIntish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
     swapETHForExactTokens(
-      amountOut: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
     swapExactETHForTokens(
-      amountOutMin: PromiseOrValue<BigNumberish>,
+      amountOutMin: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
     swapExactTokensForETH(
-      amountIn: PromiseOrValue<BigNumberish>,
-      amountOutMin: PromiseOrValue<BigNumberish>,
+      amountIn: PromiseOrValue<BigIntish>,
+      amountOutMin: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
     swapExactTokensForTokens(
-      amountIn: PromiseOrValue<BigNumberish>,
-      amountOutMin: PromiseOrValue<BigNumberish>,
+      amountIn: PromiseOrValue<BigIntish>,
+      amountOutMin: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
     swapTokensForExactETH(
-      amountOut: PromiseOrValue<BigNumberish>,
-      amountInMax: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
+      amountInMax: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
     swapTokensForExactTokens(
-      amountOut: PromiseOrValue<BigNumberish>,
-      amountInMax: PromiseOrValue<BigNumberish>,
+      amountOut: PromiseOrValue<BigIntish>,
+      amountInMax: PromiseOrValue<BigIntish>,
       path: PromiseOrValue<string>[],
       to: PromiseOrValue<string>,
-      deadline: PromiseOrValue<BigNumberish>,
+      deadline: PromiseOrValue<BigIntish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
   };

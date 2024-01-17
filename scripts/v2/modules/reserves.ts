@@ -1,4 +1,4 @@
-import { ethers, utils, BigNumber } from "ethers";
+import { ethers, utils, BigInt } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { logger } from '../../../constants/contract'
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';

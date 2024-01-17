@@ -1,45 +1,62 @@
-import { BigNumber, utils as u } from 'ethers'
+// import {  utils as u } from 'ethers'
 import { BigNumber as BN } from 'bignumber.js'
 /**
- * Converts ethers.js BigNumber to bignumber.js BigNumber and vice versa.
+ * Converts ethers.js BigInt to bignumber.js BigInt and vice versa.
  */
 
 
-export const fu = u.formatUnits
-export const pu = u.parseUnits
+// export const fu = fu
+// export const pu = u.parseUnits
 
-export function JS2BN(bn: BigNumber, decimals: number): BN {
+export function fu (bn: bigint, decimals: number): string {
 	try {
-		return BN(fu(bn, decimals))
+		return (bn ** BigInt(decimals)).toString()
 	} catch (error: any) {
-		console.log('convertBN: JS2BN: bn is undefined')
-		return BN(0)
-	}
-}
-
-export function JS2BNS(bn: BigNumber, decimals: number): string {
-	try {
-		return BN(fu(bn, decimals)).toFixed(decimals)
-	} catch (error: any) {
-		console.log('convertBN: JS2BN: bn is undefined')
+		console.log('convertBN: bigint2BN: bn is undefined')
 		return BN(0).toString()
 	}
 }
 
-export function BN2JS(bn: BN, decimals: number): BigNumber {
+export function pu(bn: string, decimals: number): bigint {
+    const [whole, fraction = ''] = bn.split('.');
+    const base = BigInt(10) ** BigInt(decimals);
+    return BigInt(whole) * base + (fraction ? BigInt(fraction.padEnd(decimals, '0')) : 0n);
+}
+
+export function BigInt2BN(bn: bigint, decimals: number): BN {
 	try {
-		return pu(bn.toFixed(decimals), decimals)
+		return BN(fu(bn, decimals))
 	} catch (error: any) {
-		console.log('convertBN: JS2BN: bn is undefined')
-		return BigNumber.from(0)
+		console.log('convertBN: bigint2BN: bn is undefined')
+		return BN(0)
 	}
 }
 
-export function BN2JSS(bn: BN, decimals: number): string {
+
+export function BN2BigInt(bn: BN, decimals: number): bigint {
 	try {
-		return fu(bn.toFixed(decimals), decimals)
+		return pu(bn.toFixed(decimals), decimals)
 	} catch (error: any) {
-		console.log('convertBN: JS2BN: bn is undefined')
+		console.log('convertBN: bigint2BN: bn is undefined')
+		return 0n
+	}
+}
+
+export function BigInt2String(bn: bigint, decimals: number): string {
+	try {
+		return (bn ** BigInt(decimals)).toString()
+	} catch (error: any) {
+		console.log('convertBN: bigint2BN: bn is undefined')
+		return BN(0).toString()
+	}
+}
+
+
+export function BNtoString(bn: BN, decimals: number): string {
+	try {
+		return bn.toFixed(decimals)
+	} catch (error: any) {
+		console.log('convertBN: bigint2BN: bn is undefined')
 		return BN(0).toString()
 	}
 }

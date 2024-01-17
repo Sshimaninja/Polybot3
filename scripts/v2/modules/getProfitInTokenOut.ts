@@ -1,7 +1,7 @@
-import { BigNumber } from "@ethersproject/bignumber";
+import { BigInt } from "@ethersproject/bignumber";
 import { getAmountsOut } from "./getAmountsIOLocal";
 
-export async function getProfitInTokenOut(reserveIn: BigNumber, reserveOut: BigNumber, tradeSize: BigNumber, amountOut: BigNumber, amountRepay: BigNumber): Promise<[BigNumber, BigNumber]> {
+export async function getProfitInTokenOut(reserveIn: bigint, reserveOut: bigint, tradeSize: bigint, amountOut: bigint, amountRepay: bigint): Promise<[BigInt, BigInt]> {
 	const amountsMulti = await getAmountsOut(
 		amountOut.sub(amountRepay), // token1 in
 		reserveOut, // token1 out

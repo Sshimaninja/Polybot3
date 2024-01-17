@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
 import hre from "hardhat";
-import { BigNumber } from "ethers";
+import { BigInt } from "ethers";
 // import { abi as IFlash } from '../artifacts/contracts/flasMulti.sol/flashMulti.json';
 require("dotenv").config();
 
@@ -48,7 +48,7 @@ describe("flashSwap", function () {
 		// 	amount1Out
 		// )
 		// const flashSwapBalance = await USDCContract.balanceOf(flashTest.address)
-		// expect(flashSwapBalance.eq(BigNumber.from("0"))).to.be.true;
+		// expect(flashSwapBalance.eq(0n)).to.be.true;
 	})
 })
 

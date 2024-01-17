@@ -1,4 +1,4 @@
-// import { BigNumber, utils as u } from "ethers";
+// import {  utils as u } from "ethers";
 // import { Amounts, FactoryPair, GasData, Pair, Profit, K } from "../../../constants/interfaces";
 // import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json';
 // import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
@@ -20,8 +20,8 @@
 // I prefer deciding trade based on profit, but it migth be necessary to decide based on price.
 // The technique for using profit would be to calc the repay, then work out profit, then use that to determine direction, et voila.
 // however, this works for now.
-// let A: BigNumber = this.amounts0.amountOutJS.sub(amountRepayB);
-// let B: BigNumber = this.amounts1.amountOutJS.sub(amountRepayA);
+// let A: bigint = this.amounts0.amountOutJS.sub(amountRepayB);
+// let B: bigint = this.amounts1.amountOutJS.sub(amountRepayA);
 //  */
 // export class Trade {
 //     trade: BoolTrade | undefined;
@@ -44,13 +44,13 @@
 //     }
 
 //     // Get repayment amount for the loanPool
-//     async getRepayMulti(tradeSize: BigNumber, reserveIn: BigNumber, reserveOut: BigNumber): Promise<BigNumber> {
+//     async getRepayMulti(tradeSize: bigint, reserveIn: bigint, reserveOut: bigint): Promise<BigInt> {
 //         const amountRepay = await getAmountsIn(tradeSize, reserveIn, reserveOut); // result must be token1
 //         return amountRepay; //in token1
 //     }
 
 //     // Get repayment amount for the loanPool
-//     async getRepayDirect(tradeSize: BigNumber): Promise<BigNumber> {
+//     async getRepayDirect(tradeSize: bigint): Promise<BigInt> {
 //         const repay = tradeSize.mul(1003009027).div(1000000000);
 //         return repay; //in token0
 //     }
@@ -78,7 +78,7 @@
 //                 reserveOut: A ? this.price1.reserves.reserveOut : this.price0.reserves.reserveOut,
 //                 priceIn: A ? this.price1.priceInBN.toFixed(this.match.token0.decimals) : this.price0.priceInBN.toFixed(this.match.token0.decimals),
 //                 priceOut: A ? this.price1.priceOutBN.toFixed(this.match.token1.decimals) : this.price0.priceOutBN.toFixed(this.match.token1.decimals),
-//                 amountOut: BigNumber.from(0),
+//                 amountOut: 0n,
 //             },
 //             target: {
 //                 exchange: A ? this.pair.0u655 : this.pair.exchangeB,
@@ -95,13 +95,13 @@
 //                 amountOut: A ? this.amounts0.amountOutJS : this.amounts1.amountOutJS,
 //             },
 //             k: {
-//                 uniswapKPre: BigNumber.from(0),
-//                 uniswapKPost: BigNumber.from(0),
+//                 uniswapKPre: 0n,
+//                 uniswapKPost: 0n,
 //                 uniswapKPositive: false,
 //             },
 //             gasData: this.gasData,
-//             amountRepay: BigNumber.from(0), // decided based on direct v multi trade returns
-//             profit: BigNumber.from(0)
+//             amountRepay: 0n, // decided based on direct v multi trade returns
+//             profit: 0n
 //         };
 
 //         if (trade.target.tradeSize.eq(0)) {

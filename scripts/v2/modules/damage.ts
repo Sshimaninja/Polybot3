@@ -1,5 +1,4 @@
 import { BoolTrade, PendingTx } from "../../../constants/interfaces";
-import { utils as u, BigNumber } from "ethers";
 import { gasVprofit } from "./gasVprofit";
 import { execute } from "./execute";
 import { BigNumber as BN } from "bignumber.js";
@@ -21,7 +20,7 @@ console.log(pendingTrades)//debug
 
 export async function rollDamage(trade: BoolTrade) {
 
-	const profpercBN = BN(u.formatUnits(trade.profitPercent, trade.tokenOut.decimals))
+	const profpercBN = BN(fu(trade.profitPercent, trade.tokenOut.decimals))
 
 	let newTx: PendingTx = {
 		ID: trade.ID,
@@ -59,7 +58,7 @@ export async function rollDamage(trade: BoolTrade) {
 		// If profit is greater than gas cost, execute trade
 		if (BN(actualProfit.profit).gt(0)) {
 			logger.info("Profitable trade found on " + trade.ticker + "!")
-			logger.info("Profit: ", actualProfit.profit.toString(), "Gas Cost: ", u.formatUnits(actualProfit.gas.gasPrice, 18), "Flash Type: ", trade.type)
+			logger.info("Profit: ", actualProfit.profit.toString(), "Gas Cost: ", fu(actualProfit.gas.gasPrice, 18), "Flash Type: ", trade.type)
 			pendingTrades.push(newTx)
 			// Execute trade
 			const x = await execute(trade, actualProfit)

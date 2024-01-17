@@ -1,4 +1,4 @@
-import { BigNumber, utils } from "ethers";
+import {  utils } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { Reserves } from "./reserves";
 import { Pair, ReservesData } from "../../../constants/interfaces";
