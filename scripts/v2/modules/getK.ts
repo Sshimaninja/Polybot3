@@ -1,7 +1,7 @@
-import { BigInt } from "ethers";
+;
 import { K } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter"
-import { BN2JS } from "../../modules/convertBN";
+import { BN2BigInt } from "../../modules/convertBN";
 import { getAmountsInJS } from "./getAmountsIOLocal";
 
 /**
@@ -19,17 +19,17 @@ export async function getK(type: string, tradeSize: bigint, reserveIn: bigint, r
 		uniswapKPositive: false,
 	}
 	const tradeSizewithFee = await calc.addFee(tradeSize);
-	const newReserveIn = reserveIn.mul(1000).sub(tradeSize.mul(1000));
+	const newReserveIn = reserveIn * 1000n - (tradeSize * (1000n));
 	// console.log("newReserveIn: ", newReserveIn.toString())
-	if (newReserveIn.lte(0)) {
+	if (newReserveIn < 0n) {
 		return kalc;
 	}
 
 	const tradeSizeInTokenOut = await getAmountsInJS(tradeSize, reserveOut, reserveIn);
 
-	// const tokenOutPrice = BN2JS(calc.price.priceOutBN, calc.token1.decimals);
-	// // console.log("TradeSize: " + tradeSize.toString() + " * tokenOutPrice: " + tokenOutPrice.toString() + " = " + tokenOutPrice.mul(tradeSize).toString())
-	// const tradeSizeInTermsOfTokenOut = tradeSize.mul(tokenOutPrice);
+	// const tokenOutPrice = BN2BigInt(calc.price.priceOutBN, calc.token1.decimals);
+	// // console.log("TradeSize: " + tradeSize.toString() + " * tokenOutPrice: " + tokenOutPrice.toString() + " = " + tokenOutPrice*(tradeSize).toString())
+	// const tradeSizeInTermsOfTokenOut = tradeSize*(tokenOutPrice);
 	// // console.log('tradeSizeInTermsOfTokenOut: ', tradeSizeInTermsOfTokenOut.toString())
 	// const tradeSizeInTermsOfTokenOutWithFee = await calc.addFee(tradeSizeInTermsOfTokenOut);
 	// // console.log('tradeSizeInTermsOfTokenOutWithFee: ', tradeSizeInTermsOfTokenOutWithFee.toString())
@@ -37,19 +37,19 @@ export async function getK(type: string, tradeSize: bigint, reserveIn: bigint, r
 	kalc = type === "multi" ? {
 		uniswapKPre:
 			// 1000 * 2000 = 2000000 
-			reserveIn.mul(reserveOut),
+			reserveIn*(reserveOut),
 		uniswapKPost:
 			// 200000 = 1800 * 110
 			//subtract loan: 
-			reserveIn.sub(tradeSize)
+			reserveIn -(tradeSize)
 				// multiply new reserveIn by new reservesOut by adding tradeSizeInTermsOfTokenOut
-				.mul(reserveOut.add(tradeSizeInTokenOut)),
+				*(reserveOut + tradeSizeInTokenOut),
 		uniswapKPositive: false,
 	} : type === "direct" ? {
-		uniswapKPre: reserveIn.mul(reserveOut),
+		uniswapKPre: reserveIn*(reserveOut),
 		uniswapKPost:
 			// reserveIn + tradeSizewithFee * reserveOut(unchanged)
-			reserveIn.add(tradeSizewithFee).mul(reserveOut),
+			reserveIn + (tradeSizewithFee)*(reserveOut),
 		uniswapKPositive: false,
 	} : {
 		uniswapKPre: 0n,
@@ -57,7 +57,7 @@ export async function getK(type: string, tradeSize: bigint, reserveIn: bigint, r
 		uniswapKPositive: false,
 	}
 
-	kalc.uniswapKPositive = kalc.uniswapKPre.lt(kalc.uniswapKPost) ? true : false;
+	kalc.uniswapKPositive = kalc.uniswapKPre < (kalc.uniswapKPost) ? true : false;
 	return kalc;
 
 }

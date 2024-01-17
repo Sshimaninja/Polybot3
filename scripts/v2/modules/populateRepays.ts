@@ -1,9 +1,8 @@
-import {  BigIntish } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { Profcalcs, Repays, BoolTrade } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter";
 import { getAmountsIn, getAmountsOut } from "./getAmountsIOLocal";
-import { BigInt2BN, BN2JS, fu, pu } from "../../modules/convertBN";
+import { BigInt2BN, BN2BigInt, fu, pu } from "../../modules/convertBN";
 
 
 export class PopulateRepays {
@@ -43,7 +42,7 @@ export class PopulateRepays {
 		//get loanPool conversion of tradeSize in terms of tokenOut
 		const repayDirectBN = BigInt2BN(repayDirect, this.trade.tokenIn.decimals);
 		const directRepayLoanPoolInTokenOutBN = repayDirectBN.multipliedBy(BN(this.trade.loanPool.priceOut));
-		const directRepayLoanPoolInTokenOut = BN2JS(directRepayLoanPoolInTokenOutBN, this.trade.tokenOut.decimals);
+		const directRepayLoanPoolInTokenOut = BN2BigInt(directRepayLoanPoolInTokenOutBN, this.trade.tokenOut.decimals);
 		// const directRepayLoanPoolInTokenOutWithFee = await this.calc.addFee(directRepayLoanPoolInTokenOut);
 
 
@@ -51,7 +50,7 @@ export class PopulateRepays {
 		const tradeSizeInTermsOfTokenOutOnLoanPool = ts.multipliedBy(BN(this.trade.loanPool.priceOut))
 
 		const simpleBN = tradeSizeInTermsOfTokenOutOnLoanPool.multipliedBy(1.003) // 0.3% fee
-		const simple = BN2JS(simpleBN, this.trade.tokenOut.decimals)
+		const simple = BN2BigInt(simpleBN, this.trade.tokenOut.decimals)
 
 		// this.trade.target.tradeSize
 		// 	.mul(this.trade.loanPool.reserveOut.div(this.trade.loanPool.reserveIn))// will never work with ethers.js BigInt because of rounding down.

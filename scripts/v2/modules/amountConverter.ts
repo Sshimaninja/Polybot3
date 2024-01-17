@@ -41,7 +41,7 @@ export class AmountConverter {
 		const tradeSize = await tradeToPrice(this.reserves.reserveInBN, this.reserves.reserveOutBN, this.targetPrice, this.slip);
 		// console.log('tradeSize: ', tradeSize.toFixed(this.token0.decimals));//DEBUG
 		const tradeSizeJS = pu(tradeSize.toFixed(this.token0.decimals), this.token0.decimals);
-		// console.log('tradeSizeJS: ', utils.formatUnits(tradeSizeJS, this.token0.decimals));//DEBUG
+		// console.log('tradeSizeJS: ', fu(tradeSizeJS, this.token0.decimals));//DEBUG
 		return tradeSizeJS;
 	}
 

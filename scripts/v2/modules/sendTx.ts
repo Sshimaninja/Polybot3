@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import { wallet, provider } from "../../../constants/contract";
 import { logger } from "../../../constants/contract";
-export async function sendTx(tx: any): Promise<ethers.providers.TransactionResponse | undefined> {
+export async function sendTx(tx: any): Promise<ethers.TransactionResponse | undefined> {
 	try {
 		// return undefined
 		let signedTx = await wallet.signTransaction(tx);

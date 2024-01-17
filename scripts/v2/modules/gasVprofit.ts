@@ -1,4 +1,4 @@
-import {  Contract, utils as u, ethers } from 'ethers'
+import {  Contract,  ethers } from 'ethers'
 import { BoolTrade } from '../../../constants/interfaces'
 import { Profit } from '../../../constants/interfaces'
 import { fetchGasPrice } from './fetchGasPrice';
@@ -37,19 +37,19 @@ export async function gasVprofit(trade: BoolTrade,): Promise<Profit> {
 
 				const profitinMatic = await getProfitInMatic(trade);
 				if (profitinMatic != undefined) {
-					if (profitinMatic.profitInMatic.gt(0n)) {
+					if (profitinMatic.profitInMatic > (0n)) {
 						profit = {
 							profit: fu(profitinMatic.profitInMatic, 18),
 							gasEstimate: prices.gasEstimate,
 							gasCost: prices.gasPrice,
-							gasPool: profitinMatic.gasPool.address,
+							gasPool: await profitinMatic.gasPool.getAddress(),
 							gas: prices,
 						}
-						console.log("Possible trade: " + trade.ticker + " Gas Estimate: ", prices.gasEstimate.toString(), "Gas Price: ", fu(prices.gasPrice.toString()))
+						console.log("Possible trade: " + trade.ticker + " Gas Estimate: ", prices.gasEstimate.toString(), "Gas Price: ", fu(prices.gasPrice, 18))
 						// console.log("Profit: ", profit)
 						return profit;
 					}
-					if (profitinMatic.profitInMatic.lte(0n)) {
+					if (profitinMatic.profitInMatic < (0n)) {
 						console.log("Trade is negative.")
 						return profit = {
 							profit: fu(profitinMatic.profitInMatic, 18),

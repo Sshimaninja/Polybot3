@@ -14,7 +14,7 @@ export async function getAllPools() {
 	for (const exchange of algebraFactories) {
 		const exchangeName = algebraFactoryNames[algebraFactories.indexOf(exchange)];
 		console.log('exchangeName', exchangeName)
-		const provider = new ethers.providers.JsonRpcProvider("https://polygon-mainnet.infura.io/v3/5369330cf67d468998ee44fb7b47b8a3")
+		const provider = new ethers.JsonRpcProvider("https://polygon-mainnet.infura.io/v3/5369330cf67d468998ee44fb7b47b8a3")
 		const factory = new ethers.Contract(exchange, IAlgebraFactory, provider);
 
 		const filter = factory.filters.Pool();

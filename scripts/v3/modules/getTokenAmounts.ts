@@ -27,7 +27,7 @@
 
 // 		// const slot0 = await this.pool.slot0();
 // 		// const sqrtPriceX96 = slot0.sqrtPriceX96;
-// 		// const Q96 = ethers.BigInt.from(2).pow(96);
+// 		// const Q96 = ethers.BigInt(2).pow(96);
 // 		// const sqrtPrice = sqrtPriceX96.mul(Q96).div(Q96);
 
 // 		// let currentTick = slot0.tick;

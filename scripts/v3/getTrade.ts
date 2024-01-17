@@ -1,4 +1,4 @@
-import { BigInt } from "ethers";
+;
 import { BigNumber as BN } from "bignumber.js";
 import { GasData, Match3Pools, PoolState, } from "../../constants/interfaces";
 import { flashMulti, flashDirect } from "../../constants/contract";
@@ -8,7 +8,7 @@ import { Bool3Trade } from "../../constants/interfaces"
 
 import { AmountConverter } from "./modules/amountConverter";
 import { V3Quote } from "./modules/V3Quote2";
-import { BigInt2BN, BigInt2BNS, BN2JS, BN2JSS, fu, pu } from "../modules/convertBN";
+import { BigInt2BN, BigInt2BNS, BN2BigInt, BN2BigIntS, fu, pu } from "../modules/convertBN";
 import { filterTrade } from "./modules/filterTrade";
 import { PopulateRepays } from "./modules/populateRepays";
 import { getK } from "./modules/getK";
@@ -52,7 +52,7 @@ export class Trade {
 
 
 
-	async getSize(loan: AmountConverter, target: AmountConverter): Promise<BigInt> {
+	async getSize(loan: AmountConverter, target: AmountConverter): Promise<bigint> {
 
 		const toPrice = await target.tradeToPrice()
 		// use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target

@@ -13,13 +13,13 @@ const UTILS = new ethers.Contract(addrUtils, IUtils, signer)//because includes a
 
 let WETH = new Token(137, "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619", 18, "WETH", "Wrapped Ether")
 let token0dec = 18
-console.log("WETH: " + WETH.address)
+console.log("WETH: " + WETH.getAddress())
 let USDT = new Token(137, "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", 6, "USDT", "Tether USD")
 let token1dec = 6
-console.log("USDT: " + USDT.address)
+console.log("USDT: " + USDT.getAddress())
 let DAI = new Token(137, "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063", 18, "DAI", "Dai Stablecoin")
 let token2dec = 18
-console.log("DAI: " + DAI.address)
+console.log("DAI: " + DAI.getAddress())
 
 
 let token0 = WETH
@@ -31,8 +31,8 @@ let sushifactory = new ethers.Contract(uniswapFactory.SUSHI, Ifactory, signer);
 let quickfactory = new ethers.Contract(uniswapFactory.QUICK, Ifactory, signer);
 // console.log(quickfactory)
 
-let sushipool = sushifactory.getPair(WETH.address, USDT.address);
-let quickpool = quickfactory.getPair(WETH.address, USDT.address);
+let sushipool = sushifactory.getPair(WETH.getAddress(), USDT.getAddress());
+let quickpool = quickfactory.getPair(WETH.getAddress(), USDT.getAddress());
 
 let Pair0 = new ethers.Contract(sushipool, IPair, provider);
 if (Pair0 !== undefined) {
@@ -79,11 +79,11 @@ async function compute() {
 
     // console.log(UTILS)
 
-    let result = await UTILS.computeProfitMaximizingTrade(ethers.utils.parseEther(aPrice0), ethers.utils.parseEther(bPrice1), aReserve0, bReserve1)
+    let result = await UTILS.computeProfitMaximizingTrade(ethers.parseEther(aPrice0), ethers.parseEther(bPrice1), aReserve0, bReserve1)
     //TRUE PRICE IS PRICETOKEN1 ON EXCHANGEB - this is requiring a bit of fiddling
     let resultFormatted = {
         direction: result[0],
-        amountIn: ethers.utils.formatUnits(result[1], 6)
+        amountIn: fu(result[1], 6)
     }
     console.log(resultFormatted)
 }
@@ -92,7 +92,7 @@ compute();
 // async function getReserves(_pairContract: any, _token0: any, _token1: any) {
 //     const reserves = await _pairContract.methods.getReserves().call()
 //     let reservesToken0 = await _pairContract.methods.token0().call()
-//     if (reservesToken0 === _token0.address) {
+//     if (reservesToken0 === _token0.getAddress()) {
 //         return [reserves.reserve0, reserves.reserve1]
 //     } else {
 //         return [reserves.reserve1, reserves.reserve0]

@@ -1,4 +1,3 @@
-import { BigInt } from 'ethers';
 /**
  * Local calculation of amounts in/out 
  * @param amountIn 
@@ -6,15 +5,15 @@ import { BigInt } from 'ethers';
  * @param reserveOut 
  * @returns amountOut from amountIn
  */
-export async function getAmountsOut(amountIn: bigint, reserveIn: bigint, reserveOut: bigint): Promise<BigInt> {
+export async function getAmountsOut(amountIn: bigint, reserveIn: bigint, reserveOut: bigint): Promise<bigint> {
 	// amountIn * 997
-	const amountInWithFee = amountIn.mul(997);
+	const amountInWithFee = amountIn  * (997n);
 	// (amountInwithFee) * reserveOut
-	const numerator = amountInWithFee.mul(reserveOut);
+	const numerator = amountInWithFee  * (reserveOut);
 	// (reserveIn * 1000) + (amountInwithFee)
-	const denominator = reserveIn.mul(1000).add(amountInWithFee);
+	const denominator = reserveIn  * (1000n) + (amountInWithFee);
 	// (amountInwithFee * reserveOut) / (reserveIn + amountInwithFee)
-	const amountOut = numerator.div(denominator);
+	const amountOut = numerator / (denominator);
 	return amountOut;
 }
 /**
@@ -26,19 +25,19 @@ export async function getAmountsOut(amountIn: bigint, reserveIn: bigint, reserve
  */
 //amountIn = amountOut * reserveIn / reserveOut - amountOut
 // 
-export async function getAmountsIn(amountOut: bigint, reserveIn: bigint, reserveOut: bigint): Promise<BigInt> {
+export async function getAmountsIn(amountOut: bigint, reserveIn: bigint, reserveOut: bigint): Promise<bigint> {
 	// reserveIn * amountOut
-	const numerator = amountOut.mul(reserveIn).mul(1000);
-	const denominator = reserveOut.mul(997).add(amountOut.mul(1000));
-	return numerator.div(denominator);
+	const numerator = amountOut  * (reserveIn)  * (1000n);
+	const denominator = reserveOut  * (997n) + (amountOut  * (1000n));
+	return numerator / (denominator);
 }
 
 
-export async function getAmountsInJS(amountOut: bigint, reserveIn: bigint, reserveOut: bigint): Promise<BigInt> {
+export async function getAmountsInJS(amountOut: bigint, reserveIn: bigint, reserveOut: bigint): Promise<bigint> {
 	// reserveIn * amountOut
-	const numerator = amountOut.mul(reserveIn).mul(1000);
-	const denominator = reserveOut.mul(997).add(amountOut.mul(1000));
-	return numerator.div(denominator);
+	const numerator = amountOut  * (reserveIn)  * (1000n);
+	const denominator = reserveOut  * (997n) + (amountOut  * (1000n));
+	return numerator / (denominator);
 }
 
 //from https://github.com/Uniswap/v2-periphery/blob/master/contracts/libraries/UniswapV2Library.sol
@@ -47,7 +46,7 @@ export async function getAmountsInJS(amountOut: bigint, reserveIn: bigint, reser
 // function getAmountIn(uint amountOut, uint reserveIn, uint reserveOut) internal pure returns(uint amountIn) {
 // 	require(amountOut > 0, 'UniswapV2Library: INSUFFICIENT_OUTPUT_AMOUNT');
 // 	require(reserveIn > 0 && reserveOut > 0, 'UniswapV2Library: INSUFFICIENT_LIQUIDITY');
-//  uint numerator = reserveIn.mul(amountOut).mul(1000);
-// 	uint denominator = reserveOut.sub(amountOut).mul(997);
-// 	amountIn = (numerator / denominator).add(1);
+//  uint numerator = reserveIn  * (amountOut)  * (1000);
+// 	uint denominator = reserveOut.sub(amountOut)  * (997);
+// 	amountIn = (numerator / denominator) + (1);
 // }

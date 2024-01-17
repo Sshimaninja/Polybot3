@@ -1,19 +1,22 @@
-import { ethers, run, network } from "hardhat";
+import { ethers as eh, run, network } from "hardhat";
 require('dotenv').config();
-import { signer, flashwallet } from '../constants/contract'
+import { signer, wallet, provider, flashwallet } from '../constants/contract'
 
 // npx hardhat run --network localhost scripts/deployFlashMulti.ts
 // npx hardhat run --network localhost scripts/deployFlashDirect.ts; npx hardhat run--network localhost scripts/deployFlashMulti.ts
 async function main() {
 	try {
 		const deployer = signer;
-		const owner = flashwallet;
+		const owner = wallet.getAddress();
 
-		console.log("Deploying contracts with the account: " + deployer.address);
+		console.log("Deploying contracts with the account: " + deployer.getAddress());
 
-		console.log("Account balance:", (await deployer.getBalance()).toString());
+		// Get balance of deployer account
+		const balanceDeployer = await provider.getBalance(deployer.getAddress());; 
 
-		const flashMulti = await ethers.getContractFactory(
+		console.log("Account balance:", balanceDeployer.toString());
+
+		const flashMulti = await eh.getContractFactory(
 			'flashMulti'
 		);
 		// const flashDirect = await ethers.getContractFactory(
@@ -24,21 +27,22 @@ async function main() {
 		// console.log('Deploying flashDirect to ' + network.name + '...')
 		// const flashdirect = await flashDirect.deploy(owner);
 		console.log("awaiting flashMulti.deployed()...")
-		await flashmulti.deployed();
+		await flashmulti.waitForDeployment();
 		// console.log("awaiting flashDirect.deployed()...")
-		// await flashdirect.deployed();
-		console.log("Contract 'flashMulti' deployed: " + flashmulti.address);
-		// console.log("Contract 'flashDirect' deployed: " + flashdirect.address);
+		// await flashdirect.waitForDeployment();
+		console.log("Contract 'flashMulti' deployed: " + flashmulti.getAddress());
+		// console.log("Contract 'flashDirect' deployed: " + flashdirect.getAddress());
 
 
 		if (network.config.chainId === 137 && process.env.POLYGONSCAN_APIKEY) {
-			await flashmulti.deployTransaction.wait(32);
-			await verify(flashmulti.address, [owner]);
+			await flashmulti.waitForDeployment();
+			await verify(flashmulti.getAddress(), [owner]);
 
 		} else if (network.config.chainId === 31337) {
 			console.log("Not verified: Network is Hardhat");
 		}
-		const checkOwnerMulti = await flashmulti.checkOwner();
+		const checkOwnerMultiFunction = flashmulti.getFunction("checkOwner");
+		const checkOwnerMulti = await checkOwnerMultiFunction();
 		console.log(checkOwnerMulti)
 		// const checkOwnerDirect = await flashdirect.checkOwner();
 		// console.log(checkOwnerDirect)

@@ -22,8 +22,8 @@ async function main() {
     // Using bignumber.js to format reserves and price instead of ethers.js BigInt implementation:
     const aReserve0 = aReserves[0]
     const aReserve1 = aReserves[1]
-    var aReserve0Formatted = Number(utils.formatUnits(aReserve0, token0dec).toString())
-    var aReserve1Formatted = Number(utils.formatUnits(aReserve1, token1dec).toString())
+    var aReserve0Formatted = Number(fu(aReserve0, token0dec).toString())
+    var aReserve1Formatted = Number(fu(aReserve1, token1dec).toString())
     var aPrice0 = (aReserve0Formatted / aReserve1Formatted)
     var aPrice1 = (aReserve1Formatted / aReserve0Formatted)
     var aPrice0BN = new BN(aReserve0Formatted).div(aReserve1Formatted)

@@ -1,19 +1,19 @@
 import { wallet, provider } from "../../../constants/contract";
 import { BoolTrade, TxData, V2Tx, TxGas } from "../../../constants/interfaces";
-import { BigInt } from "ethers";
+;
 import { sendTx } from "./sendTx"
-import { pu, fu, BN2JS } from "../../modules/convertBN" 
+import { pu, fu, BN2BigInt } from "../../modules/convertBN" 
 import { slippageTolerance } from "../../v3/control";
 export async function send(trade: BoolTrade, gasObj: TxGas): Promise<TxData> {
-	let slippageJS = BN2JS(slippageTolerance, 18)
-	let amountOut = (trade.target.amountOut.sub(trade.target.amountOut.mul(slippageJS)));
+	let slippageJS = BN2BigInt(slippageTolerance, 18)
+	let amountOut = (trade.target.amountOut - (trade.target.amountOut * (slippageJS)));
 	// POSSIBLE REVERT CONDITIONS: 
 	// amountOut too high (calculated without slippageTolerance)
 	// amountRepay too low (calculated without subtracting extra for slippageTolerance)
 	let tx: V2Tx = await trade.flash.flashSwap(
-		trade.loanPool.factory.address,
-		trade.loanPool.router.address,
-		trade.target.router.address,
+		trade.loanPool.factory.getAddress(),
+		trade.loanPool.router.getAddress(),
+		trade.target.router.getAddress(),
 		trade.tokenIn.id,
 		trade.tokenOut.id,
 		trade.target.tradeSize,
@@ -42,7 +42,7 @@ export async function send(trade: BoolTrade, gasObj: TxGas): Promise<TxData> {
 		// 		type: 2,
 		// 		maxFeePerGas: gasObj.maxFeePerGas + 10,
 		// 		maxPriorityFeePerGas: gasObj.maxPriorityFeePerGas + 10,
-		// 		gasLimit: gasObj.gasLimit.add(BigInt.from(10000)),
+		// 		gasLimit: gasObj.gasLimit.add(BigInt(10000)),
 		// 	}
 		// 	const newTx = await sendTx(tx)
 		// 	console.log("Retrying transaction with new gas price: " + gasObj.maxFeePerGas)

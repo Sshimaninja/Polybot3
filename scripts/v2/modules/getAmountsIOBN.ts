@@ -1,5 +1,4 @@
-// import { BigInt } from 'ethers';
-import { BigNumber as BN } from "bignumber.js";
+// import { BigNumber as BN } from "bignumber.js";
 /**
  * bignumber.js handles decimals; ethers.js can't
  * @param amountIn 
@@ -125,17 +124,17 @@ export async function getAmountsIn(amountOut: BN, reserveIn: BN, reserveOut: BN)
 //     const [reserve0, reserve1] = await pair.getReserves();
 
 //     // Calculate the expected price of the trade based on the new reserves
-//     const newReserve0 = reserve0.add(utils.parseUnits(amountIn, token0dec));
-//     const newReserve1 = reserve1.sub(utils.parseUnits(amountOutA, token1dec));
-//     const expectedPrice = newReserve1.multipliedBy(utils.parseUnits('1', token0dec)).div(newReserve0);
+//     const newReserve0 = reserve0.add(pu(amountIn, token0dec));
+//     const newReserve1 = reserve1.sub(pu(amountOutA, token1dec));
+//     const expectedPrice = newReserve1.multipliedBy(pu('1', token0dec)).div(newReserve0);
 
 //     // Calculate the actual price of the trade
-//     const actualPrice = utils.parseUnits(amountOutA, token1dec).div(utils.parseUnits(amountIn, token0dec));
+//     const actualPrice = pu(amountOutA, token1dec).div(pu(amountIn, token0dec));
 
 //     // Compare the expected and actual prices
 //     if (actualPrice.gt(expectedPrice)) {
 //         // The trade had a price impact, adjust the amount of token0 to provide
-//         const newAmountIn = expectedPrice.multipliedBy(utils.parseUnits(amountOutA, token1dec)).div(utils.parseUnits('1', token0dec));
+//         const newAmountIn = expectedPrice.multipliedBy(pu(amountOutA, token1dec)).div(pu('1', token0dec));
 //     }
 // }
 

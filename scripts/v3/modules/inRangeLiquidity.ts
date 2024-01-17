@@ -5,7 +5,7 @@ import { wallet } from '../../../constants/contract'
 import { ReservesData, PoolState, PoolInfo, ERC20token, Slot0, Reserves3 } from "../../../constants/interfaces";
 import { abi as IERC20 } from "../../../interfaces/IERC20.json";
 import { sqrt } from "./tradeMath";
-import { BN2JS, BigInt2BN, fu, pu } from "../../modules/convertBN";
+import { BN2BigInt, BigInt2BN, fu, pu } from "../../modules/convertBN";
 import { chainID } from "../../../constants/addresses";
 import { TickMath, Position } from "@uniswap/v3-sdk";
 import { TickMath as TickMathAlg } from "@cryptoalgebra/integral-sdk";
@@ -111,7 +111,7 @@ export class InRangeLiquidity {
 		} else {
 			const slot0 = await this.getSlot0();
 			const sqrtPriceX96 = slot0.sqrtPriceX96;
-			const Q96 = ethers.BigInt.from(2).pow(96);
+			const Q96 = ethers.BigInt(2).pow(96);
 			const sqrtPrice = Number(sqrtPriceX96.mul(Q96).div(Q96));
 			// const sqrtPriceBN = BigInt2BN(sqrtPrice, 18);
 			// const liquidityBN = BigInt2BN(liquidity, 18);
@@ -219,7 +219,7 @@ export class InRangeLiquidity {
 		let a = await this.getTokenAmounts();
 
 		const liquidityData: PoolState = {
-			poolID: this.pool.address,
+			poolID: this.pool.getAddress(),
 			sqrtPriceX96: slot0.sqrtPriceX96,
 			liquidity: liquidity,
 			liquidityBN: BN(liquidity.toString()),
@@ -242,7 +242,7 @@ export class InRangeLiquidity {
 	async viewData(l: PoolState) {
 		const liquidityDataView = {
 			ticker: this.token0.symbol + "/" + this.token1.symbol,
-			poolID: this.pool.address,
+			poolID: this.pool.getAddress(),
 			liquidity: l.liquidity.toString(),
 			reserves0String: fu(l.reservesIn, this.token0.decimals),
 			reserves1String: fu(l.reservesOut, this.token1.decimals),

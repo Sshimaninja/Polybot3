@@ -26,8 +26,8 @@ export class AllV3Pools {
 			const factoryID = this.factoryMap[protocol];
 			console.log('FactoryID: ' + factoryID);
 			const factory = new Contract(factoryID, IFactory, wallet);
-			if (factory.address != undefined) {
-				console.log('FactoryContract Initialised: ' + factory.address);
+			if (factory.getAddress() != undefined) {
+				console.log('FactoryContract Initialised: ' + factory.getAddress());
 			} else {
 				console.log('FactoryContract not initialised');
 			}
@@ -39,7 +39,7 @@ export class AllV3Pools {
 				// Get the corresponding Uniswap V3 pool addresses for each token pair
 				UNIV3Pools.forEach(async (entry: any) => {
 					await uniswapV3Factory.getPool(entry.token0.id, entry.token1.id, entry.feeTier);
-					if (entry.address != "0x0000000000000000000000000000000000000000") {
+					if (entry.getAddress() != "0x0000000000000000000000000000000000000000") {
 						const pool = new Contract(entry.id, IUniswapV3Pool, wallet);
 						const v3Pool = {
 							ticker: pool.ticker,

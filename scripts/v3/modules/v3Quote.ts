@@ -6,12 +6,12 @@
 // import { Bool3Trade, Match3Pools, PoolState } from "../../../constants/interfaces";
 // import { provider, signer } from "../../../constants/contract";
 // import { slippageTolerance } from "../control";
-// import { BN2JS, fu, pu } from "../../modules/convertBN";
+// import { BN2BigInt, fu, pu } from "../../modules/convertBN";
 // // export async function getV3Quote(
 // // 	match: Match3Pools,
 // // 	state: PoolState,
 // // 	tradeSize: bigint
-// // ): Promise<BigInt> {
+// // ): Promise<bigint> {
 
 
 // //Returns the amount out received for a given exact input but for a swap of a single pool
@@ -37,7 +37,7 @@
 // 		this.QuoterV2 = new ethers.Contract(getQuoter(exchange)[exchange], IUniswapV3Quoter, signer);
 // 	}
 
-// 	async maxOut(tradeSize: bigint): Promise<BigInt> {
+// 	async maxOut(tradeSize: bigint): Promise<bigint> {
 // 		// console.log("Params: ", "Exchange: ", exchange, ' Protocol: ', protocol, ' ', feeTier, ' tradeSize: ', fu(tradeSize, this.pool.token0.decimals))
 // 		try {
 // 			const maxOut = this.protocol === "UNIV3" ? await this.QuoterV2.callStatic.quoteExactInputSingle(
@@ -60,7 +60,7 @@
 // 		}
 // 	}
 
-// 	async minIn(amountOutExpected: bigint): Promise<BigInt> {
+// 	async minIn(amountOutExpected: bigint): Promise<bigint> {
 // 		if (amountOutExpected.gt(0)) {
 // 			try {
 // 				const minIn = this.protocol = "UNIV3" ? await this.QuoterV2.callStatic.quoteExactOutputSingle(

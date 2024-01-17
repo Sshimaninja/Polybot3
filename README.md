@@ -1,6 +1,6 @@
 # TODO: Update to ES2020 BigInt
 
-## ethers.utils.parseUnits() example in BigInt:
+## ethers.parseUnits() example in BigInt:
 
 	const baseValue = BigInt(10) ** BigInt(18);
 	const humanReadableNumber = BigInt("10000");

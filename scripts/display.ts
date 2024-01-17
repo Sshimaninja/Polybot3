@@ -1,8 +1,8 @@
-// In a separate React component file
-import React from 'react';
+// // In a separate React component file
+// import React from 'react';
 
-function TradeTable({ trades }) {
-	// Render the trades in a table
-}
+// function TradeTable({ trades }) {
+// 	// Render the trades in a table
+// }
 
-export default TradeTable;
+// export default TradeTable;

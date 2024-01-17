@@ -1,4 +1,4 @@
-import {  ethers, utils, Contract, Wallet, Transaction, } from "ethers";
+import {  ethers, Contract, Wallet, Transaction, } from "ethers";
 import { provider, signer, logger } from "../../../constants/contract";
 import { BoolTrade, Profit, TxData, V2Params, V2Tx, TxGas } from "../../../constants/interfaces";
 import { checkBal, checkGasBal } from "./checkBal";
@@ -7,6 +7,7 @@ import { send } from "./send";
 import { notify } from "./notify";
 import { fetchGasPrice } from "./fetchGasPrice";
 import { pendingTransactions } from "./pendingTransactions";
+import { fu } from "../../modules/convertBN";
 
 /**
  * @param trade
@@ -32,7 +33,7 @@ export async function execute(
 		logger.info("::::::::::::::::::::::::" + trade.ticker + trade.ID + ': PENDING TRANSACTION::::::::::::::::::::::::: ')
 		return {
 			txResponse: undefined,
-			pendingID: trade.target.pool.address,
+			pendingID: await trade.target.pool.getAddress(),
 		};
 	} else {
 		logger.info('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.ticker + '::::::::::::::::::::::::::')
@@ -40,13 +41,13 @@ export async function execute(
 
 		var gasbalance = await checkGasBal();
 
-		logger.info("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, 18) + " " + "MATIC")
+		logger.info("Wallet Balance Matic: " + fu((gasbalance), 18) + " " + "MATIC")
 
 		if (trade) {
-			logger.info("Wallet Balance Matic: " + ethers.utils.formatUnits(gasbalance, 18) + " " + "MATIC")
-			logger.info("Gas Cost::::::::::::: " + ethers.utils.formatUnits(profit.gas.gasPrice, 18) + " " + "MATIC (if this is tiny, it's probably because gasEstimate has failed.")
+			logger.info("Wallet Balance Matic: " + fu(gasbalance, 18) + " " + "MATIC")
+			logger.info("Gas Cost::::::::::::: " + fu(profit.gas.gasPrice, 18) + " " + "MATIC (if this is tiny, it's probably because gasEstimate has failed.")
 
-			const gotGas = profit.gasCost.lt(gasbalance)
+			const gotGas = profit.gasCost <  (gasbalance)
 
 			gotGas == true ? logger.info("Sufficient Matic Balance. Proceeding...") : console.log(">>>>Insufficient Matic Balance<<<<")
 
@@ -65,9 +66,9 @@ export async function execute(
 				let gasObj: TxGas = {
 					type: 2,
 					gasPrice: profit.gas.gasPrice,
-					maxFeePerGas: Number(profit.gas.maxFee.mul('2')),
-					maxPriorityFeePerGas: Number(profit.gas.maxPriorityFee.mul('2')),
-					gasLimit: gasEstimate.gasEstimate.mul('10'),
+					maxFeePerGas: Number(profit.gas.maxFee * 2n),
+					maxPriorityFeePerGas: Number(profit.gas.maxPriorityFee * 2n),
+					gasLimit: gasEstimate.gasEstimate * 10n,
 				}
 
 				// Set the pending transaction flag for this pool
@@ -95,7 +96,7 @@ export async function execute(
 				logger.info("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
 
 				// Clear the pending transaction flag for this pool
-				pendingTransactions[trade.target.pool.address] = false;
+				pendingTransactions[await trade.target.pool.getAddress()] = false;
 
 				return result;
 
