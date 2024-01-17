@@ -145,7 +145,7 @@
 // 		data: calldata,
 // 	})
 
-// 	return ethers.utils.defaultAbiCoder.decode(['uint256'], quoteCallReturnData)
+// 	return ethers.defaultAbiCoder.decode(['uint256'], quoteCallReturnData)
 // }
 
 // export async function getTokenTransferApproval(
@@ -160,7 +160,7 @@
 
 // 	try {
 // 		const tokenContract = new ethers.Contract(
-// 			token.address,
+// 			token.getAddress(),
 // 			ERC20_ABI,
 // 			provider
 // 		)

@@ -1,5 +1,4 @@
-import { BigInt } from 'ethers';
-import { BigInt as BN } from 'bignumber.js'
+import { BigNumber as BN } from 'bignumber.js'
 /**
  * Calcs the cost of loan in real & percentage terms.
  * @param amountOutLoanPool 

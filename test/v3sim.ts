@@ -2,12 +2,12 @@ import { ethers } from 'ethers';
 import { FlashParams, FlashCallbackData } from './types';
 
 class ArbitrageSimulator {
-    private readonly provider: ethers.providers.JsonRpcProvider;
+    private readonly provider: ethers.JsonRpcProvider;
     private readonly signer: ethers.Signer;
     private readonly pairFlash: ethers.Contract;
 
     constructor(providerUrl: string, privateKey: string, pairFlashAddress: string) {
-        this.provider = new ethers.providers.JsonRpcProvider(providerUrl);
+        this.provider = new ethers.JsonRpcProvider(providerUrl);
         this.signer = new ethers.Wallet(privateKey, this.provider);
         this.pairFlash = new ethers.Contract(pairFlashAddress, PairFlash.abi, this.signer);
     }
@@ -26,8 +26,8 @@ class ArbitrageSimulator {
         const flashReceipt = await flashTx.wait();
 
         // Decode the callback data from the flash swap
-        const callbackData = ethers.utils.defaultAbiCoder.decode(['bytes'], flashReceipt.logs[0].data)[0];
-        const decodedData = ethers.utils.defaultAbiCoder.decode(['tuple(uint256,uint256,bytes)'], callbackData)[0].data;
+        const callbackData = ethers.defaultAbiCoder.decode(['bytes'], flashReceipt.logs[0].data)[0];
+        const decodedData = ethers.defaultAbiCoder.decode(['tuple(uint256,uint256,bytes)'], callbackData)[0].data;
 
         // Call the uniswapV3FlashCallback function with the decoded callback data
         const callbackTx = await this.pairFlash.uniswapV3FlashCallback(decodedData);
@@ -44,7 +44,7 @@ class ArbitrageSimulator {
         const profit1 = balance1After.sub(balance1Before);
 
         console.log(`Arbitrage completed successfully!`);
-        console.log(`Profit from ${params.token0}: ${ethers.utils.formatUnits(profit0, params.decimals0)}`);
-        console.log(`Profit from ${params.token1}: ${ethers.utils.formatUnits(profit1, params.decimals1)}`);
+        console.log(`Profit from ${params.token0}: ${fu(profit0, params.decimals0)}`);
+        console.log(`Profit from ${params.token1}: ${fu(profit1, params.decimals1)}`);
     }
 }

@@ -1,7 +1,7 @@
-import { BigInt } from "ethers";
+;
 import { Bool3Trade, K, PoolState } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter"
-import { BN2JS } from "../../modules/convertBN";
+import { BN2BigInt } from "../../modules/convertBN";
 import { V3Quote } from "./V3Quote2";
 
 /**
@@ -32,7 +32,7 @@ export async function getK(trade: Bool3Trade, state: PoolState, calc: AmountConv
 		tradeSizewithFee,
 	);
 
-	// const tokenOutPrice = BN2JS(calc.price.priceOutBN, calc.token1.decimals);
+	// const tokenOutPrice = BN2BigInt(calc.price.priceOutBN, calc.token1.decimals);
 	// // console.log("TradeSize: " + tradeSize.toString() + " * tokenOutPrice: " + tokenOutPrice.toString() + " = " + tokenOutPrice.mul(tradeSize).toString())
 	// const tradeSizeInTermsOfTokenOut = tradeSize.mul(tokenOutPrice);
 	// // console.log('tradeSizeInTermsOfTokenOut: ', tradeSizeInTermsOfTokenOut.toString())

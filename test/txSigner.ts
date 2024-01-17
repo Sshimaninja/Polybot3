@@ -1,6 +1,6 @@
 import { ethers } from "hardhat";
 import { Wallet } from "ethers";
-import { BigInt } from "ethers";
+;
 import { provider } from "../constants/contract";
 
 export async function transferMaticToInitialSigner(initialSigner: Wallet): Promise<BigInt | undefined> {
@@ -14,14 +14,14 @@ export async function transferMaticToInitialSigner(initialSigner: Wallet): Promi
 
 		if (balance.gt(0)) {
 			const transaction = {
-				to: initialSigner.address,
+				to: initialSigner.getAddress(),
 				value: ninetyFivePercentMatic,
 				gasLimit: gasLimit, // standard gas limit for simple transfers
 			};
 
 			const tx = await signer.sendTransaction(transaction);
 			await tx.wait();
-			console.log(`Transferred ${ethers.utils.formatEther(balance)} MATIC from signer ${signer.address} to initial signer`);
+			console.log(`Transferred ${ethers.formatEther(balance)} MATIC from signer ${signer.getAddress()} to initial signer`);
 		}
 	});
 

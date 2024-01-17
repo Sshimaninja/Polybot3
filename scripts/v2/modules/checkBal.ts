@@ -1,9 +1,10 @@
-import {  Contract, ethers } from 'ethers'
+import { Contract, ethers } from 'ethers'
 import { provider, flashwallet } from '../../../constants/contract'
 import { deployedMap, gasTokens, uniswapV2Factory } from '../../../constants/addresses'
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
 import { abi as IERC20 } from '@uniswap/v2-periphery/build/IERC20.json';
 import { fetchGasPrice } from './fetchGasPrice';
+import { fu } from '../../modules/convertBN';
 require('dotenv').config()
 /**
  * checks gas token balance of the flashwallet
@@ -27,18 +28,18 @@ export async function checkBal(token0: string, token0dec: number, token1: string
 
 	console.log("New wallet balance: ")
 	console.log("Wallet: " + flashwallet)
-	console.log("Wallet balance token0: " + ethers.utils.formatUnits(walletbalance0, token0dec) + " Asset:  " + token0)
-	console.log("Wallet balance token1: " + ethers.utils.formatUnits(walletbalance1, token1dec) + " Asset:  " + token1)
-	console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(walletbalanceMatic, 18) + " " + "MATIC")
+	console.log("Wallet balance token0: " + fu(walletbalance0, token0dec) + " Asset:  " + token0)
+	console.log("Wallet balance token1: " + fu(walletbalance1, token1dec) + " Asset:  " + token1)
+	console.log("Wallet Balance Matic: " + fu(walletbalanceMatic, 18) + " " + "MATIC")
 	// console.log("Block Number: " + (await provider.getBlockNumber()))
 	// console.log("Contract balance: " + contractbalance.toString() + " " + deployedMap.flashTest)
 }
 // checkBal("0x2791bca1f2de4661ed88a30c99a7a9449aa84174", 6, "0x67eb41a14c0fe5cd701fc9d5a3d6597a72f641a6", 18);
 
-export async function checkGasBal(): Promise<BigInt> {
+export async function checkGasBal(): Promise<bigint> {
 	const wmatictoken = new ethers.Contract("0x0000000000000000000000000000000000001010", IERC20, provider)
 	const walletbalanceMatic = await wmatictoken.balanceOf(flashwallet)
-	// console.log("Wallet Balance Matic: " + ethers.utils.formatUnits(walletbalanceMatic, 18) + " " + "MATIC")
+	// console.log("Wallet Balance Matic: " + fu(walletbalanceMatic, 18) + " " + "MATIC")
 	return walletbalanceMatic
 }
 

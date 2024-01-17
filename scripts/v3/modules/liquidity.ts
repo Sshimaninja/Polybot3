@@ -4,7 +4,7 @@
 // import { wallet } from '../../../constants/contract'
 // import { ReservesData, PoolState, PoolInfo, ERC20token, Slot0 } from "../../../constants/interfaces";
 // import { sqrt } from "./tradeMath";
-// import { BN2JS, fu, pu } from "../../modules/convertBN";
+// import { BN2BigInt, fu, pu } from "../../modules/convertBN";
 // // import { getPrice } from "./uniswapV3Primer";
 // /**
 //  * @description
@@ -187,8 +187,8 @@
 // 		// let r1BN = liq.times(slot0.sqrtPriceX96BN)
 // 		// console.log("Reserves1: ", r1BN.toFixed(this.token1.decimals))
 
-// 		// const reserves0 = liq.mul(slot0.sqrtPriceX96).div(BigInt.from(2).pow(96));
-// 		// const reserves1 = liq.mul(BigInt.from(2).pow(96)).div(slot0.sqrtPriceX96);
+// 		// const reserves0 = liq.mul(slot0.sqrtPriceX96).div(BigInt(2).pow(96));
+// 		// const reserves1 = liq.mul(BigInt(2).pow(96)).div(slot0.sqrtPriceX96);
 
 // 		return { r0BN, r1BN };
 // 	}
@@ -255,7 +255,7 @@
 // 	}
 
 
-// 	async getReservesInRange2(tickLower: number, tickUpper: number): Promise<BigInt> {
+// 	async getReservesInRange2(tickLower: number, tickUpper: number): Promise<bigint> {
 // 		let totalLiquidity = 0n;
 
 // 		for (let tick = tickLower; tick <= tickUpper; tick++) {
@@ -280,11 +280,11 @@
 // 		const currentLiquidityCumulative = liquidityCumulatives[0];
 
 // 		// The current tick and liquidity can be calculated from the cumulatives
-// 		const currentTick = currentTickCumulative.div(ethers.BigInt.from(secondsAgo[0]));
-// 		const currentLiquidity = currentLiquidityCumulative.div(ethers.BigInt.from(secondsAgo[0]));
+// 		const currentTick = currentTickCumulative.div(ethers.BigInt(secondsAgo[0]));
+// 		const currentLiquidity = currentLiquidityCumulative.div(ethers.BigInt(secondsAgo[0]));
 
 // 		// The reserves can be calculated from the current tick and liquidity
-// 		const reserves0 = currentLiquidity.mul(BigInt.from(1).sub(currentTick));
+// 		const reserves0 = currentLiquidity.mul(BigInt(1).sub(currentTick));
 // 		const reserves1 = currentLiquidity.mul(currentTick);
 
 // 		return { reserves0, reserves1 };
@@ -357,7 +357,7 @@
 
 
 // 		const liquidityData: PoolState = {
-// 			poolID: this.pool.address,
+// 			poolID: this.pool.getAddress(),
 // 			sqrtPriceX96: slot0.sqrtPriceX96,
 // 			liquidity: liquidity,
 // 			liquidityBN: BN(liquidity.toString()),
@@ -372,7 +372,7 @@
 // 		};
 // 		const liquidityDataView = {
 // 			ticker: this.token0.symbol + "/" + this.token1.symbol,
-// 			poolID: this.pool.address,
+// 			poolID: this.pool.getAddress(),
 // 			liquidity: liquidity.toString(),
 // 			reserves0: fu(reserves0, this.token0.decimals),
 // 			reserves1: fu(reserves1, this.token1.decimals),
@@ -385,7 +385,7 @@
 // 		}
 // 		console.log('liquiditydataview: ')
 // 		console.log(liquidityDataView)
-// 		// console.log("Poolstate ", this.pool.address, " : ", this.poolInfo.protocol, " Complete")
+// 		// console.log("Poolstate ", this.pool.getAddress(), " : ", this.poolInfo.protocol, " Complete")
 // 		return liquidityData;
 // 	}
 

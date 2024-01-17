@@ -17,10 +17,10 @@ async function main() {
 		const deployer = signer;
 		const owner = wallet.getAddress();
 
-		console.log("Deploying contracts with the account: " + deployer.address);
+		console.log("Deploying contracts with the account: " + deployer.getAddress());
 
 		// Get balance of deployer account
-		const balanceDeployer = await provider.getBalance(deployer.address);; 
+		const balanceDeployer = await provider.getBalance(deployer.getAddress());; 
 
 		console.log("Account balance:", balanceDeployer.toString());
 
@@ -51,15 +51,15 @@ async function main() {
 
 		// if ((network.config.chainId === 137 && process.env.POLYGONSCAN_APIKEY) || (network.config.chainId === 80001 && process.env.MUMBAISCAN_API_KEY)) {
 		// 	await flashmultitest.deployTransaction.wait(12);
-		// 	// verify(flashmultitest.address, [owner]);
+		// 	// verify(flashmultitest.getAddress(), [owner]);
 
 		// } else if (network.config.chainId === 31337) {
 		// 	console.log("Verification failed: Network is Hardhat");
 		// } else {
-		const checkOwnerMultiFunction =  flashmultitest.getFunction("checkOwner");
+		const checkOwnerMultiFunction =   flashmultitest.getFunction("checkOwner");
 		const checkOwnerMulti = await checkOwnerMultiFunction();
 		console.log(checkOwnerMulti)
-		const checkOwnerDirectFunction =  flashdirecttest.getFunction("checkOwner");
+		const checkOwnerDirectFunction =   flashdirecttest.getFunction("checkOwner");
 		const checkOwnerDirect = await checkOwnerDirectFunction();	
 		console.log(checkOwnerDirect)
 		// }

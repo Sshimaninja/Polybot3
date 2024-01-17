@@ -12,7 +12,7 @@ import { sqrt } from "./tradeMath";
 
 import { Contract as MulticallContract, Provider as MulticallProvider } from 'ethers-multicall'
 
-import { BN2JS, fu, pu } from "../../modules/convertBN";
+import { BN2BigInt, fu, pu } from "../../modules/convertBN";
 
 import { Pool, TickMath, TickListDataProvider, SwapMath, TickDataProvider, Position, Tick } from '@uniswap/v3-sdk';
 

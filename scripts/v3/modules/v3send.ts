@@ -40,8 +40,8 @@
 //     const flashReceipt = await flashTx.wait(1);
 
 //     // Decode the callback data from the flash swap
-//     // const callbackData = ethers.utils.defaultAbiCoder.decode(['bytes'], flashReceipt.logs[0].data)[0];
-//     // const decodedData = ethers.utils.defaultAbiCoder.decode(['tuple(uint256,uint256,bytes)'], callbackData)[0].data;
+//     // const callbackData = ethers.defaultAbiCoder.decode(['bytes'], flashReceipt.logs[0].data)[0];
+//     // const decodedData = ethers.defaultAbiCoder.decode(['tuple(uint256,uint256,bytes)'], callbackData)[0].data;
 
 //     // Call the uniswapV3FlashCallback function with the decoded callback data
 //     // const callbackTx = await flashV3.uniswapV3FlashCallback(decodedData);

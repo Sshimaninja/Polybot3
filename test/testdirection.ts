@@ -1,6 +1,5 @@
 import { V2V2SORT } from "../utils/dexdata/v2/comparev2";
 import { V2Quote, V2Input } from '../utils/price/uniswap/getPrice';
-import { BigInt } from 'ethers';
 
 export async function testDirection() {
 	let arrayV2V2 = await V2V2SORT() as any;
@@ -12,7 +11,7 @@ export async function testDirection() {
 		let token1address = pool.direction.token1;
 		let loanRouterAddress = pool.direction.loanRouter;
 		let recipientRouterAddress = pool.direction.recipientRouter;
-		let amountIn = BigInt.from(1000);
+		let amountIn = BigInt(1000);
 		const route = [token0address, token1address];
 
 		let newDirection = direction;

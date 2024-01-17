@@ -22,8 +22,8 @@ export async function validateAlgebraPools() {
 
 	for (const exchange of algebraFactories) {
 
-		// const provider = new ethers.providers.JsonRpcProvider("https://polygon-mainnet.infura.io/v3/ae479bfaa1b54326a4770a0fe8aa801d")
-		// const provider = new ethers.providers.JsonRpcProvider("https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-")
+		// const provider = new ethers.JsonRpcProvider("https://polygon-mainnet.infura.io/v3/ae479bfaa1b54326a4770a0fe8aa801d")
+		// const provider = new ethers.JsonRpcProvider("https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-")
 		const blockNumber = await provider.getBlockNumber();
 		const factory = new ethers.Contract(exchange, IAlgebraFactory, provider);
 
@@ -32,7 +32,7 @@ export async function validateAlgebraPools() {
 		const fileName = `all${exchangeName}.json`;
 		const filePath = path.join(`./data/allPairs/v3/${fileName}`);
 		const allPools = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-		console.log('check contract init factory.address', factory.address, 'blockNumber', blockNumber)
+		console.log('check contract init factory.getAddress()', factory.getAddress(), 'blockNumber', blockNumber)
 
 		const validated = allPools
 			.filter(async (pool: any) => {

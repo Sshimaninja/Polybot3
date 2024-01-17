@@ -17,7 +17,7 @@
 // let NFT = fs.readFileSync('UniV3NFT.json');
 // const IUniswapV3NFTmanagerABI = JSON.parse(NFT);
 
-// const provider = new ethers.providers.JsonRpcProvider("https://eth-mainnet.alchemyapi.io/v2/<RPC_Key>")
+// const provider = new ethers.JsonRpcProvider("https://eth-mainnet.alchemyapi.io/v2/<RPC_Key>")
 
 //     // V3 standard addresses (different for celo)
 // const factory = "0x1F98431c8aD98523631AE4a59f267346ea31F984";

@@ -21,8 +21,8 @@ export async function getAllV3Pools() {
 	const uniswapV3FactoryNames = Object.keys(uniswapV3Factory);
 
 	for (const exchange of uniswapV3Factories) {
-		const provider = new ethers.providers.JsonRpcProvider("https://polygon-mainnet.infura.io/v3/ae479bfaa1b54326a4770a0fe8aa801d")
-		// const provider = new ethers.providers.JsonRpcProvider("https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-")
+		const provider = new ethers.JsonRpcProvider("https://polygon-mainnet.infura.io/v3/ae479bfaa1b54326a4770a0fe8aa801d")
+		// const provider = new ethers.JsonRpcProvider("https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-")
 		const blockNumber = await provider.getBlockNumber();
 		const factory = new ethers.Contract(exchange, IUniswapV3Factory, provider);
 
@@ -43,7 +43,7 @@ export async function getAllV3Pools() {
 		}
 
 		console.log(">>Starting from block number: " + lastBlockNumber++ + "<<");
-		console.log('check contract init factory.address', factory.address, 'blockNumber', blockNumber)
+		console.log('check contract init factory.getAddress()', factory.getAddress(), 'blockNumber', blockNumber)
 
 		const batchSize = 1000;
 		const startBlock = lastBlockNumber + 1;
@@ -54,7 +54,7 @@ export async function getAllV3Pools() {
 			const fromBlock = startBlock + i * batchSize;
 			const toBlock = Math.min(fromBlock + batchSize - 1, endBlock);
 			const filter = {
-				address: factory.address,
+				address: factory.getAddress(),
 				fromBlock,
 				toBlock,
 				topics: [factory.interface.getEventTopic('PoolCreated')],

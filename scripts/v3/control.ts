@@ -51,7 +51,7 @@ export async function control(data: V3Matches, gasData: any) {
 			const pool0 = new Contract(match.pool0.id, pool0ABI, provider);
 			const pool1 = new Contract(match.pool1.id, pool1ABI, provider);
 
-			// console.log("pool0: " + pool0.address + " pool1: " + pool1.address)
+			// console.log("pool0: " + pool0.getAddress() + " pool1: " + pool1.getAddress())
 			const liq0 = await pool0.liquidity();
 			const liq1 = await pool1.liquidity();
 			if (liq0.isZero() || liq1.isZero()) {

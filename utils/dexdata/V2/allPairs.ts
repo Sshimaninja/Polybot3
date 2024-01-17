@@ -35,8 +35,8 @@ export class AllV2Pairs {
 			const routerID = this.routerMap[factory]
 			console.log('FactoryID: ' + factoryID);
 			const factoryContract = new Contract(factoryID, IFactory, wallet);
-			if (factoryContract.address != undefined) {
-				console.log('FactoryContract Initialised: ' + factoryContract.address);
+			if (factoryContract.getAddress() != undefined) {
+				console.log('FactoryContract Initialised: ' + factoryContract.getAddress());
 			} else {
 				console.log('FactoryContract not initialised');
 			}
@@ -63,7 +63,7 @@ export class AllV2Pairs {
 				const pairs = await getAllPairs(factoryContract);
 				for (const pair of pairs) {
 					const pairContract = new Contract(pair, IPair, wallet);
-					// console.log('PairContract: ' + pairContract.address);
+					// console.log('PairContract: ' + pairContract.getAddress());
 					try {
 						const reserves = await pairContract.getReserves();
 						// console.log(reserves);
@@ -74,7 +74,7 @@ export class AllV2Pairs {
 						const block = currentBlockTimestamp;
 						// console.log('Block: ' + block);
 
-						if (reserves[0].gt(BigInt.from(1)) && reserves[1].gt(BigInt.from(1)) && blockTimeStampLast > (block - 40000 * 12)) {
+						if (reserves[0].gt(BigInt(1)) && reserves[1].gt(BigInt(1)) && blockTimeStampLast > (block - 40000 * 12)) {
 							const token0id = await pairContract.token0();
 							const token0 = new Contract(token0id, IERC20, wallet)
 
@@ -92,20 +92,20 @@ export class AllV2Pairs {
 							console.log('Current: ' + currentBlockTimestamp)
 							console.log('Symbol: ' + ticker)
 							console.log('Token0: ' + token0id);
-							console.log('reserves0: ' + utils.formatUnits(reserves[0], token0Decimals))
+							console.log('reserves0: ' + fu(reserves[0], token0Decimals))
 							console.log('Token1: ' + token1id);
-							console.log('reserves1: ' + utils.formatUnits(reserves[1], token1Decimals))
+							console.log('reserves1: ' + fu(reserves[1], token1Decimals))
 							const tokenData = {
 								ticker: ticker,
 								poolID: pair,
 								token0: {
 									symbol: token0Symbol,
-									id: token0.address,
+									id: token0.getAddress(),
 									decimals: token0Decimals,
 								},
 								token1: {
 									symbol: token1Symbol,
-									id: token1.address,
+									id: token1.getAddress(),
 									decimals: token1Decimals,
 								},
 							};

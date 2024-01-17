@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
 import hre from "hardhat";
-import { BigInt } from "ethers";
+;
 // import { abi as IFlash } from '../artifacts/contracts/flasMulti.sol/flashMulti.json';
 require("dotenv").config();
 
@@ -35,7 +35,7 @@ describe("flashSwap", function () {
 
 		// Token Borrowed
 		const USDCContract = new ethers.Contract(token0ID, IERC20, impersonateSigner)
-		const USDCHolderBalance = await USDCContract.balanceOf(impersonateSigner.address)
+		const USDCHolderBalance = await USDCContract.balanceOf(impersonateSigner.getAddress())
 		console.log(`USDC Holder Balance: ${USDCHolderBalance}`)
 		const fee = Math.round(((amount0In * 3) / 997)) + 1;
 		await USDCContract.connect(impersonateSigner).transfer(flashTestAddress, fee)
@@ -47,7 +47,7 @@ describe("flashSwap", function () {
 		// 	amount0In,
 		// 	amount1Out
 		// )
-		// const flashSwapBalance = await USDCContract.balanceOf(flashTest.address)
+		// const flashSwapBalance = await USDCContract.balanceOf(flashTest.getAddress())
 		// expect(flashSwapBalance.eq(0n)).to.be.true;
 	})
 })

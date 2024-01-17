@@ -44,13 +44,13 @@
 //     }
 
 //     // Get repayment amount for the loanPool
-//     async getRepayMulti(tradeSize: bigint, reserveIn: bigint, reserveOut: bigint): Promise<BigInt> {
+//     async getRepayMulti(tradeSize: bigint, reserveIn: bigint, reserveOut: bigint): Promise<bigint> {
 //         const amountRepay = await getAmountsIn(tradeSize, reserveIn, reserveOut); // result must be token1
 //         return amountRepay; //in token1
 //     }
 
 //     // Get repayment amount for the loanPool
-//     async getRepayDirect(tradeSize: bigint): Promise<BigInt> {
+//     async getRepayDirect(tradeSize: bigint): Promise<bigint> {
 //         const repay = tradeSize.mul(1003009027).div(1000000000);
 //         return repay; //in token0
 //     }

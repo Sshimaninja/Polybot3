@@ -37,7 +37,7 @@ export async function getAllPools() {
 		}
 
 		console.log('exchangeName', exchangeName)
-		const provider = new ethers.providers.JsonRpcProvider("https://polygon-mainnet.infura.io/v3/5369330cf67d468998ee44fb7b47b8a3")
+		const provider = new ethers.JsonRpcProvider("https://polygon-mainnet.infura.io/v3/5369330cf67d468998ee44fb7b47b8a3")
 		const factory = new ethers.Contract(exchange, IUniswapFactory, provider);
 
 		// Get a list of all filters if you want to see what is available
