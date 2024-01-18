@@ -10,7 +10,7 @@ export async function send(trade: BoolTrade, gasObj: TxGas): Promise<TxData> {
 	// POSSIBLE REVERT CONDITIONS: 
 	// amountOut too high (calculated without slippageTolerance)
 	// amountRepay too low (calculated without subtracting extra for slippageTolerance)
-	let tx: V2Tx = await trade.flash.flashSwap(
+	let tx: V2Tx = await trade.flash.getFunction('flashSwap')(
 		trade.loanPool.factory.getAddress(),
 		trade.loanPool.router.getAddress(),
 		trade.target.router.getAddress(),
@@ -19,7 +19,6 @@ export async function send(trade: BoolTrade, gasObj: TxGas): Promise<TxData> {
 		trade.target.tradeSize,
 		amountOut, 
 		trade.loanPool.amountRepay,
-		gasObj
 	);
 	try {
 		const t = await sendTx(tx)

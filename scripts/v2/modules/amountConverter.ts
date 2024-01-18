@@ -1,4 +1,3 @@
-import {   } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { getMaxTokenIn, getMaxTokenOut, tradeToPrice } from './tradeMath';
 import { Pair, ReservesData, TradePair } from "../../../constants/interfaces";
@@ -6,7 +5,7 @@ import { Prices } from "./prices";
 import { Token, Amounts } from "../../../constants/interfaces";
 import { getAmountsOut, getAmountsIn } from './getAmountsIOLocal';
 import { HiLo, Difference } from "../../../constants/interfaces";
-import { BigInt2BN, pu } from "../../modules/convertBN";
+import { BigInt2BN, fu, pu } from "../../modules/convertBN";
 import { slippageTolerance } from "../../v3/control";
 
 /**
@@ -36,8 +35,15 @@ export class AmountConverter {
 	 */
 	// tradeToPrice gets a mid-level between price of pool and target price, and returns the amount of token0 needed to reach that price
 	// can be limited by slippageTolerance if uniswap returns 'EXCESSIVE_INPUT_AMOUNT'
+	// can be limited by maxIn if uniswap returns 'INSUFFICIENT_INPUT_AMOUNT'
+
 	async tradeToPrice(): Promise<bigint> {
 		// this.targetPrice = this.price.priceOutBN.plus(this.targetPrice).div(2);// average of two prices
+		// console.log({
+		// 	reservesInBN: this.reserves.reserveInBN.toString(),
+		// 	reserveOutBN: this.reserves.reserveOutBN.toString(), 
+		// 	targetPrice:  this.targetPrice, 
+		// 	slip: this.slip})
 		const tradeSize = await tradeToPrice(this.reserves.reserveInBN, this.reserves.reserveOutBN, this.targetPrice, this.slip);
 		// console.log('tradeSize: ', tradeSize.toFixed(this.token0.decimals));//DEBUG
 		const tradeSizeJS = pu(tradeSize.toFixed(this.token0.decimals), this.token0.decimals);

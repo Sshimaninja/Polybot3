@@ -190,7 +190,12 @@ export class Trade {
 			pu((multi.profitPercent.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals) :
 			pu((direct.profitPercent.toFixed(trade.tokenOut.decimals)), trade.tokenOut.decimals);
 
-		trade.k = await getK(trade.type, trade.target.tradeSize, trade.loanPool.reserveIn, trade.loanPool.reserveOut, this.calc0);
+		trade.k = await getK(
+			trade.type, 
+			trade.target.tradeSize, 
+			trade.loanPool.reserveIn, 
+			trade.loanPool.reserveOut, 
+			this.calc0);
 
 		trade.flash = trade.type === "multi" ? flashMulti : flashDirect;
 

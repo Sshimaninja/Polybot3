@@ -59,12 +59,12 @@
         "node-telegram-bot-api": "^0.63.0"
     },
     "scripts": {
-        "v2BotTest": "cross-env NODE_ENV=live npx ts-node index",
-        "v2BotLive": "cross-env NODE_ENV=live npx ts-node index3",
+        "v2BotTest": "cross-env NODE_ENV=test npx ts-node index",
+        "v2BotLive": "cross-env NODE_ENV=live npx ts-node index",
         "v2DeployTest": "cross-env NODE_ENV=test npx hardhat run --network localhost scripts/deployFlashTests.ts",
         "v2DeployLive": "cross-env NODE_ENV=live npx hardhat run --network polygon scripts/deployFlash.ts",
-        "bot2Test": "cross-env NODE_ENV=test npx ts-node index",
-        "bot3Test": "cross-env NODE_ENV=test npx ts-node index3",
+        "bot2Test": "cross-env NODE_ENV=test npx ts-node index3",
+        "bot3Test": "cross-env NODE_ENV=live npx ts-node index3",
         "start:node": "npx hardhat node",
         "wait:node": "wait-on tcp:8545",
         "startTests": "concurrently --kill-others \"npm:wait:node\" \"npm:start:node\" \"npm:v2DeployTest\"",
