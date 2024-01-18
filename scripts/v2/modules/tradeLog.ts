@@ -1,12 +1,7 @@
 
 import { BoolTrade } from "../../../constants/interfaces";
 import { BigInt2BN, fu } from "../../modules/convertBN";
-/**
- * This doc calculates whether trade will revert due to uniswak K being positive or negative
- * Uni V2 price formula: X * Y = K
- * @param trade 
- * @returns Uniswap K before and after trade, and whether it is positive or negative
- */
+
 
 export async function tradeLogs(trade: BoolTrade): Promise<any> {
 	try {
@@ -45,8 +40,8 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
 				amountOut: fu(trade.target.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
 			},
 			result: {
-				uniswapkPreT: trade.k.uniswapKPre > (0n) ? trade.k.uniswapKPre.toString() : 0,
-				uniswapkPosT: trade.k.uniswapKPost > (0n) ? trade.k.uniswapKPost.toString() : 0,
+				uniswapkPreT: trade.k.uniswapKPre > 0n ? trade.k.uniswapKPre.toString() : 0,
+				uniswapkPosT: trade.k.uniswapKPost > 0n ? trade.k.uniswapKPost.toString() : 0,
 				uniswapKPositive: trade.k.uniswapKPositive,
 				// loanCostPercent: fu((trade.loanPool.amountOut.div(trade.amountRepay)).mul(100), trade.tokenOut.decimals),
 				profit: fu(trade.profit, (trade.tokenOut.decimals)) + " " + (trade.tokenOut.symbol),

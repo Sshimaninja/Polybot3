@@ -5,7 +5,7 @@ import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
 // import { abi as IPool } from '@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json';
 import { wallet } from '../../../constants/contract'
 import { ReservesData, Pair, TradePair } from "../../../constants/interfaces";
-import { fu } from "../../modules/convertBN";
+import { BigInt2BN, fu } from "../../modules/convertBN";
 /**
  * @description
  * This class returns an array of an array of reserves for an array of pairs.
@@ -29,22 +29,20 @@ export class Reserves {
 		}
 		return poolIDs;
 	}
-
 	async getReserves(match: TradePair): Promise<ReservesData[]> {
 		const poolIDs = await this.getPoolIDs(match);
 		const reserves: ReservesData[] = [];
 		for (const poolID of poolIDs) {
 			let Pair = new ethers.Contract(poolID, IPair, wallet)
 			if (await Pair.getAddress() != '0x0000000000000000000000000000000000000000') {
-				let reservesData = await Pair.getReserves().catch((error: any) => {
-					logger.error("Error (getReserves(" + poolID + ")): " + error)
-					logger.error(error)
-					return undefined;
-				});
-				if (reservesData !== undefined) {
+				try{    
+					let reservesData = await Pair.getReserves()    
+					if (reservesData === undefined) {
+						return reserves;
+					}
 					const [reserveIn, reserveOut, blockTimestampLast] = reservesData;
-					const reserveInBN = BN(fu(reserveIn, match.token0.decimals));
-					const reserveOutBN = BN((fu(reserveOut, match.token1.decimals)));
+					const reserveInBN = BigInt2BN(reserveIn, match.token0.decimals);
+					const reserveOutBN = BigInt2BN(reserveOut, match.token1.decimals);
 					const reserveData: ReservesData = {
 						reserveIn,
 						reserveOut,
@@ -53,12 +51,18 @@ export class Reserves {
 						blockTimestampLast
 					};
 					reserves.push(reserveData);
-				}
+					// console.log("reserveData::::::::::::::::::::::::::::")        
+					// console.log(reserveData)    
+				} catch( error: any){ 
+					logger.error("Error (getReserves(" + poolID + ")): " + error)
+					logger.error(error)
+					return reserves
+				} 
 			} else {
 				console.log("Pair" + poolID + " no longer exists!")
+				return reserves
 			}
 		}
 		return reserves;
 	}
-
 }

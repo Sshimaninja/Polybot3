@@ -84,7 +84,7 @@ export async function rollDamage(trade: BoolTrade) {
 		// If profit is less than 0, return
 	} else if (trade.type !== 'filtered' /*&& profpercBN.gt(-0.6)*/) { // TESTING
 		const log = await tradeLogs(trade)
-		// console.log(log)
+		console.log(log)
 		// console.log("<<<<<<<<<<<<No Trade: " + trade.ticker + " : tradeSize: " + fu(trade.target.tradeSize, trade.tokenIn.decimals) + " : " + trade.loanPool.exchange + trade.target.exchange + " | " + profpercBN.toFixed(trade.tokenOut.decimals) + " ] >>>>>>>>>>>>")
 		return
 	}

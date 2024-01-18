@@ -35,21 +35,17 @@ export async function getK(type: string, tradeSize: bigint, reserveIn: bigint, r
 	// // console.log('tradeSizeInTermsOfTokenOutWithFee: ', tradeSizeInTermsOfTokenOutWithFee.toString())
 
 	kalc = type === "multi" ? {
-		uniswapKPre:
+		uniswapKPre: reserveIn * (reserveOut),
 			// 1000 * 2000 = 2000000 
-			reserveIn*(reserveOut),
-		uniswapKPost:
+		uniswapKPost:(reserveIn - tradeSize) * (reserveOut + tradeSizeInTokenOut),
 			// 200000 = 1800 * 110
 			//subtract loan: 
-			reserveIn -(tradeSize)
-				// multiply new reserveIn by new reservesOut by adding tradeSizeInTermsOfTokenOut
-				*(reserveOut + tradeSizeInTokenOut),
+			// multiply new reserveIn by new reservesOut by adding tradeSizeInTermsOfTokenOut
 		uniswapKPositive: false,
 	} : type === "direct" ? {
-		uniswapKPre: reserveIn*(reserveOut),
-		uniswapKPost:
+		uniswapKPre: reserveIn * (reserveOut),
+		uniswapKPost: reserveIn + (tradeSizewithFee) * (reserveOut),
 			// reserveIn + tradeSizewithFee * reserveOut(unchanged)
-			reserveIn + (tradeSizewithFee)*(reserveOut),
 		uniswapKPositive: false,
 	} : {
 		uniswapKPre: 0n,
@@ -57,7 +53,7 @@ export async function getK(type: string, tradeSize: bigint, reserveIn: bigint, r
 		uniswapKPositive: false,
 	}
 
-	kalc.uniswapKPositive = kalc.uniswapKPre < (kalc.uniswapKPost) ? true : false;
+	kalc.uniswapKPositive = kalc.uniswapKPre < kalc.uniswapKPost ? true : false;
 	return kalc;
 
 }
