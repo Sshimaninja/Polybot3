@@ -1,6 +1,6 @@
 import { BigNumber as BN } from 'bignumber.js'
 import { GasData, Match3Pools, PoolState } from '../../constants/interfaces'
-import { flashMulti, flashDirect } from '../../constants/providerData'
+import { flashMulti, flashDirect } from '../../constants/environment'
 import { Contract } from 'ethers'
 
 import { Bool3Trade } from '../../constants/interfaces'

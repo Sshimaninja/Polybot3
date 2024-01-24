@@ -15,7 +15,7 @@ import { tradeLogs } from './modules/tradeLog'
 import { InRangeLiquidity } from './modules/inRangeLiquidity'
 import { TickProvider } from './modules/TickProvider'
 import { Contract } from 'ethers'
-import { provider } from '../../constants/providerData'
+import { provider } from '../../constants/environment'
 import { chainID } from '../../constants/addresses'
 /*
 TODO:

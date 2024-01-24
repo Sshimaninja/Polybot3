@@ -1,7 +1,7 @@
 import { ethers, Contract } from 'ethers'
-import { wallet } from '../../../constants/providerData'
+import { wallet } from '../../../constants/environment'
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
-import { logger } from '../../../constants/providerData'
+import { logger } from '../../../constants/environment'
 import {
     GasToken,
     gasTokens,

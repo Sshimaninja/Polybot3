@@ -1,7 +1,7 @@
 import { Contract } from 'ethers'
 import { getQuoterV2, getProtocol } from '../../modules/getContract'
 import { abi as IUni3Pool } from '@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json'
-import { signer } from '../../../constants/providerData'
+import { signer } from '../../../constants/environment'
 import { pu } from '../../modules/convertBN'
 
 async function univ3Quote(poolID: string, tradeSize: bigint) {

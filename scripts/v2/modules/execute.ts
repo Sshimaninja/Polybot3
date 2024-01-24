@@ -1,5 +1,5 @@
 import { ethers, Contract, Wallet, Transaction } from 'ethers'
-import { provider, signer, logger } from '../../../constants/providerData'
+import { provider, signer, logger } from '../../../constants/environment'
 import {
     BoolTrade,
     Profit,

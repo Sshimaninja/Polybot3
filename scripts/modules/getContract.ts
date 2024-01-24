@@ -13,7 +13,7 @@ import { abi as IAlgebraFactory } from '@cryptoalgebra/core/artifacts/contracts/
 import { abi as IAlgebraQuoter } from '@cryptoalgebra/periphery/artifacts/contracts/interfaces/IQuoter.sol/IQuoter.json'
 import { abi as IUniswapV3QuoterV2 } from '@uniswap/v3-periphery/artifacts/contracts/lens/QuoterV2.sol/QuoterV2.json'
 import { abi as IUniswapV2Router02 } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
-import { signer } from '../../constants/providerData'
+import { signer } from '../../constants/environment'
 
 export function getProtocol(exchange: string): string {
     if (uniswapV2Factory[exchange]) {

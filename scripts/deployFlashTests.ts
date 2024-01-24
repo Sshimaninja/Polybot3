@@ -2,7 +2,7 @@ import { ethers as eh, run, network } from 'hardhat'
 // import { getContractFactory } from "@nomicfoundation/hardhat-ethers/types";
 import { ContractFactory, Typed, ethers } from 'ethers'
 import { config as dotEnvConfig } from 'dotenv'
-import { signer, wallet, provider } from '../constants/providerData'
+import { signer, wallet, provider } from '../constants/environment'
 
 if (process.env.NODE_ENV === 'test') {
     dotEnvConfig({ path: '.env.test' })
@@ -86,6 +86,7 @@ async function main() {
         // 	};
         // }
     } catch (error: any) {
+        console.log('Error in deployFlashTests.ts: ' + error.message)
         console.log(error.message)
     }
 }

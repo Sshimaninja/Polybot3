@@ -1,13 +1,8 @@
 import { ethers as eh, run, network } from 'hardhat'
 require('dotenv').config()
-import { flashMulti } from '../constants/providerData'
-import { flashDirect } from '../constants/providerData'
-import {
-    signer,
-    wallet,
-    provider,
-    flashwallet,
-} from '../constants/providerData'
+import { flashMulti } from '../constants/environment'
+import { flashDirect } from '../constants/environment'
+import { signer, wallet, provider, flashwallet } from '../constants/environment'
 
 // npx hardhat run --network localhost scripts/deployFlashMulti.ts
 // npx hardhat run --network localhost scripts/deployFlashDirect.ts; npx hardhat run--network localhost scripts/deployFlashMulti.ts

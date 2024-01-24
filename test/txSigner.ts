@@ -1,6 +1,6 @@
 import { ethers } from 'hardhat'
 import { Wallet } from 'ethers'
-import { provider } from '../constants/providerData'
+import { provider } from '../constants/environment'
 
 export async function transferMaticToInitialSigner(
     initialSigner: Wallet

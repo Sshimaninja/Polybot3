@@ -1,5 +1,5 @@
 import { ethers as utils } from 'ethers'
-import { provider, logger } from '../../../constants/providerData'
+import { provider, logger } from '../../../constants/environment'
 import { BoolTrade } from '../../../constants/interfaces'
 export async function logEmits(trade: BoolTrade, req: any) {
     try {

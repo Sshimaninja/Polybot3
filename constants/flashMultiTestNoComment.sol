@@ -102,6 +102,8 @@ library SafeMath {
     }
 }
 
+import 'hardhat/console.sol';
+
 interface IUniswapV2Callee {
     function uniswapV2Call(
         address sender,
@@ -111,8 +113,8 @@ interface IUniswapV2Callee {
     ) external;
 }
 
-contract flashMulti is IUniswapV2Callee {
-    address public owner;
+contract flashMultiTest is IUniswapV2Callee {
+    address owner;
     IUniswapV2Pair pair;
     using SafeMath for uint256;
 
@@ -134,9 +136,9 @@ contract flashMulti is IUniswapV2Callee {
         address recipientRouter,
         address token0ID,
         address token1ID,
-        uint256 amount0In,
-        uint256 amount1Out,
-        uint256 amountToRepay
+        uint256 amount0In, // amount of token0 to borrow
+        uint256 amount1Out, // amountOutMin (expected). This should be at least the amount to repay the loan
+        uint256 amountToRepay // amount of tokenOut to repay (flashMulti)
     ) external {
         require(
             msg.sender == address(owner),
@@ -145,7 +147,6 @@ contract flashMulti is IUniswapV2Callee {
         pair = IUniswapV2Pair(
             IUniswapV2Factory(loanFactory).getPair(token0ID, token1ID)
         );
-
         require(address(pair) != address(0), 'Error: Pair does not exist');
         bytes memory data = abi.encode(
             loanFactory,
@@ -154,9 +155,11 @@ contract flashMulti is IUniswapV2Callee {
             amount1Out,
             amountToRepay
         );
-
         IERC20(token0ID).approve(address(pair), amount0In);
-
+        require(
+            amount0In > 0,
+            'Error: Invalid amount0In: amount0In must be greater than 0'
+        );
         pair.swap(
             amount0In, // Requested borrow of token0
             0, // Borrow of token1
@@ -186,12 +189,14 @@ contract flashMulti is IUniswapV2Callee {
         pair = IUniswapV2Pair(
             IUniswapV2Factory(loanFactory).getPair(path[0], path[1])
         );
+        uint256 prek = getK();
+        console.log('Uniswap K Before Swap: ', prek);
+
         require(msg.sender == address(pair), 'Error: Unauthorized');
         require(sender == address(this), 'Error: Not sender');
         require(amount0 == 0 || amount1 == 0, 'Error: Invalid amounts');
         IERC20 token0 = IERC20(path[0]);
         IERC20 token1 = IERC20(path[1]);
-
         uint256 amountOut = getAmounts(
             amount0,
             amount1Repay,
@@ -210,11 +215,10 @@ contract flashMulti is IUniswapV2Callee {
         address loanRouter,
         address recipientRouter,
         address[] memory path
-    ) internal returns (uint256 amountOut) {
+    ) public returns (uint256 amountOut) {
         IERC20 token0 = IERC20(path[0]);
         IERC20 token1 = IERC20(path[1]);
-        uint256 deadline = block.timestamp + 5 minutes;
-        token0.approve(recipientRouter, loanAmount);
+        uint256 deadline = block.number + 5 minutes;
         uint256[] memory repay = getRepay(loanAmount, loanRouter, path);
         token0.approve(address(recipientRouter), loanAmount);
         amountOut = IUniswapV2Router02(address(recipientRouter))
@@ -226,7 +230,11 @@ contract flashMulti is IUniswapV2Callee {
                 address(this),
                 deadline
             )[1];
-        token1.approve(msg.sender, repay[0]);
+
+        uint256 kpost = getK();
+        console.log('Uniswap K After Swap: ', kpost);
+
+        token1.approve(msg.sender, amount1Repay);
         token1.transferFrom(address(this), msg.sender, repay[0]);
     }
 

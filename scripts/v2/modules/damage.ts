@@ -3,7 +3,7 @@ import { gasVprofit } from './gasVprofit'
 import { execute } from './execute'
 import { BigNumber as BN } from 'bignumber.js'
 import { tradeLogs } from './tradeLog'
-import { logger } from '../../../constants/providerData'
+import { logger } from '../../../constants/environment'
 import { fu } from '../../modules/convertBN'
 /**
  * Executes profitable trades

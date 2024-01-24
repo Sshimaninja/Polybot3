@@ -1,4 +1,4 @@
-import { wallet, provider } from '../../../constants/providerData'
+import { wallet, provider } from '../../../constants/environment'
 import { BoolTrade, TxData, V2Tx, TxGas } from '../../../constants/interfaces'
 import { sendTx } from './sendTx'
 import { pu, fu, BN2BigInt } from '../../modules/convertBN'

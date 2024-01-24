@@ -1,9 +1,9 @@
 import { ethers } from 'ethers'
 import { BigNumber as BN } from 'bignumber.js'
-import { logger } from '../../../constants/providerData'
+import { logger } from '../../../constants/environment'
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 // import { abi as IPool } from '@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json';
-import { wallet } from '../../../constants/providerData'
+import { wallet } from '../../../constants/environment'
 import { ReservesData, Pair, TradePair } from '../../../constants/interfaces'
 import { BigInt2BN, fu } from '../../modules/convertBN'
 /**

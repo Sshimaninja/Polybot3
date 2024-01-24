@@ -1,4 +1,4 @@
-import { provider } from '../constants/providerData'
+import { provider } from '../constants/environment'
 import { FixedNumber, utils, Contract } from 'ethers'
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 import { BigNumber as BN } from 'bignumber.js'
