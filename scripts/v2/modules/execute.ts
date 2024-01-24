@@ -1,13 +1,20 @@
-import {  ethers, Contract, Wallet, Transaction, } from "ethers";
-import { provider, signer, logger } from "../../../constants/contract";
-import { BoolTrade, Profit, TxData, V2Params, V2Tx, TxGas } from "../../../constants/interfaces";
-import { checkBal, checkGasBal } from "./checkBal";
-import { logEmits } from "./emits";
-import { send } from "./send";
-import { notify } from "./notify";
-import { fetchGasPrice } from "./fetchGasPrice";
-import { pendingTransactions } from "./pendingTransactions";
-import { fu } from "../../modules/convertBN";
+import { ethers, Contract, Wallet, Transaction } from 'ethers'
+import { provider, signer, logger } from '../../../constants/providerData'
+import {
+    BoolTrade,
+    Profit,
+    TxData,
+    V2Params,
+    V2Tx,
+    TxGas,
+} from '../../../constants/interfaces'
+import { checkBal, checkGasBal } from './checkBal'
+import { logEmits } from './emits'
+import { send } from './send'
+import { notify } from './notify'
+import { fetchGasPrice } from './fetchGasPrice'
+import { pendingTransactions } from './pendingTransactions'
+import { fu } from '../../modules/convertBN'
 
 /**
  * @param trade
@@ -26,97 +33,145 @@ import { fu } from "../../modules/convertBN";
 // Keep track of pending transactions for each pool
 
 export async function execute(
-	trade: BoolTrade,
-	profit: Profit,
+    trade: BoolTrade,
+    profit: Profit
 ): Promise<TxData> {
-	if (pendingTransactions[trade.ID]) {
-		logger.info("::::::::::::::::::::::::" + trade.ticker + trade.ID + ': PENDING TRANSACTION::::::::::::::::::::::::: ')
-		return {
-			txResponse: undefined,
-			pendingID: await trade.target.pool.getAddress(),
-		};
-	} else {
-		logger.info('::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' + trade.ticker + '::::::::::::::::::::::::::')
+    if (pendingTransactions[trade.ID]) {
+        logger.info(
+            '::::::::::::::::::::::::' +
+                trade.ticker +
+                trade.ID +
+                ': PENDING TRANSACTION::::::::::::::::::::::::: '
+        )
+        return {
+            txResponse: undefined,
+            pendingID: await trade.target.pool.getAddress(),
+        }
+    } else {
+        logger.info(
+            '::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: ' +
+                trade.ticker +
+                '::::::::::::::::::::::::::'
+        )
 
+        var gasbalance = await checkGasBal()
 
-		var gasbalance = await checkGasBal();
+        logger.info(
+            'Wallet Balance Matic: ' + fu(gasbalance, 18) + ' ' + 'MATIC'
+        )
 
-		logger.info("Wallet Balance Matic: " + fu((gasbalance), 18) + " " + "MATIC")
+        if (trade) {
+            logger.info(
+                'Wallet Balance Matic: ' + fu(gasbalance, 18) + ' ' + 'MATIC'
+            )
+            logger.info(
+                'Gas Cost::::::::::::: ' +
+                    fu(profit.gas.gasPrice, 18) +
+                    ' ' +
+                    "MATIC (if this is tiny, it's probably because gasEstimate has failed."
+            )
 
-		if (trade) {
-			logger.info("Wallet Balance Matic: " + fu(gasbalance, 18) + " " + "MATIC")
-			logger.info("Gas Cost::::::::::::: " + fu(profit.gas.gasPrice, 18) + " " + "MATIC (if this is tiny, it's probably because gasEstimate has failed.")
+            const gotGas = profit.gasCost < gasbalance
 
-			const gotGas = profit.gasCost <  (gasbalance)
+            gotGas == true
+                ? logger.info('Sufficient Matic Balance. Proceeding...')
+                : console.log('>>>>Insufficient Matic Balance<<<<')
 
-			gotGas == true ? logger.info("Sufficient Matic Balance. Proceeding...") : console.log(">>>>Insufficient Matic Balance<<<<")
+            if (gotGas == false) {
+                logger.info(
+                    ':::::::::::::::::::::::END TRANSACTION: ' +
+                        trade.ticker +
+                        ': GAS GREATER THAN PROFIT::::::::::::::::::::::::: '
+                )
+                return {
+                    txResponse: undefined,
+                    pendingID: null,
+                }
+            }
 
-			if (gotGas == false) {
-				logger.info(":::::::::::::::::::::::END TRANSACTION: " + trade.ticker + ': GAS GREATER THAN PROFIT::::::::::::::::::::::::: ')
-				return {
-					txResponse: undefined,
-					pendingID: null,
-				};
-			}
+            if (gotGas == true) {
+                //re-fetch gas price. Might be unnecessary but it's free.
+                let gasEstimate = await fetchGasPrice(trade)
+                let gasObj: TxGas = {
+                    type: 2,
+                    gasPrice: profit.gas.gasPrice,
+                    maxFeePerGas: Number(profit.gas.maxFee * 2n),
+                    maxPriorityFeePerGas: Number(
+                        profit.gas.maxPriorityFee * 2n
+                    ),
+                    gasLimit: gasEstimate.gasEstimate * 10n,
+                }
 
-			if (gotGas == true) {
+                // Set the pending transaction flag for this pool
+                pendingTransactions[trade.ID] = true
 
-				//re-fetch gas price. Might be unnecessary but it's free.
-				let gasEstimate = await fetchGasPrice(trade);
-				let gasObj: TxGas = {
-					type: 2,
-					gasPrice: profit.gas.gasPrice,
-					maxFeePerGas: Number(profit.gas.maxFee * 2n),
-					maxPriorityFeePerGas: Number(profit.gas.maxPriorityFee * 2n),
-					gasLimit: gasEstimate.gasEstimate * 10n,
-				}
+                logger.info(
+                    ':::::::::::Sending Transaction: ' +
+                        trade.loanPool.exchange +
+                        ' to ' +
+                        trade.target.exchange +
+                        ' for ' +
+                        trade.ticker +
+                        ' : profit: ' +
+                        profit.profit +
+                        ':::::::::: '
+                )
 
-				// Set the pending transaction flag for this pool
-				pendingTransactions[trade.ID] = true;
+                await notify(trade, profit)
 
-				logger.info(":::::::::::Sending Transaction: " + trade.loanPool.exchange + " to " + trade.target.exchange + " for " + trade.ticker + " : profit: " + profit.profit + ":::::::::: ")
+                const req = await send(trade, gasObj)
 
-				await notify(trade, profit);
+                const logs = await logEmits(trade, req)
 
-				const req = await send(trade, gasObj);
+                logger.info(
+                    ':::::::::::::::::::::::::::::::::::Transaction logs::::::::::::::::::::::::: '
+                )
+                logger.info(logs)
 
-				const logs = await logEmits(trade, req);
+                //Print balances after trade
+                await checkBal(
+                    trade.tokenIn.id,
+                    trade.tokenIn.decimals,
+                    trade.tokenOut.id,
+                    trade.tokenOut.decimals
+                )
 
-				logger.info(":::::::::::::::::::::::::::::::::::Transaction logs::::::::::::::::::::::::: ")
-				logger.info(logs)
+                let result: TxData = {
+                    txResponse: req.txResponse,
+                    pendingID: null,
+                }
 
-				//Print balances after trade
-				await checkBal(trade.tokenIn.id, trade.tokenIn.decimals, trade.tokenOut.id, trade.tokenOut.decimals)
+                logger.info(
+                    '::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::'
+                )
 
-				let result: TxData = {
-					txResponse: req.txResponse,
-					pendingID: null,
-				}
+                // Clear the pending transaction flag for this pool
+                pendingTransactions[await trade.target.pool.getAddress()] =
+                    false
 
-				logger.info("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
+                return result
+            } else {
+                logger.info(
+                    '::::::::::::::::::::::::::::::::::::::::TRADE UNDEFINED::::::::::::::::::::::::::::::::::::::: '
+                )
 
-				// Clear the pending transaction flag for this pool
-				pendingTransactions[await trade.target.pool.getAddress()] = false;
+                logger.info(
+                    '::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::'
+                )
 
-				return result;
-
-			} else {
-
-				logger.info("::::::::::::::::::::::::::::::::::::::::TRADE UNDEFINED::::::::::::::::::::::::::::::::::::::: ")
-
-				logger.info("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
-
-				return {
-					txResponse: undefined,
-					pendingID: null,
-				};
-			}
-		} else {
-			logger.info("::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::")
-			return {
-				txResponse: undefined,
-				pendingID: null,
-			};
-		}
-	}
+                return {
+                    txResponse: undefined,
+                    pendingID: null,
+                }
+            }
+        } else {
+            logger.info(
+                '::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::'
+            )
+            return {
+                txResponse: undefined,
+                pendingID: null,
+            }
+        }
+    }
 }

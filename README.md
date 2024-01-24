@@ -170,3 +170,10 @@ priceDifference = PricePaidPerToken1 - orgPrice
 intImpact = priceDifference / orgPrice
 
 PercentImpact = intImpact * 100
+
+
+
+# Helfpul stuff:
+
+regex to get rid of script/hardhat bumf:
+^(.*Mined empty block range #)(.*)$

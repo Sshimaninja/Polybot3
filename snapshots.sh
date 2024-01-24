@@ -4,7 +4,7 @@
 	# chmod +x snapshots.sh
 	#
 	# To execute this script with custom parameters, run:
-	# cat snapshots.sh | bash -s -- --network mainnet --client bor/heimdall --download-dir /mnt/data0/bor/snapshots --extract-dir /var/lib/snapshots/{{bor or heimdall}} --validate-checksum true
+	# cat snapshots.sh | bash -s -- --network mainnet --client bor/heimdall --download-dir /mnt/data0/bor/snapshots --extract-dir /var/lib/snapshots/{{bor or heimdall}} --validate-checksum false
 	
   function validate_network() {
     if [[ "$1" != "mainnet" && "$1" != "mumbai" ]]; then
@@ -134,17 +134,3 @@
 		  pv $output_tar | tar -I zstd -xf - -C "$extract_dir" && rm $output_tar
 	  fi
   done
-  # Join incremental following day parts
-#   for file in $(find . -name "$client-$network-snapshot-*-part-*" -print | sort); do
-#       date_stamp=$(echo "$file" | grep -o 'snapshot-.*-part' | sed 's/snapshot-\(.*\)-part/\1/')
-
-#       # Check if we have already processed this date
-#       if [[ -z "${processed_dates[$date_stamp]}" ]]; then
-#           processed_dates[$date_stamp]=1
-#           output_tar="$client-$network-snapshot-${date_stamp}.tar.zst"
-#           echo "Join parts for ${date_stamp} then extract"
-#           cat $client-$network-snapshot-${date_stamp}-part* > "$output_tar"
-#           rm $client-$network-snapshot-${date_stamp}-part*
-#           pv $output_tar | tar -I zstd -xf - -C . --strip-components=3 && rm $output_tar
-#       fi
-#   done
