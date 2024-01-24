@@ -1,5 +1,5 @@
 import { ethers } from 'hardhat'
-import { provider } from '../constants/providerData'
+import { provider } from '../constants/environment'
 
 async function main() {
     // const [deployer] = await ethers.getSigners();

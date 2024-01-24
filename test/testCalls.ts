@@ -6,7 +6,7 @@ import { abi as IUtils } from '../artifacts/contracts/Utils.sol/Utils.json'
 import { uniswapFactory, deployedMap } from '../constants/addresses'
 import { Token } from '@uniswap/sdk-core'
 const addrUtils = deployedMap.UTILS
-import { signer, provider } from '../constants/providerData'
+import { signer, provider } from '../constants/environment'
 
 const UTILS = new ethers.Contract(addrUtils, IUtils, signer) //because includes an support math function that its required
 

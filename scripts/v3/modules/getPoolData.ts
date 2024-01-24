@@ -6,7 +6,7 @@ import { abi as IERC20 } from '../../../interfaces/IERC20.json'
 import { abi as IUniswapV3PoolABI } from '@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json'
 import { ethers, Contract } from 'ethers'
 import { BigNumber as BN } from 'bignumber.js'
-import { wallet, provider } from '../../../constants/providerData'
+import { wallet, provider } from '../../../constants/environment'
 import {
     ReservesData,
     PoolState,

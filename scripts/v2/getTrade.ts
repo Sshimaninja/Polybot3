@@ -18,7 +18,7 @@ import {
     signer,
     flashMulti,
     flashDirect,
-} from '../../constants/providerData'
+} from '../../constants/environment'
 import { Prices } from './modules/prices'
 import { getK } from './modules/getK'
 import { BoolTrade } from '../../constants/interfaces'
@@ -33,7 +33,7 @@ import {
     pu,
 } from '../modules/convertBN'
 import { filterTrade } from './modules/filterTrade'
-import { logger } from '../../constants/providerData'
+import { logger } from '../../constants/environment'
 import { ProfitCalculator } from './modules/ProfitCalcs'
 /**
  * @description

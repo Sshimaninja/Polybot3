@@ -1,6 +1,6 @@
 import { ethers } from 'ethers'
-import { wallet, provider } from '../../../constants/providerData'
-import { logger } from '../../../constants/providerData'
+import { wallet, provider } from '../../../constants/environment'
+import { logger } from '../../../constants/environment'
 export async function sendTx(
     tx: any
 ): Promise<ethers.TransactionResponse | undefined> {

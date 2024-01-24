@@ -1,4 +1,4 @@
-import { provider, signer, wallet } from '../constants/providerData'
+import { provider, signer, wallet } from '../constants/environment'
 import { abi as IFlash } from '../artifacts/contracts/flashOne.sol/flashOne.json'
 import { deployedMap } from '../constants/addresses'
 import { Contract } from '@ethersproject/contracts'

@@ -1,7 +1,7 @@
 import { ethers, Contract } from 'ethers'
 import { PoolData } from './getPoolData'
 import { BigNumber as BN } from 'bignumber.js'
-import { wallet } from '../../../constants/providerData'
+import { wallet } from '../../../constants/environment'
 import {
     ReservesData,
     PoolState,

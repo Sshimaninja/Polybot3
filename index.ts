@@ -1,10 +1,10 @@
 import { control } from './scripts/v2/control'
-import { provider } from './constants/providerData'
+import { provider } from './constants/environment'
 import { getGasData } from './scripts/v2/modules/getPolygonGasPrices'
 import fs from 'fs'
 import path from 'path'
 import { FactoryPair } from './constants/interfaces'
-import { logger } from './constants/providerData'
+import { logger } from './constants/environment'
 import { telegramInfo } from './scripts//v2/modules/notify'
 
 async function main() {

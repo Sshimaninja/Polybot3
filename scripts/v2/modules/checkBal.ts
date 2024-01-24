@@ -1,5 +1,5 @@
 import { Contract, ethers } from 'ethers'
-import { provider, flashwallet } from '../../../constants/providerData'
+import { provider, flashwallet } from '../../../constants/environment'
 import {
     deployedMap,
     gasTokens,
