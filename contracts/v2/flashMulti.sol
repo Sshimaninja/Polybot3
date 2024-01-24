@@ -90,15 +90,15 @@ interface IUniswapV2Router02 {
 
 library SafeMath {
     function add(uint x, uint y) internal pure returns (uint z) {
-        require((z = x + y) >= x, "ds-math-add-overflow");
+        require((z = x + y) >= x, 'ds-math-add-overflow');
     }
 
     function sub(uint x, uint y) internal pure returns (uint z) {
-        require((z = x - y) <= x, "ds-math-sub-underflow");
+        require((z = x - y) <= x, 'ds-math-sub-underflow');
     }
 
     function mul(uint x, uint y) internal pure returns (uint z) {
-        require(y == 0 || (z = x * y) / y == x, "ds-math-mul-overflow");
+        require(y == 0 || (z = x * y) / y == x, 'ds-math-mul-overflow');
     }
 }
 
@@ -112,7 +112,7 @@ interface IUniswapV2Callee {
 }
 
 contract flashMulti is IUniswapV2Callee {
-    address owner;
+    address public owner;
     IUniswapV2Pair pair;
     using SafeMath for uint256;
 
@@ -140,13 +140,13 @@ contract flashMulti is IUniswapV2Callee {
     ) external {
         require(
             msg.sender == address(owner),
-            "Error: Only owner can call this function"
+            'Error: Only owner can call this function'
         );
         pair = IUniswapV2Pair(
             IUniswapV2Factory(loanFactory).getPair(token0ID, token1ID)
         );
 
-        require(address(pair) != address(0), "Error: Pair does not exist");
+        require(address(pair) != address(0), 'Error: Pair does not exist');
         bytes memory data = abi.encode(
             loanFactory,
             loanRouter,
@@ -156,6 +156,7 @@ contract flashMulti is IUniswapV2Callee {
         );
 
         IERC20(token0ID).approve(address(pair), amount0In);
+
         pair.swap(
             amount0In, // Requested borrow of token0
             0, // Borrow of token1
@@ -165,10 +166,10 @@ contract flashMulti is IUniswapV2Callee {
     }
 
     function uniswapV2Call(
-        address _sender,
-        uint256 _amount0,
-        uint256 _amount1,
-        bytes calldata _data
+        address sender,
+        uint256 amount0,
+        uint256 amount1,
+        bytes calldata data
     ) external override {
         address[] memory path = new address[](2);
         (
@@ -177,7 +178,7 @@ contract flashMulti is IUniswapV2Callee {
             address recipientRouter,
             uint256 amount1Out,
             uint256 amount1Repay
-        ) = abi.decode(_data, (address, address, address, uint256, uint256));
+        ) = abi.decode(data, (address, address, address, uint256, uint256));
 
         //This only works because we are only requesting then swapping one token
         path[0] = IUniswapV2Pair(msg.sender).token0();
@@ -185,26 +186,26 @@ contract flashMulti is IUniswapV2Callee {
         pair = IUniswapV2Pair(
             IUniswapV2Factory(loanFactory).getPair(path[0], path[1])
         );
-        require(msg.sender == address(pair), "Error: Unauthorized");
-        require(_sender == address(this), "Error: Not sender");
-        require(_amount0 == 0 || _amount1 == 0, "Error: Invalid amounts");
+        require(msg.sender == address(pair), 'Error: Unauthorized');
+        require(sender == address(this), 'Error: Not sender');
+        require(amount0 == 0 || amount1 == 0, 'Error: Invalid amounts');
         IERC20 token0 = IERC20(path[0]);
         IERC20 token1 = IERC20(path[1]);
 
-        token0.approve(address(recipientRouter), _amount0);
+        token0.approve(address(recipientRouter), amount0);
 
         // uint256[] memory amounts = new uint256[](2);
         // amounts[0] = 0;
         // amounts[1] = 0;
         uint256 amountOut = getAmounts(
-            _amount0,
+            amount0,
             amount1Repay,
             amount1Out,
             loanRouter,
             recipientRouter,
             path
         );
-        emit logValue("total received after payment: ", amountOut);
+        emit logValue('total received after payment: ', amountOut);
         token1.transfer(owner, token1.balanceOf(address(this)));
     }
 
@@ -221,9 +222,9 @@ contract flashMulti is IUniswapV2Callee {
         uint256 deadline = block.timestamp + 5 minutes;
         token0.approve(recipientRouter, loanAmount);
         uint256[] memory repay = getRepay(loanAmount, loanRouter, path);
-        emit logValue("loanAmount", loanAmount);
-        emit logValue("token0 balance", token0.balanceOf(address(this)));
-        emit logValue("repay", repay[0]);
+        emit logValue('loanAmount', loanAmount);
+        emit logValue('token0 balance', token0.balanceOf(address(this)));
+        emit logValue('repay', repay[0]);
         amountOut = IUniswapV2Router02(address(recipientRouter))
         // swap exactly loanAmount token0 for minimum amount1Repay token1
             .swapExactTokensForTokens(
@@ -233,12 +234,12 @@ contract flashMulti is IUniswapV2Callee {
                 address(this), // HOPING THAT SENDING THIS TO PAIR ADDRESS SIMPLIFIES EVERYTHING.
                 deadline // deadline
             )[1];
-        emit logValue("expected amountOut", amount1Out);
-        emit logValue("actual amountOut", amountOut);
-        emit logValue("token1 balance", token1.balanceOf(address(this)));
+        emit logValue('expected amountOut', amount1Out);
+        emit logValue('actual amountOut', amountOut);
+        emit logValue('token1 balance', token1.balanceOf(address(this)));
         token1.approve(msg.sender, repay[0]);
         token1.transferFrom(address(this), msg.sender, repay[0]);
-        emit logValue("token1 balance", token1.balanceOf(address(this)));
+        emit logValue('token1 balance', token1.balanceOf(address(this)));
     }
 
     function getRepay(
@@ -252,8 +253,8 @@ contract flashMulti is IUniswapV2Callee {
         repay = IUniswapV2Router02(loanRouter).getAmountsIn(loanAmount, path);
     }
 
-    // function getK() public view returns (uint256 k) {
-    //     (uint112 reserveA, uint112 reserveB, ) = pair.getReserves();
-    //     k = uint256(reserveA).mul(uint256(reserveB)); // convert uint112 to uint256 before multiplication
-    // }
+    function getK() public view returns (uint256 k) {
+        (uint112 reserveA, uint112 reserveB, ) = pair.getReserves();
+        k = uint256(reserveA).mul(uint256(reserveB)); // convert uint112 to uint256 before multiplication
+    }
 }
