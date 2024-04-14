@@ -2,7 +2,7 @@
 import { Bool3Trade, K, PoolState } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter"
 import { BN2BigInt } from "../../modules/convertBN";
-import { V3Quote } from "./V3Quote2";
+import { V3Quote } from "./price/V3Quote2";
 
 /**
  * This doc calculates whether will revert due to uniswak K being positive or negative

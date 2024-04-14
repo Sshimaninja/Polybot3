@@ -1,12 +1,12 @@
 import { BigNumber as BN } from 'bignumber.js'
 import { GasData, Match3Pools, PoolState } from '../../constants/interfaces'
-import { flashMulti, flashDirect } from '../../constants/environment'
+import { flashMulti } from '../../constants/environment'
 import { Contract } from 'ethers'
 
 import { Bool3Trade } from '../../constants/interfaces'
 
 import { AmountConverter } from './modules/amountConverter'
-import { V3Quote } from './modules/V3Quote2'
+import { V3Quote } from './modules/price/V3Quote2'
 import {
     BigInt2BN,
     BigInt2String,
@@ -203,7 +203,7 @@ export class Trade {
 
         trade.k = await getK(trade, this.state0, trade.loanPool.calc, q)
 
-        trade.flash = trade.type === 'multi' ? flashMulti : flashDirect
+        trade.flash = flashMulti //trade.type === 'multi' ? flashMulti : flashDirect
 
         // Make sure there are no breaking variables in the trade: before passing it to the next function.
         const filteredTrade = await filterTrade(trade)

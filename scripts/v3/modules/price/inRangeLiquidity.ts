@@ -1,7 +1,7 @@
 import { ethers, Contract } from 'ethers'
-import { PoolData } from './getPoolData'
+import { PoolData } from '../getPoolData'
 import { BigNumber as BN } from 'bignumber.js'
-import { wallet } from '../../../constants/environment'
+import { signer } from '../../../../constants/provider'
 import {
     ReservesData,
     PoolState,
@@ -9,15 +9,15 @@ import {
     ERC20token,
     Slot0,
     Reserves3,
-} from '../../../constants/interfaces'
-import { abi as IERC20 } from '../../../interfaces/IERC20.json'
-import { sqrt } from './tradeMath'
-import { BN2BigInt, BigInt2BN, fu, pu } from '../../modules/convertBN'
-import { chainID } from '../../../constants/addresses'
+} from '../../../../constants/interfaces'
+import { abi as IERC20 } from '../../../../interfaces/IERC20.json'
+import { sqrt } from '../tradeMath'
+import { BN2BigInt, BigInt2BN, fu, pu } from '../../../modules/convertBN'
+import { chainID } from '../../../../constants/addresses'
 import { TickMath, Position } from '@uniswap/v3-sdk'
 import { TickMath as TickMathAlg } from '@cryptoalgebra/integral-sdk'
 import { get } from 'http'
-import { slippageTolerance } from '../control'
+import { slippageTolerance } from '../../control'
 import { log } from 'console'
 // import { token } from "../../../typechain-types/@openzeppelin/contracts";
 // import { getPrice } from "./uniswapV3Primer";
@@ -45,8 +45,8 @@ export class InRangeLiquidity {
         this.poolInfo = poolInfo
         this.token0 = token0
         this.token1 = token1
-        this.token0Contract = new Contract(token0.id, IERC20, wallet)
-        this.token1Contract = new Contract(token1.id, IERC20, wallet)
+        this.token0Contract = new Contract(token0.id, IERC20, signer)
+        this.token1Contract = new Contract(token1.id, IERC20, signer)
     }
 
     async getSlot0(): Promise<Slot0> {
