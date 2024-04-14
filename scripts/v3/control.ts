@@ -10,12 +10,12 @@ import {
     Match3Pools,
     V3Matches,
 } from '../../constants/interfaces'
-import { Trade } from './getTrade'
+import { Trade } from './Trade'
 import { tradeLogs } from './modules/tradeLog'
-import { InRangeLiquidity } from './modules/inRangeLiquidity'
-import { TickProvider } from './modules/TickProvider'
+import { InRangeLiquidity } from './modules/price/inRangeLiquidity'
+import { TickProvider } from './modules/price/TickProvider'
 import { Contract } from 'ethers'
-import { provider } from '../../constants/environment'
+import { provider } from '../../constants/provider'
 import { chainID } from '../../constants/addresses'
 /*
 TODO:

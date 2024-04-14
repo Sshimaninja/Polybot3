@@ -2,7 +2,7 @@ import { BaseContract, Contract, ethers } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { Token as V3Token } from "@uniswap/sdk-core";
 import { AmountConverter as CalcV3 } from "../scripts/v3/modules/amountConverter";
-import { AmountConverter as CalcV2 } from "../scripts/v2/modules/amountConverter";
+// import { AmountConverter as CalcV2 } from "../scripts/v2/modules/amountConverter";
 export interface K {
 	uniswapKPre:  bigint,
 	uniswapKPost:  bigint
@@ -364,7 +364,6 @@ export interface BoolTrade {
 	profitPercent:  bigint
 }
 
-
 export interface Bool3Trade {
 	ID: string
 	direction: string
@@ -400,3 +399,4 @@ export interface Bool3Trade {
 	profit:  bigint
 	profitPercent:  bigint
 }
+

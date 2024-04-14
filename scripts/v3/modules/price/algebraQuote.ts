@@ -1,8 +1,8 @@
 import { Contract } from 'ethers'
-import { getQuoterV2, getProtocol } from '../../modules/getContract'
+import { getQuoterV2, getProtocol } from '../../../modules/getContract'
 import { abi as IAlgPool } from '@cryptoalgebra/core/artifacts/contracts/AlgebraPool.sol/AlgebraPool.json'
-import { signer } from '../../../constants/environment'
-import { pu } from '../../modules/convertBN'
+import { signer } from '../../../../constants/provider'
+import { pu } from '../../../modules/convertBN'
 
 async function univ3Quote(poolID: string, tradeSize: bigint) {
     const quoter = getQuoterV2('QUICKV3')

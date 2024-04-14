@@ -1,5 +1,18 @@
 import { Contract } from 'ethers'
-import { getQuoterV2, getProtocol } from '../../modules/getContract'
+import { getQuoterV2, getProtocol } from '../../../modules/getContract'
+
+
+
+
+
+// refer to this guy's post maybe:
+// https://ethereum.stackexchange.com/a/147149
+
+
+// Or refer to this guy re: uniswap oracle if this doesn't work:
+// https://ethereum.stackexchange.com/questions/138440/uniswap-v3-version-of-v2s-getamountsin-getamountsout
+
+
 
 export class V3Quote {
     exchange: string
