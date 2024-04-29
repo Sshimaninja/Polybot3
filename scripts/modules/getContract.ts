@@ -1,11 +1,11 @@
 import { Contract } from 'ethers'
 import {
-    algebraFactory,
-    algebraQuoter,
-    uniswapV3Factory,
-    uniswapV2Factory,
-    uniswapQuoter,
-    uniswapV2Router,
+	algebraFactory,
+	algebraQuoter,
+	uniswapV3Factory,
+	uniswapV2Factory,
+	uniswapQuoter,
+	uniswapV2Router,
 } from '../../constants/addresses'
 import { abi as IUniswapV2Factory } from '@uniswap/v2-core/build/IUniswapV2Factory.json'
 import { abi as IUniswapV3Factory } from '@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Factory.sol/IUniswapV3Factory.json'
@@ -16,60 +16,60 @@ import { abi as IUniswapV2Router02 } from '@uniswap/v2-periphery/build/IUniswapV
 import { signer } from '../../constants/environment'
 
 export function getProtocol(exchange: string): string {
-    if (uniswapV2Factory[exchange]) {
-        return 'UNIV2'
-    }
-    if (uniswapV3Factory[exchange]) {
-        return 'UNIV3'
-    }
-    if (algebraFactory[exchange]) {
-        return 'ALG'
-    } else {
-        throw new Error('Exchange not supported')
-    }
+	if (uniswapV2Factory[exchange]) {
+		return 'UNIV2'
+	}
+	if (uniswapV3Factory[exchange]) {
+		return 'UNIV3'
+	}
+	if (algebraFactory[exchange]) {
+		return 'ALG'
+	} else {
+		throw new Error('Exchange not supported')
+	}
 }
 
 export function getFactory(exchange: string): Contract {
-    if (uniswapV2Factory[exchange]) {
-        return new Contract(
-            uniswapV2Factory[exchange],
-            IUniswapV2Factory,
-            signer
-        )
-    }
-    if (uniswapV3Factory[exchange]) {
-        return new Contract(
-            uniswapV3Factory[exchange],
-            IUniswapV3Factory,
-            signer
-        )
-    }
-    if (algebraFactory[exchange]) {
-        return new Contract(algebraFactory[exchange], IAlgebraFactory, signer)
-    } else {
-        throw new Error('Exchange not supported')
-    }
+	if (uniswapV2Factory[exchange]) {
+		return new Contract(
+			uniswapV2Factory[exchange],
+			IUniswapV2Factory,
+			signer
+		)
+	}
+	if (uniswapV3Factory[exchange]) {
+		return new Contract(
+			uniswapV3Factory[exchange],
+			IUniswapV3Factory,
+			signer
+		)
+	}
+	if (algebraFactory[exchange]) {
+		return new Contract(algebraFactory[exchange], IAlgebraFactory, signer)
+	} else {
+		throw new Error('Exchange not supported')
+	}
 }
 
 export function getQuoterV2(exchange: string): Contract {
-    if (uniswapQuoter[exchange]) {
-        return new Contract(uniswapQuoter[exchange], IUniswapV3QuoterV2, signer)
-    }
-    if (algebraQuoter[exchange]) {
-        return new Contract(algebraQuoter[exchange], IAlgebraQuoter, signer)
-    } else {
-        throw new Error('Exchange not supported')
-    }
+	if (uniswapQuoter[exchange]) {
+		return new Contract(uniswapQuoter[exchange], IUniswapV3QuoterV2, signer)
+	}
+	if (algebraQuoter[exchange]) {
+		return new Contract(algebraQuoter[exchange], IAlgebraQuoter, signer)
+	} else {
+		throw new Error('Exchange not supported')
+	}
 }
 
 export function getRouter(exchange: string): Contract {
-    if (uniswapV2Router[exchange]) {
-        return new Contract(
-            uniswapV2Router[exchange],
-            IUniswapV2Router02,
-            signer
-        )
-    } else {
-        throw new Error('Exchange not supported')
-    }
+	if (uniswapV2Router[exchange]) {
+		return new Contract(
+			uniswapV2Router[exchange],
+			IUniswapV2Router02,
+			signer
+		)
+	} else {
+		throw new Error('Exchange not supported')
+	}
 }
