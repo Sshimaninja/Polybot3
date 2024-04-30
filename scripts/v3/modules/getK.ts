@@ -47,8 +47,8 @@ export async function getK(trade: Bool3Trade, state: PoolState, calc: AmountConv
 			// 200000 = 1800 * 110
 			//subtract loan: 
 			tl.state.reservesIn - (tt.tradeSize)
-				// multiply new reservesIn by new reservesOut by adding tradeSizeInTermsOfTokenOut
-				 * (tl.state.reservesOut + (tradeSizeInTokenOut)),
+			// multiply new reservesIn by new reservesOut by adding tradeSizeInTermsOfTokenOut
+			* (tl.state.reservesOut + (tradeSizeInTokenOut)),
 		uniswapKPositive: false,
 	} : trade.type === "direct" ? {
 		uniswapKPre: tl.state.reservesIn * (tl.state.reservesOut),
