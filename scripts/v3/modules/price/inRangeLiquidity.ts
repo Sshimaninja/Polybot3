@@ -19,6 +19,8 @@ import { TickMath as TickMathAlg } from '@cryptoalgebra/integral-sdk'
 import { get } from 'http'
 import { slippageTolerance } from '../../control'
 import { log } from 'console'
+import { V3Quote } from '../price/V3Quote2'
+// import { V3Quote } from './v3Quote'
 // import { token } from "../../../typechain-types/@openzeppelin/contracts";
 // import { getPrice } from "./uniswapV3Primer";
 /**
@@ -26,6 +28,14 @@ import { log } from 'console'
  * For V3 this returns liquidity in range as well as pool 'state'.
  *
  */
+
+
+export interface Prices {
+	exchange: string,
+	ticker: string,
+	priceOut: bigint,
+	priceIn: bigint,
+}
 
 export class InRangeLiquidity {
 	static liquidity: bigint[] = []
@@ -101,12 +111,10 @@ export class InRangeLiquidity {
 		priceOutStr: string
 	}> {
 		const s0 = await this.getSlot0()
-		// Calculate the price as (sqrtPriceX96 / 2^96)^2
-		const price: BN = s0.sqrtPriceX96BN.div(BN(2).pow(96)).pow(2)
+		// Calculate the price as (sqrtPriceX96^2) >> 96
+		const price: BN = s0.sqrtPriceX96BN.pow(2).shiftedBy(-96)
 
 		// Adjust for token decimals
-		//price0 = price * (10 ** this.token0.decimals) / (10 ** this.token1.decimals);
-		//price1 = 1 / price0;
 		const priceIn: BN = price
 			.times(BN(10).pow(this.token0.decimals))
 			.dividedBy(BN(10).pow(this.token1.decimals))
@@ -115,7 +123,6 @@ export class InRangeLiquidity {
 		// Convert to string with appropriate number of decimals
 		const priceInString: string = priceIn.toFixed(this.token0.decimals)
 		const priceOutString: string = priceOut.toFixed(this.token1.decimals)
-		// const buyOneOfToken1 = (1 / buyOneOfToken0).toFixed(decimal0);
 
 		const prices = {
 			price: price,
@@ -256,7 +263,35 @@ export class InRangeLiquidity {
 	async getReserves(): Promise<{ reserves0: bigint; reserves1: bigint }> {
 		const reserves0 = await this.token0Contract.balanceOf(this.poolInfo.id)
 		const reserves1 = await this.token1Contract.balanceOf(this.poolInfo.id)
+		// const priceOut = await reserves0 / reserves1
+		// const priceIn = await reserves1 / reserves0
+		// const pOut = fu(priceOut, this.token1.decimals)
+		// const pIn = fu(priceIn, this.token0.decimals)
+		// // const prices = {
+		// 	ticker: this.token0.symbol + '/' + this.token1.symbol,
+		// 	priceOut: pOut,
+		// 	priceIn: pIn,
+		// }
+		// console.log('prices: ', prices)
 		return { reserves0, reserves1 }
+	}
+
+	async getPrices(): Promise<Prices> {
+		const q = new V3Quote(
+			this.pool,
+			this.poolInfo.exchange,
+			this.poolInfo.fee,
+		)
+		let priceOut = await q.priceOut()
+		let priceIn = await q.priceIn()
+		const prices: Prices = {
+			exchange: this.poolInfo.exchange,
+			ticker: this.token0.symbol + '/' + this.token1.symbol,
+			priceOut: priceOut,
+			priceIn: priceIn,
+		}
+		console.log(prices)
+		return prices
 	}
 
 	async getPoolState(): Promise<PoolState> {
@@ -269,7 +304,7 @@ export class InRangeLiquidity {
 			unlocked: s0.unlocked,
 		}
 
-		const p = await this.getPriceBN()
+		const p = await this.getPrices()
 		const liquidity = await this.pool.liquidity()
 
 		let r = await this.getReserves()
@@ -286,10 +321,10 @@ export class InRangeLiquidity {
 			reservesOutBN: BN(fu(r.reserves1, this.token1.decimals)),
 			inRangeReserves0: a.inRangeReserves0,
 			inRangeReserves1: a.inRangeReserves1,
-			priceIn: p.priceInStr,
-			priceOut: p.priceOutStr,
-			priceInBN: p.priceInBN,
-			priceOutBN: p.priceOutBN,
+			priceIn: p.priceIn,
+			priceOut: p.priceOut,
+			// priceInBN: p.priceInBN,
+			// priceOutBN: p.priceOutBN,
 		}
 
 		await this.viewData(liquidityData)
@@ -297,6 +332,8 @@ export class InRangeLiquidity {
 	}
 
 	async viewData(l: PoolState) {
+		const p = await this.getPrices()
+
 		const liquidityDataView = {
 			ticker: this.token0.symbol + '/' + this.token1.symbol,
 			poolID: this.pool.address,
@@ -305,9 +342,10 @@ export class InRangeLiquidity {
 			reserves1String: fu(l.reservesOut, this.token1.decimals),
 			inRangeReserves0: l.inRangeReserves0,
 			inRangeReserves1: l.inRangeReserves1,
-			priceIn: l.priceIn,
-			priceOut: l.priceOut,
+			priceIn: p.priceIn,
+			priceOut: p.priceOut,
 		}
-		// console.log('liquiditydataview: ')
+		console.log('liquiditydataview: ')
+		console.log(liquidityDataView)
 	}
 }

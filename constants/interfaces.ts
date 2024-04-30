@@ -111,6 +111,7 @@ export interface Token {
 	id: string;
 	decimals: number;
 }
+
 export interface PoolInfo {
 	exchange: string
 	protocol: string
@@ -143,10 +144,11 @@ export interface PoolState {
 	reservesOutBN: BN;
 	inRangeReserves0: string;
 	inRangeReserves1: string;
-	priceIn: string;
-	priceOut: string;
-	priceInBN: BN;
-	priceOutBN: BN;
+	priceIn: bigint;
+	priceOut: bigint;
+
+	// priceInBN: BN;
+	// priceOutBN: BN;
 }
 export interface Profit {
 	profit: string;
@@ -385,6 +387,7 @@ export interface Bool3Trade {
 		exchange: string
 		protocol: string
 		pool: Contract
+		priceOut: bigint
 		feeTier: number
 		state: PoolState
 		calc: CalcV3
@@ -395,6 +398,7 @@ export interface Bool3Trade {
 		exchange: string
 		protocol: string
 		pool: Contract
+		priceOut: bigint
 		feeTier: number
 		state: PoolState
 		calc: CalcV3
@@ -403,8 +407,8 @@ export interface Bool3Trade {
 	}
 	k: K
 	gasData: GasData
-	differenceTokenOut: string
-	differencePercent: string
+	differenceTokenOut: bigint
+	differencePercent: bigint
 	profit: bigint
 	profitPercent: bigint
 }

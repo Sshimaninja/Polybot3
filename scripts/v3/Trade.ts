@@ -32,7 +32,7 @@ export class Trade {
 	pool1: Contract
 	state0: PoolState
 	state1: PoolState
-	slip: BN
+	slip: bigint
 	gasData: GasData
 
 	constructor(
@@ -41,7 +41,7 @@ export class Trade {
 		pool1: Contract,
 		state0: PoolState,
 		state1: PoolState,
-		slip: BN,
+		slip: bigint,
 		gasData: GasData
 	) {
 		this.match = match
@@ -54,25 +54,30 @@ export class Trade {
 	}
 
 	async direction() {
-		const A = this.state0.priceOutBN
-		const B = this.state1.priceOutBN
-		const diff = A.lt(B) ? B.minus(A) : A.minus(B)
-		const dperc = diff.div(A.gt(B) ? A : B).multipliedBy(100) // 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
+		const A = this.state0.priceOut
+		const B = this.state1.priceOut
+		const diff = A < (B) ? B - A : A - B
+		const dperc = diff / (A > B ? A : B) * 100n // 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
 		const dir = A > B ? 'A' : 'B'
 
 		return { dir, diff, dperc }
 	}
 
-	async getSize(
-		loan: AmountConverter,
-		target: AmountConverter
-	): Promise<bigint> {
-		const toPrice = await target.tradeToPrice()
+	async getSize(pool: Contract, exchange: string, fee: number): Promise<bigint> {
+		// const toPrice = await target.tradeToPrice()
 		// use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
-		const safeReserves = (loan.state.reservesIn * 800n) / 1000n //Don't use more than 80% of the reserves
+		// const q = new V3Quote(pool, exchange, fee)
+
+
+
+		const maxIn = //TODO: write TradeToPrice function.
+
+
+		// const safeReserves = (loan.state.reservesIn * 800n) / 1000n //Don't use more than 80% of the reserves
+		// const size = 1n // for testing this will do.
 		// const safeReserves = loan.state.reservesIn
 		// console.log("safeReserves: ", safeReserves)
-		const size = toPrice > safeReserves ? safeReserves : toPrice
+		// const size = toPrice > safeReserves ? safeReserves : toPrice
 		// const size = pu("10", this.match.token0.decimals)
 		// const size = toPrice
 		// console.log(">>>>>>>>>>>>>>>>>getSize")
@@ -88,14 +93,14 @@ export class Trade {
 		const calcA = new AmountConverter(
 			this.match,
 			this.state0,
-			this.state1.priceOutBN,
+			this.state1.priceOut,
 			this.match.pool0.fee,
 			this.slip
 		)
 		const calcB = new AmountConverter(
 			this.match,
 			this.state1,
-			this.state0.priceOutBN,
+			this.state0.priceOut,
 			this.match.pool1.fee,
 			this.slip
 		)
@@ -116,6 +121,7 @@ export class Trade {
 					? this.match.pool1.protocol
 					: this.match.pool0.protocol,
 				pool: A ? this.pool1 : this.pool0,
+				priceOut: A ? this.state0.priceOut : this.state1.priceOut,
 				feeTier: A ? this.match.pool1.fee : this.match.pool0.fee,
 				state: A ? this.state1 : this.state0,
 				calc: A ? calcB : calcA,
@@ -134,6 +140,7 @@ export class Trade {
 					? this.match.pool0.protocol
 					: this.match.pool1.protocol,
 				pool: A ? this.pool0 : this.pool1,
+				priceOut: A ? this.state1.priceOut : this.state0.priceOut,
 				feeTier: A ? this.match.pool0.fee : this.match.pool1.fee,
 				state: A ? this.state0 : this.state1,
 				calc: A ? calcA : calcB,
@@ -148,12 +155,8 @@ export class Trade {
 				uniswapKPositive: false,
 			},
 			gasData: this.gasData,
-			differenceTokenOut:
-				dir.diff.toFixed(this.match.token1.decimals) +
-				' ' +
-				this.match.token1.symbol,
-			differencePercent:
-				dir.dperc.toFixed(this.match.token1.decimals) + '%',
+			differenceTokenOut: dir.diff,
+			differencePercent: dir.dperc,
 			profit: 0n,
 			profitPercent: 0n,
 		}
