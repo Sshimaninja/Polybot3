@@ -120,6 +120,29 @@ export async function control(data: V3Matches, gasData: any) {
 				slippageTolerance,
 				gasData
 			)
+
+
+			/* 
+			TODO: 
+			Fix zero values and incorrect prices:
+			price:  {
+				pool: 'WMATIC/AAVE',
+				exchange: 'UNIV3',
+				sqrtRatioA: 0.09168187905140851,
+				sqrtRatioB: 0.09168187905140851,
+				sqrtPrice: 7.264010064880239e+27,
+				liquidity: 1655845318502543001134n,
+				tickLow: -47791,
+				tickHigh: -47791,
+				amount0wei: 0,
+				amount1wei: 0,
+				amount0Human: '0.000000000000000000',
+				amount1Human: '0.000000000000000000'
+				}
+			*/
+
+
+
 			const trade = await t.getTrade()
 			// console.log("Trade: ", trade.ticker, " ", trade.loanPool.exchange, trade.target.exchange, " " + trade.target.amountOut.toString() + " " + trade.tokenOut.symbol, " " + trade.loanPool.amountRepay.toString() + " " + trade.tokenOut.symbol, " " + trade.profit.toString() + " " + trade.tokenOut.symbol, " " + trade.profitPercent.toString() + "%")
 
