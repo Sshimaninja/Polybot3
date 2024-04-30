@@ -7,6 +7,15 @@ import { PoolState } from "../../../constants/interfaces";
  * @param liq 
  * @returns amount of token0 needed to reach targetPrice
  */
+
+
+
+/*
+TODO: Update this with info from the following articls:
+https://ethereum.stackexchange.com/questions/120828/uniswap-v3-calculate-volume-to-reach-target-price
+*/
+
+
 export async function tradeToPrice(targetPrice: BN, currentPrice: BN, liq: BN): Promise<BN> {
 	const priceDiff = targetPrice.minus(currentPrice);
 	const amountIn = priceDiff.multipliedBy(liq);

@@ -1,4 +1,4 @@
-import {  Contract } from "ethers";
+import { Contract } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { tradeToPrice } from './tradeMath';
 import { Match3Pools, Pair, PoolState } from "../../../constants/interfaces";
@@ -13,14 +13,14 @@ import { pu } from "../../modules/convertBN";
 export class AmountConverter {
 	match: Match3Pools;
 	state: PoolState;
-	targetPrice: BN;
-	slip: BN;
+	targetPrice: bigint;
+	slip: bigint;
 	fee: number;
-	constructor(match: Match3Pools, state: PoolState, targetPrice: BN, fee: number, slippageTolerance: BN) {
+	constructor(match: Match3Pools, state: PoolState, targetPrice: bigint, fee: number, slip: bigint) {
 		this.match = match;
 		this.state = state
 		this.targetPrice = targetPrice;
-		this.slip = slippageTolerance;
+		this.slip = slip;
 		this.fee = fee;
 
 	}
@@ -30,20 +30,20 @@ export class AmountConverter {
 	 */
 	// tradeToPrice gets a mid-level between price of pool and target price, and returns the amount of token0 needed to reach that price
 	// can be limited by slippageTolerance if uniswap returns 'EXCESSIVE_INPUT_AMOUNT'
-	async tradeToPrice(): Promise<bigint> {
-		const avgPrice = this.state.priceOutBN.plus(this.targetPrice).div(2);// average of two prices
-		const tradeSize = await tradeToPrice(this.state.priceOutBN, avgPrice, this.state.liquidityBN);
-		const maxSize = tradeSize.times(this.slip)
-		// console.log('tradeSize: ', tradeSize.toFixed(this.match.token0.decimals));//DEBUG
-		const tradeSizeJS = pu(maxSize.toFixed(this.match.token0.decimals), this.match.token0.decimals);
-		// console.log('tradeSizeJS: ', fu(tradeSizeJS, this.match.token0.decimals));//DEBUG
-		return tradeSizeJS;
-	}
+	// async tradeToPrice(): Promise<bigint> {
+	// 	const avgPrice = this.state.priceOutBN.plus(this.targetPrice).div(2);// average of two prices
+	// 	const tradeSize = await tradeToPrice(this.state.priceOutBN, avgPrice, this.state.liquidityBN);
+	// 	const maxSize = tradeSize.times(this.slip)
+	// 	// console.log('tradeSize: ', tradeSize.toFixed(this.match.token0.decimals));//DEBUG
+	// 	const tradeSizeJS = pu(maxSize.toFixed(this.match.token0.decimals), this.match.token0.decimals);
+	// 	// console.log('tradeSizeJS: ', fu(tradeSizeJS, this.match.token0.decimals));//DEBUG
+	// 	return tradeSizeJS;
+	// }
 
 	// Adds Uniswap V3 trade fee to any amount
 	async addFee(amount: bigint): Promise<bigint> {
 		const feeFactor = 1n + BigInt(this.fee) / (100000n); // Convert fee to a factor
-		const repay = amount * (feeFactor * (1000n))/(1000n); // Apply fee
+		const repay = amount * (feeFactor * (1000n)) / (1000n); // Apply fee
 		return repay; //in token0
 	}
 

@@ -29,6 +29,71 @@ export class V3Quote {
 		this.quoter = getQuoterV2(exchange)
 	}
 
+	async priceOut() {
+		const uni3 = this.protocol == 'UNIV3' ? true : false
+		let e = {
+			tokenIn: await this.pool.token0(),
+			tokenOut: await this.pool.token1(),
+			amountIn: 1n,
+			fee: uni3 ? await this.pool.fee() : this.fee,
+			sqrtPriceLimitX96: '0',
+		}
+		try {
+			let priceOut = uni3
+				? await this.quoter.quoteExactInputSingle.staticCall(e)
+				// If using algebra instead of uniswapv3
+				: await this.quoter.quoteExactInputSingle.staticCall(
+					e.tokenIn,
+					e.tokenOut,
+					e.amountIn,
+					e.sqrtPriceLimitX96
+				)
+			// console.log(priceOut)
+			return priceOut.amountOut
+		} catch (error: any) {
+			console.log(error.reason)
+			console.trace(
+				' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN priceOut : ',
+				this.exchange,
+				this.protocol
+			)
+			return 0n
+		}
+	}
+
+	async priceIn() {
+		const uni3 = this.protocol == 'UNIV3' ? true : false
+		let e = {
+			tokenIn: await this.pool.token1(),
+			tokenOut: await this.pool.token0(),
+			amountOut: 1n,
+			fee: uni3 ? await this.pool.fee() : this.fee,
+			sqrtPriceLimitX96: '0',
+		}
+		try {
+			let priceIn = uni3
+				? await this.quoter.quoteExactOutputSingle.staticCall(e)
+				// If using algebra instead of uniswapv3
+				: await this.quoter.quoteExactOutputSingle.staticCall(
+					e.tokenIn,
+					e.tokenOut,
+					e.amountOut,
+					e.sqrtPriceLimitX96
+				)
+			// console.log(priceIn)
+			return priceIn.amountIn
+		} catch (error: any) {
+			console.log(error.reason)
+			console.trace(
+				' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN priceIn : ',
+				this.exchange,
+				this.protocol
+			)
+			return 0n
+		}
+
+	}
+
 	async maxOut(tradeSize: bigint) {
 		if (tradeSize > 0) {
 			const uni3 = this.protocol == 'UNIV3' ? true : false
@@ -43,6 +108,7 @@ export class V3Quote {
 			try {
 				let maxOut = uni3
 					? await this.quoter.quoteExactInputSingle.staticCall(e)
+					// If using algebra instead of uniswapv3
 					: await this.quoter.quoteExactInputSingle.staticCall(
 						e.tokenIn,
 						e.tokenOut,
@@ -82,6 +148,7 @@ export class V3Quote {
 			try {
 				let minIn = uni3
 					? await this.quoter.quoteExactOutputSingle.staticCall(e)
+					// If using algebra instead of uniswapv3
 					: await this.quoter.quoteExactOutputSingle.staticCall(
 						e.tokenIn,
 						e.tokenOut,
