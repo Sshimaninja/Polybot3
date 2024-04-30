@@ -4,7 +4,7 @@ import {
 	algebraQuoter,
 	uniswapV3Factory,
 	uniswapV2Factory,
-	uniswapQuoter,
+	uniswapV3Quoter,
 	uniswapV2Router,
 } from '../../constants/addresses'
 import { abi as IUniswapV2Factory } from '@uniswap/v2-core/build/IUniswapV2Factory.json'
@@ -13,7 +13,7 @@ import { abi as IAlgebraFactory } from '@cryptoalgebra/core/artifacts/contracts/
 import { abi as IAlgebraQuoter } from '@cryptoalgebra/periphery/artifacts/contracts/interfaces/IQuoter.sol/IQuoter.json'
 import { abi as IUniswapV3QuoterV2 } from '@uniswap/v3-periphery/artifacts/contracts/lens/QuoterV2.sol/QuoterV2.json'
 import { abi as IUniswapV2Router02 } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
-import { signer } from '../../constants/environment'
+import { signer } from '../../constants/provider'
 
 export function getProtocol(exchange: string): string {
 	if (uniswapV2Factory[exchange]) {
@@ -52,8 +52,8 @@ export function getFactory(exchange: string): Contract {
 }
 
 export function getQuoterV2(exchange: string): Contract {
-	if (uniswapQuoter[exchange]) {
-		return new Contract(uniswapQuoter[exchange], IUniswapV3QuoterV2, signer)
+	if (uniswapV3Quoter[exchange]) {
+		return new Contract(uniswapV3Quoter[exchange], IUniswapV3QuoterV2, signer)
 	}
 	if (algebraQuoter[exchange]) {
 		return new Contract(algebraQuoter[exchange], IAlgebraQuoter, signer)

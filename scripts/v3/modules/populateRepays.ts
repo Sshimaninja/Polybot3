@@ -50,7 +50,7 @@ export class PopulateRepays {
 			let profit: Profcalcs = { profit: 0n, profitPercent: BN(0) };
 			profit.profit = this.trade.target.amountOut - (repay);
 			const profitBN = BigInt2BN(profit.profit, this.trade.tokenOut.decimals);
-			profit.profitPercent = this.trade.target.amountOut> (0) ? profitBN.dividedBy(fu(this.trade.target.amountOut, this.trade.tokenOut.decimals)).multipliedBy(100) : BN(0);
+			profit.profitPercent = this.trade.target.amountOut > (0) ? profitBN.dividedBy(fu(this.trade.target.amountOut, this.trade.tokenOut.decimals)).multipliedBy(100) : BN(0);
 			return profit;
 			// } else {
 			// 	return { profit: 0n, profitPercent: BN(0) };
@@ -71,7 +71,7 @@ export class PopulateRepays {
 			repay,
 		);
 		const directRepayLoanPoolInTokenOutWithFee = await this.calc.addFee(directRepayLoanPoolInTokenOut);
-		const profit = this.trade.target.amountOut -(directRepayLoanPoolInTokenOutWithFee); // profit is remainder of token1 out
+		const profit = this.trade.target.amountOut - (directRepayLoanPoolInTokenOutWithFee); // profit is remainder of token1 out
 		const profitBN = BigInt2BN(profit, this.trade.tokenOut.decimals);
 		const percentProfit = this.trade.target.amountOut > (0) ? profitBN.dividedBy(fu(this.trade.target.amountOut, this.trade.tokenOut.decimals)).multipliedBy(100) : BN(0);
 		return { repay, profit, percentProfit };
