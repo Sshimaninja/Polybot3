@@ -4,8 +4,8 @@ import { Token as V3Token } from "@uniswap/sdk-core";
 import { AmountConverter as CalcV3 } from "../scripts/v3/modules/amountConverter";
 // import { AmountConverter as CalcV2 } from "../scripts/v2/modules/amountConverter";
 export interface K {
-	uniswapKPre:  bigint,
-	uniswapKPost:  bigint
+	uniswapKPre: bigint,
+	uniswapKPost: bigint
 	uniswapKPositive: boolean
 }
 
@@ -23,9 +23,9 @@ export interface V2Params {
 	targetRouter: string
 	token0ID: string
 	token1ID: string
-	amount0In:  bigint
-	amount1Out:  bigint
-	amountToRepay:  bigint
+	amount0In: bigint
+	amount1Out: bigint
+	amountToRepay: bigint
 }
 
 export interface V2Tx {
@@ -35,10 +35,29 @@ export interface V2Tx {
 
 export interface TxGas {
 	type: number
-	gasPrice:  bigint
+	gasPrice: bigint
 	maxFeePerGas: number
 	maxPriorityFeePerGas: number
-	gasLimit:  bigint
+	gasLimit: bigint
+}
+
+
+export interface PolygonGasData {
+	safeLow: {
+		maxPriorityFee: number;
+		maxFee: number;
+	};
+	standard: {
+		maxPriorityFee: number;
+		maxFee: number;
+	};
+	fast: {
+		maxPriorityFee: number;
+		maxFee: number;
+	};
+	estimatedBaseFee: number;
+	blockTime: number;
+	blockNumber: Promise<number>;
 }
 
 export interface Factory {
@@ -74,7 +93,7 @@ export interface Pair {
 export interface TradePair {
 	ticker: string;
 	poolAID: string;
-	poolBID: string;  // Changed from poolA_id and poolB_id
+	poolBID: string; // Changed from poolA_id and poolB_id
 	token0: {
 		symbol: string;
 		id: string;
@@ -85,7 +104,7 @@ export interface TradePair {
 		id: string;
 		decimals: number;
 	};
-};
+}
 
 export interface Token {
 	symbol: string;
@@ -97,14 +116,14 @@ export interface PoolInfo {
 	protocol: string
 	id: string
 	fee: number
-	tickSpacing: number
+	tickSpacing: bigint
 }
 
 export interface Reserves3 {
-	balance0:  bigint;
-	balance1:  bigint;
-	reserves0:  bigint;
-	reserves1:  bigint;
+	balance0: bigint;
+	balance1: bigint;
+	reserves0: bigint;
+	reserves1: bigint;
 	reserves0BN: BN;
 	reserves1BN: BN;
 	reserves0String: string;
@@ -113,13 +132,13 @@ export interface Reserves3 {
 
 export interface PoolState {
 	poolID: string;
-	sqrtPriceX96:  bigint;
-	liquidity:  bigint;
+	sqrtPriceX96: bigint;
+	liquidity: bigint;
 	liquidityBN: BN;
 	// balance0:  bigint;
 	// balance1:  bigint;
-	reservesIn:  bigint;
-	reservesOut:  bigint;
+	reservesIn: bigint;
+	reservesOut: bigint;
 	reservesInBN: BN;
 	reservesOutBN: BN;
 	inRangeReserves0: string;
@@ -131,21 +150,21 @@ export interface PoolState {
 }
 export interface Profit {
 	profit: string;
-	gasEstimate:  bigint;
-	gasCost:  bigint;
+	gasEstimate: bigint;
+	gasCost: bigint;
 	gasPool: string;
 	gas: GAS;
 }
 export interface Amounts {
-	maxIn:  bigint;
-	maxOut:  bigint;
-	toPrice:  bigint;
+	maxIn: bigint;
+	maxOut: bigint;
+	toPrice: bigint;
 }
 export interface Slot0 {
-	sqrtPriceX96:  bigint;
+	sqrtPriceX96: bigint;
 	sqrtPriceX96BN: BN;
-	tick: number;
-	fee: number;
+	tick: bigint;
+	fee: bigint;
 	unlocked: boolean;
 }
 export interface DeployedPools {
@@ -157,7 +176,7 @@ export interface DeployedPools {
 	block: number;
 }
 export interface Profcalcs {
-	profit:  bigint,
+	profit: bigint,
 	profitPercent: BN
 }
 export interface Valid3Pool {
@@ -189,8 +208,8 @@ export interface Match3Pools {
 }
 
 export interface ReservesData {
-	reserveIn:  bigint;
-	reserveOut:  bigint;
+	reserveIn: bigint;
+	reserveOut: bigint;
 	reserveInBN: BN;
 	reserveOutBN: BN;
 	blockTimestampLast: number;
@@ -220,17 +239,17 @@ export interface PoolsV3 {
 };
 
 export interface Repays {
-	direct:  bigint
-	directInTokenOut:  bigint
-	simpleMulti:  bigint
-	getAmountsOut:  bigint
-	getAmountsIn:  bigint
-	repay:  bigint
+	direct: bigint
+	directInTokenOut: bigint
+	simpleMulti: bigint
+	getAmountsOut: bigint
+	getAmountsIn: bigint
+	repay: bigint
 }
 export interface V3Repays {
-	getAmountsOut:  bigint
-	getAmountsIn:  bigint
-	repay:  bigint
+	getAmountsOut: bigint
+	getAmountsIn: bigint
+	repay: bigint
 }
 
 export interface V2POOLS {
@@ -265,29 +284,19 @@ export interface Difference {
 
 
 export interface GasData {
-	safeLow: {
-		maxPriorityFee: number,
-		maxFee: number
-	},
-	standard: {
-		maxPriorityFee: number,
-		maxFee: number
-	},
-	fast: {
-		maxPriorityFee: number,
-		maxFee: number
-	},
-	estimatedBaseFee: number,
-	blockTime: number,
-	blockNumber: Promise<number>,
+	tested: boolean;
+	gasEstimate: bigint;
+	gasPrice: bigint;
+	maxFee: bigint;
+	maxPriorityFee: bigint;
 }
 
 export interface GAS {
-	gasEstimate:  bigint,
+	gasEstimate: bigint,
 	tested: boolean,
-	gasPrice:  bigint,
-	maxFee:  bigint,
-	maxPriorityFee:  bigint
+	gasPrice: bigint,
+	maxFee: bigint,
+	maxPriorityFee: bigint
 }
 
 
@@ -295,14 +304,14 @@ export interface GAS {
 export interface V3FlashParams {
 	token0: string;
 	token1: string;
-	amount0:  bigint;
-	amount1:  bigint;
+	amount0: bigint;
+	amount1: bigint;
 	fee: number;
 	target: string;
 	deadline: number;
-	sqrtPriceLimitX96:  bigint;
-	maxFlashSwapFee:  bigint;
-	flashFee:  bigint;
+	sqrtPriceLimitX96: bigint;
+	maxFlashSwapFee: bigint;
+	flashFee: bigint;
 	uniswapV3Pool1: string;
 	uniswapV3PoolKey1: string;
 	uniswapV3Fee1: number;
@@ -330,38 +339,38 @@ export interface BoolTrade {
 		factory: Contract
 		router: Contract
 		pool: Contract
-		reserveIn:  bigint
+		reserveIn: bigint
 		reserveInBN: BN
-		reserveOut:  bigint
+		reserveOut: bigint
 		reserveOutBN: BN
 		priceIn: string
 		priceOut: string
 		repays: Repays
-		amountRepay:  bigint
-		amountOut:  bigint
-		amountOutToken0for1:  bigint
+		amountRepay: bigint
+		amountOut: bigint
+		amountOutToken0for1: bigint
 	}
 	target: {
 		exchange: string
 		factory: Contract
 		router: Contract
 		pool: Contract
-		reserveIn:  bigint
+		reserveIn: bigint
 		reserveInBN: BN
-		reserveOut:  bigint
+		reserveOut: bigint
 		reserveOutBN: BN
 		priceIn: string
 		priceOut: string
-		tradeSize:  bigint
-		amountOut:  bigint
-		amountOutToken0for1:  bigint
+		tradeSize: bigint
+		amountOut: bigint
+		amountOutToken0for1: bigint
 	}
 	k: K
 	gasData: GasData
 	differenceTokenOut: string
 	differencePercent: string
-	profit:  bigint
-	profitPercent:  bigint
+	profit: bigint
+	profitPercent: bigint
 }
 
 export interface Bool3Trade {
@@ -380,7 +389,7 @@ export interface Bool3Trade {
 		state: PoolState
 		calc: CalcV3
 		repays: V3Repays
-		amountRepay:  bigint
+		amountRepay: bigint
 	}
 	target: {
 		exchange: string
@@ -389,14 +398,14 @@ export interface Bool3Trade {
 		feeTier: number
 		state: PoolState
 		calc: CalcV3
-		tradeSize:  bigint
-		amountOut:  bigint
+		tradeSize: bigint
+		amountOut: bigint
 	}
 	k: K
 	gasData: GasData
 	differenceTokenOut: string
 	differencePercent: string
-	profit:  bigint
-	profitPercent:  bigint
+	profit: bigint
+	profitPercent: bigint
 }
 
