@@ -81,7 +81,7 @@ export class Trade {
 		// console.log(">>>>>>>>>>>>>>>>>getSize")
 		// console.log("SIZE: ", toPrice > (safeReserves) ? "safeReserves" : "toPrice")
 		// console.log(fu(size, this.match.token0.decimals) + " " + this.match.token0.symbol)
-		return 100n //size
+		return 10n//size
 	}
 
 	async getTrade() {

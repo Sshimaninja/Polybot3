@@ -3,14 +3,14 @@ import { getQuoterV2, getProtocol } from '../../../modules/getContract'
 import { abi as IAlgPool } from '@cryptoalgebra/core/artifacts/contracts/AlgebraPool.sol/AlgebraPool.json'
 import { signer } from '../../../../constants/provider'
 import { fu, pu } from '../../../modules/convertBN'
-import { ERC20token } from '../../../../constants/interfaces'
+import { ERC20token, V3Q } from '../../../../constants/interfaces'
 
 export async function algebraQuote(
 	poolID: string,
 	tokenIn: ERC20token,
 	tokenOut: ERC20token,
 	tradeSize: bigint
-) {
+): Promise<V3Q> {
 	const quoter = getQuoterV2('QUICKV3')
 	const pool = new Contract(poolID, IAlgPool, signer)
 	try {
@@ -20,20 +20,25 @@ export async function algebraQuote(
 			tradeSize,
 			'0'
 		)
-		const price = {
+		const price: V3Q = {
 			amountIn: tradeSize,
 			data: maxOut,
-			amountOut: fu(maxOut[0], tokenOut.decimals),
+			amountOut: maxOut[0],
 		}
 
-		console.log('maxOut: ')
-		console.log(maxOut)
-		console.log(price)
+		// console.log('maxOut: ')
+		// console.log(maxOut)
+		// console.log(price)
 		return price
 	} catch (error: any) {
 		console.log(error)
 		console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN maxOut : ')
-		return 0n
+		return {
+			amountIn: 0n,
+			data: [0n, 0n, 0n],
+			amountOut: 0n,
+
+		}
 	}
 }
 const usdc: ERC20token = {

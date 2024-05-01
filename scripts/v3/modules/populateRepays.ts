@@ -25,16 +25,16 @@ export class PopulateRepays {
 		const getRepay = async (): Promise<V3Repays> => {
 
 			const repayByGetAmountsOut = await this.q.maxOut(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
-				this.trade.target.tradeSize,
+				this.trade.target.tradeSize
 			)
 			const repayByGetAmountsIn = await this.q.minIn( //Will output tokenIn.
-				this.trade.target.tradeSize,
+				this.trade.target.tradeSize
 			)
 
 			const repays: V3Repays = {
-				getAmountsOut: repayByGetAmountsOut,
-				getAmountsIn: repayByGetAmountsIn,
-				repay: repayByGetAmountsIn,
+				getAmountsOut: repayByGetAmountsOut.amountOut,
+				getAmountsIn: repayByGetAmountsIn.amountIn,
+				repay: repayByGetAmountsIn.amountIn,
 			}
 
 
@@ -70,7 +70,7 @@ export class PopulateRepays {
 		const directRepayLoanPoolInTokenOut = await this.q.minIn(
 			repay,
 		);
-		const directRepayLoanPoolInTokenOutWithFee = await this.calc.addFee(directRepayLoanPoolInTokenOut);
+		const directRepayLoanPoolInTokenOutWithFee = await this.calc.addFee(directRepayLoanPoolInTokenOut.amountIn);
 		const profit = this.trade.target.amountOut - (directRepayLoanPoolInTokenOutWithFee); // profit is remainder of token1 out
 		const profitBN = BigInt2BN(profit, this.trade.tokenOut.decimals);
 		const percentProfit = this.trade.target.amountOut > (0) ? profitBN.dividedBy(fu(this.trade.target.amountOut, this.trade.tokenOut.decimals)).multipliedBy(100) : BN(0);

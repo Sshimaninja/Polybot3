@@ -3,14 +3,15 @@ import { getQuoterV2, getProtocol } from '../../../modules/getContract'
 import { abi as IUni3Pool } from '@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json'
 import { signer } from '../../../../constants/provider'
 import { fu, pu } from '../../../modules/convertBN'
-import { ERC20token } from '../../../../constants/interfaces'
+import { ERC20token, V3Q } from '../../../../constants/interfaces'
+
 
 export async function univ3Quote(
 	poolID: string,
 	tokenIn: ERC20token,
 	tokenOut: ERC20token,
 	tradeSize: bigint,
-) {
+): Promise<V3Q> {
 	const quoter = getQuoterV2('UNIV3')
 	const pool = new Contract(poolID, IUni3Pool, signer)
 
@@ -23,20 +24,24 @@ export async function univ3Quote(
 	}
 	try {
 		let maxOut = await quoter.quoteExactInputSingle.staticCall(encoded)
-		const price = {
+		const price: V3Q = {
 			amountIn: tradeSize,
 			data: maxOut,
-			amountOut: fu(maxOut[0], tokenOut.decimals),
+			amountOut: maxOut[0],
 		}
-
-		console.log('maxOut: ')
-		console.log(maxOut)
-		console.log(price)
+		// console.log('maxOut: ')
+		// console.log(maxOut)
+		// console.log(price)
 		return price
 	} catch (error: any) {
 		console.log(error)
 		console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN maxOut : ')
-		return 0n
+		return {
+			amountIn: 0n,
+			data: [0n, 0n, 0n],
+			amountOut: 0n,
+
+		}
 	}
 }
 const usdc: ERC20token = {
