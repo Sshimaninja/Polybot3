@@ -98,8 +98,9 @@ export class Prices {
 			} else if (this.pi.protocol === 'ALG') {
 				pool = new Contract(this.pi.id, IAlgPool, signer)
 				const slot0 = await pool.globalState()
+				const liquidity = await pool.liquidity()
 				s0 = {
-					liquidity: slot0.liquidity,
+					liquidity: liquidity,
 					sqrtPriceX96: slot0.price,
 					sqrtPriceX96BN: BN(slot0.price.toString()),
 					tick: slot0.tick,
