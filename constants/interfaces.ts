@@ -9,6 +9,12 @@ export interface K {
 	uniswapKPositive: boolean
 }
 
+
+export interface V3Q {
+	amountIn: bigint
+	data: any[]
+	amountOut: bigint
+}
 export interface PendingTx {
 	ID: string
 	warning: boolean

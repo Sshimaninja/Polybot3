@@ -63,8 +63,8 @@ export class Prices {
 			fee: fee,
 			unlocked: unlocked
 		}
-		console.log("PoolState: ")
-		console.log(poolState)
+		// console.log("PoolState: ")
+		// console.log(poolState)
 		return poolState
 	}
 

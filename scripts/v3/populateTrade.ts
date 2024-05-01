@@ -16,6 +16,7 @@ export async function populateTrade(trade: Bool3Trade) {
 	// 	trade.tokenIn,
 	// 	trade.tokenOut
 	// )
+	trade.target.tradeSize = pu('1000', trade.tokenIn.decimals)
 	const qt = new V3Quote(
 		trade.target.pool,
 		trade.target.exchange,
@@ -24,7 +25,7 @@ export async function populateTrade(trade: Bool3Trade) {
 		trade.tokenOut
 	)
 
-	trade.target.amountOut = await qt.maxOut(trade.target.tradeSize)
+	trade.target.amountOut = (await qt.maxOut(trade.target.tradeSize)).amountOut
 
 	// console.log("Quote: trade.target.amountOut: ", fu(trade.target.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol)
 
