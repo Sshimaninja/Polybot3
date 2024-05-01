@@ -1,7 +1,7 @@
 import { BigNumber as BN } from "bignumber.js";
 import { Profcalcs, V3Repays, Bool3Trade } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter";
-import { V3Quote } from "./price/V3Quote2";
+import { V3Quote } from "./price/v3Quote";
 import { BigInt2BN, BN2BigInt, fu, pu } from "../../modules/convertBN";
 
 

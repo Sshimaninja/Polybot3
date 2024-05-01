@@ -177,3 +177,16 @@ PercentImpact = intImpact * 100
 
 regex to get rid of script/hardhat bumf:
 ^(.*Mined empty block range #)(.*)$
+
+
+# V3 UNISWAP STUFF:
+
+
+For this, it's because the SDK actually uses the Auto-Router that the UI uses to get the best route. I have the auto-router info here https://discord.com/channels/597638925346930701/1087869256521236510
+---
+for liquidity that's a bigger math than v2 by far
+
+So here are the math blogs, they cover a lot https://discord.com/channels/597638925346930701/1090108302479863848
+This is the script I wrote for it https://discord.com/channels/597638925346930701/607978109089611786/1037050094404501595
+
+That script is technically setup to get the liquidity of a position, but the math is the same you can use the main function to get the liquidity token amounts from a range given all the correct inputs. Though to be honest depending on the pool you may need to re-write to handle BN

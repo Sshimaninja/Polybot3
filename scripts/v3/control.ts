@@ -9,15 +9,17 @@ import {
 	Pair,
 	Match3Pools,
 	V3Matches,
+	GasData,
 } from '../../constants/interfaces'
 import { Trade } from './Trade'
 import { tradeLogs } from './modules/tradeLog'
-import { InRangeLiquidity } from './modules/price/inRangeLiquidity'
 import { TickProvider } from './modules/price/TickProvider'
 import { Contract } from 'ethers'
 import { provider } from '../../constants/provider'
 import { chainID } from '../../constants/addresses'
+import { slip } from '../../constants/environment'
 import { logger } from '../../constants/logger'
+import { Prices } from './modules/price/Prices'
 /*
 TODO:
 */
@@ -38,7 +40,7 @@ export let pendingTransactions: { [poolAddress: string]: boolean } = {};
 logger.info("Control.ts: pendingTransactions: ");
 logger.info(pendingTransactions);
 
-export async function control(data: V3Matches, gasData: any) {
+export async function control(data: V3Matches, gasData: GasData) {
 	const promises: any[] = []
 	const matches: Match3Pools[] = data.matches
 	console.log('matches: ' + data.matches.length)
@@ -94,30 +96,34 @@ export async function control(data: V3Matches, gasData: any) {
 				return
 			}
 
-			const l0 = new InRangeLiquidity(
-				match.pool0,
-				pool0,
-				match.token0,
-				match.token1
-			)
-			const l1 = new InRangeLiquidity(
-				match.pool1,
-				pool1,
-				match.token0,
-				match.token1
-			)
-			const irl0 = await l0.getPoolState()
-			const irl1 = await l1.getPoolState()
+			const p0 = new Prices(match.pool0, match.ticker)
+			const p1 = new Prices(match.pool1, match.ticker)
+			const prices0 = await p0.prices()
+			const prices1 = await p1.prices()
 
-			// return
+			// const l0 = new InRangeLiquidity(
+			// 	match.pool0,
+			// 	pool0,
+			// 	match.token0,
+			// 	match.token1
+			// )
+			// const l1 = new InRangeLiquidity(
+			// 	match.pool1,
+			// 	pool1,
+			// 	match.token0,
+			// 	match.token1
+			// )
+			// const irl0 = await l0.getPoolState()
+			// const irl1 = await l1.getPoolState()
+
+			return
 
 			const t = new Trade(
 				match,
 				pool0,
 				pool1,
-				irl0,
-				irl1,
-				slippageTolerance,
+				prices0,
+				prices1,
 				gasData
 			)
 

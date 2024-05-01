@@ -20,10 +20,8 @@ export async function tradeLogs(trade: Bool3Trade): Promise<any> {
 				loanPool: {
 					exchange: trade.loanPool.exchange,
 					fee: trade.loanPool.feeTier,
-					priceIn: trade.loanPool.state.priceIn,
-					priceOut: trade.loanPool.state.priceOut,
-					reservesIn: fu(trade.loanPool.state.reservesIn, trade.tokenIn.decimals),//.toFixed(trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
-					reservesOut: fu(trade.loanPool.state.reservesOut, trade.tokenOut.decimals),//BN.toFixed(trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
+					priceIn: trade.loanPool.priceIn,
+					priceOut: trade.loanPool.priceOut,
 					repaysObj:
 					{
 						getAmountsOut: fu(trade.loanPool.repays.getAmountsOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
@@ -35,16 +33,14 @@ export async function tradeLogs(trade: Bool3Trade): Promise<any> {
 				target: {
 					exchange: trade.target.exchange,
 					fee: trade.target.feeTier,
-					priceIn: trade.target.state.priceInBN.toFixed(trade.tokenIn.decimals),
-					priceOut: trade.target.state.priceOutBN.toFixed(trade.tokenOut.decimals),
-					reservesIn: fu(trade.target.state.reservesIn, trade.tokenIn.decimals),//.toFixed(trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
-					reservesOut: fu(trade.target.state.reservesOut, trade.tokenOut.decimals),//.toFixed(trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
+					priceIn: trade.target.priceIn,
+					priceOut: trade.target.priceOut,
 					amountOut: fu(trade.target.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
 				},
 				result: {
-					uniswapkPreT: trade.k.uniswapKPre > 0n ? trade.k.uniswapKPre.toString() : 0,
-					uniswapkPosT: trade.k.uniswapKPost > 0n ? trade.k.uniswapKPost.toString() : 0,
-					uniswapKPositive: trade.k.uniswapKPositive,
+					// uniswapkPreT: trade.k.uniswapKPre > 0n ? trade.k.uniswapKPre.toString() : 0,
+					// uniswapkPosT: trade.k.uniswapKPost > 0n ? trade.k.uniswapKPost.toString() : 0,
+					// uniswapKPositive: trade.k.uniswapKPositive,
 					// loanCostPercent: fu((trade.loanPool.amountOut.div(trade.amountRepay)).mul(100), trade.tokenOut.decimals),
 					profit: fu(trade.profit, (trade.tokenOut.decimals)) + " " + (trade.tokenOut.symbol),
 					profperc: fu(trade.profitPercent, (trade.tokenOut.decimals)) + "%",
