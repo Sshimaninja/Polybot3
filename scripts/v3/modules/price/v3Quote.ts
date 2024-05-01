@@ -1,27 +1,9 @@
 import { ethers, Contract } from "ethers";
-import { BigNumber as BN } from "bignumber.js";
 import { abi as IUniswapV3Quoter } from '@uniswap/v3-periphery/artifacts/contracts/lens/QuoterV2.sol/QuoterV2.json';
 import { abi as IAlgebraQuoter } from '@cryptoalgebra/periphery/artifacts/contracts/interfaces/IQuoterV2.sol/IQuoterV2.json';
 import { uniswapV2Exchange, ExchangeMap, algebraQuoter, uniswapV3Quoter, QuoterV3Map } from "../../../../constants/addresses";
 import { Bool3Trade, ERC20token, Match3Pools, PoolState, Token } from "../../../../constants/interfaces";
 import { provider, signer } from "../../../../constants/provider";
-import { slippageTolerance } from "../../control";
-import { BN2BigInt, fu, pu } from "../../../modules/convertBN";
-// export async function getV3Quote(
-// 	match: Match3Pools,
-// 	state: PoolState,
-// 	tradeSize: bigint
-// ): Promise<bigint> {
-
-
-//Returns the amount out received for a given exact input but for a swap of a single pool
-// function quoteExactInputSingle(
-// 	address tokenIn,
-// 	address tokenOut,
-// 	uint24 fee,
-// 	uint256 amountIn,
-// 	uint160 sqrtPriceLimitX96
-// ) external returns(uint256 amountOut)
 
 export class V3Quote {
 	exchange: string;

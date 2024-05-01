@@ -1,24 +1,34 @@
 import { Bool3Trade } from "../../constants/interfaces";
-import { V3Quote } from "./modules/price/V3Quote2";
+import { V3Quote } from "./modules/price/v3Quote";
 import { PopulateRepays } from "./modules/populateRepays";
-import { getK } from "./modules/getK";
+// import { getK } from "./modules/getK";
 import { filterTrade } from "./modules/filterTrade";
 import { flashMulti } from "../../constants/environment";
 import { pu } from "../modules/convertBN";
+import { AmountConverter } from "./modules/amountConverter";
 
 export async function populateTrade(trade: Bool3Trade) {
-
-	const q = new V3Quote(
-		trade.loanPool.pool,
-		trade.loanPool.exchange,
-		trade.loanPool.feeTier
+	const calc = new AmountConverter(trade)
+	// const ql = new V3Quote(
+	// 	trade.loanPool.pool,
+	// 	trade.loanPool.exchange,
+	// 	trade.loanPool.protocol,
+	// 	trade.tokenIn,
+	// 	trade.tokenOut
+	// )
+	const qt = new V3Quote(
+		trade.target.pool,
+		trade.target.exchange,
+		trade.target.protocol,
+		trade.tokenIn,
+		trade.tokenOut
 	)
 
-	trade.target.amountOut = await q.maxOut(trade.target.tradeSize)
+	trade.target.amountOut = await qt.maxOut(trade.target.tradeSize)
 
 	// console.log("Quote: trade.target.amountOut: ", fu(trade.target.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol)
 
-	const repay = new PopulateRepays(trade, trade.loanPool.calc, q)
+	const repay = new PopulateRepays(trade, calc, qt)
 
 	// Define repay & profit for each trade type:
 	const multi = await repay.getMulti()
@@ -52,7 +62,7 @@ export async function populateTrade(trade: Bool3Trade) {
 				trade.tokenOut.decimals
 			)
 
-	trade.k = await getK(trade, trade.loanPool.state, trade.loanPool.calc, q)
+	// trade.k = await getK(trade, trade.loanPool.state, calc, q)
 
 	trade.flash = flashMulti //trade.type === 'multi' ? flashMulti : flashDirect
 

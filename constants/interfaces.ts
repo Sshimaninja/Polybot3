@@ -59,6 +59,20 @@ export interface PolygonGasData {
 	blockTime: number;
 	blockNumber: Promise<number>;
 }
+export interface Sizes {
+	loanPool: {
+		tradeSizeTokenIn: {
+			size: bigint;
+			// sizeBN: BN;
+		};
+	};
+	target: {
+		tradeSizeTokenOut: {
+			size: bigint;
+			// sizeBN: BN;
+		};
+	};
+}
 
 export interface Factory {
 	exchange: string;
@@ -131,6 +145,20 @@ export interface Reserves3 {
 	reserves1String: string;
 }
 
+export interface PoolStateV3 {
+	ticker: string
+	id: string
+	protocol: string
+	exchange: string
+	price0: number
+	price1: number
+	liq: bigint
+	tick: bigint
+	fee: bigint
+	unlocked: boolean
+}
+
+
 export interface PoolState {
 	poolID: string;
 	sqrtPriceX96: bigint;
@@ -163,6 +191,7 @@ export interface Amounts {
 	toPrice: bigint;
 }
 export interface Slot0 {
+	liquidity: bigint;
 	sqrtPriceX96: bigint;
 	sqrtPriceX96BN: BN;
 	tick: bigint;
@@ -387,10 +416,10 @@ export interface Bool3Trade {
 		exchange: string
 		protocol: string
 		pool: Contract
-		priceOut: bigint
+		priceIn: number
+		priceOut: number
 		feeTier: number
-		state: PoolState
-		calc: CalcV3
+		state: PoolStateV3
 		repays: V3Repays
 		amountRepay: bigint
 	}
@@ -398,17 +427,17 @@ export interface Bool3Trade {
 		exchange: string
 		protocol: string
 		pool: Contract
-		priceOut: bigint
+		priceIn: number
+		priceOut: number
 		feeTier: number
-		state: PoolState
-		calc: CalcV3
+		state: PoolStateV3
 		tradeSize: bigint
 		amountOut: bigint
 	}
-	k: K
+	// k: K
 	gasData: GasData
-	differenceTokenOut: bigint
-	differencePercent: bigint
+	differenceTokenOut: number
+	differencePercent: number
 	profit: bigint
 	profitPercent: bigint
 }
