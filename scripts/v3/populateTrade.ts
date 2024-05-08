@@ -6,10 +6,10 @@ import { filterTrade } from "./modules/filterTrade";
 import { flashMulti } from "../../constants/environment";
 import { pu } from "../modules/convertBN";
 import { AmountConverter } from "./modules/amountConverter";
+import { volToTarget } from "./modules/price/ref/calcVolToTarget";
 
 export async function populateTrade(trade: Bool3Trade) {
 
-	console.log('Populating trade...')
 	const calc = new AmountConverter(trade)
 	// const ql = new V3Quote(
 	// 	trade.loanPool.pool,
@@ -18,7 +18,14 @@ export async function populateTrade(trade: Bool3Trade) {
 	// 	trade.tokenIn,
 	// 	trade.tokenOut
 	// )
-	trade.target.tradeSize = pu('1000', trade.tokenIn.decimals)
+	let tradeSize = await volToTarget(
+		trade.tokenIn,
+		trade.tokenOut,
+		trade.loanPool.pool,
+		trade.loanPool.state,
+		trade.loanPool.state.price0
+	)
+	trade.target.tradeSize = 0n
 	const qt = new V3Quote(
 		trade.target.pool,
 		trade.target.exchange,

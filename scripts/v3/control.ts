@@ -20,6 +20,7 @@ import { chainID } from '../../constants/addresses'
 import { slip } from '../../constants/environment'
 import { logger } from '../../constants/logger'
 import { Prices } from './modules/price/Prices'
+import { InRangeLiquidity } from './modules/price/inRangeLiquidity'
 /*
 TODO:
 */
@@ -105,20 +106,18 @@ export async function control(data: V3Matches, gasData: GasData) {
 			const prices0 = await p0.prices()
 			const prices1 = await p1.prices()
 
-			// const l0 = new InRangeLiquidity(
-			// 	match.pool0,
-			// 	pool0,
-			// 	match.token0,
-			// 	match.token1
-			// )
-			// const l1 = new InRangeLiquidity(
-			// 	match.pool1,
-			// 	pool1,
-			// 	match.token0,
-			// 	match.token1
-			// )
-			// const irl0 = await l0.getPoolState()
-			// const irl1 = await l1.getPoolState()
+			const l0 = new InRangeLiquidity(
+				match.pool0,
+				pool0,
+				match.token0,
+				match.token1
+			)
+			const l1 = new InRangeLiquidity(
+				match.pool1,
+				pool1,
+				match.token0,
+				match.token1
+			)
 
 			// return
 
@@ -128,6 +127,8 @@ export async function control(data: V3Matches, gasData: GasData) {
 				pool1,
 				prices0,
 				prices1,
+				l0,
+				l1,
 				gasData
 			)
 

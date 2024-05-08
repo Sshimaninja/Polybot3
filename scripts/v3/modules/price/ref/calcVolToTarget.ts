@@ -3,8 +3,7 @@ import { LiquidityMath, Pool, SwapMath, TickMath } from "@uniswap/v3-sdk";
 import { ERC20token, PoolInfo, PoolStateV3, Slot0 } from '../../../../../constants/interfaces';
 import { abi as IUniswapV3PoolState } from '@uniswap/v3-core/artifacts/contracts/interfaces/pool/IUniswapV3PoolState.sol/IUniswapV3PoolState.json';
 import { abi as IUniswapV3Pool } from '@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Pool.sol/IUniswapV3Pool.json';
-import { ethers } from 'ethers';
-import { Contract } from 'alchemy-sdk';
+import { ethers, Contract } from 'ethers';
 import { provider } from '../../../../../constants/provider';
 
 
@@ -40,10 +39,9 @@ export async function volToTarget(
 	token0: ERC20token,
 	token1: ERC20token,
 	pool: Contract,
-	s0: Slot0,
-	s: IRL,
+	data: InRangeLiquidity,
 	sPriceTarget: number,
-) {
+): Promise<number> {
 
 	//  amount of x in range; 
 	// sp = sPriceCurrent, sb = sPriceUpper
@@ -60,7 +58,8 @@ export async function volToTarget(
 	function tick_to_price(tick: number) {
 		return 1.0001 ** tick
 	}
-
+	const s = await data.getReserves()
+	const s0 = await data.getSlot0()
 	let sPriceCurrent = Number(s.sqrtPrice)
 	let sPriceLower = Number(s.sqrtRatioLow)
 	let sPriceUpper = Number(s.sqrtRatioHigh)
@@ -69,13 +68,13 @@ export async function volToTarget(
 	let tickUpper = Number(s.tickHigh)
 
 	let ITick = {
-		liquidityGross: 0,
-		liquidityNet: 0,
-		feeGrowthOutside0X128: 0,
-		feeGrowthOutside1X128: 0,
-		tickCumulativeOutside: 0,
-		secondsPerLiquidityOutsideX128: 0,
-		secondsOutside: 0,
+		liquidityGross: 0n,
+		liquidityNet: 0n,
+		feeGrowthOutside0X128: 0n,
+		feeGrowthOutside1X128: 0n,
+		tickCumulativeOutside: 0n,
+		secondsPerLiquidityOutsideX128: 0n,
+		secondsOutside: 0n,
 		initialized: false
 	}
 
@@ -138,4 +137,5 @@ export async function volToTarget(
 			console.log("need to buy {:.10f} Y tokens: ", (deltaTokens / 10 ** token1.decimals))
 		}
 	}
+	return deltaTokens
 }
