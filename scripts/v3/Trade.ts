@@ -5,6 +5,8 @@ import { Bool3Trade } from '../../constants/interfaces'
 import { populateTrade } from './populateTrade'
 import { getSize } from './getSize'
 import { pu } from '../modules/convertBN'
+import { volToTarget } from './modules/price/ref/calcVolToTarget'
+import { InRangeLiquidity } from './modules/price/inRangeLiquidity'
 /**
  * @description
  * Class to determine trade parameters
@@ -18,6 +20,8 @@ export class Trade {
 	pool1: Contract
 	state0: PoolStateV3
 	state1: PoolStateV3
+	irl0: InRangeLiquidity
+	irl1: InRangeLiquidity
 	gasData: GasData
 
 	constructor(
@@ -26,6 +30,8 @@ export class Trade {
 		pool1: Contract,
 		state0: PoolStateV3,
 		state1: PoolStateV3,
+		irl0: InRangeLiquidity,
+		irl1: InRangeLiquidity,
 		gasData: GasData
 	) {
 		this.match = match
@@ -33,6 +39,8 @@ export class Trade {
 		this.pool1 = pool1
 		this.state0 = state0
 		this.state1 = state1
+		this.irl0 = irl0
+		this.irl1 = irl1
 		this.gasData = gasData
 	}
 
@@ -80,6 +88,7 @@ export class Trade {
 				priceOut: A ? this.state0.price0 : this.state1.price1,
 				feeTier: A ? this.match.pool1.fee : this.match.pool0.fee,
 				state: A ? this.state1 : this.state0,
+				inRangeLiquidity: A ? this.irl1 : this.irl0,
 				repays: {
 					getAmountsOut: 0n,
 					getAmountsIn: 0n,
@@ -99,10 +108,9 @@ export class Trade {
 				priceOut: A ? this.state1.price1 : this.state0.price0,
 				feeTier: A ? this.match.pool0.fee : this.match.pool1.fee,
 				state: A ? this.state0 : this.state1,
-				tradeSize: A
-					? await this.getSize()
-					: await this.getSize(),
+				tradeSize: 0n,
 				amountOut: 0n,
+				inRangeLiquidity: A ? this.irl0 : this.irl1,
 			},
 			// k: {
 			// 	uniswapKPre: 0n,
@@ -115,6 +123,14 @@ export class Trade {
 			profit: 0n,
 			profitPercent: 0n,
 		}
+		let tradeSize = await volToTarget(
+			trade.tokenIn,
+			trade.tokenOut,
+			trade.target.pool,
+			trade.target.inRangeLiquidity,
+			trade.loanPool.state.price0
+		)
+		trade.target.tradeSize = BigInt(tradeSize)
 
 		await populateTrade(trade);
 
