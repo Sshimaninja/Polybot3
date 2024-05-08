@@ -1,25 +1,10 @@
-import { BigNumber as BN } from 'bignumber.js'
 import { GasData, Match3Pools, PoolState, PoolStateV3 } from '../../constants/interfaces'
 import { flashMulti } from '../../constants/environment'
 import { Contract } from 'ethers'
-
 import { Bool3Trade } from '../../constants/interfaces'
-
-import { AmountConverter } from './modules/amountConverter'
-import { V3Quote } from './modules/price/v3Quote'
-import {
-	BigInt2BN,
-	BigInt2String,
-	BN2BigInt,
-	fu,
-	pu,
-} from '../modules/convertBN'
-import { filterTrade } from './modules/filterTrade'
-import { PopulateRepays } from './modules/populateRepays'
-// import { getK } from './modules/getK'
-
 import { populateTrade } from './populateTrade'
-import { slip } from '../../constants/environment'
+import { getSize } from './getSize'
+import { pu } from '../modules/convertBN'
 /**
  * @description
  * Class to determine trade parameters
@@ -52,45 +37,32 @@ export class Trade {
 	}
 
 	async direction() {
-		const A = this.state0.price0
+		/**
+		 * I want to have liquidity determine the direction of trade, but having Zt1 makes it easier to use WMATIC in available liquidity trade from wallet, 
+		 * which are usually more profitable than hoping for a flash loan opportunity.
+		 */
+		// const A = this.state0.liq
+		// const B = this.state1.liq
+		const A = this.state0.price1
 		const B = this.state1.price1
-		const diff = A < (B) ? B - A : A - B
-		const dperc = diff / (A > B ? A : B) * 100 // 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
 		const dir = A > B ? 'A' : 'B'
+		return dir
+		// const A = this.state0.price0
+		// const B = this.state1.price1
+		// const diff = A < (B) ? B - A : A - B
+		// const dperc = diff / (A > B ? A : B) * 100 // 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
+		// const dir = A > B ? 'A' : 'B'
 
-		return { dir, diff, dperc }
-	}
-
-	async getSize(): Promise<bigint> {
-		// const toPrice = await target.tradeToPrice()
-		// use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
-		// const q = new V3Quote(pool, exchange, fee)
-
-
-
-		// const maxIn = //TODO: write TradeToPrice function.
-
-
-		// const safeReserves = (loan.state.reservesIn * 800n) / 1000n //Don't use more than 80% of the reserves
-		// const size = 1n // for testing this will do.
-		// const safeReserves = loan.state.reservesIn
-		// console.log("safeReserves: ", safeReserves)
-		// const size = toPrice > safeReserves ? safeReserves : toPrice
-		// const size = pu("10", this.match.token0.decimals)
-		// const size = toPrice
-		// console.log(">>>>>>>>>>>>>>>>>getSize")
-		// console.log("SIZE: ", toPrice > (safeReserves) ? "safeReserves" : "toPrice")
-		// console.log(fu(size, this.match.token0.decimals) + " " + this.match.token0.symbol)
-		return 10n//size
+		// return { dir, diff, dperc }
 	}
 
 	async getTrade() {
 		const dir = await this.direction()
-		const A = dir.dir == 'A' ? true : false
+		const A = dir == 'A' ? true : false
 
 		const trade: Bool3Trade = {
 			ID: A ? this.match.pool0.id : this.match.pool1.id,
-			direction: dir.dir,
+			direction: dir,
 			type: 'error',
 			ticker: this.match.token0.symbol + '/' + this.match.token1.symbol,
 			tokenIn: this.match.token0,
@@ -138,8 +110,8 @@ export class Trade {
 			// 	uniswapKPositive: false,
 			// },
 			gasData: this.gasData,
-			differenceTokenOut: dir.diff,
-			differencePercent: dir.dperc,
+			differenceTokenOut: 0,
+			differencePercent: 0,
 			profit: 0n,
 			profitPercent: 0n,
 		}

@@ -85,9 +85,12 @@ export async function control(data: V3Matches, gasData: GasData) {
 				return;
 			}
 
+
+			console.log('init pools...')
 			const pool0 = new Contract(match.pool0.id, pool0ABI, provider)
 			const pool1 = new Contract(match.pool1.id, pool1ABI, provider)
 
+			console.log('get liquidity...')
 			// console.log("pool0: " + pool0.getAddress() + " pool1: " + pool1.getAddress())
 			const liq0 = await pool0.liquidity()
 			const liq1 = await pool1.liquidity()
@@ -96,6 +99,7 @@ export async function control(data: V3Matches, gasData: GasData) {
 				return
 			}
 
+			console.log('get prices...')
 			const p0 = new Prices(match.pool0, match.ticker)
 			const p1 = new Prices(match.pool1, match.ticker)
 			const prices0 = await p0.prices()

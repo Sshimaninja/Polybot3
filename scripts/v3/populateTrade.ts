@@ -8,6 +8,8 @@ import { pu } from "../modules/convertBN";
 import { AmountConverter } from "./modules/amountConverter";
 
 export async function populateTrade(trade: Bool3Trade) {
+
+	console.log('Populating trade...')
 	const calc = new AmountConverter(trade)
 	// const ql = new V3Quote(
 	// 	trade.loanPool.pool,
@@ -68,7 +70,7 @@ export async function populateTrade(trade: Bool3Trade) {
 	trade.flash = flashMulti //trade.type === 'multi' ? flashMulti : flashDirect
 
 	// Make sure there are no breaking variables in the trade: before passing it to the next function.
-	const filteredTrade = await filterTrade(trade)
+	await filterTrade(trade)
 
 	return trade;
 }

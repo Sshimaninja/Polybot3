@@ -10,11 +10,20 @@ export interface K {
 }
 
 
-export interface V3Q {
-	amountIn: bigint
-	data: any[]
+export interface ExactInput {
 	amountOut: bigint
+	sqrtPriceX96After: bigint
+	initializedTicksCrossed: bigint
+	gasEstimate: bigint
 }
+
+export interface ExactOutput {
+	amountIn: bigint
+	sqrtPriceX96After: bigint
+	initializedTicksCrossed: bigint
+	gasEstimate: bigint
+}
+
 export interface PendingTx {
 	ID: string
 	warning: boolean
