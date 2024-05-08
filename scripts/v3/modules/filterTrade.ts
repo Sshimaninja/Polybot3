@@ -40,7 +40,7 @@ async function checkLiquidity(
 	liquidityThreshold: number,
 ): Promise<boolean> {
 	if (path === "tokenIn") {
-		if (trade.loanPool.state.liq < Number(liquidityThreshold)) {
+		if (trade.loanPool.state.liquidity < Number(liquidityThreshold)) {
 			trade.type =
 				"filtered: Low " +
 				trade.tokenIn.symbol +
@@ -48,7 +48,7 @@ async function checkLiquidity(
 			// console.log("[filteredTrade]: Insufficient liquidity: ", trade.ticker, trade.loanPool.exchange, trade.loanPool.state.liq.toFixed(trade.tokenIn.data.decimals), trade.tokenIn.data.symbol);
 			return false;
 		}
-		if (trade.target.state.liq < Number(liquidityThreshold)) {
+		if (trade.target.state.liquidity < Number(liquidityThreshold)) {
 			trade.type =
 				"filtered: Low " +
 				trade.tokenIn.symbol +
@@ -58,7 +58,7 @@ async function checkLiquidity(
 		}
 	}
 	if (path === "tokenOut") {
-		if (trade.loanPool.state.liq < Number(liquidityThreshold)) {
+		if (trade.loanPool.state.liquidity < Number(liquidityThreshold)) {
 			trade.type =
 				"filtered: Low " +
 				trade.tokenOut.symbol +
@@ -66,7 +66,7 @@ async function checkLiquidity(
 			// console.log("[filteredTrade]: Insufficient liquidity: ", trade.ticker, trade.loanPool.exchange, trade.loanPool.state.liq.toFixed(trade.tokenOut.data.decimals), trade.tokenOut.data.symbol);
 			return false;
 		}
-		if (trade.target.state.liq < Number(liquidityThreshold)) {
+		if (trade.target.state.liquidity < Number(liquidityThreshold)) {
 			trade.type =
 				"filtered: Low " +
 				trade.tokenOut.symbol +

@@ -84,54 +84,6 @@ export class InRangeLiquidity {
 		this.token1Contract = new Contract(token1.id, IERC20, signer)
 	}
 
-	async getSlot0(): Promise<Slot0> {
-		let s0: Slot0 = {
-			liquidity: 0n,
-			sqrtPriceX96: 0n,
-			sqrtPriceX96BN: BN(0),
-			tick: 0n,
-			fee: 0n,
-			unlocked: false,
-		}
-		try {
-			if (this.poolInfo.protocol === 'UNIV3') {
-				const slot0 = await this.pool.slot0()
-				s0 = {
-					liquidity: await this.pool.liquidity(),
-					sqrtPriceX96: slot0.sqrtPriceX96,
-					sqrtPriceX96BN: BN(slot0.sqrtPriceX96.toString()),
-					tick: slot0.tick,
-					fee: await this.pool.fee(),
-					unlocked: slot0.unlocked,
-				}
-				// console.log("Slot0: UNIV3", slot0)
-				return s0
-			} else if (this.poolInfo.protocol === 'ALG') {
-				const slot0 = await this.pool.globalState()
-				s0 = {
-					liquidity: await this.pool.liquidity(),
-					sqrtPriceX96: slot0.price,
-					sqrtPriceX96BN: BN(slot0.price.toString()),
-					tick: slot0.tick,
-					fee: slot0.fee,
-					unlocked: slot0.unlocked,
-				}
-				// console.log("Slot0: ALG", s0)
-				return s0
-			}
-		} catch (error: any) {
-			console.log(
-				'Error in ' +
-				this.poolInfo.protocol +
-				' getPoolState: ' +
-				error.message
-			)
-			return s0
-		}
-		return s0
-	}
-
-
 	async getReserves(): Promise<IRL> {
 
 		const slot0 = await this.getSlot0()
@@ -240,10 +192,59 @@ export class InRangeLiquidity {
 				reserves0Human: reserves0Human,
 				reserves1Human: reserves1Human,
 			}
-			// console.log(price)
+			console.log(price)
 			return price
 		}
+
 	}
+
+	async getSlot0(): Promise<Slot0> {
+		let s0: Slot0 = {
+			liquidity: 0n,
+			sqrtPriceX96: 0n,
+			sqrtPriceX96BN: BN(0),
+			tick: 0n,
+			fee: 0n,
+			unlocked: false,
+		}
+		try {
+			if (this.poolInfo.protocol === 'UNIV3') {
+				const slot0 = await this.pool.slot0()
+				s0 = {
+					liquidity: await this.pool.liquidity(),
+					sqrtPriceX96: slot0.sqrtPriceX96,
+					sqrtPriceX96BN: BN(slot0.sqrtPriceX96.toString()),
+					tick: slot0.tick,
+					fee: await this.pool.fee(),
+					unlocked: slot0.unlocked,
+				}
+				// console.log("Slot0: UNIV3", slot0)
+				return s0
+			} else if (this.poolInfo.protocol === 'ALG') {
+				const slot0 = await this.pool.globalState()
+				s0 = {
+					liquidity: await this.pool.liquidity(),
+					sqrtPriceX96: slot0.price,
+					sqrtPriceX96BN: BN(slot0.price.toString()),
+					tick: slot0.tick,
+					fee: slot0.fee,
+					unlocked: slot0.unlocked,
+				}
+				// console.log("Slot0: ALG", s0)
+				return s0
+			}
+		} catch (error: any) {
+			console.log(
+				'Error in ' +
+				this.poolInfo.protocol +
+				' getPoolState: ' +
+				error.message
+			)
+			return s0
+		}
+		return s0
+	}
+
 
 	// async getReserves(): Promise<{ reserves0: bigint; reserves1: bigint }> {
 	// 	const reserves0 = await this.token0Contract.balanceOf(this.poolInfo.id)

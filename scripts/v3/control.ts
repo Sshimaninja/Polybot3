@@ -87,11 +87,11 @@ export async function control(data: V3Matches, gasData: GasData) {
 			}
 
 
-			console.log('init pools...')
+			// console.log('init pools...')
 			const pool0 = new Contract(match.pool0.id, pool0ABI, provider)
 			const pool1 = new Contract(match.pool1.id, pool1ABI, provider)
 
-			console.log('get liquidity...')
+			// console.log('get liquidity...')
 			// console.log("pool0: " + pool0.getAddress() + " pool1: " + pool1.getAddress())
 			const liq0 = await pool0.liquidity()
 			const liq1 = await pool1.liquidity()
@@ -100,11 +100,11 @@ export async function control(data: V3Matches, gasData: GasData) {
 				return
 			}
 
-			console.log('get prices...')
-			const p0 = new Prices(match.pool0, match.ticker)
-			const p1 = new Prices(match.pool1, match.ticker)
-			const prices0 = await p0.prices()
-			const prices1 = await p1.prices()
+			// console.log('get prices...')
+			// const p0 = new Prices(match.pool0, match.ticker)
+			// const p1 = new Prices(match.pool1, match.ticker)
+			// const prices0 = await p0.prices()
+			// const prices1 = await p1.prices()
 
 			const l0 = new InRangeLiquidity(
 				match.pool0,
@@ -112,12 +112,14 @@ export async function control(data: V3Matches, gasData: GasData) {
 				match.token0,
 				match.token1
 			)
+			const r0 = await l0.getReserves()
 			const l1 = new InRangeLiquidity(
 				match.pool1,
 				pool1,
 				match.token0,
 				match.token1
 			)
+			const r1 = await l1.getReserves()
 
 			// return
 
@@ -125,32 +127,13 @@ export async function control(data: V3Matches, gasData: GasData) {
 				match,
 				pool0,
 				pool1,
-				prices0,
-				prices1,
 				l0,
 				l1,
+				r0,
+				r1,
 				gasData
 			)
 
-
-			/* 
-			TODO: 
-			Fix zero values and incorrect prices:
-			price:  {
-				pool: 'WMATIC/AAVE',
-				exchange: 'UNIV3',
-				sqrtRatioA: 0.09168187905140851,
-				sqrtRatioB: 0.09168187905140851,
-				sqrtPrice: 7.264010064880239e+27,
-				liquidity: 1655845318502543001134n,
-				tickLow: -47791,
-				tickHigh: -47791,
-				amount0wei: 0,
-				amount1wei: 0,
-				amount0Human: '0.000000000000000000',
-				amount1Human: '0.000000000000000000'
-				}
-			*/
 
 
 

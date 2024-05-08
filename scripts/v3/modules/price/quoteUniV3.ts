@@ -56,10 +56,10 @@ const aave: ERC20token = {
 	symbol: 'AAVE',
 	decimals: 18,
 }
-univ3Quote(
-	'0x6EE39EFbE26e0C3DA5EfFB78D9DbE9183Fe0ACb3',
-	aave,
-	usdc,
-	pu('1', aave.decimals),
-)
+// univ3Quote(
+// 	'0x6EE39EFbE26e0C3DA5EfFB78D9DbE9183Fe0ACb3',
+// 	aave,
+// 	usdc,
+// 	pu('1', aave.decimals),
+// )
 
