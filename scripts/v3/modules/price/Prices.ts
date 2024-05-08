@@ -44,6 +44,7 @@ export class Prices {
 	}
 
 	async prices(): Promise<PoolStateV3> {
+		console.log("getting prices...")
 		const slot0 = await this.getSlot0();
 		const tick = slot0.tick;
 		const price0 = Math.pow(1.0001, Number(tick));

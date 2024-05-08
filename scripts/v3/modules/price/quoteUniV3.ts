@@ -3,7 +3,7 @@ import { getQuoterV2, getProtocol } from '../../../modules/getContract'
 import { abi as IUni3Pool } from '@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json'
 import { signer } from '../../../../constants/provider'
 import { fu, pu } from '../../../modules/convertBN'
-import { ERC20token, V3Q } from '../../../../constants/interfaces'
+import { ERC20token, ExactInput } from '../../../../constants/interfaces'
 
 
 export async function univ3Quote(
@@ -11,7 +11,7 @@ export async function univ3Quote(
 	tokenIn: ERC20token,
 	tokenOut: ERC20token,
 	tradeSize: bigint,
-): Promise<V3Q> {
+): Promise<ExactInput> {
 	const quoter = getQuoterV2('UNIV3')
 	const pool = new Contract(poolID, IUni3Pool, signer)
 
@@ -24,10 +24,11 @@ export async function univ3Quote(
 	}
 	try {
 		let maxOut = await quoter.quoteExactInputSingle.staticCall(encoded)
-		const price: V3Q = {
-			amountIn: tradeSize,
-			data: maxOut,
-			amountOut: maxOut[0],
+		const price: ExactInput = {
+			amountOut: maxOut.amountOut,
+			sqrtPriceX96After: maxOut.sqrtPriceX96After,
+			initializedTicksCrossed: maxOut.initializedTicksCrossed,
+			gasEstimate: maxOut.gasEstimate,
 		}
 		// console.log('maxOut: ')
 		// console.log(maxOut)
@@ -37,9 +38,10 @@ export async function univ3Quote(
 		console.log(error)
 		console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN maxOut : ')
 		return {
-			amountIn: 0n,
-			data: [0n, 0n, 0n],
 			amountOut: 0n,
+			sqrtPriceX96After: 0n,
+			initializedTicksCrossed: 0n,
+			gasEstimate: 0n,
 
 		}
 	}

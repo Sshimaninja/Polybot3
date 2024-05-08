@@ -2,7 +2,7 @@ import { ethers, Contract } from "ethers";
 import { abi as IUniswapV3Quoter } from '@uniswap/v3-periphery/artifacts/contracts/lens/QuoterV2.sol/QuoterV2.json';
 import { abi as IAlgebraQuoter } from '@cryptoalgebra/periphery/artifacts/contracts/interfaces/IQuoterV2.sol/IQuoterV2.json';
 import { uniswapV2Exchange, ExchangeMap, algebraQuoter, uniswapV3Quoter, QuoterV3Map } from "../../../../constants/addresses";
-import { Bool3Trade, ERC20token, Match3Pools, PoolState, Token, V3Q } from "../../../../constants/interfaces";
+import { Bool3Trade, ERC20token, ExactInput, ExactOutput, Match3Pools, PoolState, Token } from "../../../../constants/interfaces";
 import { provider, signer } from "../../../../constants/provider";
 import { algebraQuote } from "./quoteAlgebra";
 import { univ3Quote } from "./quoteUniV3";
@@ -34,10 +34,10 @@ export class V3Quote {
 		);
 	}
 
-	async maxOut(tradeSize: bigint): Promise<V3Q> {
+	async maxOut(tradeSize: bigint): Promise<ExactInput> {
 		// console.log("Params: ", "Exchange: ", exchange, ' Protocol: ', protocol, ' ', feeTier, ' tradeSize: ', fu(tradeSize, this.pool.token0.decimals))
 		try {
-			const maxOut: V3Q = this.protocol === "UNIV3" ?
+			const maxOut: ExactInput = this.protocol === "UNIV3" ?
 				await univ3Quote(
 					await this.pool.getAddress(),
 					this.tokenIn,
@@ -50,23 +50,25 @@ export class V3Quote {
 						this.tokenOut,
 						tradeSize,
 					) : {
-						amountIn: 0n,
-						data: [0n, 0n, 0n],
 						amountOut: 0n,
+						sqrtPriceX96After: 0n,
+						initializedTicksCrossed: 0n,
+						gasEstimate: 0n,
 					}
 			return maxOut;
 		} catch (error: any) {
 			console.log(error.reason)
 			console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN getAmountOut : ', this.exchange, this.protocol)
 			return {
-				amountIn: 0n,
-				data: [0n, 0n, 0n],
 				amountOut: 0n,
+				sqrtPriceX96After: 0n,
+				initializedTicksCrossed: 0n,
+				gasEstimate: 0n,
 			};
 		}
 	}
 
-	async minIn(amountOutExpected: bigint): Promise<V3Q> {
+	async minIn(amountOutExpected: bigint): Promise<ExactOutput> {
 		if (amountOutExpected > 0n) {
 			try {
 				const minIn = this.protocol = "UNIV3" ? await this.QuoterV3.quoteExactOutputSingle.call(
@@ -82,8 +84,9 @@ export class V3Quote {
 					0
 				) : {
 					amountIn: 0n,
-					data: [0n, 0n, 0n],
-					amountOut: 0n,
+					sqrtPriceX96After: 0n,
+					initializedTicksCrossed: 0n,
+					gasEstimate: 0n,
 				}
 				return minIn;
 			} catch (error: any) {
@@ -91,16 +94,18 @@ export class V3Quote {
 				console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN getAmountIn : ', this.exchange, this.protocol)
 				return {
 					amountIn: 0n,
-					data: [0n, 0n, 0n],
-					amountOut: 0n,
+					sqrtPriceX96After: 0n,
+					initializedTicksCrossed: 0n,
+					gasEstimate: 0n,
 				};
 			}
 		}
 		console.log("getAmountIn: Amount out is zero, so amount in is zero: ", this.exchange, this.protocol)
 		return {
 			amountIn: 0n,
-			data: [0n, 0n, 0n],
-			amountOut: 0n,
+			sqrtPriceX96After: 0n,
+			initializedTicksCrossed: 0n,
+			gasEstimate: 0n,
 		};
 	}
 
