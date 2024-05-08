@@ -135,8 +135,6 @@ export async function control(data: V3Matches, gasData: GasData) {
 			)
 
 
-
-
 			const trade = await t.getTrade()
 			// console.log("Trade: ", trade.ticker, " ", trade.loanPool.exchange, trade.target.exchange, " " + trade.target.amountOut.toString() + " " + trade.tokenOut.symbol, " " + trade.loanPool.amountRepay.toString() + " " + trade.tokenOut.symbol, " " + trade.profit.toString() + " " + trade.tokenOut.symbol, " " + trade.profitPercent.toString() + "%")
 

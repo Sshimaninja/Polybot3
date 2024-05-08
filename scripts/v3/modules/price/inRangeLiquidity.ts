@@ -192,7 +192,7 @@ export class InRangeLiquidity {
 				reserves0Human: reserves0Human,
 				reserves1Human: reserves1Human,
 			}
-			console.log(price)
+			// console.log(price)
 			return price
 		}
 

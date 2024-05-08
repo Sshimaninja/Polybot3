@@ -144,7 +144,7 @@ export async function volToTarget(
 				}
 			}
 		} catch (error: any) {
-			console.log('error: UNIV3 volToTarget(): ', error.reason)
+			// console.log('error: UNIV3 volToTarget(): ', error.reason)
 		}
 	}
 
@@ -176,7 +176,7 @@ export async function volToTarget(
 				console.log("need to buy {:.10f} Y tokens: ", (deltaTokens / 10 ** token1.decimals))
 			}
 		} catch (error: any) {
-			console.log('error: UNIV3 volToTarget(): ', error.reason)
+			// console.log('error: UNIV3 volToTarget(): ', error.reason)
 		}
 	}
 
@@ -213,7 +213,7 @@ export async function volToTarget(
 				}
 			}
 		} catch (error: any) {
-			console.log('error: ALG volToTarget(): ', error.reason)
+			// console.log('error: ALG volToTarget(): ', error.reason)
 		}
 		if (sPriceTarget < sPriceCurrent) {
 			console.log(s0.tick)
@@ -244,8 +244,7 @@ export async function volToTarget(
 					console.log("need to buy {:.10f} Y tokens: ", (deltaTokens / 10 ** token1.decimals))
 				}
 			} catch (error: any) {
-				console.log('error: ALG volToTarget(): ', error.reason)
-				console.log(error.reason)
+				// console.log('error: ALG volToTarget(): ', error.reason)
 			}
 		}
 	}
