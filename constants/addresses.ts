@@ -75,6 +75,22 @@ export const uniswapV2Exchange: ExchangeMap = {
 
 // UNISWAP V3:
 
+export type ExchangeMapV3 = { [exchange: string]: { protocol: string; factory: string; quoter: string } };
+
+export const uniswapV3Exchange: ExchangeMapV3 = {
+	QUICKV3: {
+		protocol: "ALG",
+		factory: "0x411b0fAcC3489691f28ad58c47006AF5E3Ab3A28",
+		quoter: "0xa15F0D7377B2A0C0c10db057f641beD21028FC89",
+	},
+	UNIV3: {
+		protocol: "UNIV3",
+		factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+		quoter: "0xE592427A0AEce92De3Edee1F18E0157C05861564",
+	}
+};
+
+
 export const uniswapV3Factory: FactoryMap = {
 	UNIV3: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
 	// SUSHIV3: "0xaa26771d497814E81D305c511Efbb3ceD90BF5bd"

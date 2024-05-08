@@ -6,7 +6,7 @@ import { populateTrade } from './populateTrade'
 import { getSize } from './getSize'
 import { pu } from '../modules/convertBN'
 import { volToTarget } from './modules/price/ref/calcVolToTarget'
-import { InRangeLiquidity } from './modules/price/inRangeLiquidity'
+import { IRL, InRangeLiquidity } from './modules/price/inRangeLiquidity'
 /**
  * @description
  * Class to determine trade parameters
@@ -18,31 +18,32 @@ export class Trade {
 	match: Match3Pools
 	pool0: Contract
 	pool1: Contract
-	state0: PoolStateV3
-	state1: PoolStateV3
 	irl0: InRangeLiquidity
 	irl1: InRangeLiquidity
+	state0: IRL
+	state1: IRL
 	gasData: GasData
 
 	constructor(
 		match: Match3Pools,
 		pool0: Contract,
 		pool1: Contract,
-		state0: PoolStateV3,
-		state1: PoolStateV3,
 		irl0: InRangeLiquidity,
 		irl1: InRangeLiquidity,
+		state0: IRL,
+		state1: IRL,
 		gasData: GasData
 	) {
 		this.match = match
 		this.pool0 = pool0
 		this.pool1 = pool1
-		this.state0 = state0
-		this.state1 = state1
 		this.irl0 = irl0
 		this.irl1 = irl1
+		this.state0 = state0
+		this.state1 = state1
 		this.gasData = gasData
 	}
+
 
 	async direction() {
 		/**
@@ -51,6 +52,7 @@ export class Trade {
 		 */
 		// const A = this.state0.liq
 		// const B = this.state1.liq
+
 		const A = this.state0.price1
 		const B = this.state1.price1
 		const dir = A > B ? 'A' : 'B'
@@ -124,6 +126,7 @@ export class Trade {
 			profitPercent: 0n,
 		}
 		let tradeSize = await volToTarget(
+			trade.target.exchange,
 			trade.tokenIn,
 			trade.tokenOut,
 			trade.target.pool,

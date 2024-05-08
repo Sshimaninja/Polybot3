@@ -3,14 +3,14 @@ import { getQuoterV2, getProtocol } from '../../../modules/getContract'
 import { abi as IAlgPool } from '@cryptoalgebra/core/artifacts/contracts/AlgebraPool.sol/AlgebraPool.json'
 import { signer } from '../../../../constants/provider'
 import { fu, pu } from '../../../modules/convertBN'
-import { ERC20token, V3Q } from '../../../../constants/interfaces'
+import { ERC20token, ExactInput } from '../../../../constants/interfaces'
 
 export async function algebraQuote(
 	poolID: string,
 	tokenIn: ERC20token,
 	tokenOut: ERC20token,
 	tradeSize: bigint
-): Promise<V3Q> {
+): Promise<ExactInput> {
 	const quoter = getQuoterV2('QUICKV3')
 	const pool = new Contract(poolID, IAlgPool, signer)
 	try {
@@ -20,10 +20,11 @@ export async function algebraQuote(
 			tradeSize,
 			'0'
 		)
-		const price: V3Q = {
-			amountIn: tradeSize,
-			data: maxOut,
-			amountOut: maxOut[0],
+		const price: ExactInput = {
+			amountOut: maxOut.amountOut,
+			sqrtPriceX96After: maxOut.sqrtPriceX96After,
+			initializedTicksCrossed: maxOut.initializedTicksCrossed,
+			gasEstimate: maxOut.gasEstimate,
 		}
 
 		// console.log('maxOut: ')
@@ -34,9 +35,11 @@ export async function algebraQuote(
 		console.log(error)
 		console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN maxOut : ')
 		return {
-			amountIn: 0n,
-			data: [0n, 0n, 0n],
 			amountOut: 0n,
+			sqrtPriceX96After: 0n,
+			initializedTicksCrossed: 0n,
+			gasEstimate: 0n,
+
 
 		}
 	}
@@ -51,12 +54,12 @@ const aave: ERC20token = {
 	symbol: 'AAVE',
 	decimals: 18,
 }
-algebraQuote(
-	'0xD385ac9c9BCC8b345080365bf9d3345f20F97dB6',
-	aave,
-	usdc,
-	pu('1', aave.decimals)
-)
+// algebraQuote(
+// 	'0xD385ac9c9BCC8b345080365bf9d3345f20F97dB6',
+// 	aave,
+// 	usdc,
+// 	pu('1', aave.decimals)
+// )
 
 
 

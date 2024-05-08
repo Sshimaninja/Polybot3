@@ -2,7 +2,7 @@ import { BaseContract, Contract, ethers } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { Token as V3Token } from "@uniswap/sdk-core";
 import { AmountConverter as CalcV3 } from "../scripts/v3/modules/amountConverter";
-import { InRangeLiquidity } from "../scripts/v3/modules/price/inRangeLiquidity";
+import { IRL, InRangeLiquidity } from "../scripts/v3/modules/price/inRangeLiquidity";
 // import { AmountConverter as CalcV2 } from "../scripts/v2/modules/amountConverter";
 export interface K {
 	uniswapKPre: bigint,
@@ -435,7 +435,7 @@ export interface Bool3Trade {
 		priceIn: number
 		priceOut: number
 		feeTier: number
-		state: PoolStateV3
+		state: IRL
 		inRangeLiquidity: InRangeLiquidity
 		repays: V3Repays
 		amountRepay: bigint
@@ -447,7 +447,7 @@ export interface Bool3Trade {
 		priceIn: number
 		priceOut: number
 		feeTier: number
-		state: PoolStateV3
+		state: IRL
 		inRangeLiquidity: InRangeLiquidity
 		tradeSize: bigint
 		amountOut: bigint

@@ -18,14 +18,6 @@ export async function populateTrade(trade: Bool3Trade) {
 	// 	trade.tokenIn,
 	// 	trade.tokenOut
 	// )
-	let tradeSize = await volToTarget(
-		trade.tokenIn,
-		trade.tokenOut,
-		trade.loanPool.pool,
-		trade.loanPool.state,
-		trade.loanPool.state.price0
-	)
-	trade.target.tradeSize = 0n
 	const qt = new V3Quote(
 		trade.target.pool,
 		trade.target.exchange,
