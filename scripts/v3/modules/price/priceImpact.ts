@@ -48,7 +48,7 @@ export async function priceImpact(pool: Contract, q: V3Quote, slot: Slot0, token
 		priceAfter: priceAfter,
 		absoluteChange: absoluteChange,
 	}
-	console.log(prices)
+	// console.log(prices)
 
 
 

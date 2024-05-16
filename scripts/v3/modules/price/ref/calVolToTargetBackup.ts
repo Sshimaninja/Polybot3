@@ -6,7 +6,6 @@ import { abi as IUniswapV3Pool } from '@uniswap/v3-core/artifacts/contracts/inte
 import { ethers, Contract } from 'ethers';
 import { ExchangeMapV3, uniswapV3Exchange } from '../../../../../constants/addresses';
 import { provider } from '../../../../../constants/provider';
-import { pu } from '../../../../modules/convertBN';
 
 
 // //  amount of x in range; sp = sqrt of current price, sb = sqrt of max price
@@ -56,7 +55,7 @@ export async function volToTarget(
 	pool: Contract,
 	data: InRangeLiquidity,
 	sPriceTarget: number,
-): Promise<bigint> {
+): Promise<number> {
 
 	//  amount of x in range; 
 	// sp = sPriceCurrent, sb = sPriceUpper
@@ -140,10 +139,9 @@ export async function volToTarget(
 					x = x_in_range(liquidity, sPriceCurrent, sPriceTarget)
 					deltaTokens += x
 					sPriceCurrent = sPriceTarget
+					console.log("need to buy {:.10f} X tokens: ", (deltaTokens / 10 ** token0.decimals))
 
 				}
-				console.log("need to buy {:.10f} X tokens: ", (deltaTokens / 10 ** token0.decimals))
-
 			}
 		} catch (error: any) {
 			// console.log('error: UNIV3 volToTarget(): ', error.reason)
@@ -175,11 +173,10 @@ export async function volToTarget(
 					deltaTokens += y
 					sPriceCurrent = sPriceTarget
 				}
+				console.log("need to buy {:.10f} Y tokens: ", (deltaTokens / 10 ** token1.decimals))
 			}
-			console.log("need to buy {:.10f} Y tokens: ", (deltaTokens / 10 ** token1.decimals))
-
 		} catch (error: any) {
-			console.log('error: UNIV3 volToTarget(): ', error.reason)
+			// console.log('error: UNIV3 volToTarget(): ', error.reason)
 		}
 	}
 
@@ -211,16 +208,15 @@ export async function volToTarget(
 					x = x_in_range(liquidity, sPriceCurrent, sPriceTarget)
 					deltaTokens += x
 					sPriceCurrent = sPriceTarget
+					console.log("need to buy {:.10f} X tokens: ", (deltaTokens / 10 ** token0.decimals))
 
 				}
-				console.log("need to buy {:.10f} X tokens: ", (deltaTokens / 10 ** token0.decimals))
-
 			}
 		} catch (error: any) {
 			// console.log('error: ALG volToTarget(): ', error.reason)
 		}
 		if (sPriceTarget < sPriceCurrent) {
-			// console.log("s0.tick: ", s0.tick)
+			console.log(s0.tick)
 			try {
 				let currentTickRange: ATick = await pool.ticks(s0.tick)
 				if (sPriceTarget < sPriceCurrent) {
@@ -245,15 +241,14 @@ export async function volToTarget(
 						deltaTokens += y
 						sPriceCurrent = sPriceTarget
 					}
-
+					console.log("need to buy {:.10f} Y tokens: ", (deltaTokens / 10 ** token1.decimals))
 				}
-				console.log("need to buy {:.10f} Y tokens: ", (deltaTokens / 10 ** token1.decimals))
 			} catch (error: any) {
-				console.log('error: ALG volToTarget(): ', error.reason)
+				// console.log('error: ALG volToTarget(): ', error.reason)
 			}
 		}
 	}
 
-	const delta: bigint = pu(deltaTokens.toString(), token0.decimals)
-	return delta
+
+	return deltaTokens
 }
