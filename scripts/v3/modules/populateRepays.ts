@@ -3,15 +3,14 @@ import { Profcalcs, V3Repays, Bool3Trade } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter";
 import { V3Quote } from "./price/v3Quote";
 import { BigInt2BN, BN2BigInt, fu, pu } from "../../modules/convertBN";
-
+import { addFee } from "./calc";
 
 export class PopulateRepays {
 	trade: Bool3Trade;
-	calc: AmountConverter;
 	q: V3Quote;
-	constructor(trade: Bool3Trade, calc: AmountConverter, quote: V3Quote) {
+	constructor(trade: Bool3Trade, quote: V3Quote) {
 		this.trade = trade;
-		this.calc = calc;
+
 		this.q = quote
 	}
 
@@ -70,7 +69,7 @@ export class PopulateRepays {
 		const directRepayLoanPoolInTokenOut = await this.q.minIn(
 			repay,
 		);
-		const directRepayLoanPoolInTokenOutWithFee = await this.calc.addFee(directRepayLoanPoolInTokenOut.amountIn);
+		const directRepayLoanPoolInTokenOutWithFee = await addFee(directRepayLoanPoolInTokenOut.amountIn);
 		const profit = this.trade.target.amountOut - (directRepayLoanPoolInTokenOutWithFee); // profit is remainder of token1 out
 		const profitBN = BigInt2BN(profit, this.trade.tokenOut.decimals);
 		const percentProfit = this.trade.target.amountOut > (0) ? profitBN.dividedBy(fu(this.trade.target.amountOut, this.trade.tokenOut.decimals)).multipliedBy(100) : BN(0);

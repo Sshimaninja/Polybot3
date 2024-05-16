@@ -5,7 +5,7 @@ import { PopulateRepays } from "./modules/populateRepays";
 import { filterTrade } from "./modules/filterTrade";
 import { flashMulti } from "../../constants/environment";
 import { fu, pu } from "../modules/convertBN";
-import { AmountConverter } from "./modules/amountConverter";
+import { addFee } from "./modules/calc";
 import { volToTarget } from "./modules/price/ref/calcVolToTarget";
 
 export async function populateTrade(trade: Bool3Trade) {
@@ -34,7 +34,7 @@ export async function populateTrade(trade: Bool3Trade) {
 	trade.target.amountOut = (await qt.maxOut(trade.target.tradeSize)).amountOut
 	console.log("Quote: trade.target.amountOut: ", fu(trade.target.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol)
 
-	const repay = new PopulateRepays(trade, calc, qt)
+	const repay = new PopulateRepays(trade, qt)
 
 	// Define repay & profit for each trade type:
 	const multi = await repay.getMulti()

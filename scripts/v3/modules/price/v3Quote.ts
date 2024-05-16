@@ -55,10 +55,11 @@ export class V3Quote {
 						initializedTicksCrossed: 0n,
 						gasEstimate: 0n,
 					}
+			console.log("maxOut: ", maxOut.amountOut.toString())
 			return maxOut;
 		} catch (error: any) {
-			console.log(error.reason)
 			console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN getAmountOut : ', this.exchange, this.protocol)
+			console.log("Error in v3Quote maxOut: ", error)
 			return {
 				amountOut: 0n,
 				sqrtPriceX96After: 0n,
@@ -74,7 +75,7 @@ export class V3Quote {
 				const minIn = this.protocol = "UNIV3" ? await this.QuoterV3.quoteExactOutputSingle.call(
 					this.tokenIn.id,
 					this.tokenOut.id,
-					this.pool.fee(),
+					await this.pool.fee(),
 					amountOutExpected,
 					0
 				) : this.protocol = "ALG" ? await this.QuoterV3.quoteExactOutputSingle.call(
@@ -88,10 +89,11 @@ export class V3Quote {
 					initializedTicksCrossed: 0n,
 					gasEstimate: 0n,
 				}
+				console.log("minIn: ", minIn.amountIn.toString())
 				return minIn;
 			} catch (error: any) {
-				console.log(error)
 				console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN getAmountIn : ', this.exchange, this.protocol)
+				console.log("Error in v3Quote minIn: ", error)
 				return {
 					amountIn: 0n,
 					sqrtPriceX96After: 0n,
