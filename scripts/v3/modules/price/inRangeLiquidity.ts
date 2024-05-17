@@ -41,7 +41,7 @@ export interface IRL {
 	liquidity: bigint,
 	tickLow: number,
 	tickHigh: number,
-	tickSpacing: bigint,
+	tickSpacing: number,
 	reservesWei0: number,
 	reservesWei1: number,
 	reserves0Human: string,
@@ -88,7 +88,7 @@ export class InRangeLiquidity {
 
 		const slot0 = await this.getSlot0()
 		const sqrtPriceX96 = slot0.sqrtPriceX96
-		const Q96 = BigInt(2) ** 96n
+		const Q96 = 2n ** 96n
 		const sqrtPrice = Number((sqrtPriceX96 * Q96) / Q96)
 
 		let currentTick: number = Number(slot0.tick)
@@ -96,7 +96,7 @@ export class InRangeLiquidity {
 
 		// Can be used to isolate the range of ticks to calculate liquidity for
 		let tickLow: number = Math.floor(currentTick / tickspacing) * tickspacing
-		let tickHigh: number = Math.ceil(currentTick / tickspacing) * tickspacing // + tickspacing;
+		let tickHigh: number = Math.ceil(currentTick / tickspacing) * tickspacing + tickspacing;
 
 		// This is a range of ticks that represent a percentage controlled by slippage
 		//ref: https://discord.com/channels/597638925346930701/1090098983176773764/1090119292684599316
@@ -107,7 +107,7 @@ export class InRangeLiquidity {
 
 		let sqrtRatioLow = Math.sqrt(1.0001 ** tickLow)//.toFixed(18))
 		let sqrtRatioHigh = Math.sqrt(1.0001 ** tickHigh)//.toFixed(18))
-		const liquidity: bigint = (await this.getSlot0()).liquidity
+		const liquidity: bigint = await this.pool.liquidity()
 		const liq: number = Number(liquidity)
 		let reservesWei0: number = 0
 		let reservesWei1: number = 0
@@ -200,20 +200,16 @@ export class InRangeLiquidity {
 
 	async getSlot0(): Promise<Slot0> {
 		let s0: Slot0 = {
-			liquidity: 0n,
 			sqrtPriceX96: 0n,
-			sqrtPriceX96BN: BN(0),
-			tick: 0n,
-			fee: 0n,
+			tick: 0,
+			fee: 0,
 			unlocked: false,
 		}
 		try {
 			if (this.poolInfo.protocol === 'UNIV3') {
 				const slot0 = await this.pool.slot0()
 				s0 = {
-					liquidity: await this.pool.liquidity(),
 					sqrtPriceX96: slot0.sqrtPriceX96,
-					sqrtPriceX96BN: BN(slot0.sqrtPriceX96.toString()),
 					tick: slot0.tick,
 					fee: await this.pool.fee(),
 					unlocked: slot0.unlocked,
@@ -223,9 +219,7 @@ export class InRangeLiquidity {
 			} else if (this.poolInfo.protocol === 'ALG') {
 				const slot0 = await this.pool.globalState()
 				s0 = {
-					liquidity: await this.pool.liquidity(),
 					sqrtPriceX96: slot0.price,
-					sqrtPriceX96BN: BN(slot0.price.toString()),
 					tick: slot0.tick,
 					fee: slot0.fee,
 					unlocked: slot0.unlocked,
