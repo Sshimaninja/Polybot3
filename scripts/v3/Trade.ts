@@ -44,7 +44,20 @@ export class Trade {
 	}
 
 
-	async direction() {
+	async direction(): Promise<{ dir: string, targetPrice: number }> {
+
+		/*
+		  sample from polybot2:
+		  async direction() {
+			const A = this.priceA.priceOutBN;
+			const B = this.priceB.priceOutBN;
+			const diff = A.lt(B) ? B.minus(A) : A.minus(B);
+			const dperc = diff.div(A.gt(B) ? A : B).multipliedBy(100); // 0.6% price difference required for trade (0.3%) + loa`n repayment (0.3%) on Uniswap V2
+			const dir = A.gt(B) ? "A" : "B";
+			return { dir, diff, dperc };
+			}
+		*/
+
 		/**
 		 * I want to have liquidity determine the direction of trade, but having Zt1 makes it easier to use WMATIC in available liquidity trade from wallet, 
 		 * which are usually more profitable than hoping for a flash loan opportunity.
@@ -54,8 +67,10 @@ export class Trade {
 
 		const A = this.state0.price1
 		const B = this.state1.price1
-		const dir = A > B ? 'A' : 'B'
-		return dir
+		const highPrice = A > B ? A : B //borrowing from the lowPrice pool and selling into the high price pool lowers the price of the highprice/targetpool by increasing liquidity.
+		const lowPrice = A > B ? B : A
+		const dir = highPrice === A ? 'A' : 'B'
+		return ({ dir: dir, targetPrice: lowPrice })
 		// const A = this.state0.price0
 		// const B = this.state1.price1
 		// const diff = A < (B) ? B - A : A - B
@@ -67,11 +82,11 @@ export class Trade {
 
 	async getTrade() {
 		const dir = await this.direction()
-		const A = dir == 'A' ? true : false
+		const A = dir.dir == 'A' ? true : false
 
 		const trade: Bool3Trade = {
 			ID: A ? this.match.pool0.id : this.match.pool1.id,
-			direction: dir,
+			direction: dir.dir,
 			type: 'error',
 			ticker: this.match.token0.symbol + '/' + this.match.token1.symbol,
 			tokenIn: this.match.token0,
@@ -107,7 +122,7 @@ export class Trade {
 				pool: A ? this.pool0 : this.pool1,
 				priceIn: A ? this.state0.price0 : this.state1.price1,
 				priceOut: A ? this.state1.price1 : this.state0.price0,
-				priceTarget: A ? this.state0.price1 : this.state1.price1,
+				priceTarget: dir.targetPrice,
 				feeTier: A ? this.match.pool0.fee : this.match.pool1.fee,
 				state: A ? this.state0 : this.state1,
 				tradeSize: 0n,
