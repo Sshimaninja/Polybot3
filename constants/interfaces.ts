@@ -446,6 +446,7 @@ export interface Bool3Trade {
 		pool: Contract
 		priceIn: number
 		priceOut: number
+		priceTarget: number
 		feeTier: number
 		state: IRL
 		inRangeLiquidity: InRangeLiquidity
