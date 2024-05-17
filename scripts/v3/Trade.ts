@@ -4,7 +4,7 @@ import { Contract } from 'ethers'
 import { Bool3Trade } from '../../constants/interfaces'
 import { populateTrade } from './populateTrade'
 import { pu } from '../modules/convertBN'
-import { volToTarget } from './modules/price/ref/calcVolToTarget'
+import { VolToTarget } from './modules/price/ref/CalcVolToTarget'
 import { IRL, InRangeLiquidity } from './modules/price/inRangeLiquidity'
 /**
  * @description
@@ -107,6 +107,7 @@ export class Trade {
 				pool: A ? this.pool0 : this.pool1,
 				priceIn: A ? this.state0.price0 : this.state1.price1,
 				priceOut: A ? this.state1.price1 : this.state0.price0,
+				priceTarget: A ? this.state0.price1 : this.state1.price1,
 				feeTier: A ? this.match.pool0.fee : this.match.pool1.fee,
 				state: A ? this.state0 : this.state1,
 				tradeSize: 0n,
@@ -124,15 +125,6 @@ export class Trade {
 			profit: 0n,
 			profitPercent: 0n,
 		}
-		let tradeSize = await volToTarget(
-			trade.target.exchange,
-			trade.tokenIn,
-			trade.tokenOut,
-			trade.target.pool,
-			trade.target.inRangeLiquidity,
-			trade.loanPool.state.price0
-		)
-		trade.target.tradeSize = BigInt(tradeSize)
 
 		await populateTrade(trade);
 

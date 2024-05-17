@@ -65,3 +65,29 @@ elif sPriceTarget < sPriceCurrent:
             deltaTokens += y
             sPriceCurrent = sPriceTarget
     print("need to buy {:.10f} Y tokens".format(deltaTokens / 10 ** decimalsY))
+
+
+	
+			let currentTickRange: ITick = {
+				liquidityGross: 0n,
+				liquidityNet: 0n,
+				feeGrowthOutside0X128: 0n,
+				feeGrowthOutside1X128: 0n,
+				tickCumulativeOutside: 0n,
+				secondsPerLiquidityOutsideX128: 0n,
+				secondsOutside: 0n,
+				initialized: false
+			}
+
+			let ATick = {
+				liquidityTotal: 0n,
+				liquidityDelta: 0n,
+				outerFeeGrowth0Token: 0n,
+				outerFeeGrowth1Token: 0n,
+				prevTick: 0n,
+				nextTick: 0n,
+				outerSecondsPerLiquidity: 0n,
+				outerSecondsSpent: 0n,
+				hasLimitOrders: false,
+
+			}
