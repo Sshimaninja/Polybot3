@@ -207,11 +207,10 @@ export interface Amounts {
 	toPrice: bigint;
 }
 export interface Slot0 {
-	liquidity: bigint;
-	sqrtPriceX96: bigint;
-	sqrtPriceX96BN: BN;
-	tick: bigint;
-	fee: bigint;
+	liquidity: number;
+	sqrtPriceX96: number;
+	tick: number;
+	fee: number;
 	unlocked: boolean;
 }
 export interface DeployedPools {
