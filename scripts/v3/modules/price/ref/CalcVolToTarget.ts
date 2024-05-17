@@ -89,81 +89,92 @@ export class VolToTarget {
 		let deltaTokens = 0
 		let x = 0
 		let delta: bigint = 0n
-		let nextTickRange: bigint[] = []
-		let currentTickRange: bigint[] = []
+		let nextTickRange: any
+		let currentTickRange: any
 
 		// The Trade class logic makes it always so that the target price is higher than the current price
 		// The logic below is for the opposite case, when the target price is lower than the current price
-		if (sPriceCurrent < this.sPriceTarget) {
-			console.log("targetPool priceOut is already lower than the target price")
-			return 0n
-		}
+		// if (sPriceCurrent < this.sPriceTarget) {
+		// 	console.log("targetPool priceOut is already lower than the target price")
+		// 	return 0n
+		// }
 		// IF WE WANT TO USE LIQUIDITY INSTEAD OF PRICE TO DETERMINE DIRECTION, WE CAN WRAP OUR HEADS AROUND THIS:
 
 		//  too few Y in the this.pool; we need to buy some X to increase amount of Y in this.pool
-		// 		if (this.sPriceTarget > sPriceCurrent) {
-		// 			if (this.sPriceTarget > sPriceUpper) {
-		// 				//  not in the current price range; use all X in the range
-		// 				x = this.x_in_range(liquidity, sPriceCurrent, sPriceUpper)
+		try {
+			if (this.sPriceTarget > sPriceCurrent) {
+				if (this.sPriceTarget > sPriceUpper) {
+					//  not in the current price range; use all X in the range
+					x = this.x_in_range(liquidity, sPriceCurrent, sPriceUpper)
 
-		// 				deltaTokens += x
-		// 				nextTickRange = await this.pool.ticks(tickUpper)
-		// 				liquidity += Number(nextTickRange[1])
-		// 				// adjust the price and the range limits
-		// 				sPriceCurrent = sPriceUpper
-		// 				tickLower = tickUpper
-		// 				tickUpper += Number(s.tickSpacing)
-		// 				sPriceLower = sPriceUpper
-		// 				sPriceUpper = this.tick_to_price(tickUpper / 2)
-		// 			} else {
-		// 				// in the current price range
-		// 				x = this.x_in_range(liquidity, sPriceCurrent, this.sPriceTarget)
-		// 				deltaTokens += x
-		// 				sPriceCurrent = this.sPriceTarget
-
-		// 			}
-		// 			console.log("need to buy {:.10f} X tokens: ", (deltaTokens / 10 ** this.token0.decimals))
-		// 			console.log("fixedNumber: ", deltaTokens.toFixed(this.token0.decimals))
-		// 			delta = BigInt(deltaTokens)
-		// 			return delta
-		// 		}
-		// 	}
-		// } catch (e: any) {
-		// 	console.log(e)
-		// 	console.log("Error in Protocol: ", uniswapV3Exchange[this.exchange].protocol)
-		// 	console.log("tickUpper: ", tickUpper)
-		// 	console.log("nextTickRange Code: ", e.code)
-		// 	console.log("nextTickRange Data: ", nextTickRange)
-		// }		
-		// if (this.sPriceTarget < sPriceCurrent) {
-		if (sPriceCurrent < this.sPriceTarget) {
-			// 	return 0n
-			// }
-			while (this.sPriceTarget < sPriceCurrent) {
-				if (this.sPriceTarget < sPriceLower) {
-					//  not in the current price range; use all Y in the range
-					deltaTokens += this.y_in_range(liquidity, sPriceCurrent, sPriceLower)
-					//  query the blockchain for liquidity in the previous tick range
-					currentTickRange = await this.pool.ticks(tickLower)
-					liquidity -= Number(currentTickRange[1])
+					deltaTokens += x
+					nextTickRange = await this.pool.ticks(BigInt(tickUpper))
+					liquidity += Number(nextTickRange[1])
 					// adjust the price and the range limits
-					sPriceCurrent = sPriceLower
-					tickUpper = tickLower
-					tickLower -= Number(s.tickSpacing)
-					sPriceUpper = sPriceLower
-					sPriceLower = this.tick_to_price(tickLower / 2)
-					currentTickRange = await this.pool.ticks(tickLower)
+					sPriceCurrent = sPriceUpper
+					tickLower = tickUpper
+					tickUpper += s.tickSpacing
+					sPriceLower = sPriceUpper
+					sPriceUpper = this.tick_to_price(tickUpper / 2)
 				} else {
 					// in the current price range
-					let y = this.y_in_range(liquidity, sPriceCurrent, this.sPriceTarget)
-					deltaTokens += y
+					x = this.x_in_range(liquidity, sPriceCurrent, this.sPriceTarget)
+					deltaTokens += x
 					sPriceCurrent = this.sPriceTarget
+
 				}
-				console.log("need to buy {:.10f} Y tokens: ", (deltaTokens / 10 ** this.token1.decimals))
-				console.log("fixedNumber: ", deltaTokens.toFixed(this.token1.decimals))
+				console.log("token0 tradeSize: ", (deltaTokens / 10 ** this.token0.decimals), "from ", uniswapV3Exchange[this.exchange].protocol)
+				// console.log("fixedNumber: ", deltaTokens.toFixed(this.token0.decimals))
 				delta = BigInt(deltaTokens)
 				return delta
 			}
+		} catch (e: any) {
+			if (e.code === 'BAD_DATA') {
+				console.log("Protocol: ", uniswapV3Exchange[this.exchange].protocol)
+				// console.log("Error: ", e)
+				// return 0n
+			}
+			console.log('tickUpper: ', tickUpper)
+			console.log(e.code)
+		}
+		try {
+			if (sPriceCurrent < this.sPriceTarget) {
+				// 	return 0n
+				// }
+				while (this.sPriceTarget < sPriceCurrent) {
+					if (this.sPriceTarget < sPriceLower) {
+						//  not in the current price range; use all Y in the range
+						deltaTokens += this.y_in_range(liquidity, sPriceCurrent, sPriceLower)
+						//  query the blockchain for liquidity in the previous tick range
+						currentTickRange = await this.pool.ticks(tickLower)
+						liquidity -= Number(currentTickRange[1])
+						// adjust the price and the range limits
+						sPriceCurrent = sPriceLower
+						tickUpper = tickLower
+						tickLower -= Number(s.tickSpacing)
+						sPriceUpper = sPriceLower
+						sPriceLower = this.tick_to_price(tickLower / 2)
+						currentTickRange = await this.pool.ticks(BigInt(tickLower))
+					} else {
+						// in the current price range
+						let y = this.y_in_range(liquidity, sPriceCurrent, this.sPriceTarget)
+						deltaTokens += y
+						sPriceCurrent = this.sPriceTarget
+					}
+					console.log("token1 tradeSize: ", (deltaTokens / 10 ** this.token1.decimals), "from ", uniswapV3Exchange[this.exchange].protocol)
+					// console.log("fixedNumber: ", deltaTokens.toFixed(this.token1.decimals))
+					delta = BigInt(deltaTokens)
+					return delta
+				}
+			}
+		} catch (e: any) {
+			if (e.code === 'BAD_DATA') {
+				console.log("Protocol: ", uniswapV3Exchange[this.exchange].protocol)
+				// console.log("Error: ", e)
+				// return 0n
+			}
+			console.log('tickLower: ', tickLower)
+			console.log(e.code)
 		}
 		return delta
 	}

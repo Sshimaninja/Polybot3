@@ -147,7 +147,7 @@ export interface PoolInfo {
 	protocol: string
 	id: string
 	fee: number
-	tickSpacing: bigint
+	tickSpacing: number
 }
 
 export interface Reserves3 {
@@ -207,8 +207,7 @@ export interface Amounts {
 	toPrice: bigint;
 }
 export interface Slot0 {
-	liquidity: number;
-	sqrtPriceX96: number;
+	sqrtPriceX96: bigint;
 	tick: number;
 	fee: number;
 	unlocked: boolean;
