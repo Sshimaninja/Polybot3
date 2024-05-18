@@ -6,8 +6,7 @@ import { filterTrade } from "./modules/filterTrade";
 import { flashMulti } from "../../constants/environment";
 import { fu, pu } from "../modules/convertBN";
 import { addFee } from "./modules/calc";
-import { VolToTarget } from "./modules/price/ref/CalcVolToTarget";
-import { volToTarget } from "./modules/price/ref/calVolToTargetBackup";
+import { VolToTarget } from "./modules/price/ref/CalcVolToTargetSIMPLE";
 
 export async function populateTrade(trade: Bool3Trade) {
 	const v = new VolToTarget(
@@ -24,7 +23,7 @@ export async function populateTrade(trade: Bool3Trade) {
 		// console.log("Trade size is 0, returning trade: ", trade.ticker, trade.loanPool.exchange, trade.target.exchange)
 		return trade
 	}
-	console.log("Trade size: ", trade.target.tradeSize + " " + trade.tokenIn.symbol)
+	// console.log("Trade size: ", fu(trade.target.tradeSize, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol)
 	// trade.target.tradeSize = tradeSize
 
 	// const calc = new AmountConverter(trade)
@@ -35,7 +34,7 @@ export async function populateTrade(trade: Bool3Trade) {
 	// 	trade.tokenIn,
 	// 	trade.tokenOut
 	// )
-	return trade
+	// return trade
 	const qt = new V3Quote(
 		trade.target.pool,
 		trade.target.exchange,
