@@ -4,7 +4,6 @@ import { Contract } from 'ethers'
 import { Bool3Trade } from '../../constants/interfaces'
 import { populateTrade } from './populateTrade'
 import { pu } from '../modules/convertBN'
-import { VolToTarget } from './modules/price/ref/CalcVolToTarget'
 import { IRL, InRangeLiquidity } from './modules/price/inRangeLiquidity'
 /**
  * @description

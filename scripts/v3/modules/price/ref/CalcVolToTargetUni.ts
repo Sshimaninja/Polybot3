@@ -4,6 +4,7 @@ import { ERC20token, PoolInfo, PoolStateV3, Slot0 } from '../../../../../constan
 import { abi as IUniswapV3PoolState } from '@uniswap/v3-core/artifacts/contracts/interfaces/pool/IUniswapV3PoolState.sol/IUniswapV3PoolState.json';
 import { abi as IUniswapV3Pool } from '@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Pool.sol/IUniswapV3Pool.json';
 import { abi as IAlgebraPool } from '@cryptoalgebra/core/artifacts/contracts/AlgebraPool.sol/AlgebraPool.json';
+import { abi as IAlgebraPoolState } from '@cryptoalgebra/core/artifacts/contracts/interfaces/pool/IAlgebraPoolState.sol/IAlgebraPoolState.json';
 import { ethers, Contract } from 'ethers';
 import { ExchangeMapV3, uniswapV3Exchange } from '../../../../../constants/addresses';
 import { provider } from '../../../../../constants/provider';
@@ -20,18 +21,6 @@ export interface ITick {
 	secondsOutside: bigint
 	initialized: boolean
 }
-
-export interface ATick {
-	liquidityTotal: bigint
-	liquidityDelta: bigint
-	outerFeeGrowth0Token: bigint
-	outerFeeGrowth1Token: bigint
-	prevTick: bigint
-	nextTick: bigint
-	outerSecondsPerLiquidity: bigint
-	outerSecondsSpent: bigint
-	hasLimitOrders: boolean
-}
 // contract - the this.pool's contract
 // sCurrentPrice - sqrt of the current price
 // sPriceTarget - sqrt of the target price
@@ -40,7 +29,7 @@ export interface ATick {
 // sPriceUpper, sPriceUpper - square roots of prices corresponding to the min and max ticks of the current range
 // tickSpacing - the tick spacing in the this.pool.
 // 	decimalsX, decimalsY - the number of decimals of the X and Y tokens, for printing the result
-export class VolToTarget {
+export class VolToTargetUni {
 	exchange: string
 	token0: ERC20token
 	token1: ERC20token
@@ -89,8 +78,8 @@ export class VolToTarget {
 		let deltaTokens = 0
 		let x = 0
 		let delta: bigint = 0n
-		let nextTickRange: any
-		let currentTickRange: any
+		let nextTickRange: ITick
+		let currentTickRange: ITick
 
 		// The Trade class logic makes it always so that the target price is higher than the current price
 		// The logic below is for the opposite case, when the target price is lower than the current price
@@ -108,8 +97,9 @@ export class VolToTarget {
 					x = this.x_in_range(liquidity, sPriceCurrent, sPriceUpper)
 
 					deltaTokens += x
-					nextTickRange = await this.pool.ticks(BigInt(tickUpper))
-					liquidity += Number(nextTickRange[1])
+					nextTickRange = await this.pool.ticks(tickUpper)
+					console.log("nextTickRange: ", nextTickRange)
+					liquidity += Number(nextTickRange.liquidityNet)
 					// adjust the price and the range limits
 					sPriceCurrent = sPriceUpper
 					tickLower = tickUpper
@@ -147,7 +137,8 @@ export class VolToTarget {
 						deltaTokens += this.y_in_range(liquidity, sPriceCurrent, sPriceLower)
 						//  query the blockchain for liquidity in the previous tick range
 						currentTickRange = await this.pool.ticks(tickLower)
-						liquidity -= Number(currentTickRange[1])
+						console.log("currentTickRange: ", currentTickRange)
+						liquidity -= Number(currentTickRange.liquidityNet)
 						// adjust the price and the range limits
 						sPriceCurrent = sPriceLower
 						tickUpper = tickLower
@@ -179,3 +170,27 @@ export class VolToTarget {
 		return delta
 	}
 }
+
+
+// Using only available liquidity in the current tick range
+// // //  how much of X or Y tokens we need to * buy * to get to the target price ?
+// let deltaTokens = 0
+// let x = 0
+// let delta: bigint = 0n
+// let nextTickRange: any
+// let currentTickRange: any
+
+// // If the target price is not in the current tick range, use all the liquidity in the range
+// if (this.sPriceTarget < sPriceLower || this.sPriceTarget > sPriceUpper) {
+// 	return BigInt(liquidity)
+// }
+
+// // If the target price is in the current tick range, calculate the required liquidity
+// deltaTokens = 0
+// if (this.sPriceTarget > sPriceCurrent) {
+// 	x = this.x_in_range(liquidity, sPriceCurrent, this.sPriceTarget)
+// } else {
+// 	x = this.y_in_range(liquidity, sPriceCurrent, this.sPriceTarget)
+// }
+
+// return BigInt(x)

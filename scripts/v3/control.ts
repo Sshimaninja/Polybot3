@@ -3,6 +3,7 @@ require('colors')
 import { BigNumber as BN } from 'bignumber.js'
 import { abi as IUni3Pool } from '@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json'
 import { abi as IAlgPool } from '@cryptoalgebra/core/artifacts/contracts/AlgebraPool.sol/AlgebraPool.json'
+import { abi as IAlgPoolState } from '@cryptoalgebra/core/artifacts/contracts/interfaces/pool/IAlgebraPoolState.sol/IAlgebraPoolState.json'
 import { abi as IERC20 } from '@uniswap/v2-periphery/build/IERC20.json'
 import {
 	FactoryPair,
@@ -137,7 +138,7 @@ export async function control(data: V3Matches, gasData: GasData) {
 
 			const trade = await t.getTrade()
 			// console.log("Trade: ", trade.ticker, " ", trade.loanPool.exchange, trade.target.exchange, " " + trade.target.amountOut.toString() + " " + trade.tokenOut.symbol, " " + trade.loanPool.amountRepay.toString() + " " + trade.tokenOut.symbol, " " + trade.profit.toString() + " " + trade.tokenOut.symbol, " " + trade.profitPercent.toString() + "%")
-			return
+			// return
 
 			const dataPromise = await tradeLogs(trade)
 			console.log(dataPromise) //TESTING
