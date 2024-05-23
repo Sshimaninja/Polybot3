@@ -2,7 +2,9 @@ import { ethers } from "ethers";
 import { config as dotenvConfig } from "dotenv";
 import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.json";
 // import { abi as ISwap } from "../artifacts/contracts/v2/swap.sol/Swap.json";
-import { abi as IFlashMulti } from "../artifacts/contracts/v2/flashMulti.sol/flashMulti.json";
+//import { abi as IFlashMulti } from "../artifacts/contracts/v2/flashMulti.sol/flashMulti.json";
+import { abi as IFlashUniV3Multi } from "../artifacts/contracts/v3/UniswapV3SingleFlashMulti.sol/PairFlash.json";
+//import { abi as IFlashUniV3Direct } from "../artifacts/contracts/v3/uniswapV3DoubleFlashDirect.sol/PairFlash.json";
 // import { abi as IFlashSingle } from "../artifacts/contracts/v2/flashSingleTest.sol/flashSingleTest.json";
 import { provider, wallet, signer } from "./provider";
 import { BigNumber as BN } from "bignumber.js";
@@ -52,10 +54,12 @@ export const swapID = process.env.SWAP_SINGLE;
 export const flashMultiID = process.env.FLASH_MULTI;
 export const flashSingleID = process.env.FLASH_SINGLE;
 
+
+
 // export const swap = new ethers.Contract(swapID, ISwap, signer);
-export const flashMulti = new ethers.Contract(
+export const flashV3Multi = new ethers.Contract(
 	flashMultiID,
-	IFlashMulti,
+	IFlashUniV3Multi,
 	signer,
 );
 // export const flashSingle = new ethers.Contract(

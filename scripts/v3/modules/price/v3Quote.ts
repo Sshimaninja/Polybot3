@@ -55,7 +55,7 @@ export class V3Quote {
 						initializedTicksCrossed: 0n,
 						gasEstimate: 0n,
 					}
-			console.log("maxOut: ", maxOut.amountOut.toString())
+			//console.log("maxOut: ", maxOut.amountOut.toString())
 			return maxOut;
 		} catch (error: any) {
 			console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN getAmountOut : ', this.exchange, this.protocol)
