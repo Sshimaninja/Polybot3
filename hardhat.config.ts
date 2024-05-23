@@ -12,12 +12,21 @@ console.log(
 );
 module.exports = {
 	paths: {
-		sources: "./contracts/v2",
+		sources: "./contracts/v3",
 	},
 	solidity: {
 		compilers: [
 			{
-				version: "0.8.19",
+				version: "0.8.2",
+				settings: {
+					optimizer: {
+						enabled: true,
+						runs: 200,
+					},
+				},
+			},
+			{
+				version: "0.8.20",
 				settings: {
 					optimizer: {
 						enabled: true,
