@@ -396,8 +396,8 @@ export interface Bool3Trade {
 		router: Contract
 		quoter: Contract
 		pool: Contract
-		priceIn: number
-		priceOut: number
+		priceIn: bigint
+		priceOut: bigint
 		feeTier: number
 		state: IRLbigint
 		inRangeLiquidity: InRangeLiquidity
@@ -410,9 +410,9 @@ export interface Bool3Trade {
 		router: Contract
 		quoter: Contract
 		pool: Contract
-		priceIn: number
-		priceOut: number
-		priceTarget: number
+		priceIn: bigint
+		priceOut: bigint
+		priceTarget: bigint
 		feeTier: number
 		state: IRLbigint
 		inRangeLiquidity: InRangeLiquidity
