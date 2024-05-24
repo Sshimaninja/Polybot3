@@ -1,3 +1,12 @@
+import { Contract } from "ethers";
+import { abi as IAlgebraFactory } from "@cryptoalgebra/core/artifacts/contracts/AlgebraFactory.sol/AlgebraFactory.json";
+import { abi as IUniswapV3Factory } from "@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Factory.sol/IUniswapV3Factory.json";
+import { abi as IUniswapV3Quoter } from "@uniswap/v3-periphery/artifacts/contracts/interfaces/IQuoterV2.sol/IQuoterV2.json";
+import { abi as IAlgebraQuoter } from "@cryptoalgebra/periphery/artifacts/contracts/lens/QuoterV2.sol/QuoterV2.json";
+import { abi as IUniswapV3Router } from "@uniswap/v3-periphery/artifacts/contracts/interfaces/ISwapRouter.sol/ISwapRouter.json";
+import { abi as IAlgebraRouter } from "@cryptoalgebra/periphery/artifacts/contracts/SwapRouter.sol/SwapRouter.json";
+import { signer } from "./provider";
+
 export type deployedContracts = { [contract: string]: string };
 
 export const deployedMap: deployedContracts = {
@@ -75,18 +84,20 @@ export const uniswapV2Exchange: ExchangeMap = {
 
 // UNISWAP V3:
 
-export type ExchangeMapV3 = { [exchange: string]: { protocol: string; factory: string; quoter: string } };
+export type ExchangeMapV3 = { [exchange: string]: { protocol: string; factory: Contract; quoter: Contract; router: Contract } };
 
 export const uniswapV3Exchange: ExchangeMapV3 = {
 	QUICKV3: {
 		protocol: "ALG",
-		factory: "0x411b0fAcC3489691f28ad58c47006AF5E3Ab3A28",
-		quoter: "0xa15F0D7377B2A0C0c10db057f641beD21028FC89",
+		factory: new Contract("0x411b0fAcC3489691f28ad58c47006AF5E3Ab3A28", IAlgebraFactory, signer),
+		quoter: new Contract("0xa15F0D7377B2A0C0c10db057f641beD21028FC89", IAlgebraQuoter, signer),
+		router: new Contract("0xf5b509bB0909a69B1c207E495f687a596C168E12", IAlgebraRouter, signer),
 	},
 	UNIV3: {
 		protocol: "UNIV3",
-		factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
-		quoter: "0xE592427A0AEce92De3Edee1F18E0157C05861564",
+		factory: new Contract("0x1F98431c8aD98523631AE4a59f267346ea31F984", IUniswapV3Factory, signer),
+		quoter: new Contract("0xE592427A0AEce92De3Edee1F18E0157C05861564", IUniswapV3Quoter, signer),
+		router: new Contract("0xE592427A0AEce92De3Edee1F18E0157C05861564", IUniswapV3Router, signer),
 	}
 };
 

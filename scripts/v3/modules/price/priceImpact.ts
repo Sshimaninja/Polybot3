@@ -12,7 +12,7 @@ import { uniswapV3Quoter } from '../../../../constants/addresses';
 import { V3Quote } from './v3Quote';
 import { provider } from '../../../../constants/provider'
 
-import { IRL } from './inRangeLiquidity'
+import { IRL } from '../../classes/InRangeLiquidity'
 import { sqrt } from '@uniswap/sdk-core';
 import { Prices } from './Prices';
 

@@ -3,7 +3,6 @@ require('colors')
 import { BigNumber as BN } from 'bignumber.js'
 import { abi as IUni3Pool } from '@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json'
 import { abi as IAlgPool } from '@cryptoalgebra/core/artifacts/contracts/AlgebraPool.sol/AlgebraPool.json'
-import { abi as IAlgPoolState } from '@cryptoalgebra/core/artifacts/contracts/interfaces/pool/IAlgebraPoolState.sol/IAlgebraPoolState.json'
 import { abi as IERC20 } from '@uniswap/v2-periphery/build/IERC20.json'
 import {
 	FactoryPair,
@@ -11,17 +10,26 @@ import {
 	Match3Pools,
 	V3Matches,
 	GasData,
+	Bool3Trade,
 } from '../../constants/interfaces'
 import { Trade } from './Trade'
 import { tradeLogs } from './modules/tradeLog'
-import { TickProvider } from './modules/price/TickProvider'
+import { TickProvider } from './classes/TickProvider'
 import { Contract } from 'ethers'
 import { provider } from '../../constants/provider'
-import { chainID } from '../../constants/addresses'
+import { chainID, uniswapV3Exchange, algebraExchange } from '../../constants/addresses'
 import { slip } from '../../constants/environment'
 import { logger } from '../../constants/logger'
 import { Prices } from './modules/price/Prices'
-import { InRangeLiquidity } from './modules/price/inRangeLiquidity'
+import { InRangeLiquidity } from './classes/InRangeLiquidity'
+import { filterTrade } from './modules/filterTrade'
+import { trueProfit } from './modules/trueProfit'
+import { fetchGasPrice } from './modules/transaction/fetchGasPrice'
+import { flash } from './modules/transaction/flash'
+import { importantSafetyChecks } from './modules/importantSafetyChecks'
+import { abi as IUniswapV3Factory } from '@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Factory.sol/IUniswapV3Factory.json'
+import { abi as IAlgebraFactory } from '@cryptoalgebra/core/artifacts/contracts/AlgebraFactory.sol/AlgebraFactory.json'
+
 /*
 TODO:
 */
@@ -57,6 +65,7 @@ export async function control(data: V3Matches, gasData: GasData) {
 			match.pool0.id !== pendingID &&
 			match.pool1.id !== pendingID
 		) {
+
 			const pool0ABI =
 				match.pool0.protocol === 'UNIV3'
 					? IUni3Pool
@@ -69,8 +78,6 @@ export async function control(data: V3Matches, gasData: GasData) {
 					: 'ALG'
 						? IAlgPool
 						: 'ERROR'
-
-			// console.log("pool0ABI: " + match.pool0.protocol + " pool1ABI: " + match.pool1.protocol)
 
 			if (
 				pendingTransactions[match.pool1.id + match.pool0.id] ==
@@ -113,14 +120,14 @@ export async function control(data: V3Matches, gasData: GasData) {
 				match.token0,
 				match.token1
 			)
-			const r0 = await l0.getReserves()
+			const r0 = await l0.getIRL()
 			const l1 = new InRangeLiquidity(
 				match.pool1,
 				pool1,
 				match.token0,
 				match.token1
 			)
-			const r1 = await l1.getReserves()
+			const r1 = await l1.getIRL()
 
 			// return
 
@@ -140,15 +147,70 @@ export async function control(data: V3Matches, gasData: GasData) {
 			// console.log("Trade: ", trade.ticker, " ", trade.loanPool.exchange, trade.target.exchange, " " + trade.target.amountOut.toString() + " " + trade.tokenOut.symbol, " " + trade.loanPool.amountRepay.toString() + " " + trade.tokenOut.symbol, " " + trade.profit.toString() + " " + trade.tokenOut.symbol, " " + trade.profitPercent.toString() + "%")
 			// return
 
-			const dataPromise = await tradeLogs(trade)
-			console.log(dataPromise) //TESTING
-			// const rollPromise = rollDamage(trade, await dataPromise, warning, tradePending, pendingID);
+			// return;
+			if (trade.profits.tokenProfit <= 0) {
+				console.log("No profit for trade: " + trade.ticker);
+				return;
+			}
 
-			promises.push(dataPromise) //, rollPromise);
+			let safe = false;
+
+			if ((trade.type = "single")) {
+				safe = await importantSafetyChecks(trade);
+			}
+
+			if (trade.type.includes("flash")) {
+				safe = await filterTrade(trade);
+			}
+
+			await trueProfit(trade);
+
+			// return;
+
+			if (trade.profits.WMATICProfit < trade.gas.gasPrice) {
+				console.log(
+					"No profit after trueProfit: ",
+					trade.ticker,
+					trade.loanPool.exchange + trade.target.exchange,
+					trade.type,
+				);
+				return;
+			}
+
+			// logger.info(log.tinyData);
+
+			// EDIT: now only calling getchGasPrice once per block index.ts.
+			// this is potentially slowing down tx execution to the point of falure for INSUFICCIENT_OUTPUT_AMOUNT
+			let gas = await fetchGasPrice(trade);
+			// trade.gas = gas;
+			if (gas.tested == false) {
+				console.log("Gas price not tested. Skipping trade.");
+				return trade;
+			}
+			// const gasString = {
+			//     gasPrice: fu(gas.gasPrice, 18),
+			//     maxPriorityFee: fu(gas.maxPriorityFee, 9),
+			//     tested: gas.tested,
+			// };
+
+			// console.log("trade.gas.tested :>> ", gasString);
+
+			const logs = await tradeLogs(trade);
+			logger.info(logs);
+
+			let tx = null;
+			if (trade.type.includes("flash")) {
+				let tx = await flash(trade);
+			}
+
+			//if (trade.type == "single") {
+			//	let tx = await swap(trade);
+			//}
+			if (tx !== null) {
+				promises.push(tx);
+			}
+			await Promise.all(promises);
+
 		}
-	})
-	await Promise.all(promises).catch((error: any) => {
-		console.log('Error in control.ts: ' + error.message)
-		return
 	})
 }

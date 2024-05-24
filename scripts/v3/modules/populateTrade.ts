@@ -1,12 +1,13 @@
-import { Bool3Trade } from "../../constants/interfaces";
-import { V3Quote } from "./modules/price/v3Quote";
-import { PopulateRepays } from "./modules/populateRepays";
+import { Bool3Trade } from "../../../constants/interfaces";
+import { V3Quote } from "./price/v3Quote";
+import { PopulateRepays } from "./populateRepays";
 // import { getK } from "./modules/getK";
-import { filterTrade } from "./modules/filterTrade";
-import { flashMulti } from "../../constants/environment";
-import { fu, pu } from "../modules/convertBN";
-import { addFee } from "./modules/calc";
-import { VolToTarget } from "./modules/price/ref/CalcVolToTargetSIMPLE";
+import { filterTrade } from "./filterTrade";
+import { flashV3Multi } from "../../../constants/environment";
+import { fu, pu } from "../../modules/convertBN";
+import { addFee } from "./calc";
+import { VolToTarget } from "./price/ref/CalcVolToTargetSIMPLE";
+import { params } from "./transaction/params";
 
 export async function populateTrade(trade: Bool3Trade) {
 	const v = new VolToTarget(
@@ -57,38 +58,17 @@ export async function populateTrade(trade: Bool3Trade) {
 	const multi = await repay.getMulti()
 	const direct = await repay.getDirect()
 
-	trade.type =
-		multi.profits.profit > direct.profit
-			? 'multi'
-			: direct.profit > multi.profits.profit
-				? 'direct'
-				: 'error'
 
-	trade.loanPool.amountRepay =
-		trade.type === 'multi' ? multi.repays.repay : direct.repay
+	trade.type = "flashV3Multi"
 
-	trade.loanPool.repays = multi.repays
 
-	trade.profit =
-		trade.type === 'multi' ? multi.profits.profit : direct.profit
+	trade.loanPool.amountRepay = multi.repays.repay
 
-	trade.profitPercent =
-		trade.type == 'multi'
-			? pu(
-				multi.profits.profitPercent.toFixed(
-					trade.tokenOut.decimals
-				),
-				trade.tokenOut.decimals
-			)
-			: pu(
-				direct.percentProfit.toFixed(trade.tokenOut.decimals),
-				trade.tokenOut.decimals
-			)
+	trade.profits.tokenProfit = multi.profits.profit
 
-	// trade.k = await getK(trade, trade.loanPool.state, calc, q)
+	trade.contract = flashV3Multi //trade.type === 'multi' ? flashV3Multi : flashDirect
 
-	trade.flash = flashMulti //trade.type === 'multi' ? flashMulti : flashDirect
-
+	trade.params = await params(trade);
 	// Make sure there are no breaking variables in the trade: before passing it to the next function.
 	await filterTrade(trade)
 

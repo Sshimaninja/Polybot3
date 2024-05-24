@@ -1,7 +1,7 @@
 import { ethers, Contract } from 'ethers'
 // import { PoolData } from '../getPoolData'
 import { BigNumber as BN } from 'bignumber.js'
-import { signer } from '../../../../constants/provider'
+import { signer } from '../../../constants/provider'
 import {
 	ReservesData,
 	PoolStateV3,
@@ -9,17 +9,18 @@ import {
 	ERC20token,
 	Slot0,
 	Reserves3,
-} from '../../../../constants/interfaces'
-import { abi as IERC20 } from '../../../../interfaces/IERC20.json'
+} from '../../../constants/interfaces'
+import { abi as IERC20 } from '../../../interfaces/IERC20.json'
 // import { sqrt } from '../tradeMath'
-import { BN2BigInt, BigInt2BN, fu, pu } from '../../../modules/convertBN'
-import { chainID } from '../../../../constants/addresses'
+import { BN2BigInt, BigInt2BN, fbi, fu, pu } from '../../modules/convertBN'
+import { chainID } from '../../../constants/addresses'
 import { TickMath, Position } from '@uniswap/v3-sdk'
 import { TickMath as TickMathAlg } from '@cryptoalgebra/integral-sdk'
 import { get } from 'http'
-import { slippageTolerance } from '../../control'
+import { slippageTolerance } from '../control'
 import { log } from 'console'
-import { V3Quote } from '../price/v3Quote'
+import { V3Quote } from '../modules/price/v3Quote'
+import { IRLBN, IRLbigint, getIRLBN, getIRLbigint } from '../modules/price/getIRLBN'
 // import { V3Quote } from './v3Quote'
 // import { token } from "../../../typechain-types/@openzeppelin/contracts";
 // import { getPrice } from "./uniswapV3Primer";
@@ -42,18 +43,20 @@ export interface IRL {
 	tickLow: number,
 	tickHigh: number,
 	tickSpacing: number,
-	reservesWei0: number,
-	reservesWei1: number,
-	reserves0Human: string,
-	reserves1Human: string,
+	reserves0: bigint,
+	reserves1: bigint,
+	//reserves0Wei: number,
+	//reserves1Wei: number,
+	//reserves0Human: string,
+	//reserves1Human: string,
 }
 
-export interface V3Reserves {
-	reservesWei0: number
-	reservesWei1: number
-	inRangeReserves0: string,
-	inRangeReserves1: string
-}
+//export interface V3Reserves {
+//	reserves0Wei: number
+//	reserves1Wei: number
+//	inRangeReserves0: string,
+//	inRangeReserves1: string
+//}
 
 export interface Prices {
 	exchange: string,
@@ -84,7 +87,7 @@ export class InRangeLiquidity {
 		this.token1Contract = new Contract(token1.id, IERC20, signer)
 	}
 
-	async getReserves(): Promise<IRL> {
+	async getIRL(): Promise<IRL> {
 
 		const slot0 = await this.getSlot0()
 		const sqrtPriceX96 = slot0.sqrtPriceX96
@@ -109,8 +112,9 @@ export class InRangeLiquidity {
 		let sqrtRatioHigh = Math.sqrt(1.0001 ** tickHigh)//.toFixed(18))
 		const liquidity: bigint = await this.pool.liquidity()
 		const liq: number = Number(liquidity)
-		let reservesWei0: number = 0
-		let reservesWei1: number = 0
+		let reserves0Wei: number = 0
+		let reserves1Wei: number = 0
+
 		let reserves0Human: string = '0'
 		let reserves1Human: string = '0'
 		let priceOfToken0: number = 0
@@ -128,10 +132,8 @@ export class InRangeLiquidity {
 			tickLow: tickLow,
 			tickHigh: tickHigh,
 			tickSpacing: this.poolInfo.tickSpacing,
-			reservesWei0: reservesWei0,
-			reservesWei1: reservesWei1,
-			reserves0Human: reserves0Human,
-			reserves1Human: reserves1Human,
+			reserves0: 0n,
+			reserves1: 0n,
 		}
 		if (liquidity === 0n) {
 			console.log(
@@ -146,56 +148,52 @@ export class InRangeLiquidity {
 			return r
 		} else {
 			if (currentTick < tickLow) {
-				reservesWei0 = Math.floor(
+				reserves0Wei = Math.floor(
 					liq *
 					((sqrtRatioHigh - sqrtRatioLow) / (sqrtRatioLow * sqrtRatioHigh))
 				)
 			}
 			if (currentTick >= tickHigh) {
-				reservesWei1 = Math.floor(liq * (sqrtRatioHigh - sqrtRatioLow))
+				reserves1Wei = Math.floor(liq * (sqrtRatioHigh - sqrtRatioLow))
 			}
 			if (currentTick >= tickLow && currentTick < tickHigh) {
-				reservesWei0 = Math.floor(
+				reserves0Wei = Math.floor(
 					liq *
 					((sqrtRatioHigh - sqrtPrice) / (sqrtPrice * sqrtRatioHigh))
 				)
-				reservesWei1 = Math.floor(liq * (sqrtPrice - sqrtRatioLow))
+				reserves1Wei = Math.floor(liq * (sqrtPrice - sqrtRatioLow))
 			}
-
-			let reserves0Human = (
-				reservesWei0 /
-				10 ** this.token0.decimals
-			).toFixed(this.token0.decimals)
-			let reserves1Human = (
-				reservesWei1 /
-				10 ** this.token1.decimals
-			).toFixed(this.token1.decimals)
 
 			priceOfToken0 = 1 / (sqrtPrice * sqrtPrice);
 			priceOfToken1 = sqrtPrice * sqrtPrice;
 
-			const price = {
-				pool: this.token0.symbol + '/' + this.token1.symbol,
-				fee: r.fee,
-				exchange: this.poolInfo.exchange,
-				sqrtRatioLow: sqrtRatioLow,
-				sqrtRatioHigh: sqrtRatioHigh,
-				sqrtPrice: sqrtPrice,
-				price0: priceOfToken0,
-				price1: priceOfToken1,
-				liquidity: liquidity,
-				tickLow: tickLow,
-				tickHigh: tickHigh,
-				tickSpacing: r.tickSpacing,
-				reservesWei0: r.reservesWei0,
-				reservesWei1: r.reservesWei1,
-				reserves0Human: reserves0Human,
-				reserves1Human: reserves1Human,
-			}
-			// console.log(price)
-			return price
+			r.reserves0 = BigInt(reserves0Wei)
+			r.reserves1 = BigInt(reserves1Wei)
+
+			return r
 		}
 
+	}
+
+	async getIRLBN(): Promise<IRLBN> {
+		return await getIRLBN(
+			await this.getSlot0(),
+			this.poolInfo,
+			this.token0,
+			this.token1,
+			await this.pool.liquidity()
+		)
+	}
+
+	async getIRLbigint(): Promise<IRLbigint> {
+		return await getIRLbigint(
+			await this.getSlot0(),
+			this.poolInfo,
+			this.token0,
+			this.token1,
+			0,
+			await this.pool.liquidity()
+		)
 	}
 
 	async getSlot0(): Promise<Slot0> {

@@ -1,4 +1,4 @@
-import { IRL, InRangeLiquidity, V3Reserves } from '../inRangeLiquidity';
+import { IRL, InRangeLiquidity, V3Reserves } from '../../../classes/InRangeLiquidity';
 import { LiquidityMath, Pool, SwapMath, TickMath } from "@uniswap/v3-sdk";
 import { Bool3Trade, ERC20token, PoolInfo, PoolStateV3, Slot0 } from '../../../../../constants/interfaces';
 import { abi as IUniswapV3PoolState } from '@uniswap/v3-core/artifacts/contracts/interfaces/pool/IUniswapV3PoolState.sol/IUniswapV3PoolState.json';
