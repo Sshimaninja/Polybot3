@@ -50,17 +50,18 @@
         "big-number": "^2.0.0",
         "ethers": "^6.10.0",
         "ethers-multicall": "^0.2.3",
-        "etherscan": "^0.2.2",        
+        "etherscan": "^0.2.2",
         "hardhat": "^2.19.4",
         "jsonstream": "^1.0.3",
         "JSONStream": "^1.3.5",
-        "node-telegram-bot-api": "^0.63.0"
+        "node-telegram-bot-api": "^0.63.0",
+        "telegraf": "^4.16.3"
     },
     "scripts": {
         "v2BotTest": "cross-env NODE_ENV=test npx ts-node index",
         "v2BotLive": "cross-env NODE_ENV=live npx ts-node index",
         "v2DeployTest": "cross-env NODE_ENV=test npx hardhat run --network localhost scripts/v2/deployTests.ts",
-		"v3DeployTest": "cross-env NODE_ENV=test npx hardhat run --network localhost scripts/v3/deployTests.ts",
+        "v3DeployTest": "cross-env NODE_ENV=test npx hardhat run --network localhost scripts/v3/deployTests.ts",
         "v3DeployLive": "cross-env NODE_ENV=live npx hardhat run --network polygon scripts/deploy.ts",
         "bot2Test": "cross-env NODE_ENV=test npx ts-node index",
         "v3Test": "cross-env NODE_ENV=test npx ts-node index",

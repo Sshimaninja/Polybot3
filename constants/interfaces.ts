@@ -2,7 +2,8 @@ import { BaseContract, Contract, ethers } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { Token as V3Token } from "@uniswap/sdk-core";
 import { AmountConverter as CalcV3 } from "../scripts/v3/modules/amountConverter";
-import { IRL, InRangeLiquidity } from "../scripts/v3/modules/price/inRangeLiquidity";
+import { IRL, InRangeLiquidity } from "../scripts/v3/classes/InRangeLiquidity";
+import { IRLbigint } from "../scripts/v3/modules/price/getIRLbigint";
 // import { AmountConverter as CalcV2 } from "../scripts/v2/modules/amountConverter";
 export interface K {
 	uniswapKPre: bigint,
@@ -32,6 +33,16 @@ export interface PendingTx {
 export interface TxData {
 	txResponse: ethers.TransactionResponse | undefined;
 	pendingID: string | null;
+}
+
+export interface ToWMATICPool {
+	ticker: string;
+	tokenIn: { id: string; decimals: number; symbol: string };
+	tokenOut: { id: string; decimals: number; symbol: string };
+	id: string;
+	exchange: string;
+
+	liq: bigint;
 }
 
 export interface V2Params {
@@ -370,54 +381,6 @@ export interface V3FlashParams {
 }
 
 
-export interface BoolTrade {
-	ID: string
-	block: number
-	direction: string
-	type: string
-	ticker: string
-	tokenIn: Token
-	tokenOut: Token
-	flash: Contract
-	loanPool: {
-		exchange: string
-		factory: Contract
-		router: Contract
-		pool: Contract
-		reserveIn: bigint
-		reserveInBN: BN
-		reserveOut: bigint
-		reserveOutBN: BN
-		priceIn: string
-		priceOut: string
-		repays: Repays
-		amountRepay: bigint
-		amountOut: bigint
-		amountOutToken0for1: bigint
-	}
-	target: {
-		exchange: string
-		factory: Contract
-		router: Contract
-		pool: Contract
-		reserveIn: bigint
-		reserveInBN: BN
-		reserveOut: bigint
-		reserveOutBN: BN
-		priceIn: string
-		priceOut: string
-		tradeSize: bigint
-		amountOut: bigint
-		amountOutToken0for1: bigint
-	}
-	k: K
-	gasData: GasData
-	differenceTokenOut: string
-	differencePercent: string
-	profit: bigint
-	profitPercent: bigint
-}
-
 export interface Bool3Trade {
 	ID: string
 	direction: string
@@ -425,37 +388,46 @@ export interface Bool3Trade {
 	ticker: string
 	tokenIn: Token
 	tokenOut: Token
-	flash: Contract
+	contract: Contract
 	loanPool: {
 		exchange: string
 		protocol: string
+		factory: Contract
+		router: Contract
+		quoter: Contract
 		pool: Contract
 		priceIn: number
 		priceOut: number
 		feeTier: number
-		state: IRL
+		state: IRLbigint
 		inRangeLiquidity: InRangeLiquidity
-		repays: V3Repays
 		amountRepay: bigint
 	}
 	target: {
 		exchange: string
 		protocol: string
+		factory: Contract
+		router: Contract
+		quoter: Contract
 		pool: Contract
 		priceIn: number
 		priceOut: number
 		priceTarget: number
 		feeTier: number
-		state: IRL
+		state: IRLbigint
 		inRangeLiquidity: InRangeLiquidity
 		tradeSize: bigint
 		amountOut: bigint
 	}
 	// k: K
-	gasData: GasData
+	gas: GasData
 	differenceTokenOut: number
 	differencePercent: number
-	profit: bigint
-	profitPercent: bigint
+	profits: {
+		tokenProfit: bigint,
+		WMATICProfit: bigint,
+	},
+	params: any,
+
 }
 

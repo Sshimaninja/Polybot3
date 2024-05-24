@@ -1,4 +1,4 @@
-import { IRL, InRangeLiquidity, V3Reserves } from '../inRangeLiquidity';
+import { IRL, InRangeLiquidity, V3Reserves } from '../../../classes/InRangeLiquidity';
 import { LiquidityMath, Pool, SwapMath, TickMath } from "@uniswap/v3-sdk";
 import { Slot0 } from '../../../../../constants/interfaces';
 import { ethers } from 'ethers';

@@ -1,5 +1,5 @@
 
-import { Bool3Trade, BoolTrade } from "../../../constants/interfaces";
+import { Bool3Trade, Bool3Trade } from "../../../constants/interfaces";
 import { BigInt2BN, fu } from "../../modules/convertBN";
 /**
  * This doc calculates whether trade will revert due to uniswak K being positive or negative

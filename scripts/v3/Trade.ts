@@ -1,14 +1,17 @@
 import { GasData, Match3Pools, PoolState, PoolStateV3 } from '../../constants/interfaces'
-import { flashMulti } from '../../constants/environment'
+import { flashV3Multi } from '../../constants/environment'
 import { Contract } from 'ethers'
 import { Bool3Trade } from '../../constants/interfaces'
-import { populateTrade } from './populateTrade'
+import { populateTrade } from './modules/populateTrade'
 import { pu } from '../modules/convertBN'
-import { IRL, InRangeLiquidity } from './modules/price/inRangeLiquidity'
+import { IRL, InRangeLiquidity } from './classes/InRangeLiquidity'
+import { uniswapV3Exchange } from '../../constants/addresses'
+
+
 /**
  * @description
  * Class to determine trade parameters
- * returns a BoolTrade object, which fills out all params needed for a trade.
+ * returns a Bool3Trade object, which fills out all params needed for a trade.
  *
  */
 export class Trade {
@@ -90,7 +93,7 @@ export class Trade {
 			ticker: this.match.token0.symbol + '/' + this.match.token1.symbol,
 			tokenIn: this.match.token0,
 			tokenOut: this.match.token1,
-			flash: flashMulti, // This has to be set initially, but must be changed later per type.
+			contract: flashV3Multi, // This has to be set initially, but must be changed later per type.
 			loanPool: {
 				exchange: A
 					? this.match.pool1.exchange
@@ -98,17 +101,21 @@ export class Trade {
 				protocol: A
 					? this.match.pool1.protocol
 					: this.match.pool0.protocol,
+				factory: A
+					? uniswapV3Exchange[this.match.pool1.exchange].factory
+					: uniswapV3Exchange[this.match.pool0.exchange].factory,
+				quoter: A
+					? uniswapV3Exchange[this.match.pool1.exchange].quoter
+					: uniswapV3Exchange[this.match.pool0.exchange].quoter,
+				router: A
+					? uniswapV3Exchange[this.match.pool1.exchange].router
+					: uniswapV3Exchange[this.match.pool0.exchange].router,
 				pool: A ? this.pool1 : this.pool0,
 				priceIn: A ? this.state1.price1 : this.state0.price0,
 				priceOut: A ? this.state0.price0 : this.state1.price1,
 				feeTier: A ? this.match.pool1.fee : this.match.pool0.fee,
 				state: A ? this.state1 : this.state0,
 				inRangeLiquidity: A ? this.irl1 : this.irl0,
-				repays: {
-					getAmountsOut: 0n,
-					getAmountsIn: 0n,
-					repay: 0n,
-				},
 				amountRepay: 0n,
 			},
 			target: {
@@ -118,6 +125,15 @@ export class Trade {
 				protocol: A
 					? this.match.pool0.protocol
 					: this.match.pool1.protocol,
+				factory: A
+					? uniswapV3Exchange[this.match.pool0.exchange].factory
+					: uniswapV3Exchange[this.match.pool1.exchange].factory,
+				quoter: A
+					? uniswapV3Exchange[this.match.pool0.exchange].quoter
+					: uniswapV3Exchange[this.match.pool1.exchange].quoter,
+				router: A
+					? uniswapV3Exchange[this.match.pool0.exchange].router
+					: uniswapV3Exchange[this.match.pool1.exchange].router,
 				pool: A ? this.pool0 : this.pool1,
 				priceIn: A ? this.state0.price0 : this.state1.price1,
 				priceOut: A ? this.state1.price1 : this.state0.price0,
@@ -136,8 +152,11 @@ export class Trade {
 			gasData: this.gasData,
 			differenceTokenOut: 0,
 			differencePercent: 0,
-			profit: 0n,
-			profitPercent: 0n,
+			profits: {
+				tokenProfit: 0n,
+				WMATICProfit: 0n,
+			},
+			params: "no trade",
 		}
 
 		await populateTrade(trade);
