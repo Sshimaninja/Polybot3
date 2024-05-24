@@ -17,7 +17,7 @@ import { tradeLogs } from './modules/tradeLog'
 import { TickProvider } from './classes/TickProvider'
 import { Contract } from 'ethers'
 import { provider } from '../../constants/provider'
-import { chainID, uniswapV3Exchange, algebraExchange } from '../../constants/addresses'
+import { chainID, uniswapV3Exchange } from '../../constants/addresses'
 import { slip } from '../../constants/environment'
 import { logger } from '../../constants/logger'
 import { Prices } from './modules/price/Prices'
@@ -120,14 +120,14 @@ export async function control(data: V3Matches, gasData: GasData) {
 				match.token0,
 				match.token1
 			)
-			const r0 = await l0.getIRL()
+			const r0 = await l0.getIRLbigint()
 			const l1 = new InRangeLiquidity(
 				match.pool1,
 				pool1,
 				match.token0,
 				match.token1
 			)
-			const r1 = await l1.getIRL()
+			const r1 = await l1.getIRLbigint()
 
 			// return
 
