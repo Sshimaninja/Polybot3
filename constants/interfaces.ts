@@ -41,7 +41,6 @@ export interface ToWMATICPool {
 	tokenOut: { id: string; decimals: number; symbol: string };
 	id: string;
 	exchange: string;
-
 	liq: bigint;
 }
 

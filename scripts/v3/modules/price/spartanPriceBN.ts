@@ -1,7 +1,11 @@
 import { BigNumber as BN } from 'bignumber.js';
-import { ERC20token, Slot0, PoolInfo } from '../../../../constants/interfaces';
+import { ERC20token, Slot0 } from '../../../../constants/interfaces';
 import { pu, fu, BN2BigInt } from '../../../modules/convertBN';
-
+import { abi as IUniswapV3Pool } from "@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json";
+import { abi as IAlgebraPool } from "@cryptoalgebra/core/artifacts/contracts/interfaces/IAlgebraPool.sol/IAlgebraPool.json";
+import { uniswapV3Exchange } from '../../../../constants/addresses';
+import { Contract } from 'ethers';
+import { signer } from '../../../../constants/provider';
 
 export interface IRLBN {
 	pool: string,
@@ -20,12 +24,12 @@ export interface IRLBN {
 	reserves1: BN,
 }
 
-export async function getIRLBN(
-	s0: Slot0,
-	poolInfo: PoolInfo,
+export async function getLeanIRLBN(
+	exchange: string,
 	token0: ERC20token,
 	token1: ERC20token,
 	liquidity: bigint,
+	poolID: string,
 ): Promise<IRLBN> {
 
 	//let ct = BN(currentTick)
@@ -35,6 +39,15 @@ export async function getIRLBN(
 	//let spHigh = BN(sqrtRatioHigh)
 	//let sqPrice = BN(sqrtPrice)
 	//let L = BN(liq)
+
+	let IPool = IUniswapV3Pool;
+	if (uniswapV3Exchange[exchange].protocol === "ALG") {
+		IPool = IAlgebraPool;
+	}
+
+	let poolContract = new Contract(poolID, IPool, signer);
+
+	let s0: Slot0 = await poolContract.slot0()
 
 	let r0 = BN(0)
 	let r1 = BN(0)
@@ -46,7 +59,7 @@ export async function getIRLBN(
 	const sp = sqrtPriceX96.multipliedBy(Q96).div(Q96)
 
 	let ct = BN(s0.tick)
-	let tickSpacing = BN(poolInfo.tickSpacing)
+	let tickSpacing = BN(await poolContract.tickSpacing())
 
 
 
@@ -72,8 +85,8 @@ export async function getIRLBN(
 
 	let r: IRLBN = {
 		pool: token0.symbol + '/' + token1.symbol,
-		fee: BN(poolInfo.fee),
-		exchange: poolInfo.exchange,
+		fee: BN(await poolContract.fee()),
+		exchange: exchange,
 		sqrtRatioLow: spLow,
 		sqrtRatioHigh: spHigh,
 		sqrtPrice: sp,
@@ -82,7 +95,7 @@ export async function getIRLBN(
 		liquidity: L,
 		tickLow: tLow,
 		tickHigh: tUp,
-		tickSpacing: BN(poolInfo.tickSpacing),
+		tickSpacing: tickSpacing,
 		reserves0: BN(0),
 		reserves1: BN(0),
 	}
@@ -93,7 +106,7 @@ export async function getIRLBN(
 			token0.id,
 			token1.id,
 			' on ',
-			poolInfo.exchange,
+			exchange,
 			'. Skipping...'
 		)
 		return r
@@ -119,6 +132,6 @@ export async function getIRLBN(
 		//p0 = 1 / (sqrtPrice * sqrtPrice);
 		//p1 = sqrtPrice * sqrtPrice;
 		return r
-
 	}
 }
+

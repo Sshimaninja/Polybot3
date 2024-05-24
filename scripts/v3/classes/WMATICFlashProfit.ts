@@ -8,7 +8,6 @@ import { abi as IUniswapv2Router02 } from "@uniswap/v2-periphery/build/IUniswapV
 import { abi as IUniswapV2Factory } from "@uniswap/v2-core/build/IUniswapV2Factory.json";
 import { getGas2WMATICArray } from "../../../utils/getToWMATICPool";
 import { BigNumber as BN } from "bignumber.js";
-import { getAmountsOut as getAmountsOutBN } from "../modules/price/getAmountsIOBN";
 import {
 	GasToken,
 	uniswapV2Factory,
@@ -18,6 +17,9 @@ import { provider } from "../../../constants/provider";
 import { logger } from "../../../constants/logger";
 import { fu, pu } from "../../modules/convertBN";
 import { zero, wmatic } from "../../../constants/environment";
+import { IRLbigint } from "../modules/price/getIRLbigint";
+import { InRangeLiquidity } from "./InRangeLiquidity";
+import { getLeanIRLBN } from "../modules/price/spartanPriceBN";
 /**
  * @description
  * This function returns the profit in wmatic for a given trade.
@@ -192,25 +194,22 @@ export class WMATICFlashProfit {
 					);
 				}
 				let pairC = new Contract(pair, IPair, provider);
-				let r = await pairC.getReserves();
-				let r0 = r[0];
-				let r1 = r[1];
-				r0 = BN(r0);
-				r1 = BN(r1);
+				let r = await pairC.liquidity();
+
 				// console.log("Check bn conversion: ", r0, r1);
 				let profitInWMATICBN: BN;
 				if ((await pairC.token0()) === this.wmaticID) {
-					profitInWMATICBN = await getAmountsOutBN(
+					profitInWMATICBN = await maxOut(
 						this.tokenProfitBN,
-						r1,
-						r0,
+						this.trade.tokenOut.id,
+						this.trade.tokenIn.id,
 					);
 				}
 				if ((await pairC.token1()) === this.wmaticID) {
-					profitInWMATICBN = await getAmountsOutBN(
+					profitInWMATICBN = await maxOut(
 						this.tokenProfitBN,
-						r0,
-						r1,
+						this.trade.tokenIn.id,
+						this.trade.tokenOut.id,
 					);
 				} else {
 					return undefined;
@@ -245,11 +244,21 @@ export class WMATICFlashProfit {
 		let gasToken: ToWMATICPool;
 		let gasWMATICPrice: BN;
 		let profitString = "";
+
 		for (gasToken of Object.values(toWMATIC)) {
+
+			let irl = await getLeanIRLBN(
+				gasToken.exchange,
+				gasToken.tokenIn,
+				gasToken.tokenOut,
+				gasToken.liq,
+				gasToken.id
+			);
+
+
+
 			if (gasToken.tokenIn.id == this.trade.tokenOut.id) {
-				gasWMATICPrice = gasToken.reserves.reserve1BN.div(
-					gasToken.reserves.reserve0BN,
-				);
+				gasWMATICPrice = irl.price0
 				profitInWMATICBN =
 					this.tokenProfitBN.multipliedBy(gasWMATICPrice);
 				profitString = profitInWMATICBN.toFixed(18);
@@ -257,9 +266,7 @@ export class WMATICFlashProfit {
 				return profitInWMATIC;
 			}
 			if (gasToken.tokenIn.id == this.trade.tokenIn.id) {
-				gasWMATICPrice = gasToken.reserves.reserve0BN.div(
-					gasToken.reserves.reserve1BN,
-				);
+				gasWMATICPrice = irl.price1
 				profitInWMATICBN =
 					this.tokenProfitBN.multipliedBy(gasWMATICPrice);
 				profitString = profitInWMATICBN.toFixed(18);
@@ -276,3 +283,7 @@ export class WMATICFlashProfit {
 		return undefined;
 	}
 }
+function maxOut(tokenProfitBN: BN, r0: any, r1: any): BN | PromiseLike<BN> {
+	throw new Error("Function not implemented.");
+}
+
