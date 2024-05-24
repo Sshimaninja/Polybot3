@@ -6,6 +6,7 @@ import { populateTrade } from './modules/populateTrade'
 import { pu } from '../modules/convertBN'
 import { IRL, InRangeLiquidity } from './classes/InRangeLiquidity'
 import { uniswapV3Exchange } from '../../constants/addresses'
+import { IRLbigint } from './modules/price/getIRLbigint'
 
 
 /**
@@ -21,8 +22,8 @@ export class Trade {
 	pool1: Contract
 	irl0: InRangeLiquidity
 	irl1: InRangeLiquidity
-	state0: IRL
-	state1: IRL
+	state0: IRLbigint
+	state1: IRLbigint
 	gasData: GasData
 
 	constructor(
@@ -31,8 +32,8 @@ export class Trade {
 		pool1: Contract,
 		irl0: InRangeLiquidity,
 		irl1: InRangeLiquidity,
-		state0: IRL,
-		state1: IRL,
+		state0: IRLbigint,
+		state1: IRLbigint,
 		gasData: GasData
 	) {
 		this.match = match
@@ -46,7 +47,7 @@ export class Trade {
 	}
 
 
-	async direction(): Promise<{ dir: string, targetPrice: number }> {
+	async direction(): Promise<{ dir: string, targetPrice: bigint }> {
 
 		/*
 		  sample from polybot2:
@@ -149,7 +150,7 @@ export class Trade {
 			// 	uniswapKPost: 0n,
 			// 	uniswapKPositive: false,
 			// },
-			gasData: this.gasData,
+			gas: this.gasData,
 			differenceTokenOut: 0,
 			differencePercent: 0,
 			profits: {
