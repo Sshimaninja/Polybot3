@@ -87,7 +87,7 @@ export class V3Quote {
 							initializedTicksCrossed: 0n,
 							gasEstimate: 0n,
 						}
-				console.log("minIn: ", minIn.amountIn.toString())
+				console.log("minIn: ", minIn.amountIn.toString(), this.exchange)
 				return minIn;
 			} catch (error: any) {
 				console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN getAmountIn : ', this.exchange, this.protocol)
