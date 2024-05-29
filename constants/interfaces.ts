@@ -302,8 +302,8 @@ export interface Repays {
 	repay: bigint
 }
 export interface V3Repays {
-	getAmountsOut: bigint
-	getAmountsIn: bigint
+	//getAmountsOut: bigint
+	//getAmountsIn: bigint
 	repay: bigint
 }
 
@@ -398,7 +398,7 @@ export interface Bool3Trade {
 		priceIn: bigint
 		priceOut: bigint
 		feeTier: number
-		state: IRLbigint
+		state: IRL
 		inRangeLiquidity: InRangeLiquidity
 		amountRepay: bigint
 	}
@@ -411,9 +411,9 @@ export interface Bool3Trade {
 		pool: Contract
 		priceIn: bigint
 		priceOut: bigint
-		priceTarget: bigint
+		priceTarget: number
 		feeTier: number
-		state: IRLbigint
+		state: IRL
 		inRangeLiquidity: InRangeLiquidity
 		tradeSize: bigint
 		amountOut: bigint

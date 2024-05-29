@@ -18,6 +18,14 @@ export function fbi(bigint: bigint, decimals: number): string {
 	return str.slice(0, index) + "." + str.slice(index);
 }
 
+
+export function numberToBigInt(num: number, decimals: number): bigint {
+	const NtoBN = BN(num);
+	const BNtBigInt = BN2BigInt(NtoBN, decimals);
+	return BNtBigInt;
+}
+
+
 // export function fu(value: bigint, decimals: number): string {
 //     let divisor = BigInt(Math.pow(10, decimals));
 //     let integerPart = Number(value / divisor);

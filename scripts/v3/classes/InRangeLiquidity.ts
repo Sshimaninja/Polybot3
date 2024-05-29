@@ -20,7 +20,8 @@ import { get } from 'http'
 import { slippageTolerance } from '../control'
 import { log } from 'console'
 import { V3Quote } from '../modules/price/v3Quote'
-import { IRLBN, IRLbigint, getIRLBN, getIRLbigint } from '../modules/price/getIRLBN'
+import { IRLBN, getIRLBN, } from '../modules/price/getIRLBN'
+import { IRLbigint, getIRLbigint } from '../modules/price/getIRLbigint'
 // import { V3Quote } from './v3Quote'
 // import { token } from "../../../typechain-types/@openzeppelin/contracts";
 // import { getPrice } from "./uniswapV3Primer";
@@ -114,11 +115,6 @@ export class InRangeLiquidity {
 		const liq: number = Number(liquidity)
 		let reserves0Wei: number = 0
 		let reserves1Wei: number = 0
-
-		let reserves0Human: string = '0'
-		let reserves1Human: string = '0'
-		let priceOfToken0: number = 0
-		let priceOfToken1: number = 0
 		let r: IRL = {
 			pool: this.token0.symbol + '/' + this.token1.symbol,
 			fee: this.poolInfo.fee,
@@ -126,8 +122,8 @@ export class InRangeLiquidity {
 			sqrtRatioLow: sqrtRatioLow,
 			sqrtRatioHigh: sqrtRatioHigh,
 			sqrtPrice: sqrtPrice,
-			price0: priceOfToken0,
-			price1: priceOfToken1,
+			price0: 0,
+			price1: 0,
 			liquidity: liquidity,
 			tickLow: tickLow,
 			tickHigh: tickHigh,
@@ -164,12 +160,12 @@ export class InRangeLiquidity {
 				reserves1Wei = Math.floor(liq * (sqrtPrice - sqrtRatioLow))
 			}
 
-			priceOfToken0 = 1 / (sqrtPrice * sqrtPrice);
-			priceOfToken1 = sqrtPrice * sqrtPrice;
+			r.price0 = 1 / (sqrtPrice * sqrtPrice);
+			r.price1 = sqrtPrice * sqrtPrice;
 
 			r.reserves0 = BigInt(reserves0Wei)
 			r.reserves1 = BigInt(reserves1Wei)
-
+			//console.log(r)
 			return r
 		}
 

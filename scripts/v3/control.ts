@@ -20,7 +20,6 @@ import { provider } from '../../constants/provider'
 import { chainID, uniswapV3Exchange } from '../../constants/addresses'
 import { slip } from '../../constants/environment'
 import { logger } from '../../constants/logger'
-import { Prices } from './modules/price/Prices'
 import { InRangeLiquidity } from './classes/InRangeLiquidity'
 import { filterTrade } from './modules/filterTrade'
 import { trueProfit } from './modules/trueProfit'
@@ -99,7 +98,7 @@ export async function control(data: V3Matches, gasData: GasData) {
 			const pool0 = new Contract(match.pool0.id, pool0ABI, provider)
 			const pool1 = new Contract(match.pool1.id, pool1ABI, provider)
 
-			// console.log('get liquidity...')
+			//console.log('get liquidity...')
 			// console.log("pool0: " + pool0.getAddress() + " pool1: " + pool1.getAddress())
 			const liq0 = await pool0.liquidity()
 			const liq1 = await pool1.liquidity()
@@ -108,7 +107,7 @@ export async function control(data: V3Matches, gasData: GasData) {
 				return
 			}
 
-			// console.log('get prices...')
+			//console.log('get IRL...')
 			// const p0 = new Prices(match.pool0, match.ticker)
 			// const p1 = new Prices(match.pool1, match.ticker)
 			// const prices0 = await p0.prices()
@@ -120,14 +119,16 @@ export async function control(data: V3Matches, gasData: GasData) {
 				match.token0,
 				match.token1
 			)
-			const r0 = await l0.getIRLbigint()
+			const r0 = await l0.getIRL()
+			//console.log("r0: ", r0.price1)
 			const l1 = new InRangeLiquidity(
 				match.pool1,
 				pool1,
 				match.token0,
 				match.token1
 			)
-			const r1 = await l1.getIRLbigint()
+			const r1 = await l1.getIRL()
+			//console.log("r1: ", r1.price1)
 
 			// return
 
@@ -144,7 +145,7 @@ export async function control(data: V3Matches, gasData: GasData) {
 
 
 			const trade = await t.getTrade()
-			// console.log("Trade: ", trade.ticker, " ", trade.loanPool.exchange, trade.target.exchange, " " + trade.target.amountOut.toString() + " " + trade.tokenOut.symbol, " " + trade.loanPool.amountRepay.toString() + " " + trade.tokenOut.symbol, " " + trade.profit.toString() + " " + trade.tokenOut.symbol, " " + trade.profitPercent.toString() + "%")
+			console.log("Trade: ", trade.ticker, " ", trade.loanPool.exchange, trade.target.exchange, " " + trade.target.amountOut.toString() + " " + trade.tokenOut.symbol, " " + trade.loanPool.amountRepay.toString() + " " + trade.tokenOut.symbol, " " + trade.profits.tokenProfit.toString())
 			// return
 
 			// return;
@@ -155,15 +156,22 @@ export async function control(data: V3Matches, gasData: GasData) {
 
 			let safe = false;
 
-			if ((trade.type = "single")) {
+			if ((trade.type = "flash")) {
 				safe = await importantSafetyChecks(trade);
 			}
 
-			if (trade.type.includes("flash")) {
+			if (trade.type.includes("direct")) {
 				safe = await filterTrade(trade);
 			}
 
+			if (!safe) {
+				console.log("unsafe trade: ", trade.type)
+				return;
+			}
+
+			console.log("awaiting trueProfit...")
 			await trueProfit(trade);
+			console.log("trade.profits.WMATICProfit: ", trade.profits.WMATICProfit);
 
 			// return;
 
