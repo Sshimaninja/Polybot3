@@ -1,11 +1,11 @@
 import { ethers, Contract } from "ethers";
 import { abi as IUniswapV3Quoter } from '@uniswap/v3-periphery/artifacts/contracts/lens/QuoterV2.sol/QuoterV2.json';
 import { abi as IAlgebraQuoter } from '@cryptoalgebra/periphery/artifacts/contracts/interfaces/IQuoterV2.sol/IQuoterV2.json';
-import { uniswapV2Exchange, ExchangeMap, algebraQuoter, uniswapV3Quoter, QuoterV3Map } from "../../../../constants/addresses";
+import { uniswapV2Exchange, ExchangeMap, algebraQuoter, uniswapV3Quoter, QuoterV3Map, uniswapV3Exchange } from "../../../../constants/addresses";
 import { Bool3Trade, ERC20token, ExactInput, ExactOutput, Match3Pools, PoolState, Token } from "../../../../constants/interfaces";
 import { provider, signer } from "../../../../constants/provider";
-import { algebraQuote } from "./quoteAlgebra";
-import { univ3Quote } from "./quoteUniV3";
+import { algebraQuoteIn, algebraQuoteOut } from "./quoteAlgebra";
+import { univ3QuoteIn, univ3QuoteOut } from "./quoteUniV3";
 
 export class V3Quote {
 	exchange: string;
@@ -27,24 +27,20 @@ export class V3Quote {
 		if (!address) {
 			console.error(`Address not defined for protocol: ${protocol}`);
 		}
-		this.QuoterV3 = new ethers.Contract(
-			this.protocol === "UNIV3" ? uniswapV3Quoter[exchange] : algebraQuoter[exchange],
-			this.exchange === "UNIV3" ? IUniswapV3Quoter : IAlgebraQuoter,
-			signer
-		);
+		this.QuoterV3 = uniswapV3Exchange[this.exchange].quoter;
 	}
 
 	async maxOut(tradeSize: bigint): Promise<ExactInput> {
-		// console.log("Params: ", "Exchange: ", exchange, ' Protocol: ', protocol, ' ', feeTier, ' tradeSize: ', fu(tradeSize, this.pool.token0.decimals))
+
 		try {
 			const maxOut: ExactInput = this.protocol === "UNIV3" ?
-				await univ3Quote(
+				await univ3QuoteOut(
 					await this.pool.getAddress(),
 					this.tokenIn,
 					this.tokenOut,
 					tradeSize,
 				) : this.protocol === "ALG" ?
-					await algebraQuote(
+					await algebraQuoteOut(
 						await this.pool.getAddress(),
 						this.tokenIn,
 						this.tokenOut,
@@ -72,23 +68,25 @@ export class V3Quote {
 	async minIn(amountOutExpected: bigint): Promise<ExactOutput> {
 		if (amountOutExpected > 0n) {
 			try {
-				const minIn = this.protocol = "UNIV3" ? await this.QuoterV3.quoteExactOutputSingle.call(
-					this.tokenIn.id,
-					this.tokenOut.id,
-					await this.pool.fee(),
-					amountOutExpected,
-					0
-				) : this.protocol = "ALG" ? await this.QuoterV3.quoteExactOutputSingle.call(
-					this.tokenIn.id,
-					this.tokenOut.id,
-					amountOutExpected,
-					0
-				) : {
-					amountIn: 0n,
-					sqrtPriceX96After: 0n,
-					initializedTicksCrossed: 0n,
-					gasEstimate: 0n,
-				}
+				const minIn: ExactOutput = this.protocol === "UNIV3" ?
+					await univ3QuoteIn(
+						await this.pool.getAddress(),
+						this.tokenIn,
+						this.tokenOut,
+						amountOutExpected,
+					)
+					: this.protocol === "ALG" ?
+						await algebraQuoteIn(
+							await this.pool.getAddress(),
+							this.tokenIn,
+							this.tokenOut,
+							amountOutExpected,
+						) : {
+							amountIn: 0n,
+							sqrtPriceX96After: 0n,
+							initializedTicksCrossed: 0n,
+							gasEstimate: 0n,
+						}
 				console.log("minIn: ", minIn.amountIn.toString())
 				return minIn;
 			} catch (error: any) {

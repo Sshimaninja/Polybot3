@@ -3,9 +3,9 @@ import { getQuoterV2, getProtocol } from '../../../modules/getContract'
 import { abi as IAlgPool } from '@cryptoalgebra/core/artifacts/contracts/AlgebraPool.sol/AlgebraPool.json'
 import { signer } from '../../../../constants/provider'
 import { fu, pu } from '../../../modules/convertBN'
-import { ERC20token, ExactInput } from '../../../../constants/interfaces'
+import { ERC20token, ExactInput, ExactOutput } from '../../../../constants/interfaces'
 
-export async function algebraQuote(
+export async function algebraQuoteOut(
 	poolID: string,
 	tokenIn: ERC20token,
 	tokenOut: ERC20token,
@@ -44,16 +44,57 @@ export async function algebraQuote(
 		}
 	}
 }
-const usdc: ERC20token = {
-	id: '0x2791bca1f2de4661ed88a30c99a7a9449aa84174',
-	symbol: 'USDC',
-	decimals: 6,
+
+
+export async function algebraQuoteIn(
+	poolID: string,
+	tokenIn: ERC20token,
+	tokenOut: ERC20token,
+	amountOut: bigint
+): Promise<ExactOutput> {
+	const quoter = getQuoterV2('QUICKV3')
+	const pool = new Contract(poolID, IAlgPool, signer)
+	try {
+		let maxOut = await quoter.quoteExactInputSingle.staticCall(
+			tokenIn.id,
+			tokenOut.id,
+			amountOut,
+			'0'
+		)
+		const price: ExactOutput = {
+			amountIn: maxOut.amountOut,
+			sqrtPriceX96After: maxOut.sqrtPriceX96After,
+			initializedTicksCrossed: maxOut.initializedTicksCrossed,
+			gasEstimate: maxOut.gasEstimate,
+		}
+
+		// console.log('maxOut: ')
+		// console.log(maxOut)
+		// console.log(price)
+		return price
+	} catch (error: any) {
+		console.log(error)
+		console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN maxOut : ')
+		return {
+			amountIn: 0n,
+			sqrtPriceX96After: 0n,
+			initializedTicksCrossed: 0n,
+			gasEstimate: 0n,
+
+
+		}
+	}
 }
-const aave: ERC20token = {
-	id: '0xD6DF932A45C0f255f85145f286eA0b292B21C90B',
-	symbol: 'AAVE',
-	decimals: 18,
-}
+//const usdc: ERC20token = {
+//	id: '0x2791bca1f2de4661ed88a30c99a7a9449aa84174',
+//	symbol: 'USDC',
+//	decimals: 6,
+//}
+//const aave: ERC20token = {
+//	id: '0xD6DF932A45C0f255f85145f286eA0b292B21C90B',
+//	symbol: 'AAVE',
+//	decimals: 18,
+//}
 // algebraQuote(
 // 	'0xD385ac9c9BCC8b345080365bf9d3345f20F97dB6',
 // 	aave,

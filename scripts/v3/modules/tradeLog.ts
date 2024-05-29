@@ -1,5 +1,5 @@
 
-import { Bool3Trade, Bool3Trade } from "../../../constants/interfaces";
+import { Bool3Trade } from "../../../constants/interfaces";
 import { BigInt2BN, fu } from "../../modules/convertBN";
 /**
  * This doc calculates whether trade will revert due to uniswak K being positive or negative
@@ -24,8 +24,8 @@ export async function tradeLogs(trade: Bool3Trade): Promise<any> {
 					priceOut: trade.loanPool.priceOut,
 					repaysObj:
 					{
-						getAmountsOut: fu(trade.loanPool.repays.getAmountsOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
-						getAmountsIn: fu(trade.loanPool.repays.getAmountsIn, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
+						getAmountsOut: fu(trade.loanPool.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
+						getAmountsIn: fu(trade.loanPool.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
 					},
 					amountRepay: trade.type === "multi" ? fu(trade.loanPool.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol : trade.type === "direct" ? fu(trade.loanPool.amountRepay, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol : "error",
 					// amountRepay: fu(trade.loanPool.amountRepay, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol
@@ -42,8 +42,8 @@ export async function tradeLogs(trade: Bool3Trade): Promise<any> {
 					// uniswapkPosT: trade.k.uniswapKPost > 0n ? trade.k.uniswapKPost.toString() : 0,
 					// uniswapKPositive: trade.k.uniswapKPositive,
 					// loanCostPercent: fu((trade.loanPool.amountOut.div(trade.amountRepay)).mul(100), trade.tokenOut.decimals),
-					profit: fu(trade.profit, (trade.tokenOut.decimals)) + " " + (trade.tokenOut.symbol),
-					profperc: fu(trade.profitPercent, (trade.tokenOut.decimals)) + "%",
+					profit: fu(trade.profits.tokenProfit, (trade.tokenOut.decimals)) + " " + (trade.tokenOut.symbol),
+					WMATICProfit: fu(trade.profits.WMATICProfit, 18) + " WMATIC",
 				}
 			}
 			return data

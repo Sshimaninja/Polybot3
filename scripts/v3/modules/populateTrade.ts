@@ -10,6 +10,7 @@ import { VolToTarget } from "./price/ref/CalcVolToTargetSIMPLE";
 import { params } from "./transaction/params";
 
 export async function populateTrade(trade: Bool3Trade) {
+	//console.log("Populating trade: ", trade.ticker, trade.loanPool.exchange, trade.target.exchange)
 	const v = new VolToTarget(
 		trade.target.exchange,
 		trade.tokenIn,
@@ -20,22 +21,12 @@ export async function populateTrade(trade: Bool3Trade) {
 	)
 
 	trade.target.tradeSize = await v.calcVolToTarget()
+	//console.log("Trade size: ", fu(trade.target.tradeSize, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol)
 	if (trade.target.tradeSize === 0n) {
-		// console.log("Trade size is 0, returning trade: ", trade.ticker, trade.loanPool.exchange, trade.target.exchange)
+		//console.log("Trade size is 0, returning trade: ", trade.ticker, trade.loanPool.exchange, trade.target.exchange)
 		return trade
 	}
-	// console.log("Trade size: ", fu(trade.target.tradeSize, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol)
-	// trade.target.tradeSize = tradeSize
 
-	// const calc = new AmountConverter(trade)
-	// const ql = new V3Quote(
-	// 	trade.loanPool.pool,
-	// 	trade.loanPool.exchange,
-	// 	trade.loanPool.protocol,
-	// 	trade.tokenIn,
-	// 	trade.tokenOut
-	// )
-	// return trade
 	const qt = new V3Quote(
 		trade.target.pool,
 		trade.target.exchange,
@@ -45,10 +36,10 @@ export async function populateTrade(trade: Bool3Trade) {
 	)
 
 	if (trade.target.tradeSize === 0n) {
-		// console.log("Trade size is 0, returning trade: ", trade.ticker, trade.loanPool.exchange, trade.target.exchange)
+		console.log("Trade size is 0, returning trade: ", trade.ticker, trade.loanPool.exchange, trade.target.exchange)
 		return trade
 	}
-	console.log("Getting quote... ")
+	//console.log("Getting quote... ")
 	trade.target.amountOut = (await qt.maxOut(trade.target.tradeSize)).amountOut
 	console.log("Quote: trade.target.amountOut: ", fu(trade.target.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol)
 
@@ -56,7 +47,7 @@ export async function populateTrade(trade: Bool3Trade) {
 
 	// Define repay & profit for each trade type:
 	const multi = await repay.getMulti()
-	const direct = await repay.getDirect()
+	//const direct = await repay.getDirect()
 
 
 	trade.type = "flashV3Multi"

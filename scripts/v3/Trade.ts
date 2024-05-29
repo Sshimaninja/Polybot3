@@ -3,10 +3,10 @@ import { flashV3Multi } from '../../constants/environment'
 import { Contract } from 'ethers'
 import { Bool3Trade } from '../../constants/interfaces'
 import { populateTrade } from './modules/populateTrade'
-import { pu } from '../modules/convertBN'
+import { numberToBigInt, pu } from '../modules/convertBN'
 import { IRL, InRangeLiquidity } from './classes/InRangeLiquidity'
 import { uniswapV3Exchange } from '../../constants/addresses'
-import { IRLbigint } from './modules/price/getIRLbigint'
+//import { IRL } from './modules/price/getIRL'
 
 
 /**
@@ -22,8 +22,8 @@ export class Trade {
 	pool1: Contract
 	irl0: InRangeLiquidity
 	irl1: InRangeLiquidity
-	state0: IRLbigint
-	state1: IRLbigint
+	state0: IRL
+	state1: IRL
 	gasData: GasData
 
 	constructor(
@@ -32,8 +32,8 @@ export class Trade {
 		pool1: Contract,
 		irl0: InRangeLiquidity,
 		irl1: InRangeLiquidity,
-		state0: IRLbigint,
-		state1: IRLbigint,
+		state0: IRL,
+		state1: IRL,
 		gasData: GasData
 	) {
 		this.match = match
@@ -47,7 +47,7 @@ export class Trade {
 	}
 
 
-	async direction(): Promise<{ dir: string, targetPrice: bigint }> {
+	async direction(): Promise<{ dir: string, targetPrice: number }> {
 
 		/*
 		  sample from polybot2:
@@ -73,19 +73,17 @@ export class Trade {
 		const highPrice = A > B ? A : B //borrowing from the lowPrice pool and selling into the high price pool lowers the price of the highprice/targetpool by increasing liquidity.
 		const lowPrice = A > B ? B : A
 		const dir = highPrice === A ? 'A' : 'B'
-		return ({ dir: dir, targetPrice: lowPrice })
-		// const A = this.state0.price0
-		// const B = this.state1.price1
-		// const diff = A < (B) ? B - A : A - B
-		// const dperc = diff / (A > B ? A : B) * 100 // 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
-		// const dir = A > B ? 'A' : 'B'
+		const d = A ? this.match.token0.decimals : this.match.token1.decimals
 
-		// return { dir, diff, dperc }
+		return ({ dir: dir, targetPrice: lowPrice })
 	}
 
 	async getTrade() {
 		const dir = await this.direction()
 		const A = dir.dir == 'A' ? true : false
+
+		const p0bigint = numberToBigInt(this.state0.price0, this.match.token0.decimals)
+		const p1bigint = numberToBigInt(this.state1.price1, this.match.token1.decimals)
 
 		const trade: Bool3Trade = {
 			ID: A ? this.match.pool0.id : this.match.pool1.id,
@@ -112,8 +110,8 @@ export class Trade {
 					? uniswapV3Exchange[this.match.pool1.exchange].router
 					: uniswapV3Exchange[this.match.pool0.exchange].router,
 				pool: A ? this.pool1 : this.pool0,
-				priceIn: A ? this.state1.price1 : this.state0.price0,
-				priceOut: A ? this.state0.price0 : this.state1.price1,
+				priceIn: A ? p1bigint : p0bigint,
+				priceOut: A ? p0bigint : p1bigint,
 				feeTier: A ? this.match.pool1.fee : this.match.pool0.fee,
 				state: A ? this.state1 : this.state0,
 				inRangeLiquidity: A ? this.irl1 : this.irl0,
@@ -136,8 +134,8 @@ export class Trade {
 					? uniswapV3Exchange[this.match.pool0.exchange].router
 					: uniswapV3Exchange[this.match.pool1.exchange].router,
 				pool: A ? this.pool0 : this.pool1,
-				priceIn: A ? this.state0.price0 : this.state1.price1,
-				priceOut: A ? this.state1.price1 : this.state0.price0,
+				priceIn: A ? p0bigint : p1bigint,
+				priceOut: A ? p1bigint : p0bigint,
 				priceTarget: dir.targetPrice,
 				feeTier: A ? this.match.pool0.fee : this.match.pool1.fee,
 				state: A ? this.state0 : this.state1,
