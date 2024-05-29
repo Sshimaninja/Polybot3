@@ -4,6 +4,9 @@ import { abi as IAlgPool } from '@cryptoalgebra/core/artifacts/contracts/Algebra
 import { signer } from '../../../../constants/provider'
 import { fu, pu } from '../../../modules/convertBN'
 import { ERC20token, ExactInput, ExactOutput } from '../../../../constants/interfaces'
+import { uniswap } from '../../../../typechain-types'
+import { uniswapV3Exchange } from '../../../../constants/addresses'
+
 
 export async function algebraQuoteOut(
 	poolID: string,
@@ -11,14 +14,16 @@ export async function algebraQuoteOut(
 	tokenOut: ERC20token,
 	tradeSize: bigint
 ): Promise<ExactInput> {
-	const quoter = getQuoterV2('QUICKV3')
-	const pool = new Contract(poolID, IAlgPool, signer)
+	const quoter = uniswapV3Exchange['QUICKV3'].quoter
+
 	try {
 		let maxOut = await quoter.quoteExactInputSingle.staticCall(
-			tokenIn.id,
-			tokenOut.id,
-			tradeSize,
-			'0'
+			{
+				tokenIn: tokenIn.id,
+				tokenOut: tokenOut.id,
+				amountIn: tradeSize,
+				limitSqrtPrice: '0'
+			}
 		)
 		const price: ExactInput = {
 			amountOut: maxOut.amountOut,
@@ -45,27 +50,27 @@ export async function algebraQuoteOut(
 	}
 }
 
-
 export async function algebraQuoteIn(
 	poolID: string,
 	tokenIn: ERC20token,
 	tokenOut: ERC20token,
 	amountOut: bigint
 ): Promise<ExactOutput> {
-	const quoter = getQuoterV2('QUICKV3')
-	const pool = new Contract(poolID, IAlgPool, signer)
+	const quoter = uniswapV3Exchange['QUICKV3'].quoter
 	try {
-		let maxOut = await quoter.quoteExactInputSingle.staticCall(
-			tokenIn.id,
-			tokenOut.id,
-			amountOut,
-			'0'
+		let minIn = await quoter.quoteExactOutputSingle.staticCall(
+			{
+				tokenIn: tokenIn.id,
+				tokenOut: tokenOut.id,
+				amountOut: amountOut,
+				limitSqrtPrice: '0'
+			}
 		)
 		const price: ExactOutput = {
-			amountIn: maxOut.amountOut,
-			sqrtPriceX96After: maxOut.sqrtPriceX96After,
-			initializedTicksCrossed: maxOut.initializedTicksCrossed,
-			gasEstimate: maxOut.gasEstimate,
+			amountIn: minIn.amountIn,
+			sqrtPriceX96After: minIn.sqrtPriceX96After,
+			initializedTicksCrossed: minIn.initializedTicksCrossed,
+			gasEstimate: minIn.gasEstimate,
 		}
 
 		// console.log('maxOut: ')

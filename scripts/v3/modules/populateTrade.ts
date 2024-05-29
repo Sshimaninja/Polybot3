@@ -41,7 +41,7 @@ export async function populateTrade(trade: Bool3Trade) {
 	}
 	//console.log("Getting quote... ")
 	trade.target.amountOut = (await qt.maxOut(trade.target.tradeSize)).amountOut
-	console.log("Quote: trade.target.amountOut: ", fu(trade.target.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol)
+	//console.log("Quote: trade.target.amountOut: ", fu(trade.target.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol)
 
 	const repay = new PopulateRepays(trade, qt)
 
@@ -53,7 +53,7 @@ export async function populateTrade(trade: Bool3Trade) {
 	trade.type = "flashV3Multi"
 
 
-	trade.loanPool.amountRepay = multi.repays.repay
+	trade.loanPool.amountRepay = multi.repay.repay
 
 	trade.profits.tokenProfit = multi.profits.profit
 

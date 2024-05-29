@@ -14,7 +14,7 @@ export class PopulateRepays {
 		this.q = quote
 	}
 
-	async getMulti(): Promise<{ repays: V3Repays, profits: { profit: bigint, profitPercent: BN } }> {
+	async getMulti(): Promise<{ repay: V3Repays, profits: { profit: bigint, profitPercent: BN } }> {
 		/*
 		I have to send back only the amount of token1 needed to repay the amount of token0 I was loaned.
 		Thus I need to calculate the exact amount of token1 that this.tradeSize in tokenOut represents on loanPool, 
@@ -30,24 +30,24 @@ export class PopulateRepays {
 				this.trade.target.tradeSize
 			)
 
-			const repays: V3Repays = {
+			const repay: V3Repays = {
 				//getAmountsOut: repayByGetAmountsOut.amountOut,
 				//getAmountsIn: repayByGetAmountsIn.amountIn,
 				repay: repayByGetAmountsIn.amountIn,
 			}
 
-
-			return repays;
+			console.log("repay: ", repay)
+			return repay;
 		}
 
-		const repays = await getRepay();
+		const repay = await getRepay();
 
 		const getProfit = async (): Promise<Profcalcs> => {
-			let repay = repays.repay;
+			let r = repay.repay;
 			// this must be re-assigned to be accurate, if you re-assign this.trade.loanPool.amountRepay below. The correct amountRepay should be decided upon and this message should be removed.
 			// if (repay.lt(this.trade.target.amountOut)) {
 			let profit: Profcalcs = { profit: 0n, profitPercent: BN(0) };
-			profit.profit = this.trade.target.amountOut - (repay);
+			profit.profit = this.trade.target.amountOut - (r);
 			const profitBN = BigInt2BN(profit.profit, this.trade.tokenOut.decimals);
 			profit.profitPercent = this.trade.target.amountOut > (0) ? profitBN.dividedBy(fu(this.trade.target.amountOut, this.trade.tokenOut.decimals)).multipliedBy(100) : BN(0);
 			return profit;
@@ -58,7 +58,8 @@ export class PopulateRepays {
 
 		const profits = await getProfit();
 		// const postReserveOut = this.trade.loanPool.reserveOut.add(this.tradeSizeInTermsOfTokenOutWithFee);				
-		return { repays, profits };
+		//console.log("repays: ", await getRepay(), " profits: ", profits)
+		return { repay, profits };
 	}
 
 
