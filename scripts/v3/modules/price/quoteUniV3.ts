@@ -4,6 +4,7 @@ import { abi as IUni3Pool } from '@uniswap/v3-core/artifacts/contracts/UniswapV3
 import { signer } from '../../../../constants/provider'
 import { fu, pu } from '../../../modules/convertBN'
 import { ERC20token, ExactInput, ExactOutput } from '../../../../constants/interfaces'
+import { uniswapV3Exchange } from '../../../../constants/addresses'
 
 
 export async function univ3QuoteOut(
@@ -12,7 +13,7 @@ export async function univ3QuoteOut(
 	tokenOut: ERC20token,
 	tradeSize: bigint,
 ): Promise<ExactInput> {
-	const quoter = getQuoterV2('UNIV3')
+	const quoter = uniswapV3Exchange['UNIV3'].quoter
 	const pool = new Contract(poolID, IUni3Pool, signer)
 
 	let encoded = {
@@ -69,7 +70,7 @@ export async function univ3QuoteIn(
 	tokenOut: ERC20token,
 	amountOut: bigint,
 ): Promise<ExactOutput> {
-	const quoter = getQuoterV2('UNIV3')
+	const quoter = uniswapV3Exchange['UNIV3'].quoter
 	const pool = new Contract(poolID, IUni3Pool, signer)
 
 	let encoded = {
@@ -80,12 +81,12 @@ export async function univ3QuoteIn(
 		sqrtPriceLimitX96: '0',
 	}
 	try {
-		let maxOut = await quoter.quoteExactInputSingle.staticCall(encoded)
+		let minIn = await quoter.quoteExactOutputSingle.staticCall(encoded)
 		const price: ExactOutput = {
-			amountIn: maxOut.amountIn,
-			sqrtPriceX96After: maxOut.sqrtPriceX96After,
-			initializedTicksCrossed: maxOut.initializedTicksCrossed,
-			gasEstimate: maxOut.gasEstimate,
+			amountIn: minIn.amountIn,
+			sqrtPriceX96After: minIn.sqrtPriceX96After,
+			initializedTicksCrossed: minIn.initializedTicksCrossed,
+			gasEstimate: minIn.gasEstimate,
 		}
 		// console.log('maxOut: ')
 		// console.log(maxOut)
@@ -93,7 +94,7 @@ export async function univ3QuoteIn(
 		return price
 	} catch (error: any) {
 		console.log(error)
-		console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN maxOut : ')
+		console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN minIn : ')
 		return {
 			amountIn: 0n,
 			sqrtPriceX96After: 0n,

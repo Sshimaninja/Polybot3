@@ -145,12 +145,12 @@ export async function control(data: V3Matches, gasData: GasData) {
 
 
 			const trade = await t.getTrade()
-			console.log("Trade: ", trade.ticker, " ", trade.loanPool.exchange, trade.target.exchange, " " + trade.target.amountOut.toString() + " " + trade.tokenOut.symbol, " " + trade.loanPool.amountRepay.toString() + " " + trade.tokenOut.symbol, " " + trade.profits.tokenProfit.toString())
+			//console.log("Trade: ", trade.ticker, " ", trade.loanPool.exchange, trade.target.exchange, " " + trade.target.amountOut.toString() + " " + trade.tokenOut.symbol, " " + trade.loanPool.amountRepay.toString() + " " + trade.tokenOut.symbol, " " + trade.profits.tokenProfit.toString())
 			// return
 
 			// return;
 			if (trade.profits.tokenProfit <= 0) {
-				console.log("No profit for trade: " + trade.ticker);
+				//console.log("No profit for trade: " + trade.ticker);
 				return;
 			}
 

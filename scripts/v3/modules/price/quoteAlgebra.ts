@@ -79,7 +79,7 @@ export async function algebraQuoteIn(
 		return price
 	} catch (error: any) {
 		console.log(error)
-		console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN maxOut : ')
+		console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN minIn : ')
 		return {
 			amountIn: 0n,
 			sqrtPriceX96After: 0n,

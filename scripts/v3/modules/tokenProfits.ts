@@ -5,45 +5,44 @@ import { V3Quote } from "./price/v3Quote";
 import { BigInt2BN, BN2BigInt, fu, pu } from "../../modules/convertBN";
 import { addFee } from "./calc";
 
-export class PopulateRepays {
+export class TokenProfits {
 	trade: Bool3Trade;
 	q: V3Quote;
 	constructor(trade: Bool3Trade, quote: V3Quote) {
 		this.trade = trade;
-
 		this.q = quote
 	}
 
-	async getMulti(): Promise<{ repay: V3Repays, profits: { profit: bigint, profitPercent: BN } }> {
+	async getMulti(): Promise<{ /*repay: V3Repays,*/ profits: { profit: bigint, profitPercent: BN } }> {
 		/*
 		I have to send back only the amount of token1 needed to repay the amount of token0 I was loaned.
 		Thus I need to calculate the exact amount of token1 that this.tradeSize in tokenOut represents on loanPool, 
 		and subtract it from recipient.amountOut before sending it back
 		*/
 		// const postReserveIn = this.trade.loanPool.reservesIn.sub(this.trade.target.this.tradeSize); // I think this is only relevant for uniswap K calcs				
-		const getRepay = async (): Promise<V3Repays> => {
+		//const getRepay = async (): Promise<V3Repays> => {
 
-			//const repayByGetAmountsOut = await this.q.maxOut(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
-			//	this.trade.target.tradeSize
-			//)
-			const repayByGetAmountsIn = await this.q.minIn( //Will output tokenIn.
-				this.trade.target.tradeSize
-			)
+		//	//const repayByGetAmountsOut = await this.q.maxOut(// getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
+		//	//	this.trade.target.tradeSize
+		//	//)
+		//	const repayByGetAmountsIn = await this.q.minIn( //Will output tokenIn.
+		//		this.trade.target.tradeSize
+		//	)
 
-			const repay: V3Repays = {
-				//getAmountsOut: repayByGetAmountsOut.amountOut,
-				//getAmountsIn: repayByGetAmountsIn.amountIn,
-				repay: repayByGetAmountsIn.amountIn,
-			}
+		//	const repay: V3Repays = {
+		//		//getAmountsOut: repayByGetAmountsOut.amountOut,
+		//		//getAmountsIn: repayByGetAmountsIn.amountIn,
+		//		repay: repayByGetAmountsIn.amountIn,
+		//	}
 
-			console.log("repay: ", repay)
-			return repay;
-		}
+		//	console.log("repay: ", repay)
+		//	return repay;
+		//}
 
-		const repay = await getRepay();
+		//const repay = await getRepay();
 
 		const getProfit = async (): Promise<Profcalcs> => {
-			let r = repay.repay;
+			let r = this.trade.loanPool.amountRepay
 			// this must be re-assigned to be accurate, if you re-assign this.trade.loanPool.amountRepay below. The correct amountRepay should be decided upon and this message should be removed.
 			// if (repay.lt(this.trade.target.amountOut)) {
 			let profit: Profcalcs = { profit: 0n, profitPercent: BN(0) };
@@ -59,7 +58,7 @@ export class PopulateRepays {
 		const profits = await getProfit();
 		// const postReserveOut = this.trade.loanPool.reserveOut.add(this.tradeSizeInTermsOfTokenOutWithFee);				
 		//console.log("repays: ", await getRepay(), " profits: ", profits)
-		return { repay, profits };
+		return { profits };
 	}
 
 
