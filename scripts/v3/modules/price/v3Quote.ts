@@ -66,6 +66,7 @@ export class V3Quote {
 	}
 
 	async minIn(amountOutExpected: bigint): Promise<ExactOutput> {
+		console.log("amountOutExpected: ", amountOutExpected.toString(), this.exchange, this.protocol)
 		if (amountOutExpected > 0n) {
 			try {
 				const minIn: ExactOutput = this.protocol === "UNIV3" ?
@@ -87,7 +88,7 @@ export class V3Quote {
 							initializedTicksCrossed: 0n,
 							gasEstimate: 0n,
 						}
-				console.log("minIn: ", minIn.amountIn.toString(), this.exchange)
+				//console.log("minIn: ", minIn.amountIn.toString(), this.exchange)
 				return minIn;
 			} catch (error: any) {
 				console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN getAmountIn : ', this.exchange, this.protocol)
