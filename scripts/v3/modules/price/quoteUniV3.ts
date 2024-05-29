@@ -72,12 +72,13 @@ export async function univ3QuoteIn(
 ): Promise<ExactOutput> {
 	const quoter = uniswapV3Exchange['UNIV3'].quoter
 	const pool = new Contract(poolID, IUni3Pool, signer)
-
+	const fee = await pool.fee()
+	console.log('fee: ', fee)
 	let encoded = {
 		tokenIn: tokenIn.id,
 		tokenOut: tokenOut.id,
-		amountOut: amountOut,
-		fee: await pool.fee(),
+		amount: amountOut,
+		fee: fee,
 		sqrtPriceLimitX96: '0',
 	}
 	try {
@@ -94,7 +95,7 @@ export async function univ3QuoteIn(
 		return price
 	} catch (error: any) {
 		console.log(error)
-		console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN minIn : ')
+		console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN univ3 minIn : ')
 		return {
 			amountIn: 0n,
 			sqrtPriceX96After: 0n,

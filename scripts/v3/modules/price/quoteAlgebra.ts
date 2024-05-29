@@ -21,7 +21,7 @@ export async function algebraQuoteOut(
 			{
 				tokenIn: tokenIn.id,
 				tokenOut: tokenOut.id,
-				amountIn: tradeSize,
+				amount: tradeSize,
 				limitSqrtPrice: '0'
 			}
 		)
@@ -62,7 +62,7 @@ export async function algebraQuoteIn(
 			{
 				tokenIn: tokenIn.id,
 				tokenOut: tokenOut.id,
-				amountOut: amountOut,
+				amount: amountOut,
 				limitSqrtPrice: '0'
 			}
 		)
@@ -79,7 +79,7 @@ export async function algebraQuoteIn(
 		return price
 	} catch (error: any) {
 		console.log(error)
-		console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN minIn : ')
+		console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN ALG minIn : ')
 		return {
 			amountIn: 0n,
 			sqrtPriceX96After: 0n,
