@@ -24,17 +24,10 @@ export async function fetchGasPrice(trade: Bool3Trade): Promise<GAS> {
 			return g;
 		}
 		pendingTransactions[trade.ID] == true;
-		const swap = await params(trade);
-		//const ps = swap.swapParams;
-		const pf = swap.flashParams;
+		const p = await params(trade);
 		if (trade.type.includes("flash")) {
 			g.gasEstimate = await trade.contract.initFlash.estimateGas(
-				pf.tokenInID,
-				pf.tokenOutID,
-				pf.fee1,
-				pf.amountIn,
-				pf.amountOut,
-				pf.fee2,
+				p.flashParams
 			);
 		}
 		//if (trade.type === "single" || trade.type === "multi") {

@@ -23,28 +23,28 @@ export async function univ3QuoteOut(
 		fee: await pool.fee(),
 		sqrtPriceLimitX96: '0',
 	}
-	try {
-		let maxOut = await quoter.quoteExactInputSingle.staticCall(encoded)
-		const price: ExactInput = {
-			amountOut: maxOut.amountOut,
-			sqrtPriceX96After: maxOut.sqrtPriceX96After,
-			initializedTicksCrossed: maxOut.initializedTicksCrossed,
-			gasEstimate: maxOut.gasEstimate,
-		}
-		// console.log('maxOut: ')
-		// console.log(maxOut)
-		// console.log(price)
-		return price
-	} catch (error: any) {
-		console.log(error)
-		console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN maxOut : ')
-		return {
-			amountOut: 0n,
-			sqrtPriceX96After: 0n,
-			initializedTicksCrossed: 0n,
-			gasEstimate: 0n,
-		}
+	//try {
+	let maxOut = await quoter.quoteExactInputSingle.staticCall(encoded)
+	const price: ExactInput = {
+		amountOut: maxOut.amountOut,
+		sqrtPriceX96After: maxOut.sqrtPriceX96After,
+		initializedTicksCrossed: maxOut.initializedTicksCrossed,
+		gasEstimate: maxOut.gasEstimate,
 	}
+	// console.log('maxOut: ')
+	// console.log(maxOut)
+	// console.log(price)
+	return price
+	//} catch (error: any) {
+	//	console.log(error)
+	//	console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN univ3 maxOut : ')
+	//	return {
+	//		amountOut: 0n,
+	//		sqrtPriceX96After: 0n,
+	//		initializedTicksCrossed: 0n,
+	//		gasEstimate: 0n,
+	//	}
+	//}
 }
 //const usdc: ERC20token = {
 //	id: '0x2791bca1f2de4661ed88a30c99a7a9449aa84174',
@@ -73,36 +73,37 @@ export async function univ3QuoteIn(
 	const quoter = uniswapV3Exchange['UNIV3'].quoter
 	const pool = new Contract(poolID, IUni3Pool, signer)
 	const fee = await pool.fee()
-	console.log('fee: ', fee)
+
 	let encoded = {
 		tokenIn: tokenIn.id,
 		tokenOut: tokenOut.id,
 		amount: amountOut,
 		fee: fee,
-		sqrtPriceLimitX96: '0',
+		sqrtPriceLimitX96: 0n,
 	}
-	try {
-		let minIn = await quoter.quoteExactOutputSingle.staticCall(encoded)
-		const price: ExactOutput = {
-			amountIn: minIn.amountIn,
-			sqrtPriceX96After: minIn.sqrtPriceX96After,
-			initializedTicksCrossed: minIn.initializedTicksCrossed,
-			gasEstimate: minIn.gasEstimate,
-		}
-		// console.log('maxOut: ')
-		// console.log(maxOut)
-		// console.log(price)
-		return price
-	} catch (error: any) {
-		console.log(error)
-		console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN univ3 minIn : ')
-		return {
-			amountIn: 0n,
-			sqrtPriceX96After: 0n,
-			initializedTicksCrossed: 0n,
-			gasEstimate: 0n,
-		}
+
+	//try {
+	let minIn = await quoter.quoteExactOutputSingle.staticCall(encoded)
+	const price: ExactOutput = {
+		amountIn: minIn.amount,
+		sqrtPriceX96After: minIn.sqrtPriceX96After,
+		initializedTicksCrossed: minIn.initializedTicksCrossed,
+		gasEstimate: minIn.gasEstimate,
 	}
+	// console.log('maxOut: ')
+	// console.log(maxOut)
+	// console.log(price)
+	return price
+	//} catch (error: any) {
+	//	console.log(error.code)
+	//	console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN univ3 minIn : ', poolID, tokenIn.symbol, tokenOut.symbol, amountOut)
+	//	return {
+	//		amountIn: 0n,
+	//		sqrtPriceX96After: 0n,
+	//		initializedTicksCrossed: 0n,
+	//		gasEstimate: 0n,
+	//	}
+	//}
 }
 //const usdc: ERC20token = {
 //	id: '0x2791bca1f2de4661ed88a30c99a7a9449aa84174',

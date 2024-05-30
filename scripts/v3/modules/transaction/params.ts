@@ -85,14 +85,54 @@ export async function params(trade: Bool3Trade): Promise<{
 	//		},
 	//	);
 	//}
+
+	/*
+	
+	/// @param params The parameters necessary for flash and the callback, passed in as FlashParams
+	/// @notice Calls the pools flash function with data needed in `uniswapV3FlashCallback`
+	function initFlash(FlashParams memory params) external {
+		PoolAddress.PoolKey memory poolKey = PoolAddress.PoolKey({
+			token0: params.token0,
+			token1: params.token1,
+			fee: params.fee1
+		});
+		IUniswapV3Pool pool = IUniswapV3Pool(
+			PoolAddress.computeAddress(factory, poolKey)
+		);
+		// recipient of borrowed amounts
+		// amount of token0 requested to borrow
+		// amount of token1 requested to borrow
+		// need amount0 and amount1 in callback to pay back pool
+		// recipient of flash should be THIS contract
+		pool.flash(
+			address(this),
+			params.amount0,
+			params.amount1,
+			abi.encode(
+				FlashCallbackData({
+					amount0: params.amount0,
+					amount1: params.amount1,
+					payer: msg.sender,
+					poolKey: poolKey,
+					poolFee2: params.fee2
+				})
+			)
+		);
+	}
+	*/
+
+
 	if (trade.type.includes("flash")) {
+		const flashParams = {
+			token0: pf.tokenInID,
+			token1: pf.tokenOutID,
+			fee1: pf.fee1,
+			amount0: pf.amountIn,
+			amount1: pf.amountOut,
+			fee2: pf.fee2
+		};
 		swap = trade.contract.initFlash.populateTransaction(
-			pf.tokenInID,
-			pf.tokenOutID,
-			pf.fee1,
-			pf.amountIn,
-			pf.amountOut,
-			pf.fee2,
+			flashParams,
 			{
 				Type: 2,
 				gasLimit: trade.gas.gasEstimate,

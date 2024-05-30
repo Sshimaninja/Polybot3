@@ -2,7 +2,7 @@ import { Contract } from "ethers";
 import { abi as IAlgebraFactory } from "@cryptoalgebra/core/artifacts/contracts/AlgebraFactory.sol/AlgebraFactory.json";
 import { abi as IUniswapV3Factory } from "@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Factory.sol/IUniswapV3Factory.json";
 import { abi as IUniswapV3Quoter } from "@uniswap/v3-periphery/artifacts/contracts/interfaces/IQuoterV2.sol/IQuoterV2.json";
-import { abi as IAlgebraQuoter } from "@cryptoalgebra/periphery/artifacts/contracts/lens/QuoterV2.sol/QuoterV2.json";
+import { abi as IAlgebraQuoter } from "@cryptoalgebra/periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json";
 import { abi as IUniswapV3Router } from "@uniswap/v3-periphery/artifacts/contracts/interfaces/ISwapRouter.sol/ISwapRouter.json";
 import { abi as IAlgebraRouter } from "@cryptoalgebra/periphery/artifacts/contracts/SwapRouter.sol/SwapRouter.json";
 import { signer } from "./provider";

@@ -384,6 +384,8 @@ export interface Bool3Trade {
 	ID: string
 	direction: string
 	type: string
+	safe: boolean
+	params: any,
 	ticker: string
 	tokenIn: Token
 	tokenOut: Token
@@ -426,7 +428,6 @@ export interface Bool3Trade {
 		tokenProfit: bigint,
 		WMATICProfit: bigint,
 	},
-	params: any,
 
 }
 

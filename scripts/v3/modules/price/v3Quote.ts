@@ -31,8 +31,9 @@ export class V3Quote {
 	}
 
 	async maxOut(tradeSize: bigint): Promise<ExactInput> {
+		if (tradeSize > 0n) {
 
-		try {
+			//try {
 			const maxOut: ExactInput = this.protocol === "UNIV3" ?
 				await univ3QuoteOut(
 					await this.pool.getAddress(),
@@ -53,53 +54,54 @@ export class V3Quote {
 					}
 			//console.log("maxOut: ", maxOut.amountOut.toString())
 			return maxOut;
-		} catch (error: any) {
-			console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN getAmountOut : ', this.exchange, this.protocol)
-			console.log("Error in v3Quote maxOut: ", error)
-			return {
-				amountOut: 0n,
-				sqrtPriceX96After: 0n,
-				initializedTicksCrossed: 0n,
-				gasEstimate: 0n,
-			};
+			//} catch (error: any) {
+			//	console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN getAmountOut : ', this.exchange, this.protocol)
+			//	console.log("Error in v3Quote maxOut: ", error)
 		}
+		return {
+			amountOut: 0n,
+			sqrtPriceX96After: 0n,
+			initializedTicksCrossed: 0n,
+			gasEstimate: 0n,
+		};
 	}
 
+
 	async minIn(amountOutExpected: bigint): Promise<ExactOutput> {
-		console.log("amountOutExpected: ", amountOutExpected.toString(), this.exchange, this.protocol)
+
 		if (amountOutExpected > 0n) {
-			try {
-				const minIn: ExactOutput = this.protocol === "UNIV3" ?
-					await univ3QuoteIn(
+			//try {
+			const minIn: ExactOutput = this.protocol === "UNIV3" ?
+				await univ3QuoteIn(
+					await this.pool.getAddress(),
+					this.tokenOut,
+					this.tokenIn,
+					amountOutExpected,
+				)
+				: this.protocol === "ALG" ?
+					await algebraQuoteIn(
 						await this.pool.getAddress(),
-						this.tokenIn,
 						this.tokenOut,
+						this.tokenIn,
 						amountOutExpected,
-					)
-					: this.protocol === "ALG" ?
-						await algebraQuoteIn(
-							await this.pool.getAddress(),
-							this.tokenIn,
-							this.tokenOut,
-							amountOutExpected,
-						) : {
-							amountIn: 0n,
-							sqrtPriceX96After: 0n,
-							initializedTicksCrossed: 0n,
-							gasEstimate: 0n,
-						}
-				//console.log("minIn: ", minIn.amountIn.toString(), this.exchange)
-				return minIn;
-			} catch (error: any) {
-				console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN getAmountIn : ', this.exchange, this.protocol)
-				console.log("Error in v3Quote minIn: ", error)
-				return {
-					amountIn: 0n,
-					sqrtPriceX96After: 0n,
-					initializedTicksCrossed: 0n,
-					gasEstimate: 0n,
-				};
-			}
+					) : {
+						amountIn: 0n,
+						sqrtPriceX96After: 0n,
+						initializedTicksCrossed: 0n,
+						gasEstimate: 0n,
+					}
+			//console.log("minIn: ", minIn.amountIn.toString(), this.exchange)
+			return minIn;
+			//} catch (error: any) {
+			//	console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN getAmountIn : ', this.exchange, this.protocol)
+			//	console.log("Error in v3Quote minIn: ", error)
+			//	return {
+			//		amountIn: 0n,
+			//		sqrtPriceX96After: 0n,
+			//		initializedTicksCrossed: 0n,
+			//		gasEstimate: 0n,
+			//	};
+			//}
 		}
 		console.log("getAmountIn: Amount out is zero, so amount in is zero: ", this.exchange, this.protocol)
 		return {
