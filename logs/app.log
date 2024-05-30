@@ -322,3 +322,55 @@
 [2024-05-29T20:11:08.605] [INFO] default - {}
 [2024-05-29T20:11:17.416] [INFO] default - Control.ts: pendingTransactions: 
 [2024-05-29T20:11:17.417] [INFO] default - {}
+[2024-05-30T02:22:18.588] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T02:22:18.588] [INFO] default - {}
+[2024-05-30T02:23:06.478] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T02:23:06.478] [INFO] default - {}
+[2024-05-30T02:31:24.569] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T02:31:24.569] [INFO] default - {}
+[2024-05-30T02:33:14.435] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T02:33:14.436] [INFO] default - {}
+[2024-05-30T02:35:28.705] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T02:35:28.705] [INFO] default - {}
+[2024-05-30T02:35:57.204] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T02:35:57.204] [INFO] default - {}
+[2024-05-30T02:46:18.856] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T02:46:18.856] [INFO] default - {}
+[2024-05-30T11:10:14.891] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T11:27:03.719] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T11:27:03.719] [INFO] default - {}
+[2024-05-30T11:31:03.031] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T11:31:03.032] [INFO] default - {}
+[2024-05-30T11:31:41.662] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T11:31:41.663] [INFO] default - {}
+[2024-05-30T11:33:24.751] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T11:33:24.752] [INFO] default - {}
+[2024-05-30T11:33:57.184] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T11:33:57.184] [INFO] default - {}
+[2024-05-30T11:35:45.145] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T11:35:45.145] [INFO] default - {}
+[2024-05-30T11:35:53.971] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T11:35:53.972] [INFO] default - {}
+[2024-05-30T13:15:05.452] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T13:15:05.452] [INFO] default - {}
+[2024-05-30T13:35:01.580] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T13:35:01.581] [INFO] default - {}
+[2024-05-30T13:36:28.902] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/AAVE flashV3Multi undefined <<<<<<<<<<<<<<<<
+[2024-05-30T13:58:15.340] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T13:58:15.342] [INFO] default - {}
+[2024-05-30T13:59:59.637] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/AAVE flashV3Multi undefined <<<<<<<<<<<<<<<<
+[2024-05-30T14:12:25.472] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T14:12:25.473] [INFO] default - {}
+[2024-05-30T14:13:49.673] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T14:13:54.943] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T14:13:54.944] [INFO] default - {}
+[2024-05-30T14:15:51.549] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T14:15:51.549] [INFO] default - {}
+[2024-05-30T14:16:09.626] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T14:16:09.626] [INFO] default - {}
+[2024-05-30T14:17:59.513] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/PYR flashV3Multi undefined <<<<<<<<<<<<<<<<
+[2024-05-30T14:17:59.514] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/AAVE flashV3Multi undefined <<<<<<<<<<<<<<<<
+[2024-05-30T14:18:15.452] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T14:18:15.452] [INFO] default - {}
+[2024-05-30T14:31:44.969] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-30T14:31:44.969] [INFO] default - {}

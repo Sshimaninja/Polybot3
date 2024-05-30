@@ -14,7 +14,7 @@ import { fu } from "../../../modules/convertBN";
 import { TransactionReceipt, Transaction } from "ethers";
 import { Hash } from "crypto";
 import { signer } from "../../../../constants/provider";
-
+import { params } from "./params";
 /**
  * @param trade
  * @param gasCost
@@ -56,20 +56,11 @@ export async function flash(
 	);
 
 	//await notify(trade);
-
+	let p = {
+		params: await params(trade),
+	}
 	let tx: Transaction = await trade.contract.initFlash(
-		trade.tokenIn.id,
-		trade.tokenOut.id, //I could reasonably change this to amountRepay if I wanted profit in tokenIn (which I do).
-		trade.loanPool.feeTier,
-		trade.target.tradeSize,
-		trade.target.amountOut,
-		trade.target.feeTier,
-		{
-			Type: 2,
-			gasLimit: trade.gas.gasEstimate,
-			maxFeePerGas: trade.gas.maxFee,
-			maxPriorityFeePerGas: trade.gas.maxPriorityFee,
-		},
+		p.params.swap,
 	);
 	try {
 		// const signedTx = await wallet.signTransaction(tx);

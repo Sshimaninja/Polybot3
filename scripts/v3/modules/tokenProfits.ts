@@ -42,11 +42,11 @@ export class TokenProfits {
 		//const repay = await getRepay();
 
 		const getProfit = async (): Promise<Profcalcs> => {
-			let r = this.trade.loanPool.amountRepay
+
 			// this must be re-assigned to be accurate, if you re-assign this.trade.loanPool.amountRepay below. The correct amountRepay should be decided upon and this message should be removed.
 			// if (repay.lt(this.trade.target.amountOut)) {
 			let profit: Profcalcs = { profit: 0n, profitPercent: BN(0) };
-			profit.profit = this.trade.target.amountOut - (r);
+			profit.profit = this.trade.target.amountOut - this.trade.loanPool.amountRepay; //must add fee from pool v3 to this?
 			const profitBN = BigInt2BN(profit.profit, this.trade.tokenOut.decimals);
 			profit.profitPercent = this.trade.target.amountOut > (0) ? profitBN.dividedBy(fu(this.trade.target.amountOut, this.trade.tokenOut.decimals)).multipliedBy(100) : BN(0);
 			return profit;

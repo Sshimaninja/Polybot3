@@ -14,7 +14,7 @@ import { provider } from '../../../../constants/provider'
 
 import { IRL } from '../../classes/InRangeLiquidity'
 import { sqrt } from '@uniswap/sdk-core';
-import { Prices } from './Prices';
+//import { Prices } from './Prices';
 
 export async function sqrtToPrice(sqrt: number, token0: ERC20token, token1: ERC20token, dir: boolean): Promise<number> {
 	const numerator = sqrt ** 2

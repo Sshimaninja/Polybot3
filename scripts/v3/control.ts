@@ -28,6 +28,7 @@ import { flash } from './modules/transaction/flash'
 import { importantSafetyChecks } from './modules/importantSafetyChecks'
 import { abi as IUniswapV3Factory } from '@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Factory.sol/IUniswapV3Factory.json'
 import { abi as IAlgebraFactory } from '@cryptoalgebra/core/artifacts/contracts/AlgebraFactory.sol/AlgebraFactory.json'
+import { fu, pu } from '../modules/convertBN'
 
 /*
 TODO:
@@ -154,24 +155,17 @@ export async function control(data: V3Matches, gasData: GasData) {
 				return;
 			}
 
-			let safe = false;
+			//let safe = false;
 
-			if ((trade.type = "flash")) {
-				safe = await importantSafetyChecks(trade);
-			}
 
-			if (trade.type.includes("direct")) {
-				safe = await filterTrade(trade);
-			}
-
-			if (!safe) {
+			if (!trade.safe) {
 				console.log("unsafe trade: ", trade.type)
 				return;
 			}
 
-			console.log("awaiting trueProfit...")
+			//console.log("awaiting trueProfit...")
 			await trueProfit(trade);
-			console.log("trade.profits.WMATICProfit: ", trade.profits.WMATICProfit);
+			console.log("trade.profits.WMATICProfit: ", fu(trade.profits.WMATICProfit, 18));
 
 			// return;
 

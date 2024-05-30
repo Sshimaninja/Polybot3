@@ -89,6 +89,8 @@ export class Trade {
 			ID: A ? this.match.pool0.id : this.match.pool1.id,
 			direction: dir.dir,
 			type: 'error',
+			safe: false,
+			params: "no trade",
 			ticker: this.match.token0.symbol + '/' + this.match.token1.symbol,
 			tokenIn: this.match.token0,
 			tokenOut: this.match.token1,
@@ -155,7 +157,7 @@ export class Trade {
 				tokenProfit: 0n,
 				WMATICProfit: 0n,
 			},
-			params: "no trade",
+
 		}
 
 		await populateTrade(trade);
