@@ -20,8 +20,8 @@ export async function populateTrade(trade: Bool3Trade) {
     trade.safe = await filterTrade(trade);
 
     const ts = new TradeSize(trade);
-    const tradeSize = await ts.tradeToPrice();
-    trade.target.tradeSize = BN2BigInt(tradeSize, trade.tokenIn.decimals);
+    //const tradeSize = await ts.tradeToPrice();
+    trade.target.tradeSize = 1000n; //pu(tradeSize, trade.tokenIn.decimals);
 
     if (trade.target.tradeSize === 0n) {
         //console.log("Trade size is 0, returning trade: ", trade.ticker, trade.loanPool.exchange, trade.target.exchange)
