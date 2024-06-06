@@ -10,7 +10,7 @@ export class TradeSize {
     constructor(trade: Bool3Trade) {
         this.trade = trade;
     }
-    async tradeToPrice(): Promise<BN> {
+    async tradeToPrice(): Promise<string> {
         //targetPrice 0.520670400977951207 + 0.519935327393096545 = 1.040605728371047752 / 2 = 0.520302864185523876
         let targetPrice = await this.subSlip(BN(this.trade.target.priceTarget));
         let reserveIn = BN(this.trade.target.state.reserves0.toString());
@@ -31,7 +31,10 @@ export class TradeSize {
             );
         }
         // Calculate the maximum trade size that would result in a slippage equal to slip
-        return diff.multipliedBy(reserveIn); // 0.00036739705188571405169115024159 * 123348 = 45.285714285714285714285714285714
+        const tradeSize = diff.multipliedBy(reserveIn); // 0.00036739705188571405169115024159 * 123348 = 45.285714285714285714285714285714
+        const tradeSizeString = tradeSize.toFixed(this.trade.tokenIn.decimals);
+        console.log(tradeSizeString);
+        return tradeSizeString;
         //const maxTradeSize = await getMaxIn(reserveOut, slip); // 123348 * 0.002 = 246.696
         //if (tradeSize.gt(maxTradeSize)) {
         //    return tradeSize; // 45.285714285714285714285714285714

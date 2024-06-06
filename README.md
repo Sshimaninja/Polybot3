@@ -1,37 +1,36 @@
-# TODO: Update to ES2020 BigInt
+# This is a WORK IN PROGRESS Uniswap V3 arbitrage bot.
 
-## ethers.parseUnits() example in BigInt:
+It directly queries the blockchain to aggregate pairs from each exchange included in the uniswapV3Exchange object (in constants/addresses)
 
-	const baseValue = BigInt(10) ** BigInt(18);
-	const humanReadableNumber = BigInt("10000");
+I chose to do it this way because many uniswap clones (including v2 and v2, and probably soon to be v4) do not have hosted subgraphs on TheGraph, making graph calls pointless as an automated search/find for aggregating pairs reliably.
 
-	const result = humanReadableNumber * baseValue;
+At the time I started this project, using subraphs seemed to me a point of weakness which I wanted to bypass so I could add more exchanges, however, as it turns out, arbitrage in this fashion is still unprofitable, so it has instead been an excercise in scraping large amounts of data from the distributed ledger (blockchain), filtering out unworthy pairs and storing the data locally to process in arbitrage.
 
-	console.log(result.toString()); // Print the result as a string
+The Graph is growing all the time, though, and Dune analytics doesn't seem to be aimint to replace them, so aggregating pairs/runnign arbitrage from The Graph may one day actaully be possible.
 
+This project is an unfinished/unmaintained Uniswap V3 bot, in companion to the Uniswap V2 bot I launched and ran on a private Polygon Sentry node on a Hetzner private server for about a year, without achieving profitable arbitrage. 
+
+At this point, V3 bots may be profitable, but I am out of time to play with libraries and must stop updating this, unless it is in my spare time. 
+
+
+# TODO: Refactor/integrate Uniswap V3 JSBI.BigInt because:
+## ethers.js bigint and bignumber.js doesn't have smooth compatiblity and loses precision. 
+## The UniswapV3 SDK is required for discovering trade sizes, and it uses JSBI.
 
 
 # Commands: 
-Start v2 bot: 
-	npm run bot2
 
-Start v3 bot:
-	npm run bot3
+Run v3 bot test:
+	- In one window run 'npx hardhat node' to start a node
+	- In another window, run 'npm run v3Test' to start the tests which will run through the trade object until it gets to the tradeSize calculation, at which point it will fail due to JSBI integration pending.
+
 
 The following operation may be time consuming:
-	Get new pairs for v2 :
-		npm run get2
-
-	Get new pairs for v3:
+	Get new pairs for all uniswap v3 clones:
 		npm run get3
 
-	Match v2 pairs
-		npm run match2
-	
-	Match v3 paris
+	Match v3 pairs across exchanges and create subdocs for each
 		npm run match3
-
-script -c "npx hardhat node" | tee output.txt
 
 # Deploy Hardhat tests:
 
@@ -56,12 +55,6 @@ run script to record hardhat output:
 ex: exclude empty eth calls from hh results:
 	script -c "npx hardhat node" | grep -vP "eth_call\s+Contract call:\s+<UnrecognizedContract>\s+From:\s+0x[a-fA-F0-9]{40}\s+To:\s+0x[a-fA-F0-9]{40}" > output.txt
 
-# Deploy live to Polygon
-	npx hardhat run --network [network] scripts/deployFlash.ts
-	
-
-# Notes:
-I've moved smart contracts to a new repo because neither VSCode, nor Hardhat can handle multiple different versions of solidity docs and compilers, resulting in insane amounts of wasted time.
 
 re: tradeSize
 				// Would be good to have a strategy that takes into account the reserves of the pool and uses the min of the three below, but that adds a lot of complexity.
@@ -80,19 +73,8 @@ re: tradeSize
 JETSWAP: Removing Jetswap for now as all trades seem to exit prematurely out of contract without reason.
 
 
-
 It would seem like you want to 'buy' the cheaper token, but you actually want to 'sell' the more expensive token.
 
-
-ex:
-A: eth/usd = 1/3000 = on uniswap
-B: eth/usd = 1/3100 = on sushiswap
-borrow eth on uniswap, sell on sushiswap for 3100 = $100 profit minus fees.
-
-
-
-
-# TODO: Make Univ2 clone contracts, but change name to Jetswap, so I can arb them.
 
 
 
@@ -131,18 +113,6 @@ if
 # General article on matrix/graph Arbitrage:
 https://github.com/ccyanxyz/uniswap-arbitrage-analysis
 Note: According to the 'Optimal arbitrage in Uniswap' article, this is completely pointless, as on any robust market like Uniswap, the fees destroy the marginal profits arbitrage is constrained to.
-
-
-
-
-# Working branches:
-3ab36d5
-
-
-
-
-
-
 
 
 

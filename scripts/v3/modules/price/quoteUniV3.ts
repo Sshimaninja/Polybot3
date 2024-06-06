@@ -97,7 +97,8 @@ export async function univ3QuoteIn(
         console.log(price);
         return price;
     } catch (error: any) {
-        console.trace(
+        //console.trace(
+        console.log(
             " >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN univ3 minIn : ",
             poolID,
             tokenIn.symbol,
@@ -105,7 +106,7 @@ export async function univ3QuoteIn(
             "tradeSize(in): ",
             amountOut,
         );
-        console.log(error);
+        console.log("Code: ", error.code);
         return {
             amountIn: 0n,
             sqrtPriceX96After: 0n,
