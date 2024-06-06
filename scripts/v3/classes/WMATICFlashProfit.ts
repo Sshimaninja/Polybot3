@@ -130,7 +130,7 @@ export class WMATICFlashProfit {
 			//     this.tokenProfitBN.toFixed(this.trade.tokenOut.decimals),
 			// );
 
-			let inWMATIC = this.trade.profits.tokenProfit * this.trade.loanPool.priceOut;
+			let inWMATIC = this.trade.profits.tokenProfit * this.trade.loanPool.priceIn;
 
 			//let inMatic = await getAmountsOutBN(
 			//	this.tokenProfitBN,

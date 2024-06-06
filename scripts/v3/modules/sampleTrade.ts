@@ -1,9 +1,9 @@
 // import { Currency, CurrencyAmount, Percent, Token, TradeType, } from '@uniswap/sdk-core'
 // // import { Pool, Route, SwapOptions, SwapQuoter, SwapRouter, Trade, } from '@uniswap/v3-sdk'
 // import { ethers } from 'ethers'
-// import JSBI from 'jsbi'
-// // import { getOutputQuote, getTokenTransferApproval } from './swapHelpers'
+// import { JSBI } from "@uniswap/sdk";"@uniswap/sdk-core/node_modules/jsbi/jsbi";
 
+// // import { getOutputQuote, getTokenTransferApproval } from './swapHelpers'
 
 // import { ERC20_ABI, QUOTER_CONTRACT_ADDRESS, SWAP_ROUTER_ADDRESS, TOKEN_AMOUNT_TO_APPROVE_FOR_TRANSFER, } from './constants'
 // import { MAX_FEE_PER_GAS, MAX_PRIORITY_FEE_PER_GAS } from './constants'
@@ -16,7 +16,7 @@
 // }
 
 // /**
-//  * 
+//  *
 //  * Sample trade from Uni V3 docs sdk which we will adapt to flash arbitrage
 //  */
 

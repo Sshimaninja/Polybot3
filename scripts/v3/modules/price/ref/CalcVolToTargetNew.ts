@@ -1,10 +1,9 @@
 // import { Contract, ethers } from 'ethers';
 // import { ReservesData, Slot0 } from '../../../../../constants/interfaces';
 // import { InRangeLiquidity } from '../inRangeLiquidity';
-// import JSBI from '@uniswap/sdk-core/node_modules/jsbi/jsbi';
+// import { JSBI } from "@uniswap/sdk";'@uniswap/sdk-core/node_modules/jsbi/jsbi';
 // import { SwapMath, TickMath } from '@uniswap/v3-sdk';
 // const MAX_UINT_256 = JSBI.BigInt("115792089237316195423570985008687907853269984665640564039457584007913129639935");
-
 
 // export function getTickBounds(tick: number, poolSpacing: number): { lowerTick: number, upperTick: number } {
 // 	// const result: any = {}
@@ -92,21 +91,18 @@
 // 	return { amountIn: deltaTokenIn, amountOut: deltaTokenOut }
 // }
 
-
-
-
 // function getNextPrice(nextTick: number, isDirection0For1: boolean, sMaxPriceTarget: bigint) {
 // 	const nextPriceTargetJSBI = TickMath.getSqrtRatioAtTick(nextTick);
 // 	const nextPriceTarget = BigInt(nextPriceTargetJSBI.toString());
 // 	// Verbose for readability
 // 	if (isDirection0For1) {
 // 		// If the Direction is 0 for 1 then the price should be decreasing
-// 		// there for we want to take the larger price as 
+// 		// there for we want to take the larger price as
 // 		// (the least price will be beyond our target)
 // 		return nextPriceTarget < sMaxPriceTarget ? nextPriceTarget : sMaxPriceTarget
 // 	} else {
 // 		// If the Direction is 1 for 0 then the price should be increasing
-// 		// there for we want to take the lesser price as 
+// 		// there for we want to take the lesser price as
 // 		// (the higher price will be beyond our target)
 // 		return nextPriceTarget < sMaxPriceTarget ? sMaxPriceTarget : nextPriceTarget
 // 		// return JSBI.greaterThan(nextPriceTarget, sMaxPriceTarget) ? sMaxPriceTarget : nextPriceTarget
