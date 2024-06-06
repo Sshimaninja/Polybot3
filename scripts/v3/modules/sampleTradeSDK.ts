@@ -14,7 +14,7 @@
 // 	Trade,
 // } from '@uniswap/v3-sdk'
 // import { ethers } from 'ethers'
-// import JSBI from 'jsbi'
+// import { JSBI } from "@uniswap/sdk";"@uniswap/sdk-core/node_modules/jsbi/jsbi";
 
 // import { CurrentConfig } from '../config'
 // import {

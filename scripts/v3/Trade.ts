@@ -2,7 +2,7 @@ import { GasData, Match3Pools, PoolState, PoolStateV3 } from '../../constants/in
 import { flashV3Multi } from '../../constants/environment'
 import { Contract } from 'ethers'
 import { Bool3Trade } from '../../constants/interfaces'
-import { populateTrade } from './modules/populateTrade'
+import { populateTrade } from './populateTrade'
 import { numberToBigInt, pu } from '../modules/convertBN'
 import { IRL, InRangeLiquidity } from './classes/InRangeLiquidity'
 import { uniswapV3Exchange } from '../../constants/addresses'

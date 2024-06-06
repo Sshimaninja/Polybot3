@@ -1,92 +1,91 @@
-import { Contract } from 'ethers'
-import { getQuoterV2, getProtocol } from '../../../modules/getContract'
-import { abi as IAlgPool } from '@cryptoalgebra/core/artifacts/contracts/AlgebraPool.sol/AlgebraPool.json'
-import { signer } from '../../../../constants/provider'
-import { fu, pu } from '../../../modules/convertBN'
-import { ERC20token, ExactInput, ExactOutput } from '../../../../constants/interfaces'
-import { uniswap } from '../../../../typechain-types'
-import { uniswapV3Exchange } from '../../../../constants/addresses'
-
+import { Contract } from "ethers";
+import { getQuoterV2, getProtocol } from "../../../modules/getContract";
+import { abi as IAlgPool } from "@cryptoalgebra/core/artifacts/contracts/AlgebraPool.sol/AlgebraPool.json";
+import { signer } from "../../../../constants/provider";
+import { fu, pu } from "../../../modules/convertBN";
+import {
+    ERC20token,
+    ExactInput,
+    ExactOutput,
+} from "../../../../constants/interfaces";
+import { uniswap } from "../../../../typechain-types";
+import { uniswapV3Exchange } from "../../../../constants/addresses";
 
 export async function algebraQuoteOut(
-	poolID: string,
-	tokenIn: ERC20token,
-	tokenOut: ERC20token,
-	tradeSize: bigint
+    poolID: string,
+    tokenIn: ERC20token,
+    tokenOut: ERC20token,
+    tradeSize: bigint,
 ): Promise<ExactInput> {
-	const quoter = uniswapV3Exchange['QUICKV3'].quoter
+    const quoter = uniswapV3Exchange["QUICKV3"].quoter;
 
-	//try {
-	let maxOut = await quoter.quoteExactInputSingle.staticCall(
-		tokenIn.id,
-		tokenOut.id,
-		tradeSize,
-		'0'
-	)
-	const price: ExactInput = {
-		amountOut: maxOut.amountOut,
-		sqrtPriceX96After: maxOut.sqrtPriceX96After,
-		initializedTicksCrossed: maxOut.initializedTicksCrossed,
-		gasEstimate: maxOut.gasEstimate,
-	}
+    //try {
+    let maxOut = await quoter.quoteExactInputSingle.staticCall(
+        tokenIn.id,
+        tokenOut.id,
+        tradeSize,
+        "0",
+    );
+    const price: ExactInput = {
+        amountOut: maxOut.amountOut,
+        sqrtPriceX96After: maxOut.sqrtPriceX96After,
+        initializedTicksCrossed: maxOut.initializedTicksCrossed,
+        gasEstimate: maxOut.gasEstimate,
+    };
 
-	// console.log('maxOut: ')
-	// console.log(maxOut)
-	// console.log(price)
-	return price
-	//} catch (error: any) {
-	//	console.log(error)
-	//	console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN ALG maxOut : ', poolID, tokenIn.symbol, tokenOut.symbol, fu(tradeSize, tokenIn.decimals))
-	//	return {
-	//		amountOut: 0n,
-	//		sqrtPriceX96After: 0n,
-	//		initializedTicksCrossed: 0n,
-	//		gasEstimate: 0n,
+    // console.log('maxOut: ')
+    // console.log(maxOut)
+    // console.log(price)
+    return price;
+    //} catch (error: any) {
+    //	console.log(error)
+    //	console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN ALG maxOut : ', poolID, tokenIn.symbol, tokenOut.symbol, fu(tradeSize, tokenIn.decimals))
+    //	return {
+    //		amountOut: 0n,
+    //		sqrtPriceX96After: 0n,
+    //		initializedTicksCrossed: 0n,
+    //		gasEstimate: 0n,
 
-
-	//	}
-	//}
+    //	}
+    //}
 }
 
 export async function algebraQuoteIn(
-	poolID: string,
-	tokenIn: ERC20token,
-	tokenOut: ERC20token,
-	amountOut: bigint
+    poolID: string,
+    tokenIn: ERC20token,
+    tokenOut: ERC20token,
+    amountOut: bigint,
 ): Promise<ExactOutput> {
-	const quoter = uniswapV3Exchange['QUICKV3'].quoter
-	//try {
-	let minIn = await quoter.quoteExactOutputSingle.staticCall(
+    const quoter = uniswapV3Exchange["QUICKV3"].quoter;
+    //try {
+    let minIn = await quoter.quoteExactOutputSingle.staticCall(
+        tokenIn.id,
+        tokenOut.id,
+        amountOut,
+        "0",
+    );
+    const price: ExactOutput = {
+        amountIn: minIn.amountIn,
+        sqrtPriceX96After: minIn.sqrtPriceX96After,
+        initializedTicksCrossed: minIn.initializedTicksCrossed,
+        gasEstimate: minIn.gasEstimate,
+    };
 
-		tokenIn.id,
-		tokenOut.id,
-		amountOut,
-		'0'
+    // console.log('maxOut: ')
+    // console.log(maxOut)
+    // console.log(price)
+    return price;
+    //} catch (error: any) {
+    //	console.log(error)
+    //	console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN ALG minIn : ', poolID, tokenIn, tokenOut, amountOut)
+    //	return {
+    //		amountIn: 0n,
+    //		sqrtPriceX96After: 0n,
+    //		initializedTicksCrossed: 0n,
+    //		gasEstimate: 0n,
 
-	)
-	const price: ExactOutput = {
-		amountIn: minIn.amountIn,
-		sqrtPriceX96After: minIn.sqrtPriceX96After,
-		initializedTicksCrossed: minIn.initializedTicksCrossed,
-		gasEstimate: minIn.gasEstimate,
-	}
-
-	// console.log('maxOut: ')
-	// console.log(maxOut)
-	// console.log(price)
-	return price
-	//} catch (error: any) {
-	//	console.log(error)
-	//	console.trace(' >>>>>>>>>>>>>>>>>>>>>>>>>> ERROR IN ALG minIn : ', poolID, tokenIn, tokenOut, amountOut)
-	//	return {
-	//		amountIn: 0n,
-	//		sqrtPriceX96After: 0n,
-	//		initializedTicksCrossed: 0n,
-	//		gasEstimate: 0n,
-
-
-	//	}
-	//}
+    //	}
+    //}
 }
 //const usdc: ERC20token = {
 //	id: '0x2791bca1f2de4661ed88a30c99a7a9449aa84174',
@@ -104,8 +103,6 @@ export async function algebraQuoteIn(
 // 	usdc,
 // 	pu('1', aave.decimals)
 // )
-
-
 
 /*
   function quoteExactInputSingle(

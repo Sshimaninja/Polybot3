@@ -1,376 +1,2550 @@
-[2024-05-08T18:54:40.346] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-08T18:54:40.347] [INFO] default - {}
-[2024-05-08T18:55:26.909] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-08T18:55:26.910] [INFO] default - {}
-[2024-05-08T23:41:14.775] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-08T23:41:14.776] [INFO] default - {}
-[2024-05-09T00:04:59.214] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-09T00:04:59.215] [INFO] default - {}
-[2024-05-09T00:05:29.677] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-09T00:05:29.677] [INFO] default - {}
-[2024-05-09T00:27:37.025] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-09T00:27:37.025] [INFO] default - {}
-[2024-05-09T00:29:47.843] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-09T00:29:47.844] [INFO] default - {}
-[2024-05-09T00:29:52.199] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-09T00:29:52.199] [INFO] default - {}
-[2024-05-09T00:30:47.691] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-09T00:30:47.692] [INFO] default - {}
-[2024-05-09T00:36:46.927] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-09T00:36:46.928] [INFO] default - {}
-[2024-05-09T00:41:54.787] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-09T00:41:54.787] [INFO] default - {}
-[2024-05-09T00:44:25.461] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-09T00:44:25.461] [INFO] default - {}
-[2024-05-09T00:47:02.938] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-09T00:47:02.939] [INFO] default - {}
-[2024-05-09T00:48:18.619] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-09T00:48:18.620] [INFO] default - {}
-[2024-05-09T00:48:54.613] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-09T00:48:54.613] [INFO] default - {}
-[2024-05-09T00:50:06.627] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-09T00:50:06.627] [INFO] default - {}
-[2024-05-09T00:55:04.642] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-09T00:55:04.642] [INFO] default - {}
-[2024-05-09T00:55:40.052] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-09T00:55:40.052] [INFO] default - {}
-[2024-05-16T14:03:19.366] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-16T14:03:19.366] [INFO] default - {}
-[2024-05-16T14:16:45.335] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-16T14:16:45.336] [INFO] default - {}
-[2024-05-16T14:19:45.634] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-16T14:19:45.635] [INFO] default - {}
-[2024-05-16T14:21:17.843] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-16T14:21:17.844] [INFO] default - {}
-[2024-05-16T14:22:02.359] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-16T14:22:02.360] [INFO] default - {}
-[2024-05-16T14:26:33.135] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-16T14:26:33.136] [INFO] default - {}
-[2024-05-16T23:29:10.641] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-16T23:29:10.642] [INFO] default - {}
-[2024-05-16T23:30:43.091] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-16T23:30:43.092] [INFO] default - {}
-[2024-05-16T23:31:03.696] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-16T23:31:03.697] [INFO] default - {}
-[2024-05-16T23:32:30.048] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-16T23:32:30.049] [INFO] default - {}
-[2024-05-16T23:33:15.436] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-16T23:33:15.436] [INFO] default - {}
-[2024-05-16T23:37:17.796] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-16T23:37:17.796] [INFO] default - {}
-[2024-05-16T23:39:09.480] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-16T23:39:09.481] [INFO] default - {}
-[2024-05-16T23:55:29.365] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-16T23:55:29.366] [INFO] default - {}
-[2024-05-16T23:58:21.737] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-16T23:58:21.738] [INFO] default - {}
-[2024-05-16T23:59:13.943] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-16T23:59:13.943] [INFO] default - {}
-[2024-05-17T00:00:27.344] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T00:00:27.345] [INFO] default - {}
-[2024-05-17T00:08:09.021] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T00:08:09.022] [INFO] default - {}
-[2024-05-17T00:18:05.942] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T00:18:05.943] [INFO] default - {}
-[2024-05-17T00:28:01.876] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T00:28:01.876] [INFO] default - {}
-[2024-05-17T00:28:44.063] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T00:28:44.064] [INFO] default - {}
-[2024-05-17T00:32:47.065] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T00:32:47.066] [INFO] default - {}
-[2024-05-17T00:35:04.458] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T00:35:04.459] [INFO] default - {}
-[2024-05-17T00:35:39.471] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T00:35:39.472] [INFO] default - {}
-[2024-05-17T00:36:24.978] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T00:36:24.979] [INFO] default - {}
-[2024-05-17T00:37:00.571] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T00:37:00.571] [INFO] default - {}
-[2024-05-17T00:38:53.619] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T00:38:53.619] [INFO] default - {}
-[2024-05-17T00:39:59.300] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T00:39:59.300] [INFO] default - {}
-[2024-05-17T11:26:38.765] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T11:26:38.765] [INFO] default - {}
-[2024-05-17T11:31:04.356] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T11:31:04.357] [INFO] default - {}
-[2024-05-17T11:32:34.094] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T11:32:34.094] [INFO] default - {}
-[2024-05-17T11:42:02.396] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T11:42:02.396] [INFO] default - {}
-[2024-05-17T11:45:11.640] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T11:45:11.640] [INFO] default - {}
-[2024-05-17T11:47:19.615] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T11:47:19.616] [INFO] default - {}
-[2024-05-17T12:19:15.508] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T12:19:15.509] [INFO] default - {}
-[2024-05-17T12:21:53.388] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T12:21:53.388] [INFO] default - {}
-[2024-05-17T12:22:17.744] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T12:22:17.745] [INFO] default - {}
-[2024-05-17T12:24:20.207] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T12:24:20.207] [INFO] default - {}
-[2024-05-17T12:25:24.719] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T12:25:24.719] [INFO] default - {}
-[2024-05-17T12:25:28.069] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T12:25:28.070] [INFO] default - {}
-[2024-05-17T12:28:24.081] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T12:28:24.082] [INFO] default - {}
-[2024-05-17T13:23:45.498] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T13:23:45.498] [INFO] default - {}
-[2024-05-17T13:25:03.205] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T13:25:03.206] [INFO] default - {}
-[2024-05-17T13:28:08.434] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T13:28:08.434] [INFO] default - {}
-[2024-05-17T13:30:22.495] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T13:30:22.496] [INFO] default - {}
-[2024-05-17T13:34:48.673] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T13:34:48.674] [INFO] default - {}
-[2024-05-17T13:42:15.038] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T13:42:15.038] [INFO] default - {}
-[2024-05-17T13:54:29.827] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T13:54:29.828] [INFO] default - {}
-[2024-05-17T14:08:08.442] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T14:08:08.442] [INFO] default - {}
-[2024-05-17T14:10:52.790] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T14:10:52.791] [INFO] default - {}
-[2024-05-17T14:11:35.644] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T14:11:35.645] [INFO] default - {}
-[2024-05-17T14:14:26.708] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T14:14:26.709] [INFO] default - {}
-[2024-05-17T14:16:28.065] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T14:16:28.065] [INFO] default - {}
-[2024-05-17T14:18:36.400] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T14:18:36.400] [INFO] default - {}
-[2024-05-17T14:20:23.380] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T14:20:23.380] [INFO] default - {}
-[2024-05-17T14:47:18.315] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T14:47:18.315] [INFO] default - {}
-[2024-05-17T14:51:09.091] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T14:51:09.091] [INFO] default - {}
-[2024-05-17T14:53:51.140] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T14:53:51.141] [INFO] default - {}
-[2024-05-17T15:08:58.918] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T15:08:58.919] [INFO] default - {}
-[2024-05-17T15:10:29.535] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T15:10:29.536] [INFO] default - {}
-[2024-05-17T15:20:38.709] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T15:20:38.710] [INFO] default - {}
-[2024-05-17T15:22:26.609] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T15:22:26.610] [INFO] default - {}
-[2024-05-17T15:23:42.060] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T15:23:42.061] [INFO] default - {}
-[2024-05-17T15:27:00.945] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T15:27:00.946] [INFO] default - {}
-[2024-05-17T19:09:08.910] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T19:09:08.911] [INFO] default - {}
-[2024-05-17T19:09:14.029] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T19:09:14.030] [INFO] default - {}
-[2024-05-17T19:17:29.379] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-17T19:17:29.380] [INFO] default - {}
-[2024-05-18T00:58:38.538] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T00:58:38.539] [INFO] default - {}
-[2024-05-18T01:03:05.915] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T01:03:05.916] [INFO] default - {}
-[2024-05-18T01:03:24.619] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T01:03:24.619] [INFO] default - {}
-[2024-05-18T01:04:14.633] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T01:04:14.634] [INFO] default - {}
-[2024-05-18T01:04:47.642] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T01:04:47.643] [INFO] default - {}
-[2024-05-18T01:05:57.634] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T01:05:57.634] [INFO] default - {}
-[2024-05-18T01:09:30.274] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T01:09:30.274] [INFO] default - {}
-[2024-05-18T01:15:27.868] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T01:15:27.869] [INFO] default - {}
-[2024-05-18T01:19:54.016] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T01:19:54.017] [INFO] default - {}
-[2024-05-18T01:21:43.744] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T01:21:43.744] [INFO] default - {}
-[2024-05-18T01:42:34.787] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T01:42:34.787] [INFO] default - {}
-[2024-05-18T01:44:18.766] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T01:44:18.767] [INFO] default - {}
-[2024-05-18T01:46:08.648] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T01:46:08.648] [INFO] default - {}
-[2024-05-18T12:50:44.156] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T12:50:44.156] [INFO] default - {}
-[2024-05-18T13:09:41.945] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T13:09:41.946] [INFO] default - {}
-[2024-05-18T13:26:54.181] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T13:26:54.181] [INFO] default - {}
-[2024-05-18T13:27:40.147] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T13:27:40.148] [INFO] default - {}
-[2024-05-18T14:32:13.091] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T14:32:13.092] [INFO] default - {}
-[2024-05-18T14:48:18.273] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T14:48:18.273] [INFO] default - {}
-[2024-05-18T15:00:31.735] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T15:00:31.735] [INFO] default - {}
-[2024-05-18T15:02:16.634] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T15:02:16.635] [INFO] default - {}
-[2024-05-18T15:03:57.776] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T15:03:57.777] [INFO] default - {}
-[2024-05-18T15:08:35.768] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-18T15:08:35.769] [INFO] default - {}
-[2024-05-24T16:42:18.668] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-24T16:42:18.669] [INFO] default - {}
-[2024-05-24T16:43:50.484] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-24T16:43:50.484] [INFO] default - {}
-[2024-05-24T16:47:59.728] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-24T16:47:59.729] [INFO] default - {}
-[2024-05-24T16:48:50.737] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-24T16:48:50.738] [INFO] default - {}
-[2024-05-29T11:31:09.978] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T11:31:09.979] [INFO] default - {}
-[2024-05-29T15:01:34.182] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T15:01:34.183] [INFO] default - {}
-[2024-05-29T15:05:30.027] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T15:05:30.028] [INFO] default - {}
-[2024-05-29T15:12:28.919] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T15:12:28.919] [INFO] default - {}
-[2024-05-29T15:14:09.823] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T15:14:09.824] [INFO] default - {}
-[2024-05-29T15:14:41.014] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T15:14:41.014] [INFO] default - {}
-[2024-05-29T15:20:33.537] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T15:20:33.538] [INFO] default - {}
-[2024-05-29T15:21:12.245] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T15:21:12.246] [INFO] default - {}
-[2024-05-29T15:21:30.327] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T15:21:30.327] [INFO] default - {}
-[2024-05-29T15:23:36.200] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T15:23:36.201] [INFO] default - {}
-[2024-05-29T15:27:34.945] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T15:27:34.945] [INFO] default - {}
-[2024-05-29T15:28:52.543] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T15:28:52.544] [INFO] default - {}
-[2024-05-29T15:29:59.935] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T15:29:59.935] [INFO] default - {}
-[2024-05-29T15:36:02.723] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T15:36:02.723] [INFO] default - {}
-[2024-05-29T15:41:04.822] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T15:41:04.823] [INFO] default - {}
-[2024-05-29T15:42:16.319] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T15:42:16.319] [INFO] default - {}
-[2024-05-29T15:44:38.686] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T15:44:38.687] [INFO] default - {}
-[2024-05-29T15:45:11.628] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T15:45:11.628] [INFO] default - {}
-[2024-05-29T15:49:06.176] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T15:49:06.177] [INFO] default - {}
-[2024-05-29T15:50:34.398] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T15:50:34.398] [INFO] default - {}
-[2024-05-29T16:08:33.362] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T16:08:33.363] [INFO] default - {}
-[2024-05-29T16:10:10.244] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T16:10:10.244] [INFO] default - {}
-[2024-05-29T16:10:21.635] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T16:10:26.138] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T16:10:26.138] [INFO] default - {}
-[2024-05-29T16:21:27.346] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T16:21:27.346] [INFO] default - {}
-[2024-05-29T16:22:50.162] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T16:22:50.163] [INFO] default - {}
-[2024-05-29T16:24:46.699] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T16:24:46.699] [INFO] default - {}
-[2024-05-29T16:25:01.185] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T16:25:01.185] [INFO] default - {}
-[2024-05-29T17:01:47.624] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T17:01:47.624] [INFO] default - {}
-[2024-05-29T17:01:52.447] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T17:03:22.255] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T17:03:22.255] [INFO] default - {}
-[2024-05-29T17:05:55.760] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T17:05:55.760] [INFO] default - {}
-[2024-05-29T17:19:58.411] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T17:19:58.412] [INFO] default - {}
-[2024-05-29T17:21:28.307] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T17:21:28.308] [INFO] default - {}
-[2024-05-29T17:24:10.014] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T17:24:10.014] [INFO] default - {}
-[2024-05-29T17:52:01.136] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T17:52:01.136] [INFO] default - {}
-[2024-05-29T17:55:18.265] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T17:55:18.266] [INFO] default - {}
-[2024-05-29T17:55:45.071] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T17:55:45.072] [INFO] default - {}
-[2024-05-29T18:02:51.209] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T18:02:51.210] [INFO] default - {}
-[2024-05-29T18:03:14.264] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T18:03:14.265] [INFO] default - {}
-[2024-05-29T18:12:58.677] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T18:12:58.678] [INFO] default - {}
-[2024-05-29T18:13:06.119] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T18:13:06.119] [INFO] default - {}
-[2024-05-29T18:15:21.849] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T18:15:21.849] [INFO] default - {}
-[2024-05-29T18:17:19.206] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T18:17:19.207] [INFO] default - {}
-[2024-05-29T19:52:24.422] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T19:52:24.422] [INFO] default - {}
-[2024-05-29T19:53:01.928] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T19:53:01.928] [INFO] default - {}
-[2024-05-29T20:03:43.255] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T20:03:43.255] [INFO] default - {}
-[2024-05-29T20:04:53.870] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T20:04:53.871] [INFO] default - {}
-[2024-05-29T20:06:54.896] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T20:06:54.897] [INFO] default - {}
-[2024-05-29T20:11:08.604] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T20:11:08.605] [INFO] default - {}
-[2024-05-29T20:11:17.416] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-29T20:11:17.417] [INFO] default - {}
-[2024-05-30T02:22:18.588] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T02:22:18.588] [INFO] default - {}
-[2024-05-30T02:23:06.478] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T02:23:06.478] [INFO] default - {}
-[2024-05-30T02:31:24.569] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T02:31:24.569] [INFO] default - {}
-[2024-05-30T02:33:14.435] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T02:33:14.436] [INFO] default - {}
-[2024-05-30T02:35:28.705] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T02:35:28.705] [INFO] default - {}
-[2024-05-30T02:35:57.204] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T02:35:57.204] [INFO] default - {}
-[2024-05-30T02:46:18.856] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T02:46:18.856] [INFO] default - {}
-[2024-05-30T11:10:14.891] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T11:27:03.719] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T11:27:03.719] [INFO] default - {}
-[2024-05-30T11:31:03.031] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T11:31:03.032] [INFO] default - {}
-[2024-05-30T11:31:41.662] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T11:31:41.663] [INFO] default - {}
-[2024-05-30T11:33:24.751] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T11:33:24.752] [INFO] default - {}
-[2024-05-30T11:33:57.184] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T11:33:57.184] [INFO] default - {}
-[2024-05-30T11:35:45.145] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T11:35:45.145] [INFO] default - {}
-[2024-05-30T11:35:53.971] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T11:35:53.972] [INFO] default - {}
-[2024-05-30T13:15:05.452] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T13:15:05.452] [INFO] default - {}
-[2024-05-30T13:35:01.580] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T13:35:01.581] [INFO] default - {}
-[2024-05-30T13:36:28.902] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/AAVE flashV3Multi undefined <<<<<<<<<<<<<<<<
-[2024-05-30T13:58:15.340] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T13:58:15.342] [INFO] default - {}
-[2024-05-30T13:59:59.637] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/AAVE flashV3Multi undefined <<<<<<<<<<<<<<<<
-[2024-05-30T14:12:25.472] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T14:12:25.473] [INFO] default - {}
-[2024-05-30T14:13:49.673] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T14:13:54.943] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T14:13:54.944] [INFO] default - {}
-[2024-05-30T14:15:51.549] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T14:15:51.549] [INFO] default - {}
-[2024-05-30T14:16:09.626] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T14:16:09.626] [INFO] default - {}
-[2024-05-30T14:17:59.513] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/PYR flashV3Multi undefined <<<<<<<<<<<<<<<<
-[2024-05-30T14:17:59.514] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/AAVE flashV3Multi undefined <<<<<<<<<<<<<<<<
-[2024-05-30T14:18:15.452] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T14:18:15.452] [INFO] default - {}
-[2024-05-30T14:31:44.969] [INFO] default - Control.ts: pendingTransactions: 
-[2024-05-30T14:31:44.969] [INFO] default - {}
+[2024-05-31T13:46:16.459] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T13:46:16.459] [INFO] default - {}
+[2024-05-31T13:46:30.406] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T13:46:30.406] [INFO] default - {}
+[2024-05-31T13:46:44.010] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T13:46:44.010] [INFO] default - CALL_EXCEPTION TF
+[2024-05-31T13:46:44.011] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T13:46:44.011] [INFO] default - CALL_EXCEPTION TF
+[2024-05-31T13:46:58.312] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T13:46:58.313] [INFO] default - CALL_EXCEPTION TF
+[2024-05-31T13:46:58.912] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T13:46:58.912] [INFO] default - CALL_EXCEPTION TF
+[2024-05-31T13:48:50.335] [INFO] default - {
+  ticker: 'wstETH/WETH',
+  protocol: 'UNIV3',
+  tradeSize: '1021.676347569929191424 wstETH',
+  loanPoolLiq: 1524583038429013636914n,
+  loanPoolR0: '1410.190575224410079232 wstETH',
+  loanPoolR1: '130109240962920734922255095391259.36606187632984064 WETH',
+  targetLiq: 1021676347569929160071n,
+  targetR0: '948.473407404494815232 wstETH',
+  targetR1: '87192071181256167195460936106671.70408266377199616 WETH'
+}
+[2024-05-31T13:48:50.335] [INFO] default - CALL_EXCEPTION null
+[2024-05-31T13:48:50.336] [INFO] default - {
+  ticker: 'WMATIC/GDIVS',
+  protocol: 'UNIV3',
+  tradeSize: '1.593070463045722113 WMATIC',
+  loanPoolLiq: 7905693279533860811n,
+  loanPoolR0: '1.593070463045722112 WMATIC',
+  loanPoolR1: '30948494163593877567211640095515135426010.42034688 GDIVS',
+  targetLiq: 21769517232974193143n,
+  targetR0: '0.677520266949969024 WMATIC',
+  targetR1: '545416457549086527308394088752674280660289.81059584 GDIVS'
+}
+[2024-05-31T13:48:50.336] [INFO] default - CALL_EXCEPTION TF
+[2024-05-31T13:48:50.336] [INFO] default - {
+  ticker: 'USDC/Monke',
+  protocol: 'UNIV3',
+  tradeSize: '6.440483 USDC',
+  loanPoolLiq: 6477282277987927n,
+  loanPoolR0: '6.440482 USDC',
+  loanPoolR1: '513182155396378744232234567009657584.36520654436040704 Monke',
+  targetLiq: 20001460327153828203n,
+  targetR0: '20000.499988 USDC',
+  targetR1: '1584755027351881555719850466525369173842.043525175592353792 Monke'
+}
+[2024-05-31T13:48:50.336] [INFO] default - CALL_EXCEPTION Unexpected error
+[2024-05-31T13:48:50.336] [INFO] default - {
+  ticker: 'BS/WMATIC',
+  protocol: 'UNIV3',
+  tradeSize: '6.113561351925116929 BS',
+  loanPoolLiq: 1414226404728375632n,
+  loanPoolR0: '6.113561351925116928 BS',
+  loanPoolR1: '25809272457687290382026640180.771836524100583424 WMATIC',
+  targetLiq: 249040862566545071875885n,
+  targetR0: '329887.91100174554365952 BS',
+  targetR1: '14894732076591059118130115865323586.899361003059806208 WMATIC'
+}
+[2024-05-31T13:48:50.336] [INFO] default - CALL_EXCEPTION null
+[2024-05-31T13:48:50.336] [INFO] default - {
+  ticker: 'WMATIC/MKR',
+  protocol: 'UNIV3',
+  tradeSize: '0.000107959183694492 WMATIC',
+  loanPoolLiq: 532964807179425758n,
+  loanPoolR0: '29.063996617167990784 WMATIC',
+  loanPoolR1: '770527445996150725762107003.130358000793944064 MKR',
+  targetLiq: 107959183694492n,
+  targetR0: '0.003413968019826781 WMATIC',
+  targetR1: '270469068755338554503741.132983425621295104 MKR'
+}
+[2024-05-31T13:48:50.336] [INFO] default - CALL_EXCEPTION Unexpected error
+[2024-05-31T13:58:48.384] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T13:58:48.384] [INFO] default - {}
+[2024-05-31T13:59:07.593] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T13:59:07.593] [INFO] default - CALL_EXCEPTION TF
+[2024-05-31T13:59:07.593] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T13:59:07.594] [INFO] default - CALL_EXCEPTION TF
+[2024-05-31T13:59:10.198] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T13:59:10.198] [INFO] default - CALL_EXCEPTION TF
+[2024-05-31T13:59:10.198] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T13:59:10.198] [INFO] default - CALL_EXCEPTION TF
+[2024-05-31T14:00:02.001] [INFO] default - {
+  ticker: 'WMATIC/PYR',
+  protocol: 'UNIV3',
+  tradeSize: '25010.570090705619779584 WMATIC',
+  quotedAmountOut: '1130.167522850490536907 PYR',
+  loanPoolLiq: 770596629919285629868782n,
+  loanPoolR0: '2094594.090840120490983424 WMATIC',
+  loanPoolR1: '22087746816446398031313291635723915.599603155549028352 PYR',
+  targetLiq: 25010570090705619826402n,
+  targetR0: '68528.392092761626509312 WMATIC',
+  targetR1: '719564572538438334247228315601790.633225231875964928 PYR'
+}
+[2024-05-31T14:24:15.406] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T14:24:15.406] [INFO] default - {}
+[2024-05-31T14:25:07.577] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T14:25:07.577] [INFO] default - {}
+[2024-05-31T14:25:26.343] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T14:25:26.343] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T14:25:34.270] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T14:25:34.271] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T14:26:27.120] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T14:26:27.121] [INFO] default - {}
+[2024-05-31T14:26:56.683] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T14:26:56.683] [INFO] default - {}
+[2024-05-31T14:27:16.037] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T14:27:16.038] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T14:27:21.938] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T14:27:23.088] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T14:27:30.123] [INFO] default - {
+  ticker: 'WMATIC/MKR',
+  protocol: 'UNIV3',
+  tradeSize: '0.000107959183694492 WMATIC',
+  loanPoolLiq: 532964807179425758n,
+  loanPoolR0: '29.063996617167990784 WMATIC',
+  loanPoolR1: '770527445996150725762107003.130358000793944064 MKR',
+  targetLiq: 107959183694492n,
+  targetR0: '0.003413968019826781 WMATIC',
+  targetR1: '270469068755338554503741.132983425621295104 MKR'
+}
+[2024-05-31T14:34:33.673] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T14:34:33.673] [INFO] default - {}
+[2024-05-31T14:34:49.527] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T14:34:49.527] [INFO] default - {}
+[2024-05-31T14:35:09.186] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T14:35:09.187] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T14:35:11.734] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T14:35:11.735] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T14:36:04.564] [INFO] default - {
+  ticker: 'WMATIC/PYR',
+  protocol: 'UNIV3',
+  tradeSize: '25010.570090705619779584 WMATIC',
+  quotedAmountOut: '1130.167522850490536907 PYR',
+  loanPoolLiq: 770596629919285629868782n,
+  loanPoolR0: '2094594.090840120490983424 WMATIC',
+  loanPoolR1: '22087746816446398031313291635723915.599603155549028352 PYR',
+  targetLiq: 25010570090705619826402n,
+  targetR0: '68528.392092761626509312 WMATIC',
+  targetR1: '719564572538438334247228315601790.633225231875964928 PYR',
+  errorCode: 'INVALID_ARGUMENT',
+  errorReason: undefined
+}
+[2024-05-31T18:25:05.097] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T18:25:05.097] [INFO] default - {}
+[2024-05-31T18:25:10.398] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T18:25:10.399] [INFO] default - {}
+[2024-05-31T18:28:05.351] [INFO] default - {
+  ticker: 'WMATIC/PYR',
+  protocol: 'UNIV3',
+  tradeSize: '25010.570090705619779584 WMATIC',
+  quotedAmountOut: '1130.167522851505584016 PYR',
+  loanPoolLiq: 770596629919285629868782n,
+  loanPoolR0: '2094594.090840120490983424 WMATIC',
+  loanPoolR1: '22087746816446398031313291635723915.599603155549028352 PYR',
+  targetLiq: 25010570090705619826402n,
+  targetR0: '68528.392092761626509312 WMATIC',
+  targetR1: '719564572538438334247228315601790.633225231875964928 PYR',
+  errorCode: 'INVALID_ARGUMENT',
+  errorReason: undefined
+}
+[2024-05-31T18:30:30.474] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T18:30:30.475] [INFO] default - {}
+[2024-05-31T18:30:59.015] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T18:30:59.016] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T18:37:17.679] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T18:37:17.679] [INFO] default - {}
+[2024-05-31T18:39:40.673] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T18:39:40.674] [INFO] default - {}
+[2024-05-31T18:40:00.962] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T18:40:00.963] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T18:40:06.694] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T18:40:06.694] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T18:40:42.726] [INFO] default - {
+  ticker: 'WMATIC/MKR',
+  protocol: 'UNIV3',
+  tradeSize: '0.000107959183694492 WMATIC',
+  loanPoolLiq: 532964807179425758n,
+  loanPoolR0: '29.063996617167990784 WMATIC',
+  loanPoolR1: '770527445996150725762107003.130358000793944064 MKR',
+  targetLiq: 107959183694492n,
+  targetR0: '0.003413968019826781 WMATIC',
+  targetR1: '270469068755338554503741.132983425621295104 MKR'
+}
+[2024-05-31T18:43:59.262] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T18:43:59.263] [INFO] default - {}
+[2024-05-31T18:44:39.290] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T18:44:39.290] [INFO] default - {}
+[2024-05-31T18:44:57.660] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T18:44:59.226] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T18:45:03.414] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T18:45:03.414] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T18:46:01.461] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T18:46:01.461] [INFO] default - {}
+[2024-05-31T18:46:09.730] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T18:46:09.731] [INFO] default - {}
+[2024-05-31T18:46:30.651] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T18:46:30.651] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T18:46:35.544] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T18:46:35.545] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T18:56:20.356] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T18:56:20.356] [INFO] default - {}
+[2024-05-31T18:56:46.283] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T18:56:46.283] [INFO] default - {}
+[2024-05-31T18:57:06.092] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T18:57:06.093] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T18:57:08.200] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T18:57:08.201] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T18:59:52.852] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T18:59:52.852] [INFO] default - {}
+[2024-05-31T19:00:08.786] [INFO] default - Control.ts: pendingTransactions: 
+[2024-05-31T19:00:08.786] [INFO] default - {}
+[2024-05-31T19:00:32.200] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T19:00:32.200] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-05-31T19:00:36.787] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-05-31T19:00:36.788] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-06-05T11:47:55.680] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T11:47:55.680] [INFO] default - {}
+[2024-06-05T11:51:06.907] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T11:51:06.907] [INFO] default - {}
+[2024-06-05T11:51:16.092] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T11:51:26.084] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T11:51:26.084] [INFO] default - {}
+[2024-06-05T11:55:35.765] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T11:55:35.766] [INFO] default - {}
+[2024-06-05T11:57:34.251] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T11:57:34.251] [INFO] default - {}
+[2024-06-05T11:57:46.141] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T11:57:46.142] [INFO] default - {}
+[2024-06-05T12:01:01.956] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T12:01:01.957] [INFO] default - {}
+[2024-06-05T12:02:26.175] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T12:02:26.176] [INFO] default - {}
+[2024-06-05T12:02:47.100] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-06-05T12:02:47.101] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-06-05T12:02:49.683] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-06-05T12:02:49.684] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-06-05T12:04:53.002] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T12:04:53.002] [INFO] default - {}
+[2024-06-05T12:05:26.095] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T12:05:26.096] [INFO] default - {}
+[2024-06-05T12:06:19.971] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T12:06:19.971] [INFO] default - {}
+[2024-06-05T12:08:26.539] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T12:08:26.539] [INFO] default - {}
+[2024-06-05T12:08:44.266] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T12:08:44.266] [INFO] default - {}
+[2024-06-05T12:10:57.649] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T12:10:57.649] [INFO] default - {}
+[2024-06-05T12:11:57.928] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T12:11:57.928] [INFO] default - {}
+[2024-06-05T12:12:14.447] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T12:12:14.448] [INFO] default - {}
+[2024-06-05T12:19:15.712] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T12:19:15.712] [INFO] default - {}
+[2024-06-05T12:20:22.247] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T12:20:22.247] [INFO] default - {}
+[2024-06-05T12:22:30.628] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T12:22:30.629] [INFO] default - {}
+[2024-06-05T12:23:28.025] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T12:23:28.025] [INFO] default - {}
+[2024-06-05T12:25:03.192] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T12:25:03.192] [INFO] default - {}
+[2024-06-05T12:25:53.056] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T12:25:53.056] [INFO] default - {}
+[2024-06-05T12:26:12.860] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-06-05T12:26:12.861] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-06-05T12:26:15.024] [INFO] default - {
+  ticker: 'WMATIC/MT',
+  protocol: 'ALG',
+  tradeSize: '0.000000009820151854 WMATIC',
+  loanPoolLiq: 6210922849n,
+  loanPoolR0: '0.000000009820151853 WMATIC',
+  loanPoolR1: '311208847825853797015.080453225316352 MT',
+  targetLiq: 200003852706172146054734n,
+  targetR0: '4.480018711934884352 WMATIC',
+  targetR1: '704361643937041364680525883753703019471.400832561223565312 MT'
+}
+[2024-06-05T12:26:15.024] [INFO] default - {
+  ticker: 'WMATIC/OMAR',
+  protocol: 'ALG',
+  tradeSize: '122409.776222475267342337 WMATIC',
+  loanPoolLiq: 22859287192193664272955550n,
+  loanPoolR0: '122409.776222475267342336 WMATIC',
+  loanPoolR1: '334841117394889381145804105015129462162.448573103148630016 OMAR',
+  targetLiq: 5392539431680224641811687n,
+  targetR0: '28992.37815314984992768 WMATIC',
+  targetR1: '79227450828724081315518755845515460512.994036343925374976 OMAR'
+}
+[2024-06-05T12:34:49.806] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T12:34:49.806] [INFO] default - {}
+[2024-06-05T12:35:42.601] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T12:35:42.601] [INFO] default - {}
+[2024-06-05T12:58:36.149] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T12:58:36.150] [INFO] default - {}
+[2024-06-05T13:30:40.311] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T13:30:40.311] [INFO] default - {}
+[2024-06-05T13:31:18.331] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T13:31:18.331] [INFO] default - {}
+[2024-06-05T13:31:55.193] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T13:31:55.194] [INFO] default - {}
+[2024-06-05T13:45:20.517] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T13:45:20.517] [INFO] default - {}
+[2024-06-05T13:46:20.679] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T13:46:20.679] [INFO] default - {}
+[2024-06-05T13:48:32.044] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T13:48:32.045] [INFO] default - {}
+[2024-06-05T13:50:06.781] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T13:50:06.781] [INFO] default - {}
+[2024-06-05T14:09:58.174] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T14:09:58.174] [INFO] default - {}
+[2024-06-05T14:24:02.168] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T14:24:02.169] [INFO] default - {}
+[2024-06-05T14:25:22.952] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T14:25:22.952] [INFO] default - {}
+[2024-06-05T14:37:26.216] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T14:37:26.216] [INFO] default - {}
+[2024-06-05T14:49:35.776] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T14:49:35.777] [INFO] default - {}
+[2024-06-05T14:49:59.531] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T14:49:59.532] [INFO] default - {}
+[2024-06-05T15:00:35.466] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T15:00:35.467] [INFO] default - {}
+[2024-06-05T15:01:33.036] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T15:01:33.036] [INFO] default - {}
+[2024-06-05T15:02:00.146] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T15:02:00.146] [INFO] default - {}
+[2024-06-05T15:20:50.208] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T15:20:50.209] [INFO] default - {}
+[2024-06-05T15:21:35.702] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T15:21:35.702] [INFO] default - {}
+[2024-06-05T15:26:50.437] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T15:26:50.437] [INFO] default - {}
+[2024-06-05T15:30:48.578] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T15:30:48.579] [INFO] default - {}
+[2024-06-05T15:32:22.089] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T15:32:22.089] [INFO] default - {}
+[2024-06-05T15:33:01.342] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T15:33:01.342] [INFO] default - {}
+[2024-06-05T15:33:39.039] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T15:33:39.040] [INFO] default - {}
+[2024-06-05T15:35:03.594] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T15:35:03.595] [INFO] default - {}
+[2024-06-05T15:35:35.932] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T15:35:35.933] [INFO] default - {}
+[2024-06-05T15:41:06.075] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T15:41:06.075] [INFO] default - {}
+[2024-06-05T15:41:38.286] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T15:41:38.286] [INFO] default - {}
+[2024-06-05T16:25:51.470] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T16:25:51.470] [INFO] default - {}
+[2024-06-05T19:03:46.888] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T19:03:46.889] [INFO] default - {}
+[2024-06-05T19:06:18.085] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T19:06:18.085] [INFO] default - {}
+[2024-06-05T20:14:54.194] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T20:14:54.194] [INFO] default - {}
+[2024-06-05T20:21:12.161] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T20:21:12.161] [INFO] default - {}
+[2024-06-05T20:23:03.002] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T20:23:03.002] [INFO] default - {}
+[2024-06-05T22:35:52.512] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T22:35:52.513] [INFO] default - {}
+[2024-06-05T22:44:54.481] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T22:44:54.482] [INFO] default - {}
+[2024-06-05T22:49:19.507] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T22:49:19.508] [INFO] default - {}
+[2024-06-05T22:51:53.471] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-05T22:51:53.471] [INFO] default - {}
+[2024-06-06T11:05:51.560] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-06T11:05:51.561] [INFO] default - {}
+[2024-06-06T11:05:56.654] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-06T11:05:56.654] [INFO] default - {}
+[2024-06-06T11:06:45.303] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-06T11:06:45.303] [INFO] default - {}
+[2024-06-06T11:08:05.590] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-06T11:08:05.590] [INFO] default - {}
+[2024-06-06T11:12:10.592] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-06T11:12:10.593] [INFO] default - {}
+[2024-06-06T11:12:14.845] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-06T11:12:14.845] [INFO] default - {}
+[2024-06-06T12:04:42.264] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-06T12:04:42.265] [INFO] default - {}
+[2024-06-06T12:04:49.086] [INFO] default - {
+  ticker: 'WMATIC/PYR',
+  protocol: 'ALG',
+  tradeSize: '55963587474017280677335150145773391314944000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 770596629919285629868782n,
+  loanPoolR0: '2094594.090840120490983424 WMATIC',
+  loanPoolR1: '22087746816446398031313291635723915.599603155549028352 PYR',
+  targetLiq: 25010570090705619826402n,
+  targetR0: '68528.392092761626509312 WMATIC',
+  targetR1: '719564572538438334247228315601790.633225231875964928 PYR'
+}
+[2024-06-06T12:04:49.087] [INFO] default - {
+  ticker: 'WMATIC/AAVE',
+  protocol: 'ALG',
+  tradeSize: '7485994379922334172719458644840658249973760000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 1015009681187347790560n,
+  loanPoolR0: '11103.701637014241673216 WMATIC',
+  loanPoolR1: '7347636030204889110908787268189.995796388290494464 AAVE',
+  targetLiq: 13236332191614964320033n,
+  targetR0: '143717.022588162040397824 WMATIC',
+  targetR1: '96020516736383851193037264638424.87475020868091904 AAVE'
+}
+[2024-06-06T12:04:49.087] [INFO] default - {
+  ticker: 'WMATIC/CRV',
+  protocol: 'ALG',
+  tradeSize: '14293072693268920244134684579072666419331072000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 87588779435596262398n,
+  loanPoolR0: '70.856981496292794368 WMATIC',
+  loanPoolR1: '8573923324044067351380902348147.746315107517333504 CRV',
+  targetLiq: 1862429724110636611980957n,
+  targetR0: '1500641.581735657678569472 WMATIC',
+  targetR1: '182571864565597177443812829147162714.4282489579634688 CRV'
+}
+[2024-06-06T12:04:49.088] [INFO] default - {
+  ticker: 'WMATIC/ELON',
+  protocol: 'ALG',
+  tradeSize: '1012889925632481896913598389252710308249600000000000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 4533385401701542298459278n,
+  loanPoolR0: '2315.448125177101549568 WMATIC',
+  loanPoolR1: '695125484412505013653940946626237478214.122627185485283328 ELON',
+  targetLiq: 84686419198469981598681377n,
+  targetR0: '43340.581036280306991104 WMATIC',
+  targetR1: '13035826803828036270160026103855988146771.29309495037526016 ELON'
+}
+[2024-06-06T12:04:49.088] [INFO] default - {
+  ticker: 'xDG/DG',
+  protocol: 'ALG',
+  tradeSize: '411440804889587933223078136146897303458807808000000000000000000000000000000000000000.0 xDG',
+  loanPoolLiq: 204510102490975325454n,
+  loanPoolR0: '196.491539629778665472 xDG',
+  loanPoolR1: '16695921094745786221765509006393.448271548491235328 DG',
+  targetLiq: 66942233718638695923519283n,
+  targetR0: '62105454.172242515893157888 xDG',
+  targetR1: '5684945960300501617355765844674589279.85250588254273536 DG'
+}
+[2024-06-06T12:04:49.088] [INFO] default - {
+  ticker: 'DAI/GNS',
+  protocol: 'ALG',
+  tradeSize: '106825074402676959052441205817197345321779200000000000000000000000000000000000000.0 DAI',
+  loanPoolLiq: 36208306362191077350822n,
+  loanPoolR0: '78198.467689499735359488 DAI',
+  loanPoolR1: '1305916770562706514173727660258044.7193242567442432 GNS',
+  targetLiq: 37760406938480381012806n,
+  targetR0: '82617.537038077692739584 DAI',
+  targetR1: '1361995203115107153484068543540580.054478971650179072 GNS'
+}
+[2024-06-06T12:04:49.088] [INFO] default - {
+  ticker: 'WMATIC/miMATIC',
+  protocol: 'ALG',
+  tradeSize: '55834558604827851130437756095430333038592000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 127036458518463684167n,
+  loanPoolR0: '117.85768885279547392 WMATIC',
+  loanPoolR1: '10795859137507542059076626867101.519998067138363392 miMATIC',
+  targetLiq: 8383579713240424532080n,
+  targetR0: '7777.840635978455187456 WMATIC',
+  targetR1: '713473868646726590300854719922312.272593001839067136 miMATIC'
+}
+[2024-06-06T12:04:49.088] [INFO] default - {
+  ticker: 'WMATIC/GHST',
+  protocol: 'ALG',
+  tradeSize: '843903240877615292062810254638483487955353600000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 150872177996455263289n,
+  loanPoolR0: '157.816146406340132864 WMATIC',
+  loanPoolR1: '11360081666405389813661848040941.522872614271320064 GHST',
+  targetLiq: 143589349104609413153233n,
+  targetR0: '149748.224937972975271936 WMATIC',
+  targetR1: '10861054624348139803081525805601656.822521336145379328 GHST'
+}
+[2024-06-06T12:04:49.089] [INFO] default - {
+  ticker: 'USDC/GHST',
+  protocol: 'ALG',
+  tradeSize: '7507079371654657938860377612728000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 5598083925651n,
+  loanPoolR0: '5.755319 USDC',
+  loanPoolR1: '431195663899109103189679538192.831315442420154368 GHST',
+  targetLiq: 1248751584309207336n,
+  targetR0: '1272959.725591 USDC',
+  targetR1: '96539765139707291747836122371205998.352486867662798848 GHST'
+}
+[2024-06-06T12:04:49.089] [INFO] default - {
+  ticker: 'WBTC/DAI',
+  protocol: 'ALG',
+  tradeSize: '17737335614661129368069000000000000000000000000000000000000000000000000000000.0 WBTC',
+  loanPoolLiq: 1199627956606023n,
+  loanPoolR0: '0.47187539 WBTC',
+  loanPoolR1: '2404679445438678980121499776633391.268299457414823936 DAI',
+  targetLiq: 115973811475n,
+  targetR0: '0.00004441 WBTC',
+  targetR1: '239215431772101853040494628515.841853060552851456 DAI'
+}
+[2024-06-06T12:04:49.089] [INFO] default - {
+  ticker: 'WMATIC/ICE',
+  protocol: 'ALG',
+  tradeSize: '1877667006786476336719612254300119500800000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 1789498693374772057n,
+  loanPoolR0: '0.095472413346437552 WMATIC',
+  loanPoolR1: '2646745878138321435775295084163.273644545878786048 ICE',
+  targetLiq: 17186218230744672560n,
+  targetR0: '0.863516163495378816 WMATIC',
+  targetR1: '26962394607514298102489703637576.616268496227008512 ICE'
+}
+[2024-06-06T12:04:49.089] [INFO] default - {
+  ticker: 'KLIMA/MCO2',
+  protocol: 'ALG',
+  tradeSize: '15240777448820198021007333940000000000000000000000000000000000000000000000000.0 KLIMA',
+  loanPoolLiq: 55936282576n,
+  loanPoolR0: '0.00184501 KLIMA',
+  loanPoolR1: '132789831069978270212168334.744697786653999104 MCO2',
+  targetLiq: 89443619992751n,
+  targetR0: '2.720685245 KLIMA',
+  targetR1: '232192774557995386640917342049.07150555905785856 MCO2'
+}
+[2024-06-06T12:04:49.089] [INFO] default - {
+  ticker: 'WMATIC/mSHEESHA',
+  protocol: 'ALG',
+  tradeSize: '397496255307405117840548339202521856000000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 240863064246894886567n,
+  loanPoolR0: '10.138975558245812224 WMATIC',
+  loanPoolR1: '451167825213632112431597779393777.942907166490886144 mSHEESHA',
+  targetLiq: 2765073559953659027n,
+  targetR0: '0.113975322644960128 WMATIC',
+  targetR1: '5285261290558573445975152205284.698472168600633344 mSHEESHA'
+}
+[2024-06-06T12:04:49.089] [INFO] default - {
+  ticker: 'WMATIC/MKR',
+  protocol: 'ALG',
+  tradeSize: '59179345043820806634036265526068635238400000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 71767765012539401353n,
+  loanPoolR0: '3960.933003155492831232 WMATIC',
+  loanPoolR1: '102717310497510926542757257360.492668931127902208 MKR',
+  targetLiq: 532964807179425758n,
+  targetR0: '29.063996617167990784 WMATIC',
+  targetR1: '770527445996150725762107003.130358000793944064 MKR'
+}
+[2024-06-06T12:04:49.089] [INFO] default - {
+  ticker: 'WMATIC/CIOTX',
+  protocol: 'ALG',
+  tradeSize: '32908367131922534223940453152404083200000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 7509097632806714723n,
+  loanPoolR0: '1.912064787209136384 WMATIC',
+  loanPoolR1: '2328462831233365118829166642559.778733371003240448 CIOTX',
+  targetLiq: 1435814534997736141n,
+  targetR0: '0.34431570465990592 WMATIC',
+  targetR1: '471736438621683884843707098662.676278228836941824 CIOTX'
+}
+[2024-06-06T12:04:49.089] [INFO] default - {
+  ticker: 'WETH/SAND',
+  protocol: 'ALG',
+  tradeSize: '47630402996088186627850971364625280000000000000000000000000000000000000000000.0 WETH',
+  loanPoolLiq: 1312162730808401419324n,
+  loanPoolR0: '17.281705907622680576 WETH',
+  loanPoolR1: '7755917317876122300521543445254052.668817366400892928 SAND',
+  targetLiq: 103722009999887681n,
+  targetR0: '0.001371535102298192 WETH',
+  targetR1: '619006304687441133921811090930.833276984681824256 SAND'
+}
+[2024-06-06T12:04:49.090] [INFO] default - {
+  ticker: 'WMATIC/stMATIC',
+  protocol: 'ALG',
+  tradeSize: '34993358059976362182312470347617434558739251200000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 4864156287937361681905212n,
+  loanPoolR0: '5116091.40923503552233472 WMATIC',
+  loanPoolR1: '366067987767136708561662780030540641.311778002622742528 stMATIC',
+  targetLiq: 5924417833161398655036439n,
+  targetR0: '6215710.423705413989957632 WMATIC',
+  targetR1: '445870970998667216377437402254803028.592326348931858432 stMATIC'
+}
+[2024-06-06T12:04:49.090] [INFO] default - {
+  ticker: 'WBTC/miMATIC',
+  protocol: 'ALG',
+  tradeSize: '568300683402776406223821456000000000000000000000000000000000000000000000000000000.0 WBTC',
+  loanPoolLiq: 684228779n,
+  loanPoolR0: '0.00000026 WBTC',
+  loanPoolR1: '1460930118747548019096260590.078326311491731456 miMATIC',
+  targetLiq: 3488505239647721n,
+  targetR0: '1.25410986 WBTC',
+  targetR1: '7663677151415303443003162494275798.169669873354932224 miMATIC'
+}
+[2024-06-06T12:04:49.090] [INFO] default - {
+  ticker: 'ELONINDEX/ELON',
+  protocol: 'ALG',
+  tradeSize: '770610707061323765833965894111717675690360832000000000000000000000000000000000000000.0 ELONINDEX',
+  loanPoolLiq: 127493977773910198243685578n,
+  loanPoolR0: '157284871.766550450429493248 ELONINDEX',
+  loanPoolR1: '8039094828743767204791695371896070088.957363543812866048 ELON',
+  targetLiq: 156172707323276434477239062n,
+  targetR0: '194990608.103935406126399488 ELONINDEX',
+  targetR1: '9856082589713113983891757828052225582.959276583821508608 ELON'
+}
+[2024-06-06T12:04:49.090] [INFO] default - {
+  ticker: 'USDC/DAI',
+  protocol: 'ALG',
+  tradeSize: '1584279768871020914413055703645550000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 985733051422164820781n,
+  loanPoolR0: '985783639.964197 USDC',
+  loanPoolR1: '78091385061723567777053380458934703405.449306219881693184 DAI',
+  targetLiq: 255177167780888379788n,
+  targetR0: '253955648.971555 USDC',
+  targetR1: '20215560164907024699698932641179551498.507803074679013376 DAI'
+}
+[2024-06-06T12:04:49.090] [INFO] default - {
+  ticker: 'USDC/agEUR',
+  protocol: 'ALG',
+  tradeSize: '2204643040265271585138600000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 4660708792627567119n,
+  loanPoolR0: '4852853.294186 USDC',
+  loanPoolR1: '354627035128681366291292688135020502.407070342954614784 agEUR',
+  targetLiq: 370219124059n,
+  targetR0: '0.3831 USDC',
+  targetR1: '28219604862552510675277633748.96774504192671744 agEUR'
+}
+[2024-06-06T12:04:49.090] [INFO] default - {
+  ticker: 'WMATIC/WETH',
+  protocol: 'ALG',
+  tradeSize: '84370408726019312772170422688351969050676428800000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 93274656229192679001n,
+  loanPoolR0: '5477.175334336632717312 WMATIC',
+  loanPoolR1: '125847979603459667988516919148.487099415342874624 WETH',
+  targetLiq: 798025859684267356546744n,
+  targetR0: '46627119.581351397214388224 WMATIC',
+  targetR1: '1077301653054736167174279135946064.353814557845618688 WETH'
+}
+[2024-06-06T12:04:49.090] [INFO] default - {
+  ticker: 'USDC/miMATIC',
+  protocol: 'ALG',
+  tradeSize: '108894045505580459956477842000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 24959616725n,
+  loanPoolR0: '0.022628 USDC',
+  loanPoolR1: '2181254470215674791838277498.901101293309263872 miMATIC',
+  targetLiq: 16008972212256n,
+  targetR0: '14.344351 USDC',
+  targetR1: '1408338862300537169365058708952.050382518928539648 miMATIC'
+}
+[2024-06-06T12:04:49.090] [INFO] default - {
+  ticker: 'USDC/WETH',
+  protocol: 'ALG',
+  tradeSize: '362621666712946361165689581314115600000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 1224812296196n,
+  loanPoolR0: '70.646332 USDC',
+  loanPoolR1: '1682372436042865605737222363.35233654069395456 WETH',
+  targetLiq: 3385644656975519367n,
+  targetR0: '193358003.070719 USDC',
+  targetR1: '4669338217848767292443350071223490.846565555089965056 WETH'
+}
+[2024-06-06T12:04:49.090] [INFO] default - {
+  ticker: 'WETH/USDT',
+  protocol: 'ALG',
+  tradeSize: '158427826250271380272050112066444538675200000000000000000000000000000000.0 WETH',
+  loanPoolLiq: 377849036311n,
+  loanPoolR0: '0.006590939188607224 WETH',
+  loanPoolR1: '1716164973030328199808748406301.523968 USDT',
+  targetLiq: 445238675305427037n,
+  targetR0: '7726.1591395588112384 WETH',
+  targetR1: '2026499184448992278720584694571700844.494848 USDT'
+}
+[2024-06-06T12:04:49.090] [INFO] default - {
+  ticker: 'WMATIC/WBTC',
+  protocol: 'ALG',
+  tradeSize: '936841674591880454472875073020702339629056000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 539490645921n,
+  loanPoolR0: '14.162610960302139392 WMATIC',
+  loanPoolR1: '16281383118204112885080823.44165376 WBTC',
+  targetLiq: 4021930297637026n,
+  targetR0: '103482.059533037546242048 WMATIC',
+  targetR1: '123406264674534183202333932286.17875456 WBTC'
+}
+[2024-06-06T12:04:49.091] [INFO] default - {
+  ticker: 'DAI/USDT',
+  protocol: 'ALG',
+  tradeSize: '73814255925787721954397212151265969339105280000000000000000000000000000.0 DAI',
+  loanPoolLiq: 358314969230293671705n,
+  loanPoolR0: '358224932.61860070645301248 DAI',
+  loanPoolR1: '28394986592404504677628629650688159822.905344 USDT',
+  targetLiq: 11874762972327105701n,
+  targetR0: '11824980.408228127638028288 DAI',
+  targetR1: '941210857476675727411692757302507110.137856 USDT'
+}
+[2024-06-06T12:04:49.091] [INFO] default - {
+  ticker: 'WMATIC/LDO',
+  protocol: 'ALG',
+  tradeSize: '822834241093685769413823058235982807564288000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 8452815831437486131810n,
+  loanPoolR0: '13124.459436183698538496 WMATIC',
+  loanPoolR1: '422951101342862515600687527314565.406840362532601856 LDO',
+  targetLiq: 210826752360107773862073n,
+  targetR0: '330634.725884559888482304 WMATIC',
+  targetR1: '10591540948512896191630782853974693.071710222259585024 LDO'
+}
+[2024-06-06T12:04:49.091] [INFO] default - {
+  ticker: 'ALGB/WMATIC',
+  protocol: 'ALG',
+  tradeSize: '6122831896865681351392667889462659949317324800000000000000000000000000000000000000.0 ALGB',
+  loanPoolLiq: 24260108552227850508991n,
+  loanPoolR0: '139455.552981267828965376 ALGB',
+  loanPoolR1: '332899658152076603723773440995475.139416296848883712 WMATIC',
+  targetLiq: 5708006759973155214387679n,
+  targetR0: '32713328.352324458125459456 ALGB',
+  targetR1: '78474548278201749125672257896693782.616749747203997696 WMATIC'
+}
+[2024-06-06T12:04:49.091] [INFO] default - {
+  ticker: 'WMATIC/SFL',
+  protocol: 'ALG',
+  tradeSize: '3319458072420701102552859821437083451392000000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 2839774380456547394744n,
+  loanPoolR0: '640.055172412151824384 WMATIC',
+  loanPoolR1: '987590661958616978409852799034443.094172637901881344 SFL',
+  targetLiq: 121896037572232972035145n,
+  targetR0: '27611.78779177678012416 WMATIC',
+  targetR1: '42417279987300997486232156016018676.89359194145685504 SFL'
+}
+[2024-06-06T12:04:49.091] [INFO] default - {
+  ticker: 'QUICK/dQUICK',
+  protocol: 'ALG',
+  tradeSize: '301967270688539666261747988390407307264000000000000000000000000000000000000.0 QUICK',
+  loanPoolLiq: 387105244333334722n,
+  loanPoolR0: '15.970692736605648896 QUICK',
+  loanPoolR1: '740184343174779205185035224.588112501294497792 dQUICK',
+  targetLiq: 2026108729731869572n,
+  targetR0: '83.090583815711490048 QUICK',
+  targetR1: '3900967204149667798987882153.211238699105255424 dQUICK'
+}
+[2024-06-06T12:04:49.091] [INFO] default - {
+  ticker: 'USDC/SFL',
+  protocol: 'ALG',
+  tradeSize: '1722387172889182163132962368000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 16056125370n,
+  loanPoolR0: '0.006885 USDC',
+  loanPoolR1: '2964588334695653322871113547.90700598903701504 SFL',
+  targetLiq: 228870695417451n,
+  targetR0: '50.827308 USDC',
+  targetR1: '81323294642994825685932248780996.690196496774070272 SFL'
+}
+[2024-06-06T12:04:49.091] [INFO] default - {
+  ticker: 'JPYC/JPYC',
+  protocol: 'ALG',
+  tradeSize: '23641845922933910537273026983879073857536000000000000000000000000000000000000000.0 JPYC',
+  loanPoolLiq: 992368766295653086n,
+  loanPoolR0: '1.51864459899541632 JPYC',
+  loanPoolR1: '51353033249449426585756149585.524226209603387392 JPYC',
+  targetLiq: 7925047509021594484783n,
+  targetR0: '8881.963211584021987328 JPYC',
+  targetR1: '557081639592994757482406025785078.367480941668990976 JPYC'
+}
+[2024-06-06T12:04:49.091] [INFO] default - {
+  ticker: 'USDC/JPYC',
+  protocol: 'ALG',
+  tradeSize: '10992361736098199423440115188400000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 6589066706744391094n,
+  loanPoolR0: '528474.457163 USDC',
+  loanPoolR1: '6503501999089029690444182482357497062.35126953711501312 JPYC',
+  targetLiq: 142171324738617879n,
+  targetR0: '11351.620921 USDC',
+  targetR1: '140566780931206829709467017760700876.798333249558413312 JPYC'
+}
+[2024-06-06T12:04:49.091] [INFO] default - {
+  ticker: 'WMATIC/MESH',
+  protocol: 'ALG',
+  tradeSize: '151549133830997061784308907619171793920000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 487992611218341877n,
+  loanPoolR0: '0.07673767280329016 WMATIC',
+  loanPoolR1: '243049064693777242527180728599.363189997752549376 MESH',
+  targetLiq: 4518349612120859165n,
+  targetR0: '0.614618542603539328 WMATIC',
+  targetR1: '2621446093499187832215137460926.029829735358398464 MESH'
+}
+[2024-06-06T12:04:49.092] [INFO] default - {
+  ticker: 'WETH/miMATIC',
+  protocol: 'ALG',
+  tradeSize: '754141555791867179386917873281419264000000000000000000000000000000000000000000000.0 WETH',
+  loanPoolLiq: 1305054768509172n,
+  loanPoolR0: '0.000021850084164373 WETH',
+  loanPoolR1: '6066255828272587354679535840.236737493154660352 miMATIC',
+  targetLiq: 2224744991576226125459n,
+  targetR0: '35.114179163637248 WETH',
+  targetR1: '11121302152203195919569913486642152.772885785914376192 miMATIC'
+}
+[2024-06-06T12:04:49.092] [INFO] default - {
+  ticker: 'WMATIC/LINK',
+  protocol: 'ALG',
+  tradeSize: '58001616257040006640403790404733781913108480000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 19606586085087968115682n,
+  loanPoolR0: '82747.478239167356338176 WMATIC',
+  loanPoolR1: '362307408621531823254075926521682.848658102075523072 LINK',
+  targetLiq: 40127490542541339949817n,
+  targetR0: '170884.724585907309510656 WMATIC',
+  targetR1: '743843752439983824242125802706329.401011328618856448 LINK'
+}
+[2024-06-06T12:04:49.092] [INFO] default - {
+  ticker: 'DAI/miMATIC',
+  protocol: 'ALG',
+  tradeSize: '7203277829982976596209031859137967872000000000000000000000000000000000000000.0 DAI',
+  loanPoolLiq: 36130058164234896n,
+  loanPoolR0: '0.033531285121933344 DAI',
+  loanPoolR1: '3084232123436803843245828885.374394122285088768 miMATIC',
+  targetLiq: 1091375896441844687n,
+  targetR0: '0.994459247134182784 DAI',
+  targetR1: '94429756718186242203400045576.95505649822072832 miMATIC'
+}
+[2024-06-06T12:04:49.092] [INFO] default - {
+  ticker: 'USDC/PAXG',
+  protocol: 'ALG',
+  tradeSize: '1147229486673456650744397600000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 31531247n,
+  loanPoolR0: '0.004134 USDC',
+  loanPoolR1: '18734077011312500334052.726452888396627968 PAXG',
+  targetLiq: 69365119197n,
+  targetR0: '3.269502 USDC',
+  targetR1: '116237211868418680000291286.538484179804356608 PAXG'
+}
+[2024-06-06T12:04:49.092] [INFO] default - {
+  ticker: 'WMATIC/LIRA',
+  protocol: 'ALG',
+  tradeSize: '26498471788246786399995999476142837760000000000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 759141755906252875786n,
+  loanPoolR0: '0.913496855179632 WMATIC',
+  loanPoolR1: '49725505087018400675008695393724874.095094797468434432 LIRA',
+  targetLiq: 5384892989988159990751n,
+  targetR0: '6.21329247699624448 WMATIC',
+  targetR1: '368597180156145321570537397190978426.038982194476613632 LIRA'
+}
+[2024-06-06T12:04:49.092] [INFO] default - {
+  ticker: 'WMATIC/HRBF',
+  protocol: 'ALG',
+  tradeSize: '152460825945459924622788767918825312256000000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 24663883968352057346394n,
+  loanPoolR0: '773.765111116007735296 WMATIC',
+  loanPoolR1: '61949911090886782646118132960197557.019131775494914048 HRBF',
+  targetLiq: 1003016657083590161911n,
+  targetR0: '24.311594651170394112 WMATIC',
+  targetR1: '3268740113011221136047618375074073.036223214136590336 HRBF'
+}
+[2024-06-06T12:04:49.092] [INFO] default - {
+  ticker: 'USDC/DERC',
+  protocol: 'ALG',
+  tradeSize: '106368076735426021652630818352000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 15286135499n,
+  loanPoolR0: '0.009424 USDC',
+  loanPoolR1: '1928050756834311013684471110.950078478951645184 DERC',
+  targetLiq: 12843117604014417n,
+  targetR0: '6726.411101 USDC',
+  targetR1: '1932902442436453396681357517070918.745268673507753984 DERC'
+}
+[2024-06-06T12:04:49.092] [INFO] default - {
+  ticker: 'USDC/agEUR',
+  protocol: 'ALG',
+  tradeSize: '2206533357069219469447800000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 3517174861004n,
+  loanPoolR0: '3.639542 USDC',
+  loanPoolR1: '267731789506944180273399885508.641665566560485376 agEUR',
+  targetLiq: 370219124059n,
+  targetR0: '0.3831 USDC',
+  targetR1: '28219604862552510675277633748.96774504192671744 agEUR'
+}
+[2024-06-06T12:04:49.092] [INFO] default - {
+  ticker: 'NOW/WETH',
+  protocol: 'ALG',
+  tradeSize: '37663711486642140081591348989484609804068454400000000000000000000000000000.0 NOW',
+  loanPoolLiq: 127043414817403168550n,
+  loanPoolR0: '24444615.325707288658837504 NOW',
+  loanPoolR1: '52141345480433140616561291.047807913753051136 WETH',
+  targetLiq: 1176118734375814461988n,
+  targetR0: '224945122.068699730854019072 NOW',
+  targetR1: '484584282898752002119307707.6214811453292544 WETH'
+}
+[2024-06-06T12:04:49.093] [INFO] default - {
+  ticker: 'WMATIC/miMATIC',
+  protocol: 'ALG',
+  tradeSize: '53169331297962269726474588271712841760768000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 92805156621535064n,
+  loanPoolR0: '0.08858871950386656 WMATIC',
+  loanPoolR1: '7696264675789656034579652931.9309409788100608 miMATIC',
+  targetLiq: 8383579713240424532080n,
+  targetR0: '7777.840635978455187456 WMATIC',
+  targetR1: '713473868646726590300854719922312.272593001839067136 miMATIC'
+}
+[2024-06-06T12:04:49.093] [INFO] default - {
+  ticker: 'WMATIC/LDO',
+  protocol: 'ALG',
+  tradeSize: '828492239667206974657445918159604553875456000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 1996861474138918371906473n,
+  loanPoolR0: '3141040.25531393347944448 WMATIC',
+  loanPoolR1: '100259315676839380096927617055427429.031439227875753984 LDO',
+  targetLiq: 210826752360107773862073n,
+  targetR0: '330634.725884559888482304 WMATIC',
+  targetR1: '10591540948512896191630782853974693.071710222259585024 LDO'
+}
+[2024-06-06T12:04:49.093] [INFO] default - {
+  ticker: 'WMATIC/KOM',
+  protocol: 'ALG',
+  tradeSize: '201106496692737101137341412348677120000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 19495537675190n,
+  loanPoolR0: '0.094585669229226336 WMATIC',
+  loanPoolR1: '3180767861505967009712326484660.12307456 KOM',
+  targetLiq: 159584285677095n,
+  targetR0: '0.76005706709411328 WMATIC',
+  targetR1: '26456896661482113479453035915500.57447424 KOM'
+}
+[2024-06-06T12:04:49.093] [INFO] default - {
+  ticker: 'WOMBAT/WMATIC',
+  protocol: 'ALG',
+  tradeSize: '383684475626495433848092096315365487804416000000000000000000000000000000000000.0 WOMBAT',
+  loanPoolLiq: 2455234084011648874781844n,
+  loanPoolR0: '40816302.226187433627615232 WOMBAT',
+  loanPoolR1: '11661472431523596610682424044914762.460632083498795008 WMATIC',
+  targetLiq: 1029262427458977213197n,
+  targetR0: '17110.664348787045040128 WOMBAT',
+  targetR1: '4889008677911442922147579161639.553085501507371008 WMATIC'
+}
+[2024-06-06T12:04:49.093] [INFO] default - {
+  ticker: 'WMATIC/UNI',
+  protocol: 'ALG',
+  tradeSize: '1714546893223421138802396189424179216384000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 105375575386921772340n,
+  loanPoolR0: '358.15637967484223488 WMATIC',
+  loanPoolR1: '2455169825668663882179038538629.514154371434151936 UNI',
+  targetLiq: 957089392937402636633n,
+  targetR0: '3177.458049569827848192 WMATIC',
+  targetR1: '22772086818720996289202398975974.138661630268932096 UNI'
+}
+[2024-06-06T12:04:49.094] [INFO] default - {
+  ticker: 'WBTC/ELONINDEX',
+  protocol: 'ALG',
+  tradeSize: '6153885891454898466289000000000000000000000000000000000000000000000000000000000000.0 WBTC',
+  loanPoolLiq: 1482848196318n,
+  loanPoolR0: '0.00000056 WBTC',
+  loanPoolR1: '3108298537203150108139909463152844.778730094931738624 ELONINDEX',
+  targetLiq: 89482347001218n,
+  targetR0: '0.00001409 WBTC',
+  targetR1: '448342261159335950321004249887869492.663759106908094464 ELONINDEX'
+}
+[2024-06-06T12:04:49.094] [INFO] default - {
+  ticker: 'pBREW/GTF',
+  protocol: 'ALG',
+  tradeSize: '2745421508941465929506250979798614540288000000000000000000000000000000.0 pBREW',
+  loanPoolLiq: 56139230457502133n,
+  loanPoolR0: '3791.52492245023981568 pBREW',
+  loanPoolR1: '655911237142438117977900922626388.43068416 GTF',
+  targetLiq: 42300164889934325n,
+  targetR0: '2023.323916155679145984 pBREW',
+  targetR1: '697663414192677359568208894067775.91857152 GTF'
+}
+[2024-06-06T12:06:06.022] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-06T12:06:06.023] [INFO] default - {}
+[2024-06-06T12:06:12.821] [INFO] default - {
+  ticker: 'WMATIC/PYR',
+  protocol: 'ALG',
+  tradeSize: '55963587474017280677335150145773391314944000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 770596629919285629868782n,
+  loanPoolR0: '2094594.090840120490983424 WMATIC',
+  loanPoolR1: '22087746816446398031313291635723915.599603155549028352 PYR',
+  targetLiq: 25010570090705619826402n,
+  targetR0: '68528.392092761626509312 WMATIC',
+  targetR1: '719564572538438334247228315601790.633225231875964928 PYR'
+}
+[2024-06-06T12:06:12.822] [INFO] default - {
+  ticker: 'WMATIC/AAVE',
+  protocol: 'ALG',
+  tradeSize: '7485994379922334172719458644840658249973760000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 1015009681187347790560n,
+  loanPoolR0: '11103.701637014241673216 WMATIC',
+  loanPoolR1: '7347636030204889110908787268189.995796388290494464 AAVE',
+  targetLiq: 13236332191614964320033n,
+  targetR0: '143717.022588162040397824 WMATIC',
+  targetR1: '96020516736383851193037264638424.87475020868091904 AAVE'
+}
+[2024-06-06T12:06:12.822] [INFO] default - {
+  ticker: 'WMATIC/CRV',
+  protocol: 'ALG',
+  tradeSize: '14293072693268920244134684579072666419331072000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 87588779435596262398n,
+  loanPoolR0: '70.856981496292794368 WMATIC',
+  loanPoolR1: '8573923324044067351380902348147.746315107517333504 CRV',
+  targetLiq: 1862429724110636611980957n,
+  targetR0: '1500641.581735657678569472 WMATIC',
+  targetR1: '182571864565597177443812829147162714.4282489579634688 CRV'
+}
+[2024-06-06T12:06:12.823] [INFO] default - {
+  ticker: 'WMATIC/ELON',
+  protocol: 'ALG',
+  tradeSize: '1012889925632481896913598389252710308249600000000000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 4533385401701542298459278n,
+  loanPoolR0: '2315.448125177101549568 WMATIC',
+  loanPoolR1: '695125484412505013653940946626237478214.122627185485283328 ELON',
+  targetLiq: 84686419198469981598681377n,
+  targetR0: '43340.581036280306991104 WMATIC',
+  targetR1: '13035826803828036270160026103855988146771.29309495037526016 ELON'
+}
+[2024-06-06T12:06:12.823] [INFO] default - {
+  ticker: 'xDG/DG',
+  protocol: 'ALG',
+  tradeSize: '411440804889587933223078136146897303458807808000000000000000000000000000000000000000.0 xDG',
+  loanPoolLiq: 204510102490975325454n,
+  loanPoolR0: '196.491539629778665472 xDG',
+  loanPoolR1: '16695921094745786221765509006393.448271548491235328 DG',
+  targetLiq: 66942233718638695923519283n,
+  targetR0: '62105454.172242515893157888 xDG',
+  targetR1: '5684945960300501617355765844674589279.85250588254273536 DG'
+}
+[2024-06-06T12:06:12.823] [INFO] default - {
+  ticker: 'DAI/GNS',
+  protocol: 'ALG',
+  tradeSize: '106825074402676959052441205817197345321779200000000000000000000000000000000000000.0 DAI',
+  loanPoolLiq: 36208306362191077350822n,
+  loanPoolR0: '78198.467689499735359488 DAI',
+  loanPoolR1: '1305916770562706514173727660258044.7193242567442432 GNS',
+  targetLiq: 37760406938480381012806n,
+  targetR0: '82617.537038077692739584 DAI',
+  targetR1: '1361995203115107153484068543540580.054478971650179072 GNS'
+}
+[2024-06-06T12:06:12.823] [INFO] default - {
+  ticker: 'WMATIC/miMATIC',
+  protocol: 'ALG',
+  tradeSize: '55834558604827851130437756095430333038592000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 127036458518463684167n,
+  loanPoolR0: '117.85768885279547392 WMATIC',
+  loanPoolR1: '10795859137507542059076626867101.519998067138363392 miMATIC',
+  targetLiq: 8383579713240424532080n,
+  targetR0: '7777.840635978455187456 WMATIC',
+  targetR1: '713473868646726590300854719922312.272593001839067136 miMATIC'
+}
+[2024-06-06T12:06:12.823] [INFO] default - {
+  ticker: 'WMATIC/GHST',
+  protocol: 'ALG',
+  tradeSize: '843903240877615292062810254638483487955353600000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 150872177996455263289n,
+  loanPoolR0: '157.816146406340132864 WMATIC',
+  loanPoolR1: '11360081666405389813661848040941.522872614271320064 GHST',
+  targetLiq: 143589349104609413153233n,
+  targetR0: '149748.224937972975271936 WMATIC',
+  targetR1: '10861054624348139803081525805601656.822521336145379328 GHST'
+}
+[2024-06-06T12:06:12.824] [INFO] default - {
+  ticker: 'USDC/GHST',
+  protocol: 'ALG',
+  tradeSize: '7507079371654657938860377612728000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 5598083925651n,
+  loanPoolR0: '5.755319 USDC',
+  loanPoolR1: '431195663899109103189679538192.831315442420154368 GHST',
+  targetLiq: 1248751584309207336n,
+  targetR0: '1272959.725591 USDC',
+  targetR1: '96539765139707291747836122371205998.352486867662798848 GHST'
+}
+[2024-06-06T12:06:12.824] [INFO] default - {
+  ticker: 'WBTC/DAI',
+  protocol: 'ALG',
+  tradeSize: '17737335614661129368069000000000000000000000000000000000000000000000000000000.0 WBTC',
+  loanPoolLiq: 1199627956606023n,
+  loanPoolR0: '0.47187539 WBTC',
+  loanPoolR1: '2404679445438678980121499776633391.268299457414823936 DAI',
+  targetLiq: 115973811475n,
+  targetR0: '0.00004441 WBTC',
+  targetR1: '239215431772101853040494628515.841853060552851456 DAI'
+}
+[2024-06-06T12:06:12.824] [INFO] default - {
+  ticker: 'WMATIC/ICE',
+  protocol: 'ALG',
+  tradeSize: '1877667006786476336719612254300119500800000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 1789498693374772057n,
+  loanPoolR0: '0.095472413346437552 WMATIC',
+  loanPoolR1: '2646745878138321435775295084163.273644545878786048 ICE',
+  targetLiq: 17186218230744672560n,
+  targetR0: '0.863516163495378816 WMATIC',
+  targetR1: '26962394607514298102489703637576.616268496227008512 ICE'
+}
+[2024-06-06T12:06:12.824] [INFO] default - {
+  ticker: 'KLIMA/MCO2',
+  protocol: 'ALG',
+  tradeSize: '15240777448820198021007333940000000000000000000000000000000000000000000000000.0 KLIMA',
+  loanPoolLiq: 55936282576n,
+  loanPoolR0: '0.00184501 KLIMA',
+  loanPoolR1: '132789831069978270212168334.744697786653999104 MCO2',
+  targetLiq: 89443619992751n,
+  targetR0: '2.720685245 KLIMA',
+  targetR1: '232192774557995386640917342049.07150555905785856 MCO2'
+}
+[2024-06-06T12:06:12.824] [INFO] default - {
+  ticker: 'WMATIC/mSHEESHA',
+  protocol: 'ALG',
+  tradeSize: '397496255307405117840548339202521856000000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 240863064246894886567n,
+  loanPoolR0: '10.138975558245812224 WMATIC',
+  loanPoolR1: '451167825213632112431597779393777.942907166490886144 mSHEESHA',
+  targetLiq: 2765073559953659027n,
+  targetR0: '0.113975322644960128 WMATIC',
+  targetR1: '5285261290558573445975152205284.698472168600633344 mSHEESHA'
+}
+[2024-06-06T12:06:12.824] [INFO] default - {
+  ticker: 'WMATIC/MKR',
+  protocol: 'ALG',
+  tradeSize: '59179345043820806634036265526068635238400000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 71767765012539401353n,
+  loanPoolR0: '3960.933003155492831232 WMATIC',
+  loanPoolR1: '102717310497510926542757257360.492668931127902208 MKR',
+  targetLiq: 532964807179425758n,
+  targetR0: '29.063996617167990784 WMATIC',
+  targetR1: '770527445996150725762107003.130358000793944064 MKR'
+}
+[2024-06-06T12:06:12.824] [INFO] default - {
+  ticker: 'WMATIC/CIOTX',
+  protocol: 'ALG',
+  tradeSize: '32908367131922534223940453152404083200000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 7509097632806714723n,
+  loanPoolR0: '1.912064787209136384 WMATIC',
+  loanPoolR1: '2328462831233365118829166642559.778733371003240448 CIOTX',
+  targetLiq: 1435814534997736141n,
+  targetR0: '0.34431570465990592 WMATIC',
+  targetR1: '471736438621683884843707098662.676278228836941824 CIOTX'
+}
+[2024-06-06T12:06:12.825] [INFO] default - {
+  ticker: 'WETH/SAND',
+  protocol: 'ALG',
+  tradeSize: '47630402996088186627850971364625280000000000000000000000000000000000000000000.0 WETH',
+  loanPoolLiq: 1312162730808401419324n,
+  loanPoolR0: '17.281705907622680576 WETH',
+  loanPoolR1: '7755917317876122300521543445254052.668817366400892928 SAND',
+  targetLiq: 103722009999887681n,
+  targetR0: '0.001371535102298192 WETH',
+  targetR1: '619006304687441133921811090930.833276984681824256 SAND'
+}
+[2024-06-06T12:06:12.825] [INFO] default - {
+  ticker: 'WMATIC/stMATIC',
+  protocol: 'ALG',
+  tradeSize: '34993358059976362182312470347617434558739251200000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 4864156287937361681905212n,
+  loanPoolR0: '5116091.40923503552233472 WMATIC',
+  loanPoolR1: '366067987767136708561662780030540641.311778002622742528 stMATIC',
+  targetLiq: 5924417833161398655036439n,
+  targetR0: '6215710.423705413989957632 WMATIC',
+  targetR1: '445870970998667216377437402254803028.592326348931858432 stMATIC'
+}
+[2024-06-06T12:06:12.825] [INFO] default - {
+  ticker: 'WBTC/miMATIC',
+  protocol: 'ALG',
+  tradeSize: '568300683402776406223821456000000000000000000000000000000000000000000000000000000.0 WBTC',
+  loanPoolLiq: 684228779n,
+  loanPoolR0: '0.00000026 WBTC',
+  loanPoolR1: '1460930118747548019096260590.078326311491731456 miMATIC',
+  targetLiq: 3488505239647721n,
+  targetR0: '1.25410986 WBTC',
+  targetR1: '7663677151415303443003162494275798.169669873354932224 miMATIC'
+}
+[2024-06-06T12:06:12.825] [INFO] default - {
+  ticker: 'ELONINDEX/ELON',
+  protocol: 'ALG',
+  tradeSize: '770610707061323765833965894111717675690360832000000000000000000000000000000000000000.0 ELONINDEX',
+  loanPoolLiq: 127493977773910198243685578n,
+  loanPoolR0: '157284871.766550450429493248 ELONINDEX',
+  loanPoolR1: '8039094828743767204791695371896070088.957363543812866048 ELON',
+  targetLiq: 156172707323276434477239062n,
+  targetR0: '194990608.103935406126399488 ELONINDEX',
+  targetR1: '9856082589713113983891757828052225582.959276583821508608 ELON'
+}
+[2024-06-06T12:06:12.825] [INFO] default - {
+  ticker: 'USDC/DAI',
+  protocol: 'ALG',
+  tradeSize: '1584279768871020914413055703645550000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 985733051422164820781n,
+  loanPoolR0: '985783639.964197 USDC',
+  loanPoolR1: '78091385061723567777053380458934703405.449306219881693184 DAI',
+  targetLiq: 255177167780888379788n,
+  targetR0: '253955648.971555 USDC',
+  targetR1: '20215560164907024699698932641179551498.507803074679013376 DAI'
+}
+[2024-06-06T12:06:12.825] [INFO] default - {
+  ticker: 'USDC/agEUR',
+  protocol: 'ALG',
+  tradeSize: '2204643040265271585138600000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 4660708792627567119n,
+  loanPoolR0: '4852853.294186 USDC',
+  loanPoolR1: '354627035128681366291292688135020502.407070342954614784 agEUR',
+  targetLiq: 370219124059n,
+  targetR0: '0.3831 USDC',
+  targetR1: '28219604862552510675277633748.96774504192671744 agEUR'
+}
+[2024-06-06T12:06:12.825] [INFO] default - {
+  ticker: 'WMATIC/WETH',
+  protocol: 'ALG',
+  tradeSize: '84370408726019312772170422688351969050676428800000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 93274656229192679001n,
+  loanPoolR0: '5477.175334336632717312 WMATIC',
+  loanPoolR1: '125847979603459667988516919148.487099415342874624 WETH',
+  targetLiq: 798025859684267356546744n,
+  targetR0: '46627119.581351397214388224 WMATIC',
+  targetR1: '1077301653054736167174279135946064.353814557845618688 WETH'
+}
+[2024-06-06T12:06:12.825] [INFO] default - {
+  ticker: 'USDC/miMATIC',
+  protocol: 'ALG',
+  tradeSize: '108894045505580459956477842000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 24959616725n,
+  loanPoolR0: '0.022628 USDC',
+  loanPoolR1: '2181254470215674791838277498.901101293309263872 miMATIC',
+  targetLiq: 16008972212256n,
+  targetR0: '14.344351 USDC',
+  targetR1: '1408338862300537169365058708952.050382518928539648 miMATIC'
+}
+[2024-06-06T12:06:12.825] [INFO] default - {
+  ticker: 'USDC/WETH',
+  protocol: 'ALG',
+  tradeSize: '362621666712946361165689581314115600000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 1224812296196n,
+  loanPoolR0: '70.646332 USDC',
+  loanPoolR1: '1682372436042865605737222363.35233654069395456 WETH',
+  targetLiq: 3385644656975519367n,
+  targetR0: '193358003.070719 USDC',
+  targetR1: '4669338217848767292443350071223490.846565555089965056 WETH'
+}
+[2024-06-06T12:06:12.825] [INFO] default - {
+  ticker: 'WETH/USDT',
+  protocol: 'ALG',
+  tradeSize: '158427826250271380272050112066444538675200000000000000000000000000000000.0 WETH',
+  loanPoolLiq: 377849036311n,
+  loanPoolR0: '0.006590939188607224 WETH',
+  loanPoolR1: '1716164973030328199808748406301.523968 USDT',
+  targetLiq: 445238675305427037n,
+  targetR0: '7726.1591395588112384 WETH',
+  targetR1: '2026499184448992278720584694571700844.494848 USDT'
+}
+[2024-06-06T12:06:12.826] [INFO] default - {
+  ticker: 'WMATIC/WBTC',
+  protocol: 'ALG',
+  tradeSize: '936841674591880454472875073020702339629056000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 539490645921n,
+  loanPoolR0: '14.162610960302139392 WMATIC',
+  loanPoolR1: '16281383118204112885080823.44165376 WBTC',
+  targetLiq: 4021930297637026n,
+  targetR0: '103482.059533037546242048 WMATIC',
+  targetR1: '123406264674534183202333932286.17875456 WBTC'
+}
+[2024-06-06T12:06:12.826] [INFO] default - {
+  ticker: 'DAI/USDT',
+  protocol: 'ALG',
+  tradeSize: '73814255925787721954397212151265969339105280000000000000000000000000000.0 DAI',
+  loanPoolLiq: 358314969230293671705n,
+  loanPoolR0: '358224932.61860070645301248 DAI',
+  loanPoolR1: '28394986592404504677628629650688159822.905344 USDT',
+  targetLiq: 11874762972327105701n,
+  targetR0: '11824980.408228127638028288 DAI',
+  targetR1: '941210857476675727411692757302507110.137856 USDT'
+}
+[2024-06-06T12:06:12.826] [INFO] default - {
+  ticker: 'WMATIC/LDO',
+  protocol: 'ALG',
+  tradeSize: '822834241093685769413823058235982807564288000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 8452815831437486131810n,
+  loanPoolR0: '13124.459436183698538496 WMATIC',
+  loanPoolR1: '422951101342862515600687527314565.406840362532601856 LDO',
+  targetLiq: 210826752360107773862073n,
+  targetR0: '330634.725884559888482304 WMATIC',
+  targetR1: '10591540948512896191630782853974693.071710222259585024 LDO'
+}
+[2024-06-06T12:06:12.826] [INFO] default - {
+  ticker: 'ALGB/WMATIC',
+  protocol: 'ALG',
+  tradeSize: '6122831896865681351392667889462659949317324800000000000000000000000000000000000000.0 ALGB',
+  loanPoolLiq: 24260108552227850508991n,
+  loanPoolR0: '139455.552981267828965376 ALGB',
+  loanPoolR1: '332899658152076603723773440995475.139416296848883712 WMATIC',
+  targetLiq: 5708006759973155214387679n,
+  targetR0: '32713328.352324458125459456 ALGB',
+  targetR1: '78474548278201749125672257896693782.616749747203997696 WMATIC'
+}
+[2024-06-06T12:06:12.826] [INFO] default - {
+  ticker: 'WMATIC/SFL',
+  protocol: 'ALG',
+  tradeSize: '3319458072420701102552859821437083451392000000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 2839774380456547394744n,
+  loanPoolR0: '640.055172412151824384 WMATIC',
+  loanPoolR1: '987590661958616978409852799034443.094172637901881344 SFL',
+  targetLiq: 121896037572232972035145n,
+  targetR0: '27611.78779177678012416 WMATIC',
+  targetR1: '42417279987300997486232156016018676.89359194145685504 SFL'
+}
+[2024-06-06T12:06:12.826] [INFO] default - {
+  ticker: 'QUICK/dQUICK',
+  protocol: 'ALG',
+  tradeSize: '301967270688539666261747988390407307264000000000000000000000000000000000000.0 QUICK',
+  loanPoolLiq: 387105244333334722n,
+  loanPoolR0: '15.970692736605648896 QUICK',
+  loanPoolR1: '740184343174779205185035224.588112501294497792 dQUICK',
+  targetLiq: 2026108729731869572n,
+  targetR0: '83.090583815711490048 QUICK',
+  targetR1: '3900967204149667798987882153.211238699105255424 dQUICK'
+}
+[2024-06-06T12:06:12.826] [INFO] default - {
+  ticker: 'USDC/SFL',
+  protocol: 'ALG',
+  tradeSize: '1722387172889182163132962368000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 16056125370n,
+  loanPoolR0: '0.006885 USDC',
+  loanPoolR1: '2964588334695653322871113547.90700598903701504 SFL',
+  targetLiq: 228870695417451n,
+  targetR0: '50.827308 USDC',
+  targetR1: '81323294642994825685932248780996.690196496774070272 SFL'
+}
+[2024-06-06T12:06:12.826] [INFO] default - {
+  ticker: 'JPYC/JPYC',
+  protocol: 'ALG',
+  tradeSize: '23641845922933910537273026983879073857536000000000000000000000000000000000000000.0 JPYC',
+  loanPoolLiq: 992368766295653086n,
+  loanPoolR0: '1.51864459899541632 JPYC',
+  loanPoolR1: '51353033249449426585756149585.524226209603387392 JPYC',
+  targetLiq: 7925047509021594484783n,
+  targetR0: '8881.963211584021987328 JPYC',
+  targetR1: '557081639592994757482406025785078.367480941668990976 JPYC'
+}
+[2024-06-06T12:06:12.826] [INFO] default - {
+  ticker: 'USDC/JPYC',
+  protocol: 'ALG',
+  tradeSize: '10992361736098199423440115188400000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 6589066706744391094n,
+  loanPoolR0: '528474.457163 USDC',
+  loanPoolR1: '6503501999089029690444182482357497062.35126953711501312 JPYC',
+  targetLiq: 142171324738617879n,
+  targetR0: '11351.620921 USDC',
+  targetR1: '140566780931206829709467017760700876.798333249558413312 JPYC'
+}
+[2024-06-06T12:06:12.827] [INFO] default - {
+  ticker: 'WMATIC/MESH',
+  protocol: 'ALG',
+  tradeSize: '151549133830997061784308907619171793920000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 487992611218341877n,
+  loanPoolR0: '0.07673767280329016 WMATIC',
+  loanPoolR1: '243049064693777242527180728599.363189997752549376 MESH',
+  targetLiq: 4518349612120859165n,
+  targetR0: '0.614618542603539328 WMATIC',
+  targetR1: '2621446093499187832215137460926.029829735358398464 MESH'
+}
+[2024-06-06T12:06:12.827] [INFO] default - {
+  ticker: 'WETH/miMATIC',
+  protocol: 'ALG',
+  tradeSize: '754141555791867179386917873281419264000000000000000000000000000000000000000000000.0 WETH',
+  loanPoolLiq: 1305054768509172n,
+  loanPoolR0: '0.000021850084164373 WETH',
+  loanPoolR1: '6066255828272587354679535840.236737493154660352 miMATIC',
+  targetLiq: 2224744991576226125459n,
+  targetR0: '35.114179163637248 WETH',
+  targetR1: '11121302152203195919569913486642152.772885785914376192 miMATIC'
+}
+[2024-06-06T12:06:12.827] [INFO] default - {
+  ticker: 'WMATIC/LINK',
+  protocol: 'ALG',
+  tradeSize: '58001616257040006640403790404733781913108480000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 19606586085087968115682n,
+  loanPoolR0: '82747.478239167356338176 WMATIC',
+  loanPoolR1: '362307408621531823254075926521682.848658102075523072 LINK',
+  targetLiq: 40127490542541339949817n,
+  targetR0: '170884.724585907309510656 WMATIC',
+  targetR1: '743843752439983824242125802706329.401011328618856448 LINK'
+}
+[2024-06-06T12:06:12.827] [INFO] default - {
+  ticker: 'DAI/miMATIC',
+  protocol: 'ALG',
+  tradeSize: '7203277829982976596209031859137967872000000000000000000000000000000000000000.0 DAI',
+  loanPoolLiq: 36130058164234896n,
+  loanPoolR0: '0.033531285121933344 DAI',
+  loanPoolR1: '3084232123436803843245828885.374394122285088768 miMATIC',
+  targetLiq: 1091375896441844687n,
+  targetR0: '0.994459247134182784 DAI',
+  targetR1: '94429756718186242203400045576.95505649822072832 miMATIC'
+}
+[2024-06-06T12:06:12.827] [INFO] default - {
+  ticker: 'USDC/PAXG',
+  protocol: 'ALG',
+  tradeSize: '1147229486673456650744397600000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 31531247n,
+  loanPoolR0: '0.004134 USDC',
+  loanPoolR1: '18734077011312500334052.726452888396627968 PAXG',
+  targetLiq: 69365119197n,
+  targetR0: '3.269502 USDC',
+  targetR1: '116237211868418680000291286.538484179804356608 PAXG'
+}
+[2024-06-06T12:06:12.827] [INFO] default - {
+  ticker: 'WMATIC/LIRA',
+  protocol: 'ALG',
+  tradeSize: '26498471788246786399995999476142837760000000000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 759141755906252875786n,
+  loanPoolR0: '0.913496855179632 WMATIC',
+  loanPoolR1: '49725505087018400675008695393724874.095094797468434432 LIRA',
+  targetLiq: 5384892989988159990751n,
+  targetR0: '6.21329247699624448 WMATIC',
+  targetR1: '368597180156145321570537397190978426.038982194476613632 LIRA'
+}
+[2024-06-06T12:06:12.827] [INFO] default - {
+  ticker: 'WMATIC/HRBF',
+  protocol: 'ALG',
+  tradeSize: '152460825945459924622788767918825312256000000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 24663883968352057346394n,
+  loanPoolR0: '773.765111116007735296 WMATIC',
+  loanPoolR1: '61949911090886782646118132960197557.019131775494914048 HRBF',
+  targetLiq: 1003016657083590161911n,
+  targetR0: '24.311594651170394112 WMATIC',
+  targetR1: '3268740113011221136047618375074073.036223214136590336 HRBF'
+}
+[2024-06-06T12:06:12.827] [INFO] default - {
+  ticker: 'USDC/DERC',
+  protocol: 'ALG',
+  tradeSize: '106368076735426021652630818352000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 15286135499n,
+  loanPoolR0: '0.009424 USDC',
+  loanPoolR1: '1928050756834311013684471110.950078478951645184 DERC',
+  targetLiq: 12843117604014417n,
+  targetR0: '6726.411101 USDC',
+  targetR1: '1932902442436453396681357517070918.745268673507753984 DERC'
+}
+[2024-06-06T12:06:12.827] [INFO] default - {
+  ticker: 'USDC/agEUR',
+  protocol: 'ALG',
+  tradeSize: '2206533357069219469447800000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 3517174861004n,
+  loanPoolR0: '3.639542 USDC',
+  loanPoolR1: '267731789506944180273399885508.641665566560485376 agEUR',
+  targetLiq: 370219124059n,
+  targetR0: '0.3831 USDC',
+  targetR1: '28219604862552510675277633748.96774504192671744 agEUR'
+}
+[2024-06-06T12:06:12.827] [INFO] default - {
+  ticker: 'NOW/WETH',
+  protocol: 'ALG',
+  tradeSize: '37663711486642140081591348989484609804068454400000000000000000000000000000.0 NOW',
+  loanPoolLiq: 127043414817403168550n,
+  loanPoolR0: '24444615.325707288658837504 NOW',
+  loanPoolR1: '52141345480433140616561291.047807913753051136 WETH',
+  targetLiq: 1176118734375814461988n,
+  targetR0: '224945122.068699730854019072 NOW',
+  targetR1: '484584282898752002119307707.6214811453292544 WETH'
+}
+[2024-06-06T12:06:12.828] [INFO] default - {
+  ticker: 'WMATIC/miMATIC',
+  protocol: 'ALG',
+  tradeSize: '53169331297962269726474588271712841760768000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 92805156621535064n,
+  loanPoolR0: '0.08858871950386656 WMATIC',
+  loanPoolR1: '7696264675789656034579652931.9309409788100608 miMATIC',
+  targetLiq: 8383579713240424532080n,
+  targetR0: '7777.840635978455187456 WMATIC',
+  targetR1: '713473868646726590300854719922312.272593001839067136 miMATIC'
+}
+[2024-06-06T12:06:12.828] [INFO] default - {
+  ticker: 'WMATIC/LDO',
+  protocol: 'ALG',
+  tradeSize: '828492239667206974657445918159604553875456000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 1996861474138918371906473n,
+  loanPoolR0: '3141040.25531393347944448 WMATIC',
+  loanPoolR1: '100259315676839380096927617055427429.031439227875753984 LDO',
+  targetLiq: 210826752360107773862073n,
+  targetR0: '330634.725884559888482304 WMATIC',
+  targetR1: '10591540948512896191630782853974693.071710222259585024 LDO'
+}
+[2024-06-06T12:06:12.828] [INFO] default - {
+  ticker: 'WMATIC/KOM',
+  protocol: 'ALG',
+  tradeSize: '201106496692737101137341412348677120000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 19495537675190n,
+  loanPoolR0: '0.094585669229226336 WMATIC',
+  loanPoolR1: '3180767861505967009712326484660.12307456 KOM',
+  targetLiq: 159584285677095n,
+  targetR0: '0.76005706709411328 WMATIC',
+  targetR1: '26456896661482113479453035915500.57447424 KOM'
+}
+[2024-06-06T12:06:12.828] [INFO] default - {
+  ticker: 'WOMBAT/WMATIC',
+  protocol: 'ALG',
+  tradeSize: '383684475626495433848092096315365487804416000000000000000000000000000000000000.0 WOMBAT',
+  loanPoolLiq: 2455234084011648874781844n,
+  loanPoolR0: '40816302.226187433627615232 WOMBAT',
+  loanPoolR1: '11661472431523596610682424044914762.460632083498795008 WMATIC',
+  targetLiq: 1029262427458977213197n,
+  targetR0: '17110.664348787045040128 WOMBAT',
+  targetR1: '4889008677911442922147579161639.553085501507371008 WMATIC'
+}
+[2024-06-06T12:06:12.828] [INFO] default - {
+  ticker: 'WMATIC/UNI',
+  protocol: 'ALG',
+  tradeSize: '1714546893223421138802396189424179216384000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 105375575386921772340n,
+  loanPoolR0: '358.15637967484223488 WMATIC',
+  loanPoolR1: '2455169825668663882179038538629.514154371434151936 UNI',
+  targetLiq: 957089392937402636633n,
+  targetR0: '3177.458049569827848192 WMATIC',
+  targetR1: '22772086818720996289202398975974.138661630268932096 UNI'
+}
+[2024-06-06T12:06:12.828] [INFO] default - {
+  ticker: 'WBTC/ELONINDEX',
+  protocol: 'ALG',
+  tradeSize: '6153885891454898466289000000000000000000000000000000000000000000000000000000000000.0 WBTC',
+  loanPoolLiq: 1482848196318n,
+  loanPoolR0: '0.00000056 WBTC',
+  loanPoolR1: '3108298537203150108139909463152844.778730094931738624 ELONINDEX',
+  targetLiq: 89482347001218n,
+  targetR0: '0.00001409 WBTC',
+  targetR1: '448342261159335950321004249887869492.663759106908094464 ELONINDEX'
+}
+[2024-06-06T12:06:12.828] [INFO] default - {
+  ticker: 'pBREW/GTF',
+  protocol: 'ALG',
+  tradeSize: '2745421508941465929506250979798614540288000000000000000000000000000000.0 pBREW',
+  loanPoolLiq: 56139230457502133n,
+  loanPoolR0: '3791.52492245023981568 pBREW',
+  loanPoolR1: '655911237142438117977900922626388.43068416 GTF',
+  targetLiq: 42300164889934325n,
+  targetR0: '2023.323916155679145984 pBREW',
+  targetR1: '697663414192677359568208894067775.91857152 GTF'
+}
+[2024-06-06T12:06:20.555] [INFO] default - Control.ts: pendingTransactions: 
+[2024-06-06T12:06:20.555] [INFO] default - {}
+[2024-06-06T12:06:27.216] [INFO] default - {
+  ticker: 'WMATIC/PYR',
+  protocol: 'ALG',
+  tradeSize: '55963587474017280677335150145773391314944000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 770596629919285629868782n,
+  loanPoolR0: '2094594.090840120490983424 WMATIC',
+  loanPoolR1: '22087746816446398031313291635723915.599603155549028352 PYR',
+  targetLiq: 25010570090705619826402n,
+  targetR0: '68528.392092761626509312 WMATIC',
+  targetR1: '719564572538438334247228315601790.633225231875964928 PYR'
+}
+[2024-06-06T12:06:27.217] [INFO] default - {
+  ticker: 'WMATIC/AAVE',
+  protocol: 'ALG',
+  tradeSize: '7485994379922334172719458644840658249973760000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 1015009681187347790560n,
+  loanPoolR0: '11103.701637014241673216 WMATIC',
+  loanPoolR1: '7347636030204889110908787268189.995796388290494464 AAVE',
+  targetLiq: 13236332191614964320033n,
+  targetR0: '143717.022588162040397824 WMATIC',
+  targetR1: '96020516736383851193037264638424.87475020868091904 AAVE'
+}
+[2024-06-06T12:06:27.217] [INFO] default - {
+  ticker: 'WMATIC/CRV',
+  protocol: 'ALG',
+  tradeSize: '14293072693268920244134684579072666419331072000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 87588779435596262398n,
+  loanPoolR0: '70.856981496292794368 WMATIC',
+  loanPoolR1: '8573923324044067351380902348147.746315107517333504 CRV',
+  targetLiq: 1862429724110636611980957n,
+  targetR0: '1500641.581735657678569472 WMATIC',
+  targetR1: '182571864565597177443812829147162714.4282489579634688 CRV'
+}
+[2024-06-06T12:06:27.217] [INFO] default - {
+  ticker: 'WMATIC/ELON',
+  protocol: 'ALG',
+  tradeSize: '1012889925632481896913598389252710308249600000000000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 4533385401701542298459278n,
+  loanPoolR0: '2315.448125177101549568 WMATIC',
+  loanPoolR1: '695125484412505013653940946626237478214.122627185485283328 ELON',
+  targetLiq: 84686419198469981598681377n,
+  targetR0: '43340.581036280306991104 WMATIC',
+  targetR1: '13035826803828036270160026103855988146771.29309495037526016 ELON'
+}
+[2024-06-06T12:06:27.217] [INFO] default - {
+  ticker: 'xDG/DG',
+  protocol: 'ALG',
+  tradeSize: '411440804889587933223078136146897303458807808000000000000000000000000000000000000000.0 xDG',
+  loanPoolLiq: 204510102490975325454n,
+  loanPoolR0: '196.491539629778665472 xDG',
+  loanPoolR1: '16695921094745786221765509006393.448271548491235328 DG',
+  targetLiq: 66942233718638695923519283n,
+  targetR0: '62105454.172242515893157888 xDG',
+  targetR1: '5684945960300501617355765844674589279.85250588254273536 DG'
+}
+[2024-06-06T12:06:27.218] [INFO] default - {
+  ticker: 'DAI/GNS',
+  protocol: 'ALG',
+  tradeSize: '106825074402676959052441205817197345321779200000000000000000000000000000000000000.0 DAI',
+  loanPoolLiq: 36208306362191077350822n,
+  loanPoolR0: '78198.467689499735359488 DAI',
+  loanPoolR1: '1305916770562706514173727660258044.7193242567442432 GNS',
+  targetLiq: 37760406938480381012806n,
+  targetR0: '82617.537038077692739584 DAI',
+  targetR1: '1361995203115107153484068543540580.054478971650179072 GNS'
+}
+[2024-06-06T12:06:27.218] [INFO] default - {
+  ticker: 'WMATIC/miMATIC',
+  protocol: 'ALG',
+  tradeSize: '55834558604827851130437756095430333038592000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 127036458518463684167n,
+  loanPoolR0: '117.85768885279547392 WMATIC',
+  loanPoolR1: '10795859137507542059076626867101.519998067138363392 miMATIC',
+  targetLiq: 8383579713240424532080n,
+  targetR0: '7777.840635978455187456 WMATIC',
+  targetR1: '713473868646726590300854719922312.272593001839067136 miMATIC'
+}
+[2024-06-06T12:06:27.218] [INFO] default - {
+  ticker: 'WMATIC/GHST',
+  protocol: 'ALG',
+  tradeSize: '843903240877615292062810254638483487955353600000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 150872177996455263289n,
+  loanPoolR0: '157.816146406340132864 WMATIC',
+  loanPoolR1: '11360081666405389813661848040941.522872614271320064 GHST',
+  targetLiq: 143589349104609413153233n,
+  targetR0: '149748.224937972975271936 WMATIC',
+  targetR1: '10861054624348139803081525805601656.822521336145379328 GHST'
+}
+[2024-06-06T12:06:27.218] [INFO] default - {
+  ticker: 'USDC/GHST',
+  protocol: 'ALG',
+  tradeSize: '7507079371654657938860377612728000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 5598083925651n,
+  loanPoolR0: '5.755319 USDC',
+  loanPoolR1: '431195663899109103189679538192.831315442420154368 GHST',
+  targetLiq: 1248751584309207336n,
+  targetR0: '1272959.725591 USDC',
+  targetR1: '96539765139707291747836122371205998.352486867662798848 GHST'
+}
+[2024-06-06T12:06:27.218] [INFO] default - {
+  ticker: 'WBTC/DAI',
+  protocol: 'ALG',
+  tradeSize: '17737335614661129368069000000000000000000000000000000000000000000000000000000.0 WBTC',
+  loanPoolLiq: 1199627956606023n,
+  loanPoolR0: '0.47187539 WBTC',
+  loanPoolR1: '2404679445438678980121499776633391.268299457414823936 DAI',
+  targetLiq: 115973811475n,
+  targetR0: '0.00004441 WBTC',
+  targetR1: '239215431772101853040494628515.841853060552851456 DAI'
+}
+[2024-06-06T12:06:27.218] [INFO] default - {
+  ticker: 'WMATIC/ICE',
+  protocol: 'ALG',
+  tradeSize: '1877667006786476336719612254300119500800000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 1789498693374772057n,
+  loanPoolR0: '0.095472413346437552 WMATIC',
+  loanPoolR1: '2646745878138321435775295084163.273644545878786048 ICE',
+  targetLiq: 17186218230744672560n,
+  targetR0: '0.863516163495378816 WMATIC',
+  targetR1: '26962394607514298102489703637576.616268496227008512 ICE'
+}
+[2024-06-06T12:06:27.219] [INFO] default - {
+  ticker: 'KLIMA/MCO2',
+  protocol: 'ALG',
+  tradeSize: '15240777448820198021007333940000000000000000000000000000000000000000000000000.0 KLIMA',
+  loanPoolLiq: 55936282576n,
+  loanPoolR0: '0.00184501 KLIMA',
+  loanPoolR1: '132789831069978270212168334.744697786653999104 MCO2',
+  targetLiq: 89443619992751n,
+  targetR0: '2.720685245 KLIMA',
+  targetR1: '232192774557995386640917342049.07150555905785856 MCO2'
+}
+[2024-06-06T12:06:27.219] [INFO] default - {
+  ticker: 'WMATIC/mSHEESHA',
+  protocol: 'ALG',
+  tradeSize: '397496255307405117840548339202521856000000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 240863064246894886567n,
+  loanPoolR0: '10.138975558245812224 WMATIC',
+  loanPoolR1: '451167825213632112431597779393777.942907166490886144 mSHEESHA',
+  targetLiq: 2765073559953659027n,
+  targetR0: '0.113975322644960128 WMATIC',
+  targetR1: '5285261290558573445975152205284.698472168600633344 mSHEESHA'
+}
+[2024-06-06T12:06:27.219] [INFO] default - {
+  ticker: 'WMATIC/MKR',
+  protocol: 'ALG',
+  tradeSize: '59179345043820806634036265526068635238400000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 71767765012539401353n,
+  loanPoolR0: '3960.933003155492831232 WMATIC',
+  loanPoolR1: '102717310497510926542757257360.492668931127902208 MKR',
+  targetLiq: 532964807179425758n,
+  targetR0: '29.063996617167990784 WMATIC',
+  targetR1: '770527445996150725762107003.130358000793944064 MKR'
+}
+[2024-06-06T12:06:27.219] [INFO] default - {
+  ticker: 'WMATIC/CIOTX',
+  protocol: 'ALG',
+  tradeSize: '32908367131922534223940453152404083200000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 7509097632806714723n,
+  loanPoolR0: '1.912064787209136384 WMATIC',
+  loanPoolR1: '2328462831233365118829166642559.778733371003240448 CIOTX',
+  targetLiq: 1435814534997736141n,
+  targetR0: '0.34431570465990592 WMATIC',
+  targetR1: '471736438621683884843707098662.676278228836941824 CIOTX'
+}
+[2024-06-06T12:06:27.219] [INFO] default - {
+  ticker: 'WETH/SAND',
+  protocol: 'ALG',
+  tradeSize: '47630402996088186627850971364625280000000000000000000000000000000000000000000.0 WETH',
+  loanPoolLiq: 1312162730808401419324n,
+  loanPoolR0: '17.281705907622680576 WETH',
+  loanPoolR1: '7755917317876122300521543445254052.668817366400892928 SAND',
+  targetLiq: 103722009999887681n,
+  targetR0: '0.001371535102298192 WETH',
+  targetR1: '619006304687441133921811090930.833276984681824256 SAND'
+}
+[2024-06-06T12:06:27.219] [INFO] default - {
+  ticker: 'WMATIC/stMATIC',
+  protocol: 'ALG',
+  tradeSize: '34993358059976362182312470347617434558739251200000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 4864156287937361681905212n,
+  loanPoolR0: '5116091.40923503552233472 WMATIC',
+  loanPoolR1: '366067987767136708561662780030540641.311778002622742528 stMATIC',
+  targetLiq: 5924417833161398655036439n,
+  targetR0: '6215710.423705413989957632 WMATIC',
+  targetR1: '445870970998667216377437402254803028.592326348931858432 stMATIC'
+}
+[2024-06-06T12:06:27.219] [INFO] default - {
+  ticker: 'WBTC/miMATIC',
+  protocol: 'ALG',
+  tradeSize: '568300683402776406223821456000000000000000000000000000000000000000000000000000000.0 WBTC',
+  loanPoolLiq: 684228779n,
+  loanPoolR0: '0.00000026 WBTC',
+  loanPoolR1: '1460930118747548019096260590.078326311491731456 miMATIC',
+  targetLiq: 3488505239647721n,
+  targetR0: '1.25410986 WBTC',
+  targetR1: '7663677151415303443003162494275798.169669873354932224 miMATIC'
+}
+[2024-06-06T12:06:27.219] [INFO] default - {
+  ticker: 'ELONINDEX/ELON',
+  protocol: 'ALG',
+  tradeSize: '770610707061323765833965894111717675690360832000000000000000000000000000000000000000.0 ELONINDEX',
+  loanPoolLiq: 127493977773910198243685578n,
+  loanPoolR0: '157284871.766550450429493248 ELONINDEX',
+  loanPoolR1: '8039094828743767204791695371896070088.957363543812866048 ELON',
+  targetLiq: 156172707323276434477239062n,
+  targetR0: '194990608.103935406126399488 ELONINDEX',
+  targetR1: '9856082589713113983891757828052225582.959276583821508608 ELON'
+}
+[2024-06-06T12:06:27.219] [INFO] default - {
+  ticker: 'USDC/DAI',
+  protocol: 'ALG',
+  tradeSize: '1584279768871020914413055703645550000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 985733051422164820781n,
+  loanPoolR0: '985783639.964197 USDC',
+  loanPoolR1: '78091385061723567777053380458934703405.449306219881693184 DAI',
+  targetLiq: 255177167780888379788n,
+  targetR0: '253955648.971555 USDC',
+  targetR1: '20215560164907024699698932641179551498.507803074679013376 DAI'
+}
+[2024-06-06T12:06:27.219] [INFO] default - {
+  ticker: 'USDC/agEUR',
+  protocol: 'ALG',
+  tradeSize: '2204643040265271585138600000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 4660708792627567119n,
+  loanPoolR0: '4852853.294186 USDC',
+  loanPoolR1: '354627035128681366291292688135020502.407070342954614784 agEUR',
+  targetLiq: 370219124059n,
+  targetR0: '0.3831 USDC',
+  targetR1: '28219604862552510675277633748.96774504192671744 agEUR'
+}
+[2024-06-06T12:06:27.220] [INFO] default - {
+  ticker: 'WMATIC/WETH',
+  protocol: 'ALG',
+  tradeSize: '84370408726019312772170422688351969050676428800000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 93274656229192679001n,
+  loanPoolR0: '5477.175334336632717312 WMATIC',
+  loanPoolR1: '125847979603459667988516919148.487099415342874624 WETH',
+  targetLiq: 798025859684267356546744n,
+  targetR0: '46627119.581351397214388224 WMATIC',
+  targetR1: '1077301653054736167174279135946064.353814557845618688 WETH'
+}
+[2024-06-06T12:06:27.220] [INFO] default - {
+  ticker: 'USDC/miMATIC',
+  protocol: 'ALG',
+  tradeSize: '108894045505580459956477842000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 24959616725n,
+  loanPoolR0: '0.022628 USDC',
+  loanPoolR1: '2181254470215674791838277498.901101293309263872 miMATIC',
+  targetLiq: 16008972212256n,
+  targetR0: '14.344351 USDC',
+  targetR1: '1408338862300537169365058708952.050382518928539648 miMATIC'
+}
+[2024-06-06T12:06:27.220] [INFO] default - {
+  ticker: 'USDC/WETH',
+  protocol: 'ALG',
+  tradeSize: '362621666712946361165689581314115600000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 1224812296196n,
+  loanPoolR0: '70.646332 USDC',
+  loanPoolR1: '1682372436042865605737222363.35233654069395456 WETH',
+  targetLiq: 3385644656975519367n,
+  targetR0: '193358003.070719 USDC',
+  targetR1: '4669338217848767292443350071223490.846565555089965056 WETH'
+}
+[2024-06-06T12:06:27.220] [INFO] default - {
+  ticker: 'WETH/USDT',
+  protocol: 'ALG',
+  tradeSize: '158427826250271380272050112066444538675200000000000000000000000000000000.0 WETH',
+  loanPoolLiq: 377849036311n,
+  loanPoolR0: '0.006590939188607224 WETH',
+  loanPoolR1: '1716164973030328199808748406301.523968 USDT',
+  targetLiq: 445238675305427037n,
+  targetR0: '7726.1591395588112384 WETH',
+  targetR1: '2026499184448992278720584694571700844.494848 USDT'
+}
+[2024-06-06T12:06:27.220] [INFO] default - {
+  ticker: 'WMATIC/WBTC',
+  protocol: 'ALG',
+  tradeSize: '936841674591880454472875073020702339629056000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 539490645921n,
+  loanPoolR0: '14.162610960302139392 WMATIC',
+  loanPoolR1: '16281383118204112885080823.44165376 WBTC',
+  targetLiq: 4021930297637026n,
+  targetR0: '103482.059533037546242048 WMATIC',
+  targetR1: '123406264674534183202333932286.17875456 WBTC'
+}
+[2024-06-06T12:06:27.220] [INFO] default - {
+  ticker: 'DAI/USDT',
+  protocol: 'ALG',
+  tradeSize: '73814255925787721954397212151265969339105280000000000000000000000000000.0 DAI',
+  loanPoolLiq: 358314969230293671705n,
+  loanPoolR0: '358224932.61860070645301248 DAI',
+  loanPoolR1: '28394986592404504677628629650688159822.905344 USDT',
+  targetLiq: 11874762972327105701n,
+  targetR0: '11824980.408228127638028288 DAI',
+  targetR1: '941210857476675727411692757302507110.137856 USDT'
+}
+[2024-06-06T12:06:27.220] [INFO] default - {
+  ticker: 'WMATIC/LDO',
+  protocol: 'ALG',
+  tradeSize: '822834241093685769413823058235982807564288000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 8452815831437486131810n,
+  loanPoolR0: '13124.459436183698538496 WMATIC',
+  loanPoolR1: '422951101342862515600687527314565.406840362532601856 LDO',
+  targetLiq: 210826752360107773862073n,
+  targetR0: '330634.725884559888482304 WMATIC',
+  targetR1: '10591540948512896191630782853974693.071710222259585024 LDO'
+}
+[2024-06-06T12:06:27.220] [INFO] default - {
+  ticker: 'ALGB/WMATIC',
+  protocol: 'ALG',
+  tradeSize: '6122831896865681351392667889462659949317324800000000000000000000000000000000000000.0 ALGB',
+  loanPoolLiq: 24260108552227850508991n,
+  loanPoolR0: '139455.552981267828965376 ALGB',
+  loanPoolR1: '332899658152076603723773440995475.139416296848883712 WMATIC',
+  targetLiq: 5708006759973155214387679n,
+  targetR0: '32713328.352324458125459456 ALGB',
+  targetR1: '78474548278201749125672257896693782.616749747203997696 WMATIC'
+}
+[2024-06-06T12:06:27.220] [INFO] default - {
+  ticker: 'WMATIC/SFL',
+  protocol: 'ALG',
+  tradeSize: '3319458072420701102552859821437083451392000000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 2839774380456547394744n,
+  loanPoolR0: '640.055172412151824384 WMATIC',
+  loanPoolR1: '987590661958616978409852799034443.094172637901881344 SFL',
+  targetLiq: 121896037572232972035145n,
+  targetR0: '27611.78779177678012416 WMATIC',
+  targetR1: '42417279987300997486232156016018676.89359194145685504 SFL'
+}
+[2024-06-06T12:06:27.221] [INFO] default - {
+  ticker: 'QUICK/dQUICK',
+  protocol: 'ALG',
+  tradeSize: '301967270688539666261747988390407307264000000000000000000000000000000000000.0 QUICK',
+  loanPoolLiq: 387105244333334722n,
+  loanPoolR0: '15.970692736605648896 QUICK',
+  loanPoolR1: '740184343174779205185035224.588112501294497792 dQUICK',
+  targetLiq: 2026108729731869572n,
+  targetR0: '83.090583815711490048 QUICK',
+  targetR1: '3900967204149667798987882153.211238699105255424 dQUICK'
+}
+[2024-06-06T12:06:27.221] [INFO] default - {
+  ticker: 'USDC/SFL',
+  protocol: 'ALG',
+  tradeSize: '1722387172889182163132962368000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 16056125370n,
+  loanPoolR0: '0.006885 USDC',
+  loanPoolR1: '2964588334695653322871113547.90700598903701504 SFL',
+  targetLiq: 228870695417451n,
+  targetR0: '50.827308 USDC',
+  targetR1: '81323294642994825685932248780996.690196496774070272 SFL'
+}
+[2024-06-06T12:06:27.221] [INFO] default - {
+  ticker: 'JPYC/JPYC',
+  protocol: 'ALG',
+  tradeSize: '23641845922933910537273026983879073857536000000000000000000000000000000000000000.0 JPYC',
+  loanPoolLiq: 992368766295653086n,
+  loanPoolR0: '1.51864459899541632 JPYC',
+  loanPoolR1: '51353033249449426585756149585.524226209603387392 JPYC',
+  targetLiq: 7925047509021594484783n,
+  targetR0: '8881.963211584021987328 JPYC',
+  targetR1: '557081639592994757482406025785078.367480941668990976 JPYC'
+}
+[2024-06-06T12:06:27.221] [INFO] default - {
+  ticker: 'USDC/JPYC',
+  protocol: 'ALG',
+  tradeSize: '10992361736098199423440115188400000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 6589066706744391094n,
+  loanPoolR0: '528474.457163 USDC',
+  loanPoolR1: '6503501999089029690444182482357497062.35126953711501312 JPYC',
+  targetLiq: 142171324738617879n,
+  targetR0: '11351.620921 USDC',
+  targetR1: '140566780931206829709467017760700876.798333249558413312 JPYC'
+}
+[2024-06-06T12:06:27.221] [INFO] default - {
+  ticker: 'WMATIC/MESH',
+  protocol: 'ALG',
+  tradeSize: '151549133830997061784308907619171793920000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 487992611218341877n,
+  loanPoolR0: '0.07673767280329016 WMATIC',
+  loanPoolR1: '243049064693777242527180728599.363189997752549376 MESH',
+  targetLiq: 4518349612120859165n,
+  targetR0: '0.614618542603539328 WMATIC',
+  targetR1: '2621446093499187832215137460926.029829735358398464 MESH'
+}
+[2024-06-06T12:06:27.221] [INFO] default - {
+  ticker: 'WETH/miMATIC',
+  protocol: 'ALG',
+  tradeSize: '754141555791867179386917873281419264000000000000000000000000000000000000000000000.0 WETH',
+  loanPoolLiq: 1305054768509172n,
+  loanPoolR0: '0.000021850084164373 WETH',
+  loanPoolR1: '6066255828272587354679535840.236737493154660352 miMATIC',
+  targetLiq: 2224744991576226125459n,
+  targetR0: '35.114179163637248 WETH',
+  targetR1: '11121302152203195919569913486642152.772885785914376192 miMATIC'
+}
+[2024-06-06T12:06:27.221] [INFO] default - {
+  ticker: 'WMATIC/LINK',
+  protocol: 'ALG',
+  tradeSize: '58001616257040006640403790404733781913108480000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 19606586085087968115682n,
+  loanPoolR0: '82747.478239167356338176 WMATIC',
+  loanPoolR1: '362307408621531823254075926521682.848658102075523072 LINK',
+  targetLiq: 40127490542541339949817n,
+  targetR0: '170884.724585907309510656 WMATIC',
+  targetR1: '743843752439983824242125802706329.401011328618856448 LINK'
+}
+[2024-06-06T12:06:27.221] [INFO] default - {
+  ticker: 'DAI/miMATIC',
+  protocol: 'ALG',
+  tradeSize: '7203277829982976596209031859137967872000000000000000000000000000000000000000.0 DAI',
+  loanPoolLiq: 36130058164234896n,
+  loanPoolR0: '0.033531285121933344 DAI',
+  loanPoolR1: '3084232123436803843245828885.374394122285088768 miMATIC',
+  targetLiq: 1091375896441844687n,
+  targetR0: '0.994459247134182784 DAI',
+  targetR1: '94429756718186242203400045576.95505649822072832 miMATIC'
+}
+[2024-06-06T12:06:27.222] [INFO] default - {
+  ticker: 'USDC/PAXG',
+  protocol: 'ALG',
+  tradeSize: '1147229486673456650744397600000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 31531247n,
+  loanPoolR0: '0.004134 USDC',
+  loanPoolR1: '18734077011312500334052.726452888396627968 PAXG',
+  targetLiq: 69365119197n,
+  targetR0: '3.269502 USDC',
+  targetR1: '116237211868418680000291286.538484179804356608 PAXG'
+}
+[2024-06-06T12:06:27.222] [INFO] default - {
+  ticker: 'WMATIC/LIRA',
+  protocol: 'ALG',
+  tradeSize: '26498471788246786399995999476142837760000000000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 759141755906252875786n,
+  loanPoolR0: '0.913496855179632 WMATIC',
+  loanPoolR1: '49725505087018400675008695393724874.095094797468434432 LIRA',
+  targetLiq: 5384892989988159990751n,
+  targetR0: '6.21329247699624448 WMATIC',
+  targetR1: '368597180156145321570537397190978426.038982194476613632 LIRA'
+}
+[2024-06-06T12:06:27.222] [INFO] default - {
+  ticker: 'WMATIC/HRBF',
+  protocol: 'ALG',
+  tradeSize: '152460825945459924622788767918825312256000000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 24663883968352057346394n,
+  loanPoolR0: '773.765111116007735296 WMATIC',
+  loanPoolR1: '61949911090886782646118132960197557.019131775494914048 HRBF',
+  targetLiq: 1003016657083590161911n,
+  targetR0: '24.311594651170394112 WMATIC',
+  targetR1: '3268740113011221136047618375074073.036223214136590336 HRBF'
+}
+[2024-06-06T12:06:27.222] [INFO] default - {
+  ticker: 'USDC/DERC',
+  protocol: 'ALG',
+  tradeSize: '106368076735426021652630818352000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 15286135499n,
+  loanPoolR0: '0.009424 USDC',
+  loanPoolR1: '1928050756834311013684471110.950078478951645184 DERC',
+  targetLiq: 12843117604014417n,
+  targetR0: '6726.411101 USDC',
+  targetR1: '1932902442436453396681357517070918.745268673507753984 DERC'
+}
+[2024-06-06T12:06:27.222] [INFO] default - {
+  ticker: 'USDC/agEUR',
+  protocol: 'ALG',
+  tradeSize: '2206533357069219469447800000000000000000000000000000000000000000000000000000.0 USDC',
+  loanPoolLiq: 3517174861004n,
+  loanPoolR0: '3.639542 USDC',
+  loanPoolR1: '267731789506944180273399885508.641665566560485376 agEUR',
+  targetLiq: 370219124059n,
+  targetR0: '0.3831 USDC',
+  targetR1: '28219604862552510675277633748.96774504192671744 agEUR'
+}
+[2024-06-06T12:06:27.222] [INFO] default - {
+  ticker: 'NOW/WETH',
+  protocol: 'ALG',
+  tradeSize: '37663711486642140081591348989484609804068454400000000000000000000000000000.0 NOW',
+  loanPoolLiq: 127043414817403168550n,
+  loanPoolR0: '24444615.325707288658837504 NOW',
+  loanPoolR1: '52141345480433140616561291.047807913753051136 WETH',
+  targetLiq: 1176118734375814461988n,
+  targetR0: '224945122.068699730854019072 NOW',
+  targetR1: '484584282898752002119307707.6214811453292544 WETH'
+}
+[2024-06-06T12:06:27.222] [INFO] default - {
+  ticker: 'WMATIC/miMATIC',
+  protocol: 'ALG',
+  tradeSize: '53169331297962269726474588271712841760768000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 92805156621535064n,
+  loanPoolR0: '0.08858871950386656 WMATIC',
+  loanPoolR1: '7696264675789656034579652931.9309409788100608 miMATIC',
+  targetLiq: 8383579713240424532080n,
+  targetR0: '7777.840635978455187456 WMATIC',
+  targetR1: '713473868646726590300854719922312.272593001839067136 miMATIC'
+}
+[2024-06-06T12:06:27.222] [INFO] default - {
+  ticker: 'WMATIC/LDO',
+  protocol: 'ALG',
+  tradeSize: '828492239667206974657445918159604553875456000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 1996861474138918371906473n,
+  loanPoolR0: '3141040.25531393347944448 WMATIC',
+  loanPoolR1: '100259315676839380096927617055427429.031439227875753984 LDO',
+  targetLiq: 210826752360107773862073n,
+  targetR0: '330634.725884559888482304 WMATIC',
+  targetR1: '10591540948512896191630782853974693.071710222259585024 LDO'
+}
+[2024-06-06T12:06:27.223] [INFO] default - {
+  ticker: 'WMATIC/KOM',
+  protocol: 'ALG',
+  tradeSize: '201106496692737101137341412348677120000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 19495537675190n,
+  loanPoolR0: '0.094585669229226336 WMATIC',
+  loanPoolR1: '3180767861505967009712326484660.12307456 KOM',
+  targetLiq: 159584285677095n,
+  targetR0: '0.76005706709411328 WMATIC',
+  targetR1: '26456896661482113479453035915500.57447424 KOM'
+}
+[2024-06-06T12:06:27.223] [INFO] default - {
+  ticker: 'WOMBAT/WMATIC',
+  protocol: 'ALG',
+  tradeSize: '383684475626495433848092096315365487804416000000000000000000000000000000000000.0 WOMBAT',
+  loanPoolLiq: 2455234084011648874781844n,
+  loanPoolR0: '40816302.226187433627615232 WOMBAT',
+  loanPoolR1: '11661472431523596610682424044914762.460632083498795008 WMATIC',
+  targetLiq: 1029262427458977213197n,
+  targetR0: '17110.664348787045040128 WOMBAT',
+  targetR1: '4889008677911442922147579161639.553085501507371008 WMATIC'
+}
+[2024-06-06T12:06:27.223] [INFO] default - {
+  ticker: 'WMATIC/UNI',
+  protocol: 'ALG',
+  tradeSize: '1714546893223421138802396189424179216384000000000000000000000000000000000000000.0 WMATIC',
+  loanPoolLiq: 105375575386921772340n,
+  loanPoolR0: '358.15637967484223488 WMATIC',
+  loanPoolR1: '2455169825668663882179038538629.514154371434151936 UNI',
+  targetLiq: 957089392937402636633n,
+  targetR0: '3177.458049569827848192 WMATIC',
+  targetR1: '22772086818720996289202398975974.138661630268932096 UNI'
+}
+[2024-06-06T12:06:27.223] [INFO] default - {
+  ticker: 'WBTC/ELONINDEX',
+  protocol: 'ALG',
+  tradeSize: '6153885891454898466289000000000000000000000000000000000000000000000000000000000000.0 WBTC',
+  loanPoolLiq: 1482848196318n,
+  loanPoolR0: '0.00000056 WBTC',
+  loanPoolR1: '3108298537203150108139909463152844.778730094931738624 ELONINDEX',
+  targetLiq: 89482347001218n,
+  targetR0: '0.00001409 WBTC',
+  targetR1: '448342261159335950321004249887869492.663759106908094464 ELONINDEX'
+}
+[2024-06-06T12:06:27.223] [INFO] default - {
+  ticker: 'pBREW/GTF',
+  protocol: 'ALG',
+  tradeSize: '2745421508941465929506250979798614540288000000000000000000000000000000.0 pBREW',
+  loanPoolLiq: 56139230457502133n,
+  loanPoolR0: '3791.52492245023981568 pBREW',
+  loanPoolR1: '655911237142438117977900922626388.43068416 GTF',
+  targetLiq: 42300164889934325n,
+  targetR0: '2023.323916155679145984 pBREW',
+  targetR1: '697663414192677359568208894067775.91857152 GTF'
+}
