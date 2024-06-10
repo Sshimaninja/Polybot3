@@ -1,4 +1,6 @@
-# This is a WORK IN PROGRESS Uniswap V3 arbitrage bot.
+# This is a WORK IN PROGRESS Uniswap V3 arbitrage bot. 
+
+## NOTE: Please do not expect it to run correctly in its present (unkempt) state. It will run, but there will be bugs. I'm commiting this for portfolio purposes only, as I do not have time to complete the project right now.
 
 It directly queries the blockchain to aggregate pairs from each exchange included in the uniswapV3Exchange object (in constants/addresses)
 
@@ -16,6 +18,19 @@ At this point, V3 bots may be profitable, but I am out of time to play with libr
 # TODO: Refactor/integrate Uniswap V3 JSBI.BigInt because:
 ## ethers.js bigint and bignumber.js doesn't have smooth compatiblity and loses precision. 
 ## The UniswapV3 SDK is required for discovering trade sizes, and it uses JSBI.
+## Until this change is made, the dummy amount of 1000 (tokenIn) is used.
+
+
+# Thoughts:
+The common wisdom was to learn Uniswap V2 first, then progress to Uniswap V3 protocol, but I found that by the time I had understood Uniswap V2 in its entirety, I was disinterested and somewhat annoyed by the complexity of Uniswap V3, where I would not have been had I started with the most up-to-date protocol and ignored the predecessor. 
+
+This does make sense considering the time commitments involved in software development generally, and specifically when attempting to work with cutting-edge technology.
+
+
+# Donations:
+
+Bitcoin: bc1q2s096sa6h63uqqlqu68g62xa8hqkasj9jrthqw
+ERC20: 0xd4268778C7a462FDa525DaB2A113CcFe46fabdE2
 
 
 # Commands: 
@@ -31,6 +46,12 @@ The following operation may be time consuming:
 
 	Match v3 pairs across exchanges and create subdocs for each
 		npm run match3
+
+# Polygon Node Snapshot:
+
+I've update the Polygon Node snapshot.sh shell script to be a one-and-done run and sit back until it finishes. I have had to deal with multiple NVMe upgrades which makes installing the node a huge pain, but his script pretty much lets you download and then extract to your chosen directory. 
+
+Also, Polygone formerly forced incremental updates on node operators, which caused insane amounts of bloat, so I cut those out of the download to reduce the space it used previously to 50% of that.
 
 # Deploy Hardhat tests:
 
@@ -79,35 +100,8 @@ It would seem like you want to 'buy' the cheaper token, but you actually want to
 
 
 # Ideas:
+
 Price difference between assets could be used as a 'slippage' parameter, to limit trade sizes to available profit, in-line with the 'optimal arbitrage 2' problem. (Though this may already be the effective result of the tradeToPrice function.)
-
-
-# References:
-# In depth study on Uniswap Markets particularly, including 'Optimal Arbitrage' algos:
-https://arxiv.org/pdf/1911.03380.pdf
-Breakdown of 'Optimal arbitrage in Uniswap':
-K = constant product, or x * y = k, where x = reserves of Token0 and y = reserves of Token1
-mp = reference/marketPrice (i.e. a price you know you can trade into elsewhere)
-α = tokenIn
-β = tokenOut
-∆α = an amount of tokenIn
-∆β = an amount of TokenOut
-
-Rα = reserves from loan pool represented as loanPool.reserves0 * loanpool.reserves1 = loanPool.constantProduct (Kl)
-Rβ = reserves from target represented as target.reserves0 * target.reserves1 = target.constantProduct (Kt)
-
-∆β' = loaned amountTokenOut + fee
-∆β'- ∆β = profit
-
-Maximize:
-mp∆α − ∆β (marketPrice * amountTokenIn - amountTokenOut)
-
-Rα = reserves of tokenIn
-
-
-if
-∆α, ∆β ≥ 0
-(Rα − ∆α)(Rβ + γ∆β) = k
 
 
 # General article on matrix/graph Arbitrage:
@@ -148,15 +142,3 @@ PercentImpact = intImpact * 100
 regex to get rid of script/hardhat bumf:
 ^(.*Mined empty block range #)(.*)$
 
-
-# V3 UNISWAP STUFF:
-
-
-For this, it's because the SDK actually uses the Auto-Router that the UI uses to get the best route. I have the auto-router info here https://discord.com/channels/597638925346930701/1087869256521236510
----
-for liquidity that's a bigger math than v2 by far
-
-So here are the math blogs, they cover a lot https://discord.com/channels/597638925346930701/1090108302479863848
-This is the script I wrote for it https://discord.com/channels/597638925346930701/607978109089611786/1037050094404501595
-
-That script is technically setup to get the liquidity of a position, but the math is the same you can use the main function to get the liquidity token amounts from a range given all the correct inputs. Though to be honest depending on the pool you may need to re-write to handle BN

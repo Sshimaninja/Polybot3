@@ -21,7 +21,7 @@ export async function populateTrade(trade: Bool3Trade) {
 
     const ts = new TradeSize(trade);
     //const tradeSize = await ts.tradeToPrice();
-    trade.target.tradeSize = 1000n; //pu(tradeSize, trade.tokenIn.decimals);
+    trade.target.tradeSize = pu("1000", trade.tokenIn.decimals); //pu(tradeSize, trade.tokenIn.decimals);
 
     if (trade.target.tradeSize === 0n) {
         //console.log("Trade size is 0, returning trade: ", trade.ticker, trade.loanPool.exchange, trade.target.exchange)
