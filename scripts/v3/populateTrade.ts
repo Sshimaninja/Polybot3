@@ -1,29 +1,24 @@
-import { Bool3Trade, IUniswapV3Pool } from "../../constants/interfaces";
+import { Bool3Trade } from "../../constants/interfaces";
 import { V3Quote } from "./modules/price/v3Quote";
 import { TokenProfits } from "./modules/tokenProfits";
 // import { getK } from "./modules/getK";
 import { filterTrade } from "./modules/filterTrade";
 import { flashV3Multi } from "../../constants/environment";
-import { fu, pu, numberToBigInt, BN2BigInt } from "../modules/convertBN";
-import { addFee } from "./modules/calc";
+import { fu } from "../modules/convertJSBI";
 import { TradeSize } from "./classes/TradeSize";
 import { params } from "./modules/transaction/params";
 import { importantSafetyChecks } from "./modules/importantSafetyChecks";
 import { logger } from "../../constants/logger";
-import { JSBI } from "@uniswap/sdk";
-import { volumeToReachTargetPrice as v2pUni } from "./modules/price/ref/VoltoTargetUni";
-import { volumeToReachTargetPrice as v2pAlg } from "./modules/price/ref/VoltoTargetAlg";
-
-import { VolToTarget } from "./modules/price/ref/Vol2TargetJSBI";
+import JSBI from "@uniswap/sdk/node_modules/jsbi";
 
 export async function populateTrade(trade: Bool3Trade) {
     trade.safe = await filterTrade(trade);
 
     const ts = new TradeSize(trade);
     //const tradeSize = await ts.tradeToPrice();
-    trade.target.tradeSize = 1000n; //pu(tradeSize, trade.tokenIn.decimals);
+    trade.target.tradeSize = JSBI.BigInt(1000); //pu(tradeSize, trade.tokenIn.decimals);
 
-    if (trade.target.tradeSize === 0n) {
+    if (trade.target.tradeSize === JSBI.BigInt(0)) {
         //console.log("Trade size is 0, returning trade: ", trade.ticker, trade.loanPool.exchange, trade.target.exchange)
         return trade;
     }
@@ -44,7 +39,7 @@ export async function populateTrade(trade: Bool3Trade) {
         trade.tokenIn,
     );
 
-    if (trade.target.tradeSize === 0n) {
+    if (trade.target.tradeSize === JSBI.BigInt(0)) {
         console.log(
             "Trade size is 0, returning trade: ",
             trade.ticker,
@@ -53,7 +48,7 @@ export async function populateTrade(trade: Bool3Trade) {
         );
         return trade;
     }
-    if (trade.target.tradeSize < BigInt(1)) {
+    if (trade.target.tradeSize < JSBI.BigInt(1)) {
         return trade;
     }
 

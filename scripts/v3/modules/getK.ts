@@ -1,7 +1,7 @@
 // ;
 // import { Bool3Trade, K, PoolState } from "../../../constants/interfaces";
 // import { AmountConverter } from "./amountConverter"
-// import { BN2BigInt } from "../../modules/convertBN";
+// import { JSBI2BigInt } from "../../modules/convertJSBI";
 // import { V3Quote } from "../modules/price/v3Quote";
 // import { PoolStateV3 } from "./price/Prices";
 
@@ -33,7 +33,7 @@
 // 		tradeSizewithFee,
 // 	);
 
-// 	// const tokenOutPrice = BN2BigInt(calc.price.priceOutBN, calc.token1.decimals);
+// 	// const tokenOutPrice = JSBI2BigInt(calc.price.priceOutJSBI, calc.token1.decimals);
 // 	// // console.log("TradeSize: " + tradeSize.toString() + " * tokenOutPrice: " + tokenOutPrice.toString() + " = " + tokenOutPrice * (tradeSize).toString())
 // 	// const tradeSizeInTermsOfTokenOut = tradeSize * (tokenOutPrice);
 // 	// // console.log('tradeSizeInTermsOfTokenOut: ', tradeSizeInTermsOfTokenOut.toString())
@@ -67,4 +67,3 @@
 // 	return kalc;
 
 // }
-

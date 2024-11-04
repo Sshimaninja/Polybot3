@@ -1,6 +1,6 @@
 import { TickMath } from "@uniswap/v3-sdk";
 
-import { JSBI } from "@uniswap/sdk";
+import JSBI from "jsbi";
 import { IUniswapV3Pool } from "../../../../../constants/interfaces";
 
 export async function volumeToReachTargetPrice(

@@ -1,7 +1,7 @@
 // import { Currency, CurrencyAmount, Percent, Token, TradeType, } from '@uniswap/sdk-core'
 // // import { Pool, Route, SwapOptions, SwapQuoter, SwapRouter, Trade, } from '@uniswap/v3-sdk'
 // import { ethers } from 'ethers'
-// import { JSBI } from "@uniswap/sdk";"@uniswap/sdk-core/node_modules/jsbi/jsbi";
+// import JSBI from "@uniswap/sdk-core/node_modules/jsbi";"@uniswap/sdk-core/node_modules/jsbi/jsbi";
 
 // // import { getOutputQuote, getTokenTransferApproval } from './swapHelpers'
 

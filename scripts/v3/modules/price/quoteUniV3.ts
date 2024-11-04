@@ -1,15 +1,13 @@
 import { Contract } from "ethers";
-import { getQuoterV2, getProtocol } from "../../../modules/getContract";
 import { abi as IUni3Pool } from "@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json";
 import { signer } from "../../../../constants/provider";
-import { fu, pu } from "../../../modules/convertBN";
 import {
     ERC20token,
     ExactInput,
     ExactOutput,
 } from "../../../../constants/interfaces";
 import { uniswapV3Exchange } from "../../../../constants/addresses";
-
+import JSBI from "jsbi";
 export async function univ3QuoteOut(
     poolID: string,
     tokenIn: ERC20token,
@@ -108,10 +106,10 @@ export async function univ3QuoteIn(
         );
         console.log("Code: ", error.code);
         return {
-            amountIn: 0n,
-            sqrtPriceX96After: 0n,
-            initializedTicksCrossed: 0n,
-            gasEstimate: 0n,
+            amountIn: JSBI.BigInt(0),
+            sqrtPriceX96After: JSBI.BigInt(0),
+            initializedTicksCrossed: JSBI.BigInt(0),
+            gasEstimate: JSBI.BigInt(0),
         };
     }
 }

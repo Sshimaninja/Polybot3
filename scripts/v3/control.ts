@@ -1,35 +1,19 @@
 require("dotenv").config();
 require("colors");
-import { BigNumber as BN } from "bignumber.js";
 import { abi as IUni3Pool } from "@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json";
 import { abi as IAlgPool } from "@cryptoalgebra/core/artifacts/contracts/AlgebraPool.sol/AlgebraPool.json";
-import { abi as IERC20 } from "@uniswap/v2-periphery/build/IERC20.json";
-import {
-    FactoryPair,
-    Pair,
-    Match3Pools,
-    V3Matches,
-    GasData,
-    Bool3Trade,
-} from "../../constants/interfaces";
+import { Match3Pools, V3Matches, GasData } from "../../constants/interfaces";
 import { Trade } from "./Trade";
 import { tradeLogs } from "./modules/tradeLog";
-import { TickProvider } from "./classes/TickProvider";
 import { Contract } from "ethers";
 import { provider } from "../../constants/provider";
-import { chainID, uniswapV3Exchange } from "../../constants/addresses";
-import { slip } from "../../constants/environment";
 import { logger } from "../../constants/logger";
-import { InRangeLiquidity } from "./classes/InRangeLiquidity";
-import { filterTrade } from "./modules/filterTrade";
+import { InRangeLiquidity } from "./classes/IRL";
 import { trueProfit } from "./modules/trueProfit";
 import { fetchGasPrice } from "./modules/transaction/fetchGasPrice";
 import { flash } from "./modules/transaction/flash";
-import { importantSafetyChecks } from "./modules/importantSafetyChecks";
-import { abi as IUniswapV3Factory } from "@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Factory.sol/IUniswapV3Factory.json";
-import { abi as IAlgebraFactory } from "@cryptoalgebra/core/artifacts/contracts/AlgebraFactory.sol/AlgebraFactory.json";
-import { fu, pu } from "../modules/convertBN";
-
+import { fu } from "../modules/convertJSBI";
+import JSBI from "jsbi";
 /*
 TODO:
 */
@@ -42,7 +26,7 @@ TODO:
  * It prevents multiple flash swaps from being executed at the same time, on the same pool, if the profit is too low, or the gas cost too high.
  */
 export const tradePending = false;
-export const slippageTolerance = BN(0.006); // 0.65%
+export const slippageTolerance = JSBI.BigInt(0.006); // 0.65%
 // var virtualReserveFactor = 1.1
 var pendingID: string | undefined;
 export let pendingTransactions: { [poolAddress: string]: boolean } = {};
@@ -68,13 +52,13 @@ export async function control(data: V3Matches, gasData: GasData) {
             const pool0ABI =
                 match.pool0.protocol === "UNIV3"
                     ? IUni3Pool
-                    : "ALG"
+                    : match.pool0.protocol === "ALG"
                     ? IAlgPool
                     : "ERROR";
             const pool1ABI =
                 match.pool1.protocol === "UNIV3"
                     ? IUni3Pool
-                    : "ALG"
+                    : match.pool1.protocol === "ALG"
                     ? IAlgPool
                     : "ERROR";
 
@@ -138,10 +122,16 @@ export async function control(data: V3Matches, gasData: GasData) {
                 ticker: trade.ticker,
                 loanPool: trade.loanPool.exchange,
                 target: trade.target.exchange,
-                tradeSize: fu(trade.target.tradeSize, trade.tokenIn.decimals),
-                amountOut: fu(trade.target.amountOut, trade.tokenOut.decimals),
+                tradeSize: fu(
+                    trade.target.tradeSize.toString(),
+                    trade.tokenIn.decimals,
+                ),
+                amountOut: fu(
+                    trade.target.amountOut.toString(),
+                    trade.tokenOut.decimals,
+                ),
                 amountRepay: fu(
-                    trade.loanPool.amountRepay,
+                    trade.loanPool.amountRepay.toString(),
                     trade.tokenOut.decimals,
                 ),
             };
@@ -149,7 +139,9 @@ export async function control(data: V3Matches, gasData: GasData) {
             //console.log("tradeInfo: ", tradeInfo);
 
             // return;
-            if (trade.profits.tokenProfit <= 0) {
+            if (
+                JSBI.lessThanOrEqual(trade.profits.tokenProfit, JSBI.BigInt(0))
+            ) {
                 //console.log("No profit for trade: " + trade.ticker);
                 return;
             }
@@ -165,12 +157,17 @@ export async function control(data: V3Matches, gasData: GasData) {
             await trueProfit(trade);
             console.log(
                 "trade.profits.WMATICProfit: ",
-                fu(trade.profits.WMATICProfit, 18),
+                fu(trade.profits.WMATICProfit.toString(), 18),
             );
 
             // return;
 
-            if (trade.profits.WMATICProfit < trade.gas.gasPrice) {
+            if (
+                JSBI.lessThan(
+                    trade.profits.WMATICProfit,
+                    JSBI.BigInt(trade.gas.gasPrice.toString()),
+                )
+            ) {
                 console.log(
                     "No profit after trueProfit: ",
                     trade.ticker,

@@ -1,8 +1,8 @@
-import { BigNumber as BN } from "bignumber.js";
+import JSBI from "jsbi";
 import { Profcalcs, V3Repays, Bool3Trade } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter";
 import { V3Quote } from "./price/v3Quote";
-import { BigInt2BN, BN2BigInt, fu, pu } from "../../modules/convertBN";
+import { BigInt2JSBI, JSBI2BigInt, fu, pu } from "../../modules/convertJSBI";
 import { addFee } from "./calc";
 
 export class TokenProfits {
@@ -14,7 +14,7 @@ export class TokenProfits {
     }
 
     async getMulti(): Promise<{
-        /*repay: V3Repays,*/ profits: { profit: bigint; profitPercent: BN };
+        /*repay: V3Repays,*/ profits: { profit: bigint; profitPercent: JSBI };
     }> {
         /*
 		I have to send back only the amount of token1 needed to repay the amount of token0 I was loaned.
@@ -46,7 +46,10 @@ export class TokenProfits {
         const getProfit = async (): Promise<Profcalcs> => {
             // this must be re-assigned to be accurate, if you re-assign this.trade.loanPool.amountRepay below. The correct amountRepay should be decided upon and this message should be removed.
             // if (repay.lt(this.trade.target.amountOut)) {
-            let profit: Profcalcs = { profit: 0n, profitPercent: BN(0) };
+            let profit: Profcalcs = {
+                profit: 0n,
+                profitPercent: JSBI.BigInt(0),
+            };
             if (
                 this.trade.loanPool.amountRepay > 0n &&
                 this.trade.target.amountOut > 0n
@@ -54,13 +57,13 @@ export class TokenProfits {
                 profit.profit =
                     this.trade.target.amountOut -
                     this.trade.loanPool.amountRepay; //must add fee from pool v3 to this?
-                const profitBN = BigInt2BN(
+                const profitJSBI = BigInt2JSBI.BigInt(
                     profit.profit,
                     this.trade.tokenOut.decimals,
                 );
                 profit.profitPercent =
                     this.trade.target.amountOut > 0
-                        ? profitBN
+                        ? profitJSBI
                               .dividedBy(
                                   fu(
                                       this.trade.target.amountOut,
@@ -68,10 +71,10 @@ export class TokenProfits {
                                   ),
                               )
                               .multipliedBy(100)
-                        : BN(0);
+                        : JSBI.BigInt(0);
                 return profit;
             } else {
-                return { profit: 0n, profitPercent: BN(0) };
+                return { profit: 0n, profitPercent: JSBI.BigInt(0) };
             }
         };
 
@@ -84,7 +87,7 @@ export class TokenProfits {
     async getDirect(): Promise<{
         repay: bigint;
         profit: bigint;
-        percentProfit: BN;
+        percentProfit: JSBI;
     }> {
         const repay = this.trade.target.tradeSize; //must add fee from pool v3 to this.
 
@@ -94,10 +97,13 @@ export class TokenProfits {
         );
         const profit =
             this.trade.target.amountOut - directRepayLoanPoolInTokenOutWithFee; // profit is remainder of token1 out
-        const profitBN = BigInt2BN(profit, this.trade.tokenOut.decimals);
+        const profitJSBI = BigInt2JSBI.BigInt(
+            profit,
+            this.trade.tokenOut.decimals,
+        );
         const percentProfit =
             this.trade.target.amountOut > 0
-                ? profitBN
+                ? profitJSBI
                       .dividedBy(
                           fu(
                               this.trade.target.amountOut,
@@ -105,7 +111,7 @@ export class TokenProfits {
                           ),
                       )
                       .multipliedBy(100)
-                : BN(0);
+                : JSBI.BigInt(0);
         return { repay, profit, percentProfit };
     }
 }

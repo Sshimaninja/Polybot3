@@ -1,40 +1,37 @@
 import { BaseContract, Contract, ethers } from "ethers";
-import { BigNumber as BN } from "bignumber.js";
-import { Token as V3Token } from "@uniswap/sdk-core";
+import JSBI from "jsbi"; //import JSBI from "jsbi";import { Token as V3Token } from "@uniswap/sdk-core";
 import { AmountConverter as CalcV3 } from "../scripts/v3/modules/amountConverter";
-import { IRL, InRangeLiquidity } from "../scripts/v3/classes/InRangeLiquidity";
-import { IRLbigint } from "../scripts/v3/modules/price/getIRLbigint";
-import { JSBI } from "@uniswap/sdk";
+import { IRL, InRangeLiquidity } from "../scripts/v3/classes/IRL";
 
 // import { AmountConverter as CalcV2 } from "../scripts/v2/modules/amountConverter";
 export interface K {
-    uniswapKPre: bigint;
-    uniswapKPost: bigint;
+    uniswapKPre: JSBI;
+    uniswapKPost: JSBI;
     uniswapKPositive: boolean;
 }
 
 export interface ExactInput {
-    amountOut: bigint;
-    sqrtPriceX96After: bigint;
-    initializedTicksCrossed: bigint;
-    gasEstimate: bigint;
+    amountOut: JSBI;
+    sqrtPriceX96After: JSBI;
+    initializedTicksCrossed: JSBI;
+    gasEstimate: JSBI;
 }
 
 export interface ExactOutput {
-    amountIn: bigint;
-    sqrtPriceX96After: bigint;
-    initializedTicksCrossed: bigint;
-    gasEstimate: bigint;
+    amountIn: JSBI;
+    sqrtPriceX96After: JSBI;
+    initializedTicksCrossed: JSBI;
+    gasEstimate: JSBI;
 }
 
 export interface PendingTx {
     ID: string;
     warning: boolean;
 }
-export interface TxData {
-    txResponse: ethers.TransactionResponse | undefined;
-    pendingID: string | null;
-}
+//export interface TxData {
+//    txResponse: ethers.TransactionResponse | undefined;
+//    pendingID: string | null;
+//}
 
 export interface ToWMATICPool {
     ticker: string;
@@ -42,7 +39,7 @@ export interface ToWMATICPool {
     tokenOut: { id: string; decimals: number; symbol: string };
     id: string;
     exchange: string;
-    liq: bigint;
+    liq: JSBI;
 }
 
 export interface V2Params {
@@ -50,9 +47,9 @@ export interface V2Params {
     targetRouter: string;
     token0ID: string;
     token1ID: string;
-    amount0In: bigint;
-    amount1Out: bigint;
-    amountToRepay: bigint;
+    amount0In: JSBI;
+    amount1Out: JSBI;
+    amountToRepay: JSBI;
 }
 
 export interface V2Tx {
@@ -62,10 +59,10 @@ export interface V2Tx {
 
 export interface TxGas {
     type: number;
-    gasPrice: bigint;
+    gasPrice: JSBI;
     maxFeePerGas: number;
     maxPriorityFeePerGas: number;
-    gasLimit: bigint;
+    gasLimit: JSBI;
 }
 
 export interface PolygonGasData {
@@ -88,14 +85,14 @@ export interface PolygonGasData {
 export interface Sizes {
     loanPool: {
         tradeSizeTokenIn: {
-            size: bigint;
-            // sizeBN: BN;
+            size: JSBI;
+            // sizeJSBI: JSBI;
         };
     };
     target: {
         tradeSizeTokenOut: {
-            size: bigint;
-            // sizeBN: BN;
+            size: JSBI;
+            // sizeJSBI: JSBI;
         };
     };
 }
@@ -161,12 +158,12 @@ export interface PoolInfo {
 }
 
 export interface Reserves3 {
-    balance0: bigint;
-    balance1: bigint;
-    reserves0: bigint;
-    reserves1: bigint;
-    reserves0BN: BN;
-    reserves1BN: BN;
+    balance0: JSBI;
+    balance1: JSBI;
+    reserves0: JSBI;
+    reserves1: JSBI;
+    reserves0JSBI: JSBI;
+    reserves1JSBI: JSBI;
     reserves0String: string;
     reserves1String: string;
 }
@@ -178,42 +175,42 @@ export interface PoolStateV3 {
     exchange: string;
     price0: number;
     price1: number;
-    liq: bigint;
-    tick: bigint;
-    fee: bigint;
+    liq: JSBI;
+    tick: JSBI;
+    fee: JSBI;
     unlocked: boolean;
 }
 
 export interface PoolState {
     poolID: string;
-    sqrtPriceX96: bigint;
-    liquidity: bigint;
-    liquidityBN: BN;
-    // balance0:  bigint;
-    // balance1:  bigint;
-    reservesIn: bigint;
-    reservesOut: bigint;
-    reservesInBN: BN;
-    reservesOutBN: BN;
+    sqrtPriceX96: JSBI;
+    liquidity: JSBI;
+    liquidityJSBI: JSBI;
+    // balance0:  JSBI;
+    // balance1:  JSBI;
+    reservesIn: JSBI;
+    reservesOut: JSBI;
+    reservesInJSBI: JSBI;
+    reservesOutJSBI: JSBI;
     inRangeReserves0: string;
     inRangeReserves1: string;
-    priceIn: bigint;
-    priceOut: bigint;
+    priceIn: JSBI;
+    priceOut: JSBI;
 
-    // priceInBN: BN;
-    // priceOutBN: BN;
+    // priceInJSBI: JSBI;
+    // priceOutJSBI: JSBI;
 }
 export interface Profit {
     profit: string;
-    gasEstimate: bigint;
-    gasCost: bigint;
+    gasEstimate: JSBI;
+    gasCost: JSBI;
     gasPool: string;
     gas: GAS;
 }
 export interface Amounts {
-    maxIn: bigint;
-    maxOut: bigint;
-    toPrice: bigint;
+    maxIn: JSBI;
+    maxOut: JSBI;
+    toPrice: JSBI;
 }
 
 export interface IUniswapV3Pool {
@@ -226,7 +223,7 @@ export interface IUniswapV3Pool {
 }
 
 export interface Slot0 {
-    sqrtPriceX96: bigint;
+    sqrtPriceX96: JSBI;
     tick: number;
     fee: number;
     unlocked: boolean;
@@ -240,8 +237,8 @@ export interface DeployedPools {
     block: number;
 }
 export interface Profcalcs {
-    profit: bigint;
-    profitPercent: BN;
+    profit: JSBI;
+    profitPercent: JSBI;
 }
 export interface Valid3Pool {
     poolID: string;
@@ -272,10 +269,10 @@ export interface Match3Pools {
 }
 
 export interface ReservesData {
-    reserveIn: bigint;
-    reserveOut: bigint;
-    reserveInBN: BN;
-    reserveOutBN: BN;
+    reserveIn: JSBI;
+    reserveOut: JSBI;
+    reserveInJSBI: JSBI;
+    reserveOutJSBI: JSBI;
     blockTimestampLast: number;
 }
 
@@ -303,17 +300,17 @@ export interface PoolsV3 {
 }
 
 export interface Repays {
-    direct: bigint;
-    directInTokenOut: bigint;
-    simpleMulti: bigint;
-    getAmountsOut: bigint;
-    getAmountsIn: bigint;
-    repay: bigint;
+    direct: JSBI;
+    directInTokenOut: JSBI;
+    simpleMulti: JSBI;
+    getAmountsOut: JSBI;
+    getAmountsIn: JSBI;
+    repay: JSBI;
 }
 export interface V3Repays {
-    //getAmountsOut: bigint
-    //getAmountsIn: bigint
-    repay: bigint;
+    //getAmountsOut: JSBI
+    //getAmountsIn: JSBI
+    repay: JSBI;
 }
 
 export interface V2POOLS {
@@ -336,13 +333,13 @@ export interface V2POOLS {
 export interface V3POOLS {}
 
 export interface HiLo {
-    higher: BN;
-    lower: BN;
+    higher: JSBI;
+    lower: JSBI;
 }
 
 export interface Difference {
-    difference: BN;
-    differencePercent: BN;
+    difference: JSBI;
+    differencePercent: JSBI;
 }
 
 export interface GasData {
@@ -364,14 +361,14 @@ export interface GAS {
 export interface V3FlashParams {
     token0: string;
     token1: string;
-    amount0: bigint;
-    amount1: bigint;
+    amount0: JSBI;
+    amount1: JSBI;
     fee: number;
     target: string;
     deadline: number;
-    sqrtPriceLimitX96: bigint;
-    maxFlashSwapFee: bigint;
-    flashFee: bigint;
+    sqrtPriceLimitX96: JSBI;
+    maxFlashSwapFee: JSBI;
+    flashFee: JSBI;
     uniswapV3Pool1: string;
     uniswapV3PoolKey1: string;
     uniswapV3Fee1: number;
@@ -401,12 +398,12 @@ export interface Bool3Trade {
         router: Contract;
         quoter: Contract;
         pool: Contract;
-        priceIn: bigint;
-        priceOut: bigint;
+        priceIn: JSBI;
+        priceOut: JSBI;
         feeTier: number;
         state: IRL;
         inRangeLiquidity: InRangeLiquidity;
-        amountRepay: bigint;
+        amountRepay: JSBI;
     };
     target: {
         exchange: string;
@@ -415,21 +412,21 @@ export interface Bool3Trade {
         router: Contract;
         quoter: Contract;
         pool: Contract;
-        priceIn: bigint;
-        priceOut: bigint;
+        priceIn: JSBI;
+        priceOut: JSBI;
         priceTarget: number;
         feeTier: number;
         state: IRL;
         inRangeLiquidity: InRangeLiquidity;
-        tradeSize: bigint;
-        amountOut: bigint;
+        tradeSize: JSBI;
+        amountOut: JSBI;
     };
     // k: K
     gas: GasData;
     differenceTokenOut: number;
     differencePercent: number;
     profits: {
-        tokenProfit: bigint;
-        WMATICProfit: bigint;
+        tokenProfit: JSBI;
+        WMATICProfit: JSBI;
     };
 }

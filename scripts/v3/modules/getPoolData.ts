@@ -1,11 +1,11 @@
 import { Token } from "@uniswap/sdk-core";
-import { JSBI } from "@uniswap/sdk";
+import JSBI from "jsbi";
 import { fitFee } from "./fitFee";
 import { chainID } from "../../../constants/addresses";
 import { abi as IERC20 } from "../../../interfaces/IERC20.json";
 import { abi as IUniswapV3PoolABI } from "@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json";
 import { ethers, Contract } from "ethers";
-import { BigNumber as BN } from "bignumber.js";
+import JSBI from "jsbi";
 import { signer, provider } from "../../../constants/provider";
 import {
     ReservesData,
@@ -20,7 +20,7 @@ import {
     Provider as MulticallProvider,
 } from "ethers-multicall";
 
-import { BN2BigInt, fu, pu } from "../../modules/convertBN";
+import { BN2BigInt, fu, pu } from "../../modules/convertJSBI";
 
 import {
     Pool,

@@ -21,7 +21,7 @@ import {
 import { provider, signer } from "../../../../constants/provider";
 import { algebraQuoteIn, algebraQuoteOut } from "./quoteAlgebra";
 import { univ3QuoteIn, univ3QuoteOut } from "./quoteUniV3";
-
+import JSBI from "jsbi";
 export class V3Quote {
     exchange: string;
     protocol: string;
@@ -71,10 +71,10 @@ export class V3Quote {
                           tradeSize,
                       )
                     : {
-                          amountOut: 0n,
-                          sqrtPriceX96After: 0n,
-                          initializedTicksCrossed: 0n,
-                          gasEstimate: 0n,
+                          amountOut: JSBI.BigInt(0),
+                          sqrtPriceX96After: JSBI.BigInt(0),
+                          initializedTicksCrossed: JSBI.BigInt(0),
+                          gasEstimate: JSBI.BigInt(0),
                       };
             //console.log("maxOut: ", maxOut.amountOut.toString())
             return maxOut;
@@ -83,10 +83,10 @@ export class V3Quote {
             //	console.log("Error in v3Quote maxOut: ", error)
         }
         return {
-            amountOut: 0n,
-            sqrtPriceX96After: 0n,
-            initializedTicksCrossed: 0n,
-            gasEstimate: 0n,
+            amountOut: JSBI.BigInt(0),
+            sqrtPriceX96After: JSBI.BigInt(0),
+            initializedTicksCrossed: JSBI.BigInt(0),
+            gasEstimate: JSBI.BigInt(0),
         };
     }
 
@@ -110,10 +110,10 @@ export class V3Quote {
                           amountOutExpected,
                       )
                     : {
-                          amountIn: 0n,
-                          sqrtPriceX96After: 0n,
-                          initializedTicksCrossed: 0n,
-                          gasEstimate: 0n,
+                          amountIn: JSBI.BigInt(0),
+                          sqrtPriceX96After: JSBI.BigInt(0),
+                          initializedTicksCrossed: JSBI.BigInt(0),
+                          gasEstimate: JSBI.BigInt(0),
                       };
             //console.log("minIn: ", minIn.amountIn.toString(), this.exchange)
             return minIn;
@@ -130,10 +130,10 @@ export class V3Quote {
         }
         console.log("getAmountIn: expected amount =< zero: ", this.exchange);
         return {
-            amountIn: 0n,
-            sqrtPriceX96After: 0n,
-            initializedTicksCrossed: 0n,
-            gasEstimate: 0n,
+            amountIn: JSBI.BigInt(0),
+            sqrtPriceX96After: JSBI.BigInt(0),
+            initializedTicksCrossed: JSBI.BigInt(0),
+            gasEstimate: JSBI.BigInt(0),
         };
     }
 

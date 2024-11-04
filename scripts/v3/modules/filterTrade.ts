@@ -1,6 +1,6 @@
 import { Bool3Trade } from "../../../constants/interfaces";
-import { BigNumber as BN } from "bignumber.js";
-import { BigInt2BN } from "../../modules/convertBN";
+import JSBI from "jsbi";
+import { BigInt2BN } from "../../modules/convertJSBI";
 // import { importantSafetyChecks } from "./importantSafetyChecks";
 import { tradeLogs } from "./tradeLog";
 

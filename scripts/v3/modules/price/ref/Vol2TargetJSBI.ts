@@ -1,16 +1,14 @@
 import { ethers, Contract } from "ethers";
-import { InRangeLiquidity } from "../../../classes/InRangeLiquidity";
+import { InRangeLiquidity } from "../../../classes/IRL";
 import { ERC20token } from "../../../../../constants/interfaces";
 import { TickMath } from "@uniswap/v3-sdk";
-import { JSBI } from "@uniswap/sdk";
-("@uniswap/sdk-core/node_modules/jsbi");
-
+import JSBI from "jsbi";
 export class VolToTarget {
     exchange: string;
     token0: ERC20token;
     token1: ERC20token;
     pool: Contract;
-    //data: InRangeLiquidity;
+    data: InRangeLiquidity;
     sPriceTarget: number;
 
     constructor(
@@ -18,14 +16,14 @@ export class VolToTarget {
         token0: ERC20token,
         token1: ERC20token,
         pool: Contract,
-        //data: InRangeLiquidity,
+        data: InRangeLiquidity,
         sPriceTarget: number,
     ) {
         this.exchange = exchange;
         this.token0 = token0;
         this.token1 = token1;
         this.pool = pool;
-        //this.data = data;
+        this.data = data;
         this.sPriceTarget = sPriceTarget;
     }
 
@@ -61,7 +59,7 @@ export class VolToTarget {
             TickMath.getTickAtSqrtRatio(sPriceCurrent),
         );
         //let targetTick = TickMath.getTickAtSqrtRatio(
-        //    this.toJSBI(this.sPriceTarget),
+        //    this.toJSBI.BigInt(this.sPriceTarget),
         //);
         let tickSpacing = this.toJSBI(s.tickSpacing);
 

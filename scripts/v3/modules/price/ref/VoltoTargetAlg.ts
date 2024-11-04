@@ -1,5 +1,5 @@
 import { TickMath } from "@cryptoalgebra/integral-sdk";
-import { JSBI } from "@uniswap/sdk";
+import JSBI from "jsbi";
 
 import { IUniswapV3Pool } from "../../../../../constants/interfaces";
 

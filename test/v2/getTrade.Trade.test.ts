@@ -3,10 +3,10 @@
 
 const pair = { exchangeA: 'exchangeA', exchangeB: 'exchangeB', factoryA_id: 'factoryA_id', factoryB_id: 'factoryB_id', routerA_id: 'routerA_id', routerB_id: 'routerB_id' };
 const match = { poolAID: 'poolAID', poolBID: 'poolBID', token0: { symbol: 'token0' }, token1: { symbol: 'token1' } };
-const price0 = { priceOutBN: new BN(100), reserves: { reserveIn: new BN(100), reserveOut: new BN(200), reserveInBN: new BN(100), reserveOutBN: new BN(200) } };
-const price1 = { priceOutBN: new BN(200), reserves: { reserveIn: new BN(200), reserveOut: new BN(100), reserveInBN: new BN(200), reserveOutBN: new BN(100) } };
-const slip = new BN(0.5);
-const gasData = { gasPrice: new BN(100), gasLimit: new BN(200) };
+const price0 = { priceOutJSBI: new JSBI.BigInt(100), reserves: { reserveIn: new JSBI.BigInt(100), reserveOut: new JSBI.BigInt(200), reserveInJSBI: new JSBI.BigInt(100), reserveOutJSBI: new JSBI.BigInt(200) } };
+const price1 = { priceOutJSBI: new JSBI.BigInt(200), reserves: { reserveIn: new JSBI.BigInt(200), reserveOut: new JSBI.BigInt(100), reserveInJSBI: new JSBI.BigInt(200), reserveOutJSBI: new JSBI.BigInt(100) } };
+const slip = new JSBI.BigInt(0.5);
+const gasData = { gasPrice: new JSBI.BigInt(100), gasLimit: new JSBI.BigInt(200) };
 
 const trade = new Trade(pair, match, price0, price1, slip, gasData);
 
@@ -33,23 +33,23 @@ it('should return the correct direction, difference, and difference percentage',
         }
     };
     const price0 = {
-        priceOutBN: new BN(1000),
+        priceOutJSBI: new JSBI.BigInt(1000),
         reserves: {
-            reserveIn: new BN(100),
-            reserveOut: new BN(1000)
+            reserveIn: new JSBI.BigInt(100),
+            reserveOut: new JSBI.BigInt(1000)
         }
     };
     const price1 = {
-        priceOutBN: new BN(1100),
+        priceOutJSBI: new JSBI.BigInt(1100),
         reserves: {
-            reserveIn: new BN(200),
-            reserveOut: new BN(2000)
+            reserveIn: new JSBI.BigInt(200),
+            reserveOut: new JSBI.BigInt(2000)
         }
     };
-    const slip = new BN(0.01);
+    const slip = new JSBI.BigInt(0.01);
     const gasData = {
-        gasPrice: new BN(100),
-        gasLimit: new BN(1000)
+        gasPrice: new JSBI.BigInt(100),
+        gasLimit: new JSBI.BigInt(1000)
     };
     const trade = new Trade(pair, match, price0, price1, slip, gasData);
     const result = await trade.direction();
@@ -79,31 +79,31 @@ it('Should return the correct size', async () => {
         }
     };
     const price0 = {
-        priceOutBN: new BN(100),
+        priceOutJSBI: new JSBI.BigInt(100),
         reserves: {
-            reserveIn: new BN(1000),
-            reserveInBN: new BN(1000),
-            reserveOut: new BN(10000),
-            reserveOutBN: new BN(10000)
+            reserveIn: new JSBI.BigInt(1000),
+            reserveInJSBI: new JSBI.BigInt(1000),
+            reserveOut: new JSBI.BigInt(10000),
+            reserveOutJSBI: new JSBI.BigInt(10000)
         }
     };
     const price1 = {
-        priceOutBN: new BN(200),
+        priceOutJSBI: new JSBI.BigInt(200),
         reserves: {
-            reserveIn: new BN(2000),
-            reserveInBN: new BN(2000),
-            reserveOut: new BN(20000),
-            reserveOutBN: new BN(20000)
+            reserveIn: new JSBI.BigInt(2000),
+            reserveInJSBI: new JSBI.BigInt(2000),
+            reserveOut: new JSBI.BigInt(20000),
+            reserveOutJSBI: new JSBI.BigInt(20000)
         }
     };
-    const slip = new BN(0.01);
+    const slip = new JSBI.BigInt(0.01);
     const gasData = {
-        gasPrice: new BN(100),
-        gasLimit: new BN(1000)
+        gasPrice: new JSBI.BigInt(100),
+        gasLimit: new JSBI.BigInt(1000)
     };
     const trade = new Trade(pair, match, price0, price1, slip, gasData);
-    const loan = new AmountConverter(price0, match, price1.priceOutBN);
-    const target = new AmountConverter(price1, match, price0.priceOutBN);
+    const loan = new AmountConverter(price0, match, price1.priceOutJSBI);
+    const target = new AmountConverter(price1, match, price0.priceOutJSBI);
     const size = await trade.getSize(loan, target);
     expect(size.toString()).to.equal('100');
 }); 
@@ -132,28 +132,28 @@ it('Should return the correct trade object', async () => {
         }
     };
     const price0: Prices = {
-        priceInBN: new BN(100),
-        priceOutBN: new BN(200),
+        priceInJSBI: new JSBI.BigInt(100),
+        priceOutJSBI: new JSBI.BigInt(200),
         reserves: {
-            reserveIn: new BN(1000),
-            reserveOut: new BN(2000),
-            reserveInBN: new BN(1000),
-            reserveOutBN: new BN(2000)
+            reserveIn: new JSBI.BigInt(1000),
+            reserveOut: new JSBI.BigInt(2000),
+            reserveInJSBI: new JSBI.BigInt(1000),
+            reserveOutJSBI: new JSBI.BigInt(2000)
         }
     };
     const price1: Prices = {
-        priceInBN: new BN(200),
-        priceOutBN: new BN(100),
+        priceInJSBI: new JSBI.BigInt(200),
+        priceOutJSBI: new JSBI.BigInt(100),
         reserves: {
-            reserveIn: new BN(2000),
-            reserveOut: new BN(1000),
-            reserveInBN: new BN(2000),
-            reserveOutBN: new BN(1000)
+            reserveIn: new JSBI.BigInt(2000),
+            reserveOut: new JSBI.BigInt(1000),
+            reserveInJSBI: new JSBI.BigInt(2000),
+            reserveOutJSBI: new JSBI.BigInt(1000)
         }
     };
-    const slip: BN = new BN(0.01);
+    const slip: JSBI = new JSBI.BigInt(0.01);
     const gasData: GasData = {
-        gasPrice: new BN(1000000000),
+        gasPrice: new JSBI.BigInt(1000000000),
         gasLimit: 1000000
     };
     const trade = new Trade(pair, match, price0, price1, slip, gasData);
@@ -194,27 +194,27 @@ describe('Trade', () => {
             }
         };
         const price0 = {
-            priceOutBN: new BN(100),
+            priceOutJSBI: new JSBI.BigInt(100),
             reserves: {
-                reserveIn: new BN(1000),
-                reserveOut: new BN(2000),
-                reserveInBN: new BN(1000),
-                reserveOutBN: new BN(2000)
+                reserveIn: new JSBI.BigInt(1000),
+                reserveOut: new JSBI.BigInt(2000),
+                reserveInJSBI: new JSBI.BigInt(1000),
+                reserveOutJSBI: new JSBI.BigInt(2000)
             }
         };
         const price1 = {
-            priceOutBN: new BN(200),
+            priceOutJSBI: new JSBI.BigInt(200),
             reserves: {
-                reserveIn: new BN(2000),
-                reserveOut: new BN(3000),
-                reserveInBN: new BN(2000),
-                reserveOutBN: new BN(3000)
+                reserveIn: new JSBI.BigInt(2000),
+                reserveOut: new JSBI.BigInt(3000),
+                reserveInJSBI: new JSBI.BigInt(2000),
+                reserveOutJSBI: new JSBI.BigInt(3000)
             }
         };
-        const slip = new BN(0.5);
+        const slip = new JSBI.BigInt(0.5);
         const gasData = {
-            gasPrice: new BN(10),
-            gasLimit: new BN(100000)
+            gasPrice: new JSBI.BigInt(10),
+            gasLimit: new JSBI.BigInt(100000)
         };
         const trade = new Trade(pair, match, price0, price1, slip, gasData);
         const result = await trade.getTrade();
@@ -231,9 +231,9 @@ describe('Trade', () => {
         expect(result.loanPool.router.getAddress()).toBe('routerB_id');
         expect(result.loanPool.pool.getAddress()).toBe('poolBID');
         expect(result.loanPool.reserveIn).toBe(2000);
-        expect(result.loanPool.reserveInBN).toBe(2000);
+        expect(result.loanPool.reserveInJSBI).toBe(2000);
         expect(result.loanPool.reserveOut).toBe(3000);
-        expect(result.loanPool.reserveOutBN).toBe(3000);
+        expect(result.loanPool.reserveOutJSBI).toBe(3000);
         expect(result.loanPool.priceIn).toBe('200');
         expect(result.loanPool.priceOut).toBe('100');
         expect(result.loanPool.repays.direct).toBe(0);
@@ -250,9 +250,9 @@ describe('Trade', () => {
         expect(result.target.router.getAddress()).toBe('routerA_id');
         expect(result.target.pool.getAddress()).toBe('poolAID');
         expect(result.target.reserveIn).toBe(1000);
-        expect(result.target.reserveInBN).toBe(1000);
+        expect(result.target.reserveInJSBI).toBe(1000);
         expect(result.target.reserveOut).toBe(2000);
-        expect(result.target.reserveOutBN).toBe(2000);
+        expect(result.target.reserveOutJSBI).toBe(2000);
         expect(result.target.priceIn).toBe('100');
         expect(result.target.priceOut).toBe('200');
         expect(result.target.tradeSize).toBe(1000);
@@ -296,26 +296,26 @@ const match: TradePair = {
 const price0: Prices = {
     reserves: {
         reserveIn: 'reserveIn0',
-        reserveInBN: BN('reserveInBN0'),
+        reserveInJSBI: JSBI.BigInt('reserveInJSBI0'),
         reserveOut: 'reserveOut0',
-        reserveOutBN: BN('reserveOutBN0')
+        reserveOutJSBI: JSBI.BigInt('reserveOutJSBI0')
     },
-    priceInBN: BN('priceInBN0'),
-    priceOutBN: BN('priceOutBN0')
+    priceInJSBI: JSBI.BigInt('priceInJSBI0'),
+    priceOutJSBI: JSBI.BigInt('priceOutJSBI0')
 };
 
 const price1: Prices = {
     reserves: {
         reserveIn: 'reserveIn1',
-        reserveInBN: BN('reserveInBN1'),
+        reserveInJSBI: JSBI.BigInt('reserveInJSBI1'),
         reserveOut: 'reserveOut1',
-        reserveOutBN: BN('reserveOutBN1')
+        reserveOutJSBI: JSBI.BigInt('reserveOutJSBI1')
     },
-    priceInBN: BN('priceInBN1'),
-    priceOutBN: BN('priceOutBN1')
+    priceInJSBI: JSBI.BigInt('priceInJSBI1'),
+    priceOutJSBI: JSBI.BigInt('priceOutJSBI1')
 };
 
-const slip: BN = BN('slip');
+const slip: JSBI = JSBI.BigInt('slip');
 
 const gasData: GasData = {
     gasPrice: 'gasPrice',
@@ -331,21 +331,21 @@ expect(result.loanPool.factory.getAddress()).toBe('factoryB_id');
 expect(result.loanPool.router.getAddress()).toBe('routerB_id');
 expect(result.loanPool.pool.getAddress()).toBe('poolBID');
 expect(result.loanPool.reserveIn).toBe('reserveIn1');
-expect(result.loanPool.reserveInBN.toString()).toBe('reserveInBN1');
+expect(result.loanPool.reserveInJSBI.toString()).toBe('reserveInJSBI1');
 expect(result.loanPool.reserveOut).toBe('reserveOut1');
-expect(result.loanPool.reserveOutBN.toString()).toBe('reserveOutBN1');
-expect(result.loanPool.priceIn).toBe('priceInBN1');
-expect(result.loanPool.priceOut).toBe('priceOutBN1');
+expect(result.loanPool.reserveOutJSBI.toString()).toBe('reserveOutJSBI1');
+expect(result.loanPool.priceIn).toBe('priceInJSBI1');
+expect(result.loanPool.priceOut).toBe('priceOutJSBI1');
 
 expect(result.target.exchange).toBe('exchangeA');
 expect(result.target.factory.getAddress()).toBe('factoryA_id');
 expect(result.target.router.getAddress()).toBe('routerA_id');
 expect(result.target.pool.getAddress()).toBe('poolAID');
 expect(result.target.reserveIn).toBe('reserveIn0');
-expect(result.target.reserveInBN.toString()).toBe('reserveInBN0');
+expect(result.target.reserveInJSBI.toString()).toBe('reserveInJSBI0');
 expect(result.target.reserveOut).toBe('reserveOut0');
-expect(result.target.reserveOutBN.toString()).toBe('reserveOutBN0');
-expect(result.target.priceIn).toBe('priceInBN0');
-expect(result.target.priceOut).toBe('priceOutBN0'); 
+expect(result.target.reserveOutJSBI.toString()).toBe('reserveOutJSBI0');
+expect(result.target.priceIn).toBe('priceInJSBI0');
+expect(result.target.priceOut).toBe('priceOutJSBI0'); 
 
 

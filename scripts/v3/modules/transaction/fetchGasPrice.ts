@@ -1,6 +1,6 @@
 import { Bool3Trade, GAS } from "../../../../constants/interfaces";
 import { logger } from "../../../../constants/logger";
-import { fu } from "../../../modules/convertBN";
+import { fu } from "../../../modules/convertJSBI";
 import { pendingTransactions } from "../../control";
 import { params } from "../transaction/params";
 

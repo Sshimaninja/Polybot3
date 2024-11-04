@@ -1,0 +1,97 @@
+2024-01-07T15:53:55.898 ERROR >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2024-01-07T15:53:55.899 ERROR >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TRADE DATA: WMATIC/DAI <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2024-01-07T15:53:55.899 ERROR {
+  id: '0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c',
+  block: 52050419,
+  trade: 'multi',
+  ticker: 'WMATIC/DAI',
+  direction: 'B',
+  tradeSize: '0.036645388040660314 WMATIC',
+  loanPool: {
+    exchange: 'CAT',
+    priceIn: '1.204565660962238571',
+    priceOut: '0.830174752948854471',
+    reservesIn: '23053.692923732088360295 WMATIC',
+    reservesOut: '19138.593827518040970604 DAI',
+    repaysObj: {
+      direct: '0.036755324204782294 WMATIC',
+      directInTokenOut: '0.030513342191260192 DAI',
+      simpleMulti: '0.030513342191260193 DAI',
+      getAmountsOut: '0.030330761667342388 DAI',
+      getAmountsIn: '0.03051356816450452 DAI'
+    },
+    amountOut: '0.030330761667342388 DAI',
+    amountOutToken0for1: '0.036566919115951483 WMATIC',
+    amountRepay: '0.030330761667342388 DAI'
+  },
+  target: {
+    exchange: 'JET',
+    priceIn: '1.186735095814769359',
+    priceOut: '0.842648037903889746',
+    reservesIn: '7.248061347933736739 WMATIC',
+    reservesOut: '6.107564673443385598 DAI',
+    amountOutToken0for1: '0.035847518820673362 WMATIC',
+    amountOut: '0.030448326172830397 DAI'
+  },
+  result: {
+    uniswapkPreT: '441215265091635285552377176499192112655768180',
+    uniswapkPosT: '441215267199750213876141466061435181510772644',
+    uniswapKPositive: true,
+    profit: '0.000117564505488009 DAI',
+    profperc: '0.386111554443718409%'
+  }
+}
+2024-01-07T15:53:55.899 ERROR >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END TRADE DATA: WMATIC/DAI <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2024-01-07T15:53:55.899 ERROR >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ERROR DATA: WMATIC/DAI <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2024-01-07T15:53:55.899 ERROR Error: cannot estimate gas; transaction may fail or may require manual gas limit [ See: https://links.ethers.org/v5-errors-UNPREDICTABLE_GAS_LIMIT ] (reason="execution reverted: TransferHelper: TRANSFER_FROM_FAILED", method="estimateGas", transaction={"from":"0x3018FB91d635D85bFc7590c611dE012db163e8a3","to":"0x82De122D47Df27FA49D867a592e860E76032894A","data":"0xde60dce4000000000000000000000000477ce834ae6b7ab003cce4bc4d8697763ff456fa00000000000000000000000094930a328162957ff1dd48900af67b5439336cbd0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e59230000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063000000000000000000000000000000000000000000000000008230c948d1e55a000000000000000000000000000000000000000000000000006c2c9761896abd000000000000000000000000000000000000000000000000006bc1aac2f2f034","accessList":null}, error={"code":3,"response":"{\"jsonrpc\":\"2.0\",\"id\":36826,\"error\":{\"code\":3,\"message\":\"execution reverted: TransferHelper: TRANSFER_FROM_FAILED\",\"data\":\"0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000\"}}\n"}, code=UNPREDICTABLE_GAS_LIMIT, version=providers/5.7.2)
+    at Logger.makeError (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at checkError (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:78:20)
+    at WebSocketProvider.<anonymous> (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/@ethersproject/providers/src.ts/json-rpc-provider.ts:642:20)
+    at step (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:48:23)
+    at Object.throw (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:29:53)
+    at rejected (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/@ethersproject/providers/lib/json-rpc-provider.js:21:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: 'execution reverted: TransferHelper: TRANSFER_FROM_FAILED',
+  code: 'UNPREDICTABLE_GAS_LIMIT',
+  method: 'estimateGas',
+  transaction: {
+    from: '0x3018FB91d635D85bFc7590c611dE012db163e8a3',
+    to: '0x82De122D47Df27FA49D867a592e860E76032894A',
+    data: '0xde60dce4000000000000000000000000477ce834ae6b7ab003cce4bc4d8697763ff456fa00000000000000000000000094930a328162957ff1dd48900af67b5439336cbd0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e59230000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063000000000000000000000000000000000000000000000000008230c948d1e55a000000000000000000000000000000000000000000000000006c2c9761896abd000000000000000000000000000000000000000000000000006bc1aac2f2f034',
+    accessList: null
+  },
+  error: Error: execution reverted: TransferHelper: TRANSFER_FROM_FAILED
+      at WebSocketProvider._this.websocket.onmessage (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/@ethersproject/providers/src.ts/websocket-provider.ts:128:33)
+      at WebSocket.onMessage (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/ws/lib/event-target.js:132:16)
+      at WebSocket.emit (node:events:512:28)
+      at WebSocket.emit (node:domain:489:12)
+      at Receiver.receiverOnMessage (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/ws/lib/websocket.js:834:20)
+      at Receiver.emit (node:events:512:28)
+      at Receiver.emit (node:domain:489:12)
+      at Receiver.dataMessage (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/ws/lib/receiver.js:437:14)
+      at Receiver.getData (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/ws/lib/receiver.js:367:17)
+      at Receiver.startLoop (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/ws/lib/receiver.js:143:22)
+      at Receiver._write (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/ws/lib/receiver.js:78:10)
+      at writeOrBuffer (node:internal/streams/writable:399:12)
+      at _write (node:internal/streams/writable:340:10)
+      at Receiver.Writable.write (node:internal/streams/writable:344:10)
+      at Socket.socketOnData (/mnt/d/code/arbitrage/polybot-live/polybotv3/node_modules/ws/lib/websocket.js:909:35)
+      at Socket.emit (node:events:512:28)
+      at Socket.emit (node:domain:489:12)
+      at addChunk (node:internal/streams/readable:343:12)
+      at readableAddChunk (node:internal/streams/readable:316:9)
+      at Socket.Readable.push (node:internal/streams/readable:253:10)
+      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+    code: 3,
+    response: '{"jsonrpc":"2.0","id":36826,"error":{"code":3,"message":"execution reverted: TransferHelper: TRANSFER_FROM_FAILED","data":"0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000"}}\n'
+  }
+}
+Trace: CONSOLE TRACE:
+    at fetchGasPrice (/mnt/d/code/arbitrage/polybot-live/polybotv3/scripts/v2/modules/fetchGasPrice.ts:78:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async gasVprofit (/mnt/d/code/arbitrage/polybot-live/polybotv3/scripts/v2/modules/gasVprofit.ts:34:19)
+    at async rollDamage (/mnt/d/code/arbitrage/polybot-live/polybotv3/scripts/v2/modules/damage.ts:57:24)
+2024-01-07T15:53:55.901 ERROR >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: WMATIC/DAI <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2024-01-07T15:53:55.901 ERROR >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2024-01-07T15:53:55.901 INFO execution reverted: TransferHelper: TRANSFER_FROM_FAILED

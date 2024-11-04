@@ -9,8 +9,7 @@
 //import { getGas2WMATICArray } from "../../../utils/getToWMATICPool";
 ////import { getAmountsOut } from "../modules/price/getAmountsIOJS";
 ////import gasPools from "../../../constants/gasPools.json";
-//import { BigNumber as BN } from "bignumber.js";
-//import fs from "fs";
+//import JSBI from "jsbi";//import fs from "fs";
 ////import { getAmountsOut as getAmountsOutBN } from "../modules/price/getAmountsIOBN";
 //import {
 //	// gasTokens,
@@ -27,7 +26,7 @@
 //// import { getGasPoolForTrade } from "./getGasPool";
 //// import { getWmaticRate } from "./getWmaticRate";
 //// import { zero } from "../../../constants/environment";
-//import { fu, pu } from "../../modules/convertBN";
+//import { fu, pu } from "../../modules/convertJSBI";
 //import { zero, wmatic } from "../../../constants/environment";
 ///**
 // * @description

@@ -5,7 +5,7 @@
 //	Quotes,
 //	Repays,
 //} from "../../../constants/interfaces";
-//import { BigInt2BN, fu } from "../../modules/convertBN";
+//import { BigInt2BN, fu } from "../../modules/convertJSBI";
 //import { AmountConverter } from "./AmountConverter";
 //import { walletTradeSize } from "../modules/tools/walletTradeSizes";
 

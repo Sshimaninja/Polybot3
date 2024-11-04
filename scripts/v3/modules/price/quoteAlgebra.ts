@@ -1,14 +1,8 @@
-import { Contract } from "ethers";
-import { getQuoterV2, getProtocol } from "../../../modules/getContract";
-import { abi as IAlgPool } from "@cryptoalgebra/core/artifacts/contracts/AlgebraPool.sol/AlgebraPool.json";
-import { signer } from "../../../../constants/provider";
-import { fu, pu } from "../../../modules/convertBN";
 import {
     ERC20token,
     ExactInput,
     ExactOutput,
 } from "../../../../constants/interfaces";
-import { uniswap } from "../../../../typechain-types";
 import { uniswapV3Exchange } from "../../../../constants/addresses";
 
 export async function algebraQuoteOut(

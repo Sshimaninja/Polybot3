@@ -8,7 +8,7 @@ import {
     abi as ISwapSingle,
     bytecode as SwapBytecode,
 } from "../../artifacts/contracts/v2/swap.sol/Swap.json";
-import { fu } from "../modules/convertBN";
+import { fu } from "../modules/convertJSBI";
 
 dotEnvConfig({ path: `.env.${process.env.NODE_ENV}` });
 async function deploySwapSingle() {

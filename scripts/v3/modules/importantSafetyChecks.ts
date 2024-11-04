@@ -1,7 +1,7 @@
 import { dataLength, ethers } from "ethers";
 import { Bool3Trade } from "../../../constants/interfaces";
 import { tradeComparator } from "@cryptoalgebra/integral-sdk";
-import { pu } from "../../modules/convertBN";
+import { pu } from "../../modules/convertJSBI";
 
 // import { BigNumber as BN } from 'bignumber.js'
 

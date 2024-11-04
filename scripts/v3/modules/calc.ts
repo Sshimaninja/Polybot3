@@ -1,14 +1,14 @@
-import { BigNumber as BN } from "bignumber.js";
+import JSBI from "jsbi";
 import {
-	Bool3Trade,
-	// Pair,
-	// ReservesData,
-	Sizes,
-	// TradePair,
+    Bool3Trade,
+    // Pair,
+    // ReservesData,
+    Sizes,
+    // TradePair,
 } from "../../../constants/interfaces";
 // import { Prices } from "./Prices";
 // import { Token, Amounts } from "../../../constants/interfaces";
-import { BigInt2BN, fu, pu } from "../../modules/convertBN";
+import { BigInt2JSBI, fu, pu } from "../../modules/convertJSBI";
 import { slip } from "../../../constants/environment";
 
 /**
@@ -17,27 +17,28 @@ import { slip } from "../../../constants/environment";
  * target pricestarget is re-intitialized as the average of two pricestargets.
  */
 
-
-export async function subSlippage(amountOut: bigint, decimals: number): Promise<bigint> {
-	const amount = BigInt2BN(amountOut, decimals);
-	const slippage = amount.times(slip);
-	const adjAmountBN = amount.minus(slippage);
-	const adjAmountJS = pu(adjAmountBN.toFixed(decimals), decimals);
-	// 12000 * 0.005 = 60
-	// 12000 - 60 = 11940
-	//
-	return adjAmountJS;
+export async function subSlippage(
+    amountOut: bigint,
+    decimals: number,
+): Promise<bigint> {
+    const amount = BigInt2JSBI.BigInt(amountOut, decimals);
+    const slippage = amount.times(slip);
+    const adjAmountJSBI = amount.minus(slippage);
+    const adjAmountJS = pu(adjAmountJSBI.toFixed(decimals), decimals);
+    // 12000 * 0.005 = 60
+    // 12000 - 60 = 11940
+    //
+    return adjAmountJS;
 }
 
 // Adds Uniswap V2 trade fee to any amount
 export async function addFee(amount: bigint): Promise<bigint> {
-	//ALTERNATVE:
+    //ALTERNATVE:
 
-	// const repay = amount.mul(1003009027).div(1000000000);
-	const repay = (amount * 1003n) / 1000n; // 0.3% fee (997/1000)
-	// 167 * 1003 / 1000 =
-	//167 * 997 / 1000 = 166
-	// ex 100000 * 1003009027 / 1000000000 = 100301
-	return repay; //in tokenIn
+    // const repay = amount.mul(1003009027).div(1000000000);
+    const repay = (amount * 1003n) / 1000n; // 0.3% fee (997/1000)
+    // 167 * 1003 / 1000 =
+    //167 * 997 / 1000 = 166
+    // ex 100000 * 1003009027 / 1000000000 = 100301
+    return repay; //in tokenIn
 }
-
