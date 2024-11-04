@@ -13,7 +13,7 @@ export const dotenv = dotenvConfig({
     path: `.env.${process.env.NODE_ENV == "test" ? "test" : "live"}`,
 });
 
-export let slip = BN(0.006);
+export let slip = JSBI.BigInt(0.006 * 1e18);
 
 if (
     process.env.FLASH_MULTI === undefined ||
